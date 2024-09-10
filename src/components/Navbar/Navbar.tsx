@@ -1,29 +1,33 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import oneFamLogo from "../../assets/onefam-logo.png";
+import { useScroll } from "../../context/ScrollContext";
+import { RefObject } from "react";
 
 
 function Navbar() {
-    const navigate = useNavigate();
-
-    const handleNavigation = (route: string) => {
-        navigate(route);
+    const handleScroll = (ref: RefObject<HTMLElement>) => {
+        if (ref?.current) {
+            ref.current.scrollIntoView({ behavior: "smooth" });
+        }
     }
+
+    const { HomeComponent, FormComponent, ImprintComponent } = useScroll();
 
     const navItems = [
         {
             id: 1,
             title: "Home",
-            route: "/#home"
+            ref: HomeComponent
         },
         {
             id: 2,
-            title: "Vision",
-            route: "/#vision"
+            title: "Form",
+            ref: FormComponent
         },
         {
             id: 3,
-            title: "Philosophie",
-            route: "/#philosophy"
+            title: "Imprint",
+            ref: ImprintComponent
         }
     ];
 
@@ -34,7 +38,7 @@ function Navbar() {
             </NavLink>
             <ul className="list-none flex justify-evenly py-4 md:py-8">{ navItems.map((navItem) => {
                 return <li className="mx-8 cursor-pointer text-lg md:text-xl">
-                    <button onClick={() => {handleNavigation(navItem.route)}}>{ navItem.title }</button>
+                    <button onClick={() => {handleScroll(navItem.ref)}}>{ navItem.title }</button>
                 </li>
             }) }</ul>
         </div>

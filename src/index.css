@@ -2,3 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    background: rgb(24, 26, 27);
+    color: rgb(232, 230, 227);
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+p {max-width: 1000px;}
