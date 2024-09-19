@@ -1,0 +1,23 @@
+.accordionItem-container {
+    overflow: hidden;
+    /* border-bottom: 1px solid rgb(140, 130, 115); */
+}
+
+.accordionItem-container--active .accordionItem-heading {
+    color: rgb(217 119 6 / var(--tw-border-opacity));
+}
+
+.accordionItem-heading {
+    font-weight: bold;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: var(--font-size-l);
+}
+
+.accordionItem-bodyContainer {
+    transition: height .5s cubic-bezier( 0.80, 0.25, 0.20, 0.70 );
+}
+
+.accordionItem-bodyContent {
+    padding: 1rem;
+}

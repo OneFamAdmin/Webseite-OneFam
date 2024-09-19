@@ -11,9 +11,9 @@ function TextBlock({ heading, content }: TextBlockProps) {
     <div className="my-16">
         <h1 className="font-bold text-2xl mb-8">{heading}</h1>
 
-        {content.map(paragraph => {
+        {content.map((paragraph, index) => {
             return (
-                <p className="text-xl leading-10 mt-8">{paragraph}</p>
+                <p key={index} className="text-xl leading-10 mt-8">{paragraph}</p>
             )
         })}
         

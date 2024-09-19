@@ -34,7 +34,7 @@ function ImprintItem({ heading, text }: ImprintItemProps) {
   return (
     <div className="my-8">
       <p>{heading}</p>
-      {text.map(content => <p className="mt-8">{content}</p>)}
+      {text.map((content, index) => <p key={index} className="mt-8">{content}</p>)}
       
     </div>
   )
