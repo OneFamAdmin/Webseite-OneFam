@@ -5,8 +5,9 @@ import Layout from './components/Layout/Layout';
 import Landing from './components/Landing/Landing';
 import Imprint from './components/Imprint/Imprint';
 import { ScrollProvider } from './context/ScrollContext';
-
 import './index.css'
+import './utils/i18n';
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(

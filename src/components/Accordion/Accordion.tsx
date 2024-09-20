@@ -5,7 +5,12 @@ import AccordionItem from "./AccordionItem";
 import "./Accordion.css";
 import TextBlock from "../TextBlock/TextBlock";
 
+import { useTranslation } from "react-i18next";
+
 function Accordion() {
+
+    const { t } = useTranslation()
+
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
     const handleClick = (index: number) => {
@@ -13,22 +18,24 @@ function Accordion() {
     }
 
     return (
-    <>
-        
-        <TextBlock heading="Kodex" content={["Dieser Familienkodex spiegelt die Werte und Grundsätze unserer Familie wider. Er dient dazu, unsere Beziehungen zu stärken, Erwartungen zu klären und unsere gemeinsame Reise als Familie zu gestalten."]} />
+        <>
+            <TextBlock
+                heading={t("kodexHeading")}
+                content={[t("kodexContent")]}
+            />
 
-        {accordionItems.map((item, index) => {
-            return (
-                <AccordionItem
-                    key={index}
-                    heading={item.heading}
-                    content={item.content}
-                    onClick={() => handleClick(index)}
-                    isOpen={activeIndex === index}
-                />
-            )
-        })}
-    </>
+            {accordionItems.map((item, index) => {
+                return (
+                    <AccordionItem
+                        key={index}
+                        heading={t(item.heading)}
+                        content={t(item.content)}
+                        onClick={() => handleClick(index)}
+                        isOpen={activeIndex === index}
+                    />
+                )
+            })}
+        </>
     )
 }
 
