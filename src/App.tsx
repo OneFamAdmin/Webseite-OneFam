@@ -1,7 +1,7 @@
-import Landing from './components/Landing/Landing'
-import Header from './components/Header/Header'
+import Landing from "./components/Landing/Landing";
+import Header from "./components/Header/Header";
 
-import './App.css'
+import "./App.css";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       <Header />
       <Landing />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

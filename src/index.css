@@ -3,49 +3,49 @@
 @tailwind utilities;
 
 * {
-    line-height: 2;
+  line-height: 2;
 }
 
 :root {
-    --body-padding: 1rem;
-    /* --font-size: 16px; */
-    --font-size-l: 1.25rem;
+  --body-padding: 1rem;
+  /* --font-size: 16px; */
+  --font-size-l: 1.25rem;
 }
 
 body {
-    background: rgb(24, 26, 27);
-    color: rgb(232, 230, 227);
-    padding-left: var(--body-padding);
-    padding-right: var(--body-padding);
-    margin: 0 auto;
-    font-size: calc(15px + 0.390625vw);
-    line-height: 2;
+  background: rgb(24, 26, 27);
+  color: rgb(232, 230, 227);
+  padding-left: var(--body-padding);
+  padding-right: var(--body-padding);
+  margin: 0 auto;
+  font-size: calc(15px + 0.390625vw);
+  line-height: 2;
 }
 
 /* Small devices (large phones, 577px and up) */
 @media (min-width: 577px) {
-    :root {
-        --body-padding: 2rem;
-    }
+  :root {
+    --body-padding: 2rem;
+  }
 }
 
 /* Medium devices (tablets, 769px and up) */
 @media (min-width: 769px) {
-    :root {
-        --body-padding: 4rem;
-    }
+  :root {
+    --body-padding: 4rem;
+  }
 }
 
 /* Large devices (desktops, 1025px and up) */
 @media (min-width: 1025px) {
-    :root {
-        --body-padding: 8rem;
-    }
+  :root {
+    --body-padding: 8rem;
+  }
 }
 
 /* Extra large devices (large desktops, 1441px and up) */
 @media (min-width: 1441px) {
-    :root {
-        --body-padding: 16rem;
-    }
+  :root {
+    --body-padding: 16rem;
+  }
 }

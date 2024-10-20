@@ -5,11 +5,11 @@ import Footer from "../Footer/Footer";
 function Layout() {
   return (
     <>
-        <Header />
-        <Outlet />
-        <Footer />
+      <Header />
+      <Outlet />
+      <Footer />
     </>
-  )
+  );
 }
 
-export default Layout
+export default Layout;
