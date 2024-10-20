@@ -1,7 +1,6 @@
-import { AccordionItem } from "./AccordionItem";
+import { AccordionItemContent } from "../Accordion/AccordionProps";
 
-
-export const accordionItems: AccordionItem[] = [
+export const codeOfConductItems: AccordionItemContent[] = [
   { heading: "accordionLoveRespectHeading", content: "accordionLoveRespectContent" },
   { heading: "accordionOpenCommunicationHeading", content: "accordionOpenCommunicationContent" },
   { heading: "accordionSupportUnityHeading", content: "accordionSupportUnityContent" },

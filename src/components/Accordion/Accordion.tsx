@@ -1,14 +1,11 @@
 import { useState } from "react";
-import { accordionItems } from "./accordionItems";
+import { AccordionItemContent } from "./AccordionProps";
+import { useTranslation } from "react-i18next";
 import AccordionItem from "./AccordionItem";
 
 import "./Accordion.css";
-import TextBlock from "../TextBlock/TextBlock";
 
-import { useTranslation } from "react-i18next";
-
-function Accordion() {
-
+const Accordion = ({ accordionItems }: { accordionItems: AccordionItemContent[] }) => {
     const { t } = useTranslation()
 
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -19,11 +16,6 @@ function Accordion() {
 
     return (
         <>
-            <TextBlock
-                heading={t("kodexHeading")}
-                content={[t("kodexContent")]}
-            />
-
             {accordionItems.map((item, index) => {
                 return (
                     <AccordionItem

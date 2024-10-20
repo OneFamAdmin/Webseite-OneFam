@@ -22,10 +22,6 @@ body {
     line-height: 2;
 }
 
-p {
-    max-width: 1000px;
-}
-
 /* Small devices (large phones, 577px and up) */
 @media (min-width: 577px) {
     :root {

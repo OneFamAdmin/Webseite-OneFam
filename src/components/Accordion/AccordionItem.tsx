@@ -1,15 +1,6 @@
 import { useRef } from "react";
 import "./AccordionItem.css";
-
-export type AccordionItem = {
-    heading: string;
-    content: string;
-}
-
-type AccordionItemProps = AccordionItem & {
-    onClick: () => void;
-    isOpen: boolean;
-}
+import { AccordionItemProps } from "./AccordionProps";
 
 function AccordionItem({ heading, content, onClick, isOpen }: AccordionItemProps) {
     const contentHeight = useRef<HTMLParagraphElement>(null);

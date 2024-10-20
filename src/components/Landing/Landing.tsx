@@ -4,12 +4,12 @@ import motionLogo from "../../assets/motion-logo.mp4";
 import globe from "../../assets/globe.mov";
 import Form from "../Form/Form";
 import TextBlock from "../TextBlock/TextBlock";
-import Accordion from "../Accordion/Accordion";
+import { useTranslation } from "react-i18next";
+import CodeOfConduct from "../CodeOfConduct/CodeOfConduct";
 
 import "./Landing.css";
-import { useTranslation } from "react-i18next";
 
-function Landing() {
+const Landing = () => {
 
   const { t } = useTranslation()
 
@@ -45,7 +45,7 @@ function Landing() {
 
       <Form />
 
-      <Accordion />
+      <CodeOfConduct />
     </div>
   )
 }
