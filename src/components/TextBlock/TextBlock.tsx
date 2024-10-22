@@ -7,7 +7,7 @@ type TextBlockProps = {
 
 function TextBlock({ heading, content }: TextBlockProps) {
   return (
-    <div className="my-16">
+    <div className="text-block">
       <h1 className="font-bold text-2xl mb-8">{heading}</h1>
 
       {content.map((paragraph, index) => {

@@ -1,15 +1,11 @@
 import { useState } from "react";
-import { AccordionItemContent } from "./AccordionProps";
 import { useTranslation } from "react-i18next";
 import AccordionItem from "./AccordionItem";
+import { AccordionItemContent } from "./AccordionProps";
 
 import "./Accordion.css";
 
-const Accordion = ({
-  accordionItems,
-}: {
-  accordionItems: AccordionItemContent[];
-}) => {
+const Accordion = ({ accordionItems }: { accordionItems: AccordionItemContent[] }) => {
   const { t } = useTranslation();
 
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -19,7 +15,7 @@ const Accordion = ({
   };
 
   return (
-    <>
+    <div className="accordion">
       {accordionItems.map((item, index) => {
         return (
           <AccordionItem
@@ -31,7 +27,7 @@ const Accordion = ({
           />
         );
       })}
-    </>
+    </div>
   );
 };
 
