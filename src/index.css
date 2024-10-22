@@ -8,8 +8,34 @@
 
 :root {
   --body-padding: 1rem;
-  /* --font-size: 16px; */
+
   --font-size-l: 1.25rem;
+  --dark-red: rgb(91, 18, 134);
+  --some-color: #00d6c4;
+
+  /* --fluid-type-min: 1rem;
+  --fluid-type-max: 1.5rem;
+  --fluid-type-target: 3vw;
+
+  --scale-small: 0.8;
+  --scale-large: 1.2;
+  --scale-xlarge: 1.5; */
+
+  /* Fluid typography variables */
+  --fluid-type-min: 1rem;
+  --fluid-type-max: 1.5rem;
+  --fluid-type-target: calc(0.5rem + 1.5vw);
+
+  /* Scaling factors */
+  --scale-sm: 0.8;
+  --scale-base: 1;
+  --scale-md: 1.2;
+  --scale-lg: 1.5;
+  --scale-xl: 2;
+  --scale-xxl: 3;
+
+  /* Calculated fluid font sizes */
+  --fluid-font-size: clamp(var(--fluid-type-min), var(--fluid-type-target), var(--fluid-type-max));
 }
 
 body {
@@ -18,9 +44,84 @@ body {
   padding-left: var(--body-padding);
   padding-right: var(--body-padding);
   margin: 0 auto;
-  font-size: calc(15px + 0.390625vw);
-  line-height: 2;
+
+  /* font-size: calc(15px + 0.390625vw); */
+  /* font-size: clamp(1rem, 5vw, 3rem); */
+  /* font-size: var(--text-base); */
+
+  font-size: var(--fluid-font-size);
+  line-height: 1.5;
 }
+
+/* Paragraph styles */
+p {
+  font-size: calc(var(--fluid-font-size) * var(--scale-lg));
+  margin-bottom: 1em;
+}
+
+/* Heading styles */
+h1 {
+  font-size: calc(var(--fluid-font-size) * var(--scale-xl));
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: calc(var(--fluid-font-size) * var(--scale-xl));
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: calc(var(--fluid-font-size) * var(--scale-lg));
+  line-height: 1.3;
+}
+
+h4 {
+  font-size: calc(var(--fluid-font-size) * var(--scale-md));
+  line-height: 1.4;
+}
+
+/* Other text elements */
+small {
+  font-size: calc(var(--fluid-font-size) * var(--scale-sm));
+}
+
+.lead {
+  font-size: calc(var(--fluid-font-size) * var(--scale-md));
+  line-height: 1.6;
+}
+
+blockquote {
+  font-size: calc(var(--fluid-font-size) * var(--scale-md));
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* Adjust line height for larger headings on bigger screens */
+@media screen and (min-width: 1200px) {
+  h1 {
+    line-height: 1.05;
+  }
+  h2 {
+    line-height: 1.15;
+  }
+}
+
+/* h1 {
+  font-size: calc(var(--text-base) * var(--text-scale) * var(--text-scale));
+}
+h2 {
+  font-size: calc(var(--text-base) * var(--text-scale));
+} */
+
+/* h1 {
+  font-size: calc(var(--fluid-type-target) * var(--scale-xlarge));
+}
+h2 {
+  font-size: calc(var(--fluid-type-target) * var(--scale-large));
+}
+small {
+  font-size: calc(var(--fluid-type-target) * var(--scale-small));
+} */
 
 /* Small devices (large phones, 577px and up) */
 @media (min-width: 577px) {
