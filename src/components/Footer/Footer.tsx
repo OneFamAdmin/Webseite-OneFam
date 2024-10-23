@@ -1,20 +1,17 @@
-import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { NavLink } from "react-router-dom";
+
+import "./Footer.css";
 
 function Footer() {
   const { t } = useTranslation();
 
   return (
-    <div className="text-xl text-center my-12 py-4 border-t-2 border-t-amber-600">
+    <div className="footer">
       <p>{t("exclusiveTravelEvents")}</p>
 
       <p>
-        <NavLink
-          className="hover:underline hover:text-amber-600"
-          to={"/imprint"}
-        >
-          Impressum
-        </NavLink>
+        <NavLink to={"/imprint"}>Impressum</NavLink>
       </p>
       <p>© 2024 OneFam</p>
     </div>

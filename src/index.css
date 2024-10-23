@@ -7,6 +7,7 @@
   --some-color: #00d6c4;
   --root-font-size: 16px;
   --font-size: var(--root-font-size);
+  --container-padding: 1rem;
 }
 
 html {
@@ -37,14 +38,21 @@ p {
 }
 
 h2 {
-  font-size: 1.4rem;
-  padding: 1.4rem 1rem;
+  font-size: 1.2rem;
+  padding: 1.2rem 1rem;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: var(--some-color);
 }
 
 /* Small devices (large phones, 577px and up) */
 @media (min-width: 577px) {
   :root {
     --font-size: calc(var(--root-font-size) * 1.2);
+
+    --container-padding: 2rem;
   }
 }
 
@@ -73,5 +81,6 @@ h2 {
 @media (min-width: 2561px) {
   :root {
     --font-size: calc(var(--root-font-size) * 2.074);
+    --container-padding: 0;
   }
 }

@@ -4,4 +4,6 @@
 
 .textBlock-heading {
   margin-bottom: 1rem;
+  text-decoration: underline;
+  font-weight: bold;
 }
