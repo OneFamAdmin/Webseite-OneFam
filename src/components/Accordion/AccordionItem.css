@@ -13,10 +13,8 @@
 }
 
 .accordionItem-heading {
-  font-weight: bold;
   padding: 1rem;
   cursor: pointer;
-  /* font-size: var(--font-size-l); */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -28,5 +26,4 @@
 
 .accordionItem-bodyContent {
   padding: 1rem;
-  padding-bottom: 2rem;
 }

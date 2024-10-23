@@ -1,8 +1,12 @@
-.text-block {
-  margin: 1rem 0;
+.textBlock {
+  margin: 1em 0;
 
   max-width: 80ch;
   overflow-wrap: break-word;
   word-break: break-word;
   hyphens: auto;
+}
+
+.textBlock-heading {
+  margin-bottom: 1em;
 }

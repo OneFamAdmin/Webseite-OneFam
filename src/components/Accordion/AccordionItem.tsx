@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { Minus, Plus } from "react-feather";
+import SvgContainer from "../SvgContainer/SvgContainer";
 import { AccordionItemProps } from "./AccordionProps";
 
 import "./AccordionItem.css";
@@ -12,8 +13,13 @@ function AccordionItem({ heading, content, onClick, isOpen }: AccordionItemProps
       <h2 className="accordionItem-heading" onClick={onClick}>
         <span>{heading}</span>
         {isOpen ?
-          <Minus />
-        : <Plus />}
+          <SvgContainer>
+            <Minus />
+          </SvgContainer>
+        : <SvgContainer>
+            <Plus />
+          </SvgContainer>
+        }
       </h2>
       <div
         ref={contentHeight}

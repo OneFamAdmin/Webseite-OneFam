@@ -53,31 +53,46 @@ body {
   line-height: 1.5;
 }
 
+@media (min-width: 1067px) {
+  :root {
+    --fluid-font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1450px) {
+  /* SizeRange = MaxSize - MinSize (2.5rem - 1.5rem) */
+  /* ViewportRange = MaxWidth - MinWidth (2900px - 1450px) */
+  /* Slope = SizeRange / ViewportRange */
+  :root {
+    --fluid-font-size: clamp(1.5rem, calc(1.5rem + 0.0689655172 * (100vw - 1450px)), 2.5rem);
+  }
+}
+
 /* Paragraph styles */
 p {
-  font-size: calc(var(--fluid-font-size) * var(--scale-lg));
+  font-size: calc(var(--fluid-font-size) * var(--scale-base));
   margin-bottom: 1em;
 }
 
 /* Heading styles */
 h1 {
-  font-size: calc(var(--fluid-font-size) * var(--scale-xl));
-  line-height: 1.1;
+  font-size: calc(var(--fluid-font-size) * var(--scale-xxl));
+  /* line-height: 1.1; */
 }
 
 h2 {
   font-size: calc(var(--fluid-font-size) * var(--scale-xl));
-  line-height: 1.2;
+  /* line-height: 1.2; */
 }
 
 h3 {
   font-size: calc(var(--fluid-font-size) * var(--scale-lg));
-  line-height: 1.3;
+  /* line-height: 1.3; */
 }
 
 h4 {
   font-size: calc(var(--fluid-font-size) * var(--scale-md));
-  line-height: 1.4;
+  /* line-height: 1.4; */
 }
 
 /* Other text elements */
@@ -106,47 +121,30 @@ blockquote {
   }
 }
 
-/* h1 {
-  font-size: calc(var(--text-base) * var(--text-scale) * var(--text-scale));
-}
-h2 {
-  font-size: calc(var(--text-base) * var(--text-scale));
-} */
-
-/* h1 {
-  font-size: calc(var(--fluid-type-target) * var(--scale-xlarge));
-}
-h2 {
-  font-size: calc(var(--fluid-type-target) * var(--scale-large));
-}
-small {
-  font-size: calc(var(--fluid-type-target) * var(--scale-small));
-} */
-
 /* Small devices (large phones, 577px and up) */
 @media (min-width: 577px) {
   :root {
-    --body-padding: 2rem;
+    /* --body-padding: 2rem; */
   }
 }
 
 /* Medium devices (tablets, 769px and up) */
 @media (min-width: 769px) {
   :root {
-    --body-padding: 4rem;
+    /* --body-padding: 4rem; */
   }
 }
 
 /* Large devices (desktops, 1025px and up) */
 @media (min-width: 1025px) {
   :root {
-    --body-padding: 8rem;
+    /* --body-padding: 8rem; */
   }
 }
 
 /* Extra large devices (large desktops, 1441px and up) */
 @media (min-width: 1441px) {
   :root {
-    --body-padding: 16rem;
+    /* --body-padding: 16rem; */
   }
 }
