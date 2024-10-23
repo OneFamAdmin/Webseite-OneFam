@@ -4,6 +4,6 @@ svg {
 }
 
 .svg-container {
-  width: var(--fluid-font-size);
-  height: var(--fluid-font-size);
+  width: 1rem;
+  height: 1rem;
 }
