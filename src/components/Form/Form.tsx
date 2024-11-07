@@ -29,7 +29,7 @@ function Form() {
       <form onSubmit={handleSubmit}>
         <div className="flex justify-center flex-col items-center">
           <input
-            className="py-4 px-16 rounded-xl outline-none border-[2px] focus:border-amber-600"
+            className="w-full py-4 px-16 rounded-xl outline-none border-[2px] focus:border-amber-600"
             type="text"
             value={email}
             placeholder={t("emailPlaceholder")}
