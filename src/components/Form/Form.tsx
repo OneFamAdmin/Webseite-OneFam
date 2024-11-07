@@ -29,7 +29,7 @@ function Form() {
       <form onSubmit={handleSubmit}>
         <div className="flex justify-center flex-col items-center">
           <input
-            className="py-4 px-16 rounded-xl outline-none border-[2px] focus:border-amber-600"
+            className="py-4 px-16 rounded-xl outline-none border-[2px] focus:border-amber-600 w-full" // added w-full to prevent overflowing
             type="text"
             value={email}
             placeholder={t("emailPlaceholder")}
