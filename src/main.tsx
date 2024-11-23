@@ -1,14 +1,9 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Route,
-  RouterProvider,
-} from "react-router-dom";
-import Layout from "./components/Layout/Layout";
-import Landing from "./components/Landing/Landing";
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
 import Imprint from "./components/Imprint/Imprint";
+import Landing from "./components/Landing/Landing";
+import Layout from "./components/Layout/Layout";
 import { ScrollProvider } from "./context/ScrollContext";
 import "./index.css";
 import "./utils/i18n";
@@ -18,8 +13,8 @@ const router = createBrowserRouter(
     <Route path="/" element={<Layout />}>
       <Route path="" element={<Landing />} />
       <Route path="/imprint" element={<Imprint />} />
-    </Route>,
-  ),
+    </Route>
+  )
 );
 
 createRoot(document.getElementById("root")!).render(
@@ -27,5 +22,5 @@ createRoot(document.getElementById("root")!).render(
     <ScrollProvider>
       <RouterProvider router={router} />
     </ScrollProvider>
-  </StrictMode>,
+  </StrictMode>
 );
