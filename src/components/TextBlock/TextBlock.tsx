@@ -1,3 +1,6 @@
+import { motion } from "framer-motion";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
+import { fadeInUp } from "../../animations/variants";
 import "./TextBlock.css";
 
 type TextBlockProps = {
@@ -6,14 +9,29 @@ type TextBlockProps = {
 };
 
 function TextBlock({ heading, content }: TextBlockProps) {
-  return (
-    <div className="textBlock">
-      <h2 className="textBlock-heading">{heading}</h2>
+  const [ref, controls] = useScrollAnimation();
 
-      {content.map((paragraph, index) => {
-        return <p key={index}>{paragraph}</p>;
-      })}
-    </div>
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={controls}
+      variants={fadeInUp}
+      className="textBlock"
+    >
+      <h2 className="textBlock-heading">{heading}</h2>
+      {content.map((paragraph, index) => (
+        <motion.p
+          key={index}
+          variants={fadeInUp}
+          initial="hidden"
+          animate={controls}
+          transition={{ delay: index * 0.2 }}
+        >
+          {paragraph}
+        </motion.p>
+      ))}
+    </motion.div>
   );
 }
 
