@@ -9,7 +9,7 @@ type TextBlockProps = {
 };
 
 function TextBlock({ heading, content }: TextBlockProps) {
-  const [ref, controls] = useScrollAnimation();
+  const [ref, controls] = useScrollAnimation(0.1);
 
   return (
     <motion.div
@@ -19,14 +19,18 @@ function TextBlock({ heading, content }: TextBlockProps) {
       variants={fadeInUp}
       className="textBlock"
     >
-      <h2 className="textBlock-heading">{heading}</h2>
+      <motion.h2
+        variants={fadeInUp}
+        className="textBlock-heading"
+      >
+        {heading}
+      </motion.h2>
       {content.map((paragraph, index) => (
         <motion.p
           key={index}
           variants={fadeInUp}
-          initial="hidden"
-          animate={controls}
-          transition={{ delay: index * 0.2 }}
+          custom={index}
+          transition={{ delay: index * 0.1 }}
         >
           {paragraph}
         </motion.p>

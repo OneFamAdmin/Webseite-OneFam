@@ -10,8 +10,15 @@ function MotionPicture({ children }: PropsWithChildren) {
     offset: ["start end", "end start"]
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.6, 1, 0.6]);
+  const y = useTransform(scrollYProgress, 
+    [0, 0.5, 1], 
+    ["30%", "0%", "-30%"]
+  );
+  
+  const opacity = useTransform(scrollYProgress,
+    [0, 0.3, 0.7, 1],
+    [0.6, 1, 1, 0.6]
+  );
 
   return (
     <motion.div
