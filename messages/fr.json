@@ -1,0 +1,84 @@
+{
+  "hero_section": {
+    "wear_it": "Portez-le",
+    "support_it": "Soutenez-le",
+    "explore_it": "Explorez-le",
+    "join_onefam": "Rejoignez OneFam — où la mode finance des œuvres caritatives et débloque des aventures exclusives.",
+    "shop_now": "Acheter maintenant"
+  },
+  "vision_section": {
+    "title": "Notre Vision",
+    "description": "Notre vision est de construire une communauté unique qui s’aligne avec notre philosophie et notre code familial. Nous proposons non seulement des vêtements stylés et tendance, mais nous redonnons aussi à notre communauté. En tant qu’entreprise, nous promouvons une consommation durable et soutenons des projets sociaux à travers le monde. La confiance, la transparence et la solidarité sont les fondements de nos actions.",
+    "shop_now": "Acheter maintenant"
+  },
+  "products_section": {
+    "title": "Nos Produits", 
+    "description": "Le Lorem Ipsum est simplement un faux texte utilisé dans la composition et la mise en page avant impression. Il est utilisé depuis le XVIe siècle."
+  },
+  "love_section": {
+    "one_love": "Un Amour",
+    "one_culture": "Une Culture",
+    "one_family": "Une Famille",
+    "description": "Ces créations ne sont pas de simples déclarations de mode, car avec votre achat, vous soutenez non seulement des associations importantes qui font réellement la différence, mais vous avez aussi la chance de participer gratuitement à des tirages au sort pour des voyages. Vous avez le pouvoir de décider, avec notre communauté, de la prochaine grande destination ! Grâce à une campagne de vote excitante, nous déterminerons ensemble quelle aventure nous attend en tant que famille.",
+    "shop_now": "Acheter maintenant"
+  },
+  "philosophy_section": {
+    "philo": "Philo",
+    "sophy": "sophie",
+    "description": "Nous nous entourons de personnes qui nous encouragent à devenir la meilleure version de nous-mêmes. Nous nous éloignons des drames ou des influences négatives, comme la jalousie ou la haine. Au lieu de cela, nous nous concentrons sur la diffusion d’énergie positive pour faire ressortir le meilleur de chacun."
+  },
+  "faq_section": {
+    "title": "Code de Conduite",
+    "description": "Ce code familial reflète les valeurs et les principes de notre famille. Il vise à renforcer nos relations, à clarifier les attentes et à façonner notre parcours commun.",
+    "items": [
+      {
+        "title": "Amour et Respect",
+        "content": "Dans notre famille, l'amour et le respect sont au cœur de tout. Nous nous traitons avec gentillesse, attention et considération."
+      },
+      {
+        "title": "Communication Ouverte",
+        "content": "Les conversations ouvertes et le partage des pensées et des sentiments sont les bienvenus. Nous écoutons activement et parlons honnêtement et respectueusement les uns avec les autres."
+      },
+      {
+        "title": "Soutien et Unité",
+        "content": "Nous formons une équipe. Nous nous soutenons dans tous les aspects de la vie et nous encourageons mutuellement à poursuivre nos rêves et objectifs personnels."
+      },
+      {
+        "title": "Temps Partagé",
+        "content": "Nous valorisons le temps passé ensemble. Les activités régulières, comme les sorties partagées, renforcent nos liens et créent des souvenirs."
+      },
+      {
+        "title": "Responsabilité",
+        "content": "Chaque membre de la famille partage la responsabilité de notre communauté. Ensemble, nous contribuons à créer un environnement confortable."
+      },
+      {
+        "title": "Diversité et Acceptation",
+        "content": "Nous accueillons la diversité et acceptons nos différences. Chaque personne dans notre famille est unique et respectée."
+      },
+      {
+        "title": "Éducation et Développement Personnel",
+        "content": "Nous encourageons l'apprentissage tout au long de la vie et le développement de nos compétences et centres d'intérêt."
+      },
+      {
+        "title": "Gratitude",
+        "content": "Nous apprécions ce que nous avons et sommes reconnaissants pour les petites et grandes joies de la vie."
+      },
+      {
+        "title": "Résolution des Conflits",
+        "content": "Les conflits sont naturels, et nous nous engageons à les résoudre avec respect. Nous travaillons ensemble pour trouver des solutions équitables pour tous."
+      },
+      {
+        "title": "Sécurité et Protection",
+        "content": "Chaque membre de la famille contribue à la sécurité. Nous nous protégeons des influences néfastes et nous offrons un soutien émotionnel mutuel."
+      },
+      {
+        "title": "Service Communautaire",
+        "content": "Nous contribuons à renforcer notre communauté en assumant la responsabilité du monde qui nous entoure."
+      }
+    ]
+  },
+  "footer": {
+    "title": "Recevez nos actualités sur les réseaux sociaux",
+    "onefam": "OneFam"
+  }
+}

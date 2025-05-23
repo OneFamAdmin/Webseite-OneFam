@@ -1,0 +1,84 @@
+{
+  "hero_section": {
+    "wear_it": "Trage es",
+    "support_it": "Unterstütze es",
+    "explore_it": "Erkunde es",
+    "join_onefam": "Werde Teil von OneFam – wo Mode Wohltätigkeit finanziert und exklusive Abenteuer ermöglicht.",
+    "shop_now": "Jetzt einkaufen"
+  },
+  "vision_section": {
+    "title": "Unsere Vision",
+    "description": "Unsere Vision ist es, eine einzigartige Community aufzubauen, die sich mit unserer Philosophie und unserem Familienkodex identifiziert. Wir bieten nicht nur coole, stylische Kleidung, sondern geben auch etwas an unsere Gemeinschaft zurück. Als Unternehmen fördern wir nachhaltigen Konsum und unterstützen soziale Projekte weltweit. Vertrauen, Transparenz und Solidarität sind die Grundlagen unseres Handelns.",
+    "shop_now": "Jetzt einkaufen"
+  },
+  "products_section": {
+    "title": "Unsere Produkte",
+    "description": "Lorem Ipsum ist einfach Blindtext der Druck- und Satzindustrie. Lorem Ipsum ist der Standard-Blindtext der Branche seit dem 16. Jahrhundert."
+  },
+  "love_section": {
+    "one_love": "Eine Liebe",
+    "one_culture": "Eine Kultur",
+    "one_family": "Eine Familie",
+    "description": "Diese Designs sind nicht nur Modeaussagen, denn mit deinem Kauf unterstützt du nicht nur wichtige Wohltätigkeitsorganisationen, die wirklich etwas in der Welt bewegen, sondern erhältst auch die Chance, kostenlos an Reiseverlosungen teilzunehmen. Du hast die Macht, gemeinsam mit unserer Community zu entscheiden, wohin die nächste große Reise geht! Durch eine spannende Abstimmungskampagne bestimmen wir gemeinsam, welches Abenteuer als Familie auf uns wartet.",
+    "shop_now": "Jetzt einkaufen"
+  },
+  "philosophy_section": {
+    "philo": "Philo",
+    "sophy": "sophie",
+    "description": "Wir umgeben uns mit Menschen, die uns dazu ermutigen, die beste Version unserer selbst zu werden. Wir distanzieren uns von Drama oder negativen Einflüssen wie Eifersucht oder Hass. Stattdessen konzentrieren wir uns darauf, positive Energie zu verbreiten, um das Beste in jedem zum Vorschein zu bringen."
+  },
+  "faq_section": {
+    "title": "Verhaltenskodex",
+    "description": "Dieser Familienkodex spiegelt die Werte und Prinzipien unserer Familie wider. Er dient dazu, unsere Beziehungen zu stärken, Erwartungen zu klären und unsere gemeinsame Reise als Familie zu gestalten.",
+    "items": [
+      {
+        "title": "Liebe und Respekt",
+        "content": "In unserer Familie stehen Liebe und Respekt im Mittelpunkt. Wir behandeln einander mit Freundlichkeit, Fürsorge und Rücksicht."
+      },
+      {
+        "title": "Offene Kommunikation",
+        "content": "Offene Gespräche sowie das Teilen von Gedanken und Gefühlen sind willkommen. Wir hören aktiv zu und sprechen ehrlich und respektvoll miteinander."
+      },
+      {
+        "title": "Unterstützung und Einheit",
+        "content": "Wir sind ein Team. Wir unterstützen uns in allen Lebensbereichen und ermutigen einander, persönliche Träume und Ziele zu verfolgen."
+      },
+      {
+        "title": "Gemeinsame Zeit",
+        "content": "Wir schätzen die Zeit miteinander. Regelmäßige Aktivitäten, wie gemeinsame Ausflüge, stärken unsere Bindung und schaffen Erinnerungen."
+      },
+      {
+        "title": "Verantwortung",
+        "content": "Jedes Familienmitglied trägt Verantwortung für unsere Gemeinschaft. Gemeinsam schaffen wir ein angenehmes Umfeld."
+      },
+      {
+        "title": "Vielfalt und Akzeptanz",
+        "content": "Wir begrüßen Vielfalt und akzeptieren unsere Unterschiede. Jeder in unserer Familie ist einzigartig und wird respektiert."
+      },
+      {
+        "title": "Bildung und persönliche Entwicklung",
+        "content": "Wir fördern lebenslanges Lernen und die Entwicklung unserer Fähigkeiten und Interessen."
+      },
+      {
+        "title": "Dankbarkeit",
+        "content": "Wir schätzen, was wir haben, und sind dankbar für die kleinen und großen Freuden des Lebens."
+      },
+      {
+        "title": "Konfliktlösung",
+        "content": "Konflikte sind natürlich, und wir setzen uns dafür ein, sie respektvoll zu lösen. Wir arbeiten gemeinsam an fairen Lösungen für alle."
+      },
+      {
+        "title": "Sicherheit und Geborgenheit",
+        "content": "Jedes Familienmitglied trägt zur Sicherheit bei. Wir schützen uns vor schädlichen Einflüssen und bieten einander emotionale Unterstützung."
+      },
+      {
+        "title": "Gemeinschaftsdienst",
+        "content": "Wir tragen zur Stärkung unserer Gemeinschaft bei, indem wir Verantwortung für unsere Umwelt übernehmen."
+      }
+    ]
+  },
+  "footer": {
+    "title": "Erhalte Updates über Social Media",
+    "onefam": "OneFam"
+  }
+}
