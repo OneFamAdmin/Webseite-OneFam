@@ -13,7 +13,7 @@ const HeroSection = () => {
       <FancyGradient className=' absolute top-56 md:top-96 lg:top-16 -right-[300px] w-[350px] h-[350px] overflow-hidden' />
 
       <MaxWidth className='flex flex-col gap-16 lg:gap-32 pt-16 pb-12 lg:pb-5 '>
-        <div className='flex flex-col items-center justify-between lg:flex-row gap-16 lg:gap-0 lg:min-w-[1200px]  max-w-[1350px] mx-auto '>
+        <div className='flex flex-col items-center justify-between lg:flex-row gap-16 lg:gap-0 lg:min-w-[1050px]  max-w-[1350px] mx-auto '>
           <div className='w-full lg:w-2/3 xl:w-[70%] flex flex-col justify-between gap-16 lg:gap-32 '>
             <div className='relative  w-full flex flex-col items-center lg:items-start justify-center '>
               <h5

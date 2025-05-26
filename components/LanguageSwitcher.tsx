@@ -20,9 +20,10 @@ const LanguageSwitcher: React.FC<{ setOpenSidebar: (value: boolean) => void }> =
       {langFlag.map((lang, index) => (
         <button
           key={index}
-          onClick={() => {
-            setLanguage(lang.value);
+          onClick={async () => {
+            await setLanguage(lang.value);
             setOpenSidebar(false);
+            window.location.reload();
           }}
           className='cursor-pointer relative group'
         >
