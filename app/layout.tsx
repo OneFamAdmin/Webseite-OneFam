@@ -7,6 +7,7 @@ import { getLocale, getMessages } from 'next-intl/server';
 import MainLayout from '@/layout';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import GradientCursor from '@/components/GradientCursor';
 
  
 const outfit = Outfit({
@@ -42,6 +43,7 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <MainLayout>{children}</MainLayout>
         </NextIntlClientProvider>
+        <GradientCursor />
       </body>
     </html>
   );

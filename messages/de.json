@@ -1,84 +1,167 @@
 {
   "hero_section": {
-    "wear_it": "Trage es",
-    "support_it": "Unterstütze es",
-    "explore_it": "Erkunde es",
-    "join_onefam": "Werde Teil von OneFam – wo Mode Wohltätigkeit finanziert und exklusive Abenteuer ermöglicht.",
-    "shop_now": "Jetzt einkaufen"
+    "one_love": "Eine Liebe",
+    "one_culture": "Eine Kultur",
+    "one_fam": "Eine Familie",
+    "description": "OneFam ist kein Label, das du in deinem Schrank vergisst. Es ist dein Ticket in eine Crew, die größer denkt – laut, frei, voller Energie. Jedes Teil, das du bestellst, bringt dich nicht nur modisch weiter, sondern katapultiert dich in unsere Geschichte: voller Abenteuer, guter Vibes und echter Chancen, in Bali oder auf einem Rooftop in New York zu landen.",
+    "shop_now": "Jetzt shoppen"
   },
   "vision_section": {
     "title": "Unsere Vision",
-    "description": "Unsere Vision ist es, eine einzigartige Community aufzubauen, die sich mit unserer Philosophie und unserem Familienkodex identifiziert. Wir bieten nicht nur coole, stylische Kleidung, sondern geben auch etwas an unsere Gemeinschaft zurück. Als Unternehmen fördern wir nachhaltigen Konsum und unterstützen soziale Projekte weltweit. Vertrauen, Transparenz und Solidarität sind die Grundlagen unseres Handelns.",
-    "shop_now": "Jetzt einkaufen"
+    "subTitle": "Wir sind Familie – Punkt.",
+    "description1": "Wir glauben an diese einfache Formel: Wenn du dich gut fühlst, veränderst du die Welt um dich herum sofort. Deshalb stecken wir keinen Cent in nervige Werbung, sondern in Momente, die dein Herz schneller schlagen lassen. Deine Bestellung vergrößert unsere Community, stärkt unseren Impact – und öffnet Türen zu Erlebnissen, die du dir sonst nirgendwo buchen kannst. Fashion als Abzeichen für Einheit, Freiheit und echten Mehrwert – das treibt uns jeden Tag an.",
+    "description2": "Deine Bestellung macht die Community größer, unseren Einfluss stärker – und öffnet Türen für Erlebnisse, die man nicht überall buchen kann. Mode als Symbol für Einheit, Freiheit und echten Mehrwert: Das treibt uns jeden Tag an.",
+    "shop_now": "Jetzt shoppen"
+  },
+  "process_flow": {
+    "title": "So funktioniert’s",
+    "subTitle": "Shoppen, Abstimmen, Abheben",
+    "description": "Unser Prozess ist simpel. Keine Spielchen, keine Abos, einfach pure Abenteuerlust, die auf dich wartet.",
+    "process": [
+      {
+        "title": "Shoppen",
+        "description": "Du klickst auf „Order“ – fertig. Dein Name landet automatisch in der Verlosung. Kein extra Schritt nötig."
+      },
+      {
+        "title": "Abstimmen",
+        "description": "Wir stimmen gemeinsam ab, wo die nächste OneFam-Mission hingeht: zuerst Kontinent, dann Land, schließlich Ort."
+      },
+      {
+        "title": "Abheben",
+        "description": "Wir ziehen fair die Glücklichen per Zufall, und wir übernehmen alles – Flug, Hotel, Taschengeld, Event."
+      }
+    ],
+    "title_story": "Warum wir das tun",
+    "subTitle_story": "Weil Hype allein langweilig ist.",
+    "description1": "Fast Fashion verkauft Rabatte, wir verkaufen Erinnerungen. Statt flüchtiger Prozente schenken wir Geschichten, die du deinen Enkelkindern erzählst. Das Prinzip heißt Reziprozität: Du vertraust uns dein Outfit an, wir schenken dir das Abenteuer deines Lebens. Dieses „Danke, dass du dabei bist“ brennt tiefer als jeder Couponcode – und genau dieses Gefühl macht aus Kund*innen Familie.",
+    "description2": "Das Prinzip der Gegenseitigkeit: Ihr vertraut uns euer Outfit an, wir geben euch die Chance auf das Abenteuer eures Lebens. Dieses Gefühl von „Danke, dass du da bist“ brennt stärker als jeder Rabattcode – und verwandelt Kunden in Familie.",
+    "tripCovered": "Abgedeckte Reise",
+    "adventures": "Abenteuer/Jahr",
+    "members": "Glückliche Mitglieder",
+    "shop_now": "Jetzt shoppen"
   },
   "products_section": {
     "title": "Unsere Produkte",
-    "description": "Lorem Ipsum ist einfach Blindtext der Druck- und Satzindustrie. Lorem Ipsum ist der Standard-Blindtext der Branche seit dem 16. Jahrhundert."
+    "subTitle": "Trage Geschichten, nicht nur Stoff.",
+    "description": "Wenn du OneFam rockst, trägst du mehr als Fashion. Du trägst ein Manifest: für Freiheit, Community und verdammt gute Zeiten. Jeder Faden erinnert dich daran, dass ein neues Teil auch dein Leben upgraden kann.",
+    "shop_now": "Jetzt shoppen"
   },
-  "love_section": {
-    "one_love": "Eine Liebe",
-    "one_culture": "Eine Kultur",
-    "one_family": "Eine Familie",
-    "description": "Diese Designs sind nicht nur Modeaussagen, denn mit deinem Kauf unterstützt du nicht nur wichtige Wohltätigkeitsorganisationen, die wirklich etwas in der Welt bewegen, sondern erhältst auch die Chance, kostenlos an Reiseverlosungen teilzunehmen. Du hast die Macht, gemeinsam mit unserer Community zu entscheiden, wohin die nächste große Reise geht! Durch eine spannende Abstimmungskampagne bestimmen wir gemeinsam, welches Abenteuer als Familie auf uns wartet.",
-    "shop_now": "Jetzt einkaufen"
+  "straight_talk": {
+    "title": "Klartext",
+    "description": "Wir stehen für völlige Transparenz. So funktioniert’s genau.",
+    "straights": [
+      {
+        "title": "Keine versteckten Kosten",
+        "description": "Du zahlst nur für dein Shirt, Hoodie oder Cap. Die Reise ist unser Bonus aus dem Community-Budget."
+      },
+      {
+        "title": "Faire Auswahl",
+        "description": "Keine Mindestanforderung, keine Zusatzgebühren, einmalige Verlosung pro Jahr – sauber, transparent, fair."
+      },
+      {
+        "title": "Rechtlich einwandfrei",
+        "description": "Style + Chance, aber niemals Glücksspiel. Versprochen. (Ja, unser Legal-Team hat’s abgenommen.)"
+      },
+      {
+        "title": "All-inclusive",
+        "description": "Wir übernehmen alles – Flug, Hotel, Taschengeld, Event. Keine Abo-Gags, null Papierkram."
+      }
+    ]
   },
   "philosophy_section": {
     "philo": "Philo",
     "sophy": "sophie",
-    "description": "Wir umgeben uns mit Menschen, die uns dazu ermutigen, die beste Version unserer selbst zu werden. Wir distanzieren uns von Drama oder negativen Einflüssen wie Eifersucht oder Hass. Stattdessen konzentrieren wir uns darauf, positive Energie zu verbreiten, um das Beste in jedem zum Vorschein zu bringen."
+    "description": "Wir umgeben uns mit Menschen, die uns dazu ermutigen, die beste Version unserer selbst zu werden. Wir distanzieren uns von Drama oder negativen Einflüssen wie Neid oder Hass. Stattdessen verbreiten wir positive Energie, um das Beste in jedem hervorzubringen."
   },
-  "faq_section": {
+  "code_conduct_section": {
     "title": "Verhaltenskodex",
-    "description": "Dieser Familienkodex spiegelt die Werte und Prinzipien unserer Familie wider. Er dient dazu, unsere Beziehungen zu stärken, Erwartungen zu klären und unsere gemeinsame Reise als Familie zu gestalten.",
+    "description": "Dieser Familientrust codex spiegelt die Werte und Prinzipien unserer Familie wider. Er dient dazu, unsere Beziehungen zu stärken, Erwartungen zu klären und unsere gemeinsame Reise als Familie zu gestalten.",
     "items": [
       {
         "title": "Liebe und Respekt",
-        "content": "In unserer Familie stehen Liebe und Respekt im Mittelpunkt. Wir behandeln einander mit Freundlichkeit, Fürsorge und Rücksicht."
+        "content": "In unserer Familie stehen Liebe und Respekt im Mittelpunkt. Wir begegnen einander mit Freundlichkeit, Fürsorge und Rücksichtnahme."
       },
       {
         "title": "Offene Kommunikation",
-        "content": "Offene Gespräche sowie das Teilen von Gedanken und Gefühlen sind willkommen. Wir hören aktiv zu und sprechen ehrlich und respektvoll miteinander."
+        "content": "Offene Gespräche und das Teilen von Gedanken und Gefühlen sind willkommen. Wir hören aktiv zu und sprechen ehrlich und respektvoll."
       },
       {
-        "title": "Unterstützung und Einheit",
-        "content": "Wir sind ein Team. Wir unterstützen uns in allen Lebensbereichen und ermutigen einander, persönliche Träume und Ziele zu verfolgen."
+        "title": "Unterstützung und Zusammenhalt",
+        "content": "Wir sind ein Team. Wir unterstützen uns in allen Lebensbereichen und ermutigen Einzelne, ihre Ziele und Träume zu verfolgen."
       },
       {
         "title": "Gemeinsame Zeit",
-        "content": "Wir schätzen die Zeit miteinander. Regelmäßige Aktivitäten, wie gemeinsame Ausflüge, stärken unsere Bindung und schaffen Erinnerungen."
+        "content": "Wir schätzen gemeinsame Zeit. Regelmäßige Unternehmungen stärken unsere Bindung und schaffen Erinnerungen."
       },
       {
         "title": "Verantwortung",
-        "content": "Jedes Familienmitglied trägt Verantwortung für unsere Gemeinschaft. Gemeinsam schaffen wir ein angenehmes Umfeld."
+        "content": "Jedes Familienmitglied trägt Verantwortung für unsere Gemeinschaft. Gemeinsam tragen wir dazu bei, ein angenehmes Umfeld zu schaffen."
       },
       {
         "title": "Vielfalt und Akzeptanz",
-        "content": "Wir begrüßen Vielfalt und akzeptieren unsere Unterschiede. Jeder in unserer Familie ist einzigartig und wird respektiert."
+        "content": "Wir begrüßen Vielfalt und akzeptieren Unterschiede. Jeder in unserer Familie ist einzigartig und respektiert."
       },
       {
         "title": "Bildung und persönliche Entwicklung",
-        "content": "Wir fördern lebenslanges Lernen und die Entwicklung unserer Fähigkeiten und Interessen."
+        "content": "Wir fördern lebenslanges Lernen und die Entwicklung von Fähigkeiten und Interessen."
       },
       {
         "title": "Dankbarkeit",
-        "content": "Wir schätzen, was wir haben, und sind dankbar für die kleinen und großen Freuden des Lebens."
+        "content": "Wir wissen, was wir haben, zu schätzen, und sind dankbar für die kleinen und großen Freuden des Lebens."
       },
       {
         "title": "Konfliktlösung",
-        "content": "Konflikte sind natürlich, und wir setzen uns dafür ein, sie respektvoll zu lösen. Wir arbeiten gemeinsam an fairen Lösungen für alle."
+        "content": "Konflikte sind natürlich, und wir setzen uns dafür ein, sie respektvoll zu lösen. Wir suchen gemeinsam faire Lösungen für alle."
       },
       {
         "title": "Sicherheit und Geborgenheit",
-        "content": "Jedes Familienmitglied trägt zur Sicherheit bei. Wir schützen uns vor schädlichen Einflüssen und bieten einander emotionale Unterstützung."
+        "content": "Jedes Familienmitglied trägt zur Sicherheit bei. Wir schützen uns vor schädlichen Einflüssen und bieten emotionale Unterstützung."
       },
       {
-        "title": "Gemeinschaftsdienst",
-        "content": "Wir tragen zur Stärkung unserer Gemeinschaft bei, indem wir Verantwortung für unsere Umwelt übernehmen."
+        "title": "Gemeinnütziges Engagement",
+        "content": "Wir tragen aktiv zur Stärkung unserer Gemeinschaft bei, indem wir Verantwortung für die Welt um uns herum übernehmen."
+      }
+    ]
+  },
+  "faq_section": {
+    "title": "Häufig gestellte Fragen",
+    "description": "Alles, was du über OneFam und unseren einzigartigen Ansatz zu Mode und Erlebnissen wissen musst.",
+    "items": [
+      {
+        "title": "Was ist OneFam und was unterscheidet euch von anderen Fashion-Brands? ",
+        "content": "OneFam ist mehr als Streetwear – wir verbinden Mode mit realen Erlebnissen. Jeder Kauf hebt deinen Look aufs nächste Level und nimmt dich automatisch am Community-Trip teil."
+      },
+      {
+        "title": "Wie nehme ich an der Trip-Verlosung teil? ",
+        "content": "Mit jedem Kauf – Shirt, Hoodie oder Cap – bist du automatisch dabei. Kein Extra-Formular, keine Zusatzgebühren."
+      },
+      {
+        "title": "Wie oft gibt es Verlosungen und wie oft kann ich gewinnen? ",
+        "content": "Regelmäßige Ziehungen; jede Person kann pro Kalenderjahr einmal gewinnen – fair für alle."
+      },
+      {
+        "title": "Wie wird das Reiseziel bestimmt? ",
+        "content": "Die Community stimmt in drei Phasen ab: Kontinent → Land → konkreter Ort; so hat jeder Teilnehmer Mitspracherecht."
+      },
+      {
+        "title": "Wie werden die Gewinner ausgewählt? ",
+        "content": "Zufällige, dokumentierte und transparente Ziehung. Alle haben die gleiche Chance; Gewinner werden per E-Mail und Newsletter informiert."
+      },
+      {
+        "title": "Was passiert, wenn ich gewinne? ",
+        "content": "Wir übernehmen Flug, Unterkunft, Taschengeld und ein Highlight-Event vor Ort – dein einziger Job: Koffer packen und genießen."
+      },
+      {
+        "title": "Muss ich extra zahlen oder abonnieren – und ist das nicht Glücksspiel? ",
+        "content": "Nein. Du zahlst nur für dein Kleidungsstück; die Verlosung ist ein kostenloser Bonus aus unseren Gewinnen. Kein Einsatz, keine Abo-Falle. Rechtlich kein Glücksspiel."
       }
     ]
   },
   "footer": {
-    "title": "Erhalte Updates über Social Media",
-    "onefam": "OneFam"
+    "title": "Updates in Sozialen Medien erhalten",
+    "onefam": "OneFam",
+    "imprint": "Impressum",
+    "ceo_and_founder": "CEO & Gründer",
+    "ceo_and_founder_name": "Labinot Bajrami"
   }
 }

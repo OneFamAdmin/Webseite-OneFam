@@ -1,12 +1,9 @@
-import { useTranslations } from 'next-intl';
+ 
 import Image from 'next/image';
 import React from 'react';
-import FancyGradient from './FancyGradient';
-import { MoveRight } from 'lucide-react';
-import MaxWidth from './MaxWidth';
+import FancyGradient from './FancyGradient'; 
 
-const LoveSection = () => {
-  const t = useTranslations('love_section');
+const LoveSection = () => { 
   return (
     <>
       {/* <div className='relative h-[1149px] '>
@@ -21,20 +18,20 @@ const LoveSection = () => {
         />
       </div>
     </div> */}
-      <div className='relative pb-16 overflow-hidden -mt-36 md:-mt-52 lg:-mt-64 xl:-mt-70 2xl:-mt-[420px] '>
-        <div className='relative h-[300px] md:h-[400px] lg:h-[525px] xl:h-[600px] 2xl:h-[1000px] '>
-          <FancyGradient className='absolute top-40 left-0 lg:top-[300px] lg:left-28 2xl:top-[550px] w-[150px] h-[150px] lg:w-[200px] lg:h-[200px] overflow-hidden z-0' />
-          <div className='absolute inset-0 -z-10'>
+      <div className=' relative overflow-hidden -mt-36 sm:-mt-50 md:-mt-60 md-2:-mt-70  lg:-mt-96 lg-1:-mt-95 xl:-mt-100 2xl:-mt-120 2xl-1:-mt-120 z-0  '>
+        <div className='relative h-[200px] xs:h-[300px] sm:h-[400px] md:h-[450px] md-1:h-[470px] md-2:h-[600px] lg:h-[600px] lg-1:h-[600px] lg-2:h-[600px] xl:h-[600px] 2xl:h-[700px] '>
+          <FancyGradient className='absolute top-40 left-0 lg:top-[330px] lg:left-52 2xl:top-[550px] w-[150px] h-[150px] lg:w-[200px] lg:h-[200px] overflow-hidden z-0' />
+          <div className='absolute inset-0 z-20'>
             <Image
               src={'/assets/wave.svg'}
               alt='love'
               width={2011}
               height={1149}
-              className='w-[1000px] lg:w-full lg:h-full object-cover'
+              className='w-[1000px] lg:w-full lg:h-full object-cover z-20'
             />
-          </div> 
+          </div>
         </div>
-        <MaxWidth className='flex flex-col gap-16 lg:gap-4 lg:-mt-20 2xl:-mt-55  bg-transparent -z-30 '>
+        {/* <MaxWidth className='flex flex-col gap-16 lg:gap-4 lg:-mt-20 2xl:-mt-55  bg-transparent -z-30 '>
           <div className='relative  w-full flex flex-col items-center  justify-center'>
             <h2
               data-aos='fade-up'
@@ -90,8 +87,10 @@ const LoveSection = () => {
               <MoveRight className='w-7 h-7 md:w-9 md:h-9 lg:w-7 lg:h-7 transform transition-transform duration-300 group-hover:translate-x-2' />
             </button>
           </div>
-        </MaxWidth>
+        </MaxWidth> */}
       </div>
+ 
+    
     </>
   );
 };

@@ -27,12 +27,17 @@
 }
 
 @theme { 
-  --breakpoint-lg-1: 70rem; 
-  --breakpoint-lg-2: 75rem; 
-  --breakpoint-xl-1: 85rem; 
-  --breakpoint-xl-2: 90rem; 
-  --breakpoint-xl-3: 94rem;  
-  --breakpoint-2xl-1: 100rem;  
+  --breakpoint-xxs: 25rem; /* 400px */
+  --breakpoint-xxs-1: 27rem; /* 432px */
+  --breakpoint-xs: 30rem; /* 480px */
+  --breakpoint-md-1: 50rem; /* 800px */
+  --breakpoint-md-2: 60rem; /* 960px */ 
+  --breakpoint-lg-1: 70rem; /* 1120px */
+  --breakpoint-lg-2: 75rem; /* 1200px */
+  --breakpoint-xl-1: 85rem; /* 1360px */
+  --breakpoint-xl-2: 90rem; /* 1440px */
+  --breakpoint-xl-3: 94rem;  /* 1504px */
+  --breakpoint-2xl-1: 100rem;  /* 1600px */
 }
 
 /* @media (prefers-color-scheme: dark) {

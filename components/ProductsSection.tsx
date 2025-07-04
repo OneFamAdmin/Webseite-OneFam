@@ -7,6 +7,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 
 import { CustomArrowProps } from 'react-slick';
+import { MoveRight } from 'lucide-react';
 // import { MoveLeft, MoveRight } from 'lucide-react';
 
 function SampleNextArrow({ className, style, onClick }: CustomArrowProps) {
@@ -233,28 +234,34 @@ const ProductsSection = () => {
     <div className='  py-14 lg:py-16 z-10 overflow-hidden relative  '>
       <MaxWidth>
         <div className='flex flex-col justify-center items-center max-w-[950px] mx-auto gap-4'>
+          <h1
+            data-aos='fade-up'
+            data-aos-duration='3000'
+            data-aos-anchor-placement='top-bottom'
+            data-aos-offset='200'
+            className={`${
+              locale !== 'en'
+                ? 'text-[40px] xxs-1:text-[42px] xs:text-[44px] sm:text-[48px] font-semibold sm:font-normal '
+                : 'text-[48px] font-normal'
+            } sm:text-[48px] md:text-[55px] md-1:text-[60px] md-2:text-[80px]  lg:text-[80px] lg-1:text-[80px] xl-2:text-[80px] font-newyork leading-[100%]`}
+          >
+            {t('title')}
+          </h1>
           <h2
             data-aos='fade-up'
             data-aos-duration='3000'
             data-aos-anchor-placement='top-bottom'
             data-aos-offset='200'
-            className='text-5xl md:text-5xl lg:text-[40px] font-newyork font-normal'
+            className='text-[28px] md:text-[32px] md-1:text-[36px] md-2:text-[48px] lg:text-[48px] lg-1:text-[48px] xl-2:text-[48px] font-outfit font-light text-center'
           >
-            {locale === 'es' ? (
-              <>
-                <span className='sm:hidden'>{t('title_mobile')}</span>
-                <span className='hidden sm:inline'>{t('title')}</span>
-              </>
-            ) : (
-              t('title')
-            )}
+            {t('subTitle')}
           </h2>
           <p
             data-aos='fade-up'
             data-aos-duration='3000'
             data-aos-anchor-placement='top-bottom'
             data-aos-offset='200'
-            className='text-lg md:text-xl lg:text-lg font-outfit font-normal text-center'
+            className='font-outfit font-light text-center'
           >
             {t('description')}
           </p>
@@ -282,6 +289,18 @@ const ProductsSection = () => {
               );
             })}
           </Slider>
+        </div>
+        <div
+          data-aos='zoom-in-up'
+          data-aos-duration='2000'
+          className=' mt-10 xs:mt-20 md-2:mt-10 bg-gradient-to-r  from-[#EF8031] via-[#EB356A] to-[#FAD649] p-px pb-[4px] w-full md-2:w-fit mx-auto'
+        >
+          <button className='group relative bg-background flex items-center justify-center lg:justify-start gap-2 text-lg md:text-xl lg:text-lg font-light font-outfit leading-[100%] tracking-[-3%] cursor-pointer py-2 px-14 w-full md-2:w-fit'>
+            <span className="relative before:content-[''] before:absolute before:left-0 before:-bottom-1 before:h-[2px] before:w-0 before:bg-white before:transition-all before:duration-500 group-hover:before:w-full">
+              {t('shop_now')}
+            </span>
+            <MoveRight className='w-7 h-7 lg:w-7 lg:h-7 transform transition-all duration-300 group-hover:translate-x-2' />
+          </button>
         </div>
       </MaxWidth>
     </div>
