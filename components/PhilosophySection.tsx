@@ -7,7 +7,7 @@ const PhilosophySection = () => {
   const t = useTranslations('philosophy_section');
   const locale = useLocale();
   return (
-    <div className='relative text-black flex items-center overflow-hidden '>
+    <div className='relative text-white flex items-center overflow-hidden '>
       <div className='absolute inset-0 -z-10'>
         <Image
           src={'/assets/philosophy-bg.svg'}
@@ -29,7 +29,7 @@ const PhilosophySection = () => {
               `}
           >
             {t('philo')}
-            <span className='text-[#E5E5E5] z-0'>{t('sophy')}</span>
+            <span className='text-white/50 z-0'>{t('sophy')}</span>
           </h2>
         </div>
 
@@ -67,7 +67,7 @@ const PhilosophySection = () => {
             ${locale === 'es' ? 'md-2:-ml-[310px]' : 'md-2:-ml-[400px]'}  
              `}
           >
-            <span className='lg:text-[#E5E5E5] z-0'>{t('philo')}</span>
+            <span className='lg:text-white/50 z-0'>{t('philo')}</span>
             {t('sophy')}
           </h2>
           <p

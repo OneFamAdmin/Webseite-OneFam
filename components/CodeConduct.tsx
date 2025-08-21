@@ -41,7 +41,7 @@ const CodeConduct = () => {
             data-aos-duration='1000'
             data-aos-delay='400'
             data-aos-anchor-placement='top-bottom'
-            className='font-outfit font-light  text-center '
+            className='font-outfit font-light  text-center max-w-[750px] '
           >
             {t('description')}
           </p>

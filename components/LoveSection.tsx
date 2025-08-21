@@ -20,7 +20,7 @@ const LoveSection = () => {
     </div> */}
       <div className=' relative overflow-hidden -mt-36 sm:-mt-50 md:-mt-60 md-2:-mt-70  lg:-mt-96 lg-1:-mt-95 xl:-mt-100 2xl:-mt-120 2xl-1:-mt-120 z-0  '>
         <div className='relative h-[200px] xs:h-[300px] sm:h-[400px] md:h-[450px] md-1:h-[470px] md-2:h-[600px] lg:h-[600px] lg-1:h-[600px] lg-2:h-[600px] xl:h-[600px] 2xl:h-[700px] '>
-          <FancyGradient className='absolute top-40 left-0 lg:top-[330px] lg:left-52 2xl:top-[550px] w-[150px] h-[150px] lg:w-[200px] lg:h-[200px] overflow-hidden z-0' />
+          <FancyGradient className='absolute top-20 xxs:top-20 xs:top-35 sm:top-40 md:top-[210px] left-0 lg:top-[280px] lg:left-52 2xl:top-[300px]  w-[150px] h-[150px] xxs:w-[100px] xxs:h-[100px] sm:w-[150px] sm:h-[150px] lg:w-[200px] lg:h-[200px] overflow-hidden z-0' />
           <div className='absolute inset-0 z-20'>
             <Image
               src={'/assets/wave.svg'}

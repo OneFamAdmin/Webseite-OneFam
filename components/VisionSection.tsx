@@ -11,26 +11,27 @@ const VisionSection = () => {
   return (
     <div
       id='vision'
-      className='relative  xl:pt-28 overflow-hidden  ml-auto  flex lg:items-end  justify-center '
+      className='relative  xl:pt-28   ml-auto  flex lg:items-end  justify-center '
     >
-      <FancyGradient className=' absolute w-[380px] h-[380px] -top-80 lg:-top-72 left-0 md:left-[20%] lg:left-[40%]' />
+      <FancyGradient className=' absolute w-[150px] h-[150px] lg:w-[200px] lg:h-[200px] -top-10 lg:-top-20 left-0 md:left-[20%] lg:left-[40%]' />
       <div className='absolute inset-0 -z-10'>
         <Image
-          src={'/assets/vision_bg.svg'}
+          src={'/assets/vision_bg.png'}
           alt='vission'
-          width={1920}
-          height={1080}
-          className='w-full h-full object-cover hidden lg:block'
+          width={628.64}
+          height={718.01}
+          className='w-fit h-full float-right hidden lg:block'
           data-aos='fade-left'
           data-aos-duration='1000'
           data-aos-delay='200'
         />
         <Image
-          src={'/assets/vision_bg_mobile.svg'}
+          // src={'/assets/vision_bg_mobile.svg'}
+          src={'/assets/vision_bg.png'}
           alt='vission'
-          width={434}
-          height={445}
-          className='w-full h-full object-cover lg:hidden'
+          width={628.64}
+          height={718.01}
+          className='w-fit h-full float-right lg:hidden'
         />
       </div>
       <MaxWidth className='pb-4 lg:pb-0 pt-0 lg:pt-20 xl:pt-0 overflow-hidden'>

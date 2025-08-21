@@ -166,7 +166,7 @@ const ProcessFlow = () => {
         </div>
       </div>
 
-      <div className='relative -z-10  bg-[#0D0D0D]'>
+      <div className='relative -z-10  '>
         <FancyGradient className='absolute top-0 -left-0 w-[50px] h-[600px] overflow-hidden ' />
         <FancyGradient className='absolute top-0 -right-0  w-[50px] h-[600px]  overflow-hidden ' />
         <MaxWidth className='flex flex-col items-center justify-center gap-8 py-16'>
