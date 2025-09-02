@@ -14,24 +14,28 @@ const VisionSection = () => {
       className='relative  xl:pt-28   ml-auto  flex lg:items-end  justify-center '
     >
       <FancyGradient className=' absolute w-[150px] h-[150px] lg:w-[200px] lg:h-[200px] -top-10 lg:-top-20 left-0 md:left-[20%] lg:left-[40%]' />
-      <div className='absolute inset-0 -z-10'>
+      <div className='absolute inset-0 -z-10 h-[718px] hidden lg:block '>
         <Image
           src={'/assets/vision_bg.png'}
           alt='vission'
           width={628.64}
           height={718.01}
-          className='w-fit h-full float-right hidden lg:block'
+          // className='w-fit h-full float-right hidden lg:block'
+          className="h-full w-auto object-contain float-right h"
           data-aos='fade-left'
           data-aos-duration='1000'
           data-aos-delay='200'
-        />
+        /> 
+      </div>
+        <div className='absolute inset-0 -z-10 h-[600px] lg:hidden '>
+        
         <Image
           // src={'/assets/vision_bg_mobile.svg'}
-          src={'/assets/vision_bg.png'}
+          src={'/assets/vesionbgMobile.png'}
           alt='vission'
-          width={628.64}
-          height={718.01}
-          className='w-fit h-full float-right lg:hidden'
+          width={525}
+          height={599}
+          className='h-full w-auto object-contain float-right '
         />
       </div>
       <MaxWidth className='pb-4 lg:pb-0 pt-0 lg:pt-20 xl:pt-0 overflow-hidden'>
@@ -44,7 +48,7 @@ const VisionSection = () => {
          bg-gradient-to-r from-white/0 from-21.03% to-white/30 to-100% bg-clip-text text-transparent
           '
         >
-          {t('title')}
+          {t('title')} 
         </h1>
         <div className='flex flex-col justify-center items-center lg:justify-start lg:items-start gap-4 lg:max-w-[680px] '>
           <h2

@@ -9,8 +9,8 @@
   "vision_section": {
     "title": "Notre Vision",
     "subTitle": "Nous sommes une famille. Point.",
-    "description1": "Nous croyons à cette formule simple : Quand vous vous sentez bien, vous changez immédiatement le monde qui vous entoure. C’est pourquoi nous ne dépensons pas une partie de nos bénéfices dans des pubs ennuyeuses, mais dans des moments qui font battre votre cœur plus vite. Votre commande agrandit la communauté, renforce notre impact – et ouvre la porte à des expériences qu’on ne peut pas réserver ailleurs. La mode comme badge d’unité, de liberté et de vraie valeur ajoutée : c’est ce qui nous motive chaque jour.",
-    "description2": "Votre commande agrandit la communauté, renforce notre impact – et ouvre la porte à des expériences impossibles à réserver n’importe où. La mode comme emblème d’unité, de liberté et de vraie valeur ajoutée : ça nous motive chaque jour.",
+    "description1": "Nous croyons à cette formule simple : Quand vous vous sentez bien, vous changez immédiatement le monde qui vous entoure. C’est pourquoi nous ne dépensons pas une partie de nos bénéfices dans des pubs ennuyeuses, mais dans des moments qui font battre votre cœur plus vite. ",
+    "description2": "Votre commande agrandit la communauté, renforce notre impact – et ouvre la porte à des expériences qu’on ne peut pas réserver ailleurs. La mode comme badge d’unité, de liberté et de vraie valeur ajoutée : c’est ce qui nous motive chaque jour.",
     "shop_now": "Achetez Maintenant"
   },
   "process_flow": {
@@ -33,8 +33,8 @@
     ],
     "title_story": "Pourquoi Nous Faisons Ça",
     "subTitle_story": "Parce que le hype seul, c’est ennuyeux.",
-    "description1": "La fast fashion propose des réductions ; nous, nous offrons des souvenirs. Au lieu de pourcentages éphémères, nous offrons des histoires que vous raconterez à vos petits-enfants. Le principe est la réciprocité : vous nous confiez votre tenue, nous vous offrons l’aventure de votre vie. Ce « merci d’être là » brûle plus fort que n’importe quel code promo – et c’est cette émotion qui transforme les clients en famille.",
-    "description2": "Le principe de réciprocité : vous nous faites confiance pour votre tenue, nous vous donnons la chance de vivre l’aventure de votre vie. Ce sentiment de « Merci d’être là » brûle plus fort que n’importe quel code promo – et c’est cette émotion qui transforme des clients en famille.",
+    "description1": "La fast fashion propose des réductions ; nous, nous offrons des souvenirs. Au lieu de pourcentages éphémères, nous offrons des histoires que vous raconterez à vos petits-enfants. ",
+    "description2": "Le principe est la réciprocité : vous nous confiez votre tenue, nous vous offrons l’aventure de votre vie. Ce « merci d’être là » brûle plus fort que n’importe quel code promo – et c’est cette émotion qui transforme les clients en famille.",
     "tripCovered": "Voyage pris en charge",
     "adventures": "Aventures/An",
     "members": "Membres heureux",

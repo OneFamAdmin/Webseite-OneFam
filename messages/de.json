@@ -9,8 +9,8 @@
   "vision_section": {
     "title": "Unsere Vision",
     "subTitle": "Wir sind Familie – Punkt.",
-    "description1": "Wir glauben an diese einfache Formel: Wenn du dich gut fühlst, veränderst du die Welt um dich herum sofort. Deshalb stecken wir keinen Cent in nervige Werbung, sondern in Momente, die dein Herz schneller schlagen lassen. Deine Bestellung vergrößert unsere Community, stärkt unseren Impact – und öffnet Türen zu Erlebnissen, die du dir sonst nirgendwo buchen kannst. Fashion als Abzeichen für Einheit, Freiheit und echten Mehrwert – das treibt uns jeden Tag an.",
-    "description2": "Deine Bestellung macht die Community größer, unseren Einfluss stärker – und öffnet Türen für Erlebnisse, die man nicht überall buchen kann. Mode als Symbol für Einheit, Freiheit und echten Mehrwert: Das treibt uns jeden Tag an.",
+    "description1": "Wir glauben an diese einfache Formel: Wenn du dich gut fühlst, veränderst du die Welt um dich herum sofort. Deshalb stecken wir keinen Cent in nervige Werbung, sondern in Momente, die dein Herz schneller schlagen lassen. ",
+    "description2": "Deine Bestellung vergrößert unsere Community, stärkt unseren Impact – und öffnet Türen zu Erlebnissen, die du dir sonst nirgendwo buchen kannst. Fashion als Abzeichen für Einheit, Freiheit und echten Mehrwert – das treibt uns jeden Tag an.",
     "shop_now": "Jetzt shoppen"
   },
   "process_flow": {
@@ -33,8 +33,8 @@
     ],
     "title_story": "Warum wir das tun",
     "subTitle_story": "Weil Hype allein langweilig ist.",
-    "description1": "Fast Fashion verkauft Rabatte, wir verkaufen Erinnerungen. Statt flüchtiger Prozente schenken wir Geschichten, die du deinen Enkelkindern erzählst. Das Prinzip heißt Reziprozität: Du vertraust uns dein Outfit an, wir schenken dir das Abenteuer deines Lebens. Dieses „Danke, dass du dabei bist“ brennt tiefer als jeder Couponcode – und genau dieses Gefühl macht aus Kund*innen Familie.",
-    "description2": "Das Prinzip der Gegenseitigkeit: Ihr vertraut uns euer Outfit an, wir geben euch die Chance auf das Abenteuer eures Lebens. Dieses Gefühl von „Danke, dass du da bist“ brennt stärker als jeder Rabattcode – und verwandelt Kunden in Familie.",
+    "description1": "Fast Fashion verkauft Rabatte, wir verkaufen Erinnerungen. Statt flüchtiger Prozente schenken wir Geschichten, die du deinen Enkelkindern erzählst. ",
+    "description2": "Das Prinzip heißt Reziprozität: Du vertraust uns dein Outfit an, wir schenken dir das Abenteuer deines Lebens. Dieses „Danke, dass du dabei bist“ brennt tiefer als jeder Couponcode – und genau dieses Gefühl macht aus Kund*innen Familie.",
     "tripCovered": "Abgedeckte Reise",
     "adventures": "Abenteuer/Jahr",
     "members": "Glückliche Mitglieder",
