@@ -2,10 +2,10 @@
 // cached. Never import this from a 'use client' file — it would pull the ~108 KB
 // TopoJSON into the browser bundle. VoteMap is a server component, so it stays put.
 
+/* eslint-disable @typescript-eslint/no-explicit-any -- topojson world-atlas JSON has no shipped types; casts are unavoidable here */
 import { feature, merge } from 'topojson-client';
 import topology from 'world-atlas/countries-110m.json';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyFeature = any;
 
 const fc = feature(topology as any, (topology as any).objects.countries) as any;

@@ -609,7 +609,7 @@ function renderLand(l: LandPath[]) {
   );
 }
 
-export default function VotingDesignMap({ level, options, landIsos, faces = false, heroIso, width = 1700, height = 820 }: Props) {
+export default function VotingDesignMap({ level, options, landIsos, faces = false, heroIso }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   // null until measured in the browser — the d3 geometry isn't bit-identical between Node
   // and the browser, so we DON'T render it during SSR (that would hydration-mismatch).

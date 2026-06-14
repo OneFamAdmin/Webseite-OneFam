@@ -6,7 +6,7 @@
 // The leader glows brightest gold with its vote count on it.
 
 import { geoNaturalEarth1, geoMercator, geoPath, geoCentroid } from 'd3-geo';
-import { countryFeatures, featureByIso, worldNoAntarctica } from '@/lib/geo/worldmap';
+import { featureByIso, worldNoAntarctica } from '@/lib/geo/worldmap';
 import { continentByKey } from '@/lib/geo/data';
 
 const C = {

@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 import { ArrowLeft, ShoppingBag, BarChart3, RotateCcw } from 'lucide-react';
 import { createClient } from '@/lib/supabase/server';
 import { createAdminClient } from '@/lib/supabase/admin';
-import { continentByKey, countryByIso } from '@/lib/geo/data';
+import { continentByKey } from '@/lib/geo/data';
 import { grantBuyer, revokeBuyer, resetAllVotes } from './actions';
 
 export const metadata = { title: 'Voting — Admin — OneFam' };
