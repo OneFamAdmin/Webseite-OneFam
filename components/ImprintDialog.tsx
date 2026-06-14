@@ -1,6 +1,7 @@
-import { Mail, Phone, X } from 'lucide-react';
+'use client';
+
+import { Mail, MapPin, Phone, X } from 'lucide-react';
 import React from 'react';
-import FancyGradient from './FancyGradient';
 import { useTranslations } from 'next-intl';
 
 interface ImprintDialogProps {
@@ -11,62 +12,50 @@ const ImprintDialog: React.FC<ImprintDialogProps> = ({ onClose }) => {
   const t = useTranslations('footer');
 
   return (
-    <div className='fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50 animate-fade-in '>
-      <div className='relative bg-black/85 p-8 md:p-12 w-full shadow-2xl animate-scale-in max-w-[612px] max-h-[394px]'>
-        <FancyGradient className=' absolute top-[80px] -left-[10px] w-[150px] h-[150px] overflow-hidden' />
-        <FancyGradient className=' absolute top-[80px] -right-[10px] w-[150px] h-[150px] overflow-hidden' />
-
-        {/* Close Button */}
+    <div
+      className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      <div
+        className="relative w-full max-w-[560px] rounded-[8px] border border-line bg-surface p-8 md:p-12"
+        onClick={(e) => e.stopPropagation()}
+      >
         <button
           onClick={onClose}
-          className='absolute top-6 right-6 text-white/70 hover:text-white transition-colors duration-200 hover:scale-110 cursor-pointer'
+          aria-label="Schliessen"
+          className="absolute right-5 top-5 text-faint transition-colors duration-[180ms] hover:text-primary"
         >
-          <X size={24} />
+          <X size={22} strokeWidth={1.5} />
         </button>
 
-        {/* Content */}
-        <div className='text-center text-white space-y-4'>
-          {/* Title */}
-          <div className='space-y-2'>
-            <p className='text-[24px] font-outfit font-light'>
-              {t('ceo_and_founder')}
-            </p>
-          </div>
+        <p className="font-body text-xs uppercase tracking-[0.1em] text-faint">{t('imprint')}</p>
+        <h2 className="mt-3 font-display text-2xl font-semibold tracking-[0.02em] text-primary md:text-3xl">
+          {t('imprint_company')}
+        </h2>
+        <p className="mt-2 font-body text-base text-secondary">
+          Inhaber: {t('imprint_owner')}
+        </p>
 
-          {/* Name */}
-          <div>
-            <h1 className='text-[32px] md-2:text-[48px] font-light font-outfit'>
-              {t('ceo_and_founder_name')}
-            </h1>
+        <div className="mt-8 space-y-4">
+          <div className="flex items-center gap-4 text-secondary">
+            <MapPin size={22} strokeWidth={1.5} className="text-gold" />
+            <span className="font-body text-base md:text-lg">{t('imprint_address')}</span>
           </div>
-
-          {/* Contact Information */}
-          <div className='space-y-4 '>
-            {/* Email */}
-            <div className='flex items-center justify-center space-x-4 group cursor-pointer hover:text-primary/90 transition-colors duration-200'>
-              <Mail
-                size={28}
-                className='text-white/80'
-              />
-              <span className='text-[16px] md-2:text-[28px] font-outfit font-light'>
-                info@onefam.ch
-              </span>
-            </div>
-
-            {/* Phone */}
-            <div className='flex items-center justify-center space-x-4 group cursor-pointer hover:text-primary/90 transition-colors duration-200'>
-              <Phone
-                size={28}
-                className=''
-              />
-              <span className='text-[16px] md-2:text-[28px] font-outfit font-light'>
-                +41 76 225 80 58
-              </span>
-            </div>
-          </div>
+          <a
+            href={`mailto:${t('imprint_email')}`}
+            className="group flex items-center gap-4 text-secondary transition-colors duration-[180ms] hover:text-gold"
+          >
+            <Mail size={22} strokeWidth={1.5} className="text-gold" />
+            <span className="font-body text-base md:text-lg">{t('imprint_email')}</span>
+          </a>
+          <a
+            href={`tel:${t('imprint_phone').replace(/\s/g, '')}`}
+            className="group flex items-center gap-4 text-secondary transition-colors duration-[180ms] hover:text-gold"
+          >
+            <Phone size={22} strokeWidth={1.5} className="text-gold" />
+            <span className="font-body text-base md:text-lg">{t('imprint_phone')}</span>
+          </a>
         </div>
-
-        <div className='absolute inset-0 rounded-3xl bg-gradient-to-br from-white/10 to-transparent pointer-events-none'></div>
       </div>
     </div>
   );

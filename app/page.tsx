@@ -1,31 +1,33 @@
- 
-import CodeConduct from '@/components/CodeConduct';
+import Nav from '@/components/Nav';
+import SiteFooter from '@/components/SiteFooter';
+import Hero from '@/components/Hero';
+import WhatIsOneFam from '@/components/WhatIsOneFam';
+import HowItWorks from '@/components/HowItWorks';
+import TravelPool from '@/components/TravelPool';
+import DestinationVote from '@/components/DestinationVote';
+import Values from '@/components/Values';
+import Philosophy from '@/components/Philosophy';
+import WhyWeDoThis from '@/components/WhyWeDoThis';
 import Faq from '@/components/Faq';
-import Footer from '@/components/Footer'; 
-import HeroSection from '@/components/HeroSection';
-import LoveSection from '@/components/LoveSection';
-import PhilosophySection from '@/components/PhilosophySection';
-import ProcessFlow from '@/components/ProcessFlow';
-import ProductsSection from '@/components/ProductsSection';
-// import StoryAndStats from '@/components/StoryAndStats';
-import StraightTalk from '@/components/StraightTalk';
-import VisionSection from '@/components/VisionSection';
+import FinalCta from '@/components/FinalCta';
 
 export default function Home() {
   return (
-    <> 
-      <HeroSection />
-      <VisionSection />
-      <ProcessFlow />
-      {/* <StoryAndStats /> */}
-      <StraightTalk />
-      <ProductsSection />
-      <LoveSection /> 
-      <PhilosophySection />
-      <CodeConduct />
-      <Faq />
-      <Footer />
-      
+    <>
+      <Nav />
+      <main>
+        <Hero />
+        <WhatIsOneFam />
+        <HowItWorks />
+        <TravelPool />
+        <DestinationVote />
+        <Values />
+        <Philosophy />
+        <WhyWeDoThis />
+        <Faq />
+        <FinalCta />
+      </main>
+      <SiteFooter />
     </>
   );
 }

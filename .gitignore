@@ -1,0 +1,38 @@
+# dependencies
+/node_modules
+
+# next.js build output
+/.next/
+/out/
+
+# production build
+/build
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# secrets / local env — NEVER commit
+.env
+.env*.local
+.env.local
+
+# macOS
+.DS_Store
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# editor / misc
+*.pem
+.vercel
+
+# project: reference & briefing docs (not app code)
+/Für Anwalt/
+/Copywriter: Übersetzer/
+/Für Developer:Webentwickler Kopie/
+
+# project: large raw logo asset dump (44 MB) — kept out of the repo
+/Transparent PNG Logo/

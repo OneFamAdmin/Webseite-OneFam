@@ -1,167 +1,193 @@
 {
-  "hero_section": {
-    "one_love": "Eine Liebe",
-    "one_culture": "Eine Kultur",
-    "one_fam": "Eine Familie",
-    "description": "OneFam ist kein Label, das du in deinem Schrank vergisst. Es ist dein Ticket in eine Crew, die größer denkt – laut, frei, voller Energie. Jedes Teil, das du bestellst, bringt dich nicht nur modisch weiter, sondern katapultiert dich in unsere Geschichte: voller Abenteuer, guter Vibes und echter Chancen, in Bali oder auf einem Rooftop in New York zu landen.",
-    "shop_now": "Jetzt shoppen"
+  "nav": {
+    "about": "About",
+    "reiseziel": "Reiseziel",
+    "werte": "Code",
+    "faq": "FAQ",
+    "shop": "Shop",
+    "join": "Join the Fam"
   },
-  "vision_section": {
-    "title": "Unsere Vision",
-    "subTitle": "Wir sind Familie – Punkt.",
-    "description1": "Wir glauben an diese einfache Formel: Wenn du dich gut fühlst, veränderst du die Welt um dich herum sofort. Deshalb stecken wir keinen Cent in nervige Werbung, sondern in Momente, die dein Herz schneller schlagen lassen. ",
-    "description2": "Deine Bestellung vergrößert unsere Community, stärkt unseren Impact – und öffnet Türen zu Erlebnissen, die du dir sonst nirgendwo buchen kannst. Fashion als Abzeichen für Einheit, Freiheit und echten Mehrwert – das treibt uns jeden Tag an.",
-    "shop_now": "Jetzt shoppen"
+  "hero": {
+    "brand": "OneFam",
+    "claim": "For good souls worldwide",
+    "subline": "Eine globale Community für Menschen mit guter Energie – die sich respektieren, inspirieren und gemeinsam mehr aus ihrem Leben machen.",
+    "cta_primary": "Join the Fam",
+    "cta_secondary": "Entdecke OneFam"
   },
-  "process_flow": {
-    "title": "So funktioniert’s",
-    "subTitle": "Shoppen, Abstimmen, Abheben",
-    "description": "Unser Prozess ist simpel. Keine Spielchen, keine Abos, einfach pure Abenteuerlust, die auf dich wartet.",
-    "process": [
+  "what_is_onefam": {
+    "title": "Was ist OneFam?",
+    "intro": "OneFam ist keine klassische Clothing-Brand. OneFam ist eine globale Community, die auf Wärme, Respekt, Support und echten Verbindungen basiert.",
+    "cards": [
       {
-        "title": "Shoppen",
-        "description": "Du klickst auf „Order“ – fertig. Dein Name landet automatisch in der Verlosung. Kein extra Schritt nötig."
+        "title": "Fam statt Masse.",
+        "text": "Community für Menschen mit guter Energie."
       },
       {
-        "title": "Abstimmen",
-        "description": "Wir stimmen gemeinsam ab, wo die nächste OneFam-Mission hingeht: zuerst Kontinent, dann Land, schließlich Ort."
+        "title": "Werte statt Fassade.",
+        "text": "Kleidung ist Ausdruck von Haltung, nicht Kern."
       },
       {
-        "title": "Abheben",
-        "description": "Wir ziehen fair die Glücklichen per Zufall, und wir übernehmen alles – Flug, Hotel, Taschengeld, Event."
+        "title": "Momente statt Oberflächlichkeit.",
+        "text": "Was bleibt, sind die Momente — nicht der Hype."
+      }
+    ]
+  },
+  "how_it_works": {
+    "title": "So funktioniert OneFam",
+    "steps": [
+      {
+        "number": "01",
+        "text": "Kostenlos dabei – einmal im Jahr, ganz ohne Kauf. Deine Teilnahme ist immer gratis."
+      },
+      {
+        "number": "02",
+        "text": "Gleiche Chance für alle – ob du etwas kaufst oder nicht, ändert nichts an deiner Chance."
+      },
+      {
+        "number": "03",
+        "text": "Fair gezogen, öffentlich nachprüfbar – die Auswahl der Reiseplätze ist für jeden transparent überprüfbar."
+      },
+      {
+        "number": "04",
+        "text": "Käufer erleben mehr – World Map, Voting, Live-Pool, Archiv, Early Access. Auf die Chance hat das keinen Einfluss."
       }
     ],
-    "title_story": "Warum wir das tun",
-    "subTitle_story": "Weil Hype allein langweilig ist.",
-    "description1": "Fast Fashion verkauft Rabatte, wir verkaufen Erinnerungen. Statt flüchtiger Prozente schenken wir Geschichten, die du deinen Enkelkindern erzählst. ",
-    "description2": "Das Prinzip heißt Reziprozität: Du vertraust uns dein Outfit an, wir schenken dir das Abenteuer deines Lebens. Dieses „Danke, dass du dabei bist“ brennt tiefer als jeder Couponcode – und genau dieses Gefühl macht aus Kund*innen Familie.",
-    "tripCovered": "Abgedeckte Reise",
-    "adventures": "Abenteuer/Jahr",
-    "members": "Glückliche Mitglieder",
-    "shop_now": "Jetzt shoppen"
+    "cta": "Mehr erfahren"
   },
-  "products_section": {
-    "title": "Unsere Produkte",
-    "subTitle": "Trage Geschichten, nicht nur Stoff.",
-    "description": "Wenn du OneFam rockst, trägst du mehr als Fashion. Du trägst ein Manifest: für Freiheit, Community und verdammt gute Zeiten. Jeder Faden erinnert dich daran, dass ein neues Teil auch dein Leben upgraden kann.",
-    "shop_now": "Jetzt shoppen"
+  "travel_pool": {
+    "label": "Aktueller Travel Pool 2026",
+    "note": "(wächst mit jedem Kauf)",
+    "description": "Dieser Betrag fliesst vollständig in die Community-Erlebnisse am Jahresende.",
+    "cta": "Käufer sehen mehr"
   },
-  "straight_talk": {
-    "title": "Klartext",
-    "description": "Wir stehen für völlige Transparenz. So funktioniert’s genau.",
-    "straights": [
-      {
-        "title": "Keine versteckten Kosten",
-        "description": "Du zahlst nur für dein Shirt, Hoodie oder Cap. Die Reise ist unser Bonus aus dem Community-Budget."
-      },
-      {
-        "title": "Faire Auswahl",
-        "description": "Keine Mindestanforderung, keine Zusatzgebühren, einmalige Verlosung pro Jahr – sauber, transparent, fair."
-      },
-      {
-        "title": "Rechtlich einwandfrei",
-        "description": "Style + Chance, aber niemals Glücksspiel. Versprochen. (Ja, unser Legal-Team hat’s abgenommen.)"
-      },
-      {
-        "title": "All-inclusive",
-        "description": "Wir übernehmen alles – Flug, Hotel, Taschengeld, Event. Keine Abo-Gags, null Papierkram."
-      }
-    ]
-  },
-  "philosophy_section": {
-    "philo": "Philo",
-    "sophy": "sophie",
-    "description": "Wir umgeben uns mit Menschen, die uns dazu ermutigen, die beste Version unserer selbst zu werden. Wir distanzieren uns von Drama oder negativen Einflüssen wie Neid oder Hass. Stattdessen verbreiten wir positive Energie, um das Beste in jedem hervorzubringen."
-  },
-  "code_conduct_section": {
-    "title": "Verhaltenskodex",
-    "description": "Dieser Familientrust codex spiegelt die Werte und Prinzipien unserer Familie wider. Er dient dazu, unsere Beziehungen zu stärken, Erwartungen zu klären und unsere gemeinsame Reise als Familie zu gestalten.",
+  "values": {
+    "label": "Code of Conduct",
+    "title": "The Family Code",
+    "intro": "Dieser Kodex ist das Herz von OneFam. Er hält fest, wofür wir stehen – und wie wir miteinander umgehen. Als eine Fam.",
     "items": [
       {
-        "title": "Liebe und Respekt",
-        "content": "In unserer Familie stehen Liebe und Respekt im Mittelpunkt. Wir begegnen einander mit Freundlichkeit, Fürsorge und Rücksichtnahme."
+        "title": "Love & Respect",
+        "text": "Liebe und Respekt sind unser Fundament. Wir begegnen einander mit Güte, Achtsamkeit und echtem Interesse."
       },
       {
-        "title": "Offene Kommunikation",
-        "content": "Offene Gespräche und das Teilen von Gedanken und Gefühlen sind willkommen. Wir hören aktiv zu und sprechen ehrlich und respektvoll."
+        "title": "Open Communication",
+        "text": "Wir reden offen und hören wirklich zu – ehrlich, respektvoll und ohne Maske. So, wie man in einer Familie spricht."
       },
       {
-        "title": "Unterstützung und Zusammenhalt",
-        "content": "Wir sind ein Team. Wir unterstützen uns in allen Lebensbereichen und ermutigen Einzelne, ihre Ziele und Träume zu verfolgen."
+        "title": "Support & Unity",
+        "text": "Wir sind ein Team. Wir stützen einander und bestärken jeden darin, seine eigenen Träume zu verfolgen."
       },
       {
-        "title": "Gemeinsame Zeit",
-        "content": "Wir schätzen gemeinsame Zeit. Regelmäßige Unternehmungen stärken unsere Bindung und schaffen Erinnerungen."
+        "title": "Shared Moments",
+        "text": "Gemeinsame Zeit ist uns heilig. Echte Erlebnisse und Momente verbinden uns – und bleiben."
       },
       {
-        "title": "Verantwortung",
-        "content": "Jedes Familienmitglied trägt Verantwortung für unsere Gemeinschaft. Gemeinsam tragen wir dazu bei, ein angenehmes Umfeld zu schaffen."
+        "title": "Responsibility",
+        "text": "Jeder von uns trägt Verantwortung für die Fam. Gemeinsam schaffen wir einen Ort, an dem man sich geborgen fühlt."
       },
       {
-        "title": "Vielfalt und Akzeptanz",
-        "content": "Wir begrüßen Vielfalt und akzeptieren Unterschiede. Jeder in unserer Familie ist einzigartig und respektiert."
+        "title": "Diversity & Acceptance",
+        "text": "Wir feiern Vielfalt und nehmen einander an, wie wir sind. Jeder ist einzigartig – und genau das macht uns stark."
       },
       {
-        "title": "Bildung und persönliche Entwicklung",
-        "content": "Wir fördern lebenslanges Lernen und die Entwicklung von Fähigkeiten und Interessen."
+        "title": "Growth",
+        "text": "Wir wachsen miteinander. Wir bestärken uns, zu lernen, uns zu entwickeln und die beste Version von uns zu werden."
       },
       {
-        "title": "Dankbarkeit",
-        "content": "Wir wissen, was wir haben, zu schätzen, und sind dankbar für die kleinen und großen Freuden des Lebens."
+        "title": "Gratitude",
+        "text": "Wir schätzen, was wir haben – und sind dankbar für die kleinen wie die großen Freuden des Lebens."
       },
       {
-        "title": "Konfliktlösung",
-        "content": "Konflikte sind natürlich, und wir setzen uns dafür ein, sie respektvoll zu lösen. Wir suchen gemeinsam faire Lösungen für alle."
+        "title": "Conflict Resolution",
+        "text": "Konflikte gehören dazu. Wir lösen sie fair und respektvoll – und finden Lösungen, mit denen alle leben können."
       },
       {
-        "title": "Sicherheit und Geborgenheit",
-        "content": "Jedes Familienmitglied trägt zur Sicherheit bei. Wir schützen uns vor schädlichen Einflüssen und bieten emotionale Unterstützung."
+        "title": "Safety & Good Energy",
+        "text": "Wir halten Abstand von Drama und negativen Einflüssen – und geben einander Halt, wenn er gebraucht wird."
       },
       {
-        "title": "Gemeinnütziges Engagement",
-        "content": "Wir tragen aktiv zur Stärkung unserer Gemeinschaft bei, indem wir Verantwortung für die Welt um uns herum übernehmen."
+        "title": "Community Service",
+        "text": "Wir geben zurück. Wir übernehmen Verantwortung – für die Fam und für die Welt um uns herum."
       }
     ]
   },
-  "faq_section": {
-    "title": "Häufig gestellte Fragen",
-    "description": "Alles, was du über OneFam und unseren einzigartigen Ansatz zu Mode und Erlebnissen wissen musst.",
+  "philosophy": {
+    "label": "Philosophie",
+    "quote": "Wir umgeben uns mit Menschen, die uns ermutigen, die beste Version von uns selbst zu werden. Wir halten Abstand von Drama und negativen Einflüssen wie Neid oder Hass. Stattdessen richten wir unseren Fokus auf gute Energie – damit in jedem das Beste sichtbar wird."
+  },
+  "why_we_do_this": {
+    "title": "Warum wir das machen",
+    "paragraphs": [
+      "OneFam ist in der Stille der Pandemie entstanden – als die Welt pausierte und Nähe nur noch durch Bildschirme passierte.",
+      "Es begann leise: kleine, handverlesene Treffen für Menschen, die sich wieder echt begegnen wollten. Der richtige Ort, die richtigen Leute – ein Gefühl, das man nicht erklären muss, nur spüren.",
+      "Irgendwann kam die Frage: Was, wenn dieses Gefühl dich überallhin begleiten könnte – egal, an wie vielen Orten du zuhause bist? Daraus wurde OneFam.",
+      "Denn Menschen erinnern sich an Gefühle – nicht an Prozentzeichen.",
+      "Wer Teil von OneFam ist, soll nicht das Gefühl haben, etwas zu kaufen – sondern das Gefühl, dazuzugehören.",
+      "Nicht lauter. Echter."
+    ]
+  },
+  "faq": {
+    "title": "Häufige Fragen",
     "items": [
       {
-        "title": "Was ist OneFam und was unterscheidet euch von anderen Fashion-Brands? ",
-        "content": "OneFam ist mehr als Streetwear – wir verbinden Mode mit realen Erlebnissen. Jeder Kauf hebt deinen Look aufs nächste Level und nimmt dich automatisch am Community-Trip teil."
+        "question": "Ist OneFam ein Glücksspiel oder eine Lotterie?",
+        "answer": "OneFam vergibt die Reiseplätze über eine kostenlose, faire Verlosung. Weil die Teilnahme immer gratis ist – auch ohne Kauf – und niemand etwas einsetzt, gilt sie nicht als bewilligungspflichtiges Geldspiel. Der Reise-Pool wird von uns als Unternehmen finanziert, nicht aus Einsätzen der Teilnehmenden."
       },
       {
-        "title": "Wie nehme ich an der Trip-Verlosung teil? ",
-        "content": "Mit jedem Kauf – Shirt, Hoodie oder Cap – bist du automatisch dabei. Kein Extra-Formular, keine Zusatzgebühren."
+        "question": "Was kostet die Teilnahme?",
+        "answer": "Die Teilnahme ist komplett kostenlos – einmal im Jahr, weltweit, eine Teilnahme pro Person."
       },
       {
-        "title": "Wie oft gibt es Verlosungen und wie oft kann ich gewinnen? ",
-        "content": "Regelmäßige Ziehungen; jede Person kann pro Kalenderjahr einmal gewinnen – fair für alle."
+        "question": "Bringen mir Käufe einen Vorteil bei der Ziehung?",
+        "answer": "Nein. Käufe sind reine Community-Unterstützung und verändern deine Chance nicht – bei der Ziehung sind alle Teilnehmenden gleichgestellt."
       },
       {
-        "title": "Wie wird das Reiseziel bestimmt? ",
-        "content": "Die Community stimmt in drei Phasen ab: Kontinent → Land → konkreter Ort; so hat jeder Teilnehmer Mitspracherecht."
+        "question": "Was haben Mitglieder, die etwas kaufen, davon?",
+        "answer": "Sie erleben mehr: World Map, Voting, Live-Pool, Archiv und Early Access."
       },
       {
-        "title": "Wie werden die Gewinner ausgewählt? ",
-        "content": "Zufällige, dokumentierte und transparente Ziehung. Alle haben die gleiche Chance; Gewinner werden per E-Mail und Newsletter informiert."
+        "question": "Wie transparent ist das Ganze?",
+        "answer": "Die Ziehung ist öffentlich nachprüfbar, klar dokumentiert und archiviert – jederzeit nachvollziehbar."
       },
       {
-        "title": "Was passiert, wenn ich gewinne? ",
-        "content": "Wir übernehmen Flug, Unterkunft, Taschengeld und ein Highlight-Event vor Ort – dein einziger Job: Koffer packen und genießen."
+        "question": "Woher kommt das Geld im Travel Pool – und wohin fliesst es?",
+        "answer": "Der Pool wird vollständig von OneFam aus dem eigenen Unternehmensgewinn finanziert – als Bonus an unsere Community. Niemand zahlt in den Pool ein. Am Jahresende fliesst der gesamte Betrag vollständig in die Community-Erlebnisse."
       },
       {
-        "title": "Muss ich extra zahlen oder abonnieren – und ist das nicht Glücksspiel? ",
-        "content": "Nein. Du zahlst nur für dein Kleidungsstück; die Verlosung ist ein kostenloser Bonus aus unseren Gewinnen. Kein Einsatz, keine Abo-Falle. Rechtlich kein Glücksspiel."
+        "question": "Wer steht hinter OneFam?",
+        "answer": "OneFam wird als Einzelfirma mit Sitz in der Schweiz geführt."
       }
     ]
+  },
+  "final_cta": {
+    "title": "Join the Fam",
+    "text": "Wenn sich das nach dir anfühlt, bist du längst Teil davon.",
+    "cta_primary": "Join the Fam"
   },
   "footer": {
-    "title": "Updates in Sozialen Medien erhalten",
-    "onefam": "OneFam",
+    "claim": "For good souls worldwide",
+    "pages_title": "Navigation",
+    "legal_title": "Legal",
+    "social_title": "Social",
+    "pages": [
+      { "label": "Home", "href": "#hero" },
+      { "label": "About", "href": "#about" },
+      { "label": "So funktioniert OneFam", "href": "#how" },
+      { "label": "Code", "href": "#werte" },
+      { "label": "Philosophie", "href": "#philosophie" },
+      { "label": "FAQ", "href": "#faq" }
+    ],
+    "legal": [
+      { "label": "AGB", "href": "/agb" },
+      { "label": "Datenschutz", "href": "/datenschutz" },
+      { "label": "Archiv / Transparenz", "href": "/archiv" }
+    ],
     "imprint": "Impressum",
-    "ceo_and_founder": "CEO & Gründer",
-    "ceo_and_founder_name": "Labinot Bajrami"
+    "imprint_company": "OneFam — Einzelfirma, Schweiz",
+    "imprint_owner": "Labinot Bajrami",
+    "imprint_address": "Riehenstrasse 236, 4058 Basel",
+    "imprint_email": "info@onefam.ch",
+    "imprint_phone": "+41 76 225 80 58",
+    "copyright": "© 2026 OneFam — Einzelfirma, Schweiz"
   }
 }

@@ -1,14 +1,10 @@
 // i18n/request.ts
 
 import { getRequestConfig } from 'next-intl/server';
-import { cookies } from 'next/headers';
 
+// OneFam ships German-only. Locale is fixed; no cookie/URL negotiation.
 export default getRequestConfig(async () => {
-  // Provide a static locale, fetch a user setting,
-  // read from `cookies()`, `headers()`, etc.
-  // const locale = 'fr';
-  const cookieStore = await cookies(); // ✅ Await this
-  const locale = cookieStore.get('NEXT_LOCALE')?.value || 'en';
+  const locale = 'de';
 
   return {
     locale,
