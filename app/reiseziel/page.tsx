@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { createClient } from '@/lib/supabase/server';
 import VotingDesignMap, { type DesignOption } from '@/components/VotingDesignMap';
+import ReisezielVoting from '@/components/ReisezielVoting';
 import Countdown from '@/components/Countdown';
 import { CONTINENTS, countriesByContinent, placesByCountry, continentByKey, countryByIso } from '@/lib/geo/data';
 
@@ -99,6 +100,7 @@ export default async function ReisezielPage({ searchParams }: { searchParams: Pr
   let user: { id: string } | null = null;
   let isBuyer = false;
   let phase: PhaseView | null = null;
+  let myVote: string | null = null;
 
   try {
     const supabase = await createClient();
@@ -113,6 +115,18 @@ export default async function ReisezielPage({ searchParams }: { searchParams: Pr
     const { data } = await supabase.rpc('current_round', { p_year: year });
     const row = Array.isArray(data) ? data[0] : data;
     if (row?.round_id) phase = realPhase(row);
+
+    // The buyer's existing vote for this round (RLS: select-own), so the map shows their choice.
+    if (phase?.roundId && u) {
+      const { data: v } = await supabase
+        .from('votes')
+        .select('poll_options(code)')
+        .eq('round_id', phase.roundId)
+        .maybeSingle();
+      const rel = (v as { poll_options?: { code?: string } | { code?: string }[] } | null)?.poll_options;
+      const opt = Array.isArray(rel) ? rel[0] : rel;
+      myVote = opt?.code ?? null;
+    }
   } catch {
     // no DB / not migrated yet → fall through to the demo or empty state
   }
@@ -123,6 +137,9 @@ export default async function ReisezielPage({ searchParams }: { searchParams: Pr
   if (!phase && demoReq && ['continent', 'country', 'place'].includes(sp.demo!)) {
     phase = demoPhase(sp.demo as Level, sp.c);
   }
+
+  // Live voting requires a REAL open round (roundId), a logged-in user, AND buyer status.
+  const canVote = Boolean(phase?.roundId && user && isBuyer);
 
   return (
     <div className="flex min-h-screen flex-col bg-bg">
@@ -160,45 +177,57 @@ export default async function ReisezielPage({ searchParams }: { searchParams: Pr
               </div>
             </div>
 
-            {/* premium map: full-width on large screens (cap raised so 4K/5K fill fuller) */}
+            {/* premium map: full-width on large screens (cap raised so 4K/5K fill fuller). Buyers in
+                a live round get the CLICKABLE map (ReisezielVoting); everyone else sees it read-only.
+                Stufe 3 (Ort): KEIN Gesicht ins Land legen — nur Goldland + Marker. Stufe 2 (Land)
+                behält die Flaggen-Gesichter als Embleme. */}
             <div className="mx-auto mt-10 w-full max-w-[3000px]">
-              <VotingDesignMap
-                level={phase.level}
-                options={phase.options}
-                faces={phase.faces}
-                landIsos={phase.landIsos}
-                heroIso={phase.heroIso}
-                /* Stufe 3 (Ort): KEIN Gesicht ins Land legen — nur Goldland + Marker. Stufe 2 (Land)
-                   behält die Flaggen-Gesichter als Embleme wie gehabt. */
-                faceStyle={phase.level === 'place' ? 'none' : 'color'}
-              />
-            </div>
-
-            {/* state-aware call to action */}
-            <div className="mx-auto mt-10 max-w-[640px] text-center">
-              {!user ? (
-                <CTA
-                  text="Melde dich an, um mitzustimmen — Käufer bestimmen das Reiseziel mit."
-                  href="/mein-bereich"
-                  label="Anmelden"
+              {canVote ? (
+                <ReisezielVoting
+                  roundId={phase.roundId!}
+                  level={phase.level}
+                  options={phase.options}
+                  faces={phase.faces}
+                  landIsos={phase.landIsos}
+                  heroIso={phase.heroIso}
+                  faceStyle={phase.level === 'place' ? 'none' : 'color'}
+                  initialSelected={myVote}
                 />
-              ) : !isBuyer ? (
-                <CTA
-                  text="Mitbestimmen ist ein Käufer-Extra. Deine Gewinnchance bei der Auslosung bleibt für alle gleich."
-                  href="/mein-bereich"
-                  label="Zu meinem Bereich"
-                />
-              ) : phase.roundId ? (
-                <p className="font-body text-base text-secondary">
-                  Du bist Käufer — tippe dein Reiseziel auf der Karte an. Du kannst deine Stimme bis zum Ende der Phase
-                  jederzeit ändern.
-                </p>
               ) : (
-                <p className="font-body text-sm text-faint">
-                  Vorschau — die echte Abstimmung startet, sobald die erste Phase eröffnet ist.
-                </p>
+                <VotingDesignMap
+                  level={phase.level}
+                  options={phase.options}
+                  faces={phase.faces}
+                  landIsos={phase.landIsos}
+                  heroIso={phase.heroIso}
+                  faceStyle={phase.level === 'place' ? 'none' : 'color'}
+                />
               )}
             </div>
+
+            {/* state-aware call to action — buyers in a live round get their status from the voting
+                surface above, so a CTA only shows when the visitor can't vote (yet). */}
+            {!canVote && (
+              <div className="mx-auto mt-10 max-w-[640px] text-center">
+                {!user ? (
+                  <CTA
+                    text="Melde dich an, um mitzustimmen — Käufer bestimmen das Reiseziel mit."
+                    href="/mein-bereich"
+                    label="Anmelden"
+                  />
+                ) : !isBuyer ? (
+                  <CTA
+                    text="Mitbestimmen ist ein Käufer-Extra. Deine Gewinnchance bei der Auslosung bleibt für alle gleich."
+                    href="/mein-bereich"
+                    label="Zu meinem Bereich"
+                  />
+                ) : (
+                  <p className="font-body text-sm text-faint">
+                    Vorschau — die echte Abstimmung startet, sobald die erste Phase eröffnet ist.
+                  </p>
+                )}
+              </div>
+            )}
           </section>
         ) : (
           <section className="mx-auto flex min-h-[60vh] max-w-[640px] flex-col items-center justify-center px-6 text-center">

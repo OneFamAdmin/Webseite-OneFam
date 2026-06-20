@@ -27,6 +27,14 @@ type Props = {
   /** SSR fallback aspect — the real size is measured on the client. */
   width?: number;
   height?: number;
+  /** When true, each option becomes a clickable button that fires onSelect(code) — buyers vote
+   *  by tapping straight on the map (desktop emblems + mobile list). */
+  votable?: boolean;
+  /** The option code the current user has voted for — gets a "deine Wahl" highlight. */
+  selectedCode?: string | null;
+  /** The option code whose vote is being saved right now — shown muted while in flight. */
+  pendingCode?: string | null;
+  onSelect?: (code: string) => void;
 };
 
 const GOLD = '#C9A84C';
@@ -1019,7 +1027,18 @@ function renderLand(l: LandPath[]) {
   );
 }
 
-export default function VotingDesignMap({ level, options, landIsos, faces = false, heroIso, faceStyle = 'color' }: Props) {
+export default function VotingDesignMap({
+  level,
+  options,
+  landIsos,
+  faces = false,
+  heroIso,
+  faceStyle = 'color',
+  votable = false,
+  selectedCode = null,
+  pendingCode = null,
+  onSelect,
+}: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const rootRef = useRef<HTMLDivElement>(null);
   // namespace SVG gradient ids per map instance — the page stacks several maps, and the tether
@@ -1109,6 +1128,35 @@ export default function VotingDesignMap({ level, options, landIsos, faces = fals
   const finitePlaque = (p: Plaque) =>
     Number.isFinite(p.x) && Number.isFinite(p.y) && Number.isFinite(p.ax) && Number.isFinite(p.ay);
   const ranked = useMemo(() => (mobile ? [...mobile.plaques].sort((a, b) => b.votes - a.votes) : []), [mobile]);
+
+  // When the map is votable, every option div becomes a real button: click or Enter/Space fires
+  // onSelect(code). Geometry/positions are untouched — this only adds handlers + a11y attributes.
+  const interactiveProps = (code?: string) =>
+    votable && code
+      ? {
+          role: 'button' as const,
+          tabIndex: 0,
+          'aria-pressed': code === selectedCode,
+          onClick: () => onSelect?.(code),
+          onKeyDown: (e: { key: string; preventDefault: () => void }) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              onSelect?.(code);
+            }
+          },
+        }
+      : {};
+  // "Deine Wahl" check badge for the option the user picked — palette-safe (gold), and distinct
+  // from the leader glow because only the selected option carries the ✓.
+  const SelectedBadge = () => (
+    <span
+      aria-hidden="true"
+      className="pointer-events-none absolute -right-2 -top-2 flex items-center justify-center rounded-full font-body font-bold leading-none"
+      style={{ width: 18, height: 18, fontSize: 12, background: GOLD_BRIGHT, color: '#0a0a0a', boxShadow: '0 0 10px rgba(226,191,106,0.6)' }}
+    >
+      ✓
+    </span>
+  );
 
   return (
     <div ref={rootRef}>
@@ -1276,8 +1324,16 @@ export default function VotingDesignMap({ level, options, landIsos, faces = fals
             const ui = desktop.ui;
             const size = `${isLeader ? ui.leaderCqw : ui.faceCqw}cqw`;
             const blur = `${(isLeader ? ui.faceCqw * 0.23 : ui.faceCqw * 0.15).toFixed(2)}cqw`;
+            const isSelected = votable && p.code === selectedCode;
+            const isPending = votable && p.code === pendingCode;
             return (
-              <div key={i} className="absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center" style={{ left: `${p.left}%`, top: `${p.top}%` }}>
+              <div
+                key={i}
+                {...interactiveProps(p.code)}
+                className={`absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center outline-none ${votable ? 'cursor-pointer' : ''}`}
+                style={{ left: `${p.left}%`, top: `${p.top}%`, opacity: isPending ? 0.5 : 1, transition: 'opacity 150ms' }}
+              >
+                {isSelected && <SelectedBadge />}
                 {faceStyle === 'none' ? null : faceStyle === 'gold' ? (
                   <div
                     className="shrink-0"
@@ -1299,7 +1355,7 @@ export default function VotingDesignMap({ level, options, landIsos, faces = fals
                 ) : (
                   <img src={`/faces/${p.code}.png`} alt={p.label} loading="lazy" decoding="async" className="shrink-0" style={{ width: size, height: size, maxWidth: 'none', objectFit: 'contain', filter: `drop-shadow(0 0 ${blur} rgba(226,191,106,${isLeader ? 0.65 : 0.4}))` }} />
                 )}
-                <span className="flex flex-col items-center whitespace-nowrap text-center font-display leading-none" style={{ marginTop: '-0.3cqw', borderRadius: '0.5cqw', padding: '0.3cqw 0.5cqw', background: 'rgba(10,9,7,0.94)', border: `1px solid ${isLeader ? GOLD_BRIGHT : 'rgba(201,168,76,0.5)'}` }}>
+                <span className="flex flex-col items-center whitespace-nowrap text-center font-display leading-none" style={{ marginTop: '-0.3cqw', borderRadius: '0.5cqw', padding: '0.3cqw 0.5cqw', background: 'rgba(10,9,7,0.94)', border: `1px solid ${isSelected || isLeader ? GOLD_BRIGHT : 'rgba(201,168,76,0.5)'}`, boxShadow: isSelected ? '0 0 0 1.5px rgba(226,191,106,0.85), 0 0 14px rgba(226,191,106,0.45)' : undefined }}>
                   <span className="font-medium" style={{ fontSize: `${ui.nameCqw}cqw`, color: '#EFE6CF' }}>{p.label}</span>
                   <span className="font-semibold" style={{ fontSize: `${ui.voteCqw}cqw`, marginTop: '0.15cqw', color: isLeader ? GOLD_BRIGHT : GOLD }}>{fmt(p.votes)}</span>
                 </span>
@@ -1307,20 +1363,30 @@ export default function VotingDesignMap({ level, options, landIsos, faces = fals
             );
           }
           if (level === 'place') {
+            const isSelected = votable && p.code === selectedCode;
+            const isPending = votable && p.code === pendingCode;
             // city marker label: name over the gold vote count, sitting next to its dot
             return (
               <div
                 key={i}
-                className="absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-[7px] text-center"
+                {...interactiveProps(p.code)}
+                className={`absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-[7px] text-center outline-none ${votable ? 'cursor-pointer' : ''}`}
                 style={{
                   left: `${p.left}%`,
                   top: `${p.top}%`,
                   padding: '0.34cqw 0.7cqw',
+                  opacity: isPending ? 0.5 : 1,
+                  transition: 'opacity 150ms',
                   background: 'rgba(10,9,7,0.92)',
-                  border: `1px solid ${isLeader ? GOLD_BRIGHT : 'rgba(201,168,76,0.5)'}`,
-                  boxShadow: isLeader ? '0 0 16px rgba(226,191,106,0.45)' : '0 0 8px rgba(0,0,0,0.55)',
+                  border: `1px solid ${isSelected || isLeader ? GOLD_BRIGHT : 'rgba(201,168,76,0.5)'}`,
+                  boxShadow: isSelected
+                    ? '0 0 0 1.5px rgba(226,191,106,0.85), 0 0 16px rgba(226,191,106,0.5)'
+                    : isLeader
+                      ? '0 0 16px rgba(226,191,106,0.45)'
+                      : '0 0 8px rgba(0,0,0,0.55)',
                 }}
               >
+                {isSelected && <SelectedBadge />}
                 <div className="font-display font-medium leading-tight" style={{ fontSize: '1.12cqw', color: '#EFE6CF' }}>{p.label}</div>
                 <div className="font-display font-semibold leading-tight" style={{ fontSize: '1.32cqw', color: isLeader ? GOLD_BRIGHT : GOLD }}>
                   {fmt(p.votes)}{' '}
@@ -1329,8 +1395,16 @@ export default function VotingDesignMap({ level, options, landIsos, faces = fals
               </div>
             );
           }
+          const isSelected = votable && p.code === selectedCode;
+          const isPending = votable && p.code === pendingCode;
           return (
-            <div key={i} className="absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-[8px]" style={{ left: `${p.left}%`, top: `${p.top}%`, padding: '0.6cqw 1.1cqw', background: 'rgba(10,9,7,0.82)', border: `1px solid ${isLeader ? GOLD_BRIGHT : 'rgba(201,168,76,0.55)'}`, boxShadow: isLeader ? '0 0 18px rgba(226,191,106,0.45)' : '0 0 10px rgba(0,0,0,0.5)' }}>
+            <div
+              key={i}
+              {...interactiveProps(p.code)}
+              className={`absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-[8px] outline-none ${votable ? 'cursor-pointer' : ''}`}
+              style={{ left: `${p.left}%`, top: `${p.top}%`, padding: '0.6cqw 1.1cqw', opacity: isPending ? 0.5 : 1, transition: 'opacity 150ms', background: 'rgba(10,9,7,0.82)', border: `1px solid ${isSelected || isLeader ? GOLD_BRIGHT : 'rgba(201,168,76,0.55)'}`, boxShadow: isSelected ? '0 0 0 1.5px rgba(226,191,106,0.85), 0 0 18px rgba(226,191,106,0.5)' : isLeader ? '0 0 18px rgba(226,191,106,0.45)' : '0 0 10px rgba(0,0,0,0.5)' }}
+            >
+              {isSelected && <SelectedBadge />}
               <span className="font-display font-medium tracking-[0.01em]" style={{ fontSize: '1.4cqw', color: '#EFE6CF' }}>{p.label}</span>{' '}
               <span className="font-display font-semibold" style={{ fontSize: '1.6cqw', color: isLeader ? GOLD_BRIGHT : GOLD }}>{fmt(p.votes)}</span>
               <span className="ml-1 font-body uppercase tracking-[0.14em]" style={{ fontSize: '0.85cqw', color: 'rgba(201,168,76,0.7)' }}>Stimmen</span>
@@ -1352,9 +1426,16 @@ export default function VotingDesignMap({ level, options, landIsos, faces = fals
         <ul className="mt-4 space-y-2">
           {ranked.map((p, i) => {
             const isLeader = i === 0 && p.votes > 0;
+            const isSelected = votable && p.code === selectedCode;
+            const isPending = votable && p.code === pendingCode;
             const share = leaderVotes > 0 ? (p.votes / leaderVotes) * 100 : 0;
             return (
-              <li key={i} className="relative flex items-center gap-3 overflow-hidden rounded-[8px] px-3 py-2.5" style={{ background: 'rgba(10,9,7,0.82)', border: `1px solid ${isLeader ? GOLD_BRIGHT : 'rgba(201,168,76,0.4)'}` }}>
+              <li
+                key={i}
+                {...interactiveProps(p.code)}
+                className={`relative flex items-center gap-3 overflow-hidden rounded-[8px] px-3 py-2.5 outline-none ${votable ? 'cursor-pointer' : ''}`}
+                style={{ opacity: isPending ? 0.5 : 1, transition: 'opacity 150ms', background: 'rgba(10,9,7,0.82)', border: `1px solid ${isSelected || isLeader ? GOLD_BRIGHT : 'rgba(201,168,76,0.4)'}`, boxShadow: isSelected ? 'inset 0 0 0 1.5px rgba(226,191,106,0.8)' : undefined }}
+              >
                 <div className="absolute inset-y-0 left-0" style={{ width: `${share}%`, background: 'rgba(201,168,76,0.12)' }} aria-hidden="true" />
                 {faces && p.code ? (
                   <img src={`/faces/${p.code}.png`} alt="" loading="lazy" decoding="async" className="relative" style={{ width: 30, height: 30, maxWidth: 'none', objectFit: 'contain' }} />
@@ -1362,7 +1443,12 @@ export default function VotingDesignMap({ level, options, landIsos, faces = fals
                   <span className="relative inline-block h-2.5 w-2.5 rounded-full" style={{ background: GOLD }} aria-hidden="true" />
                 )}
                 <span className="relative flex-1 text-left font-display text-sm font-medium" style={{ color: '#EFE6CF' }}>{p.label}</span>
-                <span className="relative font-display text-sm font-semibold" style={{ color: isLeader ? GOLD_BRIGHT : GOLD }}>{fmt(p.votes)}</span>
+                {isSelected && (
+                  <span className="relative font-body text-[10px] font-medium uppercase tracking-[0.12em]" style={{ color: GOLD_BRIGHT }}>
+                    deine Wahl
+                  </span>
+                )}
+                <span className="relative font-display text-sm font-semibold" style={{ color: isSelected || isLeader ? GOLD_BRIGHT : GOLD }}>{fmt(p.votes)}</span>
               </li>
             );
           })}
