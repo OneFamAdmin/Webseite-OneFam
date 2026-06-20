@@ -126,7 +126,7 @@ function Stage({
 
       {/* map breaks out of the text column so it can use the full width of large screens */}
       <div className="mx-auto mt-8 w-full max-w-[2200px]">
-        <VotingDesignMap level={level} options={options} faces={faces} landIsos={landIsos} heroIso={heroIso} width={mapWidth} height={mapHeight} />
+        <VotingDesignMap level={level} options={options} faces={faces} landIsos={landIsos} heroIso={heroIso} faceStyle={level === 'place' ? 'none' : 'color'} width={mapWidth} height={mapHeight} />
       </div>
     </section>
   );

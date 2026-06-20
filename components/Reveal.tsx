@@ -25,15 +25,30 @@ export default function Reveal({ children, delay = 0, className, as = 'div' }: R
     if (inView) setShow(true);
   }, [inView]);
 
-  // Reveal immediately if already on screen at mount — the in-view observer
-  // doesn't reliably fire for content that's visible on first paint, which
-  // would otherwise leave the hero/above-the-fold invisible.
+  // Reveal immediately if already on screen — the in-view observer doesn't reliably fire for
+  // content that's visible on first paint. A single synchronous check at mount is brittle: the
+  // first-paint layout (before webfonts settle) can place above-the-fold content below the fold
+  // for a frame, so it would stay invisible forever. Re-check after a frame + a short fallback.
   useEffect(() => {
-    const el = ref.current;
-    if (el) {
+    let raf = 0;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const check = () => {
+      const el = ref.current;
+      if (!el) return false;
       const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) setShow(true);
+      const onScreen = rect.top < window.innerHeight && rect.bottom > 0;
+      if (onScreen) setShow(true);
+      return onScreen;
+    };
+    if (!check()) {
+      raf = requestAnimationFrame(() => {
+        if (!check()) timer = setTimeout(check, 220);
+      });
     }
+    return () => {
+      cancelAnimationFrame(raf);
+      if (timer) clearTimeout(timer);
+    };
   }, []);
 
   const MotionTag = motion[as];

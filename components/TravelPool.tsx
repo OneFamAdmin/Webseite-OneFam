@@ -6,6 +6,7 @@ import Reveal from './Reveal';
 import Button from './Button';
 import CountUp from './CountUp';
 import MarbleBg from './MarbleBg';
+import { BRAND_GRADIENT } from '@/lib/brand';
 
 const SHOP_URL = 'https://onefam.shop';
 const FALLBACK_AMOUNT = 4280; // shown only until the admin has set a real pool
@@ -51,10 +52,19 @@ const TravelPool = async () => {
         </Reveal>
 
         <Reveal delay={0.08}>
+          {/* The ONE deliberate place the brand gradient returns: the growing community pool —
+              the tangible "good energy", echoing the gradient logo. Everything else stays gold. */}
           <CountUp
             to={amount}
             prefix="CHF "
             className="mt-4 block font-display text-[clamp(3.25rem,10vw,6rem)] font-extrabold leading-none tracking-[0.01em] text-gold"
+            style={{
+              backgroundImage: BRAND_GRADIENT,
+              WebkitBackgroundClip: 'text',
+              backgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              color: 'transparent',
+            }}
           />
         </Reveal>
 

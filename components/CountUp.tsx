@@ -14,9 +14,10 @@ type CountUpProps = {
   prefix?: string; // e.g. "CHF "
   duration?: number; // seconds
   className?: string;
+  style?: React.CSSProperties;
 };
 
-export default function CountUp({ to, prefix = '', duration = 1.6, className }: CountUpProps) {
+export default function CountUp({ to, prefix = '', duration = 1.6, className, style }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.5 });
   const [display, setDisplay] = useState(swiss(0));
@@ -32,7 +33,7 @@ export default function CountUp({ to, prefix = '', duration = 1.6, className }: 
   }, [inView, to, duration]);
 
   return (
-    <span ref={ref} className={className}>
+    <span ref={ref} className={className} style={style}>
       {prefix}
       {display}
     </span>

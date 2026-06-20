@@ -3,6 +3,7 @@ import MaxWidth from './MaxWidth';
 import Reveal from './Reveal';
 import Button from './Button';
 import MarbleBg from './MarbleBg';
+import { BRAND_GRADIENT } from '@/lib/brand';
 
 const FinalCta = () => {
   const t = useTranslations('final_cta');
@@ -26,7 +27,7 @@ const FinalCta = () => {
         </Reveal>
 
         <Reveal delay={0.18} className="mt-10 flex justify-center">
-          <Button as="a" href="/join" variant="primary" className="w-full px-10 py-4 sm:w-auto">
+          <Button as="a" href="/join" variant="primary" className="w-full px-10 py-4 sm:w-auto" style={{ background: BRAND_GRADIENT }}>
             {t('cta_primary')}
           </Button>
         </Reveal>

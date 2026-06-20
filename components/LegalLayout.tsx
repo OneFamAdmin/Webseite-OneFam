@@ -23,7 +23,7 @@ export default function LegalLayout({ eyebrow = 'Rechtliches', title, updated, l
       <header className="border-b border-line">
         <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-5">
           <Link href="/" aria-label="OneFam — Home" className="flex items-center gap-2.5">
-            <img src="/assets/logo-face.svg" alt="" aria-hidden="true" className="h-7 w-7" />
+            <img src="/assets/logo-face-gradient.svg" alt="" aria-hidden="true" className="h-7 w-7" />
             <Image src="/assets/logo-white.png" alt="OneFam" width={216} height={75} priority className="h-6 w-auto" />
           </Link>
           <Link

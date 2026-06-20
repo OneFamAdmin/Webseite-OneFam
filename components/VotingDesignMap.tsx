@@ -9,8 +9,8 @@
 //   place     → ONE country's land + hero face + popular-city plaques
 // Desktop = full-width map with on-map emblems. Mobile = a square map + ranked list.
 
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { geoNaturalEarth1, geoMercator, geoConicConformal, geoPath, geoCentroid, geoArea, geoDistance } from 'd3-geo';
+import { useEffect, useId, useMemo, useRef, useState } from 'react';
+import { geoNaturalEarth1, geoMercator, geoConicConformal, geoPath, geoCentroid, geoArea, geoDistance, geoContains, geoBounds } from 'd3-geo';
 import { worldNoAntarctica, featureByIso, mergedLand } from '@/lib/geo/worldmap';
 import { continentByKey } from '@/lib/geo/data';
 
@@ -22,6 +22,8 @@ type Props = {
   landIsos?: string[];
   faces?: boolean;
   heroIso?: string;
+  /** How the flag-face emblems render: full flag COLOUR, GOLD monochrome, or NONE (design study). */
+  faceStyle?: 'color' | 'none' | 'gold';
   /** SSR fallback aspect — the real size is measured on the client. */
   width?: number;
   height?: number;
@@ -50,6 +52,74 @@ function mainlandCentroid(feature: any): [number, number] {
   return geoCentroid(feature as never) as [number, number];
 }
 
+// The country's biggest single polygon (its mainland), as a Polygon feature. The pin is anchored
+// to THIS so it always lands on the part of the country that is actually drawn (keepNearMainland
+// keeps the largest polygon), never on a trimmed-away island or in the sea between polygons.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function mainlandPolygon(feature: any): any {
+  const g = feature?.geometry;
+  if (g && g.type === 'MultiPolygon' && Array.isArray(g.coordinates)) {
+    let best: unknown = null;
+    let bestA = -1;
+    for (const coords of g.coordinates) {
+      const poly = { type: 'Polygon', coordinates: coords };
+      const a = geoArea(poly as never);
+      if (a > bestA) {
+        bestA = a;
+        best = poly;
+      }
+    }
+    if (best) return best;
+  }
+  return g && g.type === 'Polygon' ? g : feature;
+}
+
+// A point GUARANTEED to lie inside the polygon (so a map pin never floats in the sea). The
+// geographic centroid is used when it already falls inside; otherwise we scan a small lon/lat
+// grid over the polygon's bounds and take the contained point nearest the centroid. Concave
+// countries (a bay, a crescent, an arc of coast) are exactly the ones whose centroid is offshore.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function interiorGeo(poly: any, centroid: [number, number]): [number, number] {
+  if (geoContains(poly as never, centroid as never)) return centroid;
+  const b = geoBounds(poly as never);
+  const [w, s] = b[0];
+  const [e, n] = b[1];
+  if (!(e > w) || !(n > s)) return centroid; // antimeridian / degenerate → leave as-is
+  let best: [number, number] | null = null;
+  let bestD = Infinity;
+  const N = 10;
+  for (let i = 1; i < N; i++) {
+    for (let j = 1; j < N; j++) {
+      const lng = w + ((e - w) * i) / N;
+      const lat = s + ((n - s) * j) / N;
+      if (geoContains(poly as never, [lng, lat] as never)) {
+        const d = (lng - centroid[0]) ** 2 + (lat - centroid[1]) ** 2;
+        if (d < bestD) {
+          bestD = d;
+          best = [lng, lat];
+        }
+      }
+    }
+  }
+  return best ?? centroid;
+}
+
+// Per-ISO cache of the country's guaranteed-interior GEOGRAPHIC point. This value is projection-
+// independent, so it is computed ONCE per country for the whole session — every map size, every
+// resize and the desktop+mobile pair all reuse it. The geoContains search must never run per
+// render: doing point-in-polygon per render across all maps is what caused a multi-second stall.
+const interiorGeoCache = new Map<string | number, [number, number]>();
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function countryInteriorLngLat(code: string | number, feature: any): [number, number] {
+  const hit = interiorGeoCache.get(code);
+  if (hit) return hit;
+  const main = mainlandPolygon(feature);
+  const cen = geoCentroid(main as never) as [number, number];
+  const ip = interiorGeo(main, cen);
+  interiorGeoCache.set(code, ip);
+  return ip;
+}
+
 // Drop a country's FAR-FLUNG polygons (overseas territories: French Guiana, Réunion,
 // the Canaries, Svalbard…) so they don't blow up the map's bounding box. Keeps nearby
 // islands (Sicily, Sardinia, Balearics, the Greek isles, the British Isles).
@@ -74,8 +144,29 @@ function keepNearMainland(feature: any, maxDeg = 10): any {
   return { ...feature, geometry: { type: 'MultiPolygon', coordinates: kept } };
 }
 
-type LandPath = { d: string; i: number; isLeader: boolean; scale?: number; cx?: number; cy?: number };
-type Plaque = DesignOption & { ax: number; ay: number; x: number; y: number; left: number; top: number; moved: boolean };
+// A small deterministic island silhouette for the FEW countries with no map geometry at all
+// (Tuvalu, Kosovo) so they still read as a little landmass, not a bare dot. Lives in lng/lat;
+// the country-scaling below sizes it up to a visible shape.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function synthIsland(iso: string | number, lat: number, lng: number, seed: number): any {
+  const R = 0.5;
+  const n = 11;
+  const ring: [number, number][] = [];
+  for (let i = 0; i < n; i++) {
+    const a = (i / n) * Math.PI * 2;
+    const wob = 0.6 + 0.4 * Math.abs(Math.sin(seed * 2.3 + i * 1.7));
+    // clockwise (negated sin) so d3-geo reads the ring as a SMALL island, not "whole world
+    // minus a hole" (wrong winding sent the conic projection to ±∞).
+    ring.push([lng + Math.cos(a) * R * wob, lat - Math.sin(a) * R * wob * 0.8]);
+  }
+  ring.push(ring[0]);
+  return { type: 'Feature', id: Number(iso), properties: { name: 'synth' }, geometry: { type: 'Polygon', coordinates: [ring] } };
+}
+
+// cx/cy = raw bbox centre (the scale pivot's source); tx/ty = where that centre lands AFTER
+// scaling (nudged inward so a scaled-up island near an edge can't spill off the frame).
+type LandPath = { d: string; i: number; isLeader: boolean; scale?: number; cx?: number; cy?: number; tx?: number; ty?: number };
+type Plaque = DesignOption & { ax: number; ay: number; x: number; y: number; left: number; top: number; moved: boolean; hasLand: boolean };
 
 // The whole layout for one pixel box. Pure function of (w, h) + props → memoised per size.
 function buildLayout(
@@ -89,33 +180,151 @@ function buildLayout(
   // mobile renders only the land + a ranked LIST (never the on-map emblem positions), so it
   // passes false to skip the whole expensive placement pass.
   placeEmblems: boolean,
-  // place stage only: the hero country's 50m feature (with its small islands), loaded async;
-  // null until it arrives (then the map re-renders with the islands).
+  // COUNTRY + PLACE stages: a resolver to the 50m geometry (small islands), loaded async; null
+  // until it arrives (then the map re-renders with the real island outlines).
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  heroGeo: any,
+  geo50: ((iso: string | number) => any) | null,
 ): {
   land: LandPath[];
   plaques: Plaque[];
   leaderVotes: number;
   ui: { faceCqw: number; leaderCqw: number; nameCqw: number; voteCqw: number };
-  hero: { cx: number; cy: number; w: number; h: number } | null;
+  // cx/cy = bbox centre (used to size+centre the 'fill' face so it spans the whole spread);
+  // ccx/ccy = land AREA centroid (the visual centre of mass — used to seat the 'inset' face).
+  hero: { cx: number; cy: number; w: number; h: number; ccx: number; ccy: number } | null;
+  // 'inset' = compact land → one centred, tilted face that sits cleanly WITHIN the country.
+  // 'fill'  = scattered island groups / strongly elongated land → a COMPLETE face on each
+  //           significant landmass (heroFaces); empty heroFaces → one spanning face (all-tiny).
+  heroMode: 'inset' | 'fill';
+  heroFaces: { cx: number; cy: number; size: number }[];
 } {
-  let landFeatures: never[];
+  let landFeatures: never[]; // what we DRAW
+  let fitFeatures: never[]; // what the projection is fit to (may differ for country)
+  // PLACE stage: snapped on-land position for any city that falls just OFF the country's coarse
+  // outline (keyed by place code). A coastal spot is nudged onto the shore; a true ocean island
+  // gets a synthetic isle instead (handled below). Keeps every city dot on visible land.
+  const placeSnap = new Map<string, [number, number]>();
+  // PLACE stage: a place too far to draw at its true position (Hawaii for the USA, the Galápagos
+  // for Ecuador, Madeira for Portugal…) is collected here and given a small synthetic island
+  // pulled in to the country's edge AFTER the projection exists (so it stays in-frame, on land).
+  const farPlaces: { code?: string; p: [number, number]; idx: number }[] = [];
+  let placeMainCentroid: [number, number] | null = null;
   if (heroIso) {
-    const f = heroGeo ?? featureByIso(heroIso);
-    landFeatures = (f ? [f] : []) as never[];
-  } else if (landIsos) {
-    const set = new Set(landIsos.map((i) => Number(i)));
-    landFeatures = (worldNoAntarctica.features as never[]).filter((f) => set.has(Number((f as { id?: string | number }).id)));
+    const f = (geo50 && geo50(heroIso)) || featureByIso(heroIso);
+    // Build the country's MAIN drawn landmass: keep every polygon that is near the largest one
+    // (the contiguous mainland + its close isles) OR is itself large (a second major landmass —
+    // e.g. Malaysia's peninsula vs. Borneo, so the capital isn't pushed off-frame). Small far-
+    // flung islands are NOT drawn at their true spot (they'd shrink the country); they become
+    // edge-islands below. This replaces keepNearMainland for the hero (which trims by the LARGEST
+    // polygon and so dropped Malaysia's whole peninsula).
+    let mainFeat: unknown = f;
+    const hg = (f as { geometry?: { type: string; coordinates: unknown[] } } | null)?.geometry;
+    if (hg && hg.type === 'MultiPolygon' && Array.isArray(hg.coordinates) && hg.coordinates.length > 1) {
+      const polys = hg.coordinates.map((c) => ({ type: 'Polygon', coordinates: c }));
+      const areas = polys.map((p) => geoArea(p as never));
+      const cents = polys.map((p) => geoCentroid(p as never) as [number, number]);
+      let bi = 0;
+      for (let i = 1; i < areas.length; i++) if (areas[i] > areas[bi]) bi = i;
+      const keepRad = (10 * Math.PI) / 180;
+      // a far polygon is drawn at its true spot ONLY if it's a major second landmass that actually
+      // holds a candidate place (Malaysia's peninsula with Kuala Lumpur) — NOT empty far land like
+      // Alaska, which would just expand the frame and shrink the rest with nothing to show there.
+      const hasPlace = (poly: unknown) =>
+        options.some((o) => o.lat != null && o.lng != null && geoContains(poly as never, [Number(o.lng), Number(o.lat)] as never));
+      const kept = polys
+        .filter((p, i) => geoDistance(cents[i] as never, cents[bi] as never) <= keepRad || (areas[i] >= 0.15 * areas[bi] && hasPlace(p)))
+        .map((p) => p.coordinates);
+      mainFeat = { ...(f as object), geometry: { type: 'MultiPolygon', coordinates: kept } };
+    }
+    landFeatures = (mainFeat ? [mainFeat] : []) as never[];
+    const mainCen = mainFeat ? (geoCentroid(mainFeat as never) as [number, number]) : null;
+    placeMainCentroid = mainCen;
+    const FAR = (8 * Math.PI) / 180; // beyond this from the main land → an edge-island, not drawn in place
+    if (mainFeat && mainCen) {
+      options.forEach((o, idx) => {
+        if (o.lat == null || o.lng == null) return;
+        const p: [number, number] = [Number(o.lng), Number(o.lat)];
+        if (geoContains(mainFeat as never, p as never)) return; // already on the drawn main land
+        // a COASTAL spot just off the coarse outline → walk it onto the shore
+        const dx = mainCen[0] - p[0];
+        const dy = mainCen[1] - p[1];
+        const dl = Math.hypot(dx, dy) || 1;
+        let snapped: [number, number] | null = null;
+        for (let d = 0.12; d <= 1.0; d += 0.12) {
+          const q: [number, number] = [p[0] + (dx / dl) * d, p[1] + (dy / dl) * d];
+          if (geoContains(mainFeat as never, q as never)) {
+            snapped = q;
+            break;
+          }
+        }
+        if (snapped) {
+          if (o.code) placeSnap.set(o.code, snapped);
+          return;
+        }
+        // a NEAR ocean island the map omits (a Maldives atoll, Mallorca) → draw it at its true
+        // position. A FAR one (Hawaii, Madeira, the Galápagos) is deferred to the edge-island pass.
+        if (geoDistance(p as never, mainCen as never) <= FAR) landFeatures.push(synthIsland(`place-${idx}`, p[1], p[0], idx + 7) as never);
+        else farPlaces.push({ code: o.code, p, idx });
+      });
+    }
+    fitFeatures = landFeatures;
   } else if (level === 'continent') {
     // CONTINENT view: one merged land geometry → the world reads as CONTINENTS, with no
     // internal country borders (only the coastlines glow gold).
     landFeatures = [mergedLand] as never[];
+    fitFeatures = landFeatures;
+  } else if (level === 'country') {
+    // Every voting country gets a REAL outline: 50m (has the small islands) → 110m → a small
+    // synthetic island at its lat/lng (only Tuvalu/Kosovo need that) — so NONE is a bare dot.
+    landFeatures = options
+      .map((o, idx) => {
+        if (!o.code) return null;
+        let f = (geo50 && geo50(o.code)) || featureByIso(o.code);
+        if (!f && o.lat != null && o.lng != null) f = synthIsland(o.code, Number(o.lat), Number(o.lng), idx + 1);
+        return f;
+      })
+      .filter(Boolean) as never[];
+    // Fit the projection to the MAINLAND (110m) so a country's far OVERSEAS bits don't blow up
+    // the frame — BUT also fold in a single point for every voting nation that has NO 110m
+    // mainland (the island / micro states: Palau, Nauru, the Micronesian north, Malta, Cape
+    // Verde, the Seychelles…) so the frame still ENCOMPASSES them. Without this their land + pin
+    // project off the edge and vanish — e.g. Palau at 7.5°N sat above an Oceania frame fitted
+    // only to southern Australia/NZ, so it showed neither land nor dot.
+    const set = landIsos ? new Set(landIsos.map((i) => Number(i))) : null;
+    const mainland = (set
+      ? (worldNoAntarctica.features as never[]).filter((f) => set.has(Number((f as { id?: string | number }).id)))
+      : landFeatures) as never[];
+    // ISOs that actually HAVE a 110m mainland in the fit. A country in landIsos but absent here is
+    // an island nation with no 110m geometry (Palau, Fidschi, the Pacific/Caribbean micro-states) —
+    // it MUST still contribute an anchor point or it falls off the frame entirely (it's neither in
+    // `mainland` nor, previously, in the anchors). So skip only countries truly covered by mainland.
+    const mainlandIsos = new Set(mainland.map((f) => Number((f as { id?: string | number }).id)));
+    const anchorPts: never[] = [];
+    for (const o of options) {
+      if (o.code && mainlandIsos.has(Number(o.code))) continue; // already framed by its 110m mainland
+      let ll: [number, number] | null = null;
+      if (o.code) {
+        const f = (geo50 && geo50(o.code)) || featureByIso(o.code);
+        if (f) ll = mainlandCentroid(f);
+      }
+      if (!ll && o.lat != null && o.lng != null) ll = [Number(o.lng), Number(o.lat)];
+      if (ll) anchorPts.push({ type: 'Feature', properties: {}, geometry: { type: 'Point', coordinates: ll } } as never);
+    }
+    fitFeatures = [...mainland, ...anchorPts] as never[];
+  } else if (landIsos) {
+    const set = new Set(landIsos.map((i) => Number(i)));
+    landFeatures = (worldNoAntarctica.features as never[]).filter((f) => set.has(Number((f as { id?: string | number }).id)));
+    fitFeatures = landFeatures;
   } else {
     landFeatures = worldNoAntarctica.features as never[];
+    fitFeatures = landFeatures;
   }
-  if (level !== 'continent') landFeatures = landFeatures.map((f) => keepNearMainland(f)) as never[];
+  if (level !== 'continent' && level !== 'place') {
+    landFeatures = landFeatures.map((f) => keepNearMainland(f)) as never[];
+    fitFeatures = fitFeatures.map((f) => keepNearMainland(f)) as never[];
+  }
   const landFC = { type: 'FeatureCollection', features: landFeatures };
+  const fitFC = { type: 'FeatureCollection', features: fitFeatures };
 
   let leaderCode: string | null = null;
   let leaderVotes = 0;
@@ -149,22 +358,76 @@ function buildLayout(
   if (level === 'continent') {
     proj = geoNaturalEarth1().fitExtent(ext, worldNoAntarctica as never);
   } else if (level === 'country') {
-    const c = (geoCentroid(landFC as never) as [number, number]) ?? [10, 50];
+    const c = (geoCentroid(fitFC as never) as [number, number]) ?? [10, 50];
     proj = geoConicConformal()
       .rotate([-c[0], 0])
       .center([0, c[1]])
       .parallels([c[1] - 12, c[1] + 12])
-      .fitExtent(ext, (landFeatures.length ? landFC : worldNoAntarctica) as never);
+      .fitExtent(ext, (fitFeatures.length ? fitFC : worldNoAntarctica) as never);
   } else {
     proj = geoMercator().fitExtent(ext, (landFeatures.length ? landFC : worldNoAntarctica) as never);
   }
   const pth = geoPath(proj);
+  if (level === 'country') {
+    // Guard: a conic projection can send a stray far-flung polygon (an overseas territory the
+    // trimming missed) to ±∞. Drop any country whose projected box blew up so ONE bad feature
+    // can't poison the land bbox or the placement mask.
+    landFeatures = landFeatures.filter((f) => {
+      const b = pth.bounds(f as never);
+      return (
+        Number.isFinite(b[0][0]) &&
+        Number.isFinite(b[0][1]) &&
+        Number.isFinite(b[1][0]) &&
+        Number.isFinite(b[1][1]) &&
+        b[1][0] - b[0][0] < w * 2.5 &&
+        b[1][1] - b[0][1] < h * 2.5
+      );
+    }) as never[];
+  }
+  // PLACE 'edge-island' pass: a place too FAR to draw at its true spot (Hawaii, the Galápagos,
+  // Madeira, Okinawa…) gets a small synthetic island pulled in to the country's edge, in the
+  // place's true compass direction, so its dot always sits on visible land INSIDE the frame
+  // ('kompakt am Landrand') instead of floating in open sea or off the map. Done now that the
+  // projection exists: clamp a point along (place → land-centre) into the frame, invert it back
+  // to lng/lat, drop a synth isle there and route the dot onto it. landFC.features === landFeatures
+  // (same array), so the pushes are seen by the draw loop and the hero bbox below.
+  if (level === 'place' && farPlaces.length && placeMainCentroid) {
+    const cs = proj(placeMainCentroid as never);
+    const lb0 = pth.bounds(landFC as never);
+    const cx0 = cs && Number.isFinite(cs[0]) ? cs[0] : (lb0[0][0] + lb0[1][0]) / 2;
+    const cy0 = cs && Number.isFinite(cs[1]) ? cs[1] : (lb0[0][1] + lb0[1][1]) / 2;
+    const reach = Math.min(w, h) * 0.4;
+    const mX = Math.min(w, h) * 0.1;
+    for (const fp of farPlaces) {
+      const ps = proj(fp.p as never);
+      let dx = ps && Number.isFinite(ps[0]) ? ps[0] - cx0 : 0;
+      let dy = ps && Number.isFinite(ps[1]) ? ps[1] - cy0 : 0;
+      const dl = Math.hypot(dx, dy) || 1;
+      dx /= dl;
+      dy /= dl;
+      const ex = Math.max(mX, Math.min(w - mX, cx0 + dx * reach));
+      const ey = Math.max(mX, Math.min(h - mX, cy0 + dy * reach));
+      const ll = proj.invert ? proj.invert([ex, ey] as never) : null;
+      if (ll && Number.isFinite(ll[0]) && Number.isFinite(ll[1])) {
+        landFeatures.push(synthIsland(`far-${fp.idx}`, ll[1], ll[0], fp.idx + 31) as never);
+        if (fp.code) placeSnap.set(fp.code, [ll[0], ll[1]]);
+      }
+    }
+  }
   const land: LandPath[] = [];
+  // PLACE stage: the projected VISUAL box (after any island up-scaling) of every drawn land
+  // polygon — so a COMPLETE face can be fitted into each significant landmass below.
+  const placePolys: { cx: number; cy: number; w: number; h: number }[] = [];
+  // COUNTRY stage bookkeeping: which ISOs actually got a drawn outline, and — for the tiny
+  // countries we scale up around their bbox centre — that exact visual centre, so the map pin
+  // can be planted on the centre of the *visible* (scaled) shape instead of drifting off it.
+  const drawnIsos = new Set<number>();
+  const scaledCentre = new Map<number, { cx: number; cy: number; tx: number; ty: number; s: number }>();
   if (level === 'place') {
     // Split the hero country into individual polygons so SMALL islands (Balearics, the Greek
     // isles, Caribbean specks…) can be scaled UP around their own centroid → the city dot fits
     // on a recognisable island shape instead of the island vanishing under the marker.
-    const minIslandPx = Math.max(30, Math.min(w, h) * 0.05);
+    const minIslandPx = Math.max(38, Math.min(w, h) * 0.062);
     let idx = 0;
     for (const f of landFeatures) {
       const g = (f as { geometry?: { type: string; coordinates: unknown[] } }).geometry;
@@ -175,15 +438,55 @@ function buildLayout(
         if (!d) continue;
         const b = pth.bounds(poly as never);
         const maxDim = Math.max(b[1][0] - b[0][0], b[1][1] - b[0][1]);
+        const cxp = (b[0][0] + b[1][0]) / 2;
+        const cyp = (b[0][1] + b[1][1]) / 2;
         const lp: LandPath = { d, i: idx++, isLeader: false };
+        let sc = 1;
         if (maxDim > 0 && maxDim < minIslandPx) {
-          lp.scale = Math.min(6, minIslandPx / maxDim);
-          lp.cx = (b[0][0] + b[1][0]) / 2;
-          lp.cy = (b[0][1] + b[1][1]) / 2;
+          sc = Math.min(13, minIslandPx / maxDim);
+          lp.scale = sc;
+          lp.cx = cxp;
+          lp.cy = cyp;
         }
+        placePolys.push({ cx: cxp, cy: cyp, w: (b[1][0] - b[0][0]) * sc, h: (b[1][1] - b[0][1]) * sc });
         land.push(lp);
       }
     }
+  } else if (level === 'country') {
+    // each country drawn from its own (50m) feature; SMALL countries (Malta, the Maldives, the
+    // Caribbean / Pacific micro-nations…) are scaled UP around their centroid so the outline reads
+    // as a real LAND SHAPE — not a bare dot — and the pin sits on it. Big countries are untouched.
+    // A generous floor + high cap so even a speck like the Maldives becomes a clearly visible isle.
+    const minCountryPx = Math.max(40, Math.min(w, h) * 0.066);
+    landFeatures.forEach((f, i) => {
+      const d = pth(f as never);
+      if (!d) return;
+      const b = pth.bounds(f as never);
+      const maxDim = Math.max(b[1][0] - b[0][0], b[1][1] - b[0][1]);
+      const iso = Number((f as { id?: string | number }).id);
+      const isLeader = leaderIsoNum != null && iso === leaderIsoNum;
+      const cx = (b[0][0] + b[1][0]) / 2;
+      const cy = (b[0][1] + b[1][1]) / 2;
+      const lp: LandPath = { d, i, isLeader };
+      if (maxDim > 0 && maxDim < minCountryPx) {
+        const s = Math.min(28, minCountryPx / maxDim);
+        // nudge the (scaled) shape's centre inward so an enlarged island at the frame edge
+        // (e.g. Palau in the far north of Oceania) can't get pushed off-screen.
+        const halfW = ((b[1][0] - b[0][0]) / 2) * s;
+        const halfH = ((b[1][1] - b[0][1]) / 2) * s;
+        const m = 5;
+        const tx = Math.max(m + halfW, Math.min(w - m - halfW, cx));
+        const ty = Math.max(m + halfH, Math.min(h - m - halfH, cy));
+        lp.scale = s;
+        lp.cx = cx;
+        lp.cy = cy;
+        lp.tx = tx;
+        lp.ty = ty;
+        if (Number.isFinite(iso)) scaledCentre.set(iso, { cx, cy, tx, ty, s });
+      }
+      if (Number.isFinite(iso)) drawnIsos.add(iso);
+      land.push(lp);
+    });
   } else {
     landFeatures.forEach((f, i) => {
       const d = pth(f as never);
@@ -195,10 +498,68 @@ function buildLayout(
 
   // The hero country's projected bounding box — used on the PLACE stage to lay the flag-face
   // into the land as a tilted watermark, centred and sized to the country.
-  let hero: { cx: number; cy: number; w: number; h: number } | null = null;
+  let hero: { cx: number; cy: number; w: number; h: number; ccx: number; ccy: number } | null = null;
+  let heroMode: 'inset' | 'fill' = 'inset';
   if (heroIso && landFeatures.length) {
     const b = pth.bounds(landFC as never);
-    hero = { cx: (b[0][0] + b[1][0]) / 2, cy: (b[0][1] + b[1][1]) / 2, w: b[1][0] - b[0][0], h: b[1][1] - b[0][1] };
+    const cx = (b[0][0] + b[1][0]) / 2;
+    const cy = (b[0][1] + b[1][1]) / 2;
+    // area centroid = the land's visual centre of mass. The bbox centre is skewed by thin
+    // peninsulas / fjords (Islands Westfjorde ziehen es nach NW), which made the inset face look
+    // off-centre; the area centroid sits where the bulk of the land actually is. NaN → bbox centre.
+    const c = pth.centroid(landFC as never) as [number, number];
+    hero = {
+      cx,
+      cy,
+      w: b[1][0] - b[0][0],
+      h: b[1][1] - b[0][1],
+      ccx: Number.isFinite(c?.[0]) ? c[0] : cx,
+      ccy: Number.isFinite(c?.[1]) ? c[1] : cy,
+    };
+    // Decide how to lay the flag-face into the land. fillFrac = how much of the country's bounding
+    // box is ACTUALLY land (vs. open sea between scattered islands); aspect = how elongated it is.
+    // A country whose land barely fills its box (Griechenland, Indonesien, Philippinen, Malediven…)
+    // or is strongly elongated / curved (Italiens Stiefel, Norwegen, Japans Bogen, Chile) can't carry
+    // a single centred face — it would float in the sea between the islands. Those switch to 'fill'.
+    if (hero.w > 0 && hero.h > 0) {
+      let landAreaPx = 0;
+      for (const f of landFeatures) landAreaPx += Math.abs(pth.area(f as never));
+      const fillFrac = landAreaPx / (hero.w * hero.h);
+      const aspect = Math.max(hero.w, hero.h) / Math.max(1, Math.min(hero.w, hero.h));
+      if (fillFrac < 0.36 || aspect >= 1.85) heroMode = 'fill';
+    }
+  }
+
+  // FILL mode: instead of ONE big square face that gets cropped top/bottom on a wide country
+  // (USA) or floats between two landmasses (Malaysia), drop a COMPLETE face onto EACH significant
+  // landmass, sized to its SHORT side so the whole face is visible (never cropped) — one per
+  // "field" (Borneo + the peninsula, each Japanese island…). Polygons too small to carry a
+  // legible face are left as just land + dot. If NOTHING qualifies (all-tiny archipelagos like
+  // the Malediven) heroFaces stays empty and the JSX falls back to the single spanning face.
+  // How the flag-face(s) sit in a 'fill' country (see also the JSX spanning fallback):
+  //  • 2+ significant landmasses (Malaysia = peninsula+Borneo, Japans Inseln) → one COMPLETE face
+  //    per landmass, sized to its short side (never cropped).
+  //  • exactly 1 significant landmass that is WIDE/TALL (USA, Italiens Stiefel) → one complete face
+  //    fitted to its short side (a square spanning face would crop it top/bottom).
+  //  • a single landmass with a roughly SQUARE spread of scattered isles (Griechenland) OR all-tiny
+  //    square archipelagos → heroFaces stays EMPTY and the JSX lays ONE big face spanning the whole
+  //    island group (the look the user liked) — mild crop is fine on a square-ish outline.
+  //  • very thin land with no big-enough piece (Chile) → one small complete face on the largest.
+  const heroFaces: { cx: number; cy: number; size: number }[] = [];
+  if (heroMode === 'fill' && placePolys.length && hero) {
+    const faceThresh = Math.min(w, h) * 0.14;
+    const sig = placePolys.filter((pp) => Math.min(pp.w, pp.h) >= faceThresh);
+    const aspect = Math.max(hero.w, hero.h) / Math.max(1, Math.min(hero.w, hero.h));
+    if (sig.length >= 2) {
+      for (const pp of sig) heroFaces.push({ cx: pp.cx, cy: pp.cy, size: Math.min(pp.w, pp.h) * 0.85 });
+    } else if (sig.length === 1 && aspect >= 1.7) {
+      const pp = sig[0];
+      heroFaces.push({ cx: pp.cx, cy: pp.cy, size: Math.min(pp.w, pp.h) * 0.85 });
+    } else if (sig.length === 0 && aspect >= 1.7) {
+      let big = placePolys[0];
+      for (const pp of placePolys) if (pp.w * pp.h > big.w * big.h) big = pp;
+      heroFaces.push({ cx: big.cx, cy: big.cy, size: Math.min(big.w, big.h) * 0.85 });
+    }
   }
 
   // emblem anchors (true projected positions)
@@ -209,18 +570,43 @@ function buildLayout(
         const c = o.code ? continentByKey(o.code) : null;
         if (c) ll = [c.lng, c.lat];
       } else if (o.code && (level === 'country' || faces)) {
-        const f = featureByIso(o.code);
+        const f = (geo50 && geo50(o.code)) || featureByIso(o.code);
         if (f) ll = mainlandCentroid(f);
         else if (o.lat != null && o.lng != null) ll = [Number(o.lng), Number(o.lat)];
       } else if (o.lat != null && o.lng != null) {
-        ll = [Number(o.lng), Number(o.lat)];
+        // PLACE: a coastal spot just off the coarse coastline is snapped onto the shore so its
+        // dot sits on land (ocean islands instead got their own isle in the land step above).
+        ll = (o.code && placeSnap.get(o.code)) || [Number(o.lng), Number(o.lat)];
       }
       if (!ll) return null;
       const xy = proj(ll);
       if (!xy) return null;
-      return { ...o, ax: xy[0], ay: xy[1], x: xy[0], y: xy[1] };
+      let ax = xy[0];
+      let ay = xy[1];
+      // COUNTRY: plant the pin on a point GUARANTEED to be inside the country's drawn mainland,
+      // not on its raw centroid (which is offshore for concave countries) — so no dot ever sits
+      // in empty sea. For a country we scaled up, run that interior point through the SAME scale
+      // transform the land path uses, so the pin lands inside the enlarged blob.
+      if (level === 'country' && o.code) {
+        const f = (geo50 && geo50(o.code)) || featureByIso(o.code);
+        // interior point is memoised per ISO (projection-independent) → no per-render geoContains
+        const ip = f ? proj(countryInteriorLngLat(o.code, f)) : null;
+        if (ip) {
+          ax = ip[0];
+          ay = ip[1];
+          const sc = scaledCentre.get(Number(o.code));
+          if (sc) {
+            // same transform the land uses: scale about the raw centre, recentred at the
+            // (edge-clamped) target so the pin stays on the visible, on-screen blob.
+            ax = sc.tx + sc.s * (ip[0] - sc.cx);
+            ay = sc.ty + sc.s * (ip[1] - sc.cy);
+          }
+        }
+      }
+      const hasLand = level === 'country' ? (o.code ? drawnIsos.has(Number(o.code)) : false) : true;
+      return { ...o, ax, ay, x: ax, y: ay, hasLand };
     })
-    .filter(Boolean) as (DesignOption & { ax: number; ay: number; x: number; y: number })[];
+    .filter(Boolean) as (DesignOption & { ax: number; ay: number; x: number; y: number; hasLand: boolean })[];
 
   if (placeEmblems && (level === 'country' || level === 'place') && anchored.length > 1) {
     const isPlace = level === 'place';
@@ -317,12 +703,14 @@ function buildLayout(
     // Per-country target: push the real country position OUTWARD (cartesian, by a factor
     // that grows with how far out it already is) so central/landlocked countries snap to
     // the nearest black space while peripheral ones reach the edges/corners.
-    const spread = Math.max(w, h) * (isPlace ? 0.1 : 0.16); // direction-stable outward scale
+    const spread = Math.max(w, h) * (isPlace ? 0.1 : 0.19); // direction-stable outward scale
     const targets = anchored.map((a) => {
       const dx = a.ax - lcx;
       const dy = a.ay - lcy;
       const r = Math.hypot(dx, dy);
-      const k = Math.min(5, (r / spread) * (r / spread));
+      // gentler outward push than before → emblems seat nearer their own country, so tether
+      // lines stay shorter and cross each other less (cleaner, less "wire-jungle" look).
+      const k = Math.min(isPlace ? 5 : 4, (r / spread) * (r / spread));
       return { tx: a.ax + dx * k, ty: a.ay + dy * k };
     });
     const pairs: { qi: number; si: number; d: number }[] = [];
@@ -563,7 +951,7 @@ function buildLayout(
     top: (p.y / h) * 100,
     moved: level === 'country' || level === 'place' ? true : Math.hypot(p.x - p.ax, p.y - p.ay) > 8,
   }));
-  return { land, plaques, leaderVotes, ui: faceUI, hero };
+  return { land, plaques, leaderVotes, ui: faceUI, hero, heroMode, heroFaces };
 }
 
 const Defs = (
@@ -574,20 +962,42 @@ const Defs = (
     <filter id="vd-lead" x="-60%" y="-60%" width="220%" height="220%">
       <feGaussianBlur stdDeviation="6" />
     </filter>
+    {/* Land = a softly-lit warm bronze relief (NOT near-black) so every country reads as a
+        distinct gold landmass against the black velvet, not a black shape lost in the void. */}
+    <linearGradient id="vd-land" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stopColor="#473821" />
+      <stop offset="55%" stopColor="#2c2212" />
+      <stop offset="100%" stopColor="#20180d" />
+    </linearGradient>
+    {/* Pin halo: a small luminous glow so even a 1-pixel micro-state (Monaco, Vatikan…) has a
+        clear, intentional gold presence on the map instead of an invisible fleck. */}
+    <radialGradient id="vd-pin">
+      <stop offset="0%" stopColor={GOLD_BRIGHT} stopOpacity={0.55} />
+      <stop offset="42%" stopColor={GOLD} stopOpacity={0.22} />
+      <stop offset="100%" stopColor={GOLD} stopOpacity={0} />
+    </radialGradient>
+    {/* Recolour a flag-face to flat brand GOLD (keeps its alpha/shape) — for the gold-monochrome
+        design variant, so the emblem stays inside the black + gold palette. #E2BF6A = (.886,.749,.416). */}
+    <filter id="vd-goldify" x="-10%" y="-10%" width="120%" height="120%">
+      <feColorMatrix type="matrix" values="0 0 0 0 0.886  0 0 0 0 0.749  0 0 0 0 0.416  0 0 0 1 0" />
+    </filter>
   </defs>
 );
 
-// scale a small island UP around its own centroid (keeps it in place, just bigger)
+// scale a small island UP around its own centroid, re-centred at the edge-clamped target
+// (tx/ty fall back to cx/cy when no clamp was needed) so it grows but never spills off-frame.
 const landTf = (p: LandPath) =>
-  p.scale ? `translate(${p.cx} ${p.cy}) scale(${p.scale}) translate(${-(p.cx ?? 0)} ${-(p.cy ?? 0)})` : undefined;
+  p.scale
+    ? `translate(${p.tx ?? p.cx} ${p.ty ?? p.cy}) scale(${p.scale}) translate(${-(p.cx ?? 0)} ${-(p.cy ?? 0)})`
+    : undefined;
 
 function renderLand(l: LandPath[]) {
   return (
     <>
       {l.map((p) => (p.isLeader ? <path key={`lead-${p.i}`} d={p.d} fill={GOLD_BRIGHT} filter="url(#vd-lead)" transform={landTf(p)} /> : null))}
-      <g filter="url(#vd-glow)" opacity="0.7">
+      <g filter="url(#vd-glow)" opacity="0.85">
         {l.map((p) => (
-          <path key={`g-${p.i}`} d={p.d} fill="none" stroke={GOLD} strokeWidth={1.4} vectorEffect="non-scaling-stroke" transform={landTf(p)} />
+          <path key={`g-${p.i}`} d={p.d} fill="none" stroke={GOLD} strokeWidth={1.6} vectorEffect="non-scaling-stroke" transform={landTf(p)} />
         ))}
       </g>
       <g>
@@ -595,11 +1005,11 @@ function renderLand(l: LandPath[]) {
           <path
             key={`l-${p.i}`}
             d={p.d}
-            fill={p.isLeader ? GOLD_BRIGHT : '#181206'}
+            fill={p.isLeader ? GOLD_BRIGHT : 'url(#vd-land)'}
             fillOpacity={p.isLeader ? 0.92 : 1}
             stroke={p.isLeader ? GOLD_BRIGHT : GOLD}
-            strokeOpacity={p.isLeader ? 1 : 0.85}
-            strokeWidth={p.isLeader ? 1 : 0.5}
+            strokeOpacity={p.isLeader ? 1 : 0.95}
+            strokeWidth={p.isLeader ? 1.1 : 0.9}
             vectorEffect="non-scaling-stroke"
             transform={landTf(p)}
           />
@@ -609,11 +1019,37 @@ function renderLand(l: LandPath[]) {
   );
 }
 
-export default function VotingDesignMap({ level, options, landIsos, faces = false, heroIso }: Props) {
+export default function VotingDesignMap({ level, options, landIsos, faces = false, heroIso, faceStyle = 'color' }: Props) {
   const ref = useRef<HTMLDivElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
+  // namespace SVG gradient ids per map instance — the page stacks several maps, and the tether
+  // gradients carry absolute coordinates, so a shared id would point every map at the first one's.
+  const uid = useId().replace(/[^a-zA-Z0-9_-]/g, '');
   // null until measured in the browser — the d3 geometry isn't bit-identical between Node
   // and the browser, so we DON'T render it during SSR (that would hydration-mismatch).
   const [dims, setDims] = useState<{ w: number; h: number } | null>(null);
+  // A page can stack many of these maps (the /design demo has 8). Building all of them on load
+  // means 16 d3 layouts (desktop+mobile) in one burst → a slow first paint. So each map only
+  // builds (and only downloads the 50m geometry) once it is near the viewport.
+  const [near, setNear] = useState(false);
+  useEffect(() => {
+    const el = rootRef.current;
+    if (!el || typeof IntersectionObserver === 'undefined') {
+      setNear(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setNear(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: '800px 0px 800px 0px' },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   useEffect(() => {
     const el = ref.current;
@@ -639,45 +1075,53 @@ export default function VotingDesignMap({ level, options, landIsos, faces = fals
     };
   }, []);
 
-  // place stage: lazily pull the hero country's 50m geometry (with its islands) — code-split
-  // so the continent/country stages never download the 739 KB file.
+  // COUNTRY + PLACE stages: lazily pull the 50m geometry (real small-island outlines) —
+  // code-split so the continent stage never downloads the 739 KB file.
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [heroGeo, setHeroGeo] = useState<any>(null);
+  const [geo50, setGeo50] = useState<((iso: string | number) => any) | null>(null);
   useEffect(() => {
-    if (level !== 'place' || !heroIso) return;
+    if (level === 'continent' || !near) return;
     let alive = true;
     import('@/lib/geo/worldmap50').then((m) => {
-      if (alive) setHeroGeo(m.featureByIso50m(heroIso));
+      if (alive) setGeo50(() => m.featureByIso50m);
     });
     return () => {
       alive = false;
     };
-  }, [level, heroIso]);
+  }, [level, near]);
 
   const ready = dims !== null;
   const desktop = useMemo(
-    () => (dims ? buildLayout(dims.w, dims.h, level, options, faces, landIsos, heroIso, true, heroGeo) : null),
-    [dims, level, options, faces, landIsos, heroIso, heroGeo],
+    () => (dims && near ? buildLayout(dims.w, dims.h, level, options, faces, landIsos, heroIso, true, geo50) : null),
+    [dims, near, level, options, faces, landIsos, heroIso, geo50],
   );
   // mobile shows only the land + a ranked list → skip the (expensive) emblem placement
   const mobile = useMemo(
-    () => (ready ? buildLayout(760, 760, level, options, faces, landIsos, heroIso, false, heroGeo) : null),
-    [ready, level, options, faces, landIsos, heroIso, heroGeo],
+    () => (ready && near ? buildLayout(760, 760, level, options, faces, landIsos, heroIso, false, geo50) : null),
+    [ready, near, level, options, faces, landIsos, heroIso, geo50],
   );
   const leaderVotes = desktop?.leaderVotes ?? 0;
+  // below this gap an emblem already sits on its own country → no tether line needed
+  const minLine = dims ? Math.min(dims.w, dims.h) * 0.02 : 0;
+  // Guard against the brief first-paint frame where an island nation (Malediven, Palau…) has no
+  // land yet (110m has none; the 50m outlines are still loading) → its land-centroid, and thus a
+  // plaque's anchor/position, is NaN. Skip those so no tether/pin renders with NaN coordinates.
+  const finitePlaque = (p: Plaque) =>
+    Number.isFinite(p.x) && Number.isFinite(p.y) && Number.isFinite(p.ax) && Number.isFinite(p.ay);
   const ranked = useMemo(() => (mobile ? [...mobile.plaques].sort((a, b) => b.votes - a.votes) : []), [mobile]);
 
   return (
-    <div>
+    <div ref={rootRef}>
       {/* ── Desktop: full-width map that fills the screen ratio + on-map emblems ── */}
       <div
         ref={ref}
         className="relative mx-auto hidden w-full sm:block"
         style={{
-          height: 'clamp(460px, 76vh, 1080px)',
-          // keep the map within a layout-tested aspect band: 16:9/16:10/4K fill fully,
-          // only extreme ultra-wide gets small side margins (avoids a broken, too-flat grid)
-          maxWidth: 'calc(clamp(460px, 76vh, 1080px) * 2.3)',
+          // cap raised (1080→1300 tall, ~2990 wide) so big 4K/5K screens fill much fuller —
+          // the 1300 max only kicks in on very tall screens, so laptops are UNCHANGED (their
+          // 76vh stays well under the cap). Aspect band kept so ultra-wide doesn't go too flat.
+          height: 'clamp(460px, 76vh, 1300px)',
+          maxWidth: 'calc(clamp(460px, 76vh, 1300px) * 2.3)',
           containerType: 'inline-size',
         }}
       >
@@ -686,39 +1130,141 @@ export default function VotingDesignMap({ level, options, landIsos, faces = fals
         <svg viewBox={`0 0 ${dims.w} ${dims.h}`} preserveAspectRatio="none" className="absolute inset-0 h-full w-full" role="img" aria-label="Weltkarte der Abstimmung">
           {Defs}
           {renderLand(desktop.land)}
+          {/* Scattered / elongated countries: a COMPLETE flag-face on each significant landmass
+              (USA = one on the mainland; Malaysia = one on the peninsula + one on Borneo; Japan =
+              one per island), sized to the landmass' short side so the whole face stays visible,
+              clipped to the land so nothing spills into the sea. All-tiny archipelagos (Malediven)
+              keep ONE spanning face. */}
+          {heroIso &&
+            desktop.hero &&
+            desktop.heroMode === 'fill' &&
+            faceStyle !== 'none' &&
+            (() => {
+              const faces =
+                desktop.heroFaces.length > 0
+                  ? desktop.heroFaces
+                  : [{ cx: desktop.hero.cx, cy: desktop.hero.cy, size: Math.max(desktop.hero.w, desktop.hero.h) * 1.12 }];
+              const gold = faceStyle === 'gold';
+              return (
+                <>
+                  <clipPath id={`${uid}-heroclip`} clipPathUnits="userSpaceOnUse">
+                    {desktop.land.map((p) => (
+                      <path key={`hc-${p.i}`} d={p.d} transform={landTf(p)} />
+                    ))}
+                  </clipPath>
+                  {faces.map((hf, fi) => (
+                    <image
+                      key={`hf-${fi}`}
+                      href={`/faces/${heroIso}.png`}
+                      x={hf.cx - hf.size / 2}
+                      y={hf.cy - hf.size / 2}
+                      width={hf.size}
+                      height={hf.size}
+                      preserveAspectRatio="xMidYMid meet"
+                      clipPath={`url(#${uid}-heroclip)`}
+                      filter={gold ? 'url(#vd-goldify)' : undefined}
+                      opacity={gold ? 0.6 : 0.72}
+                    />
+                  ))}
+                </>
+              );
+            })()}
         </svg>
 
-        {/* Place stage: the country's flag-face laid into its land as a tilted watermark */}
-        {heroIso && desktop.hero && (
-          <img
-            src={`/faces/${heroIso}.png`}
-            alt=""
-            aria-hidden="true"
-            loading="lazy"
-            decoding="async"
-            className="pointer-events-none absolute"
-            style={{
-              left: `${(desktop.hero.cx / dims.w) * 100}%`,
-              top: `${(desktop.hero.cy / dims.h) * 100}%`,
-              width: `${((Math.min(desktop.hero.w, desktop.hero.h) * 0.74) / dims.w) * 100}%`,
-              transform: 'translate(-50%, -50%) rotate(-7deg)',
-              opacity: 0.52,
-              objectFit: 'contain',
-              maxWidth: 'none',
-              filter: 'drop-shadow(0 0 26px rgba(226,191,106,0.5))',
-            }}
-          />
-        )}
+        {/* Place stage: a compact country's flag-face laid into its land as a tilted watermark */}
+        {heroIso &&
+          desktop.hero &&
+          desktop.heroMode === 'inset' &&
+          faceStyle !== 'none' &&
+          (() => {
+            const gold = faceStyle === 'gold';
+            const left = `${(desktop.hero.ccx / dims.w) * 100}%`;
+            // nudge the face DOWN from the mass-centre by ~8% of the short side: the top of the
+            // emblem otherwise pokes into a country's northern bays/fjords (Island) and reads as
+            // cheaply pasted-on; lower, it sits over the solid body and stays clearly legible.
+            const top = `${((desktop.hero.ccy + Math.min(desktop.hero.w, desktop.hero.h) * 0.08) / dims.h) * 100}%`;
+            const width = `${((Math.min(desktop.hero.w, desktop.hero.h) * 0.74) / dims.w) * 100}%`;
+            if (gold) {
+              const url = `/faces/${heroIso}.png`;
+              return (
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute"
+                  style={{
+                    left,
+                    top,
+                    width,
+                    aspectRatio: '1 / 1',
+                    transform: 'translate(-50%, -50%) rotate(-7deg)',
+                    opacity: 0.5,
+                    background: GOLD_BRIGHT,
+                    WebkitMaskImage: `url(${url})`,
+                    maskImage: `url(${url})`,
+                    WebkitMaskSize: 'contain',
+                    maskSize: 'contain',
+                    WebkitMaskRepeat: 'no-repeat',
+                    maskRepeat: 'no-repeat',
+                    WebkitMaskPosition: 'center',
+                    maskPosition: 'center',
+                  }}
+                />
+              );
+            }
+            return (
+              <img
+                src={`/faces/${heroIso}.png`}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+                className="pointer-events-none absolute"
+                style={{
+                  left,
+                  top,
+                  width,
+                  transform: 'translate(-50%, -50%) rotate(-7deg)',
+                  opacity: 0.52,
+                  objectFit: 'contain',
+                  maxWidth: 'none',
+                  filter: 'drop-shadow(0 0 26px rgba(226,191,106,0.5))',
+                }}
+              />
+            );
+          })()}
 
         <svg viewBox={`0 0 ${dims.w} ${dims.h}`} preserveAspectRatio="none" className="absolute inset-0 h-full w-full" aria-hidden="true">
+          {/* Per-tether gradients: bright where the line meets the land pin, dissolving to nothing
+              before it reaches the emblem — so no connector ever reads as a hard stroke ending in
+              empty black. IDs are namespaced per map instance (uid) because the page stacks several
+              maps and these gradients carry absolute userSpaceOnUse coordinates. */}
+          <defs>
+            {desktop.plaques.map((p, i) => {
+              if (!p.hasLand || !finitePlaque(p) || Math.hypot(p.x - p.ax, p.y - p.ay) < minLine) return null;
+              return (
+                <linearGradient key={`tg-${i}`} id={`${uid}-tether-${i}`} gradientUnits="userSpaceOnUse" x1={p.ax} y1={p.ay} x2={p.x} y2={p.y}>
+                  <stop offset="0%" stopColor={GOLD_BRIGHT} stopOpacity={0.9} />
+                  <stop offset="55%" stopColor={GOLD} stopOpacity={0.55} />
+                  <stop offset="100%" stopColor={GOLD} stopOpacity={0.22} />
+                </linearGradient>
+              );
+            })}
+          </defs>
+          {desktop.plaques.map((p, i) =>
+            !p.hasLand || !finitePlaque(p) || Math.hypot(p.x - p.ax, p.y - p.ay) < minLine ? null : (
+              <line key={`tl-${i}`} x1={p.ax} y1={p.ay} x2={p.x} y2={p.y} stroke={`url(#${uid}-tether-${i})`} strokeWidth={1.4} strokeLinecap="round" />
+            ),
+          )}
           {desktop.plaques.map((p, i) => {
             const showDot = level === 'place' || p.moved;
-            if (!showDot) return null;
+            if (!showDot || !p.hasLand || !finitePlaque(p)) return null;
+            const isLeader = p.votes === leaderVotes && p.votes > 0;
+            const isPlace = level === 'place';
             return (
-              <g key={`conn-${i}`}>
-                {p.moved && <line x1={p.ax} y1={p.ay} x2={p.x} y2={p.y} stroke={GOLD} strokeOpacity={0.26} strokeWidth={0.7} />}
-                {level === 'place' && <circle cx={p.ax} cy={p.ay} r={5.2} fill={GOLD_BRIGHT} fillOpacity={0.18} />}
-                <circle cx={p.ax} cy={p.ay} r={level === 'place' ? 3 : 2.6} fill={GOLD_BRIGHT} fillOpacity={0.95} />
+              <g key={`pin-${i}`}>
+                {/* soft halo — gives even a 1-pixel micro-state a clear, intentional gold presence */}
+                <circle cx={p.ax} cy={p.ay} r={isPlace ? 7.5 : 6} fill="url(#vd-pin)" />
+                <circle cx={p.ax} cy={p.ay} r={isPlace ? 3.4 : 2.9} fill="none" stroke={isLeader ? GOLD_BRIGHT : GOLD} strokeOpacity={isLeader ? 0.95 : 0.6} strokeWidth={0.8} />
+                <circle cx={p.ax} cy={p.ay} r={isPlace ? 1.8 : 1.7} fill={GOLD_BRIGHT} />
               </g>
             );
           })}
@@ -732,7 +1278,27 @@ export default function VotingDesignMap({ level, options, landIsos, faces = fals
             const blur = `${(isLeader ? ui.faceCqw * 0.23 : ui.faceCqw * 0.15).toFixed(2)}cqw`;
             return (
               <div key={i} className="absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center" style={{ left: `${p.left}%`, top: `${p.top}%` }}>
-                <img src={`/faces/${p.code}.png`} alt={p.label} loading="lazy" decoding="async" className="shrink-0" style={{ width: size, height: size, maxWidth: 'none', objectFit: 'contain', filter: `drop-shadow(0 0 ${blur} rgba(226,191,106,${isLeader ? 0.65 : 0.4}))` }} />
+                {faceStyle === 'none' ? null : faceStyle === 'gold' ? (
+                  <div
+                    className="shrink-0"
+                    style={{
+                      width: size,
+                      height: size,
+                      background: isLeader ? GOLD_BRIGHT : GOLD,
+                      WebkitMaskImage: `url(/faces/${p.code}.png)`,
+                      maskImage: `url(/faces/${p.code}.png)`,
+                      WebkitMaskSize: 'contain',
+                      maskSize: 'contain',
+                      WebkitMaskRepeat: 'no-repeat',
+                      maskRepeat: 'no-repeat',
+                      WebkitMaskPosition: 'center',
+                      maskPosition: 'center',
+                      filter: `drop-shadow(0 0 ${blur} rgba(226,191,106,${isLeader ? 0.65 : 0.4}))`,
+                    }}
+                  />
+                ) : (
+                  <img src={`/faces/${p.code}.png`} alt={p.label} loading="lazy" decoding="async" className="shrink-0" style={{ width: size, height: size, maxWidth: 'none', objectFit: 'contain', filter: `drop-shadow(0 0 ${blur} rgba(226,191,106,${isLeader ? 0.65 : 0.4}))` }} />
+                )}
                 <span className="flex flex-col items-center whitespace-nowrap text-center font-display leading-none" style={{ marginTop: '-0.3cqw', borderRadius: '0.5cqw', padding: '0.3cqw 0.5cqw', background: 'rgba(10,9,7,0.94)', border: `1px solid ${isLeader ? GOLD_BRIGHT : 'rgba(201,168,76,0.5)'}` }}>
                   <span className="font-medium" style={{ fontSize: `${ui.nameCqw}cqw`, color: '#EFE6CF' }}>{p.label}</span>
                   <span className="font-semibold" style={{ fontSize: `${ui.voteCqw}cqw`, marginTop: '0.15cqw', color: isLeader ? GOLD_BRIGHT : GOLD }}>{fmt(p.votes)}</span>

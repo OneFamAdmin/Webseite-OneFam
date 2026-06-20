@@ -6,6 +6,7 @@ import { Menu, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import MaxWidth from './MaxWidth';
 import Button from './Button';
+import { BRAND_GRADIENT } from '@/lib/brand';
 
 const SHOP_URL = 'https://onefam.shop';
 
@@ -46,9 +47,8 @@ const Nav = () => {
       <MaxWidth>
         <div className="flex h-14 items-center justify-between md:h-16">
           {/* Logo */}
-          <a href="#hero" aria-label="OneFam — Home" className="flex items-center gap-2.5">
-            {/* gold face mark (recoloured to site gold) + white wordmark */}
-            <img src="/assets/logo-face.svg" alt="" aria-hidden="true" className="h-7 w-7 md:h-8 md:w-8" />
+          <a href="#hero" aria-label="OneFam — Home" className="flex items-center">
+            {/* wordmark only — the gradient face mark now lives big in the hero centre */}
             <Image src="/assets/logo-white.png" alt="OneFam" width={216} height={75} priority className="h-6 w-auto md:h-7" />
           </a>
 
@@ -68,7 +68,7 @@ const Nav = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md-1:block">
-            <Button as="a" href="/join" variant="primary" className="px-5 py-2.5 text-[15px]">
+            <Button as="a" href="/join" variant="primary" className="px-5 py-2.5 text-[15px]" style={{ background: BRAND_GRADIENT }}>
               {t('join')}
             </Button>
           </div>
@@ -91,8 +91,7 @@ const Nav = () => {
         }`}
       >
         <div className="flex h-14 items-center justify-between px-4">
-          <div className="flex items-center gap-2.5">
-            <img src="/assets/logo-face.svg" alt="" aria-hidden="true" className="h-7 w-7" />
+          <div className="flex items-center">
             <Image src="/assets/logo-white.png" alt="OneFam" width={216} height={75} className="h-6 w-auto" />
           </div>
           <button aria-label="Menü schliessen" className="text-primary" onClick={() => setOpen(false)}>
@@ -112,7 +111,7 @@ const Nav = () => {
               {l.label}
             </a>
           ))}
-          <Button as="a" href="/join" variant="primary" className="mt-2" onClick={() => setOpen(false)}>
+          <Button as="a" href="/join" variant="primary" className="mt-2" style={{ background: BRAND_GRADIENT }} onClick={() => setOpen(false)}>
             {t('join')}
           </Button>
         </nav>
