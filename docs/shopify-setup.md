@@ -31,9 +31,12 @@ Webhooks brauchen eine **öffentlich erreichbare Adresse**, an die Shopify melde
 
 ## Reihenfolge
 
-1. **OneFam:** ich baue den Webhook-Endpoint `/api/shopify/webhook` (HMAC-Prüfung + Idempotenz +
-   automatischer Käufer-Grant). *(Bau-Schritt P1)*
-2. **Deploy:** Seite auf Vercel live stellen (Pre-Launch-Punkt #3, Env-Variablen setzen).
+1. **OneFam:** Webhook-Endpoint `/api/shopify/webhook` (HMAC-Prüfung + Idempotenz +
+   automatischer Käufer-Grant) — **✅ GEBAUT** *(Bau-Schritt P1)*. Migration
+   `supabase/migrations/0006_shopify.sql` im **Supabase-SQL-Editor** einspielen
+   (legt `purchases`, `pending_buyers`, `shop_events` an + erweitert `buyers`).
+2. **Deploy:** Seite ist live (`https://webseite-one-fam.vercel.app`). `SHOPIFY_WEBHOOK_SECRET`
+   in **Vercel → Settings → Environment Variables** ergänzen (Production), dann **Redeploy**.
 3. **Du, im Shop-Admin (klickbar, ~5 Min):**
    - Einstellungen → **Benachrichtigungen** (Notifications) → ganz unten **Webhooks**.
    - **Webhook erstellen**, drei Stück, Format **JSON**, URL = der OneFam-Endpoint:

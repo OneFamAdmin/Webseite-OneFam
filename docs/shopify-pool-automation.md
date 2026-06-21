@@ -1,7 +1,18 @@
 # Konzept: Shopify-Anbindung + automatische Käufer-Erkennung + Pool-Buchhaltung
 
-Status: **Konzept / noch nicht gebaut.** Ersetzt langfristig das manuelle Käufer-Freischalten
-und das manuelle Setzen des Pool-Betrags.
+Status: **P1 GEBAUT** (Webhook-Endpoint + automatische Käufer-Erkennung), **P2/P3 noch Konzept**
+(Pool-/Gewinn-Buchhaltung). Ersetzt langfristig das manuelle Käufer-Freischalten und das manuelle
+Setzen des Pool-Betrags.
+
+> **P1 fertig (Käufer-Erkennung über Webhooks):** Endpoint `app/api/shopify/webhook/route.ts`
+> (HMAC-Prüfung gegen `SHOPIFY_WEBHOOK_SECRET` → 401, Idempotenz über `shop_events`,
+> Service-Role-Client). Bei `orders/paid` → E-Mail mit `auth.users` matchen → `buyers` (source
+> `shopify`, mit `first_order_id`) + `purchases`-Zeile; kein Match → `pending_buyers` (beim
+> nächsten Login/Signup automatisch befördert, siehe `app/auth/callback/route.ts`). Bei
+> `refunds/create` + `orders/cancelled` → `purchases` auf `refunded`/`cancelled`, und falls keine
+> bezahlte Bestellung mehr übrig ist, wird ein **shopify**-Käuferstatus entzogen (ein **manueller**
+> Admin-Grant bleibt). Migration: `supabase/migrations/0006_shopify.sql` (additiv) — der User spielt
+> sie im Supabase-SQL-Editor ein. **P2 (Live-Pool-Gutschrift) + P3 (Monats-Abgleich) folgen.**
 
 ---
 

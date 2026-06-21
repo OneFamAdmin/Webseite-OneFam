@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import type { EmailOtpType } from '@supabase/supabase-js';
 import { createClient } from '@/lib/supabase/server';
+import { promotePendingBuyer } from '@/lib/shopify/promote';
 
 // Handles the magic-link click: establishes the session, then forwards to the
 // confirm page carrying the chosen group size (g). Supports both the PKCE code
@@ -26,6 +27,13 @@ export async function GET(request: Request) {
   }
 
   if (ok) {
+    // Every magic-link login/signup passes through here — the single chokepoint to
+    // promote a buyer who ordered in the shop before having a OneFam account.
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+    if (user) await promotePendingBuyer(user.id, user.email);
+
     const next = `${origin}/join/bestaetigen?g=${encodeURIComponent(g)}${n ? `&n=${encodeURIComponent(n)}` : ''}`;
     return NextResponse.redirect(next);
   }

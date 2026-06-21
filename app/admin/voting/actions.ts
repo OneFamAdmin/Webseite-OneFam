@@ -3,6 +3,7 @@
 import { revalidatePath } from 'next/cache';
 import { createClient } from '@/lib/supabase/server';
 import { createAdminClient } from '@/lib/supabase/admin';
+import { findAuthUserByEmail } from '@/lib/supabase/users';
 import { CONTINENTS, countriesByContinent, placesByCountry } from '@/lib/geo/data';
 
 async function assertAdmin() {
@@ -17,14 +18,6 @@ async function assertAdmin() {
 }
 
 type AdminClient = ReturnType<typeof createAdminClient>;
-
-/** Look up an auth user by e-mail (case-insensitive). Returns null if none. */
-async function findUserByEmail(admin: AdminClient, email: string) {
-  const target = email.trim().toLowerCase();
-  const { data, error } = await admin.auth.admin.listUsers({ page: 1, perPage: 1000 });
-  if (error) throw new Error(error.message);
-  return data.users.find((u) => (u.email ?? '').toLowerCase() === target) ?? null;
-}
 
 const currentYear = () => new Date().getFullYear();
 
@@ -49,7 +42,7 @@ export async function grantBuyer(formData: FormData) {
   if (!email) throw new Error('Bitte eine E-Mail angeben.');
 
   const admin = createAdminClient();
-  const user = await findUserByEmail(admin, email);
+  const user = await findAuthUserByEmail(admin, email);
   if (!user) {
     throw new Error('Kein Nutzer mit dieser E-Mail. Die Person muss sich zuerst bei OneFam anmelden.');
   }

@@ -5,6 +5,7 @@ import { after } from 'next/server';
 import { Check } from 'lucide-react';
 import { createClient } from '@/lib/supabase/server';
 import { sendWelcomeEmail } from '@/lib/email/send';
+import { promotePendingBuyer } from '@/lib/shopify/promote';
 
 export const metadata = { title: 'Du bist dabei — OneFam' };
 
@@ -25,6 +26,12 @@ export default async function BestaetigenPage({
 
   // not logged in → send back to the join page
   if (!user) redirect('/join');
+
+  // Backstop for the Shopify buyer-promotion: if this user bought in the shop
+  // before signing up (e-mail parked in pending_buyers), grant buyer status now.
+  // The callback already does this on fresh logins; this also covers an existing
+  // session landing here. Cheap + idempotent (returns at once when nothing pends).
+  await promotePendingBuyer(user.id, user.email);
 
   const year = new Date().getFullYear();
   const wantedGroup = clampGroup(Number(g ?? '1'));
