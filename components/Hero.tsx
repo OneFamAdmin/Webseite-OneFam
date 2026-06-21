@@ -48,7 +48,14 @@ const Hero = () => {
           <Button as="a" href="/join" variant="primary" className="w-full sm:w-auto" style={{ background: BRAND_GRADIENT }}>
             {t('cta_primary')}
           </Button>
-          <Button as="a" href="#about" variant="secondary" className="w-full sm:w-auto">
+          <Button
+            as="a"
+            href="https://onefam.shop"
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="secondary"
+            className="w-full sm:w-auto"
+          >
             {t('cta_secondary')}
           </Button>
         </Reveal>

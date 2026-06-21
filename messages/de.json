@@ -12,7 +12,7 @@
     "claim": "For souls who belong to more than one place",
     "subline": "Eine globale Community für Menschen mit guter Energie – die sich respektieren, inspirieren und gemeinsam mehr aus ihrem Leben machen.",
     "cta_primary": "Join the Fam",
-    "cta_secondary": "Entdecke OneFam"
+    "cta_secondary": "Zum Shop"
   },
   "what_is_onefam": {
     "title": "Was ist OneFam?",
@@ -37,19 +37,23 @@
     "steps": [
       {
         "number": "01",
-        "text": "Kostenlos dabei – einmal im Jahr, ganz ohne Kauf. Deine Teilnahme ist immer gratis."
+        "text": "OneFam ist eine Marke mit Shop – wir gestalten und verkaufen Mode für Menschen, die zu mehr als einem Ort gehören."
       },
       {
         "number": "02",
-        "text": "Gleiche Chance für alle – ob du etwas kaufst oder nicht, ändert nichts an deiner Chance."
+        "text": "Von jedem Verkauf fließt ein fester Teil unseres Gewinns zurück in die Community – in den Pool, der die gemeinsamen Reisen finanziert."
       },
       {
         "number": "03",
-        "text": "Fair gezogen, öffentlich nachprüfbar – die Auswahl der Reiseplätze ist für jeden transparent überprüfbar."
+        "text": "Mitmachen ist gratis – für alle. Einmal im Jahr, ganz ohne Kauf. Ob du etwas kaufst oder nicht: die Chance ist für alle gleich."
       },
       {
         "number": "04",
-        "text": "Käufer erleben mehr – World Map, Voting, Live-Pool, Archiv, Early Access. Auf die Chance hat das keinen Einfluss."
+        "text": "Fair gezogen, öffentlich nachprüfbar – die Auslosung der Reiseplätze kann jeder selbst überprüfen."
+      },
+      {
+        "number": "05",
+        "text": "Käufer erleben mehr – sie bestimmen das Reiseziel mit, sehen den Live-Pool und die Weltkarte. Auf die Gewinnchance hat das keinen Einfluss."
       }
     ],
     "cta": "Mehr erfahren"
@@ -71,7 +75,7 @@
       },
       {
         "title": "Open Communication",
-        "text": "Wir reden offen und hören wirklich zu – ehrlich, respektvoll und ohne Maske. So, wie man in einer Familie spricht."
+        "text": "Bei uns wird offen geredet – und wirklich zugehört. Ehrlich, ohne Maske, auch wenn's mal unbequem ist. So, wie man miteinander spricht, wenn man Familie ist."
       },
       {
         "title": "Support & Unity",
