@@ -3,6 +3,8 @@ import { createAdminClient } from '@/lib/supabase/admin';
 import { findAuthUserByEmail } from '@/lib/supabase/users';
 import { grantShopifyBuyer, recomputeShopifyBuyer } from '@/lib/shopify/buyers';
 import { verifyShopifyHmac } from '@/lib/shopify/verify';
+import { creditPoolForOrder, reversePoolForOrder } from '@/lib/pool/service';
+import type { LineItem } from '@/lib/pool/accounting';
 
 // Node runtime: we need `node:crypto` for the HMAC and the service-role client.
 export const runtime = 'nodejs';
@@ -11,12 +13,18 @@ export const dynamic = 'force-dynamic';
 type AdminClient = ReturnType<typeof createAdminClient>;
 
 // ── Shopify payload shapes (only the fields we read) ─────────────────────────
+type ShopifyLineItem = {
+  sku?: string | null;
+  quantity?: number | string | null;
+  price?: string | number | null; // unit price
+};
 type ShopifyOrder = {
   id?: number | string;
   email?: string | null;
   currency?: string | null;
   total_price?: string | null;
   customer?: { id?: number | string | null; email?: string | null } | null;
+  line_items?: ShopifyLineItem[] | null;
 };
 type ShopifyRefund = {
   id?: number | string;
@@ -168,6 +176,20 @@ async function handleOrderPaid(admin: AdminClient, order: ShopifyOrder) {
       );
     if (pbErr) throw new Error(pbErr.message);
   }
+
+  // P2: credit the Travel-Pool from this order's profit (idempotent). Until the
+  // admin sets a pool share % in cost_config, this credits 0 (safe no-op).
+  const items: LineItem[] = (order.line_items ?? []).map((li) => ({
+    sku: li.sku ?? null,
+    quantity: Number(li.quantity ?? 1),
+    unitPrice: Number(li.price ?? 0),
+  }));
+  await creditPoolForOrder(admin, {
+    orderId,
+    year: new Date().getFullYear(),
+    gross: Number.isFinite(gross) ? (gross as number) : 0,
+    items,
+  });
 }
 
 // ── refunds/create → mark refunded + maybe revoke buyer ──────────────────────
@@ -202,6 +224,9 @@ async function markReversed(admin: AdminClient, orderId: string, status: 'refund
     .update({ status, updated_at: new Date().toISOString() })
     .eq('order_id', orderId);
   if (updErr) throw new Error(updErr.message);
+
+  // P2: reverse this order's pool credit (idempotent; no-op if nothing was credited).
+  await reversePoolForOrder(admin, { orderId, year: new Date().getFullYear() });
 
   if (purchase?.user_id) {
     await recomputeShopifyBuyer(admin, purchase.user_id);
