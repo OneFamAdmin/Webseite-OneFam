@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
-import { ArrowLeft, Users, Wallet, Dices, Vote, ChevronRight } from 'lucide-react';
+import { ArrowLeft, Users, Wallet, Dices, Vote, ChevronRight, Receipt } from 'lucide-react';
 import { createClient } from '@/lib/supabase/server';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { setPool, runDrawAction } from './actions';
@@ -87,6 +87,21 @@ export default async function AdminPage() {
             <div>
               <h2 className="font-display text-xl font-semibold text-primary">Reiseziel-Voting</h2>
               <p className="mt-0.5 font-body text-sm text-faint">Käufer freischalten · Runden Kontinent → Land → Ort</p>
+            </div>
+          </div>
+          <ChevronRight size={20} strokeWidth={1.6} className="text-faint" />
+        </Link>
+
+        {/* pool accounting link */}
+        <Link
+          href="/admin/pool"
+          className="mt-4 flex items-center justify-between rounded-[10px] border border-line bg-surface p-6 transition-colors duration-[180ms] hover:border-gold/40"
+        >
+          <div className="flex items-center gap-3">
+            <Receipt size={20} strokeWidth={1.6} className="text-gold" />
+            <div>
+              <h2 className="font-display text-xl font-semibold text-primary">Pool-Buchhaltung</h2>
+              <p className="mt-0.5 font-body text-sm text-faint">Anteil/Gebühren · PodOS-Kosten · Ledger (Gewinn → Pool)</p>
             </div>
           </div>
           <ChevronRight size={20} strokeWidth={1.6} className="text-faint" />
