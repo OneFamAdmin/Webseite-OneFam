@@ -83,9 +83,14 @@ create index if not exists votes_option_idx on public.votes (option_id);
 
 -- Keep poll_options.vote_count in sync — handles a CHANGED vote (UPDATE) too, so the
 -- old option loses a vote and the new one gains it.
+-- SECURITY DEFINER is REQUIRED: the trigger fires as the voting user (`authenticated`), and
+-- poll_options has RLS enabled with NO update policy → a SECURITY INVOKER trigger's UPDATE would
+-- be silently filtered to 0 rows (the vote inserts but the count never moves). Running as the
+-- owner bypasses RLS so the denormalised tally actually updates. search_path pinned for safety.
 create or replace function public.bump_vote_count()
 returns trigger
 language plpgsql
+security definer set search_path = public
 as $$
 begin
   if tg_op = 'INSERT' then
