@@ -116,6 +116,34 @@ export default async function ReisezielPage({ searchParams }: { searchParams: Pr
     const row = Array.isArray(data) ? data[0] : data;
     if (row?.round_id) phase = realPhase(row);
 
+    // Place stage: tell the map WHICH country to draw — the parent (country) round's winner.
+    // current_round doesn't return the scope, so resolve it: place round → parent country round
+    // → its winner option's code (= country ISO). Without heroIso the map can't zoom and renders
+    // the whole world (the ?demo= preview masked this because it sets heroIso directly).
+    if (phase?.level === 'place' && phase.roundId) {
+      const { data: pr } = await supabase
+        .from('poll_rounds')
+        .select('parent_round_id')
+        .eq('id', phase.roundId)
+        .maybeSingle();
+      const parentId = (pr?.parent_round_id as string | null) ?? null;
+      if (parentId) {
+        const { data: parent } = await supabase
+          .from('poll_rounds')
+          .select('winner_option_id')
+          .eq('id', parentId)
+          .maybeSingle();
+        const winId = (parent?.winner_option_id as string | null) ?? null;
+        if (winId) {
+          const { data: opt } = await supabase.from('poll_options').select('code').eq('id', winId).maybeSingle();
+          if (opt?.code) {
+            phase.heroIso = opt.code as string;
+            phase.landIsos = [opt.code as string];
+          }
+        }
+      }
+    }
+
     // The buyer's existing vote for this round (RLS: select-own), so the map shows their choice.
     if (phase?.roundId && u) {
       const { data: v } = await supabase
