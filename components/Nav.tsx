@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import MaxWidth from './MaxWidth';
@@ -30,15 +31,18 @@ const Nav = () => {
     };
   }, [open]);
 
+  // Absolute (/#…) so the nav works from EVERY page, not just the homepage: from a sub-route a
+  // bare "#werte" would be a dead in-page anchor; "/#werte" jumps to the homepage section.
   const links = [
-    { label: t('about'), href: '#about', external: false },
+    { label: t('about'), href: '/#about', external: false },
     { label: t('reiseziel'), href: '/reiseziel', external: false },
-    { label: t('werte'), href: '#werte', external: false },
-    { label: t('faq'), href: '#faq', external: false },
+    { label: t('werte'), href: '/#werte', external: false },
+    { label: t('faq'), href: '/#faq', external: false },
     { label: t('shop'), href: SHOP_URL, external: true },
   ];
 
   return (
+    <>
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-300 ${
         scrolled ? 'border-b border-line bg-bg/85 backdrop-blur-md' : 'border-b border-transparent bg-transparent'
@@ -47,23 +51,34 @@ const Nav = () => {
       <MaxWidth>
         <div className="flex h-14 items-center justify-between md:h-16">
           {/* Logo */}
-          <a href="#hero" aria-label="OneFam — Home" className="flex items-center">
+          <Link href="/#hero" aria-label="OneFam — Home" className="flex items-center">
             {/* wordmark only — the gradient face mark now lives big in the hero centre */}
             <Image src="/assets/logo-white.png" alt="OneFam" width={216} height={75} priority className="h-6 w-auto md:h-7" />
-          </a>
+          </Link>
 
           {/* Desktop links */}
           <nav className="hidden items-center gap-8 md-1:flex">
-            {links.map((l) => (
-              <a
-                key={l.label}
-                href={l.href}
-                {...(l.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                className="font-body text-[15px] font-medium text-secondary transition-colors duration-[180ms] hover:text-primary"
-              >
-                {l.label}
-              </a>
-            ))}
+            {links.map((l) =>
+              l.external ? (
+                <a
+                  key={l.label}
+                  href={l.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-body text-[15px] font-medium text-secondary transition-colors duration-[180ms] hover:text-primary"
+                >
+                  {l.label}
+                </a>
+              ) : (
+                <Link
+                  key={l.label}
+                  href={l.href}
+                  className="font-body text-[15px] font-medium text-secondary transition-colors duration-[180ms] hover:text-primary"
+                >
+                  {l.label}
+                </Link>
+              ),
+            )}
           </nav>
 
           {/* Desktop CTA */}
@@ -83,10 +98,13 @@ const Nav = () => {
           </button>
         </div>
       </MaxWidth>
+    </header>
 
-      {/* Mobile overlay */}
+      {/* Mobile overlay — OUTSIDE <header>: when scrolled the header gets backdrop-blur, which makes
+          it the containing block for fixed children and would shrink this inset-0 overlay to the
+          header height (→ menu floats over a see-through area). As a sibling it covers the viewport. */}
       <div
-        className={`fixed inset-0 z-50 flex flex-col bg-bg transition-transform duration-300 md-1:hidden ${
+        className={`fixed inset-0 z-[60] flex flex-col bg-bg transition-transform duration-300 md-1:hidden ${
           open ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -100,23 +118,35 @@ const Nav = () => {
         </div>
 
         <nav className="flex flex-1 flex-col items-center justify-center gap-8">
-          {links.map((l) => (
-            <a
-              key={l.label}
-              href={l.href}
-              {...(l.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-              onClick={() => setOpen(false)}
-              className="font-display text-2xl font-semibold text-primary transition-colors duration-[180ms] hover:text-gold"
-            >
-              {l.label}
-            </a>
-          ))}
+          {links.map((l) =>
+            l.external ? (
+              <a
+                key={l.label}
+                href={l.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
+                className="font-display text-2xl font-semibold text-primary transition-colors duration-[180ms] hover:text-gold"
+              >
+                {l.label}
+              </a>
+            ) : (
+              <Link
+                key={l.label}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="font-display text-2xl font-semibold text-primary transition-colors duration-[180ms] hover:text-gold"
+              >
+                {l.label}
+              </Link>
+            ),
+          )}
           <Button as="a" href="/join" variant="primary" className="mt-2" style={{ background: BRAND_GRADIENT }} onClick={() => setOpen(false)}>
             {t('join')}
           </Button>
         </nav>
       </div>
-    </header>
+    </>
   );
 };
 

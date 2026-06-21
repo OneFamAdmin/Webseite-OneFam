@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
-import { ArrowLeft, Check } from 'lucide-react';
+import { Check } from 'lucide-react';
 import JoinForm from '@/components/JoinForm';
+import Nav from '@/components/Nav';
 
 export const metadata: Metadata = {
   title: 'Join the Fam — OneFam',
@@ -18,23 +17,8 @@ const POINTS = [
 
 export default function JoinPage() {
   return (
-    <div className="flex min-h-screen flex-col bg-bg">
-      {/* top bar */}
-      <header className="border-b border-line">
-        <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-5">
-          <Link href="/" aria-label="OneFam — Home" className="flex items-center gap-2.5">
-            <img src="/assets/logo-face-gradient.svg" alt="" aria-hidden="true" className="h-7 w-7" />
-            <Image src="/assets/logo-white.png" alt="OneFam" width={216} height={75} priority className="h-6 w-auto" />
-          </Link>
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 font-body text-sm text-secondary transition-colors duration-[180ms] hover:text-primary"
-          >
-            <ArrowLeft size={16} strokeWidth={1.5} />
-            Zur Startseite
-          </Link>
-        </div>
-      </header>
+    <div className="flex min-h-screen flex-col bg-bg pt-14 md:pt-16">
+      <Nav />
 
       <main className="mx-auto flex w-full max-w-[560px] flex-1 flex-col justify-center px-6 py-16 md:py-24">
         <p className="font-body text-sm font-medium uppercase tracking-[0.22em] text-gold">Join the Fam</p>

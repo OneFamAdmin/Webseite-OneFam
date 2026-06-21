@@ -1,7 +1,6 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { ArrowLeft, ShieldCheck } from 'lucide-react';
+import { ShieldCheck } from 'lucide-react';
 import { createClient } from '@/lib/supabase/server';
+import Nav from '@/components/Nav';
 
 export const metadata = {
   title: 'Archiv & Transparenz — OneFam',
@@ -33,22 +32,8 @@ export default async function ArchivPage() {
   const draws = (data ?? []) as Draw[];
 
   return (
-    <div className="flex min-h-screen flex-col bg-bg">
-      <header className="border-b border-line">
-        <div className="mx-auto flex w-full max-w-3xl items-center justify-between px-6 py-5">
-          <Link href="/" aria-label="OneFam — Home" className="flex items-center gap-2.5">
-            <img src="/assets/logo-face-gradient.svg" alt="" aria-hidden="true" className="h-7 w-7" />
-            <Image src="/assets/logo-white.png" alt="OneFam" width={216} height={75} priority className="h-6 w-auto" />
-          </Link>
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 font-body text-sm text-secondary transition-colors duration-[180ms] hover:text-primary"
-          >
-            <ArrowLeft size={16} strokeWidth={1.5} />
-            Zur Startseite
-          </Link>
-        </div>
-      </header>
+    <div className="flex min-h-screen flex-col bg-bg pt-14 md:pt-16">
+      <Nav />
 
       <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-16 md:py-24">
         <p className="font-body text-sm font-medium uppercase tracking-[0.22em] text-gold">Transparenz</p>

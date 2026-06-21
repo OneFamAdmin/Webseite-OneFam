@@ -1,6 +1,6 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import Nav from '@/components/Nav';
 import { createClient } from '@/lib/supabase/server';
 import VotingDesignMap, { type DesignOption } from '@/components/VotingDesignMap';
 import ReisezielVoting from '@/components/ReisezielVoting';
@@ -170,18 +170,8 @@ export default async function ReisezielPage({ searchParams }: { searchParams: Pr
   const canVote = Boolean(phase?.roundId && user && isBuyer);
 
   return (
-    <div className="flex min-h-screen flex-col bg-bg">
-      <header className="border-b border-line">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-5">
-          <Link href="/" aria-label="OneFam — Home" className="flex items-center gap-2.5">
-            <img src="/assets/logo-face-gradient.svg" alt="" aria-hidden="true" className="h-7 w-7" />
-            <Image src="/assets/logo-white.png" alt="OneFam" width={216} height={75} priority className="h-6 w-auto" />
-          </Link>
-          <Link href="/mein-bereich" className="font-body text-sm text-secondary transition-colors duration-[180ms] hover:text-primary">
-            Mein Bereich
-          </Link>
-        </div>
-      </header>
+    <div className="flex min-h-screen flex-col bg-bg pt-14 md:pt-16">
+      <Nav />
 
       <main className="flex-1">
         {phase ? (
