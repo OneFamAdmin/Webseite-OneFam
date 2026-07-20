@@ -25,7 +25,7 @@ export default async function BestaetigenPage({
   } = await supabase.auth.getUser();
 
   // not logged in → send back to the join page
-  if (!user) redirect('/join');
+  if (!user) redirect('/login');
 
   // Backstop for the Shopify buyer-promotion: if this user bought in the shop
   // before signing up (e-mail parked in pending_buyers), grant buyer status now.

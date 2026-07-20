@@ -1,40 +1,22 @@
-import { ArrowRight } from 'lucide-react';
-import { getTranslations } from 'next-intl/server';
-import { createClient } from '@/lib/supabase/server';
+import { useTranslations } from 'next-intl';
 import MaxWidth from './MaxWidth';
 import Reveal from './Reveal';
-import Button from './Button';
-import CountUp from './CountUp';
 import MarbleBg from './MarbleBg';
-import { BRAND_GRADIENT } from '@/lib/brand';
+import WaitlistForm from './WaitlistForm';
 
-const SHOP_URL = 'https://onefam.shop';
-const FALLBACK_AMOUNT = 4280; // shown only until the admin has set a real pool
-
-/** Reads the live travel-pool amount for the current year (admin-set, RLS public-read).
- *  Falls back to a tasteful number only when no row exists yet, so the homepage never
- *  shows "CHF 0" before launch. Once the admin sets the pool, this reflects it live. */
-async function getPool() {
-  const year = new Date().getFullYear();
-  try {
-    const supabase = await createClient();
-    const { data } = await supabase
-      .from('pool_state')
-      .select('amount_chf, ref_cost_chf')
-      .eq('year', year)
-      .maybeSingle();
-    if (!data) return { amount: FALLBACK_AMOUNT, fundedTrips: 0 };
-    const amount = Number(data.amount_chf ?? 0);
-    const ref = Number(data.ref_cost_chf ?? 0);
-    return { amount, fundedTrips: ref > 0 ? Math.floor(amount / ref) : 0 };
-  } catch {
-    return { amount: FALLBACK_AMOUNT, fundedTrips: 0 };
-  }
-}
-
-const TravelPool = async () => {
-  const t = await getTranslations('travel_pool');
-  const { amount, fundedTrips } = await getPool();
+/** Travel Pool — VISION, nicht Mechanik.
+ *
+ *  Bewusst ohne Live-Counter, ohne Betrag, ohne Kauf→Auswahl-Versprechen: bei einer
+ *  unbekannten Marke liest sich ein leerer CHF-Zähler wie ein Scam, und die aktive
+ *  Mechanik darf erst nach anwaltlicher Prüfung + "Teilnahme ohne Kaufzwang" zurück
+ *  (siehe docs/handover-shopify-pool.md §3). Bis dahin: Ziel benennen, Warteliste
+ *  anbieten — rechtlich ein sauberer Newsletter, der den Hook am Leben hält.
+ *
+ *  Die Pool-Buchhaltung im Hintergrund (pool_ledger, /admin/pool) läuft unverändert
+ *  weiter — sie ist nur nicht mehr öffentlich sichtbar. */
+const TravelPool = () => {
+  const t = useTranslations('travel_pool');
+  const points = t.raw('points') as string[];
 
   return (
     <section
@@ -52,41 +34,30 @@ const TravelPool = async () => {
         </Reveal>
 
         <Reveal delay={0.08}>
-          {/* The ONE deliberate place the brand gradient returns: the growing community pool —
-              the tangible "good energy", echoing the gradient logo. Everything else stays gold. */}
-          <CountUp
-            to={amount}
-            prefix="CHF "
-            className="mt-4 block font-display text-[clamp(3.25rem,10vw,6rem)] font-extrabold leading-none tracking-[0.01em] text-gold"
-            style={{
-              backgroundImage: BRAND_GRADIENT,
-              WebkitBackgroundClip: 'text',
-              backgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              color: 'transparent',
-            }}
-          />
+          <h2 className="mt-4 max-w-[16ch] font-display text-[clamp(2.25rem,6vw,4rem)] font-semibold leading-[1.08] tracking-[0.01em] text-primary">
+            {t('title')}
+          </h2>
         </Reveal>
 
         <Reveal delay={0.14}>
-          <p className="mt-4 font-body text-base text-faint">
-            {fundedTrips > 0
-              ? `${fundedTrips} ${fundedTrips === 1 ? 'Reise' : 'Reisen'} bereits finanziert · ${t('note')}`
-              : t('note')}
-          </p>
+          <p className="mt-6 max-w-[560px] font-body text-lg leading-relaxed text-secondary">{t('description')}</p>
         </Reveal>
 
         <Reveal delay={0.2}>
-          <p className="mt-8 max-w-[520px] font-body text-lg leading-relaxed text-secondary">
-            {t('description')}
-          </p>
+          <ul className="mt-10 flex flex-col items-center gap-3">
+            {points.map((p) => (
+              <li key={p} className="max-w-[460px] font-body text-base leading-relaxed text-faint">
+                {p}
+              </li>
+            ))}
+          </ul>
         </Reveal>
 
-        <Reveal delay={0.26} className="mt-10">
-          <Button as="a" href={SHOP_URL} target="_blank" rel="noopener noreferrer" variant="ghost">
-            {t('cta')}
-            <ArrowRight size={18} strokeWidth={1.5} />
-          </Button>
+        <Reveal delay={0.26} className="mt-12 w-full">
+          <div className="mx-auto w-full max-w-[420px] text-left">
+            <p className="mb-4 text-center font-body text-base font-medium text-primary">{t('waitlist_title')}</p>
+            <WaitlistForm compact />
+          </div>
         </Reveal>
       </MaxWidth>
     </section>

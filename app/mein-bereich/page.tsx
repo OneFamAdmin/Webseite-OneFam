@@ -1,13 +1,13 @@
 import type { ReactNode } from 'react';
 import Link from 'next/link';
 import Nav from '@/components/Nav';
-import { ArrowRight, Check, Lock, MapPin, Sparkles } from 'lucide-react';
+import { ArrowRight, Lock, MapPin, Sparkles } from 'lucide-react';
 import { createClient } from '@/lib/supabase/server';
 import Button from '@/components/Button';
 
 export const metadata = {
   title: 'Mein Bereich — OneFam',
-  description: 'Dein OneFam-Bereich: Auslosungs-Teilnahme und — als Käufer — die Reiseziel-Wahl.',
+  description: 'Dein OneFam-Bereich — als Käufer: die Reiseziel-Wahl.',
 };
 
 // guest = logged out · visitor = logged in, NOT a buyer · buyer = logged in + buyer
@@ -57,13 +57,15 @@ export default async function MeinBereichPage({
         {state === 'guest' && (
           <>
             <p className="mt-3 max-w-[640px] font-body text-lg leading-[1.7] text-secondary">
-              Melde dich an, um deinen Bereich zu sehen — deine kostenlose Teilnahme an der Auslosung und, als Käufer, die
-              Mitbestimmung über das nächste Reiseziel.
+              Melde dich an, um deinen Bereich zu sehen — und, als Käufer, über das nächste Reiseziel mitzubestimmen.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button as="a" href="/join" variant="primary">
-                Anmelden / kostenlos dabei sein
+              <Button as="a" href="/login" variant="primary">
+                Anmelden
                 <ArrowRight size={18} strokeWidth={1.5} />
+              </Button>
+              <Button as="a" href="/join" variant="secondary">
+                Auf die Warteliste
               </Button>
             </div>
           </>
@@ -78,15 +80,15 @@ export default async function MeinBereichPage({
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <Card
-                icon={<Check size={20} strokeWidth={1.5} className="text-gold" />}
-                title="Auslosung — du bist dabei"
-                body="Deine kostenlose Teilnahme an der nächsten Reise-Auslosung ist aktiv. Gleiche Chance für alle."
-                tone="active"
+                icon={<Sparkles size={20} strokeWidth={1.5} className="text-faint" />}
+                title="Travel Pool — in Vorbereitung"
+                body="Die gemeinsame Reise ist unser Ziel, noch nicht unser Angebot. Du hörst von uns, sobald es so weit ist."
+                tone="soon"
               />
               <Card
                 icon={<Lock size={20} strokeWidth={1.5} className="text-faint" />}
                 title="Reiseziel-Wahl — Käufer-Extra"
-                body="Das Mitbestimmen über das nächste Reiseziel ist ein Extra für Käufer. Dein Vorteil bei der Auslosung bleibt davon unberührt."
+                body="Das Mitbestimmen über das nächste Reiseziel ist ein Extra für Käufer."
                 tone="locked"
                 cta={
                   <Button as="a" href="/" variant="secondary" className="mt-1 px-5 py-2.5 text-sm">
@@ -96,11 +98,6 @@ export default async function MeinBereichPage({
                 }
               />
             </div>
-
-            <p className="mt-6 max-w-[660px] font-body text-sm leading-relaxed text-faint">
-              Hinweis: Die Reiseziel-Wahl ist ein Soft-Benefit und hat <span className="text-secondary">keinen</span>{' '}
-              Einfluss auf deine Gewinnchance — die ist für alle gleich.
-            </p>
           </>
         )}
 
@@ -139,10 +136,10 @@ export default async function MeinBereichPage({
               </Link>
 
               <Card
-                icon={<Check size={20} strokeWidth={1.5} className="text-gold" />}
-                title="Auslosung — du bist dabei"
-                body="Deine kostenlose Teilnahme an der nächsten Reise-Auslosung ist aktiv."
-                tone="active"
+                icon={<Sparkles size={20} strokeWidth={1.5} className="text-faint" />}
+                title="Travel Pool — in Vorbereitung"
+                body="Die gemeinsame Reise ist unser Ziel, noch nicht unser Angebot. Du hörst von uns, sobald es so weit ist."
+                tone="soon"
               />
               <Card
                 icon={<Sparkles size={20} strokeWidth={1.5} className="text-faint" />}

@@ -5,6 +5,15 @@ import { Mail, Check, Loader2, User } from 'lucide-react';
 import Button from './Button';
 import { createClient } from '@/lib/supabase/client';
 
+// GEPARKT — derzeit von keiner Seite eingebunden.
+//
+// Dies ist der Teilnahme-Funnel der Auslosung (Gruppengrösse + Anzeigename +
+// Magic-Link → /join/bestaetigen → entries-Insert). Er ist bis zur anwaltlichen
+// Prüfung und einer sauberen "Teilnahme ohne Kaufzwang"-Konstruktion offline,
+// siehe docs/handover-shopify-pool.md §3. /join zeigt stattdessen die Warteliste
+// (WaitlistForm), der reine Login läuft über /login (LoginForm).
+// Nicht löschen: soll nach der Prüfung unverändert reaktivierbar sein.
+
 type State = 'idle' | 'submitting' | 'sent';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

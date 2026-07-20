@@ -60,7 +60,8 @@ export default async function ArchivPage() {
         {/* draws */}
         {draws.length === 0 ? (
           <p className="mt-12 rounded-[10px] border border-dashed border-line p-8 text-center font-body text-secondary">
-            Noch keine Ziehung. Sobald die erste läuft, erscheint sie hier.
+            Noch keine Ziehung – es läuft derzeit keine. Wenn wir eines Tages Reiseplätze vergeben, steht hier von der
+            ersten Runde an alles offen dokumentiert.
           </p>
         ) : (
           <div className="mt-10 space-y-6">

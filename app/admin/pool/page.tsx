@@ -24,7 +24,7 @@ export default async function AdminPoolPage() {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (!user) redirect('/join');
+  if (!user) redirect('/login');
   if (user.email !== process.env.ADMIN_EMAIL) redirect('/');
 
   const year = new Date().getFullYear();

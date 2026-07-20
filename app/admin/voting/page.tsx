@@ -46,7 +46,7 @@ export default async function AdminVotingPage() {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (!user) redirect('/join');
+  if (!user) redirect('/login');
   if (user.email !== process.env.ADMIN_EMAIL) redirect('/');
 
   const admin = createAdminClient();

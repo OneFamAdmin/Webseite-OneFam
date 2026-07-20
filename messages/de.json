@@ -8,9 +8,9 @@
     "join": "Join the Fam"
   },
   "hero": {
-    "brand": "OneFam",
+    "brand": "Woher kommst du?",
     "claim": "For souls who belong to more than one place",
-    "subline": "Eine globale Community für Menschen mit guter Energie – die sich respektieren, inspirieren und gemeinsam mehr aus ihrem Leben machen.",
+    "subline": "Deine Antwort hat ein Komma. Für die, die zu mehr als einem Ort gehören – und an keinem davon etwas erklären müssen.",
     "cta_primary": "Join the Fam",
     "cta_secondary": "Zum Shop"
   },
@@ -41,28 +41,50 @@
       },
       {
         "number": "02",
-        "text": "Von jedem Verkauf fließt ein fester Teil unseres Gewinns zurück in die Community – in den Pool, der die gemeinsamen Reisen finanziert."
+        "text": "Ein fester Teil unseres Gewinns bleibt reserviert – für das, was wir mit der Community vorhaben. Das ist unser Versprechen an uns selbst, keine Gegenleistung für einen Kauf."
       },
       {
         "number": "03",
-        "text": "Mitmachen ist gratis – für alle. Einmal im Jahr, ganz ohne Kauf. Ob du etwas kaufst oder nicht: die Chance ist für alle gleich."
+        "text": "Unser Ziel: irgendwann reisen wir gemeinsam. Wir bauen das in Ruhe auf, sauber und geprüft – und sagen Bescheid, wenn es so weit ist."
       },
       {
         "number": "04",
-        "text": "Fair gezogen, öffentlich nachprüfbar – die Auslosung der Reiseplätze kann jeder selbst überprüfen."
+        "text": "Wer dabei sein will, trägt sich in die Warteliste ein. Kein Kauf nötig, keine Bedingungen, jederzeit abmeldbar."
       },
       {
         "number": "05",
-        "text": "Käufer erleben mehr – sie bestimmen das Reiseziel mit, sehen den Live-Pool und die Weltkarte. Auf die Gewinnchance hat das keinen Einfluss."
+        "text": "Käufer erleben mehr – sie bestimmen das Reiseziel mit und sehen die Weltkarte. Ein Dankeschön, kein Vorteil auf irgendetwas."
       }
     ],
     "cta": "Mehr erfahren"
   },
   "travel_pool": {
-    "label": "Aktueller Travel Pool 2026",
-    "note": "(wächst mit jedem Kauf)",
-    "description": "Dieser Betrag fliesst vollständig in die Community-Erlebnisse am Jahresende.",
-    "cta": "Käufer sehen mehr"
+    "label": "Unsere Vision",
+    "title": "Irgendwann reisen wir gemeinsam.",
+    "description": "Ein Teil unseres Gewinns bleibt für die Fam reserviert – für den Tag, an dem wir uns nicht mehr nur online begegnen. Das ist noch kein Angebot. Es ist die Richtung, in die wir gehen.",
+    "points": [
+      "Wir starten bei null – und nehmen dich von Anfang an mit.",
+      "Nichts davon wird verkauft, versprochen oder verlost.",
+      "Wenn es so weit ist, hörst du es zuerst."
+    ],
+    "waitlist_title": "Sei von Anfang an dabei."
+  },
+  "product_bridge": {
+    "label": "Die Stücke",
+    "title": "Ein stilles Erkennungszeichen.",
+    "intro": "Kein Katalogartikel, kein Logo zum Angeben. Ein Zeichen, das die richtigen Menschen erkennen – und der Rest übersieht. Genau so soll es sein.",
+    "lines": [
+      {
+        "name": "Die Logo-Linie",
+        "text": "Das stille Grundzeichen. Für alle, die dazugehören – ohne dass es jemand ausspricht. Zurückhaltend genug für jeden Tag, deutlich genug für die, die wissen."
+      },
+      {
+        "name": "Die Länder-Linien",
+        "text": "Mexiko. Afghanistan. Brasilien. Peru. Für das Zuhause, das du nur fühlen kannst – weil es auf keiner deiner Adressen steht, aber in jedem deiner Sätze mitschwingt."
+      }
+    ],
+    "cta": "Stücke ansehen",
+    "price_note": "Shirt ab CHF 35 · Sweater CHF 60 · Hoodie CHF 70"
   },
   "values": {
     "label": "Code of Conduct",
@@ -134,28 +156,24 @@
     "title": "Häufige Fragen",
     "items": [
       {
-        "question": "Ist OneFam ein Glücksspiel oder eine Lotterie?",
-        "answer": "OneFam vergibt die Reiseplätze über eine kostenlose, faire Verlosung. Weil die Teilnahme immer gratis ist – auch ohne Kauf – und niemand etwas einsetzt, gilt sie nicht als bewilligungspflichtiges Geldspiel. Der Reise-Pool wird von uns als Unternehmen finanziert, nicht aus Einsätzen der Teilnehmenden."
+        "question": "Gibt es die gemeinsame Reise schon?",
+        "answer": "Nein. Die gemeinsame Reise ist unser Ziel, nicht unser aktuelles Angebot. Wir bauen das in Ruhe und sauber auf – inklusive rechtlicher Prüfung – und sagen offen Bescheid, wenn es so weit ist. Bis dahin versprechen wir niemandem eine Reise."
       },
       {
-        "question": "Was kostet die Teilnahme?",
-        "answer": "Die Teilnahme ist komplett kostenlos – einmal im Jahr, weltweit, eine Teilnahme pro Person."
+        "question": "Ist das ein Gewinnspiel oder eine Lotterie?",
+        "answer": "Nein. Es gibt aktuell weder eine Verlosung noch einen Gewinn, und niemand setzt etwas ein. Die Warteliste ist ein gewöhnlicher Newsletter: du trägst deine E-Mail ein, wir melden uns, du kannst dich jederzeit abmelden."
       },
       {
-        "question": "Bringen mir Käufe einen Vorteil bei der Ziehung?",
-        "answer": "Nein. Käufe sind reine Community-Unterstützung und verändern deine Chance nicht – bei der Ziehung sind alle Teilnehmenden gleichgestellt."
+        "question": "Was bringt mir der Eintrag in die Warteliste?",
+        "answer": "Du erfährst als Erste:r, wenn wir den nächsten Schritt gehen. Kein Kauf nötig, keine Bedingungen, keine Verpflichtung."
       },
       {
-        "question": "Was haben Mitglieder, die etwas kaufen, davon?",
-        "answer": "Sie erleben mehr: World Map, Voting, Live-Pool, Archiv und Early Access."
+        "question": "Bringt mir ein Kauf irgendeinen Vorteil?",
+        "answer": "Nein – jedenfalls keinen, den man gewinnen kann. Käufer sehen die Weltkarte und bestimmen das Reiseziel mit. Das ist ein Dankeschön für die Unterstützung, mehr nicht."
       },
       {
-        "question": "Wie transparent ist das Ganze?",
-        "answer": "Die Ziehung ist öffentlich nachprüfbar, klar dokumentiert und archiviert – jederzeit nachvollziehbar."
-      },
-      {
-        "question": "Woher kommt das Geld im Travel Pool – und wohin fliesst es?",
-        "answer": "Der Pool wird vollständig von OneFam aus dem eigenen Unternehmensgewinn finanziert – als Bonus an unsere Community. Niemand zahlt in den Pool ein. Am Jahresende fliesst der gesamte Betrag vollständig in die Community-Erlebnisse."
+        "question": "Was passiert mit dem Teil des Gewinns, der reserviert ist?",
+        "answer": "Er bleibt bei uns im Unternehmen zurückgelegt – für das, was wir mit der Community vorhaben. Niemand zahlt etwas ein, und niemand hat einen Anspruch darauf. Sobald daraus ein konkretes Angebot wird, legen wir offen, wie es funktioniert."
       },
       {
         "question": "Wer steht hinter OneFam?",
@@ -165,7 +183,7 @@
   },
   "final_cta": {
     "title": "Join the Fam",
-    "text": "Wenn sich das nach dir anfühlt, bist du längst Teil davon.",
+    "text": "Wenn sich das nach dir anfühlt, bist du längst Teil davon. Trag dich ein – kein Kauf nötig.",
     "cta_primary": "Join the Fam"
   },
   "footer": {

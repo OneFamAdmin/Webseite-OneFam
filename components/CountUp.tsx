@@ -9,6 +9,9 @@ const swiss = (n: number) =>
     .toLocaleString('de-CH')
     .replace(/[  ,.]/g, '’');
 
+// GEPARKT — derzeit ungenutzt: der öffentliche Live-Pool-Zähler ist bis zur
+// anwaltlichen Prüfung entfernt (docs/handover-shopify-pool.md §3).
+
 type CountUpProps = {
   to: number;
   prefix?: string; // e.g. "CHF "

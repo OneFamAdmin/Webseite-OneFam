@@ -3,15 +3,20 @@ import type { EmailOtpType } from '@supabase/supabase-js';
 import { createClient } from '@/lib/supabase/server';
 import { promotePendingBuyer } from '@/lib/shopify/promote';
 
-// Handles the magic-link click: establishes the session, then forwards to the
-// confirm page carrying the chosen group size (g). Supports both the PKCE code
-// flow and the token_hash flow, so it works regardless of the email template.
+// Handles the magic-link click: establishes the session, then forwards on.
+// Supports both the PKCE code flow and the token_hash flow, so it works
+// regardless of the email template.
+//
+// Ohne `g` (der Normalfall seit dem Trust-first-Launch) ist das ein reiner
+// Login → /mein-bereich, und es entsteht KEINE Auslosungs-Teilnahme. Der
+// `g`-Pfad zur Bestätigungsseite bleibt für die spätere Reaktivierung der
+// Teilnahme-Mechanik erhalten (siehe docs/handover-shopify-pool.md §3).
 export async function GET(request: Request) {
   const url = new URL(request.url);
   const code = url.searchParams.get('code');
   const tokenHash = url.searchParams.get('token_hash');
   const type = url.searchParams.get('type') as EmailOtpType | null;
-  const g = url.searchParams.get('g') ?? '1';
+  const g = url.searchParams.get('g');
   const n = url.searchParams.get('n') ?? '';
   const origin = url.origin;
 
@@ -34,8 +39,10 @@ export async function GET(request: Request) {
     } = await supabase.auth.getUser();
     if (user) await promotePendingBuyer(user.id, user.email);
 
-    const next = `${origin}/join/bestaetigen?g=${encodeURIComponent(g)}${n ? `&n=${encodeURIComponent(n)}` : ''}`;
+    const next = g
+      ? `${origin}/join/bestaetigen?g=${encodeURIComponent(g)}${n ? `&n=${encodeURIComponent(n)}` : ''}`
+      : `${origin}/mein-bereich`;
     return NextResponse.redirect(next);
   }
-  return NextResponse.redirect(`${origin}/join?fehler=link`);
+  return NextResponse.redirect(`${origin}/login?fehler=link`);
 }
