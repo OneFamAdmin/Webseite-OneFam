@@ -10,7 +10,7 @@ export default function DatenschutzPage() {
   return (
     <LegalLayout
       title="Datenschutzerklärung"
-      updated="Juni 2026"
+      updated="Juli 2026"
       lead={
         <p>
           Der Schutz deiner Daten ist uns wichtig. Diese Erklärung informiert dich darüber, welche Personendaten wir
@@ -61,20 +61,53 @@ export default function DatenschutzPage() {
         <p>
           Hosting-Provider ist <span className="text-secondary">Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789,
           USA</span> <span className="text-faint">[bei abweichendem Hosting anpassen]</span>. Die Bearbeitung erfolgt
-          teilweise auf Servern ausserhalb der Schweiz (siehe Ziffer 8).
+          teilweise auf Servern ausserhalb der Schweiz (siehe Ziffer 10).
         </p>
       </Section>
 
       <Section n="5" title="Cookies und Tracking">
         <p>
-          Diese Website verwendet <span className="text-primary">keine Cookies</span> und setzt{' '}
-          <span className="text-primary">keine Analyse-, Tracking- oder Werbe-Tools</span> ein (z. B. Google Analytics,
-          Meta-Pixel o. Ä.). Es werden keine Nutzungsprofile erstellt. Sollte sich dies künftig ändern, wird diese
-          Erklärung angepasst und – soweit erforderlich – deine Einwilligung eingeholt.
+          Diese Website setzt <span className="text-primary">keine Analyse-, Tracking- oder Werbe-Tools</span> ein
+          (z. B. Google Analytics, Meta-Pixel o. Ä.). Es werden keine Nutzungsprofile erstellt und keine Daten zu
+          Werbezwecken an Dritte weitergegeben.
+        </p>
+        <p>
+          Verwendet werden ausschliesslich <span className="text-primary">technisch notwendige Cookies</span>: Wenn du
+          dich anmeldest, speichert dein Browser ein Sitzungs-Cookie, damit du eingeloggt bleibst. Ohne dieses Cookie
+          funktioniert die Anmeldung nicht. Meldest du dich nicht an, werden keine Cookies gesetzt. Sollten wir künftig
+          weitere Cookies einsetzen, wird diese Erklärung angepasst und – soweit erforderlich – deine Einwilligung
+          eingeholt.
         </p>
       </Section>
 
-      <Section n="6" title="Kontaktaufnahme">
+      <Section n="6" title="Warteliste (Newsletter)">
+        <p>
+          Trägst du dich in unsere Warteliste ein, bearbeiten wir deine E-Mail-Adresse, einen freiwillig angegebenen
+          Namen sowie den Zeitpunkt der Eintragung. Zweck ist ausschliesslich, dich über OneFam zu informieren.
+          Grundlage ist deine Einwilligung.
+        </p>
+        <p>
+          Du kannst dich jederzeit abmelden – über den Abmeldelink in jeder E-Mail oder formlos an info@onefam.ch.
+          Danach löschen wir deinen Eintrag. Wir geben diese Daten nicht an Dritte weiter und nutzen sie nicht für
+          Werbung anderer Unternehmen.
+        </p>
+      </Section>
+
+      <Section n="7" title="Mitgliederkonto und Datenbank">
+        <p>
+          Für die Anmeldung bearbeiten wir deine E-Mail-Adresse sowie technische Angaben zur Sitzung. Die Anmeldung
+          erfolgt über einen Login-Link per E-Mail; ein Passwort speichern wir nicht. Hast du in unserem Shop bestellt,
+          speichern wir zudem die Information, dass eine Bestellung vorliegt, um dir Zusatzfunktionen freizuschalten.
+        </p>
+        <p>
+          Warteliste und Kontodaten werden bei{' '}
+          <span className="text-secondary">Supabase (Region Zürich, Schweiz)</span> gespeichert. Der Versand von
+          E-Mails erfolgt über einen Dienstleister, der die Adressen ausschliesslich in unserem Auftrag bearbeitet.{' '}
+          <span className="text-faint">[Auftragsbearbeitungsverträge sind abzuschliessen bzw. zu dokumentieren.]</span>
+        </p>
+      </Section>
+
+      <Section n="8" title="Kontaktaufnahme">
         <p>
           Wenn du uns per E-Mail, Telefon oder über einen Messenger-Dienst kontaktierst, werden die von dir gemachten
           Angaben (z. B. Name, Kontaktdaten und Inhalt der Nachricht) zur Bearbeitung deiner Anfrage gespeichert und
@@ -83,7 +116,7 @@ export default function DatenschutzPage() {
         </p>
       </Section>
 
-      <Section n="7" title="Messenger und Social Media">
+      <Section n="9" title="Messenger und Social Media">
         <p>
           Auf dieser Website verlinken wir auf externe Plattformen und Messenger-Dienste (u. a. Instagram, Facebook,
           WhatsApp, Telegram, Threema). Diese Links sind reine Verweise – beim blossen Aufruf unserer Website werden
@@ -94,7 +127,7 @@ export default function DatenschutzPage() {
         </p>
       </Section>
 
-      <Section n="8" title="Datenübermittlung ins Ausland">
+      <Section n="10" title="Datenübermittlung ins Ausland">
         <p>
           Im Rahmen des Hostings sowie bei der Nutzung von Messenger- und Social-Media-Diensten können Daten ins Ausland
           – auch in die USA – übermittelt werden. Eine Übermittlung erfolgt nur, wenn ein angemessenes Datenschutzniveau
@@ -102,21 +135,21 @@ export default function DatenschutzPage() {
         </p>
       </Section>
 
-      <Section n="9" title="Aufbewahrung">
+      <Section n="11" title="Aufbewahrung">
         <p>
           Wir bewahren Personendaten nur so lange auf, wie es für die jeweiligen Zwecke erforderlich ist oder gesetzliche
           Aufbewahrungsfristen es verlangen. Danach werden die Daten gelöscht oder anonymisiert.
         </p>
       </Section>
 
-      <Section n="10" title="Datensicherheit">
+      <Section n="12" title="Datensicherheit">
         <p>
           Diese Website wird verschlüsselt über HTTPS (TLS) ausgeliefert. Wir treffen angemessene technische und
           organisatorische Massnahmen, um deine Daten vor unbefugtem Zugriff, Verlust oder Missbrauch zu schützen.
         </p>
       </Section>
 
-      <Section n="11" title="Deine Rechte">
+      <Section n="13" title="Deine Rechte">
         <p>Im Rahmen des anwendbaren Datenschutzrechts stehen dir insbesondere folgende Rechte zu:</p>
         <Bullets
           items={[
@@ -133,7 +166,7 @@ export default function DatenschutzPage() {
         </p>
       </Section>
 
-      <Section n="12" title="Beschwerderecht">
+      <Section n="14" title="Beschwerderecht">
         <p>
           Du hast das Recht, dich bei der zuständigen Aufsichtsbehörde zu beschweren. In der Schweiz ist dies der
           Eidgenössische Datenschutz- und Öffentlichkeitsbeauftragte (EDÖB), Feldeggweg 1, 3003 Bern
@@ -141,7 +174,7 @@ export default function DatenschutzPage() {
         </p>
       </Section>
 
-      <Section n="13" title="Änderungen dieser Erklärung">
+      <Section n="15" title="Änderungen dieser Erklärung">
         <p>
           Wir können diese Datenschutzerklärung jederzeit anpassen, etwa wenn sich die Datenbearbeitung oder die
           Rechtslage ändert. Es gilt die jeweils auf dieser Website veröffentlichte Fassung.

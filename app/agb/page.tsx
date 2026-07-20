@@ -3,21 +3,26 @@ import Link from 'next/link';
 import LegalLayout, { Section, Bullets, ContactCard } from '@/components/LegalLayout';
 
 export const metadata: Metadata = {
-  title: 'AGB & Teilnahmebedingungen — OneFam',
-  description:
-    'Allgemeine Geschäfts- und Teilnahmebedingungen für die OneFam-Community und das Travel-Pool-Programm.',
+  title: 'AGB & Nutzungsbedingungen — OneFam',
+  description: 'Nutzungsbedingungen für die OneFam-Website, die Warteliste und das Mitgliederkonto.',
 };
 
+// Stand Juli 2026: an den Trust-first-Launch angepasst. Es läuft KEINE Verlosung und
+// KEIN Travel-Pool-Programm mehr — die Seite bietet nur noch eine Warteliste (reiner
+// Newsletter) und ein Mitgliederkonto an. Alles, was eine Auswahl, einen Gewinn oder
+// einen Einsatz beschrieb, ist entfernt; Ziffer 6 hält den Ist-Zustand ausdrücklich
+// fest. Siehe docs/handover-shopify-pool.md §3.
 export default function AgbPage() {
   return (
     <LegalLayout
       eyebrow="Rechtliches"
-      title="AGB & Teilnahmebedingungen"
-      updated="Juni 2026"
+      title="AGB & Nutzungsbedingungen"
+      updated="Juli 2026"
       lead={
         <p>
-          Diese Bedingungen regeln die Teilnahme an der OneFam-Community und am jährlichen Travel-Pool-Programm. Sie
-          sind bewusst so gestaltet, dass das Modell kein Geldspiel darstellt. Bitte lies sie aufmerksam.
+          Diese Bedingungen regeln die Nutzung dieser Website, die Eintragung in unsere Warteliste und das
+          OneFam-Mitgliederkonto. Es findet derzeit <strong className="text-primary">kein Gewinnspiel, keine Verlosung
+          und kein Travel-Pool-Programm</strong> statt. Bitte lies sie aufmerksam.
         </p>
       }
     >
@@ -25,98 +30,119 @@ export default function AgbPage() {
         <p>Anbieter ist:</p>
         <ContactCard />
         <p>
-          Diese Bedingungen gelten für die Teilnahme an der OneFam-Community und am Travel-Pool-Programm über diese
-          Website. Für Käufe in unserem Online-Shop (onefam.shop) gelten ausschliesslich die dort hinterlegten,
-          separaten Geschäftsbedingungen.
+          Diese Bedingungen gelten für die Nutzung dieser Website (Warteliste, Mitgliederkonto, Community-Inhalte). Für
+          Bestellungen in unserem Online-Shop (onefam.shop) gelten ausschliesslich die dort hinterlegten, separaten
+          Geschäftsbedingungen.
         </p>
       </Section>
 
-      <Section n="2" title="Was OneFam ist">
+      <Section n="2" title="Was OneFam ist – und was aktuell nicht">
         <p>
-          OneFam ist eine globale Community für Menschen mit guter Energie. Im Zentrum stehen Zusammenhalt, gemeinsame
-          Werte (siehe «The Family Code») und echte Erlebnisse. Die Reiseplätze werden über eine kostenlose, faire
-          Verlosung vergeben (siehe Ziffer 5).
+          OneFam ist eine Kleidermarke mit eigenem Online-Shop und eine Community für Menschen, die zu mehr als einem Ort
+          gehören. Im Zentrum stehen Zusammenhalt und gemeinsame Werte (siehe «The Family Code»).
+        </p>
+        <p>
+          Wir verfolgen das langfristige Ziel, eines Tages gemeinsame Reisen zu ermöglichen. Das ist eine{' '}
+          <strong className="text-primary">Absichtserklärung, kein Angebot</strong>: Es gibt derzeit kein
+          Travel-Pool-Programm, keine Vergabe von Reiseplätzen und keinerlei Anspruch auf eine Reise oder eine sonstige
+          Leistung. Aussagen zu diesem Ziel auf unserer Website sind unverbindlich und begründen keine Zusicherung.
         </p>
       </Section>
 
-      <Section n="3" title="Teilnahme – kostenlos und für alle offen">
+      <Section n="3" title="Warteliste (Newsletter)">
         <Bullets
           items={[
-            'Die Teilnahme am Travel-Pool-Programm ist kostenlos.',
-            'Sie steht allen offen – unabhängig davon, ob jemand etwas kauft oder nicht.',
-            'Es ist kein Kauf und kein vermögenswerter Einsatz erforderlich.',
-            'Teilnahmeberechtigt sind natürliche Personen ab 21 Jahren.',
-            'Pro Person ist eine Teilnahme pro Jahr möglich.',
-            <span key="laender" className="text-faint">
-              [Zugelassene bzw. ausgeschlossene Teilnahmeländer sind noch festzulegen.]
-            </span>,
+            'Die Eintragung ist kostenlos und setzt keinen Kauf voraus.',
+            'Erhoben wird deine E-Mail-Adresse; die Angabe eines Namens ist freiwillig.',
+            'Mit der Eintragung willigst du ein, von uns E-Mails über OneFam zu erhalten.',
+            'Du kannst die Einwilligung jederzeit und ohne Angabe von Gründen widerrufen – über den Abmeldelink in jeder E-Mail oder formlos an info@onefam.ch.',
+            'Die Eintragung begründet keine Mitgliedschaft, keine Teilnahme an einer Auswahl und keinen Anspruch auf eine Leistung.',
           ]}
         />
-      </Section>
-
-      <Section n="4" title="Keine Bevorzugung von Käuferinnen und Käufern">
         <p>
-          Käufe in unserem Shop sind reine Unterstützung der Community und verbessern die Auswahlchancen in keiner
-          Weise. Alle Teilnehmenden – ob mit oder ohne Kauf – sind bei der Auswahl vollständig gleichgestellt.
-          Käuferinnen und Käufer erhalten lediglich zusätzliche Community-Funktionen (z. B. World Map, Voting,
-          Live-Pool, Archiv, Early Access), die keinen Einfluss auf die Auswahl haben.
+          Wir versenden Werbe-E-Mails nur an Personen, die sich selbst eingetragen haben, und weisen in jeder Nachricht
+          auf die Abmeldemöglichkeit hin (Art. 3 Abs. 1 lit. o UWG).
         </p>
       </Section>
 
-      <Section n="5" title="Kein Glücksspiel / kein Geldspiel">
+      <Section n="4" title="Mitgliederkonto">
         <p>
-          Das OneFam-Modell ist nach unserer Auffassung kein Geldspiel im Sinne des Schweizer Geldspielgesetzes (BGS),
-          da die Teilnahme kostenlos und ohne vermögenswerten Einsatz möglich ist. Damit fehlt ein wesentliches Element
-          eines Geldspiels. <span className="text-faint">[Diese rechtliche Einordnung ist anwaltlich zu bestätigen.]</span>
+          Für einzelne Bereiche kannst du dich mit deiner E-Mail-Adresse anmelden; die Anmeldung erfolgt über einen
+          Login-Link ohne Passwort. Du bist dafür verantwortlich, den Zugriff auf dein E-Mail-Konto zu schützen. Wir
+          können Konten sperren oder löschen, wenn diese Bedingungen verletzt werden. Ein Anspruch auf Bereitstellung
+          oder Fortbestand des Kontos besteht nicht.
         </p>
       </Section>
 
-      <Section n="6" title="Finanzierung des Travel Pools">
+      <Section n="5" title="Zusatzfunktionen für Käuferinnen und Käufer">
         <p>
-          Der Travel Pool wird vollständig aus dem Unternehmensgewinn von OneFam finanziert – als freiwilliger Bonus an
-          die Community. Teilnehmende zahlen zu keinem Zeitpunkt Geld in den Pool ein. Am Jahresende fliesst der Betrag
-          vollständig in gemeinsame Community-Erlebnisse.
+          Personen, die in unserem Shop bestellt haben, können zusätzliche Funktionen nutzen – etwa die unverbindliche
+          Abstimmung über ein mögliches künftiges Reiseziel und die Weltkarte. Diese Funktionen sind ein freiwilliges
+          Dankeschön ohne Vermögenswert. Sie begründen keinen Anspruch auf eine Reise, auf die Umsetzung eines
+          Abstimmungsergebnisses oder auf eine sonstige Leistung, und wir können sie jederzeit ändern oder einstellen.
         </p>
       </Section>
 
-      <Section n="7" title="Auswahl und Transparenz">
+      <Section n="6" title="Kein Gewinnspiel, keine Verlosung, kein Geldspiel">
         <p>
-          Die Reiseplätze werden über eine öffentlich nachprüfbare Zufallsziehung vergeben. Das Verfahren ist im Voraus
-          festgelegt, klar dokumentiert und wird öffentlich archiviert.{' '}
+          Über diese Website findet derzeit kein Gewinnspiel, keine Verlosung und kein Geldspiel im Sinne des Schweizer
+          Geldspielgesetzes (BGS) statt. Es wird kein Einsatz geleistet, keine Auswahl durchgeführt und kein
+          vermögenswerter Gewinn in Aussicht gestellt.
+        </p>
+        <p>
+          Sollten wir künftig eine Vergabe von Reiseplätzen einführen, geschieht dies ausschliesslich auf Grundlage
+          eigener, vorab veröffentlichter Teilnahmebedingungen und einer vorgängigen rechtlichen Prüfung.{' '}
           <span className="text-faint">
-            [Das konkrete Ziehungsverfahren – inkl. Zufallsquelle und Ausfall-Fallback – ist hier zu beschreiben.]
+            [Vor jeder Einführung anwaltlich zu prüfen: Qualifikation nach BGS, Ausgestaltung der Teilnahme ohne
+            Kaufzwang, Teilnahmeländer, Mindestalter, Ziehungsverfahren inkl. Zufallsquelle und Ausfall-Fallback.]
           </span>
         </p>
       </Section>
 
-      <Section n="8" title="Pflichten der Teilnehmenden">
+      <Section n="7" title="Käufe im Shop">
         <p>
-          Mit der Teilnahme verpflichtest du dich, die Werte der Community («The Family Code») zu respektieren, korrekte
-          Angaben zu machen und die Teilnahme nicht zu manipulieren (z. B. durch Mehrfachanmeldungen). Bei Verstössen
-          können wir Teilnehmende von der Teilnahme ausschliessen.
+          Bestellungen kommen ausschliesslich über onefam.shop zustande; dafür gelten die dortigen Geschäftsbedingungen
+          samt Regelungen zu Preisen, Versand, Widerruf und Gewährleistung. Ein Kauf verschafft keine Vorteile ausserhalb
+          der in Ziffer 5 genannten Zusatzfunktionen.
         </p>
       </Section>
 
-      <Section n="9" title="Kein Rechtsanspruch">
+      <Section n="8" title="Pflichten der Nutzenden">
         <p>
-          Es besteht kein Rechtsanspruch auf Auswahl, auf Teilnahme an einem bestimmten Erlebnis oder auf eine
-          Barauszahlung des Pools oder einzelner Beträge.{' '}
-          <span className="text-faint">[Details zu Leistungen, Ersatz und Nichtantritt sind festzulegen.]</span>
+          Du verpflichtest dich, die Werte der Community («The Family Code») zu respektieren, korrekte Angaben zu machen
+          und unsere Dienste nicht zu manipulieren – insbesondere nicht durch Mehrfach- oder Fremdanmeldungen, das
+          Eintragen fremder E-Mail-Adressen oder automatisierte Zugriffe. Bei Verstössen können wir Einträge und Konten
+          entfernen.
         </p>
       </Section>
 
-      <Section n="10" title="Haftung">
+      <Section n="9" title="Verfügbarkeit und Änderungen der Website">
+        <p>
+          Wir stellen diese Website unentgeltlich bereit und schulden keine bestimmte Verfügbarkeit. Wir können Inhalte
+          und Funktionen jederzeit ändern, einschränken oder einstellen.
+        </p>
+      </Section>
+
+      <Section n="10" title="Rechte an Inhalten">
+        <p>
+          Sämtliche Inhalte dieser Website – insbesondere Texte, Bilder, Grafiken, Logo und Designs – sind geschützt und
+          dürfen ohne unsere vorgängige schriftliche Zustimmung nicht ausserhalb der üblichen privaten Nutzung verwendet
+          werden.
+        </p>
+      </Section>
+
+      <Section n="11" title="Haftung">
         <p>
           Soweit gesetzlich zulässig, ist die Haftung von OneFam für Schäden im Zusammenhang mit der Nutzung dieser
-          Website und der Teilnahme am Programm ausgeschlossen. Ausgenommen sind Schäden aus grober Fahrlässigkeit oder
-          Absicht sowie Fälle zwingender gesetzlicher Haftung.{' '}
+          Website ausgeschlossen. Ausgenommen sind Schäden aus grober Fahrlässigkeit oder Absicht sowie Fälle zwingender
+          gesetzlicher Haftung.{' '}
           <span className="text-faint">[Haftungsregelung anwaltlich zu prüfen.]</span>
         </p>
       </Section>
 
-      <Section n="11" title="Datenschutz">
+      <Section n="12" title="Datenschutz">
         <p>
-          Informationen zur Bearbeitung deiner Daten findest du in unserer{' '}
+          Informationen zur Bearbeitung deiner Daten – auch zu den Daten der Warteliste – findest du in unserer{' '}
           <Link href="/datenschutz" className="text-gold transition-colors duration-[180ms] hover:text-gold-hover">
             Datenschutzerklärung
           </Link>
@@ -124,18 +150,21 @@ export default function AgbPage() {
         </p>
       </Section>
 
-      <Section n="12" title="Änderungen der Bedingungen">
+      <Section n="13" title="Änderungen der Bedingungen">
         <p>
-          Wir können diese Bedingungen jederzeit anpassen. Massgebend ist die zum Zeitpunkt der Teilnahme veröffentlichte
+          Wir können diese Bedingungen jederzeit anpassen. Massgebend ist die zum Zeitpunkt der Nutzung veröffentlichte
           Fassung.
         </p>
       </Section>
 
-      <Section n="13" title="Anwendbares Recht und Gerichtsstand">
+      <Section n="14" title="Anwendbares Recht und Gerichtsstand">
         <p>
           Es gilt ausschliesslich Schweizer Recht. Ausschliesslicher Gerichtsstand ist – soweit gesetzlich zulässig –
           der Sitz des Anbieters in Basel.{' '}
-          <span className="text-faint">[Gerichtsstand anwaltlich zu bestätigen.]</span>
+          <span className="text-faint">
+            [Gerichtsstand anwaltlich zu bestätigen; gegenüber Konsumentinnen und Konsumenten ist er nur beschränkt
+            wirksam.]
+          </span>
         </p>
       </Section>
     </LegalLayout>
