@@ -27,7 +27,7 @@ const Hero = () => {
             <img src="/assets/logo-face-gradient.svg" alt="OneFam" className="mx-auto h-20 w-20 md:h-[104px] md:w-[104px]" />
           </div>
           <p className="font-body text-sm font-medium uppercase tracking-[0.22em] text-gold sm:text-[15px]">
-            {t('brand')}
+            {t('kicker')}
           </p>
           <h1
             className="mx-auto mt-3 max-w-[22ch] font-display text-[clamp(2.1rem,5.4vw,4.75rem)] font-extrabold uppercase leading-[1.06] tracking-[0.01em] text-balance"
