@@ -2,7 +2,6 @@ import Nav from '@/components/Nav';
 import SiteFooter from '@/components/SiteFooter';
 import Hero from '@/components/Hero';
 import WhatIsOneFam from '@/components/WhatIsOneFam';
-import HowItWorks from '@/components/HowItWorks';
 import TravelPool from '@/components/TravelPool';
 import DestinationVote from '@/components/DestinationVote';
 import Values from '@/components/Values';
@@ -19,7 +18,10 @@ export default function Home() {
       <main>
         <Hero />
         <WhatIsOneFam />
-        <HowItWorks />
+        {/* "So funktioniert OneFam" (HowItWorks) ist raus: seit der Umstellung auf
+            Vision + Warteliste gab es keine Mechanik mehr zu erklären, und alle fünf
+            Schritte standen bereits in WhatIsOneFam, TravelPool oder im FAQ.
+            Komponente + i18n-Keys bleiben geparkt. */}
         <TravelPool />
         <DestinationVote />
         <Values />

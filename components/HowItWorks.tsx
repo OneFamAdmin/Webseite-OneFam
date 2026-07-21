@@ -4,6 +4,14 @@ import MaxWidth from './MaxWidth';
 import Reveal from './Reveal';
 import Button from './Button';
 
+// GEPARKT — derzeit von keiner Seite eingebunden.
+//
+// Seit dem Trust-first-Launch gibt es keine Mechanik mehr zu erklären, und die
+// fünf Schritte standen alle bereits woanders (WhatIsOneFam, TravelPool, FAQ).
+// Die i18n-Keys unter `how_it_works` bleiben ebenfalls stehen.
+// Nicht löschen: wenn nach der rechtlichen Prüfung wieder ein echter Ablauf
+// existiert, ist das hier die passende Darstellung dafür.
+
 const HowItWorks = () => {
   const t = useTranslations('how_it_works');
   const steps = t.raw('steps') as { number: string; text: string }[];

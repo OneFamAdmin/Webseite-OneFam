@@ -193,7 +193,6 @@
     "pages": [
       { "label": "Home", "href": "#hero" },
       { "label": "About", "href": "#about" },
-      { "label": "So funktioniert OneFam", "href": "#how" },
       { "label": "Code", "href": "#werte" },
       { "label": "Philosophie", "href": "#philosophie" },
       { "label": "FAQ", "href": "#faq" }
