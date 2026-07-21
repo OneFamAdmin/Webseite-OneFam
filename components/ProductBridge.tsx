@@ -7,12 +7,13 @@ import Button from './Button';
 
 const SHOP_URL = 'https://onefam.shop';
 
-// Beide Renders haben einen transparenten Hintergrund und dieselbe Kameraperspektive —
-// deshalb stehen sie ohne Karte/Rahmen direkt auf dem schwarzen Grund. Kein Karton,
-// kein Schlagschatten: "design less, design better".
+// Bewusst dasselbe Kleidungsstück in derselben Farbe und Perspektive — nur das Zeichen
+// auf der Brust unterscheidet sich. Genau das ist die Aussage der Sektion.
+// Beide Mockups sind vom weissen Studio-Hintergrund freigestellt (Alpha), deshalb stehen
+// sie ohne Karte und ohne Rahmen direkt auf dem schwarzen Grund.
 const LINE_IMAGES = [
-  { src: '/assets/product-logo-line.png', alt: 'Schwarzes OneFam-Shirt mit dem weissen OneFam-Schriftzug' },
-  { src: '/assets/product-country-line.png', alt: 'Weisses OneFam-Shirt mit Linienmuster in Landesfarben' },
+  { src: '/assets/shirt-logo.png', alt: 'Anthrazitfarbenes OneFam-Shirt mit dem weissen OneFam-Zeichen auf der Brust' },
+  { src: '/assets/shirt-mexico.png', alt: 'Anthrazitfarbenes OneFam-Shirt mit dem OneFam-Zeichen in mexikanischen Motiven' },
 ];
 
 /** Die Brücke von der Story zum Produkt: überträgt das Gefühl der Herkunfts-Geschichte
