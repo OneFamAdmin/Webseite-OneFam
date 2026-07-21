@@ -55,12 +55,13 @@ const ProductBridge = () => {
           ))}
         </div>
 
-        <Reveal delay={0.2} className="mt-16 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-8">
+        {/* Bewusst ohne Preisangabe: die Sektion baut ein Gefühl auf, eine Preiszeile würde es
+            im letzten Moment in einen Katalog verwandeln. Preise stehen im Shop. */}
+        <Reveal delay={0.2} className="mt-16">
           <Button as="a" href={SHOP_URL} target="_blank" rel="noopener noreferrer" variant="primary">
             {t('cta')}
             <ArrowRight size={18} strokeWidth={1.5} />
           </Button>
-          <p className="font-body text-sm text-faint">{t('price_note')}</p>
         </Reveal>
       </MaxWidth>
     </section>
