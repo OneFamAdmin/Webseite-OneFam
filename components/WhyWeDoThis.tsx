@@ -40,11 +40,15 @@ const WhyWeDoThis = () => {
           {/* Image — 40%, slightly offset */}
           <div className="order-1 md:order-2 md:col-span-2 md:-translate-y-6">
             <Reveal>
-              {/* Photo: Vitaly Gariev / Unsplash (Unsplash License — free commercial, no attribution required) */}
+              {/* Bild: mit Higgsfield Soul 2 auf Basis des trainierten Charakters des Inhabers
+                  erzeugt. Bewusst als körnige Nachtaufnahme im Handy-Look — kein Hochglanz.
+                  Auswahlkriterium war der Ton: Varianten, in denen die Szene ins Flirt-Register
+                  kippte, wurden verworfen; neben einem Text über "einander ernst nehmen" hätte
+                  das die Botschaft untergraben. */}
               <div className="relative aspect-[4/5] overflow-hidden rounded-[8px] border border-line">
                 <Image
-                  src="/assets/why-photo.jpg"
-                  alt="Die OneFam-Community – echte Momente unter Freunden"
+                  src="/assets/why-nacht.jpg"
+                  alt="Spätabendliche Runde zu Hause: im Hintergrund legt jemand auf, davor lachen zwei Menschen im Gespräch miteinander"
                   fill
                   sizes="(max-width: 768px) 100vw, 40vw"
                   className="object-cover"
