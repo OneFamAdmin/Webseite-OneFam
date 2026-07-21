@@ -21,10 +21,13 @@ const satoshi = localFont({
   fallback: ['system-ui', 'sans-serif'],
 });
 
+// Titel und Beschreibung sind das, was in Suchergebnissen, im Browser-Tab und in
+// jeder geteilten Link-Vorschau steht — sie müssen denselben Claim tragen wie der
+// Hero, sonst verspricht die Vorschau etwas anderes als die Seite.
 export const metadata: Metadata = {
-  title: 'OneFam — For good souls worldwide',
+  title: 'OneFam — For souls who belong to more than one place',
   description:
-    'OneFam ist eine globale Community für Menschen mit guter Energie – Respekt, Support und echte Erlebnisse statt Hype.',
+    'Kleidung und eine Community für alle, deren Antwort auf «Woher kommst du?» ein Komma hat. Nicht für alle – und genau das ist der Punkt.',
 };
 
 export default async function RootLayout({
