@@ -191,44 +191,17 @@
     "legal_title": "Legal",
     "social_title": "Social",
     "pages": [
-      {
-        "label": "Home",
-        "href": "#hero"
-      },
-      {
-        "label": "About",
-        "href": "#about"
-      },
-      {
-        "label": "So funktioniert OneFam",
-        "href": "#how"
-      },
-      {
-        "label": "Code",
-        "href": "#werte"
-      },
-      {
-        "label": "Philosophie",
-        "href": "#philosophie"
-      },
-      {
-        "label": "FAQ",
-        "href": "#faq"
-      }
+      { "label": "Home", "href": "#hero" },
+      { "label": "About", "href": "#about" },
+      { "label": "So funktioniert OneFam", "href": "#how" },
+      { "label": "Code", "href": "#werte" },
+      { "label": "Philosophie", "href": "#philosophie" },
+      { "label": "FAQ", "href": "#faq" }
     ],
     "legal": [
-      {
-        "label": "AGB",
-        "href": "/agb"
-      },
-      {
-        "label": "Datenschutz",
-        "href": "/datenschutz"
-      },
-      {
-        "label": "Archiv / Transparenz",
-        "href": "/archiv"
-      }
+      { "label": "AGB", "href": "/agb" },
+      { "label": "Datenschutz", "href": "/datenschutz" },
+      { "label": "Archiv / Transparenz", "href": "/archiv" }
     ],
     "imprint": "Impressum",
     "imprint_company": "OneFam — Einzelfirma, Schweiz",
