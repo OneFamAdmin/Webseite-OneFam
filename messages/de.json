@@ -16,11 +16,11 @@
   },
   "what_is_onefam": {
     "title": "Was ist OneFam?",
-    "intro": "OneFam ist keine klassische Clothing-Brand. OneFam ist eine globale Community, die auf Wärme, Respekt, Support und echten Verbindungen basiert.",
+    "intro": "OneFam ist keine klassische Clothing-Brand. OneFam ist ein Raum für Menschen, die einander ernst nehmen – auch die Träume, die man sonst niemandem erzählt.",
     "cards": [
       {
         "title": "Fam statt Masse.",
-        "text": "Community für Menschen mit guter Energie."
+        "text": "Nicht für alle. Und genau das ist der Punkt."
       },
       {
         "title": "Werte statt Fassade.",
@@ -28,7 +28,7 @@
       },
       {
         "title": "Momente statt Oberflächlichkeit.",
-        "text": "Was bleibt, sind die Momente — nicht der Hype."
+        "text": "Wir reden nicht übers Wetter. Wir fragen, woran du arbeitest – und meinen es ernst."
       }
     ]
   },
@@ -88,7 +88,7 @@
   "values": {
     "label": "Code of Conduct",
     "title": "The Family Code",
-    "intro": "Dieser Kodex ist das Herz von OneFam. Er hält fest, wofür wir stehen – und wie wir miteinander umgehen. Als eine Fam.",
+    "intro": "Kein Regelwerk. Eher eine Tür. Wer sich in diesen elf Punkten wiedererkennt, gehört längst dazu – wer sie merkwürdig findet, ist bei uns falsch. Beides ist in Ordnung.",
     "items": [
       {
         "title": "Love & Respect",
