@@ -31,7 +31,7 @@ export default function AgbPage() {
         <ContactCard />
         <p>
           Diese Bedingungen gelten für die Nutzung dieser Website (Warteliste, Mitgliederkonto, Community-Inhalte). Für
-          Bestellungen in unserem Online-Shop (onefam.shop) gelten ausschliesslich die dort hinterlegten, separaten
+          Bestellungen in unserem Online-Shop (shop.onefam.ch) gelten ausschliesslich die dort hinterlegten, separaten
           Geschäftsbedingungen.
         </p>
       </Section>
@@ -101,7 +101,7 @@ export default function AgbPage() {
 
       <Section n="7" title="Käufe im Shop">
         <p>
-          Bestellungen kommen ausschliesslich über onefam.shop zustande; dafür gelten die dortigen Geschäftsbedingungen
+          Bestellungen kommen ausschliesslich über shop.onefam.ch zustande; dafür gelten die dortigen Geschäftsbedingungen
           samt Regelungen zu Preisen, Versand, Widerruf und Gewährleistung. Ein Kauf verschafft keine Vorteile ausserhalb
           der in Ziffer 5 genannten Zusatzfunktionen.
         </p>
