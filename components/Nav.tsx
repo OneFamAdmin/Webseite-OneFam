@@ -9,7 +9,7 @@ import MaxWidth from './MaxWidth';
 import Button from './Button';
 import { BRAND_GRADIENT } from '@/lib/brand';
 
-const SHOP_URL = 'https://onefam.shop';
+const SHOP_URL = 'https://shop.onefam.ch/de/';
 
 const Nav = () => {
   const t = useTranslations('nav');
