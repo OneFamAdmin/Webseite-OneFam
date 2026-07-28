@@ -26,7 +26,7 @@ export default function DatenschutzPage() {
 
       <Section n="2" title="Geltungsbereich">
         <p>
-          Diese Erklärung gilt für diese Website (onefam.ch). Unser Online-Shop unter onefam.shop wird über eine
+          Diese Erklärung gilt für diese Website (onefam.ch). Unser Online-Shop unter shop.onefam.ch wird über eine
           separate Plattform betrieben und verfügt über eine eigene Datenschutzerklärung. Für Bestellungen,
           Kundenkonten und Zahlungen im Shop gelten ausschliesslich die dortigen Bestimmungen.
         </p>
