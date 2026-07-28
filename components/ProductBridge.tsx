@@ -5,7 +5,7 @@ import MaxWidth from './MaxWidth';
 import Reveal from './Reveal';
 import Button from './Button';
 
-const SHOP_URL = 'https://onefam.shop';
+const SHOP_URL = 'https://shop.onefam.ch/de/';
 
 // Bewusst dasselbe Kleidungsstück in derselben Farbe und Perspektive — nur das Zeichen
 // auf der Brust unterscheidet sich. Genau das ist die Aussage der Sektion.
