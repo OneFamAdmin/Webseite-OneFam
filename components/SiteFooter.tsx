@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl';
 import MaxWidth from './MaxWidth';
 import ImprintDialog from './ImprintDialog';
 
-const SHOP_URL = 'https://onefam.shop';
+const SHOP_URL = 'https://shop.onefam.ch/de/';
 
 const socials = [
   { name: 'Instagram', icon: '/assets/instagram.svg', url: 'https://www.instagram.com/onefam_official/' },
@@ -134,7 +134,7 @@ const SiteFooter = () => {
               rel="noopener noreferrer"
               className="font-body text-xs text-faint transition-colors duration-[180ms] hover:text-gold"
             >
-              onefam.shop
+              shop.onefam.ch
             </a>
           </div>
         </MaxWidth>
