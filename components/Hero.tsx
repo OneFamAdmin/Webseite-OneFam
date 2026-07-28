@@ -50,7 +50,7 @@ const Hero = () => {
           </Button>
           <Button
             as="a"
-            href="https://onefam.shop"
+            href="https://shop.onefam.ch/de/"
             target="_blank"
             rel="noopener noreferrer"
             variant="secondary"
