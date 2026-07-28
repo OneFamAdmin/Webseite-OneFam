@@ -6,8 +6,16 @@ import { Check } from 'lucide-react';
 import { createClient } from '@/lib/supabase/server';
 import { sendWelcomeEmail } from '@/lib/email/send';
 import { promotePendingBuyer } from '@/lib/shopify/promote';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata = { title: 'Du bist dabei — OneFam' };
+// noindex: Diese Seite wird nur über den Bestätigungslink aus der E-Mail erreicht
+// und hat für Suchende keinen Wert.
+export const metadata = pageMetadata({
+  title: 'Du bist dabei — OneFam',
+  description: 'Deine Eintragung in die OneFam-Warteliste ist bestätigt.',
+  path: '/join/bestaetigen',
+  noindex: true,
+});
 
 function clampGroup(n: number) {
   return Math.max(1, Math.min(5, Math.floor(Number.isFinite(n) ? n : 1)));

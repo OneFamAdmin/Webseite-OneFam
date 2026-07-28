@@ -3,11 +3,13 @@ import Link from 'next/link';
 import { Check } from 'lucide-react';
 import WaitlistForm from '@/components/WaitlistForm';
 import Nav from '@/components/Nav';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Join the Fam — OneFam',
-  description: 'Trag dich ein und sei von Anfang an dabei. Kein Kauf nötig.',
-};
+  description: 'Trag dich ein und sei von Anfang an dabei. Kein Kauf nötig, keine Kaufpflicht, jederzeit abmeldbar.',
+  path: '/join',
+});
 
 const POINTS = [
   'Kein Kauf nötig – und keine Kaufpflicht',

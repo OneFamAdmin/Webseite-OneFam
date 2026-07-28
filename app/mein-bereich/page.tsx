@@ -4,11 +4,16 @@ import Nav from '@/components/Nav';
 import { ArrowRight, Lock, MapPin, Sparkles } from 'lucide-react';
 import { createClient } from '@/lib/supabase/server';
 import Button from '@/components/Button';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata = {
+// noindex: persönlicher Bereich. Der Inhalt hängt am eingeloggten Konto,
+// ein Suchtreffer darauf wäre für jeden anderen leer.
+export const metadata = pageMetadata({
   title: 'Mein Bereich — OneFam',
   description: 'Dein OneFam-Bereich — als Käufer: die Reiseziel-Wahl.',
-};
+  path: '/mein-bereich',
+  noindex: true,
+});
 
 // guest = logged out · visitor = logged in, NOT a buyer · buyer = logged in + buyer
 type State = 'guest' | 'visitor' | 'buyer';

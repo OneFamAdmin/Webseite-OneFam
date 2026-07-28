@@ -58,7 +58,7 @@ const ProductBridge = () => {
         {/* Bewusst ohne Preisangabe: die Sektion baut ein Gefühl auf, eine Preiszeile würde es
             im letzten Moment in einen Katalog verwandeln. Preise stehen im Shop. */}
         <Reveal delay={0.2} className="mt-16">
-          <Button as="a" href={SHOP_URL} target="_blank" rel="noopener noreferrer" variant="primary">
+          <Button as="a" href={SHOP_URL} variant="primary">
             {t('cta')}
             <ArrowRight size={18} strokeWidth={1.5} />
           </Button>

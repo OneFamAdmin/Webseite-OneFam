@@ -6,11 +6,13 @@ import VotingDesignMap, { type DesignOption } from '@/components/VotingDesignMap
 import ReisezielVoting from '@/components/ReisezielVoting';
 import Countdown from '@/components/Countdown';
 import { CONTINENTS, countriesByContinent, placesByCountry, continentByKey, countryByIso } from '@/lib/geo/data';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: 'Reiseziel-Voting — OneFam',
   description: 'Stimme mit, wohin die nächste OneFam-Reise geht — Kontinent, Land, Ort. Jede Phase mit eigenem Countdown.',
-};
+  path: '/reiseziel',
+});
 
 type Level = 'continent' | 'country' | 'place';
 type PhaseView = {

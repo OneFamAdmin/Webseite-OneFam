@@ -1,11 +1,13 @@
 import { ShieldCheck } from 'lucide-react';
 import { createClient } from '@/lib/supabase/server';
 import Nav from '@/components/Nav';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: 'Archiv & Transparenz — OneFam',
   description: 'Jede Ziehung – öffentlich dokumentiert und für jeden nachprüfbar.',
-};
+  path: '/archiv',
+});
 
 const chf = (n: number | string | null | undefined) =>
   n == null ? '–' : 'CHF ' + new Intl.NumberFormat('de-CH').format(Number(n));

@@ -15,7 +15,10 @@ const socials = [
   { name: 'WhatsApp', icon: '/assets/whatsapp.svg', url: 'https://api.whatsapp.com/message/CXRNI6YIROSTD1?autoload=1&app_absent=0' },
   { name: 'Telegram', icon: '/assets/fly.svg', url: 'https://t.me/onefam_admin' },
   { name: 'Threema', icon: '/assets/threema.svg', url: 'https://threema.id/AK3AZ3X6' },
-  { name: 'X', icon: '/assets/x.svg', url: 'https://www.onefam.ch/' },
+  // X ist bewusst draussen: Der Eintrag zeigte auf https://www.onefam.ch/ — also auf
+  // die eigene Startseite. Ein Social-Symbol, das im Kreis führt, kostet mehr Vertrauen
+  // als ein fehlendes Symbol. Sobald es ein echtes Profil gibt, diese Zeile einkommentieren:
+  // { name: 'X', icon: '/assets/x.svg', url: 'https://x.com/<profil>' },
 ];
 
 const SiteFooter = () => {
@@ -130,8 +133,6 @@ const SiteFooter = () => {
             <p className="font-body text-xs text-faint">{t('copyright')}</p>
             <a
               href={SHOP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
               className="font-body text-xs text-faint transition-colors duration-[180ms] hover:text-gold"
             >
               shop.onefam.ch

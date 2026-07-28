@@ -51,8 +51,6 @@ const Hero = () => {
           <Button
             as="a"
             href="https://shop.onefam.ch/de/"
-            target="_blank"
-            rel="noopener noreferrer"
             variant="secondary"
             className="w-full sm:w-auto"
           >

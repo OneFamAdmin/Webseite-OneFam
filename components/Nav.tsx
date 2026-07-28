@@ -63,8 +63,6 @@ const Nav = () => {
                 <a
                   key={l.label}
                   href={l.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="font-body text-[15px] font-medium text-secondary transition-colors duration-[180ms] hover:text-primary"
                 >
                   {l.label}
@@ -123,8 +121,6 @@ const Nav = () => {
               <a
                 key={l.label}
                 href={l.href}
-                target="_blank"
-                rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
                 className="font-display text-2xl font-semibold text-primary transition-colors duration-[180ms] hover:text-gold"
               >

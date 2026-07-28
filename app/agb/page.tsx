@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import LegalLayout, { Section, Bullets, ContactCard } from '@/components/LegalLayout';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'AGB & Nutzungsbedingungen — OneFam',
   description: 'Nutzungsbedingungen für die OneFam-Website, die Warteliste und das Mitgliederkonto.',
-};
+  path: '/agb',
+});
 
 // Stand Juli 2026: an den Trust-first-Launch angepasst. Es läuft KEINE Verlosung und
 // KEIN Travel-Pool-Programm mehr — die Seite bietet nur noch eine Warteliste (reiner

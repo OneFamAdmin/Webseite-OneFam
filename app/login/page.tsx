@@ -2,12 +2,14 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import LoginForm from '@/components/LoginForm';
 import Nav from '@/components/Nav';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Anmelden — OneFam',
   description: 'Anmeldung für OneFam-Mitglieder – per Link, ohne Passwort.',
-  robots: { index: false },
-};
+  path: '/login',
+  noindex: true,
+});
 
 export default function LoginPage() {
   return (

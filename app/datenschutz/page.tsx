@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
 import LegalLayout, { Section, Bullets, ContactCard } from '@/components/LegalLayout';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Datenschutzerklärung — OneFam',
   description: 'Wie OneFam mit deinen Daten umgeht – Datenschutzerklärung nach dem Schweizer Datenschutzgesetz (DSG).',
-};
+  path: '/datenschutz',
+});
 
 export default function DatenschutzPage() {
   return (
