@@ -1,32 +1,67 @@
 import { type NextRequest, NextResponse } from 'next/server';
 import { createServerClient } from '@supabase/ssr';
-import { LOCALE_HEADER, localeFromPath } from '@/i18n/routing';
+import createIntlMiddleware from 'next-intl/middleware';
+import { routing } from '@/i18n/routing';
 
-// Zwei Aufgaben, bewusst in dieser Reihenfolge:
+// Zwei Aufgaben in einer Middleware, Reihenfolge ist wichtig:
 //
-// 1) Sprache aus der Adresse ableiten und als Request-Header weitergeben.
-//    Das Root-Layout braucht sie für <html lang> und kann die Parameter einer
-//    darunterliegenden dynamischen Route nicht sehen; i18n/request.ts liest
-//    denselben Header, um die richtige Übersetzungsdatei zu laden.
+// 1) next-intl bestimmt die Sprache aus der Adresse und schreibt sie intern um:
+//    /agb wird zu /en/agb, /de/agb bleibt /de/agb. Nach aussen aendert sich
+//    nichts. Die Antwort dieser Middleware traegt die Sprache bereits in sich —
+//    deshalb wird sie unten als Grundlage weitergereicht und nicht verworfen.
 //
-// 2) Die Supabase-Sitzung auffrischen, damit Server Components eine gültige
-//    Sitzung sehen. Das darf die Seite nie zum Absturz bringen: eine fehlende
-//    Umgebungsvariable oder ein Auth-Schluckauf führt zu "nicht aufgefrischt",
-//    nicht zu einem 500er.
+// 2) Die Supabase-Sitzung wird aufgefrischt, damit Server Components eine
+//    gueltige Sitzung sehen. Das darf die Seite nie zum Absturz bringen: eine
+//    fehlende Umgebungsvariable oder ein Auth-Schluckauf fuehrt zu "nicht
+//    aufgefrischt", nicht zu einem 500er.
 //
-// Wichtig beim Anfassen: Der Sprach-Header muss an JEDER Stelle mitgegeben
-// werden, an der eine neue Antwort gebaut wird — auch im setAll-Rückruf von
-// Supabase. Sonst verliert genau der Request die Sprache, bei dem Supabase ein
-// Cookie erneuert, und die Seite erscheint sporadisch auf Englisch.
+// Die Falle beim Anfassen: Wer hier eine eigene NextResponse.next() baut und
+// zurueckgibt, wirft die Sprach-Umschreibung von next-intl weg — die Seite
+// erscheint dann in der Standardsprache, ohne Fehlermeldung. Deshalb werden die
+// Cookies von Supabase auf die intl-Antwort GESETZT, statt eine neue zu bauen.
+const intlMiddleware = createIntlMiddleware(routing);
+
+// Diese Bereiche liegen NICHT unter app/[locale]/ und duerfen deshalb nicht
+// umgeschrieben werden. Ohne diese Liste macht next-intl aus /admin ein
+// /en/admin — und das gibt es nicht, die Seite antwortet mit 404.
+//
+// Sie muessen die Middleware trotzdem durchlaufen: /admin und /auth/callback
+// brauchen die aufgefrischte Supabase-Sitzung. Deshalb werden sie hier nicht
+// aus dem Matcher genommen, sondern nur an next-intl vorbeigefuehrt.
+// Diese Seiten sind (noch) nicht uebersetzt und liegen deshalb bewusst NICHT
+// unter app/[locale]/. Sie behalten ihre bestehende Adresse ohne Praefix.
+// Sobald ihre Texte in den Uebersetzungsdateien liegen, ziehen sie um und
+// verschwinden aus dieser Liste.
+const OHNE_SPRACHE = [
+  '/admin',
+  '/dev',
+  '/design',
+  '/api',
+  '/auth',
+  '/join',
+  '/archiv',
+  '/reiseziel',
+  '/login',
+  '/mein-bereich',
+];
+
+// Dasselbe gilt fuer die beiden Metadaten-Routen aus app/robots.ts und
+// app/sitemap.ts. Sie liegen ebenfalls ausserhalb von app/[locale]/ und wurden
+// beim ersten Anlauf still zu /en/sitemap.xml umgeschrieben — Ergebnis: die
+// Sitemap, die gerade erst in der Search Console eingereicht wurde, antwortete
+// mit 404. Genau die Art Fehler, die niemandem auffaellt, weil man Seiten
+// prueft und Metadaten-Routen vergisst.
+const DATEIEN_OHNE_SPRACHE = ['/sitemap.xml', '/robots.txt'];
+
+function istOhneSprache(pfad: string) {
+  if (DATEIEN_OHNE_SPRACHE.includes(pfad)) return true;
+  return OHNE_SPRACHE.some((p) => pfad === p || pfad.startsWith(`${p}/`));
+}
+
 export async function middleware(request: NextRequest) {
-  const locale = localeFromPath(request.nextUrl.pathname);
-
-  const requestHeaders = new Headers(request.headers);
-  requestHeaders.set(LOCALE_HEADER, locale);
-
-  const neueAntwort = () => NextResponse.next({ request: { headers: requestHeaders } });
-
-  let response = neueAntwort();
+  const response = istOhneSprache(request.nextUrl.pathname)
+    ? NextResponse.next({ request })
+    : intlMiddleware(request);
 
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -44,9 +79,10 @@ export async function middleware(request: NextRequest) {
           return request.cookies.getAll();
         },
         setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value));
-          response = neueAntwort();
-          cookiesToSet.forEach(({ name, value, options }) => response.cookies.set(name, value, options));
+          cookiesToSet.forEach(({ name, value, options }) => {
+            request.cookies.set(name, value);
+            response.cookies.set(name, value, options);
+          });
         },
       },
     });
