@@ -1,0 +1,275 @@
+{
+  "layout": {
+    "eyebrow": "Aviso legal",
+    "stand_prefix": "Actualizado:",
+    "zur_startseite": "Volver al inicio",
+    "entwurf_titel": "Borrador – aún no definitivo.",
+    "entwurf_text": "Este texto es un borrador sin carácter vinculante y debe ser revisado por un abogado conforme al derecho suizo y a la Ley Federal de Protección de Datos (LPD) antes de su publicación. Los pasajes entre corchetes […] están todavía por definir.",
+    "fuss_datenschutz": "Privacidad",
+    "fuss_agb": "Condiciones"
+  },
+  "agb": {
+    "meta_titel": "Condiciones de uso — OneFam",
+    "meta_beschreibung": "Condiciones de uso del sitio de OneFam, la lista de espera y la cuenta de miembro.",
+    "eyebrow": "Aviso legal",
+    "titel": "Condiciones de uso",
+    "stand": "Julio de 2026",
+    "einleitung": "Estas condiciones regulan el uso de este sitio, la inscripción en nuestra lista de espera y la cuenta de miembro de OneFam. Actualmente no hay <b>ningún concurso, ningún sorteo y ningún programa de fondo de viaje</b>. Léelas con atención, por favor.",
+    "abschnitte": [
+      {
+        "nr": "1",
+        "titel": "Prestador y ámbito de aplicación",
+        "bloecke": [
+          { "art": "absatz", "text": "El prestador es:" },
+          { "art": "kontakt" },
+          { "art": "absatz", "text": "Estas condiciones se aplican al uso de este sitio (lista de espera, cuenta de miembro, contenidos de la comunidad). Los pedidos en nuestra tienda en línea (shop.onefam.ch) se rigen exclusivamente por las condiciones generales independientes publicadas allí." }
+        ]
+      },
+      {
+        "nr": "2",
+        "titel": "Qué es OneFam – y qué no es por ahora",
+        "bloecke": [
+          { "art": "absatz", "text": "OneFam es una marca de ropa con tienda en línea propia y una comunidad para personas que pertenecen a más de un lugar. Lo que nos importa es la unión y los valores compartidos (véase «The Family Code»)." },
+          { "art": "absatz", "text": "Nuestro objetivo a largo plazo es hacer posible algún día viajes en común. Se trata de una <b>declaración de intenciones, no de una oferta</b>: actualmente no existe ningún programa de fondo de viaje, ninguna adjudicación de plazas y ningún derecho a un viaje ni a ninguna otra prestación. Las afirmaciones sobre este objetivo en nuestro sitio no son vinculantes y no constituyen garantía alguna." }
+        ]
+      },
+      {
+        "nr": "3",
+        "titel": "Lista de espera (boletín)",
+        "bloecke": [
+          {
+            "art": "liste",
+            "punkte": [
+              "La inscripción es gratuita y no requiere ninguna compra.",
+              "Recogemos tu dirección de correo electrónico; indicar un nombre es voluntario.",
+              "Al inscribirte consientes recibir de nuestra parte correos sobre OneFam.",
+              "Puedes retirar ese consentimiento en cualquier momento y sin dar motivos – mediante el enlace de baja de cada correo o simplemente escribiendo a info@onefam.ch.",
+              "La inscripción no crea condición de miembro, ni participación en ninguna selección, ni derecho a prestación alguna."
+            ]
+          },
+          { "art": "absatz", "text": "Solo enviamos correos publicitarios a personas que se han inscrito ellas mismas, y cada mensaje indica cómo darse de baja (art. 3 apdo. 1 let. o de la Ley suiza contra la competencia desleal)." }
+        ]
+      },
+      {
+        "nr": "4",
+        "titel": "Cuenta de miembro",
+        "bloecke": [
+          { "art": "absatz", "text": "Para determinadas áreas puedes iniciar sesión con tu dirección de correo electrónico; el acceso se realiza mediante un enlace, sin contraseña. Eres responsable de proteger el acceso a tu cuenta de correo. Podemos bloquear o eliminar cuentas si se infringen estas condiciones. No existe derecho a la puesta a disposición ni a la permanencia de la cuenta." }
+        ]
+      },
+      {
+        "nr": "5",
+        "titel": "Funciones adicionales para quienes compran",
+        "bloecke": [
+          { "art": "absatz", "text": "Las personas que hayan pedido en nuestra tienda pueden usar funciones adicionales – por ejemplo la votación sin compromiso sobre un posible destino futuro y el mapa del mundo. Estas funciones son un agradecimiento voluntario sin valor patrimonial. No generan derecho a un viaje, a la ejecución de un resultado de votación ni a ninguna otra prestación, y podemos modificarlas o suspenderlas en cualquier momento." }
+        ]
+      },
+      {
+        "nr": "6",
+        "titel": "Ni concurso, ni sorteo, ni juego de azar",
+        "bloecke": [
+          { "art": "absatz", "text": "A través de este sitio no se celebra actualmente ningún concurso, ningún sorteo ni ningún juego de azar en el sentido de la Ley suiza de juegos de azar (BGS). No se realiza ninguna apuesta, no se lleva a cabo ninguna selección y no se promete ningún premio con valor patrimonial." },
+          { "art": "absatz", "text": "Si en el futuro introdujéramos una adjudicación de plazas de viaje, se haría exclusivamente sobre la base de nuestras propias condiciones de participación, publicadas de antemano, y previa revisión jurídica. <hinweis>[A revisar por un abogado antes de cualquier introducción: calificación conforme a la BGS, participación sin obligación de compra, países participantes, edad mínima, procedimiento de sorteo incluida la fuente de aleatoriedad y solución alternativa en caso de fallo.]</hinweis>" }
+        ]
+      },
+      {
+        "nr": "7",
+        "titel": "Compras en la tienda",
+        "bloecke": [
+          { "art": "absatz", "text": "Los pedidos se formalizan exclusivamente a través de shop.onefam.ch; se aplican las condiciones generales publicadas allí, incluidas las reglas sobre precios, envío, desistimiento y garantía. Una compra no otorga ventajas más allá de las funciones adicionales mencionadas en el punto 5." }
+        ]
+      },
+      {
+        "nr": "8",
+        "titel": "Obligaciones de las personas usuarias",
+        "bloecke": [
+          { "art": "absatz", "text": "Te comprometes a respetar los valores de la comunidad («The Family Code»), a facilitar datos correctos y a no manipular nuestros servicios – en particular no mediante inscripciones múltiples o en nombre de terceros, el registro de direcciones de correo ajenas o accesos automatizados. En caso de infracción podemos eliminar inscripciones y cuentas." }
+        ]
+      },
+      {
+        "nr": "9",
+        "titel": "Disponibilidad y cambios en el sitio",
+        "bloecke": [
+          { "art": "absatz", "text": "Ponemos este sitio a disposición de forma gratuita y no debemos ninguna disponibilidad determinada. Podemos modificar, limitar o suspender contenidos y funciones en cualquier momento." }
+        ]
+      },
+      {
+        "nr": "10",
+        "titel": "Derechos sobre los contenidos",
+        "bloecke": [
+          { "art": "absatz", "text": "Todos los contenidos de este sitio – en particular textos, imágenes, gráficos, logotipo y diseños – están protegidos y no pueden utilizarse fuera del uso privado habitual sin nuestro consentimiento previo por escrito." }
+        ]
+      },
+      {
+        "nr": "11",
+        "titel": "Responsabilidad",
+        "bloecke": [
+          { "art": "absatz", "text": "En la medida en que la ley lo permita, queda excluida la responsabilidad de OneFam por daños relacionados con el uso de este sitio. Se exceptúan los daños por negligencia grave o dolo, así como los casos de responsabilidad legal imperativa. <hinweis>[Cláusula de responsabilidad a revisar por un abogado.]</hinweis>" }
+        ]
+      },
+      {
+        "nr": "12",
+        "titel": "Protección de datos",
+        "bloecke": [
+          { "art": "absatz", "text": "Encontrarás información sobre el tratamiento de tus datos – también los de la lista de espera – en nuestra <ds>política de privacidad</ds>." }
+        ]
+      },
+      {
+        "nr": "13",
+        "titel": "Cambios en estas condiciones",
+        "bloecke": [
+          { "art": "absatz", "text": "Podemos adaptar estas condiciones en cualquier momento. Rige la versión publicada en el momento del uso." }
+        ]
+      },
+      {
+        "nr": "14",
+        "titel": "Derecho aplicable y fuero",
+        "bloecke": [
+          { "art": "absatz", "text": "Se aplica exclusivamente el derecho suizo. El fuero exclusivo es – en la medida en que la ley lo permita – el domicilio del prestador en Basilea. <hinweis>[Fuero a confirmar por un abogado; frente a personas consumidoras solo es eficaz de forma limitada.]</hinweis>" }
+        ]
+      }
+    ]
+  },
+  "datenschutz": {
+    "meta_titel": "Política de privacidad — OneFam",
+    "meta_beschreibung": "Cómo trata OneFam tus datos – política de privacidad conforme a la Ley Federal suiza de Protección de Datos (LPD).",
+    "eyebrow": "Aviso legal",
+    "titel": "Política de privacidad",
+    "stand": "Julio de 2026",
+    "einleitung": "La protección de tus datos nos importa. Esta declaración te informa de qué datos personales tratamos cuando visitas este sitio y de qué derechos te asisten. Se rige por la Ley Federal suiza revisada de Protección de Datos (LPD).",
+    "abschnitte": [
+      {
+        "nr": "1",
+        "titel": "Responsable",
+        "bloecke": [
+          { "art": "absatz", "text": "El responsable del tratamiento de datos personales en este sitio es:" },
+          { "art": "kontakt" }
+        ]
+      },
+      {
+        "nr": "2",
+        "titel": "Ámbito de aplicación",
+        "bloecke": [
+          { "art": "absatz", "text": "Esta declaración se aplica a este sitio (onefam.ch). Nuestra tienda en línea en shop.onefam.ch funciona sobre una plataforma independiente y dispone de su propia política de privacidad. Los pedidos, las cuentas de cliente y los pagos en la tienda se rigen exclusivamente por las disposiciones publicadas allí." }
+        ]
+      },
+      {
+        "nr": "3",
+        "titel": "Principios",
+        "bloecke": [
+          { "art": "absatz", "text": "Son datos personales todas las informaciones referidas a una persona identificada o identificable. Tratamos los datos conforme a los principios de buena fe, proporcionalidad y limitación de la finalidad – y solo en la medida necesaria para el funcionamiento de este sitio." }
+        ]
+      },
+      {
+        "nr": "4",
+        "titel": "Archivos de registro del servidor y alojamiento",
+        "bloecke": [
+          { "art": "absatz", "text": "Al acceder a este sitio, nuestro proveedor de alojamiento recoge automáticamente datos y los almacena temporalmente en los llamados archivos de registro del servidor. Entre ellos:" },
+          {
+            "art": "liste",
+            "punkte": [
+              "la dirección IP del dispositivo que accede",
+              "la fecha y la hora del acceso",
+              "la página o el archivo solicitado",
+              "la página visitada anteriormente (URL de referencia)",
+              "el tipo y la versión del navegador, así como el sistema operativo"
+            ]
+          },
+          { "art": "absatz", "text": "Estos datos sirven exclusivamente al funcionamiento técnico, la seguridad y la estabilidad del sitio y no se combinan con otras fuentes de datos." },
+          { "art": "absatz", "text": "El proveedor de alojamiento es Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, EE. UU. <hinweis>[adaptar en caso de alojamiento distinto]</hinweis>. El tratamiento se realiza en parte en servidores fuera de Suiza (véase el punto 10)." }
+        ]
+      },
+      {
+        "nr": "5",
+        "titel": "Cookies y seguimiento",
+        "bloecke": [
+          { "art": "absatz", "text": "Este sitio no utiliza <b>ninguna herramienta de análisis, seguimiento o publicidad</b> (p. ej. Google Analytics, píxel de Meta o similares). No se crean perfiles de uso ni se ceden datos a terceros con fines publicitarios." },
+          { "art": "absatz", "text": "Solo se emplean <b>cookies técnicamente necesarias</b>: cuando inicias sesión, tu navegador guarda una cookie de sesión para que sigas conectado. Sin esa cookie el acceso no funciona. Si no inicias sesión, no se establece ninguna cookie. Si en el futuro utilizáramos más cookies, esta declaración se adaptará y – cuando sea necesario – se recabará tu consentimiento." }
+        ]
+      },
+      {
+        "nr": "6",
+        "titel": "Lista de espera (boletín)",
+        "bloecke": [
+          { "art": "absatz", "text": "Si te inscribes en nuestra lista de espera, tratamos tu dirección de correo electrónico, un nombre si decides indicarlo y el momento de la inscripción. La única finalidad es informarte sobre OneFam. La base es tu consentimiento." },
+          { "art": "absatz", "text": "Puedes darte de baja en cualquier momento – mediante el enlace de baja de cada correo o simplemente escribiendo a info@onefam.ch. Después eliminamos tu inscripción. No cedemos estos datos a terceros ni los usamos para publicidad de otras empresas." }
+        ]
+      },
+      {
+        "nr": "7",
+        "titel": "Cuenta de miembro y base de datos",
+        "bloecke": [
+          { "art": "absatz", "text": "Para el acceso tratamos tu dirección de correo electrónico y datos técnicos sobre la sesión. El acceso se realiza mediante un enlace enviado por correo; no guardamos ninguna contraseña. Si has pedido en nuestra tienda, almacenamos además la información de que existe un pedido, para desbloquearte funciones adicionales." },
+          { "art": "absatz", "text": "La lista de espera y los datos de cuenta se almacenan en Supabase (región de Zúrich, Suiza). El envío de correos se realiza a través de un proveedor que trata las direcciones exclusivamente por encargo nuestro. <hinweis>[Deben celebrarse y documentarse contratos de encargo del tratamiento.]</hinweis>" }
+        ]
+      },
+      {
+        "nr": "8",
+        "titel": "Contacto",
+        "bloecke": [
+          { "art": "absatz", "text": "Si nos contactas por correo electrónico, por teléfono o a través de un servicio de mensajería, los datos que facilites (p. ej. nombre, datos de contacto y contenido del mensaje) se almacenan y se utilizan para atender tu consulta. No cedemos estos datos sin tu consentimiento y los eliminamos en cuanto dejan de ser necesarios y no se oponen obligaciones legales de conservación." }
+        ]
+      },
+      {
+        "nr": "9",
+        "titel": "Mensajería y redes sociales",
+        "bloecke": [
+          { "art": "absatz", "text": "En este sitio enlazamos a plataformas externas y servicios de mensajería (entre otros Instagram, Facebook, WhatsApp, Telegram, Threema). Estos enlaces son meras referencias – la simple consulta de nuestro sitio no transmite datos a esos proveedores. Solo al hacer clic en un enlace llegas a la plataforma correspondiente, donde rigen sus propias disposiciones de protección de datos y sobre cuyo tratamiento no tenemos influencia. Si nos contactas por mensajería, tus datos se procesan además a través de los servidores de ese proveedor." }
+        ]
+      },
+      {
+        "nr": "10",
+        "titel": "Transferencia de datos al extranjero",
+        "bloecke": [
+          { "art": "absatz", "text": "En el marco del alojamiento y al utilizar servicios de mensajería y redes sociales pueden transferirse datos al extranjero – también a EE. UU. Una transferencia solo tiene lugar si se garantiza un nivel adecuado de protección de datos o existen garantías apropiadas (p. ej. cláusulas contractuales tipo), tal como exige la LPD." }
+        ]
+      },
+      {
+        "nr": "11",
+        "titel": "Conservación",
+        "bloecke": [
+          { "art": "absatz", "text": "Conservamos los datos personales solo mientras sea necesario para las finalidades correspondientes o mientras lo exijan los plazos legales de conservación. Después, los datos se eliminan o se anonimizan." }
+        ]
+      },
+      {
+        "nr": "12",
+        "titel": "Seguridad de los datos",
+        "bloecke": [
+          { "art": "absatz", "text": "Este sitio se entrega cifrado mediante HTTPS (TLS). Adoptamos medidas técnicas y organizativas adecuadas para proteger tus datos frente a accesos no autorizados, pérdida o uso indebido." }
+        ]
+      },
+      {
+        "nr": "13",
+        "titel": "Tus derechos",
+        "bloecke": [
+          { "art": "absatz", "text": "En el marco del derecho de protección de datos aplicable te asisten en particular los siguientes derechos:" },
+          {
+            "art": "liste",
+            "punkte": [
+              "información sobre los datos tratados acerca de tu persona",
+              "rectificación de datos inexactos",
+              "supresión o destrucción de tus datos",
+              "limitación del tratamiento y oposición a un tratamiento",
+              "entrega o transmisión de tus datos"
+            ]
+          },
+          { "art": "absatz", "text": "Basta con un mensaje a los datos de contacto indicados arriba para ejercerlos. Para atender tu solicitud puede que tengamos que verificar tu identidad." }
+        ]
+      },
+      {
+        "nr": "14",
+        "titel": "Derecho de reclamación",
+        "bloecke": [
+          { "art": "absatz", "text": "Tienes derecho a reclamar ante la autoridad de control competente. En Suiza es el Comisionado Federal de Protección de Datos y Transparencia (EDÖB), Feldeggweg 1, 3003 Berna (www.edoeb.admin.ch)." }
+        ]
+      },
+      {
+        "nr": "15",
+        "titel": "Cambios en esta declaración",
+        "bloecke": [
+          { "art": "absatz", "text": "Podemos adaptar esta política de privacidad en cualquier momento, por ejemplo si cambia el tratamiento de datos o la situación jurídica. Rige la versión publicada en cada momento en este sitio." }
+        ]
+      }
+    ]
+  }
+}
