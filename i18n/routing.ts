@@ -90,17 +90,32 @@ export function shopUrl(locale: Locale): string {
  * alle anderen mit. Die Middleware schreibt /agb intern auf /en/agb um — nach
  * aussen bleibt die Adresse /agb. Genau dieses Modell hat auch der Shop.
  *
- * `localeDetection: false` ist Absicht: Sonst wuerde die Middleware einen
- * Besucher mit franzoesischem Browser von / auf /fr umleiten. Das waere fuer
- * Google eine weiterleitende Startseite und fuer einen Besucher, der bewusst
- * die englische Fassung geteilt bekommen hat, eine Ueberraschung. Wer eine
- * andere Sprache will, waehlt sie im Umschalter.
+ * `localeDetection: true` (seit 30.07.2026): Die Middleware liest die
+ * Browsersprache (Accept-Language) und leitet einen Besucher mit
+ * franzoesischem Browser von / auf /fr um. Wer eine Sprache im Umschalter
+ * waehlt, bekommt sie im Cookie gemerkt und wird nicht mehr umgeleitet.
+ *
+ * Das war zunaechst bewusst AUS, aus Sorge um die Indexierung. Beim Nachdenken
+ * hielt das Argument nicht:
+ *   - Googlebot schickt kein Accept-Language mit und bleibt deshalb auf der
+ *     englischen Fassung — fuer den Crawler aendert sich nichts.
+ *   - Nur /, /agb und /datenschutz sind betroffen. Die uebrigen Unterseiten
+ *     laufen an dieser Middleware vorbei (siehe OHNE_SPRACHE in middleware.ts).
+ *   - Alle vier Fassungen stehen mit hreflang in der Sitemap und sind direkt
+ *     erreichbar, die Weiterleitung verdeckt also keine davon.
+ * Dazu kommt: Der Shop macht es seit jeher so (Snippet 28). Ein Besucher, der
+ * im Shop Franzoesisch sieht und auf der Website Englisch, ist der schlechtere
+ * Zustand.
+ *
+ * Was man im Auge behalten muss: ob /de, /fr und /es in der Search Console
+ * weiterhin indexiert werden. Wenn Google anfaengt, sie als
+ * "Seite mit Weiterleitung" auszuweisen, gehoert diese Zeile zurueck auf false.
  */
 export const routing = defineRouting({
   locales: LOCALES,
   defaultLocale: DEFAULT_LOCALE,
   localePrefix: 'as-needed',
-  localeDetection: false,
+  localeDetection: true,
 });
 
 /**
