@@ -1,7 +1,11 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, AlertTriangle } from 'lucide-react';
+import { useLocale, useTranslations } from 'next-intl';
+import { homePath, legalPath, type Locale } from '@/i18n/routing';
 
 type LegalLayoutProps = {
   eyebrow?: string;
@@ -17,21 +21,25 @@ type LegalLayoutProps = {
  * whose in-page anchor links (#about, #faq …) would be dead on a sub-route.
  */
 export default function LegalLayout({ eyebrow = 'Rechtliches', title, updated, lead, children }: LegalLayoutProps) {
+  const t = useTranslations('legal.layout');
+  const locale = useLocale() as Locale;
+  const home = homePath(locale);
+
   return (
     <div className="flex min-h-screen flex-col bg-bg">
       {/* top bar */}
       <header className="border-b border-line">
         <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-5">
-          <Link href="/" aria-label="OneFam — Home" className="flex items-center gap-2.5">
+          <Link href={home} aria-label="OneFam — Home" className="flex items-center gap-2.5">
             <img src="/assets/logo-face-gradient.svg" alt="" aria-hidden="true" className="h-7 w-7" />
             <Image src="/assets/logo-white.png" alt="OneFam" width={216} height={75} priority className="h-6 w-auto" />
           </Link>
           <Link
-            href="/"
+            href={home}
             className="inline-flex items-center gap-2 font-body text-sm text-secondary transition-colors duration-[180ms] hover:text-primary"
           >
             <ArrowLeft size={16} strokeWidth={1.5} />
-            Zur Startseite
+            {t('zur_startseite')}
           </Link>
         </div>
       </header>
@@ -42,16 +50,17 @@ export default function LegalLayout({ eyebrow = 'Rechtliches', title, updated, l
         <h1 className="mt-3 font-display text-[clamp(2rem,5vw,3rem)] font-semibold tracking-[0.02em] text-primary">
           {title}
         </h1>
-        {updated && <p className="mt-4 font-body text-sm text-faint">Stand: {updated}</p>}
+        {updated && (
+          <p className="mt-4 font-body text-sm text-faint">
+            {t('stand_prefix')} {updated}
+          </p>
+        )}
 
         {/* draft notice */}
         <div className="mt-8 flex gap-3 rounded-[8px] border border-gold/30 bg-gold/[0.06] p-4">
           <AlertTriangle size={18} strokeWidth={1.6} className="mt-0.5 flex-none text-gold" />
           <p className="font-body text-sm leading-relaxed text-secondary">
-            <span className="font-semibold text-gold">Entwurf – noch nicht final.</span>{' '}
-            Dieser Text ist ein unverbindlicher Entwurf und muss vor der Veröffentlichung anwaltlich auf
-            Schweizer Recht und das Datenschutzgesetz (DSG) geprüft werden. Mit Klammern markierte Stellen{' '}
-            <span className="text-faint">[…]</span> sind noch festzulegen.
+            <span className="font-semibold text-gold">{t('entwurf_titel')}</span> {t('entwurf_text')}
           </p>
         </div>
 
@@ -64,14 +73,14 @@ export default function LegalLayout({ eyebrow = 'Rechtliches', title, updated, l
       <footer className="border-t border-line">
         <div className="mx-auto flex w-full max-w-5xl flex-col gap-3 px-6 py-8 sm:flex-row sm:items-center sm:justify-between">
           <nav className="flex flex-wrap gap-x-6 gap-y-2 font-body text-sm">
-            <Link href="/datenschutz" className="text-secondary transition-colors duration-[180ms] hover:text-primary">
-              Datenschutz
+            <Link href={legalPath(locale, 'datenschutz')} className="text-secondary transition-colors duration-[180ms] hover:text-primary">
+              {t('fuss_datenschutz')}
             </Link>
-            <Link href="/agb" className="text-secondary transition-colors duration-[180ms] hover:text-primary">
-              AGB
+            <Link href={legalPath(locale, 'agb')} className="text-secondary transition-colors duration-[180ms] hover:text-primary">
+              {t('fuss_agb')}
             </Link>
-            <Link href="/" className="text-secondary transition-colors duration-[180ms] hover:text-primary">
-              Startseite
+            <Link href={home} className="text-secondary transition-colors duration-[180ms] hover:text-primary">
+              {t('zur_startseite')}
             </Link>
           </nav>
           <p className="font-body text-xs text-faint">© 2026 OneFam — Einzelfirma, Schweiz</p>

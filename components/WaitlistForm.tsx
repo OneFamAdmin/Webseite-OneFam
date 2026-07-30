@@ -5,7 +5,7 @@ import { useActionState } from 'react';
 import { useFormStatus } from 'react-dom';
 import { Mail, Check, Loader2, User } from 'lucide-react';
 import Button from './Button';
-import { joinWaitlist, type WaitlistState } from '@/app/join/actions';
+import { joinWaitlist, type WaitlistState } from '@/app/actions/join';
 
 const INITIAL: WaitlistState = { status: 'idle', message: '' };
 

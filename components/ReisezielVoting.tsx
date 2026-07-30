@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { useState, useTransition } from 'react';
 import VotingDesignMap, { type DesignOption } from '@/components/VotingDesignMap';
-import { castStagedVote } from '@/app/reiseziel/actions';
+import { castStagedVote } from '@/app/actions/reiseziel';
 
 type Props = {
   roundId: string;

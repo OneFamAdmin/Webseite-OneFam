@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
-import { shopUrl, type Locale } from '@/i18n/routing';
+import { legalPath, shopUrl, type Locale } from '@/i18n/routing';
 import MaxWidth from './MaxWidth';
 import ImprintDialog from './ImprintDialog';
 
@@ -77,7 +77,7 @@ const SiteFooter = () => {
                     <li key={l.label}>
                       {l.href ? (
                         <Link
-                          href={l.href}
+                          href={l.href === '/agb' ? legalPath(locale, 'agb') : l.href === '/datenschutz' ? legalPath(locale, 'datenschutz') : l.href}
                           className="font-body text-[15px] text-secondary transition-colors duration-[180ms] hover:text-primary"
                         >
                           {l.label}
