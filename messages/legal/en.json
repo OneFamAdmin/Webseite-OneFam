@@ -1,0 +1,275 @@
+{
+  "layout": {
+    "eyebrow": "Legal",
+    "stand_prefix": "Last updated:",
+    "zur_startseite": "Back to home",
+    "entwurf_titel": "Draft – not final.",
+    "entwurf_text": "This text is a non-binding draft and must be reviewed by a lawyer against Swiss law and the Federal Act on Data Protection (FADP) before publication. Passages marked with brackets […] are still to be settled.",
+    "fuss_datenschutz": "Privacy",
+    "fuss_agb": "Terms"
+  },
+  "agb": {
+    "meta_titel": "Terms of Use — OneFam",
+    "meta_beschreibung": "Terms of use for the OneFam website, the waiting list and the member account.",
+    "eyebrow": "Legal",
+    "titel": "Terms of Use",
+    "stand": "July 2026",
+    "einleitung": "These terms govern the use of this website, joining our waiting list and the OneFam member account. There is currently <b>no prize draw, no raffle and no travel pool programme</b>. Please read them carefully.",
+    "abschnitte": [
+      {
+        "nr": "1",
+        "titel": "Provider and scope",
+        "bloecke": [
+          { "art": "absatz", "text": "The provider is:" },
+          { "art": "kontakt" },
+          { "art": "absatz", "text": "These terms apply to the use of this website (waiting list, member account, community content). Orders in our online shop (shop.onefam.ch) are governed exclusively by the separate terms and conditions published there." }
+        ]
+      },
+      {
+        "nr": "2",
+        "titel": "What OneFam is – and what it currently is not",
+        "bloecke": [
+          { "art": "absatz", "text": "OneFam is a clothing brand with its own online shop and a community for people who belong to more than one place. What matters to us is holding together and sharing values (see «The Family Code»)." },
+          { "art": "absatz", "text": "Our long-term goal is to make shared travel possible one day. That is a <b>statement of intent, not an offer</b>: there is currently no travel pool programme, no allocation of travel places and no entitlement whatsoever to a trip or any other benefit. Statements about this goal on our website are non-binding and do not constitute any assurance." }
+        ]
+      },
+      {
+        "nr": "3",
+        "titel": "Waiting list (newsletter)",
+        "bloecke": [
+          {
+            "art": "liste",
+            "punkte": [
+              "Joining is free and does not require a purchase.",
+              "We collect your email address; giving a name is optional.",
+              "By joining you consent to receiving emails from us about OneFam.",
+              "You can withdraw that consent at any time and without giving reasons – via the unsubscribe link in every email or informally to info@onefam.ch.",
+              "Joining does not create membership, participation in any selection, or an entitlement to any benefit."
+            ]
+          },
+          { "art": "absatz", "text": "We only send promotional emails to people who signed up themselves, and every message points out how to unsubscribe (Art. 3 para. 1 lit. o of the Swiss Unfair Competition Act)." }
+        ]
+      },
+      {
+        "nr": "4",
+        "titel": "Member account",
+        "bloecke": [
+          { "art": "absatz", "text": "For certain areas you can sign in with your email address; signing in works through a login link, without a password. You are responsible for protecting access to your email account. We may suspend or delete accounts if these terms are breached. There is no entitlement to the provision or the continued existence of an account." }
+        ]
+      },
+      {
+        "nr": "5",
+        "titel": "Extra features for buyers",
+        "bloecke": [
+          { "art": "absatz", "text": "People who have ordered from our shop can use additional features – such as the non-binding vote on a possible future destination and the world map. These features are a voluntary thank you with no monetary value. They create no entitlement to a trip, to the implementation of a voting result or to any other benefit, and we may change or discontinue them at any time." }
+        ]
+      },
+      {
+        "nr": "6",
+        "titel": "No competition, no raffle, no gambling",
+        "bloecke": [
+          { "art": "absatz", "text": "This website currently runs no competition, no raffle and no gambling within the meaning of the Swiss Gambling Act (BGS). No stake is placed, no selection is carried out and no prize of monetary value is held out." },
+          { "art": "absatz", "text": "Should we introduce an allocation of travel places in future, it will happen exclusively on the basis of our own terms of participation, published in advance, and after a prior legal review. <hinweis>[To be reviewed by a lawyer before any introduction: classification under the Gambling Act, participation without an obligation to purchase, eligible countries, minimum age, draw procedure including source of randomness and fallback if it fails.]</hinweis>" }
+        ]
+      },
+      {
+        "nr": "7",
+        "titel": "Purchases in the shop",
+        "bloecke": [
+          { "art": "absatz", "text": "Orders are concluded exclusively via shop.onefam.ch; the terms and conditions published there apply, including the rules on prices, shipping, withdrawal and warranty. A purchase grants no advantages beyond the extra features named in section 5." }
+        ]
+      },
+      {
+        "nr": "8",
+        "titel": "Your obligations",
+        "bloecke": [
+          { "art": "absatz", "text": "You undertake to respect the values of the community («The Family Code»), to give accurate information and not to manipulate our services – in particular not through multiple or third-party sign-ups, entering other people's email addresses or automated access. In case of breaches we may remove entries and accounts." }
+        ]
+      },
+      {
+        "nr": "9",
+        "titel": "Availability and changes to the website",
+        "bloecke": [
+          { "art": "absatz", "text": "We provide this website free of charge and do not owe any particular availability. We may change, restrict or discontinue content and features at any time." }
+        ]
+      },
+      {
+        "nr": "10",
+        "titel": "Rights in the content",
+        "bloecke": [
+          { "art": "absatz", "text": "All content on this website – in particular texts, images, graphics, logo and designs – is protected and may not be used outside ordinary private use without our prior written consent." }
+        ]
+      },
+      {
+        "nr": "11",
+        "titel": "Liability",
+        "bloecke": [
+          { "art": "absatz", "text": "To the extent permitted by law, OneFam's liability for damages in connection with the use of this website is excluded. Excepted are damages caused by gross negligence or intent, as well as cases of mandatory statutory liability. <hinweis>[Liability clause to be reviewed by a lawyer.]</hinweis>" }
+        ]
+      },
+      {
+        "nr": "12",
+        "titel": "Data protection",
+        "bloecke": [
+          { "art": "absatz", "text": "Information on how we handle your data – including the waiting list data – can be found in our <ds>privacy policy</ds>." }
+        ]
+      },
+      {
+        "nr": "13",
+        "titel": "Changes to these terms",
+        "bloecke": [
+          { "art": "absatz", "text": "We may adjust these terms at any time. The version published at the time of use applies." }
+        ]
+      },
+      {
+        "nr": "14",
+        "titel": "Governing law and place of jurisdiction",
+        "bloecke": [
+          { "art": "absatz", "text": "Swiss law applies exclusively. The exclusive place of jurisdiction is – to the extent permitted by law – the provider's registered office in Basel. <hinweis>[Place of jurisdiction to be confirmed by a lawyer; against consumers it is only effective to a limited extent.]</hinweis>" }
+        ]
+      }
+    ]
+  },
+  "datenschutz": {
+    "meta_titel": "Privacy policy — OneFam",
+    "meta_beschreibung": "How OneFam handles your data – privacy policy under the Swiss Federal Act on Data Protection (FADP).",
+    "eyebrow": "Legal",
+    "titel": "Privacy policy",
+    "stand": "July 2026",
+    "einleitung": "Protecting your data matters to us. This policy tells you which personal data we process when you visit this website and which rights you have. It follows the revised Swiss Federal Act on Data Protection (FADP).",
+    "abschnitte": [
+      {
+        "nr": "1",
+        "titel": "Controller",
+        "bloecke": [
+          { "art": "absatz", "text": "Responsible for processing personal data on this website is:" },
+          { "art": "kontakt" }
+        ]
+      },
+      {
+        "nr": "2",
+        "titel": "Scope",
+        "bloecke": [
+          { "art": "absatz", "text": "This policy applies to this website (onefam.ch). Our online shop at shop.onefam.ch runs on a separate platform and has its own privacy policy. Orders, customer accounts and payments in the shop are governed exclusively by the provisions published there." }
+        ]
+      },
+      {
+        "nr": "3",
+        "titel": "Principles",
+        "bloecke": [
+          { "art": "absatz", "text": "Personal data is any information relating to an identified or identifiable person. We process data in accordance with the principles of good faith, proportionality and purpose limitation – and only as far as it is necessary to operate this website." }
+        ]
+      },
+      {
+        "nr": "4",
+        "titel": "Server log files and hosting",
+        "bloecke": [
+          { "art": "absatz", "text": "When you access this website, our hosting provider automatically collects data and stores it temporarily in what are known as server log files. This includes:" },
+          {
+            "art": "liste",
+            "punkte": [
+              "the IP address of the accessing device",
+              "the date and time of access",
+              "the page or file requested",
+              "the previously visited page (referrer URL)",
+              "browser type and version as well as the operating system"
+            ]
+          },
+          { "art": "absatz", "text": "This data serves solely the technical operation, the security and the stability of the website and is not combined with other data sources." },
+          { "art": "absatz", "text": "The hosting provider is Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA <hinweis>[adjust if hosting changes]</hinweis>. Processing takes place partly on servers outside Switzerland (see section 10)." }
+        ]
+      },
+      {
+        "nr": "5",
+        "titel": "Cookies and tracking",
+        "bloecke": [
+          { "art": "absatz", "text": "This website uses <b>no analytics, tracking or advertising tools</b> (e.g. Google Analytics, Meta Pixel or similar). No usage profiles are created and no data is passed on to third parties for advertising purposes." },
+          { "art": "absatz", "text": "We use <b>strictly necessary cookies</b> only: when you sign in, your browser stores a session cookie so that you stay logged in. Without this cookie signing in does not work. If you do not sign in, no cookies are set. Should we use further cookies in future, this policy will be adjusted and – where required – your consent obtained." }
+        ]
+      },
+      {
+        "nr": "6",
+        "titel": "Waiting list (newsletter)",
+        "bloecke": [
+          { "art": "absatz", "text": "If you join our waiting list, we process your email address, a name if you choose to give one, and the time you signed up. The sole purpose is to keep you informed about OneFam. The basis is your consent." },
+          { "art": "absatz", "text": "You can unsubscribe at any time – via the unsubscribe link in every email or informally to info@onefam.ch. We then delete your entry. We do not pass this data on to third parties and do not use it to advertise other companies." }
+        ]
+      },
+      {
+        "nr": "7",
+        "titel": "Member account and database",
+        "bloecke": [
+          { "art": "absatz", "text": "For signing in we process your email address as well as technical details about the session. Signing in works through a login link sent by email; we do not store a password. If you have ordered from our shop, we additionally store the information that an order exists, in order to unlock extra features for you." },
+          { "art": "absatz", "text": "Waiting list and account data are stored with Supabase (Zurich region, Switzerland). Emails are sent through a service provider that processes the addresses exclusively on our behalf. <hinweis>[Data processing agreements are to be concluded and documented.]</hinweis>" }
+        ]
+      },
+      {
+        "nr": "8",
+        "titel": "Getting in touch",
+        "bloecke": [
+          { "art": "absatz", "text": "If you contact us by email, phone or through a messenger service, the details you provide (e.g. name, contact details and the content of your message) are stored and used to handle your enquiry. We do not pass this data on without your consent and delete it as soon as it is no longer needed and no statutory retention obligations stand in the way." }
+        ]
+      },
+      {
+        "nr": "9",
+        "titel": "Messengers and social media",
+        "bloecke": [
+          { "art": "absatz", "text": "On this website we link to external platforms and messenger services (including Instagram, Facebook, WhatsApp, Telegram, Threema). These links are plain references – simply opening our website transmits no data to those providers. Only when you click a link do you reach the respective platform, where their own data protection provisions apply and over whose data processing we have no influence. If you contact us through a messenger, your data is additionally processed via that provider's servers." }
+        ]
+      },
+      {
+        "nr": "10",
+        "titel": "Transfer of data abroad",
+        "bloecke": [
+          { "art": "absatz", "text": "In the course of hosting and when using messenger and social media services, data may be transferred abroad – including to the USA. A transfer only takes place where an adequate level of data protection is ensured or suitable safeguards (e.g. standard contractual clauses) are in place, as the FADP requires." }
+        ]
+      },
+      {
+        "nr": "11",
+        "titel": "Retention",
+        "bloecke": [
+          { "art": "absatz", "text": "We keep personal data only for as long as it is necessary for the respective purposes or as statutory retention periods require. After that the data is deleted or anonymised." }
+        ]
+      },
+      {
+        "nr": "12",
+        "titel": "Data security",
+        "bloecke": [
+          { "art": "absatz", "text": "This website is delivered encrypted via HTTPS (TLS). We take appropriate technical and organisational measures to protect your data against unauthorised access, loss or misuse." }
+        ]
+      },
+      {
+        "nr": "13",
+        "titel": "Your rights",
+        "bloecke": [
+          { "art": "absatz", "text": "Under the applicable data protection law you have in particular the following rights:" },
+          {
+            "art": "liste",
+            "punkte": [
+              "information about the data processed about you",
+              "correction of inaccurate data",
+              "deletion or destruction of your data",
+              "restriction of processing and objection to processing",
+              "release or transfer of your data"
+            ]
+          },
+          { "art": "absatz", "text": "A message to the contact details given above is enough to exercise them. To handle your request we may have to verify your identity." }
+        ]
+      },
+      {
+        "nr": "14",
+        "titel": "Right to complain",
+        "bloecke": [
+          { "art": "absatz", "text": "You have the right to complain to the competent supervisory authority. In Switzerland this is the Federal Data Protection and Information Commissioner (FDPIC), Feldeggweg 1, 3003 Bern (www.edoeb.admin.ch)." }
+        ]
+      },
+      {
+        "nr": "15",
+        "titel": "Changes to this policy",
+        "bloecke": [
+          { "art": "absatz", "text": "We may adjust this privacy policy at any time, for instance if the data processing or the legal situation changes. The version published on this website at the time applies." }
+        ]
+      }
+    ]
+  }
+}

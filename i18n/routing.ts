@@ -1,3 +1,5 @@
+import { defineRouting } from 'next-intl/routing';
+
 // i18n/routing.ts
 //
 // Eine Stelle für alles, was mit Sprachen zu tun hat. Vorher stand die Sprache
@@ -79,4 +81,37 @@ const SHOP_BASE = 'https://shop.onefam.ch';
  */
 export function shopUrl(locale: Locale): string {
   return locale === DEFAULT_LOCALE ? `${SHOP_BASE}/` : `${SHOP_BASE}/${locale}/`;
+}
+
+/**
+ * Routing-Beschreibung fuer die next-intl-Middleware.
+ *
+ * `localePrefix: 'as-needed'` heisst: Die Standardsprache laeuft OHNE Praefix,
+ * alle anderen mit. Die Middleware schreibt /agb intern auf /en/agb um — nach
+ * aussen bleibt die Adresse /agb. Genau dieses Modell hat auch der Shop.
+ *
+ * `localeDetection: false` ist Absicht: Sonst wuerde die Middleware einen
+ * Besucher mit franzoesischem Browser von / auf /fr umleiten. Das waere fuer
+ * Google eine weiterleitende Startseite und fuer einen Besucher, der bewusst
+ * die englische Fassung geteilt bekommen hat, eine Ueberraschung. Wer eine
+ * andere Sprache will, waehlt sie im Umschalter.
+ */
+export const routing = defineRouting({
+  locales: LOCALES,
+  defaultLocale: DEFAULT_LOCALE,
+  localePrefix: 'as-needed',
+  localeDetection: false,
+});
+
+/**
+ * Adresse eines Rechtstextes in einer Sprache.
+ *
+ * Nur AGB und Datenschutzerklärung liegen unter app/[locale]/. Die übrigen
+ * Unterseiten (/join, /archiv, /reiseziel, /login, /mein-bereich) sind
+ * weiterhin nur auf Deutsch und behalten ihre Adresse ohne Präfix — eine
+ * Adresse /fr/join, die deutschen Text ausliefert, wäre eine Falschaussage
+ * gegenüber Besuchern und gegenüber Google.
+ */
+export function legalPath(locale: Locale, seite: 'agb' | 'datenschutz'): string {
+  return locale === DEFAULT_LOCALE ? `/${seite}` : `/${locale}/${seite}`;
 }

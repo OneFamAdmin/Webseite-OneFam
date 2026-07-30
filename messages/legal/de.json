@@ -1,0 +1,275 @@
+{
+  "layout": {
+    "eyebrow": "Rechtliches",
+    "stand_prefix": "Stand:",
+    "zur_startseite": "Zur Startseite",
+    "entwurf_titel": "Entwurf – noch nicht final.",
+    "entwurf_text": "Dieser Text ist ein unverbindlicher Entwurf und muss vor der Veröffentlichung anwaltlich auf Schweizer Recht und das Datenschutzgesetz (DSG) geprüft werden. Mit Klammern markierte Stellen […] sind noch festzulegen.",
+    "fuss_datenschutz": "Datenschutz",
+    "fuss_agb": "AGB"
+  },
+  "agb": {
+    "meta_titel": "AGB & Nutzungsbedingungen — OneFam",
+    "meta_beschreibung": "Nutzungsbedingungen für die OneFam-Website, die Warteliste und das Mitgliederkonto.",
+    "eyebrow": "Rechtliches",
+    "titel": "AGB & Nutzungsbedingungen",
+    "stand": "Juli 2026",
+    "einleitung": "Diese Bedingungen regeln die Nutzung dieser Website, die Eintragung in unsere Warteliste und das OneFam-Mitgliederkonto. Es findet derzeit <b>kein Gewinnspiel, keine Verlosung und kein Travel-Pool-Programm</b> statt. Bitte lies sie aufmerksam.",
+    "abschnitte": [
+      {
+        "nr": "1",
+        "titel": "Anbieter und Geltungsbereich",
+        "bloecke": [
+          { "art": "absatz", "text": "Anbieter ist:" },
+          { "art": "kontakt" },
+          { "art": "absatz", "text": "Diese Bedingungen gelten für die Nutzung dieser Website (Warteliste, Mitgliederkonto, Community-Inhalte). Für Bestellungen in unserem Online-Shop (shop.onefam.ch) gelten ausschliesslich die dort hinterlegten, separaten Geschäftsbedingungen." }
+        ]
+      },
+      {
+        "nr": "2",
+        "titel": "Was OneFam ist – und was aktuell nicht",
+        "bloecke": [
+          { "art": "absatz", "text": "OneFam ist eine Kleidermarke mit eigenem Online-Shop und eine Community für Menschen, die zu mehr als einem Ort gehören. Im Zentrum stehen Zusammenhalt und gemeinsame Werte (siehe «The Family Code»)." },
+          { "art": "absatz", "text": "Wir verfolgen das langfristige Ziel, eines Tages gemeinsame Reisen zu ermöglichen. Das ist eine <b>Absichtserklärung, kein Angebot</b>: Es gibt derzeit kein Travel-Pool-Programm, keine Vergabe von Reiseplätzen und keinerlei Anspruch auf eine Reise oder eine sonstige Leistung. Aussagen zu diesem Ziel auf unserer Website sind unverbindlich und begründen keine Zusicherung." }
+        ]
+      },
+      {
+        "nr": "3",
+        "titel": "Warteliste (Newsletter)",
+        "bloecke": [
+          {
+            "art": "liste",
+            "punkte": [
+              "Die Eintragung ist kostenlos und setzt keinen Kauf voraus.",
+              "Erhoben wird deine E-Mail-Adresse; die Angabe eines Namens ist freiwillig.",
+              "Mit der Eintragung willigst du ein, von uns E-Mails über OneFam zu erhalten.",
+              "Du kannst die Einwilligung jederzeit und ohne Angabe von Gründen widerrufen – über den Abmeldelink in jeder E-Mail oder formlos an info@onefam.ch.",
+              "Die Eintragung begründet keine Mitgliedschaft, keine Teilnahme an einer Auswahl und keinen Anspruch auf eine Leistung."
+            ]
+          },
+          { "art": "absatz", "text": "Wir versenden Werbe-E-Mails nur an Personen, die sich selbst eingetragen haben, und weisen in jeder Nachricht auf die Abmeldemöglichkeit hin (Art. 3 Abs. 1 lit. o UWG)." }
+        ]
+      },
+      {
+        "nr": "4",
+        "titel": "Mitgliederkonto",
+        "bloecke": [
+          { "art": "absatz", "text": "Für einzelne Bereiche kannst du dich mit deiner E-Mail-Adresse anmelden; die Anmeldung erfolgt über einen Login-Link ohne Passwort. Du bist dafür verantwortlich, den Zugriff auf dein E-Mail-Konto zu schützen. Wir können Konten sperren oder löschen, wenn diese Bedingungen verletzt werden. Ein Anspruch auf Bereitstellung oder Fortbestand des Kontos besteht nicht." }
+        ]
+      },
+      {
+        "nr": "5",
+        "titel": "Zusatzfunktionen für Käuferinnen und Käufer",
+        "bloecke": [
+          { "art": "absatz", "text": "Personen, die in unserem Shop bestellt haben, können zusätzliche Funktionen nutzen – etwa die unverbindliche Abstimmung über ein mögliches künftiges Reiseziel und die Weltkarte. Diese Funktionen sind ein freiwilliges Dankeschön ohne Vermögenswert. Sie begründen keinen Anspruch auf eine Reise, auf die Umsetzung eines Abstimmungsergebnisses oder auf eine sonstige Leistung, und wir können sie jederzeit ändern oder einstellen." }
+        ]
+      },
+      {
+        "nr": "6",
+        "titel": "Kein Gewinnspiel, keine Verlosung, kein Geldspiel",
+        "bloecke": [
+          { "art": "absatz", "text": "Über diese Website findet derzeit kein Gewinnspiel, keine Verlosung und kein Geldspiel im Sinne des Schweizer Geldspielgesetzes (BGS) statt. Es wird kein Einsatz geleistet, keine Auswahl durchgeführt und kein vermögenswerter Gewinn in Aussicht gestellt." },
+          { "art": "absatz", "text": "Sollten wir künftig eine Vergabe von Reiseplätzen einführen, geschieht dies ausschliesslich auf Grundlage eigener, vorab veröffentlichter Teilnahmebedingungen und einer vorgängigen rechtlichen Prüfung. <hinweis>[Vor jeder Einführung anwaltlich zu prüfen: Qualifikation nach BGS, Ausgestaltung der Teilnahme ohne Kaufzwang, Teilnahmeländer, Mindestalter, Ziehungsverfahren inkl. Zufallsquelle und Ausfall-Fallback.]</hinweis>" }
+        ]
+      },
+      {
+        "nr": "7",
+        "titel": "Käufe im Shop",
+        "bloecke": [
+          { "art": "absatz", "text": "Bestellungen kommen ausschliesslich über shop.onefam.ch zustande; dafür gelten die dortigen Geschäftsbedingungen samt Regelungen zu Preisen, Versand, Widerruf und Gewährleistung. Ein Kauf verschafft keine Vorteile ausserhalb der in Ziffer 5 genannten Zusatzfunktionen." }
+        ]
+      },
+      {
+        "nr": "8",
+        "titel": "Pflichten der Nutzenden",
+        "bloecke": [
+          { "art": "absatz", "text": "Du verpflichtest dich, die Werte der Community («The Family Code») zu respektieren, korrekte Angaben zu machen und unsere Dienste nicht zu manipulieren – insbesondere nicht durch Mehrfach- oder Fremdanmeldungen, das Eintragen fremder E-Mail-Adressen oder automatisierte Zugriffe. Bei Verstössen können wir Einträge und Konten entfernen." }
+        ]
+      },
+      {
+        "nr": "9",
+        "titel": "Verfügbarkeit und Änderungen der Website",
+        "bloecke": [
+          { "art": "absatz", "text": "Wir stellen diese Website unentgeltlich bereit und schulden keine bestimmte Verfügbarkeit. Wir können Inhalte und Funktionen jederzeit ändern, einschränken oder einstellen." }
+        ]
+      },
+      {
+        "nr": "10",
+        "titel": "Rechte an Inhalten",
+        "bloecke": [
+          { "art": "absatz", "text": "Sämtliche Inhalte dieser Website – insbesondere Texte, Bilder, Grafiken, Logo und Designs – sind geschützt und dürfen ohne unsere vorgängige schriftliche Zustimmung nicht ausserhalb der üblichen privaten Nutzung verwendet werden." }
+        ]
+      },
+      {
+        "nr": "11",
+        "titel": "Haftung",
+        "bloecke": [
+          { "art": "absatz", "text": "Soweit gesetzlich zulässig, ist die Haftung von OneFam für Schäden im Zusammenhang mit der Nutzung dieser Website ausgeschlossen. Ausgenommen sind Schäden aus grober Fahrlässigkeit oder Absicht sowie Fälle zwingender gesetzlicher Haftung. <hinweis>[Haftungsregelung anwaltlich zu prüfen.]</hinweis>" }
+        ]
+      },
+      {
+        "nr": "12",
+        "titel": "Datenschutz",
+        "bloecke": [
+          { "art": "absatz", "text": "Informationen zur Bearbeitung deiner Daten – auch zu den Daten der Warteliste – findest du in unserer <ds>Datenschutzerklärung</ds>." }
+        ]
+      },
+      {
+        "nr": "13",
+        "titel": "Änderungen der Bedingungen",
+        "bloecke": [
+          { "art": "absatz", "text": "Wir können diese Bedingungen jederzeit anpassen. Massgebend ist die zum Zeitpunkt der Nutzung veröffentlichte Fassung." }
+        ]
+      },
+      {
+        "nr": "14",
+        "titel": "Anwendbares Recht und Gerichtsstand",
+        "bloecke": [
+          { "art": "absatz", "text": "Es gilt ausschliesslich Schweizer Recht. Ausschliesslicher Gerichtsstand ist – soweit gesetzlich zulässig – der Sitz des Anbieters in Basel. <hinweis>[Gerichtsstand anwaltlich zu bestätigen; gegenüber Konsumentinnen und Konsumenten ist er nur beschränkt wirksam.]</hinweis>" }
+        ]
+      }
+    ]
+  },
+  "datenschutz": {
+    "meta_titel": "Datenschutzerklärung — OneFam",
+    "meta_beschreibung": "Wie OneFam mit deinen Daten umgeht – Datenschutzerklärung nach dem Schweizer Datenschutzgesetz (DSG).",
+    "eyebrow": "Rechtliches",
+    "titel": "Datenschutzerklärung",
+    "stand": "Juli 2026",
+    "einleitung": "Der Schutz deiner Daten ist uns wichtig. Diese Erklärung informiert dich darüber, welche Personendaten wir beim Besuch dieser Website bearbeiten und welche Rechte dir zustehen. Sie richtet sich nach dem revidierten Schweizer Datenschutzgesetz (DSG).",
+    "abschnitte": [
+      {
+        "nr": "1",
+        "titel": "Verantwortlicher",
+        "bloecke": [
+          { "art": "absatz", "text": "Verantwortlich für die Bearbeitung von Personendaten auf dieser Website ist:" },
+          { "art": "kontakt" }
+        ]
+      },
+      {
+        "nr": "2",
+        "titel": "Geltungsbereich",
+        "bloecke": [
+          { "art": "absatz", "text": "Diese Erklärung gilt für diese Website (onefam.ch). Unser Online-Shop unter shop.onefam.ch wird über eine separate Plattform betrieben und verfügt über eine eigene Datenschutzerklärung. Für Bestellungen, Kundenkonten und Zahlungen im Shop gelten ausschliesslich die dortigen Bestimmungen." }
+        ]
+      },
+      {
+        "nr": "3",
+        "titel": "Grundsätze",
+        "bloecke": [
+          { "art": "absatz", "text": "Personendaten sind alle Angaben, die sich auf eine bestimmte oder bestimmbare Person beziehen. Wir bearbeiten Daten nach den Grundsätzen von Treu und Glauben, Verhältnismässigkeit und Zweckbindung – und nur, soweit dies für den Betrieb dieser Website erforderlich ist." }
+        ]
+      },
+      {
+        "nr": "4",
+        "titel": "Server-Logfiles und Hosting",
+        "bloecke": [
+          { "art": "absatz", "text": "Beim Aufruf dieser Website werden durch unseren Hosting-Provider automatisch Daten erhoben und vorübergehend in sogenannten Server-Logfiles gespeichert. Dazu gehören:" },
+          {
+            "art": "liste",
+            "punkte": [
+              "die IP-Adresse des zugreifenden Geräts",
+              "Datum und Uhrzeit des Zugriffs",
+              "die aufgerufene Seite bzw. Datei",
+              "die zuvor besuchte Seite (Referrer-URL)",
+              "Browsertyp und -version sowie das Betriebssystem"
+            ]
+          },
+          { "art": "absatz", "text": "Diese Daten dienen ausschliesslich dem technischen Betrieb, der Sicherheit und der Stabilität der Website und werden nicht mit anderen Datenquellen zusammengeführt." },
+          { "art": "absatz", "text": "Hosting-Provider ist Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA <hinweis>[bei abweichendem Hosting anpassen]</hinweis>. Die Bearbeitung erfolgt teilweise auf Servern ausserhalb der Schweiz (siehe Ziffer 10)." }
+        ]
+      },
+      {
+        "nr": "5",
+        "titel": "Cookies und Tracking",
+        "bloecke": [
+          { "art": "absatz", "text": "Diese Website setzt <b>keine Analyse-, Tracking- oder Werbe-Tools</b> ein (z. B. Google Analytics, Meta-Pixel o. Ä.). Es werden keine Nutzungsprofile erstellt und keine Daten zu Werbezwecken an Dritte weitergegeben." },
+          { "art": "absatz", "text": "Verwendet werden ausschliesslich <b>technisch notwendige Cookies</b>: Wenn du dich anmeldest, speichert dein Browser ein Sitzungs-Cookie, damit du eingeloggt bleibst. Ohne dieses Cookie funktioniert die Anmeldung nicht. Meldest du dich nicht an, werden keine Cookies gesetzt. Sollten wir künftig weitere Cookies einsetzen, wird diese Erklärung angepasst und – soweit erforderlich – deine Einwilligung eingeholt." }
+        ]
+      },
+      {
+        "nr": "6",
+        "titel": "Warteliste (Newsletter)",
+        "bloecke": [
+          { "art": "absatz", "text": "Trägst du dich in unsere Warteliste ein, bearbeiten wir deine E-Mail-Adresse, einen freiwillig angegebenen Namen sowie den Zeitpunkt der Eintragung. Zweck ist ausschliesslich, dich über OneFam zu informieren. Grundlage ist deine Einwilligung." },
+          { "art": "absatz", "text": "Du kannst dich jederzeit abmelden – über den Abmeldelink in jeder E-Mail oder formlos an info@onefam.ch. Danach löschen wir deinen Eintrag. Wir geben diese Daten nicht an Dritte weiter und nutzen sie nicht für Werbung anderer Unternehmen." }
+        ]
+      },
+      {
+        "nr": "7",
+        "titel": "Mitgliederkonto und Datenbank",
+        "bloecke": [
+          { "art": "absatz", "text": "Für die Anmeldung bearbeiten wir deine E-Mail-Adresse sowie technische Angaben zur Sitzung. Die Anmeldung erfolgt über einen Login-Link per E-Mail; ein Passwort speichern wir nicht. Hast du in unserem Shop bestellt, speichern wir zudem die Information, dass eine Bestellung vorliegt, um dir Zusatzfunktionen freizuschalten." },
+          { "art": "absatz", "text": "Warteliste und Kontodaten werden bei Supabase (Region Zürich, Schweiz) gespeichert. Der Versand von E-Mails erfolgt über einen Dienstleister, der die Adressen ausschliesslich in unserem Auftrag bearbeitet. <hinweis>[Auftragsbearbeitungsverträge sind abzuschliessen bzw. zu dokumentieren.]</hinweis>" }
+        ]
+      },
+      {
+        "nr": "8",
+        "titel": "Kontaktaufnahme",
+        "bloecke": [
+          { "art": "absatz", "text": "Wenn du uns per E-Mail, Telefon oder über einen Messenger-Dienst kontaktierst, werden die von dir gemachten Angaben (z. B. Name, Kontaktdaten und Inhalt der Nachricht) zur Bearbeitung deiner Anfrage gespeichert und verwendet. Wir geben diese Daten nicht ohne deine Einwilligung weiter und löschen sie, sobald sie nicht mehr benötigt werden und keine gesetzlichen Aufbewahrungspflichten entgegenstehen." }
+        ]
+      },
+      {
+        "nr": "9",
+        "titel": "Messenger und Social Media",
+        "bloecke": [
+          { "art": "absatz", "text": "Auf dieser Website verlinken wir auf externe Plattformen und Messenger-Dienste (u. a. Instagram, Facebook, WhatsApp, Telegram, Threema). Diese Links sind reine Verweise – beim blossen Aufruf unserer Website werden keine Daten an diese Anbieter übermittelt. Erst wenn du einen Link anklickst, gelangst du auf die jeweilige Plattform, für die deren eigene Datenschutzbestimmungen gelten und auf deren Datenbearbeitung wir keinen Einfluss haben. Kontaktierst du uns über einen Messenger, werden deine Daten zusätzlich über die Server des jeweiligen Anbieters verarbeitet." }
+        ]
+      },
+      {
+        "nr": "10",
+        "titel": "Datenübermittlung ins Ausland",
+        "bloecke": [
+          { "art": "absatz", "text": "Im Rahmen des Hostings sowie bei der Nutzung von Messenger- und Social-Media-Diensten können Daten ins Ausland – auch in die USA – übermittelt werden. Eine Übermittlung erfolgt nur, wenn ein angemessenes Datenschutzniveau gewährleistet ist oder geeignete Garantien (z. B. Standardvertragsklauseln) bestehen, wie es das DSG verlangt." }
+        ]
+      },
+      {
+        "nr": "11",
+        "titel": "Aufbewahrung",
+        "bloecke": [
+          { "art": "absatz", "text": "Wir bewahren Personendaten nur so lange auf, wie es für die jeweiligen Zwecke erforderlich ist oder gesetzliche Aufbewahrungsfristen es verlangen. Danach werden die Daten gelöscht oder anonymisiert." }
+        ]
+      },
+      {
+        "nr": "12",
+        "titel": "Datensicherheit",
+        "bloecke": [
+          { "art": "absatz", "text": "Diese Website wird verschlüsselt über HTTPS (TLS) ausgeliefert. Wir treffen angemessene technische und organisatorische Massnahmen, um deine Daten vor unbefugtem Zugriff, Verlust oder Missbrauch zu schützen." }
+        ]
+      },
+      {
+        "nr": "13",
+        "titel": "Deine Rechte",
+        "bloecke": [
+          { "art": "absatz", "text": "Im Rahmen des anwendbaren Datenschutzrechts stehen dir insbesondere folgende Rechte zu:" },
+          {
+            "art": "liste",
+            "punkte": [
+              "Auskunft über die zu deiner Person bearbeiteten Daten",
+              "Berichtigung unrichtiger Daten",
+              "Löschung oder Vernichtung deiner Daten",
+              "Einschränkung der Bearbeitung sowie Widerspruch gegen eine Bearbeitung",
+              "Herausgabe oder Übertragung deiner Daten"
+            ]
+          },
+          { "art": "absatz", "text": "Zur Ausübung genügt eine Mitteilung an die oben genannten Kontaktdaten. Zur Bearbeitung deiner Anfrage müssen wir gegebenenfalls deine Identität überprüfen." }
+        ]
+      },
+      {
+        "nr": "14",
+        "titel": "Beschwerderecht",
+        "bloecke": [
+          { "art": "absatz", "text": "Du hast das Recht, dich bei der zuständigen Aufsichtsbehörde zu beschweren. In der Schweiz ist dies der Eidgenössische Datenschutz- und Öffentlichkeitsbeauftragte (EDÖB), Feldeggweg 1, 3003 Bern (www.edoeb.admin.ch)." }
+        ]
+      },
+      {
+        "nr": "15",
+        "titel": "Änderungen dieser Erklärung",
+        "bloecke": [
+          { "art": "absatz", "text": "Wir können diese Datenschutzerklärung jederzeit anpassen, etwa wenn sich die Datenbearbeitung oder die Rechtslage ändert. Es gilt die jeweils auf dieser Website veröffentlichte Fassung." }
+        ]
+      }
+    ]
+  }
+}

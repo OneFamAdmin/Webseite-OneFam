@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { SITE_URL } from '@/lib/seo';
-import { DEFAULT_LOCALE, LOCALES, homePath } from '@/i18n/routing';
+import { DEFAULT_LOCALE, LOCALES, homePath, legalPath } from '@/i18n/routing';
 
 // Next.js liefert diese Datei unter /sitemap.xml aus. Sie enthält bewusst nur die
 // Seiten, die auch in den Index sollen — /login, /mein-bereich, /join/bestaetigen
@@ -29,7 +29,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/join`, lastModified, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${SITE_URL}/reiseziel`, lastModified, changeFrequency: 'daily', priority: 0.8 },
     { url: `${SITE_URL}/archiv`, lastModified, changeFrequency: 'monthly', priority: 0.5 },
-    { url: `${SITE_URL}/agb`, lastModified, changeFrequency: 'yearly', priority: 0.3 },
-    { url: `${SITE_URL}/datenschutz`, lastModified, changeFrequency: 'yearly', priority: 0.3 },
+    // AGB und Datenschutz gibt es seit dem 30.07.2026 in vier Sprachen, die
+    // uebrigen Unterseiten nur auf Deutsch. Deshalb stehen hier nur diese
+    // beiden viermal.
+    ...LOCALES.flatMap((locale) =>
+      (['agb', 'datenschutz'] as const).map((seite) => ({
+        url: `${SITE_URL}${legalPath(locale, seite)}`,
+        lastModified,
+        changeFrequency: 'yearly' as const,
+        priority: 0.3,
+      })),
+    ),
   ];
 }
