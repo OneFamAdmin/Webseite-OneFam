@@ -4,15 +4,18 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import MaxWidth from './MaxWidth';
 import Button from './Button';
 import { BRAND_GRADIENT } from '@/lib/brand';
+import LocaleSwitcher from './LocaleSwitcher';
+import { homePath, shopUrl, type Locale } from '@/i18n/routing';
 
-const SHOP_URL = 'https://shop.onefam.ch/de/';
+// Shop-Adresse pro Sprache — siehe i18n/routing.ts. Stand vorher fest auf /de/.
 
 const Nav = () => {
   const t = useTranslations('nav');
+  const locale = useLocale() as Locale;
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -33,12 +36,17 @@ const Nav = () => {
 
   // Absolute (/#…) so the nav works from EVERY page, not just the homepage: from a sub-route a
   // bare "#werte" would be a dead in-page anchor; "/#werte" jumps to the homepage section.
+  // Die Sprungmarken hängen an der Startseite DER AKTUELLEN SPRACHE. Ein blosses
+  // "/#about" würde einen französischen Besucher von /fr auf die englische
+  // Startseite werfen — der Sprung funktionierte, die Sprache wäre weg.
+  const home = homePath(locale);
+
   const links = [
-    { label: t('about'), href: '/#about', external: false },
+    { label: t('about'), href: `${home}#about`, external: false },
     { label: t('reiseziel'), href: '/reiseziel', external: false },
-    { label: t('werte'), href: '/#werte', external: false },
-    { label: t('faq'), href: '/#faq', external: false },
-    { label: t('shop'), href: SHOP_URL, external: true },
+    { label: t('werte'), href: `${home}#werte`, external: false },
+    { label: t('faq'), href: `${home}#faq`, external: false },
+    { label: t('shop'), href: shopUrl(locale), external: true },
   ];
 
   return (
@@ -51,7 +59,7 @@ const Nav = () => {
       <MaxWidth>
         <div className="flex h-14 items-center justify-between md:h-16">
           {/* Logo */}
-          <Link href="/#hero" aria-label="OneFam — Home" className="flex items-center">
+          <Link href={`${homePath(locale)}#hero`} aria-label="OneFam — Home" className="flex items-center">
             {/* wordmark only — the gradient face mark now lives big in the hero centre */}
             <Image src="/assets/logo-white.png" alt="OneFam" width={216} height={75} priority className="h-6 w-auto md:h-7" />
           </Link>
@@ -79,8 +87,9 @@ const Nav = () => {
             )}
           </nav>
 
-          {/* Desktop CTA */}
-          <div className="hidden md-1:block">
+          {/* Desktop: Sprachumschalter + CTA */}
+          <div className="hidden items-center gap-5 md-1:flex">
+            <LocaleSwitcher />
             <Button as="a" href="/join" variant="primary" className="px-5 py-2.5 text-[15px]" style={{ background: BRAND_GRADIENT }}>
               {t('join')}
             </Button>
@@ -89,7 +98,7 @@ const Nav = () => {
           {/* Mobile hamburger */}
           <button
             className="text-primary md-1:hidden"
-            aria-label="Menü öffnen"
+            aria-label={t('menu_open')}
             onClick={() => setOpen(true)}
           >
             <Menu size={26} strokeWidth={1.5} />
@@ -110,7 +119,7 @@ const Nav = () => {
           <div className="flex items-center">
             <Image src="/assets/logo-white.png" alt="OneFam" width={216} height={75} className="h-6 w-auto" />
           </div>
-          <button aria-label="Menü schliessen" className="text-primary" onClick={() => setOpen(false)}>
+          <button aria-label={t('menu_close')} className="text-primary" onClick={() => setOpen(false)}>
             <X size={26} strokeWidth={1.5} />
           </button>
         </div>
@@ -140,6 +149,7 @@ const Nav = () => {
           <Button as="a" href="/join" variant="primary" className="mt-2" style={{ background: BRAND_GRADIENT }} onClick={() => setOpen(false)}>
             {t('join')}
           </Button>
+          <LocaleSwitcher variant="mobile" onNavigate={() => setOpen(false)} />
         </nav>
       </div>
     </>

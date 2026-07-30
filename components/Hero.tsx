@@ -1,5 +1,6 @@
 import { ChevronDown } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
+import { shopUrl, type Locale } from '@/i18n/routing';
 import MaxWidth from './MaxWidth';
 import Reveal from './Reveal';
 import Button from './Button';
@@ -8,6 +9,7 @@ import { BRAND_GRADIENT } from '@/lib/brand';
 
 const Hero = () => {
   const t = useTranslations('hero');
+  const locale = useLocale() as Locale;
 
   return (
     <section id="hero" className="relative flex min-h-screen items-center justify-center overflow-hidden bg-bg">
@@ -50,7 +52,7 @@ const Hero = () => {
           </Button>
           <Button
             as="a"
-            href="https://shop.onefam.ch/de/"
+            href={shopUrl(locale)}
             variant="secondary"
             className="w-full sm:w-auto"
           >

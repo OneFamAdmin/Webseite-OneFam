@@ -1,11 +1,12 @@
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
+import { shopUrl, type Locale } from '@/i18n/routing';
 import MaxWidth from './MaxWidth';
 import Reveal from './Reveal';
 import Button from './Button';
 
-const SHOP_URL = 'https://shop.onefam.ch/de/';
+// Shop-Adresse pro Sprache — siehe i18n/routing.ts. Stand vorher fest auf /de/.
 
 // Bewusst dasselbe Kleidungsstück in derselben Farbe und Perspektive — nur das Zeichen
 // auf der Brust unterscheidet sich. Genau das ist die Aussage der Sektion.
@@ -20,6 +21,7 @@ const LINE_IMAGES = [
  *  auf die Stücke, bevor der Shop-Link kommt (docs/handover-shopify-pool.md §4b). */
 const ProductBridge = () => {
   const t = useTranslations('product_bridge');
+  const locale = useLocale() as Locale;
   const lines = t.raw('lines') as { name: string; text: string }[];
 
   return (
@@ -58,7 +60,7 @@ const ProductBridge = () => {
         {/* Bewusst ohne Preisangabe: die Sektion baut ein Gefühl auf, eine Preiszeile würde es
             im letzten Moment in einen Katalog verwandeln. Preise stehen im Shop. */}
         <Reveal delay={0.2} className="mt-16">
-          <Button as="a" href={SHOP_URL} variant="primary">
+          <Button as="a" href={shopUrl(locale)} variant="primary">
             {t('cta')}
             <ArrowRight size={18} strokeWidth={1.5} />
           </Button>
