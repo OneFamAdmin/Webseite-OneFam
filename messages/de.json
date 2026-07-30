@@ -1,11 +1,17 @@
 {
+  "seo": {
+    "title": "OneFam — For souls who belong to more than one place",
+    "description": "Kleidung und eine Community für alle, deren Antwort auf «Woher kommst du?» ein Komma hat. Nicht für alle – und genau das ist der Punkt."
+  },
   "nav": {
     "about": "About",
     "reiseziel": "Reiseziel",
     "werte": "Code",
     "faq": "FAQ",
     "shop": "Shop",
-    "join": "Join the Fam"
+    "join": "Join the Fam",
+    "menu_open": "Menü öffnen",
+    "menu_close": "Menü schliessen"
   },
   "hero": {
     "kicker": "Woher kommst du?",

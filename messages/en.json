@@ -1,0 +1,219 @@
+{
+  "seo": {
+    "title": "OneFam — For souls who belong to more than one place",
+    "description": "Clothing and a community for everyone whose answer to «Where are you from?» has a comma in it. Not for everyone – and that is exactly the point."
+  },
+  "nav": {
+    "about": "About",
+    "reiseziel": "Destination",
+    "werte": "Code",
+    "faq": "FAQ",
+    "shop": "Shop",
+    "join": "Join the Fam",
+    "menu_open": "Open menu",
+    "menu_close": "Close menu"
+  },
+  "hero": {
+    "kicker": "Where are you from?",
+    "claim": "For souls who belong to more than one place",
+    "subline": "Clothing and a community for everyone whose answer has a comma in it.",
+    "cta_primary": "Join the Fam",
+    "cta_secondary": "To the shop"
+  },
+  "what_is_onefam": {
+    "title": "What is OneFam?",
+    "intro": "OneFam is not your usual clothing brand. OneFam is a space for people who take each other seriously – including the dreams you don't tell anyone else.",
+    "cards": [
+      {
+        "title": "Fam, not crowd.",
+        "text": "Not for everyone. And that is exactly the point."
+      },
+      {
+        "title": "Values, not facade.",
+        "text": "Clothing expresses where you stand. It isn't the point."
+      },
+      {
+        "title": "Moments, not small talk.",
+        "text": "We don't talk about the weather. We ask what you're working on – and we mean it."
+      }
+    ]
+  },
+  "how_it_works": {
+    "title": "How OneFam works",
+    "steps": [
+      {
+        "number": "01",
+        "text": "OneFam is a brand with a shop – we design and sell clothing for people who belong to more than one place."
+      },
+      {
+        "number": "02",
+        "text": "A fixed share of our profit stays set aside – for what we have planned with the community. That is a promise we make to ourselves, not something you get in return for buying."
+      },
+      {
+        "number": "03",
+        "text": "Our goal: one day we travel together. We are building this carefully and properly – and we'll say so when the time comes."
+      },
+      {
+        "number": "04",
+        "text": "Anyone who wants to be there joins the waiting list. No purchase, no conditions, unsubscribe any time."
+      },
+      {
+        "number": "05",
+        "text": "Buyers get more – they help choose the destination and see the world map. A thank you, not an advantage over anyone."
+      }
+    ],
+    "cta": "Find out more"
+  },
+  "travel_pool": {
+    "label": "Our vision",
+    "title": "One day we travel together.",
+    "description": "Part of our profit stays reserved for the Fam – for the day we meet somewhere other than online. This is not an offer yet. It is the direction we are heading in.",
+    "points": [
+      "We start at zero – and take you along from the very beginning.",
+      "None of it is sold, promised or raffled off.",
+      "When the time comes, you'll hear it first."
+    ],
+    "waitlist_title": "Be there from the start."
+  },
+  "product_bridge": {
+    "label": "The pieces",
+    "title": "A quiet sign of recognition.",
+    "intro": "No catalogue item, no logo to show off. A sign the right people notice – and everyone else walks past. Exactly as it should be.",
+    "lines": [
+      {
+        "name": "The logo line",
+        "text": "The quiet basic mark. For everyone who belongs – without anyone having to say it out loud. Restrained enough for every day, clear enough for those who know."
+      },
+      {
+        "name": "The country lines",
+        "text": "Mexico. Afghanistan. Brazil. Peru. For the home you can only feel – whether you come from there or it simply never let go of you."
+      }
+    ],
+    "cta": "See the pieces"
+  },
+  "values": {
+    "label": "Code of Conduct",
+    "title": "The Family Code",
+    "intro": "Not a rulebook. More like a door. Anyone who recognises themselves in these eleven points already belongs – anyone who finds them odd is in the wrong place. Both are fine.",
+    "items": [
+      {
+        "title": "Love & Respect",
+        "text": "Love and respect are our foundation. We meet each other with kindness, attention and real interest."
+      },
+      {
+        "title": "Open Communication",
+        "text": "We speak openly and really listen – honestly, respectfully and without a mask."
+      },
+      {
+        "title": "Support & Unity",
+        "text": "We are a team. We hold each other up and encourage everyone to chase their own dreams."
+      },
+      {
+        "title": "Shared Moments",
+        "text": "Time together is sacred to us. Real experiences and moments connect us – and they stay."
+      },
+      {
+        "title": "Responsibility",
+        "text": "Each of us carries responsibility for the Fam. Together we build a place where people feel safe."
+      },
+      {
+        "title": "Diversity & Acceptance",
+        "text": "We celebrate diversity and accept each other as we are. Everyone is unique – and that is exactly what makes us strong."
+      },
+      {
+        "title": "Growth",
+        "text": "We grow together. We encourage each other to learn, to develop and to become the best version of ourselves."
+      },
+      {
+        "title": "Gratitude",
+        "text": "We value what we have – and are grateful for the small joys of life as much as the big ones."
+      },
+      {
+        "title": "Conflict Resolution",
+        "text": "Conflict is part of it. We resolve it fairly and respectfully – and find solutions everyone can live with."
+      },
+      {
+        "title": "Safety & Good Energy",
+        "text": "We keep our distance from drama and negative influences – and give each other support when it's needed."
+      },
+      {
+        "title": "Community Service",
+        "text": "We give back. We take responsibility – for the Fam and for the world around us."
+      }
+    ]
+  },
+  "philosophy": {
+    "label": "Philosophy",
+    "quote": "We surround ourselves with people who encourage us to become the best version of ourselves. We keep our distance from drama and negative influences like envy or hate. Instead we put our focus on good energy – so that the best in everyone becomes visible."
+  },
+  "why_we_do_this": {
+    "title": "Why we do this",
+    "paragraphs": [
+      "OneFam was born in a quiet time – when closeness happened through screens for a while.",
+      "It started softly: small, hand-picked gatherings for people who wanted to meet for real again. The right place, the right people – and conversations you left with more courage than you brought.",
+      "At some point the question came up: what if that feeling could travel with you – no matter how many places you call home? OneFam grew out of that.",
+      "Because people remember feelings – not percentages.",
+      "Being part of OneFam shouldn't feel like buying something – it should feel like belonging.",
+      "Not louder. Truer."
+    ]
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "items": [
+      {
+        "question": "Does the shared trip already exist?",
+        "answer": "No. The shared trip is our goal, not our current offer. We are building it carefully and properly – including the legal side – and we'll say so openly when the time comes. Until then we promise no one a trip."
+      },
+      {
+        "question": "Is this a prize draw or a lottery?",
+        "answer": "No. There is currently neither a draw nor a prize, and nobody stakes anything. The waiting list is an ordinary newsletter: you enter your email, we get in touch, you can unsubscribe at any time."
+      },
+      {
+        "question": "What do I get from joining the waiting list?",
+        "answer": "You'll be the first to know when we take the next step. No purchase, no conditions, no obligation."
+      },
+      {
+        "question": "Does buying something give me an advantage?",
+        "answer": "No – at least not one you can win. Buyers see the world map and help choose the destination. That is a thank you for the support, nothing more."
+      },
+      {
+        "question": "What happens to the share of profit that is set aside?",
+        "answer": "It stays put aside inside the company – for what we have planned with the community. Nobody pays into it, and nobody has a claim on it. As soon as it turns into a concrete offer, we'll set out openly how it works."
+      },
+      {
+        "question": "Who is behind OneFam?",
+        "answer": "OneFam is run as a sole proprietorship based in Switzerland."
+      }
+    ]
+  },
+  "final_cta": {
+    "title": "Join the Fam",
+    "text": "If this feels like you, you're already part of it. Sign up – no purchase needed.",
+    "cta_primary": "Join the Fam"
+  },
+  "footer": {
+    "claim": "For souls who belong to more than one place",
+    "pages_title": "Navigation",
+    "legal_title": "Legal",
+    "social_title": "Social",
+    "pages": [
+      { "label": "Home", "href": "#hero" },
+      { "label": "About", "href": "#about" },
+      { "label": "Code", "href": "#werte" },
+      { "label": "Philosophy", "href": "#philosophie" },
+      { "label": "FAQ", "href": "#faq" }
+    ],
+    "legal": [
+      { "label": "Terms", "href": "/agb" },
+      { "label": "Privacy", "href": "/datenschutz" },
+      { "label": "Archive / Transparency", "href": "/archiv" }
+    ],
+    "imprint": "Imprint",
+    "imprint_company": "OneFam — sole proprietorship, Switzerland",
+    "imprint_owner": "Labinot Bajrami",
+    "imprint_address": "Riehenstrasse 236, 4058 Basel",
+    "imprint_email": "info@onefam.ch",
+    "imprint_phone": "+41 76 225 80 58",
+    "copyright": "© 2026 OneFam — sole proprietorship, Switzerland"
+  }
+}
