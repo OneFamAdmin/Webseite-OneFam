@@ -1,39 +1,25 @@
-import Nav from '@/components/Nav';
-import SiteFooter from '@/components/SiteFooter';
-import Hero from '@/components/Hero';
-import WhatIsOneFam from '@/components/WhatIsOneFam';
-import TravelPool from '@/components/TravelPool';
-import DestinationVote from '@/components/DestinationVote';
-import Values from '@/components/Values';
-import Philosophy from '@/components/Philosophy';
-import WhyWeDoThis from '@/components/WhyWeDoThis';
-import ProductBridge from '@/components/ProductBridge';
-import Faq from '@/components/Faq';
-import FinalCta from '@/components/FinalCta';
+import type { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
+import HomePage from '@/components/HomePage';
+import { homeMetadata } from '@/lib/seo';
+import { DEFAULT_LOCALE } from '@/i18n/routing';
+
+// Die Startseite ohne Präfix ist die englische Fassung — dasselbe Modell wie im
+// Shop. /de, /fr und /es liegen in app/[locale]/page.tsx.
+//
+// Titel und Beschreibung kommen aus der Übersetzungsdatei statt aus einer
+// zweiten Quelle im Code. Sonst laufen Suchergebnis und Seiteninhalt
+// auseinander, sobald jemand den Hero ändert und die Metadaten vergisst.
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations({ locale: DEFAULT_LOCALE, namespace: 'seo' });
+
+  return homeMetadata({
+    locale: DEFAULT_LOCALE,
+    title: t('title'),
+    description: t('description'),
+  });
+}
 
 export default function Home() {
-  return (
-    <>
-      <Nav />
-      <main>
-        <Hero />
-        <WhatIsOneFam />
-        {/* "So funktioniert OneFam" (HowItWorks) ist raus: seit der Umstellung auf
-            Vision + Warteliste gab es keine Mechanik mehr zu erklären, und alle fünf
-            Schritte standen bereits in WhatIsOneFam, TravelPool oder im FAQ.
-            Komponente + i18n-Keys bleiben geparkt. */}
-        <TravelPool />
-        <DestinationVote />
-        <Values />
-        <Philosophy />
-        <WhyWeDoThis />
-        {/* Story → Produkt: die Brücke steht direkt nach der Herkunfts-Geschichte,
-            solange das Gefühl noch trägt — dann erst der Shop-Link. */}
-        <ProductBridge />
-        <Faq />
-        <FinalCta />
-      </main>
-      <SiteFooter />
-    </>
-  );
+  return <HomePage />;
 }
