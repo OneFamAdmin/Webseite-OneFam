@@ -3,6 +3,25 @@
 import Link from 'next/link';
 import { useLocale } from 'next-intl';
 import { LOCALES, LOCALE_NAME, homePath, type Locale } from '@/i18n/routing';
+import { LOCALE_COOKIE, LOCALE_COOKIE_MAX_AGE } from '@/i18n/geo';
+
+/**
+ * Die bewusste Wahl im Cookie festhalten — sonst ist sie beim naechsten Klick
+ * schon wieder weg.
+ *
+ * Der Fehler, den das behebt: Wer auf /de auf "EN" klickt, landet auf "/".
+ * Dort greift die Spracherkennung der Middleware, sieht einen deutschen
+ * Browser oder eine deutsche IP — und leitet zurueck auf /de. Fuer den
+ * Besucher sieht es aus, als tue der Umschalter nichts. Das Cookie ist das
+ * einzige Signal, das ueber der Erkennung steht.
+ *
+ * Bewusst per document.cookie und nicht ueber den Link-Wrapper von next-intl:
+ * So steht an einer Stelle, was passiert, und es haengt nicht an Interna einer
+ * Bibliothek, die sich zwischen zwei Nebenversionen aendern koennen.
+ */
+function spracheMerken(locale: Locale) {
+  document.cookie = `${LOCALE_COOKIE}=${locale}; path=/; max-age=${LOCALE_COOKIE_MAX_AGE}; samesite=lax`;
+}
 
 /**
  * Sprachumschalter. Vorher gab es keinen — die Seite war einsprachig.
@@ -42,7 +61,10 @@ export default function LocaleSwitcher({
             lang={l}
             title={LOCALE_NAME[l]}
             aria-current={l === aktuell ? 'true' : undefined}
-            onClick={onNavigate}
+            onClick={() => {
+              spracheMerken(l);
+              onNavigate?.();
+            }}
             className={`${basis} ${
               l === aktuell ? 'text-primary' : 'text-secondary hover:text-primary'
             }`}
