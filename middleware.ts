@@ -1,7 +1,8 @@
 import { type NextRequest, NextResponse } from 'next/server';
 import { createServerClient } from '@supabase/ssr';
 import createIntlMiddleware from 'next-intl/middleware';
-import { routing } from '@/i18n/routing';
+import { DEFAULT_LOCALE, LOCALES, routing } from '@/i18n/routing';
+import { COUNTRY_HEADER, LOCALE_COOKIE, detectLocale } from '@/i18n/geo';
 
 // Zwei Aufgaben in einer Middleware, Reihenfolge ist wichtig:
 //
@@ -58,7 +59,52 @@ function istOhneSprache(pfad: string) {
   return OHNE_SPRACHE.some((p) => pfad === p || pfad.startsWith(`${p}/`));
 }
 
+/** Traegt der Pfad bereits ein Sprachpraefix? '/de', '/fr/agb' → ja. */
+function hatSprachPraefix(pfad: string) {
+  const erstes = pfad.split('/')[1];
+  return (LOCALES as readonly string[]).includes(erstes);
+}
+
+// Spracherkennung aus zwei Signalen — Browsersprache und Herkunftsland.
+// Regeln und Land-Sprache-Tabelle: i18n/geo.ts. next-intl macht das NICHT mehr
+// selbst (localeDetection: false in i18n/routing.ts), sonst wuerden sich zwei
+// Umleitungen gegenseitig ins Gehege kommen.
+//
+// Umgeleitet wird nur, wenn ALLE vier Bedingungen zutreffen:
+//   - der Pfad gehoert zum uebersetzten Bereich (nicht /join, /admin, …),
+//   - er traegt noch KEIN Sprachpraefix (sonst Endlosschleife),
+//   - die erkannte Sprache ist nicht die Standardsprache,
+//   - es ist eine GET-Anfrage (ein POST darf man nicht umleiten, der Rumpf
+//     ginge verloren — trifft hier vor allem Server Actions).
+function spracheUmleiten(request: NextRequest): NextResponse | null {
+  const { pathname } = request.nextUrl;
+
+  if (request.method !== 'GET') return null;
+  if (istOhneSprache(pathname)) return null;
+  if (hatSprachPraefix(pathname)) return null;
+
+  const { locale, quelle } = detectLocale({
+    cookie: request.cookies.get(LOCALE_COOKIE)?.value,
+    acceptLanguage: request.headers.get('accept-language'),
+    country: request.headers.get(COUNTRY_HEADER),
+  });
+
+  if (locale === DEFAULT_LOCALE) return null;
+
+  const ziel = request.nextUrl.clone();
+  ziel.pathname = pathname === '/' ? `/${locale}` : `/${locale}${pathname}`;
+
+  const antwort = NextResponse.redirect(ziel, 307);
+  // Beim Nachmessen unbezahlbar: In den Entwicklerwerkzeugen steht dann im
+  // Antwort-Header, WELCHES Signal entschieden hat. Ohne das raet man.
+  antwort.headers.set('x-onefam-locale-quelle', quelle);
+  return antwort;
+}
+
 export async function middleware(request: NextRequest) {
+  const umleitung = spracheUmleiten(request);
+  if (umleitung) return umleitung;
+
   const response = istOhneSprache(request.nextUrl.pathname)
     ? NextResponse.next({ request })
     : intlMiddleware(request);

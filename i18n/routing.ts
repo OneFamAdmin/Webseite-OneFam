@@ -90,32 +90,40 @@ export function shopUrl(locale: Locale): string {
  * alle anderen mit. Die Middleware schreibt /agb intern auf /en/agb um — nach
  * aussen bleibt die Adresse /agb. Genau dieses Modell hat auch der Shop.
  *
- * `localeDetection: true` (seit 30.07.2026): Die Middleware liest die
- * Browsersprache (Accept-Language) und leitet einen Besucher mit
- * franzoesischem Browser von / auf /fr um. Wer eine Sprache im Umschalter
- * waehlt, bekommt sie im Cookie gemerkt und wird nicht mehr umgeleitet.
+ * `localeDetection: false` (seit 31.07.2026) — und das ist KEINE Rueckkehr zum
+ * Zustand vor dem 30.07.
  *
- * Das war zunaechst bewusst AUS, aus Sorge um die Indexierung. Beim Nachdenken
- * hielt das Argument nicht:
- *   - Googlebot schickt kein Accept-Language mit und bleibt deshalb auf der
- *     englischen Fassung — fuer den Crawler aendert sich nichts.
+ * Vom 30.07. bis 31.07. stand hier `true`. Damit erledigte next-intl die
+ * Spracherkennung selbst, allerdings ausschliesslich ueber `Accept-Language`.
+ * Das griff zu kurz: Sehr viele Geraete sind ab Werk englisch eingestellt, auch
+ * in Deutschland oder Argentinien. Diese Besucher sahen Englisch, obwohl es
+ * ihre Sprache gibt.
+ *
+ * Seit dem 31.07. entscheidet die Middleware selbst, aus ZWEI Signalen:
+ * Browsersprache UND Herkunftsland (Vercel-IP-Header). Die Regeln und die
+ * Land-Sprache-Tabelle stehen in i18n/geo.ts. Diese Zeile muss deshalb auf
+ * `false` stehen — sonst wuerde next-intl zusaetzlich umleiten und die eigene
+ * Entscheidung ueberschreiben.
+ *
+ * Die Erwaegung zur Indexierung gilt unveraendert:
+ *   - Googlebot schickt kein Accept-Language mit und kommt aus den USA. Beide
+ *     Signale zeigen auf Englisch, der Crawler bleibt auf der praefixlosen
+ *     Fassung — fuer ihn aendert sich nichts.
  *   - Nur /, /agb und /datenschutz sind betroffen. Die uebrigen Unterseiten
  *     laufen an dieser Middleware vorbei (siehe OHNE_SPRACHE in middleware.ts).
  *   - Alle vier Fassungen stehen mit hreflang in der Sitemap und sind direkt
  *     erreichbar, die Weiterleitung verdeckt also keine davon.
- * Dazu kommt: Der Shop macht es seit jeher so (Snippet 28). Ein Besucher, der
- * im Shop Franzoesisch sieht und auf der Website Englisch, ist der schlechtere
- * Zustand.
  *
  * Was man im Auge behalten muss: ob /de, /fr und /es in der Search Console
  * weiterhin indexiert werden. Wenn Google anfaengt, sie als
- * "Seite mit Weiterleitung" auszuweisen, gehoert diese Zeile zurueck auf false.
+ * "Seite mit Weiterleitung" auszuweisen, gehoert die Umleitung in
+ * middleware.ts abgeschaltet — nicht diese Zeile veraendert.
  */
 export const routing = defineRouting({
   locales: LOCALES,
   defaultLocale: DEFAULT_LOCALE,
   localePrefix: 'as-needed',
-  localeDetection: true,
+  localeDetection: false,
 });
 
 /**
