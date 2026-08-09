@@ -12,15 +12,18 @@ import Button from './Button';
 // auf der Brust unterscheidet sich. Genau das ist die Aussage der Sektion.
 // Beide Mockups sind vom weissen Studio-Hintergrund freigestellt (Alpha), deshalb stehen
 // sie ohne Karte und ohne Rahmen direkt auf dem schwarzen Grund.
+// Die Bildbeschreibungen stehen im Namensraum 'alt' der Uebersetzungsdateien,
+// damit sie wie jeder andere Text in allen vier Sprachen vorliegen.
 const LINE_IMAGES = [
-  { src: '/assets/shirt-logo.png', alt: 'Anthrazitfarbenes OneFam-Shirt mit dem weissen OneFam-Zeichen auf der Brust' },
-  { src: '/assets/shirt-mexico.png', alt: 'Anthrazitfarbenes OneFam-Shirt mit dem OneFam-Zeichen in mexikanischen Motiven' },
-];
+  { src: '/assets/shirt-logo.png', altKey: 'shirt_logo' },
+  { src: '/assets/shirt-mexico.png', altKey: 'shirt_mexico' },
+] as const;
 
 /** Die Brücke von der Story zum Produkt: überträgt das Gefühl der Herkunfts-Geschichte
  *  auf die Stücke, bevor der Shop-Link kommt (docs/handover-shopify-pool.md §4b). */
 const ProductBridge = () => {
   const t = useTranslations('product_bridge');
+  const tAlt = useTranslations('alt');
   const locale = useLocale() as Locale;
   const lines = t.raw('lines') as { name: string; text: string }[];
 
@@ -45,7 +48,7 @@ const ProductBridge = () => {
               <div className="relative mx-auto aspect-square w-full max-w-[420px]">
                 <Image
                   src={LINE_IMAGES[i].src}
-                  alt={LINE_IMAGES[i].alt}
+                  alt={tAlt(LINE_IMAGES[i].altKey)}
                   fill
                   sizes="(min-width: 768px) 420px, 90vw"
                   className="object-contain"
