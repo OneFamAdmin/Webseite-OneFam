@@ -39,7 +39,7 @@ const OHNE_SPRACHE = [
   '/design',
   '/api',
   '/auth',
-  '/join',
+  '/join/bestaetigen',
   '/archiv',
   '/reiseziel',
   '/login',
