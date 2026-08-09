@@ -28,7 +28,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     { url: `${SITE_URL}/join`, lastModified, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${SITE_URL}/reiseziel`, lastModified, changeFrequency: 'daily', priority: 0.8 },
-    { url: `${SITE_URL}/archiv`, lastModified, changeFrequency: 'monthly', priority: 0.5 },
+  // /archiv ist seit dem 09.08.2026 deaktiviert und liefert 404. Eine Sitemap, die
+    // eine 404-Seite bewirbt, schickt Google auf einen Fehler. Deshalb kein Eintrag.
     // AGB und Datenschutz gibt es seit dem 30.07.2026 in vier Sprachen, die
     // uebrigen Unterseiten nur auf Deutsch. Deshalb stehen hier nur diese
     // beiden viermal.
