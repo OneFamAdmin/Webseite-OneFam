@@ -215,5 +215,33 @@
     "imprint_phone": "+41 76 225 80 58",
     "copyright": "© 2026 OneFam — empresa individual, Suiza"
   },
-  "alt": { "why": "Reunión nocturna en casa: al fondo alguien pincha música y, delante, dos personas ríen en plena conversación", "shirt_logo": "Camiseta OneFam antracita con el símbolo OneFam en blanco en el pecho", "shirt_mexico": "Camiseta OneFam antracita con el símbolo OneFam en motivos mexicanos" }
+  "alt": { "why": "Reunión nocturna en casa: al fondo alguien pincha música y, delante, dos personas ríen en plena conversación", "shirt_logo": "Camiseta OneFam antracita con el símbolo OneFam en blanco en el pecho", "shirt_mexico": "Camiseta OneFam antracita con el símbolo OneFam en motivos mexicanos" },
+  "join": {
+    "meta_titel": "Join the Fam — OneFam",
+    "meta_beschreibung": "Apúntate y forma parte desde el principio. No hace falta comprar nada, sin obligación de compra, puedes darte de baja cuando quieras.",
+    "kicker": "Join the Fam",
+    "titel": "Forma parte desde el principio.",
+    "text": "OneFam apenas está empezando. Apúntate y serás la primera persona en enterarte cuando demos el siguiente paso: nuevas piezas, la fam y algún día el viaje que haremos juntos.",
+    "punkte": [
+      "No hace falta comprar nada — y sin obligación de compra",
+      "Un correo, nada más",
+      "Tendrás noticias nuestras cuando haya algo que contar",
+      "Puedes darte de baja cuando quieras"
+    ],
+    "konto_frage": "¿Ya tienes una cuenta de OneFam?",
+    "konto_link": "Inicia sesión aquí"
+  },
+  "waitlist": {
+    "name_label": "Tu nombre",
+    "name_optional": "(opcional)",
+    "name_platzhalter": "p. ej. María",
+    "email_label": "Correo electrónico",
+    "email_platzhalter": "tu@email.com",
+    "senden": "Apuntarme a la lista",
+    "sendet": "Apuntándote …",
+    "hinweis": "No hace falta comprar nada. Puedes darte de baja cuando quieras.",
+    "ok_titel": "Ya estás en la lista.",
+    "ok_vor": "Te escribiremos a",
+    "ok_nach": " cuando llegue el momento. Sin spam y sin necesidad de comprar nada."
+  }
 }
