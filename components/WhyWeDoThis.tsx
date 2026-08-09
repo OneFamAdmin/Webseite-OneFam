@@ -5,6 +5,7 @@ import Reveal from './Reveal';
 
 const WhyWeDoThis = () => {
   const t = useTranslations('why_we_do_this');
+  const tAlt = useTranslations('alt');
   const paragraphs = t.raw('paragraphs') as string[];
 
   return (
@@ -48,7 +49,7 @@ const WhyWeDoThis = () => {
               <div className="relative aspect-[4/5] overflow-hidden rounded-[8px] border border-line">
                 <Image
                   src="/assets/why-nacht.jpg"
-                  alt="Spätabendliche Runde zu Hause: im Hintergrund legt jemand auf, davor lachen zwei Menschen im Gespräch miteinander"
+                  alt={tAlt('why')}
                   fill
                   sizes="(max-width: 768px) 100vw, 40vw"
                   className="object-cover"
