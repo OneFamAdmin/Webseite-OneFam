@@ -215,5 +215,33 @@
     "imprint_phone": "+41 76 225 80 58",
     "copyright": "© 2026 OneFam — Einzelfirma, Schweiz"
   },
-  "alt": { "why": "Spätabendliche Runde zu Hause: im Hintergrund legt jemand auf, davor lachen zwei Menschen im Gespräch miteinander", "shirt_logo": "Anthrazitfarbenes OneFam-Shirt mit dem weissen OneFam-Zeichen auf der Brust", "shirt_mexico": "Anthrazitfarbenes OneFam-Shirt mit dem OneFam-Zeichen in mexikanischen Motiven" }
+  "alt": { "why": "Spätabendliche Runde zu Hause: im Hintergrund legt jemand auf, davor lachen zwei Menschen im Gespräch miteinander", "shirt_logo": "Anthrazitfarbenes OneFam-Shirt mit dem weissen OneFam-Zeichen auf der Brust", "shirt_mexico": "Anthrazitfarbenes OneFam-Shirt mit dem OneFam-Zeichen in mexikanischen Motiven" },
+  "join": {
+    "meta_titel": "Join the Fam — OneFam",
+    "meta_beschreibung": "Trag dich ein und sei von Anfang an dabei. Kein Kauf nötig, keine Kaufpflicht, jederzeit abmeldbar.",
+    "kicker": "Join the Fam",
+    "titel": "Sei von Anfang an dabei.",
+    "text": "OneFam wächst gerade erst. Trag dich ein, und du erfährst als Erste:r, wenn wir den nächsten Schritt gehen – neue Stücke, die Fam, und irgendwann die gemeinsame Reise.",
+    "punkte": [
+      "Kein Kauf nötig – und keine Kaufpflicht",
+      "Eine E-Mail, sonst nichts",
+      "Du hörst von uns, wenn es etwas zu sagen gibt",
+      "Jederzeit abmeldbar"
+    ],
+    "konto_frage": "Du hast schon ein OneFam-Konto?",
+    "konto_link": "Hier anmelden"
+  },
+  "waitlist": {
+    "name_label": "Dein Name",
+    "name_optional": "(optional)",
+    "name_platzhalter": "z. B. Maria",
+    "email_label": "E-Mail-Adresse",
+    "email_platzhalter": "deine@email.ch",
+    "senden": "Auf die Warteliste",
+    "sendet": "Wird eingetragen …",
+    "hinweis": "Kein Kauf nötig. Jederzeit abmeldbar.",
+    "ok_titel": "Du bist auf der Liste.",
+    "ok_vor": "Wir melden uns bei",
+    "ok_nach": ", wenn es so weit ist. Kein Spam, kein Kauf nötig."
+  }
 }
