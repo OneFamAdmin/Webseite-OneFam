@@ -215,5 +215,33 @@
     "imprint_phone": "+41 76 225 80 58",
     "copyright": "© 2026 OneFam — entreprise individuelle, Suisse"
   },
-  "alt": { "why": "Fin de soirée à la maison : quelqu'un passe des disques en arrière-plan, devant, deux personnes rient en pleine conversation", "shirt_logo": "T-shirt OneFam anthracite avec le signe OneFam blanc sur la poitrine", "shirt_mexico": "T-shirt OneFam anthracite avec le signe OneFam en motifs mexicains" }
+  "alt": { "why": "Fin de soirée à la maison : quelqu'un passe des disques en arrière-plan, devant, deux personnes rient en pleine conversation", "shirt_logo": "T-shirt OneFam anthracite avec le signe OneFam blanc sur la poitrine", "shirt_mexico": "T-shirt OneFam anthracite avec le signe OneFam en motifs mexicains" },
+  "join": {
+    "meta_titel": "Join the Fam — OneFam",
+    "meta_beschreibung": "Inscris-toi et fais partie de l'aventure dès le début. Aucun achat nécessaire, aucune obligation d'achat, désinscription à tout moment.",
+    "kicker": "Join the Fam",
+    "titel": "Fais partie de l'aventure dès le début.",
+    "text": "OneFam ne fait que commencer. Inscris-toi et tu seras la première personne informée quand nous franchirons la prochaine étape — de nouvelles pièces, la fam, et un jour le voyage que nous ferons ensemble.",
+    "punkte": [
+      "Aucun achat nécessaire — et aucune obligation d'achat",
+      "Un e-mail, rien de plus",
+      "Tu auras de nos nouvelles quand il y aura quelque chose à dire",
+      "Désinscription à tout moment"
+    ],
+    "konto_frage": "Tu as déjà un compte OneFam ?",
+    "konto_link": "Connecte-toi ici"
+  },
+  "waitlist": {
+    "name_label": "Ton prénom",
+    "name_optional": "(facultatif)",
+    "name_platzhalter": "p. ex. Maria",
+    "email_label": "Adresse e-mail",
+    "email_platzhalter": "toi@email.ch",
+    "senden": "Rejoindre la liste d'attente",
+    "sendet": "Inscription en cours …",
+    "hinweis": "Aucun achat nécessaire. Désinscription à tout moment.",
+    "ok_titel": "Tu es sur la liste.",
+    "ok_vor": "Nous te contacterons à",
+    "ok_nach": " le moment venu. Pas de spam, aucun achat nécessaire."
+  }
 }
