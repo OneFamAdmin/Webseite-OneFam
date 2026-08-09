@@ -9,7 +9,7 @@ import MaxWidth from './MaxWidth';
 import Button from './Button';
 import { BRAND_GRADIENT } from '@/lib/brand';
 import LocaleSwitcher from './LocaleSwitcher';
-import { homePath, shopUrl, type Locale } from '@/i18n/routing';
+import { homePath, joinPath, shopUrl, type Locale } from '@/i18n/routing';
 
 // Shop-Adresse pro Sprache — siehe i18n/routing.ts. Stand vorher fest auf /de/.
 
@@ -90,7 +90,7 @@ const Nav = () => {
           {/* Desktop: Sprachumschalter + CTA */}
           <div className="hidden items-center gap-5 md-1:flex">
             <LocaleSwitcher />
-            <Button as="a" href="/join" variant="primary" className="px-5 py-2.5 text-[15px]" style={{ background: BRAND_GRADIENT }}>
+            <Button as="a" href={joinPath(locale)} variant="primary" className="px-5 py-2.5 text-[15px]" style={{ background: BRAND_GRADIENT }}>
               {t('join')}
             </Button>
           </div>
@@ -146,7 +146,7 @@ const Nav = () => {
               </Link>
             ),
           )}
-          <Button as="a" href="/join" variant="primary" className="mt-2" style={{ background: BRAND_GRADIENT }} onClick={() => setOpen(false)}>
+          <Button as="a" href={joinPath(locale)} variant="primary" className="mt-2" style={{ background: BRAND_GRADIENT }} onClick={() => setOpen(false)}>
             {t('join')}
           </Button>
           <LocaleSwitcher variant="mobile" onNavigate={() => setOpen(false)} />
