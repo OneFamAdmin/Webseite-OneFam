@@ -129,12 +129,23 @@ export const routing = defineRouting({
 /**
  * Adresse eines Rechtstextes in einer Sprache.
  *
- * Nur AGB und Datenschutzerklärung liegen unter app/[locale]/. Die übrigen
- * Unterseiten (/join, /archiv, /reiseziel, /login, /mein-bereich) sind
- * weiterhin nur auf Deutsch und behalten ihre Adresse ohne Präfix — eine
- * Adresse /fr/join, die deutschen Text ausliefert, wäre eine Falschaussage
- * gegenüber Besuchern und gegenüber Google.
+ * AGB, Datenschutzerklärung und seit dem 09.08.2026 auch /join liegen unter
+ * app/[locale]/. Die übrigen Unterseiten (/archiv, /reiseziel, /login,
+ * /mein-bereich, /join/bestaetigen) sind weiterhin nur auf Deutsch und behalten
+ * ihre Adresse ohne Präfix — eine Adresse /fr/reiseziel, die deutschen Text
+ * ausliefert, wäre eine Falschaussage gegenüber Besuchern und gegenüber Google.
  */
 export function legalPath(locale: Locale, seite: 'agb' | 'datenschutz'): string {
   return locale === DEFAULT_LOCALE ? `/${seite}` : `/${locale}/${seite}`;
+}
+
+/**
+ * Adresse der Anmeldeseite in einer Sprache. Seit dem 09.08.2026 liegt /join
+ * unter app/[locale]/ und ist in allen vier Sprachen vorhanden.
+ *
+ * /join/bestaetigen bleibt bewusst aussen vor: Der Link darauf steht in bereits
+ * verschickten Bestätigungsmails und darf seine Adresse nicht ändern.
+ */
+export function joinPath(locale: Locale): string {
+  return locale === DEFAULT_LOCALE ? '/join' : `/${locale}/join`;
 }
