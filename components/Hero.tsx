@@ -1,6 +1,6 @@
 import { ChevronDown } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
-import { shopUrl, type Locale } from '@/i18n/routing';
+import { joinPath, shopUrl, type Locale } from '@/i18n/routing';
 import MaxWidth from './MaxWidth';
 import Reveal from './Reveal';
 import Button from './Button';
@@ -47,7 +47,7 @@ const Hero = () => {
         </Reveal>
 
         <Reveal delay={0.18} className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-          <Button as="a" href="/join" variant="primary" className="w-full sm:w-auto" style={{ background: BRAND_GRADIENT }}>
+          <Button as="a" href={joinPath(locale)} variant="primary" className="w-full sm:w-auto" style={{ background: BRAND_GRADIENT }}>
             {t('cta_primary')}
           </Button>
           <Button
