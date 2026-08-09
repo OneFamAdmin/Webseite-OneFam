@@ -4,6 +4,7 @@ import React from 'react';
 import { useActionState } from 'react';
 import { useFormStatus } from 'react-dom';
 import { Mail, Check, Loader2, User } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import Button from './Button';
 import { joinWaitlist, type WaitlistState } from '@/app/actions/join';
 
@@ -11,6 +12,7 @@ const INITIAL: WaitlistState = { status: 'idle', message: '' };
 
 function SubmitButton() {
   const { pending } = useFormStatus();
+  const t = useTranslations('waitlist');
   return (
     <Button
       type="submit"
@@ -20,10 +22,10 @@ function SubmitButton() {
     >
       {pending ? (
         <>
-          <Loader2 size={18} className="animate-spin" /> Wird eingetragen …
+          <Loader2 size={18} className="animate-spin" /> {t('sendet')}
         </>
       ) : (
-        'Auf die Warteliste'
+        t('senden')
       )}
     </Button>
   );
@@ -34,6 +36,7 @@ function SubmitButton() {
  *  Prüfung geparkt, siehe docs/handover-shopify-pool.md §3. */
 export default function WaitlistForm({ compact = false }: { compact?: boolean }) {
   const [state, formAction] = useActionState(joinWaitlist, INITIAL);
+  const t = useTranslations('waitlist');
 
   if (state.status === 'ok') {
     return (
@@ -41,10 +44,10 @@ export default function WaitlistForm({ compact = false }: { compact?: boolean })
         <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-gold/40">
           <Check size={24} strokeWidth={2} className="text-gold" />
         </div>
-        <p className="mt-4 font-display text-xl font-semibold text-primary">Du bist auf der Liste.</p>
+        <p className="mt-4 font-display text-xl font-semibold text-primary">{t('ok_titel')}</p>
         <p className="mt-2 font-body text-sm leading-relaxed text-secondary">
-          Wir melden uns bei <span className="text-primary">{state.message}</span>, wenn es so weit ist. Kein Spam, kein
-          Kauf nötig.
+          {t('ok_vor')} <span className="text-primary">{state.message}</span>
+          {t('ok_nach')}
         </p>
       </div>
     );
@@ -55,7 +58,7 @@ export default function WaitlistForm({ compact = false }: { compact?: boolean })
       {!compact && (
         <div>
           <label htmlFor="wl-name" className="mb-2 block font-body text-sm text-secondary">
-            Dein Name <span className="text-faint">(optional)</span>
+            {t('name_label')} <span className="text-faint">{t('name_optional')}</span>
           </label>
           <div className="relative">
             <User
@@ -68,7 +71,7 @@ export default function WaitlistForm({ compact = false }: { compact?: boolean })
               name="name"
               type="text"
               maxLength={40}
-              placeholder="z. B. Maria"
+              placeholder={t('name_platzhalter')}
               className="w-full rounded-[4px] border border-line bg-surface py-3.5 pl-11 pr-4 font-body text-base text-primary outline-none transition-colors duration-[180ms] placeholder:text-faint focus:border-gold/60"
             />
           </div>
@@ -77,7 +80,7 @@ export default function WaitlistForm({ compact = false }: { compact?: boolean })
 
       <div className="space-y-3">
         <label htmlFor="wl-email" className="sr-only">
-          E-Mail-Adresse
+          {t('email_label')}
         </label>
         <div className="relative">
           <Mail
@@ -92,13 +95,13 @@ export default function WaitlistForm({ compact = false }: { compact?: boolean })
             inputMode="email"
             autoComplete="email"
             required
-            placeholder="deine@email.ch"
+            placeholder={t('email_platzhalter')}
             className="w-full rounded-[4px] border border-line bg-surface py-3.5 pl-11 pr-4 font-body text-base text-primary outline-none transition-colors duration-[180ms] placeholder:text-faint focus:border-gold/60"
           />
         </div>
         {state.status === 'error' && <p className="font-body text-sm text-red-400">{state.message}</p>}
         <SubmitButton />
-        <p className="text-center font-body text-xs text-faint">Kein Kauf nötig. Jederzeit abmeldbar.</p>
+        <p className="text-center font-body text-xs text-faint">{t('hinweis')}</p>
       </div>
     </form>
   );
