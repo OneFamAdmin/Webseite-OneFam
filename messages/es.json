@@ -205,8 +205,7 @@
     ],
     "legal": [
       { "label": "Condiciones", "href": "/agb" },
-      { "label": "Privacidad", "href": "/datenschutz" },
-      { "label": "Archivo / Transparencia", "href": "/archiv" }
+      { "label": "Privacidad", "href": "/datenschutz" }
     ],
     "imprint": "Aviso legal",
     "imprint_company": "OneFam — empresa individual, Suiza",
