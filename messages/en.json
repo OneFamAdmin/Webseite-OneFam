@@ -216,5 +216,33 @@
     "imprint_phone": "+41 76 225 80 58",
     "copyright": "© 2026 OneFam — sole proprietorship, Switzerland"
   },
-  "alt": { "why": "A late night at home: someone is playing records in the background while two people laugh mid-conversation", "shirt_logo": "Charcoal OneFam shirt with the white OneFam mark on the chest", "shirt_mexico": "Charcoal OneFam shirt with the OneFam mark in Mexican motifs" }
+  "alt": { "why": "A late night at home: someone is playing records in the background while two people laugh mid-conversation", "shirt_logo": "Charcoal OneFam shirt with the white OneFam mark on the chest", "shirt_mexico": "Charcoal OneFam shirt with the OneFam mark in Mexican motifs" },
+  "join": {
+    "meta_titel": "Join the Fam — OneFam",
+    "meta_beschreibung": "Sign up and be there from the start. No purchase necessary, no obligation to buy, unsubscribe any time.",
+    "kicker": "Join the Fam",
+    "titel": "Be there from the start.",
+    "text": "OneFam is only just growing. Sign up and you will be the first to know when we take the next step — new pieces, the fam, and one day the journey we take together.",
+    "punkte": [
+      "No purchase necessary — and no obligation to buy",
+      "One email, nothing else",
+      "You hear from us when there is something to say",
+      "Unsubscribe any time"
+    ],
+    "konto_frage": "Already have a OneFam account?",
+    "konto_link": "Sign in here"
+  },
+  "waitlist": {
+    "name_label": "Your name",
+    "name_optional": "(optional)",
+    "name_platzhalter": "e.g. Maria",
+    "email_label": "Email address",
+    "email_platzhalter": "you@email.com",
+    "senden": "Join the waitlist",
+    "sendet": "Signing you up …",
+    "hinweis": "No purchase necessary. Unsubscribe any time.",
+    "ok_titel": "You are on the list.",
+    "ok_vor": "We will be in touch at",
+    "ok_nach": " when the time comes. No spam, no purchase necessary."
+  }
 }
