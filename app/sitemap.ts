@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { SITE_URL } from '@/lib/seo';
-import { DEFAULT_LOCALE, LOCALES, homePath, legalPath } from '@/i18n/routing';
+import { DEFAULT_LOCALE, LOCALES, homePath, joinPath, legalPath } from '@/i18n/routing';
 
 // Next.js liefert diese Datei unter /sitemap.xml aus. Sie enthält bewusst nur die
 // Seiten, die auch in den Index sollen — /login, /mein-bereich, /join/bestaetigen
@@ -16,17 +16,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Ohne Schrägstrich am Ende — exakt so, wie der Canonical der Startseite lautet.
     // Sitemap und Canonical müssen zeichengleich sein, sonst meldet die Search Console
     // "Alternative Seite mit richtigem kanonischen Tag" statt einer sauberen Indexierung.
-    // Die Startseite in allen vier Sprachen. Nur sie ist übersetzt — die
-    // Unterseiten darunter gibt es weiterhin ausschliesslich auf Deutsch und
-    // ohne Sprachpräfix. Sie hier in vier Sprachen aufzuführen wäre eine
-    // Falschaussage gegenüber Google.
+    // Startseite und /join gibt es in allen vier Sprachen. /reiseziel ist
+    // weiterhin nur auf Deutsch und ohne Sprachpräfix zu haben — es hier in vier
+    // Sprachen aufzuführen wäre eine Falschaussage gegenüber Google.
     ...LOCALES.map((locale) => ({
       url: locale === DEFAULT_LOCALE ? SITE_URL : `${SITE_URL}${homePath(locale)}`,
       lastModified,
       changeFrequency: 'weekly' as const,
       priority: locale === DEFAULT_LOCALE ? 1 : 0.9,
     })),
-    { url: `${SITE_URL}/join`, lastModified, changeFrequency: 'monthly', priority: 0.9 },
+    ...LOCALES.map((locale) => ({
+      url: `${SITE_URL}${joinPath(locale)}`,
+      lastModified,
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    })),
     { url: `${SITE_URL}/reiseziel`, lastModified, changeFrequency: 'daily', priority: 0.8 },
   // /archiv ist seit dem 09.08.2026 deaktiviert und liefert 404. Eine Sitemap, die
     // eine 404-Seite bewirbt, schickt Google auf einen Fehler. Deshalb kein Eintrag.
