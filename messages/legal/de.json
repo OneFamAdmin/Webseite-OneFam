@@ -269,5 +269,18 @@
         ]
       }
     ]
+  },
+  "impressum": {
+    "meta_titel": "Impressum — OneFam",
+    "meta_beschreibung": "Anbieterkennzeichnung von OneFam: Firma, Inhaber, Anschrift und Kontakt.",
+    "titel": "Impressum",
+    "einleitung": "Angaben zur Anbieterin dieser Website und des Shops shop.onefam.ch.",
+    "label_firma": "Firma",
+    "label_inhaber": "Inhaber",
+    "label_adresse": "Anschrift",
+    "label_email": "E-Mail",
+    "label_telefon": "Telefon",
+    "hinweis_titel": "Zuständigkeit",
+    "hinweis_text": "Für Fragen zu Bestellungen, zum Datenschutz und zu dieser Website ist die oben genannte Adresse zuständig. Wir antworten in der Regel innerhalb von zwei Werktagen."
   }
 }
