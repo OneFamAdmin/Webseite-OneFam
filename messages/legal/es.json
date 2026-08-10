@@ -3,8 +3,6 @@
     "eyebrow": "Aviso legal",
     "stand_prefix": "Actualizado:",
     "zur_startseite": "Volver al inicio",
-    "entwurf_titel": "Borrador – aún no definitivo.",
-    "entwurf_text": "Este texto es un borrador sin carácter vinculante y debe ser revisado por un abogado conforme al derecho suizo y a la Ley Federal de Protección de Datos (LPD) antes de su publicación. Los pasajes entre corchetes […] están todavía por definir.",
     "fuss_datenschutz": "Privacidad",
     "fuss_agb": "Condiciones"
   },
@@ -13,7 +11,7 @@
     "meta_beschreibung": "Condiciones de uso del sitio de OneFam, la lista de espera y la cuenta de miembro.",
     "eyebrow": "Aviso legal",
     "titel": "Condiciones de uso",
-    "stand": "Julio de 2026",
+    "stand": "Agosto de 2026",
     "einleitung": "Estas condiciones regulan el uso de este sitio, la inscripción en nuestra lista de espera y la cuenta de miembro de OneFam. Actualmente no hay <b>ningún concurso, ningún sorteo y ningún programa de fondo de viaje</b>. Léelas con atención, por favor.",
     "abschnitte": [
       {
@@ -69,7 +67,7 @@
         "titel": "Ni concurso, ni sorteo, ni juego de azar",
         "bloecke": [
           { "art": "absatz", "text": "A través de este sitio no se celebra actualmente ningún concurso, ningún sorteo ni ningún juego de azar en el sentido de la Ley suiza de juegos de azar (BGS). No se realiza ninguna apuesta, no se lleva a cabo ninguna selección y no se promete ningún premio con valor patrimonial." },
-          { "art": "absatz", "text": "Si en el futuro introdujéramos una adjudicación de plazas de viaje, se haría exclusivamente sobre la base de nuestras propias condiciones de participación, publicadas de antemano, y previa revisión jurídica. <hinweis>[A revisar por un abogado antes de cualquier introducción: calificación conforme a la BGS, participación sin obligación de compra, países participantes, edad mínima, procedimiento de sorteo incluida la fuente de aleatoriedad y solución alternativa en caso de fallo.]</hinweis>" }
+          { "art": "absatz", "text": "Si en el futuro introdujéramos una adjudicación de plazas de viaje, se haría exclusivamente sobre la base de nuestras propias condiciones de participación, publicadas de antemano, y previa revisión jurídica." }
         ]
       },
       {
@@ -104,7 +102,7 @@
         "nr": "11",
         "titel": "Responsabilidad",
         "bloecke": [
-          { "art": "absatz", "text": "En la medida en que la ley lo permita, queda excluida la responsabilidad de OneFam por daños relacionados con el uso de este sitio. Se exceptúan los daños por negligencia grave o dolo, así como los casos de responsabilidad legal imperativa. <hinweis>[Cláusula de responsabilidad a revisar por un abogado.]</hinweis>" }
+          { "art": "absatz", "text": "En la medida en que la ley lo permita, queda excluida la responsabilidad de OneFam por daños relacionados con el uso de este sitio. Se exceptúan los daños por negligencia grave o dolo, así como los casos de responsabilidad legal imperativa." }
         ]
       },
       {
@@ -125,7 +123,7 @@
         "nr": "14",
         "titel": "Derecho aplicable y fuero",
         "bloecke": [
-          { "art": "absatz", "text": "Se aplica exclusivamente el derecho suizo. El fuero exclusivo es – en la medida en que la ley lo permita – el domicilio del prestador en Basilea. <hinweis>[Fuero a confirmar por un abogado; frente a personas consumidoras solo es eficaz de forma limitada.]</hinweis>" }
+          { "art": "absatz", "text": "Se aplica exclusivamente el derecho suizo. El fuero exclusivo es – en la medida en que la ley lo permita – el domicilio del prestador en Basilea." }
         ]
       }
     ]
@@ -135,7 +133,7 @@
     "meta_beschreibung": "Cómo trata OneFam tus datos – política de privacidad conforme a la Ley Federal suiza de Protección de Datos (LPD).",
     "eyebrow": "Aviso legal",
     "titel": "Política de privacidad",
-    "stand": "Julio de 2026",
+    "stand": "Agosto de 2026",
     "einleitung": "La protección de tus datos nos importa. Esta declaración te informa de qué datos personales tratamos cuando visitas este sitio y de qué derechos te asisten. Se rige por la Ley Federal suiza revisada de Protección de Datos (LPD).",
     "abschnitte": [
       {
@@ -176,7 +174,7 @@
             ]
           },
           { "art": "absatz", "text": "Estos datos sirven exclusivamente al funcionamiento técnico, la seguridad y la estabilidad del sitio y no se combinan con otras fuentes de datos." },
-          { "art": "absatz", "text": "El proveedor de alojamiento es Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, EE. UU. <hinweis>[adaptar en caso de alojamiento distinto]</hinweis>. El tratamiento se realiza en parte en servidores fuera de Suiza (véase el punto 10)." }
+          { "art": "absatz", "text": "El proveedor de alojamiento es Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, EE. UU.. El tratamiento se realiza en parte en servidores fuera de Suiza (véase el punto 10)." }
         ]
       },
       {
@@ -200,7 +198,7 @@
         "titel": "Cuenta de miembro y base de datos",
         "bloecke": [
           { "art": "absatz", "text": "Para el acceso tratamos tu dirección de correo electrónico y datos técnicos sobre la sesión. El acceso se realiza mediante un enlace enviado por correo; no guardamos ninguna contraseña. Si has pedido en nuestra tienda, almacenamos además la información de que existe un pedido, para desbloquearte funciones adicionales." },
-          { "art": "absatz", "text": "La lista de espera y los datos de cuenta se almacenan en Supabase (región de Zúrich, Suiza). El envío de correos se realiza a través de un proveedor que trata las direcciones exclusivamente por encargo nuestro. <hinweis>[Deben celebrarse y documentarse contratos de encargo del tratamiento.]</hinweis>" }
+          { "art": "absatz", "text": "La lista de espera y los datos de cuenta se almacenan en Supabase (región de Zúrich, Suiza). El envío de correos se realiza a través de un proveedor que trata las direcciones exclusivamente por encargo nuestro." }
         ]
       },
       {
