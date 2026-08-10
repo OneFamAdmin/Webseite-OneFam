@@ -31,7 +31,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.9,
     })),
-    { url: `${SITE_URL}/reiseziel`, lastModified, changeFrequency: 'daily', priority: 0.8 },
+    // /reiseziel steht seit dem 10.08.2026 auf noindex: Die Seite zeigt nur einen
+    // Platzhalter, während die AGB festhalten, dass kein Travel-Pool-Programm
+    // stattfindet. Eine Sitemap, die eine noindex-Seite meldet, sendet zwei
+    // widersprüchliche Signale — deshalb kein Eintrag, bis das Voting wirklich läuft.
   // /archiv ist seit dem 09.08.2026 deaktiviert und liefert 404. Eine Sitemap, die
     // eine 404-Seite bewirbt, schickt Google auf einen Fehler. Deshalb kein Eintrag.
     // AGB, Datenschutz und seit dem 10.08.2026 auch das Impressum gibt es in vier
