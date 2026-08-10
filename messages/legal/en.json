@@ -269,5 +269,18 @@
         ]
       }
     ]
+  },
+  "impressum": {
+    "meta_titel": "Legal notice — OneFam",
+    "meta_beschreibung": "Provider details for OneFam: company, owner, address and contact.",
+    "titel": "Legal notice",
+    "einleitung": "Details of the provider of this website and of the shop at shop.onefam.ch.",
+    "label_firma": "Company",
+    "label_inhaber": "Owner",
+    "label_adresse": "Address",
+    "label_email": "Email",
+    "label_telefon": "Phone",
+    "hinweis_titel": "Who to contact",
+    "hinweis_text": "The address above is responsible for questions about orders, data protection and this website. We usually reply within two working days."
   }
 }
