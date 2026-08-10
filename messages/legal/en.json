@@ -57,9 +57,9 @@
       },
       {
         "nr": "5",
-        "titel": "Extra features for buyers",
+        "titel": "Possible future extra features for buyers",
         "bloecke": [
-          { "art": "absatz", "text": "People who have ordered from our shop can use additional features – such as the non-binding vote on a possible future destination and the world map. These features are a voluntary thank you with no monetary value. They create no entitlement to a trip, to the implementation of a voting result or to any other benefit, and we may change or discontinue them at any time." }
+          { "art": "absatz", "text": "In future we intend to offer people who have ordered from our shop additional features – such as a non-binding vote on a possible future destination and a world map. These features are not available at present. Should we offer them, they are a voluntary thank you with no monetary value. They create no entitlement to a trip, to the implementation of a voting result or to any other benefit, and we may change or discontinue them at any time." }
         ]
       },
       {
