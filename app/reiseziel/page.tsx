@@ -8,10 +8,22 @@ import Countdown from '@/components/Countdown';
 import { CONTINENTS, countriesByContinent, placesByCountry, continentByKey, countryByIso } from '@/lib/geo/data';
 import { pageMetadata } from '@/lib/seo';
 
+// Still geparkt seit dem 10.08.2026.
+//
+// Die Seite zeigt derzeit nur einen Platzhalter ("Bald geht's los"), während die
+// AGB festhalten, dass kein Travel-Pool-Programm stattfindet. Eine Seite, die ein
+// Voting bewirbt, das es nicht gibt, ist dieselbe Art Widerspruch, die das
+// Archiv der Ziehungen zum kritischsten Befund des Audits gemacht hat.
+//
+// Deshalb: noindex, aus dem Hauptmenü genommen, aus der Sitemap genommen. Die
+// Adresse bleibt erreichbar, wer den Link hat, kommt hin. Sobald das Voting
+// wirklich startet — und die Mechanik anwaltlich steht — fällt das noindex weg
+// und der Menüpunkt kommt zurück.
 export const metadata = pageMetadata({
   title: 'Reiseziel-Voting — OneFam',
   description: 'Stimme mit, wohin die nächste OneFam-Reise geht — Kontinent, Land, Ort. Jede Phase mit eigenem Countdown.',
   path: '/reiseziel',
+  noindex: true,
 });
 
 type Level = 'continent' | 'country' | 'place';
