@@ -41,7 +41,6 @@ const OHNE_SPRACHE = [
   '/auth',
   '/join/bestaetigen',
   '/archiv',
-  '/reiseziel',
   '/login',
   '/mein-bereich',
 ];
