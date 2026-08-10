@@ -3,8 +3,6 @@
     "eyebrow": "Legal",
     "stand_prefix": "Last updated:",
     "zur_startseite": "Back to home",
-    "entwurf_titel": "Draft – not final.",
-    "entwurf_text": "This text is a non-binding draft and must be reviewed by a lawyer against Swiss law and the Federal Act on Data Protection (FADP) before publication. Passages marked with brackets […] are still to be settled.",
     "fuss_datenschutz": "Privacy",
     "fuss_agb": "Terms"
   },
@@ -13,7 +11,7 @@
     "meta_beschreibung": "Terms of use for the OneFam website, the waiting list and the member account.",
     "eyebrow": "Legal",
     "titel": "Terms of Use",
-    "stand": "July 2026",
+    "stand": "August 2026",
     "einleitung": "These terms govern the use of this website, joining our waiting list and the OneFam member account. There is currently <b>no prize draw, no raffle and no travel pool programme</b>. Please read them carefully.",
     "abschnitte": [
       {
@@ -69,7 +67,7 @@
         "titel": "No competition, no raffle, no gambling",
         "bloecke": [
           { "art": "absatz", "text": "This website currently runs no competition, no raffle and no gambling within the meaning of the Swiss Gambling Act (BGS). No stake is placed, no selection is carried out and no prize of monetary value is held out." },
-          { "art": "absatz", "text": "Should we introduce an allocation of travel places in future, it will happen exclusively on the basis of our own terms of participation, published in advance, and after a prior legal review. <hinweis>[To be reviewed by a lawyer before any introduction: classification under the Gambling Act, participation without an obligation to purchase, eligible countries, minimum age, draw procedure including source of randomness and fallback if it fails.]</hinweis>" }
+          { "art": "absatz", "text": "Should we introduce an allocation of travel places in future, it will happen exclusively on the basis of our own terms of participation, published in advance, and after a prior legal review." }
         ]
       },
       {
@@ -104,7 +102,7 @@
         "nr": "11",
         "titel": "Liability",
         "bloecke": [
-          { "art": "absatz", "text": "To the extent permitted by law, OneFam's liability for damages in connection with the use of this website is excluded. Excepted are damages caused by gross negligence or intent, as well as cases of mandatory statutory liability. <hinweis>[Liability clause to be reviewed by a lawyer.]</hinweis>" }
+          { "art": "absatz", "text": "To the extent permitted by law, OneFam's liability for damages in connection with the use of this website is excluded. Excepted are damages caused by gross negligence or intent, as well as cases of mandatory statutory liability." }
         ]
       },
       {
@@ -125,7 +123,7 @@
         "nr": "14",
         "titel": "Governing law and place of jurisdiction",
         "bloecke": [
-          { "art": "absatz", "text": "Swiss law applies exclusively. The exclusive place of jurisdiction is – to the extent permitted by law – the provider's registered office in Basel. <hinweis>[Place of jurisdiction to be confirmed by a lawyer; against consumers it is only effective to a limited extent.]</hinweis>" }
+          { "art": "absatz", "text": "Swiss law applies exclusively. The exclusive place of jurisdiction is – to the extent permitted by law – the provider's registered office in Basel." }
         ]
       }
     ]
@@ -135,7 +133,7 @@
     "meta_beschreibung": "How OneFam handles your data – privacy policy under the Swiss Federal Act on Data Protection (FADP).",
     "eyebrow": "Legal",
     "titel": "Privacy policy",
-    "stand": "July 2026",
+    "stand": "August 2026",
     "einleitung": "Protecting your data matters to us. This policy tells you which personal data we process when you visit this website and which rights you have. It follows the revised Swiss Federal Act on Data Protection (FADP).",
     "abschnitte": [
       {
@@ -176,7 +174,7 @@
             ]
           },
           { "art": "absatz", "text": "This data serves solely the technical operation, the security and the stability of the website and is not combined with other data sources." },
-          { "art": "absatz", "text": "The hosting provider is Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA <hinweis>[adjust if hosting changes]</hinweis>. Processing takes place partly on servers outside Switzerland (see section 10)." }
+          { "art": "absatz", "text": "The hosting provider is Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA. Processing takes place partly on servers outside Switzerland (see section 10)." }
         ]
       },
       {
@@ -200,7 +198,7 @@
         "titel": "Member account and database",
         "bloecke": [
           { "art": "absatz", "text": "For signing in we process your email address as well as technical details about the session. Signing in works through a login link sent by email; we do not store a password. If you have ordered from our shop, we additionally store the information that an order exists, in order to unlock extra features for you." },
-          { "art": "absatz", "text": "Waiting list and account data are stored with Supabase (Zurich region, Switzerland). Emails are sent through a service provider that processes the addresses exclusively on our behalf. <hinweis>[Data processing agreements are to be concluded and documented.]</hinweis>" }
+          { "art": "absatz", "text": "Waiting list and account data are stored with Supabase (Zurich region, Switzerland). Emails are sent through a service provider that processes the addresses exclusively on our behalf." }
         ]
       },
       {
