@@ -1,6 +1,6 @@
 {
   "seo": {
-    "title": "OneFam — For souls who belong to more than one place",
+    "title": "OneFam — des vêtements pour celles et ceux qui appartiennent à plus d'un endroit",
     "description": "Des vêtements et une communauté pour celles et ceux dont la réponse à « D'où viens-tu ? » contient une virgule. Pas pour tout le monde – et c'est précisément le principe."
   },
   "nav": {
@@ -15,7 +15,7 @@
   },
   "hero": {
     "kicker": "D'où viens-tu ?",
-    "claim": "For souls who belong to more than one place",
+    "claim": "Pour celles et ceux qui appartiennent à plus d'un endroit",
     "subline": "Des vêtements et une communauté pour celles et ceux dont la réponse contient une virgule.",
     "cta_primary": "Join the Fam",
     "cta_secondary": "Vers la boutique"
@@ -192,7 +192,7 @@
     "cta_primary": "Join the Fam"
   },
   "footer": {
-    "claim": "For souls who belong to more than one place",
+    "claim": "Pour celles et ceux qui appartiennent à plus d'un endroit",
     "pages_title": "Navigation",
     "legal_title": "Legal",
     "social_title": "Social",
