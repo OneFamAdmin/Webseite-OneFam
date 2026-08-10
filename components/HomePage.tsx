@@ -3,7 +3,6 @@ import SiteFooter from '@/components/SiteFooter';
 import Hero from '@/components/Hero';
 import WhatIsOneFam from '@/components/WhatIsOneFam';
 import TravelPool from '@/components/TravelPool';
-import DestinationVote from '@/components/DestinationVote';
 import Values from '@/components/Values';
 import Philosophy from '@/components/Philosophy';
 import WhyWeDoThis from '@/components/WhyWeDoThis';
@@ -28,7 +27,9 @@ export default function HomePage() {
             Schritte standen bereits in WhatIsOneFam, TravelPool oder im FAQ.
             Komponente + i18n-Keys bleiben geparkt. */}
         <TravelPool />
-        <DestinationVote />
+        {/* <DestinationVote /> ist am 10.08.2026 raus. Der Block blendete sich zwar nur ein,
+            wenn eine Abstimmungsrunde offen war, sein Knopf führte aber auf /reiseziel —
+            und diese Seite gibt es nicht mehr. Komponente bleibt im Repo geparkt. */}
         <Values />
         <Philosophy />
         <WhyWeDoThis />
