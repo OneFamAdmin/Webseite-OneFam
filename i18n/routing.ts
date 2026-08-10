@@ -135,7 +135,7 @@ export const routing = defineRouting({
  * ihre Adresse ohne Präfix — eine Adresse /fr/reiseziel, die deutschen Text
  * ausliefert, wäre eine Falschaussage gegenüber Besuchern und gegenüber Google.
  */
-export function legalPath(locale: Locale, seite: 'agb' | 'datenschutz'): string {
+export function legalPath(locale: Locale, seite: 'agb' | 'datenschutz' | 'impressum'): string {
   return locale === DEFAULT_LOCALE ? `/${seite}` : `/${locale}/${seite}`;
 }
 
