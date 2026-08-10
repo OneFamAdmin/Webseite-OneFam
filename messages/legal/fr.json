@@ -3,8 +3,6 @@
     "eyebrow": "Mentions légales",
     "stand_prefix": "Mise à jour :",
     "zur_startseite": "Retour à l'accueil",
-    "entwurf_titel": "Projet – pas encore définitif.",
-    "entwurf_text": "Ce texte est un projet sans caractère contraignant. Il doit être vérifié par un avocat au regard du droit suisse et de la loi fédérale sur la protection des données (LPD) avant publication. Les passages entre crochets […] restent à définir.",
     "fuss_datenschutz": "Confidentialité",
     "fuss_agb": "CGV"
   },
@@ -13,7 +11,7 @@
     "meta_beschreibung": "Conditions d'utilisation du site OneFam, de la liste d'attente et du compte membre.",
     "eyebrow": "Mentions légales",
     "titel": "Conditions d'utilisation",
-    "stand": "Juillet 2026",
+    "stand": "Août 2026",
     "einleitung": "Ces conditions régissent l'utilisation de ce site, l'inscription à notre liste d'attente et le compte membre OneFam. Il n'y a actuellement <b>ni concours, ni tirage au sort, ni programme de cagnotte voyage</b>. Merci de les lire attentivement.",
     "abschnitte": [
       {
@@ -69,7 +67,7 @@
         "titel": "Ni concours, ni tirage au sort, ni jeu d'argent",
         "bloecke": [
           { "art": "absatz", "text": "Ce site n'organise actuellement ni concours, ni tirage au sort, ni jeu d'argent au sens de la loi fédérale suisse sur les jeux d'argent (LJAr). Aucune mise n'est engagée, aucune sélection n'est effectuée et aucun gain de valeur patrimoniale n'est promis." },
-          { "art": "absatz", "text": "Si nous introduisions à l'avenir une attribution de places de voyage, cela se ferait exclusivement sur la base de nos propres conditions de participation, publiées au préalable, et après un examen juridique. <hinweis>[À faire vérifier par un avocat avant toute introduction : qualification au regard de la LJAr, participation sans obligation d'achat, pays participants, âge minimum, procédure de tirage y compris source d'aléa et solution de repli en cas de défaillance.]</hinweis>" }
+          { "art": "absatz", "text": "Si nous introduisions à l'avenir une attribution de places de voyage, cela se ferait exclusivement sur la base de nos propres conditions de participation, publiées au préalable, et après un examen juridique." }
         ]
       },
       {
@@ -104,7 +102,7 @@
         "nr": "11",
         "titel": "Responsabilité",
         "bloecke": [
-          { "art": "absatz", "text": "Dans la mesure permise par la loi, la responsabilité de OneFam pour des dommages liés à l'utilisation de ce site est exclue. Font exception les dommages résultant d'une négligence grave ou d'une intention, ainsi que les cas de responsabilité légale impérative. <hinweis>[Clause de responsabilité à faire vérifier par un avocat.]</hinweis>" }
+          { "art": "absatz", "text": "Dans la mesure permise par la loi, la responsabilité de OneFam pour des dommages liés à l'utilisation de ce site est exclue. Font exception les dommages résultant d'une négligence grave ou d'une intention, ainsi que les cas de responsabilité légale impérative." }
         ]
       },
       {
@@ -125,7 +123,7 @@
         "nr": "14",
         "titel": "Droit applicable et for",
         "bloecke": [
-          { "art": "absatz", "text": "Le droit suisse s'applique exclusivement. Le for exclusif est – dans la mesure permise par la loi – le siège du prestataire à Bâle. <hinweis>[For à faire confirmer par un avocat ; à l'égard des consommateurs, il n'est valable que de manière limitée.]</hinweis>" }
+          { "art": "absatz", "text": "Le droit suisse s'applique exclusivement. Le for exclusif est – dans la mesure permise par la loi – le siège du prestataire à Bâle." }
         ]
       }
     ]
@@ -135,7 +133,7 @@
     "meta_beschreibung": "Comment OneFam traite tes données – politique de confidentialité selon la loi fédérale suisse sur la protection des données (LPD).",
     "eyebrow": "Mentions légales",
     "titel": "Politique de confidentialité",
-    "stand": "Juillet 2026",
+    "stand": "Août 2026",
     "einleitung": "La protection de tes données nous tient à cœur. Cette déclaration t'informe des données personnelles que nous traitons lorsque tu visites ce site et des droits dont tu disposes. Elle suit la loi fédérale suisse révisée sur la protection des données (LPD).",
     "abschnitte": [
       {
@@ -176,7 +174,7 @@
             ]
           },
           { "art": "absatz", "text": "Ces données servent exclusivement au fonctionnement technique, à la sécurité et à la stabilité du site et ne sont pas regroupées avec d'autres sources de données." },
-          { "art": "absatz", "text": "L'hébergeur est Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA <hinweis>[à adapter en cas d'hébergement différent]</hinweis>. Le traitement a lieu en partie sur des serveurs situés hors de Suisse (voir point 10)." }
+          { "art": "absatz", "text": "L'hébergeur est Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA. Le traitement a lieu en partie sur des serveurs situés hors de Suisse (voir point 10)." }
         ]
       },
       {
@@ -200,7 +198,7 @@
         "titel": "Compte membre et base de données",
         "bloecke": [
           { "art": "absatz", "text": "Pour la connexion, nous traitons ton adresse e-mail ainsi que des informations techniques sur la session. La connexion se fait par un lien envoyé par e-mail ; nous n'enregistrons pas de mot de passe. Si tu as commandé dans notre boutique, nous enregistrons en plus l'information qu'une commande existe, afin de débloquer des fonctions supplémentaires." },
-          { "art": "absatz", "text": "La liste d'attente et les données de compte sont hébergées chez Supabase (région de Zurich, Suisse). L'envoi des e-mails passe par un prestataire qui traite les adresses exclusivement pour notre compte. <hinweis>[Des contrats de sous-traitance sont à conclure et à documenter.]</hinweis>" }
+          { "art": "absatz", "text": "La liste d'attente et les données de compte sont hébergées chez Supabase (région de Zurich, Suisse). L'envoi des e-mails passe par un prestataire qui traite les adresses exclusivement pour notre compte." }
         ]
       },
       {
