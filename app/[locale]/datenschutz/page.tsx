@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import LegalDoc, { type Rechtstext } from '@/components/LegalDoc';
-import { pageMetadata } from '@/lib/seo';
+import { pageMetadata, sprachAlternativen } from '@/lib/seo';
 import { LOCALES, isLocale, legalPath } from '@/i18n/routing';
 
 // Wie bei den AGB: Der Text (rund 896 Woerter) liegt in
@@ -23,6 +23,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: t('meta_titel'),
     description: t('meta_beschreibung'),
     path: legalPath(locale, 'datenschutz'),
+    locale,
+    languages: sprachAlternativen((l) => legalPath(l, 'datenschutz')),
   });
 }
 
