@@ -5,7 +5,7 @@ import { Check } from 'lucide-react';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import WaitlistForm from '@/components/WaitlistForm';
 import Nav from '@/components/Nav';
-import { pageMetadata } from '@/lib/seo';
+import { pageMetadata, sprachAlternativen } from '@/lib/seo';
 import { LOCALES, isLocale, joinPath } from '@/i18n/routing';
 
 // Bis zum 09.08.2026 lag diese Seite als app/join/page.tsx ausserhalb der
@@ -35,6 +35,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: t('meta_titel'),
     description: t('meta_beschreibung'),
     path: joinPath(locale),
+    locale,
+    languages: sprachAlternativen(joinPath),
   });
 }
 
