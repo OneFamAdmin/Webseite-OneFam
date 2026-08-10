@@ -34,11 +34,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/reiseziel`, lastModified, changeFrequency: 'daily', priority: 0.8 },
   // /archiv ist seit dem 09.08.2026 deaktiviert und liefert 404. Eine Sitemap, die
     // eine 404-Seite bewirbt, schickt Google auf einen Fehler. Deshalb kein Eintrag.
-    // AGB und Datenschutz gibt es seit dem 30.07.2026 in vier Sprachen, die
-    // uebrigen Unterseiten nur auf Deutsch. Deshalb stehen hier nur diese
-    // beiden viermal.
+    // AGB, Datenschutz und seit dem 10.08.2026 auch das Impressum gibt es in vier
+    // Sprachen. /reiseziel bleibt aussen vor: die Seite gibt es nur auf Deutsch.
     ...LOCALES.flatMap((locale) =>
-      (['agb', 'datenschutz'] as const).map((seite) => ({
+      (['agb', 'datenschutz', 'impressum'] as const).map((seite) => ({
         url: `${SITE_URL}${legalPath(locale, seite)}`,
         lastModified,
         changeFrequency: 'yearly' as const,
