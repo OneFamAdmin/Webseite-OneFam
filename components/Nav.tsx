@@ -41,9 +41,13 @@ const Nav = () => {
   // Startseite werfen — der Sprung funktionierte, die Sprache wäre weg.
   const home = homePath(locale);
 
+  // /reiseziel stand hier bis zum 10.08.2026 als "Destination" im Menü. Die Seite
+  // zeigt aber nur einen Platzhalter, während die AGB festhalten, dass derzeit kein
+  // Travel-Pool-Programm stattfindet — ein Menüpunkt, der etwas verspricht, was die
+  // Rechtstexte verneinen. Sie ist deshalb still geparkt: erreichbar, aber nicht
+  // beworben und nicht im Index. Kommt das Voting, kommt der Eintrag zurück.
   const links = [
     { label: t('about'), href: `${home}#about`, external: false },
-    { label: t('reiseziel'), href: '/reiseziel', external: false },
     { label: t('werte'), href: `${home}#werte`, external: false },
     { label: t('faq'), href: `${home}#faq`, external: false },
     { label: t('shop'), href: shopUrl(locale), external: true },
