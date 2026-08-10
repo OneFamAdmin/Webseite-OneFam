@@ -269,5 +269,18 @@
         ]
       }
     ]
+  },
+  "impressum": {
+    "meta_titel": "Aviso legal — OneFam",
+    "meta_beschreibung": "Datos del prestador de OneFam: empresa, titular, dirección y contacto.",
+    "titel": "Aviso legal",
+    "einleitung": "Datos del prestador de este sitio web y de la tienda shop.onefam.ch.",
+    "label_firma": "Empresa",
+    "label_inhaber": "Titular",
+    "label_adresse": "Dirección",
+    "label_email": "Correo electrónico",
+    "label_telefon": "Teléfono",
+    "hinweis_titel": "A quién dirigirse",
+    "hinweis_text": "La dirección indicada arriba es la responsable de las consultas sobre pedidos, protección de datos y este sitio web. Normalmente respondemos en un plazo de dos días laborables."
   }
 }
