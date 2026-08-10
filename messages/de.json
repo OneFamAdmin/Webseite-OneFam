@@ -1,6 +1,6 @@
 {
   "seo": {
-    "title": "OneFam — For souls who belong to more than one place",
+    "title": "OneFam — Mode für alle, die zu mehr als einem Ort gehören",
     "description": "Kleidung und eine Community für alle, deren Antwort auf «Woher kommst du?» ein Komma hat. Nicht für alle – und genau das ist der Punkt."
   },
   "nav": {
@@ -15,7 +15,7 @@
   },
   "hero": {
     "kicker": "Woher kommst du?",
-    "claim": "For souls who belong to more than one place",
+    "claim": "Für alle, die zu mehr als einem Ort gehören",
     "subline": "Kleidung und eine Community für alle, deren Antwort ein Komma hat.",
     "cta_primary": "Join the Fam",
     "cta_secondary": "Zum Shop"
@@ -192,7 +192,7 @@
     "cta_primary": "Join the Fam"
   },
   "footer": {
-    "claim": "For souls who belong to more than one place",
+    "claim": "Für alle, die zu mehr als einem Ort gehören",
     "pages_title": "Navigation",
     "legal_title": "Legal",
     "social_title": "Social",
