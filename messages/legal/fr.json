@@ -269,5 +269,18 @@
         ]
       }
     ]
+  },
+  "impressum": {
+    "meta_titel": "Mentions légales — OneFam",
+    "meta_beschreibung": "Informations sur l’éditeur de OneFam : société, propriétaire, adresse et contact.",
+    "titel": "Mentions légales",
+    "einleitung": "Informations sur l’éditeur de ce site et de la boutique shop.onefam.ch.",
+    "label_firma": "Société",
+    "label_inhaber": "Propriétaire",
+    "label_adresse": "Adresse",
+    "label_email": "E-mail",
+    "label_telefon": "Téléphone",
+    "hinweis_titel": "Qui contacter",
+    "hinweis_text": "L’adresse ci-dessus est compétente pour les questions relatives aux commandes, à la protection des données et à ce site. Nous répondons généralement sous deux jours ouvrables."
   }
 }
