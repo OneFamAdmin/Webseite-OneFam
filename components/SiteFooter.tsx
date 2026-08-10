@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { legalPath, shopUrl, type Locale } from '@/i18n/routing';
 import MaxWidth from './MaxWidth';
-import ImprintDialog from './ImprintDialog';
 
 // Shop-Adresse pro Sprache — siehe i18n/routing.ts. Stand vorher fest auf /de/.
 
@@ -25,7 +24,6 @@ const socials = [
 const SiteFooter = () => {
   const t = useTranslations('footer');
   const locale = useLocale() as Locale;
-  const [imprintOpen, setImprintOpen] = React.useState(false);
   const pages = t.raw('pages') as { label: string; href: string }[];
   const legal = t.raw('legal') as { label: string; href?: string }[];
 
@@ -66,12 +64,12 @@ const SiteFooter = () => {
                 <p className="font-body text-xs uppercase tracking-[0.1em] text-faint">{t('legal_title')}</p>
                 <ul className="mt-4 space-y-3">
                   <li>
-                    <button
-                      onClick={() => setImprintOpen(true)}
+                    <Link
+                      href={legalPath(locale, 'impressum')}
                       className="font-body text-[15px] text-secondary transition-colors duration-[180ms] hover:text-primary"
                     >
                       {t('imprint')}
-                    </button>
+                    </Link>
                   </li>
                   {legal.map((l) => (
                     <li key={l.label}>
@@ -142,8 +140,6 @@ const SiteFooter = () => {
           </div>
         </MaxWidth>
       </footer>
-
-      {imprintOpen && <ImprintDialog onClose={() => setImprintOpen(false)} />}
     </>
   );
 };
