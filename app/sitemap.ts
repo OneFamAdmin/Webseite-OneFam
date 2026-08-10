@@ -16,9 +16,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Ohne Schrägstrich am Ende — exakt so, wie der Canonical der Startseite lautet.
     // Sitemap und Canonical müssen zeichengleich sein, sonst meldet die Search Console
     // "Alternative Seite mit richtigem kanonischen Tag" statt einer sauberen Indexierung.
-    // Startseite und /join gibt es in allen vier Sprachen. /reiseziel ist
-    // weiterhin nur auf Deutsch und ohne Sprachpräfix zu haben — es hier in vier
-    // Sprachen aufzuführen wäre eine Falschaussage gegenüber Google.
+    // Startseite, /join, AGB, Datenschutz und Impressum gibt es in allen vier
+    // Sprachen. Andere öffentliche Unterseiten hat die Site derzeit nicht.
     ...LOCALES.map((locale) => ({
       url: locale === DEFAULT_LOCALE ? SITE_URL : `${SITE_URL}${homePath(locale)}`,
       lastModified,
@@ -31,14 +30,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.9,
     })),
-    // /reiseziel steht seit dem 10.08.2026 auf noindex: Die Seite zeigt nur einen
-    // Platzhalter, während die AGB festhalten, dass kein Travel-Pool-Programm
-    // stattfindet. Eine Sitemap, die eine noindex-Seite meldet, sendet zwei
-    // widersprüchliche Signale — deshalb kein Eintrag, bis das Voting wirklich läuft.
   // /archiv ist seit dem 09.08.2026 deaktiviert und liefert 404. Eine Sitemap, die
     // eine 404-Seite bewirbt, schickt Google auf einen Fehler. Deshalb kein Eintrag.
     // AGB, Datenschutz und seit dem 10.08.2026 auch das Impressum gibt es in vier
-    // Sprachen. /reiseziel bleibt aussen vor: die Seite gibt es nur auf Deutsch.
+    // Sprachen und gehören deshalb viermal in die Sitemap.
     ...LOCALES.flatMap((locale) =>
       (['agb', 'datenschutz', 'impressum'] as const).map((seite) => ({
         url: `${SITE_URL}${legalPath(locale, seite)}`,
