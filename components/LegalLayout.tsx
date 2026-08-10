@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, AlertTriangle } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import { homePath, legalPath, type Locale } from '@/i18n/routing';
 
@@ -55,14 +55,6 @@ export default function LegalLayout({ eyebrow = 'Rechtliches', title, updated, l
             {t('stand_prefix')} {updated}
           </p>
         )}
-
-        {/* draft notice */}
-        <div className="mt-8 flex gap-3 rounded-[8px] border border-gold/30 bg-gold/[0.06] p-4">
-          <AlertTriangle size={18} strokeWidth={1.6} className="mt-0.5 flex-none text-gold" />
-          <p className="font-body text-sm leading-relaxed text-secondary">
-            <span className="font-semibold text-gold">{t('entwurf_titel')}</span> {t('entwurf_text')}
-          </p>
-        </div>
 
         {lead && <div className="mt-10 font-body text-lg leading-[1.8] text-secondary">{lead}</div>}
 
