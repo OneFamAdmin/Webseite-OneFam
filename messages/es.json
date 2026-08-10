@@ -1,6 +1,6 @@
 {
   "seo": {
-    "title": "OneFam — For souls who belong to more than one place",
+    "title": "OneFam — ropa para quienes pertenecen a más de un lugar",
     "description": "Ropa y una comunidad para quienes responden a «¿De dónde eres?» con una coma. No es para todo el mundo – y ese es justamente el punto."
   },
   "nav": {
@@ -15,7 +15,7 @@
   },
   "hero": {
     "kicker": "¿De dónde eres?",
-    "claim": "For souls who belong to more than one place",
+    "claim": "Para quienes pertenecen a más de un lugar",
     "subline": "Ropa y una comunidad para quienes responden con una coma.",
     "cta_primary": "Join the Fam",
     "cta_secondary": "Ir a la tienda"
@@ -192,7 +192,7 @@
     "cta_primary": "Join the Fam"
   },
   "footer": {
-    "claim": "For souls who belong to more than one place",
+    "claim": "Para quienes pertenecen a más de un lugar",
     "pages_title": "Navegación",
     "legal_title": "Legal",
     "social_title": "Social",
