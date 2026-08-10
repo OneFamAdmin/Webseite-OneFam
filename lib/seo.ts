@@ -34,7 +34,30 @@ type PageMetaInput = {
   path: string;
   /** true bei Seiten, die nicht in den Suchindex gehören (Konto, Admin, Bestätigungsseiten). */
   noindex?: boolean;
+  /** Sprache der Seite. Steuert og:locale. Ohne Angabe Deutsch. */
+  locale?: Locale;
+  /** hreflang-Angaben, am einfachsten über sprachAlternativen() erzeugt. */
+  languages?: Record<string, string>;
 };
+
+/**
+ * hreflang-Angaben für eine Unterseite, die es in allen vier Sprachen gibt.
+ *
+ * Die Startseite bekommt ihre über homeMetadata(). Unterseiten hatten bis zum
+ * 10.08.2026 gar keine: /de/join, /fr/join und /es/join standen ohne jeden
+ * Verweis aufeinander im Index — vier Adressen, die Google als Konkurrenz statt
+ * als Übersetzungen lesen musste.
+ *
+ * x-default zeigt auf die englische Fassung, wie auf der Startseite auch.
+ */
+export function sprachAlternativen(pfad: (locale: Locale) => string): Record<string, string> {
+  const languages: Record<string, string> = {};
+  for (const l of LOCALES) {
+    languages[l] = `${SITE_URL}${pfad(l)}`;
+  }
+  languages['x-default'] = `${SITE_URL}${pfad(DEFAULT_LOCALE)}`;
+  return languages;
+}
 
 /**
  * Baut den vollständigen Metadaten-Satz für eine Seite: Titel, Beschreibung,
@@ -42,18 +65,25 @@ type PageMetaInput = {
  * ohne ihn entscheidet Google selbst, welche der erreichbaren Adressen die
  * "echte" ist.
  */
-export function pageMetadata({ title, description, path, noindex }: PageMetaInput): Metadata {
+export function pageMetadata({
+  title,
+  description,
+  path,
+  noindex,
+  locale,
+  languages,
+}: PageMetaInput): Metadata {
   const url = path === '/' ? SITE_URL : `${SITE_URL}${path}`;
 
   return {
     title,
     description,
-    alternates: { canonical: url },
+    alternates: { canonical: url, ...(languages ? { languages } : {}) },
     ...(noindex ? { robots: { index: false, follow: true } } : {}),
     openGraph: {
       type: 'website',
       siteName: SITE_NAME,
-      locale: 'de_CH',
+      locale: OG_LOCALE[locale ?? 'de'],
       url,
       title,
       description,
