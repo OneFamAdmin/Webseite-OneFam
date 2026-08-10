@@ -12,9 +12,9 @@ import { defineRouting } from 'next-intl/routing';
 // So heisst dieselbe Sprache auf beiden Systemen gleich, und ein Besucher, der
 // vom Shop herüberkommt, landet nicht in einer anderen Sprache.
 //
-// Stand jetzt gilt das NUR für die Startseite. Die Unterseiten (/join, /agb,
-// /datenschutz, /archiv, /reiseziel, /login, /mein-bereich) sind weiterhin
-// deutsch und liegen weiterhin ohne Präfix. Sie sind nicht übersetzt — also
+// Viersprachig sind Startseite, /join, /agb, /datenschutz und /impressum. Die
+// übrigen Unterseiten (/archiv, /login, /mein-bereich, /join/bestaetigen) sind
+// weiterhin deutsch und liegen ohne Präfix. Sie sind nicht übersetzt — also
 // behaupten wir es auch nicht. Wenn sie übersetzt werden, ziehen sie unter
 // app/[locale]/ um; dieses Modul bleibt dabei unverändert.
 
@@ -129,10 +129,10 @@ export const routing = defineRouting({
 /**
  * Adresse eines Rechtstextes in einer Sprache.
  *
- * AGB, Datenschutzerklärung und seit dem 09.08.2026 auch /join liegen unter
- * app/[locale]/. Die übrigen Unterseiten (/archiv, /reiseziel, /login,
+ * AGB, Datenschutzerklärung, /join und seit dem 10.08.2026 auch das Impressum
+ * liegen unter app/[locale]/. Die übrigen Unterseiten (/archiv, /login,
  * /mein-bereich, /join/bestaetigen) sind weiterhin nur auf Deutsch und behalten
- * ihre Adresse ohne Präfix — eine Adresse /fr/reiseziel, die deutschen Text
+ * ihre Adresse ohne Präfix — eine Adresse /fr/login, die deutschen Text
  * ausliefert, wäre eine Falschaussage gegenüber Besuchern und gegenüber Google.
  */
 export function legalPath(locale: Locale, seite: 'agb' | 'datenschutz' | 'impressum'): string {
