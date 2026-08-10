@@ -3,8 +3,6 @@
     "eyebrow": "Rechtliches",
     "stand_prefix": "Stand:",
     "zur_startseite": "Zur Startseite",
-    "entwurf_titel": "Entwurf – noch nicht final.",
-    "entwurf_text": "Dieser Text ist ein unverbindlicher Entwurf und muss vor der Veröffentlichung anwaltlich auf Schweizer Recht und das Datenschutzgesetz (DSG) geprüft werden. Mit Klammern markierte Stellen […] sind noch festzulegen.",
     "fuss_datenschutz": "Datenschutz",
     "fuss_agb": "AGB"
   },
@@ -13,7 +11,7 @@
     "meta_beschreibung": "Nutzungsbedingungen für die OneFam-Website, die Warteliste und das Mitgliederkonto.",
     "eyebrow": "Rechtliches",
     "titel": "AGB & Nutzungsbedingungen",
-    "stand": "Juli 2026",
+    "stand": "August 2026",
     "einleitung": "Diese Bedingungen regeln die Nutzung dieser Website, die Eintragung in unsere Warteliste und das OneFam-Mitgliederkonto. Es findet derzeit <b>kein Gewinnspiel, keine Verlosung und kein Travel-Pool-Programm</b> statt. Bitte lies sie aufmerksam.",
     "abschnitte": [
       {
@@ -69,7 +67,7 @@
         "titel": "Kein Gewinnspiel, keine Verlosung, kein Geldspiel",
         "bloecke": [
           { "art": "absatz", "text": "Über diese Website findet derzeit kein Gewinnspiel, keine Verlosung und kein Geldspiel im Sinne des Schweizer Geldspielgesetzes (BGS) statt. Es wird kein Einsatz geleistet, keine Auswahl durchgeführt und kein vermögenswerter Gewinn in Aussicht gestellt." },
-          { "art": "absatz", "text": "Sollten wir künftig eine Vergabe von Reiseplätzen einführen, geschieht dies ausschliesslich auf Grundlage eigener, vorab veröffentlichter Teilnahmebedingungen und einer vorgängigen rechtlichen Prüfung. <hinweis>[Vor jeder Einführung anwaltlich zu prüfen: Qualifikation nach BGS, Ausgestaltung der Teilnahme ohne Kaufzwang, Teilnahmeländer, Mindestalter, Ziehungsverfahren inkl. Zufallsquelle und Ausfall-Fallback.]</hinweis>" }
+          { "art": "absatz", "text": "Sollten wir künftig eine Vergabe von Reiseplätzen einführen, geschieht dies ausschliesslich auf Grundlage eigener, vorab veröffentlichter Teilnahmebedingungen und einer vorgängigen rechtlichen Prüfung." }
         ]
       },
       {
@@ -104,7 +102,7 @@
         "nr": "11",
         "titel": "Haftung",
         "bloecke": [
-          { "art": "absatz", "text": "Soweit gesetzlich zulässig, ist die Haftung von OneFam für Schäden im Zusammenhang mit der Nutzung dieser Website ausgeschlossen. Ausgenommen sind Schäden aus grober Fahrlässigkeit oder Absicht sowie Fälle zwingender gesetzlicher Haftung. <hinweis>[Haftungsregelung anwaltlich zu prüfen.]</hinweis>" }
+          { "art": "absatz", "text": "Soweit gesetzlich zulässig, ist die Haftung von OneFam für Schäden im Zusammenhang mit der Nutzung dieser Website ausgeschlossen. Ausgenommen sind Schäden aus grober Fahrlässigkeit oder Absicht sowie Fälle zwingender gesetzlicher Haftung." }
         ]
       },
       {
@@ -125,7 +123,7 @@
         "nr": "14",
         "titel": "Anwendbares Recht und Gerichtsstand",
         "bloecke": [
-          { "art": "absatz", "text": "Es gilt ausschliesslich Schweizer Recht. Ausschliesslicher Gerichtsstand ist – soweit gesetzlich zulässig – der Sitz des Anbieters in Basel. <hinweis>[Gerichtsstand anwaltlich zu bestätigen; gegenüber Konsumentinnen und Konsumenten ist er nur beschränkt wirksam.]</hinweis>" }
+          { "art": "absatz", "text": "Es gilt ausschliesslich Schweizer Recht. Ausschliesslicher Gerichtsstand ist – soweit gesetzlich zulässig – der Sitz des Anbieters in Basel." }
         ]
       }
     ]
@@ -135,7 +133,7 @@
     "meta_beschreibung": "Wie OneFam mit deinen Daten umgeht – Datenschutzerklärung nach dem Schweizer Datenschutzgesetz (DSG).",
     "eyebrow": "Rechtliches",
     "titel": "Datenschutzerklärung",
-    "stand": "Juli 2026",
+    "stand": "August 2026",
     "einleitung": "Der Schutz deiner Daten ist uns wichtig. Diese Erklärung informiert dich darüber, welche Personendaten wir beim Besuch dieser Website bearbeiten und welche Rechte dir zustehen. Sie richtet sich nach dem revidierten Schweizer Datenschutzgesetz (DSG).",
     "abschnitte": [
       {
@@ -176,7 +174,7 @@
             ]
           },
           { "art": "absatz", "text": "Diese Daten dienen ausschliesslich dem technischen Betrieb, der Sicherheit und der Stabilität der Website und werden nicht mit anderen Datenquellen zusammengeführt." },
-          { "art": "absatz", "text": "Hosting-Provider ist Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA <hinweis>[bei abweichendem Hosting anpassen]</hinweis>. Die Bearbeitung erfolgt teilweise auf Servern ausserhalb der Schweiz (siehe Ziffer 10)." }
+          { "art": "absatz", "text": "Hosting-Provider ist Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA. Die Bearbeitung erfolgt teilweise auf Servern ausserhalb der Schweiz (siehe Ziffer 10)." }
         ]
       },
       {
@@ -200,7 +198,7 @@
         "titel": "Mitgliederkonto und Datenbank",
         "bloecke": [
           { "art": "absatz", "text": "Für die Anmeldung bearbeiten wir deine E-Mail-Adresse sowie technische Angaben zur Sitzung. Die Anmeldung erfolgt über einen Login-Link per E-Mail; ein Passwort speichern wir nicht. Hast du in unserem Shop bestellt, speichern wir zudem die Information, dass eine Bestellung vorliegt, um dir Zusatzfunktionen freizuschalten." },
-          { "art": "absatz", "text": "Warteliste und Kontodaten werden bei Supabase (Region Zürich, Schweiz) gespeichert. Der Versand von E-Mails erfolgt über einen Dienstleister, der die Adressen ausschliesslich in unserem Auftrag bearbeitet. <hinweis>[Auftragsbearbeitungsverträge sind abzuschliessen bzw. zu dokumentieren.]</hinweis>" }
+          { "art": "absatz", "text": "Warteliste und Kontodaten werden bei Supabase (Region Zürich, Schweiz) gespeichert. Der Versand von E-Mails erfolgt über einen Dienstleister, der die Adressen ausschliesslich in unserem Auftrag bearbeitet." }
         ]
       },
       {
