@@ -11,10 +11,8 @@ import MaxWidth from './MaxWidth';
 
 const socials = [
   { name: 'Instagram', icon: '/assets/instagram.svg', url: 'https://www.instagram.com/onefam_official/' },
-  { name: 'Facebook', icon: '/assets/facebook.svg', url: 'https://www.facebook.com/profile.php?id=61568690728641' },
-  { name: 'WhatsApp', icon: '/assets/whatsapp.svg', url: 'https://api.whatsapp.com/message/CXRNI6YIROSTD1?autoload=1&app_absent=0' },
-  { name: 'Telegram', icon: '/assets/fly.svg', url: 'https://t.me/onefam_admin' },
-  { name: 'Threema', icon: '/assets/threema.svg', url: 'https://threema.id/AK3AZ3X6' },
+  { name: 'TikTok', icon: '/assets/tiktok.svg', url: 'https://www.tiktok.com/@onefam_official' },
+  { name: 'Facebook', icon: '/assets/facebook.svg', url: 'https://www.facebook.com/onefamworld' },
   // X ist bewusst draussen: Der Eintrag zeigte auf https://www.onefam.ch/ — also auf
   // die eigene Startseite. Ein Social-Symbol, das im Kreis führt, kostet mehr Vertrauen
   // als ein fehlendes Symbol. Sobald es ein echtes Profil gibt, diese Zeile einkommentieren:
