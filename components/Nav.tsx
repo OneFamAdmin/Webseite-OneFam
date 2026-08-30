@@ -13,7 +13,32 @@ import { homePath, joinPath, shopUrl, type Locale } from '@/i18n/routing';
 
 // Shop-Adresse pro Sprache — siehe i18n/routing.ts. Stand vorher fest auf /de/.
 
-const Nav = () => {
+/**
+ * Der weiche Verlauf oben statt eines Balkens mit Kante.
+ *
+ * Vorher wurde die Kopfzeile ab 8 px Scroll zu einem Balken: bg-bg/85, Weich-
+ * zeichner, dazu border-b border-line. Diese Linie (#2a2a2a) war der "gelbe
+ * Strich" auf dem Telefon — grau gemessen, aber gegen das schwarze OLED-Bild
+ * und die warmen Hero-Farbe darunter liest sie sich warm.
+ *
+ * Der Shop hat dasselbe Problem am 30.08.2026 so geloest: kein Balken, keine
+ * Kante, stattdessen ein fest verankerter Verlauf, der von oben nach unten
+ * ausblendet. Der haelt die Lesbarkeit in JEDEM Scrollzustand, ohne dass
+ * irgendwo eine Kante entsteht — es gibt schlicht keine Unterkante mehr.
+ * Dieselben Stufen wie dort, damit beide Kopfzeilen gleich aussehen.
+ */
+const KOPF_VERLAUF =
+  'linear-gradient(180deg, rgba(10,10,10,0.94) 0%, rgba(10,10,10,0.78) 42%, rgba(10,10,10,0.34) 74%, rgba(10,10,10,0) 100%)';
+
+/**
+ * `ueberHero` setzt die Startseite von den uebrigen Seiten ab.
+ *
+ * Nur dort liegt unter der Kopfzeile ein Hero, ueber dem sie schweben KANN.
+ * Auf /join, /login und /mein-bereich faengt direkt Inhalt an; ein 190 px hoher
+ * Verlauf waere dort ein dunkles Band ueber dem Seitenanfang. Diese Seiten
+ * behalten den Balken beim Scrollen — nur ohne die Linie darunter.
+ */
+const Nav = ({ ueberHero = false }: { ueberHero?: boolean }) => {
   const t = useTranslations('nav');
   const locale = useLocale() as Locale;
   const [scrolled, setScrolled] = useState(false);
@@ -54,9 +79,16 @@ const Nav = () => {
 
   return (
     <>
+    {ueberHero && (
+      <div
+        aria-hidden
+        className="pointer-events-none fixed inset-x-0 top-0 z-40 h-[190px]"
+        style={{ background: KOPF_VERLAUF }}
+      />
+    )}
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-300 ${
-        scrolled ? 'border-b border-line bg-bg/85 backdrop-blur-md' : 'border-b border-transparent bg-transparent'
+      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter] duration-300 ${
+        !ueberHero && scrolled ? 'bg-bg/85 backdrop-blur-md' : 'bg-transparent'
       }`}
     >
       <MaxWidth>

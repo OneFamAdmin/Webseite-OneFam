@@ -18,7 +18,7 @@ import FinalCta from '@/components/FinalCta';
 export default function HomePage() {
   return (
     <>
-      <Nav />
+      <Nav ueberHero />
       <main>
         <Hero />
         <WhatIsOneFam />
