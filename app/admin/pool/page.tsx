@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { ArrowLeft, Wallet, TrendingUp, Receipt, RefreshCw, Trash2 } from 'lucide-react';
@@ -6,6 +5,7 @@ import { createClient } from '@/lib/supabase/server';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { podosConfigured } from '@/lib/podos/client';
 import { saveCostConfig, saveProductCost, deleteProductCost, syncPodosCosts, addAdjustment } from './actions';
+import Lockup from '@/components/Lockup';
 
 export const metadata = { title: 'Pool-Buchhaltung — OneFam Admin' };
 
@@ -50,9 +50,8 @@ export default async function AdminPoolPage() {
     <div className="flex min-h-screen flex-col bg-bg">
       <header className="border-b border-line">
         <div className="mx-auto flex w-full max-w-3xl items-center justify-between px-6 py-5">
-          <Link href="/" aria-label="OneFam — Home" className="flex items-center gap-2.5">
-            <img src="/assets/logo-face-gradient.svg" alt="" aria-hidden="true" className="h-7 w-7" />
-            <Image src="/assets/logo-white.png" alt="OneFam" width={656} height={137} priority className="h-6 w-auto" />
+          <Link href="/" aria-label="OneFam — Home" className="flex items-center">
+            <Lockup />
           </Link>
           <Link
             href="/admin"

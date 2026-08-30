@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { after } from 'next/server';
@@ -7,6 +6,7 @@ import { createClient } from '@/lib/supabase/server';
 import { sendWelcomeEmail } from '@/lib/email/send';
 import { promotePendingBuyer } from '@/lib/shopify/promote';
 import { pageMetadata } from '@/lib/seo';
+import Lockup from '@/components/Lockup';
 
 // noindex: Diese Seite wird nur über den Bestätigungslink aus der E-Mail erreicht
 // und hat für Suchende keinen Wert.
@@ -95,9 +95,8 @@ export default async function BestaetigenPage({
     <div className="flex min-h-screen flex-col bg-bg">
       <header className="border-b border-line">
         <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-5">
-          <Link href="/" aria-label="OneFam — Home" className="flex items-center gap-2.5">
-            <img src="/assets/logo-face-gradient.svg" alt="" aria-hidden="true" className="h-7 w-7" />
-            <Image src="/assets/logo-white.png" alt="OneFam" width={656} height={137} priority className="h-6 w-auto" />
+          <Link href="/" aria-label="OneFam — Home" className="flex items-center">
+            <Lockup />
           </Link>
         </div>
       </header>
