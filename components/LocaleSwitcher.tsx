@@ -117,7 +117,13 @@ export default function LocaleSwitcher({
           offen ? 'border-line bg-surface' : ''
         } ${mobil ? 'h-11 gap-2.5 px-3' : 'h-9 gap-1.5 px-2'}`}
       >
-        <Flag locale={aktuell} className={mobil ? 'h-6 w-6' : 'h-5 w-5'} />
+        <Flag locale={aktuell} className={mobil ? 'h-4 w-6' : 'h-3 w-[18px]'} />
+        {/* Das Kuerzel steht neben der Flagge, wie im Shop. Es ist die einzige
+            Textstelle, die geblieben ist — eine statt vier, und sie beantwortet
+            die Frage "in welcher Sprache bin ich gerade?" ohne aufzuklappen. */}
+        <span className={`font-body font-medium tracking-wide text-secondary ${mobil ? 'text-[15px]' : 'text-[13px]'}`}>
+          {aktuell.toUpperCase()}
+        </span>
         <ChevronDown
           size={mobil ? 18 : 15}
           strokeWidth={1.75}
@@ -153,7 +159,7 @@ export default function LocaleSwitcher({
                     l === aktuell ? 'text-gold' : 'text-secondary hover:text-primary'
                   }`}
                 >
-                  <Flag locale={l} className="h-5 w-5" />
+                  <Flag locale={l} className="h-3 w-[18px]" />
                   {LOCALE_NAME[l]}
                 </a>
               </li>
