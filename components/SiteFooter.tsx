@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { legalPath, shopUrl, type Locale } from '@/i18n/routing';
 import MaxWidth from './MaxWidth';
-import SectionSeam from './SectionSeam';
 
 // Shop-Adresse pro Sprache — siehe i18n/routing.ts. Stand vorher fest auf /de/.
 
@@ -28,8 +27,11 @@ const SiteFooter = () => {
 
   return (
     <>
-      <footer className="relative bg-bg">
-        <SectionSeam />
+      {/* Bewusst ohne Trennung nach oben: von den zehn Abschnittsgrenzen der
+          Startseite hatten nur zwei je eine — diese hier und die ueber "Die
+          Stuecke". Acht kamen immer ohne aus. Der Wechsel traegt sich selbst:
+          py-16, Wortmarke, Claim, drei Spalten. */}
+      <footer className="bg-bg">
         <MaxWidth className="py-16">
           <div className="flex flex-col gap-12 lg:flex-row lg:justify-between">
             {/* Brand + claim */}

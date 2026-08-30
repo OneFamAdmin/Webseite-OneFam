@@ -4,7 +4,6 @@ import { useLocale, useTranslations } from 'next-intl';
 import { shopUrl, type Locale } from '@/i18n/routing';
 import MaxWidth from './MaxWidth';
 import Reveal from './Reveal';
-import SectionSeam from './SectionSeam';
 import Button from './Button';
 
 // Shop-Adresse pro Sprache — siehe i18n/routing.ts. Stand vorher fest auf /de/.
@@ -28,9 +27,12 @@ const ProductBridge = () => {
   const locale = useLocale() as Locale;
   const lines = t.raw('lines') as { name: string; text: string }[];
 
+  // Bewusst ohne Trennung nach oben — wie die übrigen acht Abschnitte. Von den
+  // zehn Abschnittsgrenzen der Startseite hatten nur zwei je eine Linie: diese
+  // und die über der Fusszeile. Der Wechsel trägt sich selbst: py-24, Label,
+  // Überschrift.
   return (
-    <section id="stuecke" className="relative bg-bg py-24 md:py-32">
-      <SectionSeam />
+    <section id="stuecke" className="bg-bg py-24 md:py-32">
       <MaxWidth>
         <Reveal>
           <p className="font-body text-sm uppercase tracking-[0.1em] text-faint">{t('label')}</p>
