@@ -64,7 +64,7 @@ const Nav = () => {
           {/* Logo */}
           <Link href={`${homePath(locale)}#hero`} aria-label="OneFam — Home" className="flex items-center">
             {/* wordmark only — the gradient face mark now lives big in the hero centre */}
-            <Image src="/assets/logo-white.png" alt="OneFam" width={216} height={75} priority className="h-6 w-auto md:h-7" />
+            <Image src="/assets/logo-white.png" alt="OneFam" width={656} height={137} priority className="h-6 w-auto md:h-7" />
           </Link>
 
           {/* Desktop links */}
@@ -120,7 +120,7 @@ const Nav = () => {
       >
         <div className="flex h-14 items-center justify-between px-4">
           <div className="flex items-center">
-            <Image src="/assets/logo-white.png" alt="OneFam" width={216} height={75} className="h-6 w-auto" />
+            <Image src="/assets/logo-white.png" alt="OneFam" width={656} height={137} className="h-6 w-auto" />
           </div>
           <button aria-label={t('menu_close')} className="text-primary" onClick={() => setOpen(false)}>
             <X size={26} strokeWidth={1.5} />

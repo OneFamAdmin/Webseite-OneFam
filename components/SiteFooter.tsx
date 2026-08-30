@@ -32,7 +32,7 @@ const SiteFooter = () => {
           <div className="flex flex-col gap-12 lg:flex-row lg:justify-between">
             {/* Brand + claim */}
             <div className="max-w-xs">
-              <Image src="/assets/logo-white.png" alt="OneFam" width={216} height={75} className="h-9 w-auto" />
+              <Image src="/assets/logo-white.png" alt="OneFam" width={656} height={137} className="h-9 w-auto" />
               <p className="mt-4 font-display text-base font-semibold uppercase tracking-[0.1em] text-gold">
                 {t('claim')}
               </p>
