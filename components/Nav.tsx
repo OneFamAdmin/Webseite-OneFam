@@ -60,15 +60,36 @@ const Nav = () => {
       }`}
     >
       <MaxWidth>
-        <div className="flex h-14 items-center justify-between md:h-16">
+        {/* Drei Spalten statt justify-between. Mit justify-between sass das Menü
+            zwischen Wortmarke und rechter Gruppe eingeklemmt, und weil die rechte
+            Gruppe (Sprache + Knopf, rund 230 px) deutlich breiter ist als die
+            Wortmarke (rund 135 px), stand es sichtbar links von der Seitenmitte.
+            Seit "Reiseziel" am 10.08.2026 aus dem Menü ist, ist die Gruppe zudem
+            schmaler geworden — es sah aus, als fehle etwas.
+            1fr auto 1fr heisst: die beiden Randspalten sind gleich breit, die
+            Mittelspalte steht damit genau auf der Seitenmitte, unabhängig davon,
+            wie breit Wortmarke und rechte Gruppe sind.
+            Die Spalten stehen ausdrücklich an den Kindern (col-start-*): auf dem
+            Telefon ist das Menü display:none und belegt gar keine Zelle — ohne
+            die Angabe rutschte der Hamburger in die Mittelspalte.
+            gap-x-6 hält 24 px Luft zwischen den Spalten frei. Knapp über 800 px,
+            wo das Menü gerade erst erscheint, stiess "Shop" sonst fast an die
+            Flagge. Dort weicht die Mitte um rund 13 px, weil die rechte Spalte
+            breiter wird, als ihr Anteil hergäbe — sichtbar wird das nicht, ein
+            Zusammenstossen schon. */}
+        <div className="grid h-14 grid-cols-[1fr_auto_1fr] items-center gap-x-6 md:h-16">
           {/* Logo */}
-          <Link href={`${homePath(locale)}#hero`} aria-label="OneFam — Home" className="flex items-center">
+          <Link
+            href={`${homePath(locale)}#hero`}
+            aria-label="OneFam — Home"
+            className="col-start-1 flex items-center justify-self-start"
+          >
             {/* wordmark only — the gradient face mark now lives big in the hero centre */}
             <Image src="/assets/logo-white.png" alt="OneFam" width={656} height={137} priority className="h-6 w-auto md:h-7" />
           </Link>
 
           {/* Desktop links */}
-          <nav className="hidden items-center gap-8 md-1:flex">
+          <nav className="col-start-2 hidden items-center gap-8 justify-self-center md-1:flex">
             {links.map((l) =>
               l.external ? (
                 <a
@@ -90,22 +111,31 @@ const Nav = () => {
             )}
           </nav>
 
-          {/* Desktop: Sprachumschalter + CTA */}
-          <div className="hidden items-center gap-5 md-1:flex">
-            <LocaleSwitcher />
-            <Button as="a" href={joinPath(locale)} variant="primary" className="px-5 py-2.5 text-[15px]" style={{ background: BRAND_GRADIENT }}>
-              {t('join')}
-            </Button>
-          </div>
+          {/* Rechte Gruppe. Sprachumschalter, Knopf und Hamburger liegen bewusst
+              in EINER Zelle: sonst waere der Hamburger ein eigenes Rasterkind und
+              muesste sich auf dem Telefon mit der leeren Mittelspalte arrangieren. */}
+          <div className="col-start-3 flex items-center justify-self-end">
+            {/* Desktop: Sprachumschalter + CTA */}
+            <div className="hidden items-center gap-5 md-1:flex">
+              <LocaleSwitcher />
+              {/* whitespace-nowrap: ohne das darf der Knopf umbrechen, und dann
+                  ist "Join the / Fam" seine Mindestbreite — knapp über 800 px
+                  nimmt sich das Raster genau diese und der Knopf steht plötzlich
+                  zweizeilig in einer einzeiligen Kopfzeile. */}
+              <Button as="a" href={joinPath(locale)} variant="primary" className="whitespace-nowrap px-5 py-2.5 text-[15px]" style={{ background: BRAND_GRADIENT }}>
+                {t('join')}
+              </Button>
+            </div>
 
-          {/* Mobile hamburger */}
-          <button
-            className="text-primary md-1:hidden"
-            aria-label={t('menu_open')}
-            onClick={() => setOpen(true)}
-          >
-            <Menu size={26} strokeWidth={1.5} />
-          </button>
+            {/* Mobile hamburger */}
+            <button
+              className="text-primary md-1:hidden"
+              aria-label={t('menu_open')}
+              onClick={() => setOpen(true)}
+            >
+              <Menu size={26} strokeWidth={1.5} />
+            </button>
+          </div>
         </div>
       </MaxWidth>
     </header>
