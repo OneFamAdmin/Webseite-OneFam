@@ -4,6 +4,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import { shopUrl, type Locale } from '@/i18n/routing';
 import MaxWidth from './MaxWidth';
 import Reveal from './Reveal';
+import SectionSeam from './SectionSeam';
 import Button from './Button';
 
 // Shop-Adresse pro Sprache — siehe i18n/routing.ts. Stand vorher fest auf /de/.
@@ -28,7 +29,8 @@ const ProductBridge = () => {
   const lines = t.raw('lines') as { name: string; text: string }[];
 
   return (
-    <section id="stuecke" className="border-t border-line bg-bg py-24 md:py-32">
+    <section id="stuecke" className="relative bg-bg py-24 md:py-32">
+      <SectionSeam />
       <MaxWidth>
         <Reveal>
           <p className="font-body text-sm uppercase tracking-[0.1em] text-faint">{t('label')}</p>

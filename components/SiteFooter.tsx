@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { legalPath, shopUrl, type Locale } from '@/i18n/routing';
 import MaxWidth from './MaxWidth';
+import SectionSeam from './SectionSeam';
 
 // Shop-Adresse pro Sprache — siehe i18n/routing.ts. Stand vorher fest auf /de/.
 
@@ -27,12 +28,18 @@ const SiteFooter = () => {
 
   return (
     <>
-      <footer className="border-t border-line bg-bg">
+      <footer className="relative bg-bg">
+        <SectionSeam />
         <MaxWidth className="py-16">
           <div className="flex flex-col gap-12 lg:flex-row lg:justify-between">
             {/* Brand + claim */}
             <div className="max-w-xs">
-              <Image src="/assets/logo-white.png" alt="OneFam" width={656} height={137} className="h-9 w-auto" />
+              {/* 24 px statt 36. Mit dem alten Schriftzug (2,88 : 1) waren 36 px rund
+                  104 px breit, mit dem neuen (4,81 : 1) sind es 173 — die Wortmarke
+                  wurde ueber Nacht anderthalbmal so breit und erschlug den Claim
+                  darunter. 24 px sind wieder rund 115 px breit und damit nie
+                  groesser als die Wortmarke im Kopf. */}
+              <Image src="/assets/logo-white.png" alt="OneFam" width={656} height={137} className="h-6 w-auto" />
               <p className="mt-4 font-display text-base font-semibold uppercase tracking-[0.1em] text-gold">
                 {t('claim')}
               </p>
