@@ -116,8 +116,14 @@ const Nav = ({ ueberHero = false }: { ueberHero?: boolean }) => {
             aria-label="OneFam — Home"
             className="col-start-1 flex items-center justify-self-start"
           >
-            {/* wordmark only — the gradient face mark now lives big in the hero centre */}
-            <Image src="/assets/logo-white.png" alt="OneFam" width={656} height={137} priority className="h-6 w-auto md:h-7" />
+            {/* wordmark only — the gradient face mark now lives big in the hero centre.
+                20 px auf dem Telefon, 24 px ab md. Vorher 24 / 28: mit dem alten
+                Schriftzug (2,88 : 1) waren 24 px gerade 69 px breit, mit dem neuen
+                (4,81 : 1) sind es 115 — also 29 % der Bildschirmbreite statt 18 %.
+                Die Hoehe blieb gleich, die Flaeche wuchs um zwei Drittel, und genau
+                das sieht man. 20 px sind 96 px breit (24 %) und stehen im selben
+                Verhaeltnis zur Kopfzeile wie im Shop: rund 36 % ihrer Hoehe. */}
+            <Image src="/assets/logo-white.png" alt="OneFam" width={656} height={137} priority className="h-5 w-auto md:h-6" />
           </Link>
 
           {/* Desktop links */}
@@ -182,7 +188,8 @@ const Nav = ({ ueberHero = false }: { ueberHero?: boolean }) => {
       >
         <div className="flex h-14 items-center justify-between px-4">
           <div className="flex items-center">
-            <Image src="/assets/logo-white.png" alt="OneFam" width={656} height={137} className="h-6 w-auto" />
+            {/* dieselbe Groesse wie im Kopf daneben */}
+            <Image src="/assets/logo-white.png" alt="OneFam" width={656} height={137} className="h-5 w-auto" />
           </div>
           <button aria-label={t('menu_close')} className="text-primary" onClick={() => setOpen(false)}>
             <X size={26} strokeWidth={1.5} />
