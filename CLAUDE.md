@@ -1,248 +1,97 @@
-# CLAUDE.md
+# onefam — Arbeitsanweisungen
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Antworte auf **Deutsch**, in klaren kurzen Sätzen. Keine Anglizismen, wo es ein
+deutsches Wort gibt.
 
-## Commands
+Kurz halten: hier steht nur, was in **jeder** Sitzung gilt. Alles Ausführliche
+liegt in `docs/` und wird von hier verlinkt.
 
-**Node is not on PATH.** Prefix every node/npm command:
+---
 
-```bash
-export PATH="$HOME/.local/node/bin:$PATH"
-```
+## Die zwei Systeme
 
-| Task | Command |
+| | |
 |---|---|
-| Dev server | Use the Browser pane (`preview_start` with `{name: "onefam-dev"}`, see `.claude/launch.json`) — not Bash. Manually: `npm run dev` (Next + Turbopack, port 3000) |
-| Production build | `npm run build` |
-| Lint | `npm run lint` |
-| Typecheck | `npx tsc --noEmit` (both lint and tsc are expected to be clean) |
-| Draw-engine tests | `node lib/draw/engine.test.mjs` — self-contained assertions, exits non-zero on failure |
-| Pool-accounting tests | `node --experimental-strip-types lib/pool/accounting.test.ts` — checks the money math against the numbers in the Margenrechner spreadsheet. `*.test.ts` is excluded from `tsconfig.json` because it imports with an explicit `.ts` extension, which only node understands |
-| Monatsabrechnung tests | `node --experimental-strip-types lib/pool/abrechnung.test.ts` — guards the promise that overhead never debits the pool (test 3 fails if someone lifts it) |
+| **Brand-Site** | `onefam.ch` — Next.js 15, Repo `OneFamAdmin/Webseite-OneFam`, Branch `main`. **Jeder Push nach `main` deployt sofort auf Vercel.** Das ist dieses Verzeichnis. |
+| **Shop** | `shop.onefam.ch` — WordPress, Divi, WooCommerce, Plugin Code Snippets, Produkte über **PodOS** (Print-on-Demand). Liegt **nicht** in diesem Repo. |
 
-Migrations are **not** applied by any script. Numbered files in `supabase/migrations/` are pasted into the Supabase SQL editor by the user (or applied with the Supabase MCP `apply_migration`). Every migration so far is additive; never edit one that has already been applied — add a new numbered file.
+Sprachen sind **Deutsch, Englisch, Französisch, Spanisch** — *kein Italienisch*
+(geprüft am 02.09.2026: `messages/{de,en,fr,es}.json`, `/it` ist keine Route).
 
-## Architecture
+Auf der Brand-Site sind aber **nur** Startseite, `/join` und die drei Rechtstexte
+übersetzt; alles andere ist bewusst deutsch. Wo übersetzt wird, gilt: eine
+Textänderung ist erst fertig, wenn alle vier Sprachen nachgezogen sind — ein
+Commit je Sprache.
 
-Next.js 15 App Router · React 19 · TypeScript strict · Tailwind v4 · Supabase · deployed on Vercel (`main` → auto-deploy). Path alias `@/*` → repo root.
+---
 
-### Middleware does two jobs, and order matters
+## Was Labi selbst macht — nie ohne ihn
 
-`middleware.ts` runs locale routing *and* Supabase session refresh in one pass. Two traps:
+* **Passwörter und Anmeldungen.** Nie tippen, nie vorschlagen, nie in eine Datei schreiben.
+* **`git push`** und alles, was einen Deploy auslöst. **Vorher fragen, immer.**
+* **Zugangsdaten in Vercel** (Umgebungsvariablen, Secrets) ändern oder löschen.
+* **Bestellungen, Zahlungen, Testkäufe.**
 
-1. **Never build a fresh `NextResponse.next()` and return it** — that silently discards next-intl's locale rewrite and the whole site falls back to English with no error. Supabase cookies are *set onto* the intl response.
-2. **`OHNE_SPRACHE`** lists the path prefixes that live outside `app/[locale]/` (`/admin`, `/api`, `/auth`, `/login`, `/mein-bereich`, `/archiv`, `/join/bestaetigen`, `/dev`, `/design`) plus `DATEIEN_OHNE_SPRACHE` (`/sitemap.xml`, `/robots.txt`). They still pass *through* the middleware (they need the session) but bypass next-intl. Translating a page = move it under `app/[locale]/`, add the messages, **and** remove it from this list — otherwise it 404s or stays untranslated.
+Sonst gilt: so viel wie möglich selbst erledigen und nur melden, was Labi zwingend
+selbst tun muss.
 
-### i18n
+---
 
-`next-intl`, locales `en` (default, **no prefix**) · `de` · `fr` · `es`, mirroring shop.onefam.ch's URL model. Config lives entirely in `i18n/routing.ts` (locale list, `localePrefix: 'as-needed'`, `localeDetection: false`, plus the `homePath`/`joinPath`/`legalPath`/`shopUrl` helpers — use these instead of hardcoding prefixed URLs).
+## Preise — nur eine gültige Quelle
 
-There is **no `app/page.tsx`**. The prefix-less English site is served by `app/[locale]/page.tsx` through the internal `/` → `/en` rewrite. Only the home page, `/join` and the three legal pages are localised; everything else is German-only by design.
+| | Hoodie | Sweater | Shirt |
+|---|---|---|---|
+| **CHF** | 75 | 65 | 40 |
+| **EUR** (Festpreis) | 69,99 | 59,99 | 34,95 |
 
-Locale detection is deliberately hand-rolled in `i18n/geo.ts` (cookie → non-English `Accept-Language` → Vercel country header → English), *not* next-intl's — hence `localeDetection: false`. Turning it back on would produce two competing redirects.
+Gilt für **alle** Produkte, Länder wie Logo-Linien, ohne Ausnahme.
 
-Messages: `messages/<locale>.json` merged in `i18n/request.ts` with `messages/legal/<locale>.json` under the `legal` namespace (legal texts change at a different rhythm and would swamp the main file). All four locales must be edited together — commits here are one language per commit.
+**⛔ 82,50 / 71,50 / 44,00 ist kein Preis, sondern ein Fehlerbild.** So sieht es aus,
+wenn der EUR-Festpreis auf einer Variation fehlt und hochgerechnet wird.
 
-### Supabase and the auth boundary
+**Die WooCommerce-Store-API taugt zum Preismessen nicht** — sie zeigt immer den
+umgerechneten Wert, auch für gesunde Produkte. Belastbar ist nur die
+`wc/v3`-Schnittstelle im eingeloggten wp-admin oder die gerenderte Produktseite.
 
-Three clients, and picking the wrong one is a security bug:
+**Währung folgt dem Gerät, nicht dem Standort:** Zeitzone → IP-Land → Browsersprache.
+Ein Schweizer in Deutschland soll CHF sehen — **Absicht, kein Fehler.** Die
+Umschalter sind bewusst abgeschaltet. Mechanik und Testhinweise:
+`docs/shop-und-pool-details.md`.
 
-- `lib/supabase/client.ts` — browser.
-- `lib/supabase/server.ts` — Server Components / Actions / Route Handlers, **user-scoped**. Used deliberately for voting (`app/actions/reiseziel.ts`) so RLS does the gating: buyer status, round open, deadline, option-belongs-to-round are all enforced in SQL, not in TypeScript.
-- `lib/supabase/admin.ts` — service role, **bypasses RLS, server-only**. Never import from a `'use client'` file.
+---
 
-Admin access is an `user.email === process.env.ADMIN_EMAIL` check repeated in each admin page and action — there is no middleware gate. Any new file under `app/admin/` must do the check itself.
+## Arbeitsregeln
 
-### Domain modules
+1. **Vor dem Bauen nachsehen, ob es das schon gibt.** Der Shop hat 89 Snippets. Für
+   Währung, Preis-Festwerte und Kollektionspreise gibt es fertige Mechanismen.
+   Doppelt gebaute Lösungen arbeiten gegeneinander.
+2. **Messen, nicht raten.** Ausgeloggt messen, ohne Cache-Umgehung, ohne
+   Query-Parameter — sonst misst man nicht das, was Besucher sehen.
+3. **Bei „alle" auch alle prüfen**, nicht drei Stichproben. Und nie zweimal dieselbe.
+4. **Ein Suchmuster ist erst ein Befund, wenn geprüft ist, dass es das Richtige trifft.**
+5. **Bei einem Fehler, den ich nicht sehe, zuerst fragen: gibt es eine Seite, auf der
+   es richtig aussieht?** Das löst mehr als jede weitere Messrunde.
+6. **Bevor ein Fehler dem Zulieferer zugeschrieben wird, die Quelle messen.**
+7. **Nichts auf der öffentlichen Seite darf etwas versprechen, das die AGB verneinen.**
+8. **Snippets im Shop nur über die REST-Schnittstelle speichern** — der Formularknopf
+   verwirft programmatisch gesetzten Code stillschweigend. Und bei 2,4 MB antwortet
+   der Server mit leerem Rumpf: die Fehlermeldung sagt **nichts** darüber aus, ob
+   gespeichert wurde. Immer die Zeichenlänge im Editor nachprüfen.
+9. **Kein JavaScript direkt in ein Code-Snippet.** Das Plugin schaltet den Snippet
+   dann selbsttätig ab. CSS-only oder eigener Hook.
+10. **Wer einen Produkt-Slug ändert, muss im Router-Snippet die fest verdrahteten
+    Adressen nachziehen.** Die Preis-Zuordnung läuft über den Slug; eine 301 rettet
+    den Besucher, aber nicht die Zuordnung. Belegt in `docs/shop-preisanzeige.md`.
+11. **Bei Steuer- und Zollfragen zuerst in die Projektunterlagen sehen, nicht ins
+    Gesetz.** Es liegen schriftliche Auskünfte von ESTV, BAZG und deutscher
+    Zollverwaltung vor; sie beantworten mehr als man vermutet und widersprechen teils
+    der eigenen Herleitung. → `docs/behoerden-mwst-zoll.md`
+12. **Bei rechtlich heiklen Punkten** (Widerruf, AGB, Auswahl-Mechanik) nicht selbst
+    entscheiden, sondern markieren und nachfragen.
+13. Neue Methoden aus AI-Workflow-Videos werden gegen die bestehende Pipeline
+    getestet, nicht auf Zuruf übernommen.
 
-- **Draw** (`lib/draw/`) — `engine.mjs` is pure and dependency-free (plain `.mjs` + `.d.mts` so it runs under bare `node` for the test); `drand.ts` fetches public League-of-Entropy randomness. Draws are reproducible from `(entries, pool, refCost, randomness)` and publish a commitment hash; the archive is verifiable without exposing e-mails.
-- **Pool accounting** (`lib/pool/`) — `accounting.ts` is pure (`margin = gross − COGS − Versand − fees`, `credit = max(0, margin) × share`; a losing order never debits the pool, wages are never taken from it); `service.ts` writes `pool_ledger` rows and a DB trigger moves `pool_state.amount_chf`. Idempotent via a unique partial index on `pool_ledger(ref)`.
-- **Monatsabrechnung / P3** (`lib/pool/abrechnung.ts` + `/admin/pool/abrechnung`, Migration `0014`) — stellt Marge, Pool und Fixkosten eines Monats gegenüber. **`overhead_costs` ist eine eigene Tabelle und schreibt nie ins `pool_ledger`:** Lohn, Hosting und Werbung sind Kosten des Unternehmens, nicht Kosten eines Verkaufs — zöge man sie vom Pool ab, wäre die Zusage „ein Anteil am Gewinn geht in den Pool" eine andere als die gemachte. Ist ein Monat rot, behält der Pool trotzdem alles; die Lücke trägt die Firma. Der Ledger-Typ `'overhead'` aus `0007` bleibt deshalb ungenutzt.
-  `purchases.gross_chf` trug bis `0014` die **rohe Bestellsumme in der Währung der Bestellung** — `/admin/pool` summierte EUR und CHF in einen Topf. Seither: `gross_original` + `currency` = wie bezahlt, `gross_chf` = Franken, gesetzt erst von `service.ts` (leer = noch nicht abgerechnet, **nicht** null Umsatz).
-- **Fixkosten werden nach KASSE gebucht, nicht abgegrenzt** (Entscheidung des Inhabers, 01.09.2026). Eine Jahresrechnung steht mit ihrem vollen Betrag im Monat der **Abbuchung**, nicht anteilig über zwölf Monate. Grund: die Abrechnung soll Zeile für Zeile mit dem Bankauszug übereinstimmen — eine Einzelfirma denkt in dem, was vom Konto geht. Der Preis dafür ist bekannt und akzeptiert: Monate mit einer Jahresrechnung springen nach oben, die übrigen sehen besser aus, als sie sind. Wer das später auf anteilige Buchung umstellt, ändert die Bedeutung jeder bestehenden Zeile — dann alle Altzeilen mit umrechnen, nicht nur die neuen.
-  Laufende Kosten, Stand 01.09.2026: **Claude Max € 107.10/Monat** und **Higgsfield € 135.15/Monat** (hängt am Dollar, schwankt — Betrag monatlich prüfen), beide in EUR und deshalb mit `amount_original`/`currency` erfasst. Infomaniak in CHF: **Web Hosting 1 141.50/Jahr** (fällig August, trägt den WooCommerce-Shop — `shop.onefam.ch` zeigt auf einen Infomaniak-Server, `onefam.ch` auf Vercel), **onefam.ch 10.70/Jahr** (fällig Mai), **loco-motive.ch 32.05 für drei Jahre** bis 08.11.2028. **Vercel, Supabase, Make und Airtable kosten derzeit nichts** — nicht vergessen, wenn dort ein Tarif greift.
-- **WooCommerce** (`app/api/woo/webhook/route.ts` + `lib/woo/`) — der Shop-Pfad seit dem 01.09.2026; der frühere Shopify-Code ist entfernt (es gibt keinen Shopify-Store mehr). HMAC-SHA256 base64 über den **Rohtext** gegen `X-WC-Webhook-Signature`, Käufer über die Bestell-E-Mail, ohne Konto → `pending_buyers`, befördert in `app/auth/callback/route.ts`. Drei Dinge weichen von Shopify ab und sind im Code kommentiert:
-  1. **Kein `orders/paid`.** WooCommerce sendet nur `order.created`/`order.updated`; bezahlt/rückabgewickelt steht im Feld `status` (`processing`/`completed` bzw. `refunded`/`cancelled`/`failed`).
-  2. **Der Idempotenzschlüssel enthält den Status** (`order:<id>:<status>`). Ohne ihn würde nur die erste Meldung je Bestellung verarbeitet und eine spätere Retoure stillschweigend verschluckt.
-  3. **Der Einrichtungs-Ping** trägt weder Signatur noch Thema (Rumpf `webhook_id=<n>`) und muss mit 200 beantwortet werden — sonst lässt WooCommerce den Webhook gar nicht erst aktiv werden.
-- **PodOS** (`lib/podos/client.ts`) — read-only COGS sync, ShirtKing's print backend.
-
-### Design system
-
-- `lib/brand.ts` holds the brand gradient — the single source for the logo mark, the pool number and every "Join the Fam" CTA. Don't inline the stops.
-- `app/globals.css` defines the dark palette and fonts as CSS vars, exposed to Tailwind through `@theme inline` (`bg-bg`, `text-secondary`, `text-gold`, `font-display`, `font-body`) plus a set of custom breakpoints (`md-1`, `lg-2`, `xl-3`, …). Use the tokens, not raw hex.
-- Fonts are local variable woff2 loaded via `next/font/local` in `app/layout.tsx` (Cabinet Grotesk = display, Satoshi = body).
-- Shared primitives: `MaxWidth` (1680px + responsive padding), `Nav` (`ueberHero` on the home page only), `SectionBg`, `Reveal` (framer-motion, `MotionConfig reducedMotion="user"` from `layout/index.tsx`).
-
-### SEO
-
-`SITE_URL` in `lib/seo.ts` is hardcoded to `https://onefam.ch` on purpose — deriving it from the environment would make every Vercel preview declare itself canonical. `next.config.ts` adds `X-Robots-Tag: noindex` for any `*.vercel.app` host and redirects the retired `loco-motive.ch` domain.
-
-## Current state — read before touching the funnel
-
-The site is in a **trust-first** configuration: the free-entry draw and the buyer voting are built and tested but **parked pending legal sign-off**. `/join` is a plain waitlist (`app/actions/join.ts` → `waitlist` table, migration `0008`), `/reiseziel` has been **deleted** while several links and `revalidatePath('/reiseziel')` calls still point at it, and `HowItWorks`, `DestinationVote`, `JoinForm`, `CountUp`, `ReisezielVoting` are intentionally parked in `components/` unreferenced. Don't "clean up" these as dead code — they are the reactivation path, described in `docs/handover-shop-pool.md`.
-
-`/dev` and `/design` are internal preview routes (map/face experiments) to be removed before the public launch.
-
-## Conventions
-
-- Comments are German, long, and explain **why** a decision was made — often with the date it changed and what the previous behaviour broke. When you change one of these decisions, update its comment rather than deleting it; that history is the reason the same bug hasn't been reintroduced.
-- Commit messages are German, lower-case-ish, plain-ASCII (`ue`/`ae`/`oe` for umlauts), describing the effect: `Kopfzeile: Verlauf statt Balken mit Kante`.
-- Legal/company facts (address, phone) live in `lib/schema.ts`, deliberately **not** in the translation files — they must not vary by language. Change them together with the Impressum.
-- Secrets belong in `.env.local` (see `.env.local.example`) and Vercel env vars only. `NEXT_PUBLIC_*` are baked at build time — changing one requires a redeploy.
-
-# onefam — Projektkontext
-
-> Dieser Block gehört unter den von `/init` erzeugten technischen Teil.
-> Kurz halten: hier stehen nur Fakten, die in **jeder** Session gebraucht werden.
-> Lange Prozeduren (Länderlauf) gehören in einen Skill, nicht hierher.
-
-> **Vorrang (01.09.2026):** Wo dieser Block dem technischen Teil oben widerspricht,
-> gilt der technische Teil — er ist gegen den Code geprüft, dieser Block beschreibt
-> teils einen älteren Planungsstand. Die betroffenen Stellen sind unten einzeln
-> mit „**Stand:**" markiert.
-
-## Was onefam ist
-
-onefam ist eine bestehende Marke, Schweizer Einzelfirma — kein Greenfield-Projekt.
-Kleidung plus Community. Der Shopify-Shop ist live; dieses Repo ist der Rebuild
-der Webseite mit Shopify-Anbindung.
-
-Daneben existiert die **Länderlinie** auf `shop.onefam.ch` (WooCommerce, separat
-von diesem Repo): pro Land ein Hoodie, ein Sweater und ein Shirt, produziert über
-PodOS auf Stanley/Stella-Blanks. Argentinien, Albanien, Afghanistan und Andorra
-sind live.
-
-> **Stand (01.09.2026, live geprüft + vom Inhaber bestätigt):** Stimmt —
-> `shop.onefam.ch` ist **WordPress/WooCommerce** (Divi, Polylang, Plugin
-> *CURCY — Multi Currency*, WooCommerce 10.9.4). **Einen Shopify-Store gibt es
-> nicht mehr**; `docs/handover-shop-pool.md` und `docs/shopify-*.md`
-> beschreiben ein abgeschaltetes System. WooCommerce ist per Webhook an
-> **PodOS/ShirtKing** angebunden (Produktion), die Webseite hängt bisher an
-> **nichts** davon.
->
-> **Zugang für Claude:** REST-API v3 unter `https://shop.onefam.ch/wp-json/wc/v3/`,
-> Basic-Auth mit `WOO_KEY`/`WOO_SECRET` aus `.env.local` (**nur Leserechte**).
-> Ohne Schlüssel liefert die öffentliche Store-API (`/wp-json/wc/store/v1/`)
-> bereits Katalog, Preise und Warenkorb-Verhalten.
->
-> **LIVE seit 01.09.2026:** Webhook id 4 („OneFam Webseite — Kaeufer & Pool",
-> `order.updated` → `https://onefam.ch/api/woo/webhook`) ist aktiv, das Geheimnis
-> liegt in Vercel und `.env.local`. Ende-zu-Ende geprüft mit einer signierten
-> Kunstbestellung: `purchases` → `pending_buyers` → `pool_ledger` → `pool_state`,
-> Retoure bucht zurück, Doppelläufer werden abgewiesen; alle Testspuren entfernt.
->
-> **Pool-Anteil: 10 % der Marge** (Migration `0013`, gesetzt am 01.09.2026).
-> Bewusst ein Startwert — er steht in `cost_config.pool_share_pct` und nirgends im
-> Code, damit ein späteres Anheben eine einzeilige Migration bleibt.
->
-> **Pool-Rechnung seit Migration `0010` vollständig** (vorher: COGS = 0, der Anteil
-> lag also faktisch auf dem Bruttoumsatz statt auf dem Gewinn). Quelle aller Zahlen ist
-> `~/Downloads/OneFam_Margenrechner_20260807_1.xlsx` (Einkauf Shirt-King,
-> 07.08.2026) — ändert sich dort etwas, gehört es in `0010` nachgezogen:
-> - `product_costs`: 42 Zeilen, Schlüssel = **WooCommerce-`product_id` als Text**
->   in der `sku`-Spalte (der Shop führt nirgends eine SKU). Shirt 14.12,
->   Sweater 24.76, Hoodie 30.17 CHF — Rohteil + DTG + Handling, +19 % deutsche
->   USt., Kurs 0.925.
-> - `shipping_costs`: was Shirt-King je Land vom PodOS-Guthaben abzieht. **Nicht**
->   die Versandpauschale des Kunden — die steckt bereits in der Bestellsumme und
->   muss gegengerechnet werden, sonst wäre Versand reiner Gewinn. Seit Migration
->   `0012` mit der **echten Staffel aus dem Portal** (44 Tarife, 22 Länder inkl.
->   Rückfall `*`), am 01.09.2026 direkt von `client.shirt-king.cloud` gelesen.
-> - `cost_config.fx_eur_chf`: **der einzige Wechselkurs im System.** Fehlt er,
->   wirft `creditPoolForOrder` bei einer EUR-Bestellung, statt Euro als Franken zu
->   verbuchen (~8 % zu viel).
->
-> Live nachgerechnet am 01.09.2026, deckungsgleich mit `accounting.test.ts`:
-> Hoodie CHF 75 + 7 Versand nach DE → Kosten 35.23, Gebühr 2.68, Marge 44.09,
-> **Pool 4.41** (= 10 % der Marge). Vor `0010` wären es 15.86 gewesen — das war
-> aber der Anteil vom Umsatz, nicht vom Gewinn; die beiden Zahlen sind nicht
-> vergleichbar.
->
-> **⚠️ Die ganze Kalkulation steht unter einem Vorbehalt** (Stand 02.09.2026): Die
-> Ware startet in Teltow, umsatzsteuerlich findet der Verkauf also in **Deutschland**
-> statt. Ob OneFam dort registrierungspflichtig ist, ist **nicht geklärt** — das
-> Finanzamt Konstanz wurde nie angeschrieben, obwohl der deutsche Zoll ausdrücklich
-> dorthin verweist. Kommt die Pflicht, ist es **nicht** mit `supplier_vat_pct` getan:
-> dann muss auch der **Umsatz netto** gerechnet werden, und `creditPoolForOrder`
-> bekommt heute die Bruttosumme als Ertrag. Gerechnet für einen Hoodie nach DE:
-> Marge 44.09 → 36.62, Pool 4.41 → 3.66 (−16,9 %). Die abziehbare Vorsteuer (+5.63)
-> ist der kleinere Posten, die Umsatzsteuerschuld (−13.09) der grössere.
-> Vollständiger Behördenstand und die offenen Punkte: `docs/behoerden-mwst-zoll.md`.
-
-> Die Versandkosten tragen **19 % deutsche USt.** (Migration `0011`). Shirt-King
-> stellt eine Rechnung über die gesamte Leistung, und der Versand steht innerhalb
-> der Bemessungsgrundlage — belegt durch Rechnung `inv-skc-26-30031` vom
-> 07.08.2026: `6.64 + 5.50 + 0.69 + 4.21 = 17.04` netto, darauf 19 % = 20.28 EUR.
-> `shipping_costs.cost_eur` trägt weiterhin den **Netto**-Tarif, damit die Zahl mit
-> der Shirt-King-Preisliste vergleichbar bleibt; der Aufschlag steht als
-> `cost_config.supplier_vat_pct` an einer Stelle. Ohne ihn bekam der Pool rund
-> 0.16 CHF je Bestellung zu viel. **Offen:** ob bei Ausfuhr (CH/GB/NO) 0 % gilt —
-> ungeprüft, es gab noch keine solche Bestellung; bis dahin überall 19 %, was im
-> Zweifel zu hohe Kosten annimmt.
->
-> `accounting.test.ts` prüft dieselbe Bestellung zusätzlich in EUR gegen Zelle S7
-> des Blattes „Kalkulation" — beide Rechenwege müssen sich treffen.
->
-> **Die Versandstaffel läuft nicht über Gewichtsklassen.** Shirt-King führt je Land
-> genau zwei Tarife, und sie heissen wörtlich `"<Land> 1 T-Shirt"` und
-> `"<Land> ab 2 T-Shirts / 1 Hoodie / 1 Tasse"`. Die Grenze liegt bei **genau einem
-> Shirt** — zwei Shirts kosten bereits den teuren Tarif, nicht erst ein Hoodie.
-> `versandstufe()` in `lib/pool/accounting.ts` bildet das ab und ist dort getestet.
-> Bis Migration `0012` war es als `light`/`heavy` modelliert; zwei Shirts nach
-> Norwegen kosteten dadurch 6.27 statt 21.46 CHF.
->
-> Eine dritte Stufe gibt es in der Preisliste **nicht**: zwei Hoodies kosten dort
-> dasselbe wie einer. Sollte Shirt-King für grössere Sendungen mehr verrechnen,
-> steht das nicht in der Liste und liesse sich nur an einer echten Rechnung
-> ablesen. Ein Land ohne eigenen Eintrag bekommt den internationalen Tarif (`*`) —
-> ebenfalls eine Zeile der Liste, kein Schätzwert.
->
-> Unsauber ist nur Deutschland: national gibt es `DHL Warenpost 4.21` (durch
-> Rechnung bestätigt, 1 Shirt) und `DHL Paket National 4.60`, aber keinen Tarif mit
-> „1 Hoodie" im Namen. Warenpost trägt keinen Hoodie, also bleibt das Paket; einen
-> teureren nationalen Tarif führt die Liste nicht.
->
-> **Bestandsaufnahme (01.09.2026):**
-> - 42 Produkte (18 `publish`, 24 `private`), alle `variable`
-> - **Keine einzige SKU** — weder Produkt, Variante noch Bestellposition. Der
->   COGS-Zuordnungsschlüssel in `lib/pool/accounting.ts` (`product_costs.sku`)
->   läuft damit garantiert ins Leere. Einziger stabiler Schlüssel: `product_id`.
-> - 5 Bestellungen (4 storniert, 1 `processing`), **gemischte Währungen CHF und
->   EUR** — die Pool-Rechnung kennt bisher nur eine Währung, hier fehlt eine
->   Umrechnung auf CHF.
-> - 0 Kunden mit Konto (Gastbestellungen) → Käufer-Erkennung muss wie beim
->   Shopify-Entwurf über die **E-Mail** der Bestellung laufen, nicht über Konten.
-> - Bestellpositionen tragen `variation_id = 0`, Grösse/Farbe stehen nur im
->   `name` („Argentina Shirt - XS, Black"). Ungewöhnlich für ein variables
->   Produkt — vermutlich Folge des eigenen Warenkorb-Handlers
->   (`of_warenkorb_hinzu`). **Vor der Portierung prüfen, ob PodOS daraus die
->   richtige Variante ableitet.**
-> - 3 Webhooks: zwei auf `connector.api.podos.io` (einer aktiv, einer doppelt und
->   deaktiviert), einer deaktiviert auf `onefam/v1/whlog-…`. **Beim Anlegen eines
->   eigenen Webhooks den aktiven PodOS-Hook nicht anfassen.**
-
-## Travel Pool
-
-Der Live-Zähler zeigt den **Nettoumsatz nach Kosten** (Shopify, Hosting, Domains,
-Arcads) — nicht den Bruttoumsatz. Animiert.
-
-- Die Detail-Aufschlüsselung sehen **nur Käufer**.
-- Gating passiert **serverseitig über den Shopify App Proxy**, nie clientseitig.
-- Datenbasis ist ein Postgres-Ledger, per Shopify-Webhooks synchronisiert,
-  plus stündlicher Snapshot-Job.
-- **Kein Countdown.** Nirgends.
-
-> **Stand:** Gebaut ist das anders — und das Gebaute gilt. Käufer-Gating läuft über
-> **Supabase-RLS + `buyers`-Tabelle**, die Ledger-Zuschreibung über **Shopify-Webhooks**
-> (`app/api/shopify/webhook`, Ledger `pool_ledger` in Supabase/Zürich, Migration `0007`).
-> **Kein App Proxy, kein Snapshot-Job.** Der Live-Zähler ist im Trust-first-Stand
-> ausgebaut (`CountUp` geparkt) — es gibt derzeit gar keine öffentliche Pool-Zahl.
-> Der Grundsatz „Gating nie clientseitig" gilt unverändert.
->
-> Zum Countdown: `components/Countdown.tsx` liegt ungenutzt im Repo, die geparkte
-> gestufte Abstimmung arbeitet aber pro Phase mit einer Frist (Text „Countdown" in
-> `/admin/voting` und `/mein-bereich`). Öffentlich sichtbar ist keiner.
+---
 
 ## Sprachregeln (rechtlich relevant — nicht abweichen)
 
@@ -255,102 +104,229 @@ Der gesamte Launch-Text muss vor dem Livegang gegengelesen werden.
 Wenn dir eine Formulierung einfällt, die in diese Richtung geht: nicht schreiben,
 sondern nachfragen.
 
-## Design-System
+---
 
-- Hintergrund `#0A0A0A`
-- Gold-Akzent `#C9A84C`
-- Schriften: Cabinet Grotesk (Headlines) + Satoshi (Fließtext)
-- Mobile-first
+## Befehle
 
-Ausdrücklich nicht erwünscht: Countdown-Timer, Gradients, Glow-/Orb-Effekte,
-Stockfotos. Wenn ein Platzhalterbild nötig ist, lieber eine flache Fläche als
-ein Stockfoto.
+**Node ist nicht im PATH.** Jedem node/npm-Befehl voranstellen:
 
-> **Stand:** „Keine Gradients" gilt so **nicht mehr**. Der Marken-Verlauf aus
-> `lib/brand.ts` (`BRAND_GRADIENT`, Gold → Orange → Pink → Magenta → Violett) ist
-> bewusst gesetzt und trägt Gesichtsmarke, Pool-Zahl und jeden „Join the Fam"-Knopf;
-> die Kopfzeile blendet seit `b539cef` mit einem Verlauf aus, statt mit einer Kante
-> abzuschliessen. Aktiv in `Nav`, `Hero`, `FinalCta`, `TravelPool`, `WhyWeDoThis`.
-> Gemeint ist die Regel heute enger: **keine dekorativen Verläufe, kein Glow, keine
-> Orbs** — der eine Marken-Verlauf ist die Ausnahme und kommt immer aus `lib/brand.ts`.
-> Gold `#C9A84C` und Hintergrund `#0A0A0A` stimmen unverändert (`app/globals.css`).
+```bash
+export PATH="$HOME/.local/node/bin:$PATH"
+```
 
-## Preise
+| Aufgabe | Befehl |
+|---|---|
+| Dev-Server | Browser-Pane (`preview_start` mit `{name: "onefam-dev"}`), **nicht** Bash |
+| Produktionsbau | `npm run build` |
+| Lint · Typen | `npm run lint` · `npx tsc --noEmit` (beide sind sauber zu halten) |
+| Ziehungs-Tests | `node lib/draw/engine.test.mjs` |
+| Pool-Tests | `node --experimental-strip-types lib/pool/accounting.test.ts` |
+| Abrechnungs-Tests | `node --experimental-strip-types lib/pool/abrechnung.test.ts` |
 
-Die Basispreise sind in **CHF** und korrekt. Ungerade EUR-Beträge im Shop sind
-nur das Währungs-Plugin, das mit Faktor 1.1 umrechnet — kein Bug, nicht
-„korrigieren".
+`*.test.ts` ist aus `tsconfig.json` ausgeschlossen, weil es mit expliziter
+`.ts`-Endung importiert — das versteht nur node.
 
-> **Stand (01.09.2026):** So funktioniert die Währungswahl im WooCommerce-Shop —
-> nachgemessen, weil CHF-Preise auf einer deutschen Leitung erschienen:
->
-> 1. Ein Inline-Skript liest **`Intl.DateTimeFormat().resolvedOptions().timeZone`**
->    und setzt das Cookie `of_geo=ch` bei `Europe/Zurich|Vaduz|Busingen`, sonst
->    `of_geo=x` — Laufzeit **ein Jahr**, danach einmal `location.reload()`.
-> 2. Der Server setzt daraufhin `wmc_current_currency`: mit `of_geo=ch` → **CHF**,
->    sonst nach IP → für deutsche IPs **EUR**.
->
-> **`of_geo` schlägt die IP.** Ein Mac mit Schweizer Zeitzone sieht CHF, egal in
-> welchem Land er surft — das ist der Grund, warum die Preise auf einer deutschen
-> Leitung in CHF erscheinen und im Kopf „CHF Fr." steht. Für echte deutsche Kunden
-> (Zeitzone `Europe/Berlin`) greift korrekt EUR. Beim Testen der EU-Ansicht also
-> **Cookie `of_geo` löschen** oder ein Gerät mit passender Zeitzone nehmen —
-> ein privates Fenster allein genügt nicht, das Skript setzt `of_geo` sofort neu.
+**Migrationen laufen über kein Skript.** Nummerierte Dateien in
+`supabase/migrations/` werden im Supabase-SQL-Editor eingefügt oder über den
+Supabase-MCP angewendet. Alle bisherigen sind additiv; **nie eine schon angewendete
+ändern** — immer eine neue Nummer.
 
-## Ländermodelle (Bildproduktion)
+---
 
-- Supermodel-Niveau
-- Ethnizität passend zum jeweiligen Land
-- Mann und Frau eines Paares dürfen **nicht wie Geschwister aussehen**
-- Kein ByteDance-4K-Upscale: schärft Gesichter, erfindet aber eine Rippenstruktur
-  im Stoff
+## Architektur
+
+Next.js 15 App Router · React 19 · TypeScript strict · Tailwind v4 · Supabase ·
+Vercel (`main` → Auto-Deploy). Pfad-Alias `@/*` → Repo-Wurzel.
+
+### Middleware macht zwei Dinge, und die Reihenfolge zählt
+
+`middleware.ts` erledigt Sprach-Routing **und** Supabase-Session in einem Durchlauf.
+Zwei Fallen:
+
+1. **Nie ein frisches `NextResponse.next()` bauen und zurückgeben** — das verwirft
+   still die Sprach-Umschreibung von next-intl, und die ganze Seite fällt ohne
+   Fehlermeldung auf Englisch zurück. Supabase-Cookies werden *auf* die
+   intl-Antwort gesetzt.
+2. **`OHNE_SPRACHE`** listet die Pfade ausserhalb von `app/[locale]/` (`/admin`,
+   `/api`, `/auth`, `/login`, `/mein-bereich`, `/archiv`, `/join/bestaetigen`,
+   `/dev`, `/design`) plus `DATEIEN_OHNE_SPRACHE` (`/sitemap.xml`, `/robots.txt`).
+   Sie laufen weiter *durch* die Middleware (sie brauchen die Session), umgehen aber
+   next-intl. Eine Seite übersetzen = unter `app/[locale]/` verschieben, Texte
+   ergänzen **und** aus dieser Liste nehmen — sonst 404 oder unübersetzt.
+
+### i18n
+
+`next-intl`, Sprachen `en` (Standard, **ohne Präfix**) · `de` · `fr` · `es`. Die
+Konfiguration steht vollständig in `i18n/routing.ts` — auch die Helfer `homePath`,
+`joinPath`, `legalPath`, `shopUrl`; die benutzen statt Adressen zu tippen.
+
+Es gibt **kein `app/page.tsx`**. Die präfixlose englische Seite kommt aus
+`app/[locale]/page.tsx` über die interne Umschreibung `/` → `/en`.
+
+Die Spracherkennung ist bewusst von Hand gebaut (`i18n/geo.ts`: Cookie →
+nicht-englisches `Accept-Language` → Vercel-Länderkopf → Englisch), **nicht** die von
+next-intl — daher `localeDetection: false`. Wieder einschalten hiesse zwei
+konkurrierende Weiterleitungen.
+
+Texte: `messages/<locale>.json`, in `i18n/request.ts` verschmolzen mit
+`messages/legal/<locale>.json` unter dem Namensraum `legal`.
+
+### Supabase und die Auth-Grenze
+
+Drei Clients, und der falsche ist ein Sicherheitsfehler:
+
+- `lib/supabase/client.ts` — Browser
+- `lib/supabase/server.ts` — Server-Komponenten/Actions, **nutzergebunden**. Bewusst
+  fürs Voting benutzt, damit RLS die Prüfung übernimmt: Käuferstatus, offene Runde,
+  Frist — alles in SQL, nicht in TypeScript.
+- `lib/supabase/admin.ts` — Service-Rolle, **umgeht RLS, nur serverseitig**. Nie aus
+  einer `'use client'`-Datei importieren.
+
+Der Admin-Zugang ist eine `user.email === process.env.ADMIN_EMAIL`-Prüfung **in jeder
+Datei einzeln** — es gibt kein Middleware-Gate. Jede neue Datei unter `app/admin/`
+muss selbst prüfen.
+
+### Fachmodule
+
+- **Ziehung** (`lib/draw/`) — `engine.mjs` ist rein und ohne Abhängigkeiten (`.mjs` +
+  `.d.mts`, damit der Test unter blossem node läuft). Ziehungen sind aus
+  `(entries, pool, refCost, randomness)` reproduzierbar und ohne E-Mails prüfbar.
+- **Pool** (`lib/pool/`) — `accounting.ts` ist rein:
+  `Marge = Brutto − COGS − Versand − Gebühren`, `Gutschrift = max(0, Marge) × Anteil`.
+  Ein Verlustgeschäft belastet den Pool **nie**. `service.ts` schreibt
+  `pool_ledger`-Zeilen, ein DB-Trigger bewegt `pool_state.amount_chf`.
+  **Anteil: 10 % der Marge** (Migration `0013`) — bewusst ein Startwert, er steht in
+  `cost_config.pool_share_pct` und nirgends im Code.
+- **Monatsabrechnung** (`lib/pool/abrechnung.ts`, `/admin/pool/abrechnung`,
+  Migration `0014`) — **`overhead_costs` schreibt nie ins `pool_ledger`.** Lohn,
+  Hosting und Werbung sind Kosten des Unternehmens, nicht eines Verkaufs; zöge man
+  sie ab, wäre die Zusage „ein Anteil am Gewinn geht in den Pool" eine andere als die
+  gemachte. Ist ein Monat rot, behält der Pool alles. Test 3 in `abrechnung.test.ts`
+  scheitert, wenn das jemand aufhebt.
+- **WooCommerce** (`app/api/woo/webhook/route.ts` + `lib/woo/`) — HMAC-SHA256 base64
+  über den **Rohtext** gegen `X-WC-Webhook-Signature`. Drei Abweichungen von Shopify,
+  alle im Code begründet:
+  1. **Kein `orders/paid`** — nur `order.created`/`order.updated`; bezahlt bzw.
+     rückabgewickelt steht im Feld `status`.
+  2. **Der Idempotenzschlüssel enthält den Status** (`order:<id>:<status>`). Ohne ihn
+     würde eine spätere Retoure stillschweigend verschluckt.
+  3. **Der Einrichtungs-Ping** trägt weder Signatur noch Thema und muss mit 200
+     beantwortet werden — sonst wird der Webhook nie aktiv.
+- **PodOS** (`lib/podos/client.ts`) — nur lesender COGS-Abgleich.
+
+> **⚠️ Vorbehalt über der ganzen Kalkulation** (02.09.2026): Die Ware startet in
+> Teltow, umsatzsteuerlich findet der Verkauf in **Deutschland** statt. Ob dort
+> Registrierungspflicht besteht, ist **nicht geklärt**. Käme sie, wäre es nicht mit
+> `supplier_vat_pct` getan — dann müsste auch der **Umsatz netto** gerechnet werden,
+> und `creditPoolForOrder` bekommt heute die Bruttosumme als Ertrag. Für einen Hoodie
+> nach DE: Marge 44.09 → 36.62, Pool 4.41 → 3.66. → `docs/behoerden-mwst-zoll.md`
+
+### Design und Marke
+
+- `lib/brand.ts` hält den Marken-Verlauf — einzige Quelle für Gesichtsmarke,
+  Pool-Zahl und jeden „Join the Fam"-Knopf. Die Stufen nicht einbetten.
+- `app/globals.css` definiert Palette und Schriften als CSS-Variablen, für Tailwind
+  über `@theme inline` (`bg-bg`, `text-secondary`, `text-gold`, `font-display`,
+  `font-body`). **Tokens benutzen, keine rohen Hex-Werte.**
+- Hintergrund `#0A0A0A`, Gold `#C9A84C`. Cabinet Grotesk (Überschriften) + Satoshi
+  (Fliesstext), lokal als woff2 über `next/font/local`. Mobile-first.
+- **Nicht erwünscht:** Countdown-Timer, dekorative Verläufe, Glow, Orbs, Stockfotos.
+  Der eine Marken-Verlauf ist die Ausnahme — Hintergrund in
+  `docs/shop-und-pool-details.md`.
+- Wortmarke **nach Höhe skalieren**, nie nach Breite. Seitenverhältnis 4,81:1,
+  Strichstärke 17,5 Einheiten. Im Verbund sitzt sie auf **45 %** der Höhe der
+  Gesichtsmarke.
+- **SVG-Data-URIs ohne `width`/`height` versagen in iOS Safari** — echte Bilddatei
+  nehmen.
+- Bausteine: `MaxWidth` (1680 px), `Nav` (`ueberHero` nur auf der Startseite),
+  `SectionBg`, `Reveal`.
+
+### SEO
+
+`SITE_URL` in `lib/seo.ts` ist absichtlich fest auf `https://onefam.ch` — aus der
+Umgebung abgeleitet würde jede Vercel-Vorschau sich selbst als kanonisch ausgeben.
+`next.config.ts` setzt `X-Robots-Tag: noindex` für jeden `*.vercel.app`-Host.
+
+---
+
+## Bildproduktion (Modellbilder, Mockups)
+
+Läuft über Higgsfield. Diese Regeln gelten immer und werden nicht neu verhandelt:
+
+* **Keine Standbein-Posen.** Gewicht gleichmässig auf beiden Füssen, Hüfte gerade.
+* **Keine Oberkörperdrehungen.** Brustkorb frontal zur Kamera, sonst sitzt der flach
+  gestempelte Druck nicht.
+* **Motive immer auf hellem und auf dunklem Stoff ansehen.** Auf Weiss verschwinden
+  weisse Flaggenteile und damit die halbe Information.
+* Druckdateien vor dem ersten Bild gegen den Illustrator-Master prüfen, **nie** gegen
+  die SVG-Vorschau im Browser — die zeigt denselben Rotationsfehler und bestätigt ihn.
+* Ländermodelle: Supermodel-Niveau, Ethnizität passend zum Land, Mann und Frau eines
+  Paares dürfen **nicht wie Geschwister aussehen**.
+* **Kein ByteDance-4K-Upscale** — schärft Gesichter, erfindet aber eine Rippenstruktur
+  im Stoff.
+
+> Noch nicht in diesem Repo: `docs/RUNBOOK-laenderlauf.md`, `docs/REGEL-gesichter.md`,
+> `docs/REGEL-preise.md`. Sie liegen im claude.ai-Projekt und sollten hierher.
+
+---
+
+## Aktueller Stand — vor Arbeit am Trichter lesen
+
+Die Seite steht **trust-first**: die kostenlose Auswahl und das Käufer-Voting sind
+gebaut und getestet, aber **bis zur rechtlichen Freigabe geparkt**. `/join` ist eine
+schlichte Warteliste (`app/actions/join.ts` → `waitlist`, Migration `0008`),
+`/reiseziel` ist **gelöscht**, während mehrere Verweise noch dorthin zeigen.
+`HowItWorks`, `DestinationVote`, `JoinForm`, `CountUp`, `ReisezielVoting` liegen
+absichtlich unbenutzt in `components/`. **Nicht als toten Code aufräumen** — das ist
+der Weg zurück, beschrieben in `docs/handover-shop-pool.md`.
+
+`/dev` und `/design` sind interne Vorschauen und müssen vor dem Launch weg.
+
+---
+
+## Konventionen
+
+- Kommentare auf Deutsch, lang, und sie erklären **warum** — oft mit dem Datum der
+  Änderung und dem, was das alte Verhalten kaputt gemacht hat. Wer eine solche
+  Entscheidung ändert, **aktualisiert den Kommentar, statt ihn zu löschen**.
+- Commit-Nachrichten auf Deutsch, reines ASCII (`ue`/`ae`/`oe`), beschreiben die
+  Wirkung: `Kopfzeile: Verlauf statt Balken mit Kante`.
+- Rechts- und Firmenangaben (Adresse, Telefon) stehen in `lib/schema.ts`, bewusst
+  **nicht** in den Übersetzungen — sie dürfen nicht je Sprache abweichen.
+- Geheimnisse gehören in `.env.local` und die Vercel-Variablen. `NEXT_PUBLIC_*`
+  werden beim Bauen eingebacken — ändern heisst neu deployen.
+
+---
 
 ## Offene Baustellen
 
+- **Anfrage ans Finanzamt Konstanz** — nie gestellt, obwohl der deutsche Zoll
+  ausdrücklich dorthin verweist. Entwurf im claude.ai-Projekt.
+  → `docs/behoerden-mwst-zoll.md`
+- **Ausführer-Vereinbarung mit Shirt-King** — schriftlich festzulegen, vor dem ersten
+  echten Paket in ein Drittland.
 - Footer-Branding-Zeile untergräbt die Premium-Wirkung
 - Tote Links
-- ~~Shop, Startseite: Kopf sagt „CHF Fr.", die Produktkarten zeigen EUR~~ →
-  **behoben am 01.09.2026**, live geprüft. Das Karten-Skript riet die Kategorie aus
-  dem Slug der ersten Karte; jetzt merkt sich `renderFeat` das Land. Geändert im
-  Snippet „OneFam Seiten (Router v4 – final)" (Code Snippets `id=11`), Nachweis und
-  Weg zurück in `docs/shop-preisanzeige.md`. Die vier schiefen Produkt-Slugs
-  sind am selben Tag begradigt (`albania-hoodie`, `andorra-hoodie`, `andorra-sweater`,
-  `afghanistan-shirt`), alte Adressen leiten per 301 weiter.
-  **Wichtig für später:** wer einen Produkt-Slug ändert, muss im Router-Snippet die
-  fest verdrahteten Adressen nachziehen — `apply()` ordnet die Preise über den Slug
-  zu, und eine 301 rettet zwar den Besucher, aber nicht die Zuordnung. Genau das ist
-  passiert und steht in `docs/shop-preisanzeige.md`. Dort steht auch, dass Code
-  Snippets bei 2,4 MB mit leerem Rumpf antwortet: die Fehlermeldung sagt nichts
-  darüber aus, ob gespeichert wurde — immer die Zeichenlänge im Editor nachprüfen.
-- Plattform-Inkonsistenz: WooCommerce/Divi neben Shopify
 - Pauschaler Ausschluss des Widerrufsrechts ist nach deutschem Verbraucherrecht
   vermutlich angreifbar — vor Launch prüfen lassen
 
-## Arbeitsweise
+---
 
-- Bei rechtlich heiklen Punkten (Widerruf, AGB, Auswahl-Mechanik) nicht selbst
-  entscheiden, sondern markieren und nachfragen.
-- **Bei Steuer- und Zollfragen zuerst in die Projektunterlagen sehen, nicht ins
-  Gesetz.** Es liegen schriftliche Auskünfte von ESTV (07.08.2026), BAZG (20.07.2026)
-  und deutscher Zollverwaltung vor; sie beantworten mehr, als man vermutet, und
-  widersprechen teils der eigenen Herleitung. Zusammenfassung in
-  `docs/behoerden-mwst-zoll.md`.
-- Neue Methoden aus AI-Workflow-Videos werden gegen die bestehende Pipeline
-  getestet, nicht auf Zuruf übernommen.
+## Beim Komprimieren
 
-## Noch zu ergänzen
+Immer erhalten: die vollständige Liste geänderter Dateien, offene Punkte mit Frist,
+und **alle Messwerte, die in dieser Sitzung erhoben wurden**. Zusammenfassungen von
+Messungen sind wertlos — die Zahlen selbst zählen.
 
-- ~~Framework und Build-Befehle~~ → steht oben unter „Commands".
-- ~~Liegt das Backend mit Postgres-Ledger in diesem Repo oder separat?~~ → **In diesem
-  Repo.** Es gibt keinen eigenen Backend-Dienst: das Ledger ist Supabase-Postgres
-  (Projekt `yemcjottasfsdahzsjie`, Region eu-central-2 Zürich), Migrationen unter
-  `supabase/migrations/`, Schreibpfad `app/api/shopify/webhook` + `lib/pool/`.
-  Einen App Proxy gibt es nicht.
-- ~~Deployment~~ → Vercel-Projekt `webseite-one-fam` (Team `one-fam-admin-s-projects`),
-  Production-Branch **`main`**, Repo `OneFamAdmin/Webseite-OneFam`, Push auf `main`
-  deployt automatisch. Details: `docs/deploy-vercel.md`.
-- **Offen:** Hosting-Entscheidung Backend (Hetzner vs. IONOS) — durch die Supabase-Lösung
-  aktuell gegenstandslos; nur relevant, falls doch ein eigener Dienst dazukommt.
-- ~~Währungsanzeige im Shop für EU-Besucher~~ → geklärt, siehe „Preise": die
-  Zeitzone entscheidet, nicht die IP. Offen bleibt nur die Entscheidung, **ob**
-  die Zeitzone die IP weiterhin überstimmen soll.
+## Stand und Übergaben
+
+Vor grösseren Aufgaben in `docs/` nachsehen. Vor `/clear` oder `/compact` den Stand
+dorthin schreiben.
+
+| Datei | Inhalt |
+|---|---|
+| `docs/shop-und-pool-details.md` | WooCommerce-Bestand, Währungsmechanik, Kostenmodell, Versandstaffel |
+| `docs/behoerden-mwst-zoll.md` | ESTV, BAZG, deutscher Zoll — was beantwortet ist, was fehlt |
+| `docs/shop-preisanzeige.md` | Preis-Skript der Startseite, Slug-Falle, Speicher-Falle |
+| `docs/handover-shop-pool.md` | Übergabe Shop/Pool (teilweise überholt) |
+| `docs/deploy-vercel.md` | Vercel-Projekt, Umgebungsvariablen |
