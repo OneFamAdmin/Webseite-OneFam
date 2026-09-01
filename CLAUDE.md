@@ -159,6 +159,17 @@ sind live.
 > aber der Anteil vom Umsatz, nicht vom Gewinn; die beiden Zahlen sind nicht
 > vergleichbar.
 >
+> **⚠️ Die ganze Kalkulation steht unter einem Vorbehalt** (Stand 02.09.2026): Die
+> Ware startet in Teltow, umsatzsteuerlich findet der Verkauf also in **Deutschland**
+> statt. Ob OneFam dort registrierungspflichtig ist, ist **nicht geklärt** — das
+> Finanzamt Konstanz wurde nie angeschrieben, obwohl der deutsche Zoll ausdrücklich
+> dorthin verweist. Kommt die Pflicht, ist es **nicht** mit `supplier_vat_pct` getan:
+> dann muss auch der **Umsatz netto** gerechnet werden, und `creditPoolForOrder`
+> bekommt heute die Bruttosumme als Ertrag. Gerechnet für einen Hoodie nach DE:
+> Marge 44.09 → 36.62, Pool 4.41 → 3.66 (−16,9 %). Die abziehbare Vorsteuer (+5.63)
+> ist der kleinere Posten, die Umsatzsteuerschuld (−13.09) der grössere.
+> Vollständiger Behördenstand und die offenen Punkte: `docs/behoerden-mwst-zoll.md`.
+
 > Die Versandkosten tragen **19 % deutsche USt.** (Migration `0011`). Shirt-King
 > stellt eine Rechnung über die gesamte Leistung, und der Versand steht innerhalb
 > der Bemessungsgrundlage — belegt durch Rechnung `inv-skc-26-30031` vom
@@ -319,6 +330,11 @@ nur das Währungs-Plugin, das mit Faktor 1.1 umrechnet — kein Bug, nicht
 
 - Bei rechtlich heiklen Punkten (Widerruf, AGB, Auswahl-Mechanik) nicht selbst
   entscheiden, sondern markieren und nachfragen.
+- **Bei Steuer- und Zollfragen zuerst in die Projektunterlagen sehen, nicht ins
+  Gesetz.** Es liegen schriftliche Auskünfte von ESTV (07.08.2026), BAZG (20.07.2026)
+  und deutscher Zollverwaltung vor; sie beantworten mehr, als man vermutet, und
+  widersprechen teils der eigenen Herleitung. Zusammenfassung in
+  `docs/behoerden-mwst-zoll.md`.
 - Neue Methoden aus AI-Workflow-Videos werden gegen die bestehende Pipeline
   getestet, nicht auf Zuruf übernommen.
 

@@ -134,6 +134,18 @@ export async function creditPoolForOrder(
   }
   const kurs = waehrung === 'CHF' ? 1 : (config.fxEurChf as number);
 
+  // OFFEN, und hier wird es teuer, wenn es kippt (Stand 02.09.2026):
+  // `gross` ist die Bestellsumme und wird hier VOLLSTAENDIG als Ertrag behandelt.
+  // Das stimmt nur, solange OneFam nirgends Umsatzsteuer auf seine Verkaeufe
+  // schuldet. Die Ware startet aber in Teltow, der Verkauf findet umsatzsteuerlich
+  // in DEUTSCHLAND statt, und ob dort Registrierungspflicht besteht, ist nicht
+  // geklaert — das Finanzamt Konstanz wurde nie angeschrieben.
+  //
+  // Kommt die Pflicht, gehoeren 19 % dieser Summe nicht OneFam, sondern dem
+  // deutschen Fiskus. Dann ist es NICHT mit `supplier_vat_pct` getan: hier muesste
+  // netto gerechnet werden (und die Vorsteuer auf der Kostenseite abgezogen).
+  // Gerechnet fuer einen Hoodie nach DE: Marge 44.09 -> 36.62, Pool 4.41 -> 3.66.
+  // Hintergrund und Behoerdenstand: docs/behoerden-mwst-zoll.md
   const gross = round2(args.gross * kurs);
   const itemsChf: LineItem[] = items.map((i) => ({ ...i, unitPrice: i.unitPrice * kurs }));
 
