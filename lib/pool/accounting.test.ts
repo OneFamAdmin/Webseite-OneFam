@@ -28,24 +28,46 @@ const hoodie: LineItem[] = [{ sku: '2681', quantity: 1, unitPrice: 75 }];
 
 // ── 1. Hoodie nach Deutschland: die Referenzrechnung ────────────────────────
 // Brutto 82 = Produkt 75 + Versandpauschale 7. Was Shirt-King für einen Hoodie
-// nach Deutschland abzieht: 4.60 EUR x 0.925 = 4.26 CHF (Klasse 'heavy'; ein
-// Shirt wäre mit 4.21 EUR günstiger). Gebühr 2.9 % + 0.30.
+// nach Deutschland abzieht: 4.60 EUR netto (Klasse 'heavy'; ein Shirt wäre mit
+// 4.21 EUR günstiger), plus 19 % deutsche USt. wie auf der ganzen Rechnung, dann
+// zum Kurs 0.925: 4.60 x 1.19 x 0.925 = 5.06 CHF. Gebühr 2.9 % + 0.30.
+const VERSAND_DE_HEAVY = 5.06;
 {
-  const r = computeContribution(hoodie, 82, CONFIG, kostenVon, 4.26);
+  const r = computeContribution(hoodie, 82, CONFIG, kostenVon, VERSAND_DE_HEAVY);
   const gebuehr = 82 * 0.029 + 0.3;
-  const marge = 82 - 30.17 - 4.26 - gebuehr;
+  const marge = 82 - 30.17 - VERSAND_DE_HEAVY - gebuehr;
   pruefe(nahe(r.feeChf, gebuehr), `Gebühr ${r.feeChf} = 2.9 % + 0.30`);
-  pruefe(nahe(r.cogsChf, 30.17 + 4.26), `Kosten ${r.cogsChf} = Herstellung + Versand`);
+  pruefe(nahe(r.cogsChf, 30.17 + VERSAND_DE_HEAVY), `Kosten ${r.cogsChf} = Herstellung + Versand`);
   pruefe(nahe(r.marginChf, marge), `Marge ${r.marginChf} (erwartet ${marge.toFixed(2)})`);
   pruefe(nahe(r.poolCreditChf, marge * 0.2), `Pool ${r.poolCreditChf} = 20 % der Marge`);
-  pruefe(r.poolCreditChf < 16.4, `Pool ${r.poolCreditChf} liegt deutlich unter 20 % vom Umsatz (16.40)`);
+  pruefe(r.poolCreditChf < 15.86, `Pool ${r.poolCreditChf} liegt deutlich unter dem alten Wert 15.86`);
+}
+
+// ── 1b. Gegenprobe gegen den Margenrechner, Blatt "Kalkulation" Zeile 7 ──────
+// Dieselbe Bestellung, wie der Kunde sie in Deutschland sieht: EUR 69.99 Hoodie
+// + EUR 7.70 Versandpauschale = EUR 77.69. Die Tabelle rechnet in EUR und kommt
+// auf eine Marge von 37.0208 EUR; hier wird alles vorher in CHF umgerechnet
+// (so macht es lib/pool/service.ts). Beide Wege müssen sich treffen — das ist
+// der eigentliche Test gegen die geprüfte Kalkulation.
+{
+  const kurs = 0.925;
+  const bruttoChf = 77.69 * kurs;
+  const r = computeContribution(
+    [{ sku: '2681', quantity: 1, unitPrice: 69.99 * kurs }],
+    bruttoChf,
+    CONFIG,
+    kostenVon,
+    VERSAND_DE_HEAVY,
+  );
+  const tabelleChf = 37.0207656756757 * kurs; // Blatt "Kalkulation", Zelle S7
+  pruefe(nahe(r.marginChf, tabelleChf, 0.02), `Marge ${r.marginChf} CHF trifft die Tabelle (${tabelleChf.toFixed(2)})`);
 }
 
 // ── 2. Versandkosten müssen die Marge senken ────────────────────────────────
 {
   const ohne = computeContribution(hoodie, 82, CONFIG, kostenVon, 0);
-  const mit = computeContribution(hoodie, 82, CONFIG, kostenVon, 4.26);
-  pruefe(nahe(ohne.marginChf - mit.marginChf, 4.26), 'Versand senkt die Marge um exakt den Versandbetrag');
+  const mit = computeContribution(hoodie, 82, CONFIG, kostenVon, VERSAND_DE_HEAVY);
+  pruefe(nahe(ohne.marginChf - mit.marginChf, VERSAND_DE_HEAVY), 'Versand senkt die Marge um exakt den Versandbetrag');
   pruefe(mit.poolCreditChf < ohne.poolCreditChf, 'und damit auch die Gutschrift');
 }
 
@@ -67,14 +89,14 @@ const hoodie: LineItem[] = [{ sku: '2681', quantity: 1, unitPrice: 75 }];
 
 // ── 4. Ein Verlustgeschäft darf den Pool niemals belasten ───────────────────
 {
-  const r = computeContribution(hoodie, 20, CONFIG, kostenVon, 4.26);
+  const r = computeContribution(hoodie, 20, CONFIG, kostenVon, VERSAND_DE_HEAVY);
   pruefe(r.marginChf < 0, `Marge ist negativ (${r.marginChf})`);
   pruefe(r.poolCreditChf === 0, 'Gutschrift bleibt 0, kein Abzug vom Pool');
 }
 
 // ── 5. Anteil 0 schreibt nichts gut, rechnet aber weiter ────────────────────
 {
-  const r = computeContribution(hoodie, 82, CONFIG_NULL(), kostenVon, 4.26);
+  const r = computeContribution(hoodie, 82, CONFIG_NULL(), kostenVon, VERSAND_DE_HEAVY);
   pruefe(r.poolCreditChf === 0, 'Anteil 0 % → keine Gutschrift');
   pruefe(r.marginChf > 0, 'die Marge wird trotzdem ausgewiesen');
 }
@@ -92,9 +114,9 @@ function CONFIG_NULL(): CostConfig {
     190,
     CONFIG,
     kostenVon,
-    4.26,
+    VERSAND_DE_HEAVY,
   );
-  pruefe(nahe(r.cogsChf, 30.17 * 2 + 14.12 + 4.26), `Kosten ${r.cogsChf} über drei Stück plus einmal Versand`);
+  pruefe(nahe(r.cogsChf, 30.17 * 2 + 14.12 + VERSAND_DE_HEAVY), `Kosten ${r.cogsChf} über drei Stück plus einmal Versand`);
 }
 
 console.log(`\n${fehler === 0 ? '✓ ALLE PRÜFUNGEN BESTANDEN' : `✗ ${fehler} PRÜFUNG(EN) FEHLGESCHLAGEN`}`);

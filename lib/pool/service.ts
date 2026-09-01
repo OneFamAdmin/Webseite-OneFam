@@ -6,10 +6,13 @@ type AdminClient = ReturnType<typeof createAdminClient>;
 const round2 = (n: number) => Math.round((n + Number.EPSILON) * 100) / 100;
 
 /** Load the year's pool knobs; safe defaults (share 0 = credits nothing) when unset. */
-async function loadConfig(admin: AdminClient, year: number): Promise<CostConfig & { fxEurChf: number | null }> {
+async function loadConfig(
+  admin: AdminClient,
+  year: number,
+): Promise<CostConfig & { fxEurChf: number | null; supplierVatPct: number }> {
   const { data } = await admin
     .from('cost_config')
-    .select('pool_share_pct, fee_pct, fee_fixed_chf, default_cogs_pct, fx_eur_chf')
+    .select('pool_share_pct, fee_pct, fee_fixed_chf, default_cogs_pct, fx_eur_chf, supplier_vat_pct')
     .eq('year', year)
     .maybeSingle();
   return {
@@ -18,6 +21,8 @@ async function loadConfig(admin: AdminClient, year: number): Promise<CostConfig 
     feeFixedChf: Number(data?.fee_fixed_chf ?? 0),
     defaultCogsPct: data?.default_cogs_pct != null ? Number(data.default_cogs_pct) : null,
     fxEurChf: data?.fx_eur_chf != null ? Number(data.fx_eur_chf) : null,
+    // Fehlt der Satz, wird NICHT geraten: 0 heisst netto rechnen wie bisher.
+    supplierVatPct: data?.supplier_vat_pct != null ? Number(data.supplier_vat_pct) : 0,
   };
 }
 
@@ -52,12 +57,23 @@ async function loadCosts(admin: AdminClient, skus: (string | null | undefined)[]
  *    angesetzt, sobald ein Hoodie oder Sweater dabei ist.
  * 2. Ist das Zielland nicht hinterlegt (Bestellung ausserhalb der 21 belieferten
  *    Länder), wird der teuerste bekannte Tarif dieser Klasse verwendet.
+ *
+ * Auf den Tarif kommt die deutsche USt. (`supplierVatPct`). shipping_costs trägt
+ * bewusst den NETTO-Preis aus der Shirt-King-Preisliste, damit die Zahl dort mit
+ * der Preisliste vergleichbar bleibt; die Steuer gehört zum Lieferanten, nicht zum
+ * Tarif. Belegt durch Rechnung inv-skc-26-30031 (07.08.2026): der Versand steht
+ * dort INNERHALB der Bemessungsgrundlage (6.64 + 5.50 + 0.69 + 4.21 = 17.04 netto,
+ * darauf 19 % = 20.28 EUR belastet). Als Schweizer Einzelfirma ohne
+ * USt.-Registrierung ist diese Vorsteuer nicht rückholbar — es sind echte Kosten.
+ * Bis zum 01.09.2026 fehlte dieser Aufschlag; der Pool bekam dadurch rund
+ * 0.16 CHF je Bestellung zu viel. Siehe Migration 0011.
  */
 async function versandkosten(
   admin: AdminClient,
   countryCode: string | null,
   kinds: (('light' | 'heavy') | null)[],
   fxEurChf: number | null,
+  supplierVatPct: number,
 ): Promise<number> {
   const klasse: 'light' | 'heavy' = kinds.includes('heavy') ? 'heavy' : 'light';
   const land = (countryCode ?? '').trim().toUpperCase();
@@ -74,7 +90,8 @@ async function versandkosten(
     ? Number(treffer.cost_eur)
     : Math.max(...data.map((r) => Number(r.cost_eur))); // unbekanntes Land → teuerster Tarif
   const kurs = fxEurChf ?? 1;
-  return round2(eur * kurs);
+  const mitUst = eur * (1 + Math.max(0, supplierVatPct) / 100);
+  return round2(mitUst * kurs);
 }
 
 /**
@@ -122,6 +139,7 @@ export async function creditPoolForOrder(
     countryCode ?? null,
     items.map((i) => (i.sku ? costMap.get(i.sku)?.kind ?? null : null)),
     config.fxEurChf,
+    config.supplierVatPct,
   );
 
   const contrib = computeContribution(

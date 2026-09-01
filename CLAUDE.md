@@ -143,8 +143,22 @@ sind live.
 >   verbuchen (~8 % zu viel).
 >
 > Live nachgerechnet am 01.09.2026, deckungsgleich mit `accounting.test.ts`:
-> Hoodie CHF 75 + 7 Versand nach DE → Kosten 34.43, Gebühr 2.68, Marge 44.89,
-> **Pool 8.98** (vorher wären es 16.40 gewesen).
+> Hoodie CHF 75 + 7 Versand nach DE → Kosten 35.23, Gebühr 2.68, Marge 44.09,
+> **Pool 8.82** (vorher: 15.86, weil COGS und Versand mit 0 angesetzt waren).
+>
+> Die Versandkosten tragen **19 % deutsche USt.** (Migration `0011`). Shirt-King
+> stellt eine Rechnung über die gesamte Leistung, und der Versand steht innerhalb
+> der Bemessungsgrundlage — belegt durch Rechnung `inv-skc-26-30031` vom
+> 07.08.2026: `6.64 + 5.50 + 0.69 + 4.21 = 17.04` netto, darauf 19 % = 20.28 EUR.
+> `shipping_costs.cost_eur` trägt weiterhin den **Netto**-Tarif, damit die Zahl mit
+> der Shirt-King-Preisliste vergleichbar bleibt; der Aufschlag steht als
+> `cost_config.supplier_vat_pct` an einer Stelle. Ohne ihn bekam der Pool rund
+> 0.16 CHF je Bestellung zu viel. **Offen:** ob bei Ausfuhr (CH/GB/NO) 0 % gilt —
+> ungeprüft, es gab noch keine solche Bestellung; bis dahin überall 19 %, was im
+> Zweifel zu hohe Kosten annimmt.
+>
+> `accounting.test.ts` prüft dieselbe Bestellung zusätzlich in EUR gegen Zelle S7
+> des Blattes „Kalkulation" — beide Rechenwege müssen sich treffen.
 >
 > Zwei bewusste Vereinfachungen bei den Versandkosten, beide zugunsten eines eher
 > zu niedrigen Pools: eine Bestellung = ein Paket zum Tarif der schwersten
