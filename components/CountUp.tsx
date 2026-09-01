@@ -10,7 +10,7 @@ const swiss = (n: number) =>
     .replace(/[  ,.]/g, '’');
 
 // GEPARKT — derzeit ungenutzt: der öffentliche Live-Pool-Zähler ist bis zur
-// anwaltlichen Prüfung entfernt (docs/handover-shopify-pool.md §3).
+// anwaltlichen Prüfung entfernt (docs/handover-shop-pool.md §3).
 
 type CountUpProps = {
   to: number;

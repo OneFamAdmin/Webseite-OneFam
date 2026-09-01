@@ -4,7 +4,7 @@ import { after } from 'next/server';
 import { Check } from 'lucide-react';
 import { createClient } from '@/lib/supabase/server';
 import { sendWelcomeEmail } from '@/lib/email/send';
-import { promotePendingBuyer } from '@/lib/shopify/promote';
+import { promotePendingBuyer } from '@/lib/woo/promote';
 import { pageMetadata } from '@/lib/seo';
 import Lockup from '@/components/Lockup';
 
@@ -35,7 +35,7 @@ export default async function BestaetigenPage({
   // not logged in → send back to the join page
   if (!user) redirect('/login');
 
-  // Backstop for the Shopify buyer-promotion: if this user bought in the shop
+  // Backstop for the WooCommerce buyer-promotion: if this user bought in the shop
   // before signing up (e-mail parked in pending_buyers), grant buyer status now.
   // The callback already does this on fresh logins; this also covers an existing
   // session landing here. Cheap + idempotent (returns at once when nothing pends).

@@ -15,7 +15,7 @@ export type LineItem = {
 export type CostConfig = {
   /** % of margin credited to the pool */
   poolSharePct: number;
-  /** payment/Shopify fee estimate, % of gross */
+  /** payment/shop fee estimate, % of gross */
   feePct: number;
   /** fixed fee per order */
   feeFixedChf: number;

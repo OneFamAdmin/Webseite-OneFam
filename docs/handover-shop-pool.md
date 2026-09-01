@@ -1,5 +1,24 @@
 # OneFam — Übergabe: Shopify-Anbindung & Pool-Buchhaltung (Stand 21. Juni 2026)
 
+> ## ⚠️ Teilweise überholt — Stand 1. September 2026
+>
+> **Es gibt keinen Shopify-Store mehr.** Verkauft wird ausschliesslich über
+> **shop.onefam.ch (WordPress/WooCommerce)**, angebunden an PodOS/ShirtKing.
+> Alles, was unten Shopify-Webhooks, Shopify-Topics (`orders/paid`,
+> `refunds/create`), `SHOPIFY_WEBHOOK_SECRET` oder den Store `uu5kyg-3t`
+> beschreibt, ist damit hinfällig; der zugehörige Code wurde entfernt und durch
+> `app/api/woo/webhook` + `lib/woo/` ersetzt (siehe CLAUDE.md).
+>
+> **Weiterhin gültig und der Grund, warum dieses Dokument bleibt:**
+> die rechtlichen Leitplanken, das Pool-Modell (Gewinnanteil, Lohn nie aus dem
+> Pool) und §3 zum Trust-first-Stand — darauf verweisen mehrere Kommentare im
+> Code.
+>
+> Ausserdem gilt seither: der Pool wurde **nie** gespeist (es kam nie eine
+> Bestellung an), im Shop gibt es **keine SKUs**, und Bestellungen laufen in
+> **CHF und EUR**.
+
+
 Dieses Dokument fasst die automatisierte **Käufer-Erkennung (P1)** und die
 **Pool-/Gewinn-Buchhaltung (P2)** zusammen — inkl. Architektur, aktuellem Status,
 Zugängen, offenen Punkten und den rechtlichen Leitplanken. Zum Weitergeben gedacht.

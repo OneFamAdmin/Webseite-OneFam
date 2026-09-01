@@ -300,7 +300,7 @@ export default async function AdminVotingPage() {
             <h2 className="font-display text-xl font-semibold text-primary">Käufer freischalten</h2>
           </div>
           <p className="mt-2 font-body text-sm leading-relaxed text-secondary">
-            Bis Shopify angebunden ist, schaltest du Käufer hier manuell per E-Mail frei. Die Person muss sich vorher
+            Bis der WooCommerce-Webhook läuft, schaltest du Käufer hier manuell per E-Mail frei. Die Person muss sich vorher
             einmal bei OneFam angemeldet haben. Nur Käufer dürfen abstimmen — die Gewinnchance bei der Auslosung bleibt
             davon unberührt.
           </p>

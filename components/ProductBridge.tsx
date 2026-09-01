@@ -20,7 +20,7 @@ const LINE_IMAGES = [
 ] as const;
 
 /** Die Brücke von der Story zum Produkt: überträgt das Gefühl der Herkunfts-Geschichte
- *  auf die Stücke, bevor der Shop-Link kommt (docs/handover-shopify-pool.md §4b). */
+ *  auf die Stücke, bevor der Shop-Link kommt (docs/handover-shop-pool.md §4b). */
 const ProductBridge = () => {
   const t = useTranslations('product_bridge');
   const tAlt = useTranslations('alt');

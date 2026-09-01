@@ -9,7 +9,7 @@ import WaitlistForm from './WaitlistForm';
  *  Bewusst ohne Live-Counter, ohne Betrag, ohne Kauf→Auswahl-Versprechen: bei einer
  *  unbekannten Marke liest sich ein leerer CHF-Zähler wie ein Scam, und die aktive
  *  Mechanik darf erst nach anwaltlicher Prüfung + "Teilnahme ohne Kaufzwang" zurück
- *  (siehe docs/handover-shopify-pool.md §3). Bis dahin: Ziel benennen, Warteliste
+ *  (siehe docs/handover-shop-pool.md §3). Bis dahin: Ziel benennen, Warteliste
  *  anbieten — rechtlich ein sauberer Newsletter, der den Hook am Leben hält.
  *
  *  Die Pool-Buchhaltung im Hintergrund (pool_ledger, /admin/pool) läuft unverändert

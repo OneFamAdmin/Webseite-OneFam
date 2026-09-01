@@ -12,7 +12,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 /** Reiner Magic-Link-Login für bestehende Mitglieder (Käufer-Bereich, Voting, Admin).
  *  Bewusst OHNE Gruppengrösse / Teilnahme: der Login legt keine Auslosungs-Teilnahme
  *  an. Die Teilnahme-Mechanik ist bis zur rechtlichen Prüfung geparkt (siehe
- *  docs/handover-shopify-pool.md §3). */
+ *  docs/handover-shop-pool.md §3). */
 export default function LoginForm() {
   const [email, setEmail] = React.useState('');
   const [state, setState] = React.useState<State>('idle');

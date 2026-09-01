@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import type { EmailOtpType } from '@supabase/supabase-js';
 import { createClient } from '@/lib/supabase/server';
-import { promotePendingBuyer } from '@/lib/shopify/promote';
+import { promotePendingBuyer } from '@/lib/woo/promote';
 
 // Handles the magic-link click: establishes the session, then forwards on.
 // Supports both the PKCE code flow and the token_hash flow, so it works
@@ -10,7 +10,7 @@ import { promotePendingBuyer } from '@/lib/shopify/promote';
 // Ohne `g` (der Normalfall seit dem Trust-first-Launch) ist das ein reiner
 // Login → /mein-bereich, und es entsteht KEINE Auslosungs-Teilnahme. Der
 // `g`-Pfad zur Bestätigungsseite bleibt für die spätere Reaktivierung der
-// Teilnahme-Mechanik erhalten (siehe docs/handover-shopify-pool.md §3).
+// Teilnahme-Mechanik erhalten (siehe docs/handover-shop-pool.md §3).
 export async function GET(request: Request) {
   const url = new URL(request.url);
   const code = url.searchParams.get('code');

@@ -33,7 +33,7 @@ function SubmitButton() {
 
 /** Warteliste — bewusst ein reines E-Mail-Signup: kein Konto, keine Teilnahme,
  *  kein Gewinnversprechen. Der Draw-Funnel (JoinForm) ist bis zur rechtlichen
- *  Prüfung geparkt, siehe docs/handover-shopify-pool.md §3. */
+ *  Prüfung geparkt, siehe docs/handover-shop-pool.md §3. */
 export default function WaitlistForm({ compact = false }: { compact?: boolean }) {
   const [state, formAction] = useActionState(joinWaitlist, INITIAL);
   const t = useTranslations('waitlist');
