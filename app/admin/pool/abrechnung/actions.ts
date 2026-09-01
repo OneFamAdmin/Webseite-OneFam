@@ -62,12 +62,35 @@ export async function addOverhead(formData: FormData) {
   // erst in der Gegenüberstellung. Ein negativer Betrag wäre eine Einnahme.
   if (amount == null || amount <= 0) throw new Error('Bitte einen Betrag grösser als 0 angeben.');
 
+  // Fremdwährung: den Originalbetrag MIT Währung festhalten und daneben die
+  // Franken. Ohne das liesse sich später nicht unterscheiden, ob ein Abo teurer
+  // geworden ist oder nur der Kurs gelaufen ist — und beim Higgsfield-Abo, das
+  // am Dollar hängt, passiert genau das jeden Monat. Siehe Migration 0015.
+  const waehrung = String(formData.get('currency') ?? 'CHF').toUpperCase();
+  let amountChf = amount;
+  let amountOriginal: number | null = null;
+  let currency: string | null = null;
+
+  if (waehrung !== 'CHF') {
+    const { data: cfg } = await admin.from('cost_config').select('fx_eur_chf').eq('year', year).maybeSingle();
+    const kurs = cfg?.fx_eur_chf != null ? Number(cfg.fx_eur_chf) : null;
+    // Nicht raten: ohne Kurs wäre ein Euro-Betrag als Franken rund 8 % zu hoch.
+    if (!kurs || !Number.isFinite(kurs)) {
+      throw new Error(`Kein Wechselkurs für ${year} hinterlegt (cost_config.fx_eur_chf) — Betrag in CHF eintragen.`);
+    }
+    amountChf = Math.round(amount * kurs * 100) / 100;
+    amountOriginal = amount;
+    currency = waehrung;
+  }
+
   const { error } = await admin.from('overhead_costs').insert({
     year,
     month,
     category,
     label,
-    amount_chf: amount,
+    amount_chf: amountChf,
+    amount_original: amountOriginal,
+    currency,
     note,
   });
   if (error) throw new Error(error.message);

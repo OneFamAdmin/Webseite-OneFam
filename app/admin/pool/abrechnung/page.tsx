@@ -35,6 +35,8 @@ type OverheadRow = {
   category: string;
   label: string;
   amount_chf: number;
+  amount_original: number | null;
+  currency: string | null;
   note: string | null;
 };
 
@@ -83,7 +85,7 @@ export default async function AbrechnungPage({
       .lt('created_at', bis),
     admin
       .from('overhead_costs')
-      .select('id, category, label, amount_chf, note')
+      .select('id, category, label, amount_chf, amount_original, currency, note')
       .eq('year', year)
       .eq('month', month)
       .order('category'),
@@ -247,7 +249,15 @@ export default async function AbrechnungPage({
               ))}
             </select>
             <input name="label" placeholder="Bezeichnung (z. B. Vercel Pro)" className={input} />
-            <input name="amount" type="number" min="0.01" step="0.01" placeholder="CHF" className={input} />
+            <div className="flex gap-2">
+              <input name="amount" type="number" min="0.01" step="0.01" placeholder="Betrag" className={input} />
+              {/* Euro-Abos werden mit cost_config.fx_eur_chf umgerechnet; der
+                  Originalbetrag bleibt erhalten (Migration 0015). */}
+              <select name="currency" defaultValue="CHF" className={input} aria-label="Währung">
+                <option value="CHF">CHF</option>
+                <option value="EUR">EUR</option>
+              </select>
+            </div>
             <button
               type="submit"
               className="rounded-[4px] bg-gold px-5 py-2.5 font-body font-medium text-bg transition-colors duration-[180ms] hover:bg-gold-hover"
@@ -279,7 +289,15 @@ export default async function AbrechnungPage({
                         {o.label}
                         {o.note ? <span className="text-faint"> · {o.note}</span> : null}
                       </td>
-                      <td className="py-2 pr-3 text-primary">{chf(o.amount_chf)}</td>
+                      <td className="py-2 pr-3 text-primary">
+                        {chf(o.amount_chf)}
+                        {o.amount_original != null && o.currency ? (
+                          <span className="text-faint">
+                            {' '}
+                            · {o.currency} {Number(o.amount_original).toFixed(2)}
+                          </span>
+                        ) : null}
+                      </td>
                       <td className="py-2 text-right">
                         <form action={deleteOverhead}>
                           <input type="hidden" name="id" value={o.id} />
@@ -295,6 +313,15 @@ export default async function AbrechnungPage({
                     </tr>
                   ))}
                 </tbody>
+                <tfoot>
+                  <tr>
+                    <td className="py-3 pr-3 font-medium text-secondary" colSpan={2}>
+                      Summe
+                    </td>
+                    <td className="py-3 pr-3 font-medium text-primary">{chf(a.overheadChf)}</td>
+                    <td />
+                  </tr>
+                </tfoot>
               </table>
             </div>
           )}
