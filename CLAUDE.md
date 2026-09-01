@@ -127,8 +127,12 @@ sind live.
 > Kunstbestellung: `purchases` → `pending_buyers` → `pool_ledger` → `pool_state`,
 > Retoure bucht zurück, Doppelläufer werden abgewiesen; alle Testspuren entfernt.
 >
-> **Pool-Rechnung seit Migration `0010` vollständig** (vorher: COGS = 0, also 20 %
-> vom Bruttoumsatz statt vom Gewinn). Quelle aller Zahlen ist
+> **Pool-Anteil: 10 % der Marge** (Migration `0013`, gesetzt am 01.09.2026).
+> Bewusst ein Startwert — er steht in `cost_config.pool_share_pct` und nirgends im
+> Code, damit ein späteres Anheben eine einzeilige Migration bleibt.
+>
+> **Pool-Rechnung seit Migration `0010` vollständig** (vorher: COGS = 0, der Anteil
+> lag also faktisch auf dem Bruttoumsatz statt auf dem Gewinn). Quelle aller Zahlen ist
 > `~/Downloads/OneFam_Margenrechner_20260807_1.xlsx` (Einkauf Shirt-King,
 > 07.08.2026) — ändert sich dort etwas, gehört es in `0010` nachgezogen:
 > - `product_costs`: 42 Zeilen, Schlüssel = **WooCommerce-`product_id` als Text**
@@ -146,7 +150,9 @@ sind live.
 >
 > Live nachgerechnet am 01.09.2026, deckungsgleich mit `accounting.test.ts`:
 > Hoodie CHF 75 + 7 Versand nach DE → Kosten 35.23, Gebühr 2.68, Marge 44.09,
-> **Pool 8.82** (vorher: 15.86, weil COGS und Versand mit 0 angesetzt waren).
+> **Pool 4.41** (= 10 % der Marge). Vor `0010` wären es 15.86 gewesen — das war
+> aber der Anteil vom Umsatz, nicht vom Gewinn; die beiden Zahlen sind nicht
+> vergleichbar.
 >
 > Die Versandkosten tragen **19 % deutsche USt.** (Migration `0011`). Shirt-King
 > stellt eine Rechnung über die gesamte Leistung, und der Versand steht innerhalb

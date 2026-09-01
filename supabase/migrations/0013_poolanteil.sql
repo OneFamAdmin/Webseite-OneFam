@@ -1,0 +1,17 @@
+-- OneFam — der Pool-Anteil geht von 20 % auf 10 % der Marge.
+--
+-- Entscheidung des Inhabers am 01.09.2026: "10 Prozent finde ich noch immer gut,
+-- spaeter kann man sicher noch steigern." Es ist also bewusst ein Startwert, kein
+-- Endwert — die Zahl steht genau deshalb in der Konfiguration und nicht im Code.
+--
+-- Zur Einordnung, warum 10 % hier mehr sind, als sie klingen: bis Migration 0010
+-- rechnete das System mit COGS = 0, der Anteil lag also faktisch auf dem BRUTTO-
+-- UMSATZ. Ein Hoodie nach Deutschland schrieb dem Pool 15.86 CHF gut. Seit die
+-- echten Kosten drin sind, sind 20 % der Marge 8.82 CHF und 10 % entsprechend
+-- 4.41 CHF. Wer die alten Zahlen im Kopf hat, vergleicht sonst zwei verschiedene
+-- Bezugsgroessen.
+--
+-- Wirkt nur nach vorne: `pool_ledger` ist unveraendert, bereits gebuchte
+-- Gutschriften werden NICHT nachgerechnet. Zum Zeitpunkt dieser Migration ist das
+-- Ledger ohnehin leer (alle Testspuren entfernt, `pool_state` 2026 = 0.00).
+update public.cost_config set pool_share_pct = 10.00 where year = 2026;

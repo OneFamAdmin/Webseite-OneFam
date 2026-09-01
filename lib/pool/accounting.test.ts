@@ -13,9 +13,9 @@ function pruefe(bedingung: boolean, text: string) {
 }
 const nahe = (a: number, b: number, toleranz = 0.011) => Math.abs(a - b) <= toleranz;
 
-// Konfiguration wie in cost_config ab Migration 0010
+// Konfiguration wie in cost_config: Gebuehren aus Migration 0010, Anteil aus 0013
 const CONFIG: CostConfig = {
-  poolSharePct: 20,
+  poolSharePct: 10,
   feePct: 2.9,
   feeFixedChf: 0.3,
   defaultCogsPct: null,
@@ -39,7 +39,7 @@ const VERSAND_DE_HEAVY = 5.06;
   pruefe(nahe(r.feeChf, gebuehr), `Gebühr ${r.feeChf} = 2.9 % + 0.30`);
   pruefe(nahe(r.cogsChf, 30.17 + VERSAND_DE_HEAVY), `Kosten ${r.cogsChf} = Herstellung + Versand`);
   pruefe(nahe(r.marginChf, marge), `Marge ${r.marginChf} (erwartet ${marge.toFixed(2)})`);
-  pruefe(nahe(r.poolCreditChf, marge * 0.2), `Pool ${r.poolCreditChf} = 20 % der Marge`);
+  pruefe(nahe(r.poolCreditChf, marge * 0.1), `Pool ${r.poolCreditChf} = 10 % der Marge`);
   pruefe(r.poolCreditChf < 15.86, `Pool ${r.poolCreditChf} liegt deutlich unter dem alten Wert 15.86`);
 }
 
