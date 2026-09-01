@@ -112,13 +112,66 @@ weiterhin im Kopf, das Snippet ist also aktiv.
 Argentinien). Sein `-2`-Slug wäre also erst aufgefallen, wenn das Land dort
 aufgenommen wird. Der Fix nimmt ihm das vorweg.
 
+## Nachtrag: die Slug-Bereinigung, und was sie fast kaputt gemacht hätte
+
+Am selben Tag wurden die vier schiefen Produkt-Slugs begradigt:
+
+| Produkt | alt | neu |
+|---|---|---|
+| Albania Hoodie (2681) | `albanian-hoodie` | `albania-hoodie` |
+| Andorra Hoodie (3968) | `andorra-hoodie-2` | `andorra-hoodie` |
+| Andorra Sweater (3888) | `andorra-sweater-2` | `andorra-sweater` |
+| Afghanistan Shirt (3786) | `afghanistan-shirt-2` | `afghanistan-shirt` |
+
+Alle vier alten Adressen leiten mit **301** auf die neue — das macht WordPress von
+selbst (`_wp_old_slug`), es bricht kein Link.
+
+**Und genau hier wäre der Preisfehler zurückgekommen.** `apply()` ordnet die
+geladenen Preise den Karten über den Slug zu:
+
+```js
+ps.forEach(function(p){by[slugOf(p.permalink)]=p;});
+var p = by[slugOf(c.getAttribute('href'))];
+```
+
+Die Karten-Adressen stehen **fest im Snippet** (`OF_PLINK` und die `fcard`-Links der
+Kollektionsseiten), der Endpunkt liefert die **echten** Permalinks. Nach dem
+Umbenennen zeigte die Karte auf `albanian-hoodie`, die API meldete
+`albania-hoodie` — kein Treffer, EUR-Platzhalter blieb stehen. Live gemessen:
+„Albania Hoodie = €69,99 EUR" neben zwei korrekten CHF-Preisen.
+
+Deshalb wurden im selben Snippet **9 fest verdrahtete Adressen** nachgezogen
+(3× `albanian-hoodie`, je 2× die anderen drei). Alle neun waren Produktlinks, keine
+Weiterleitungsregel.
+
+**Merksatz:** Wer einen Produkt-Slug ändert, muss im Router-Snippet nach der alten
+Adresse suchen. Die 301 rettet den Besucher, aber nicht die Preis-Zuordnung.
+
 ### Falle beim Speichern
 
-Code Snippets meldete **„Snippet konnte nicht aktualisiert werden. Der Server hat
-keine gültige Antwort"** — und hatte trotzdem gespeichert. Bei 2,4 MB kommt die
-Antwort offenbar nicht sauber zurück. **Nicht ein zweites Mal speichern**, sondern
-erst die Live-Seite prüfen: steht die Änderung im ausgelieferten Quelltext, ist
-sie drin.
+Bei 2,4 MB antwortet der Server auf das Speichern mit **HTTP 200 und leerem
+Rumpf**. Code Snippets erwartet JSON und meldet daraufhin „Snippet konnte nicht
+aktualisiert werden. Der Server hat keine gültige Antwort". Die Meldung sagt also
+nichts darüber aus, ob geschrieben wurde — beim ersten Patch **war** gespeichert,
+bei zwei weiteren Versuchen über den Knopf **nicht**.
+
+**Nie nach der Meldung urteilen.** Immer nachsehen: Bearbeitungsseite neu laden und
+die Zeichenlänge im Editor prüfen.
+
+Verlässlich ging es erst direkt über die REST-Schnittstelle des Plugins, aus der
+Konsole der Bearbeitungsseite heraus:
+
+```js
+const s = window.CODE_SNIPPETS_EDIT.snippet;
+await fetch(window.CODE_SNIPPETS.restAPI.snippets + '/' + s.id, {
+  method: 'POST', credentials: 'same-origin',
+  headers: { 'Content-Type': 'application/json',
+             'X-WP-Nonce': window.CODE_SNIPPETS.restAPI.nonce },
+  body: JSON.stringify(Object.assign({}, s, { code: NEUER_CODE }))
+});
+```
+
+Antwortet ebenfalls leer, schreibt aber zuverlässig.
 
 ### Weg zurück
 
@@ -144,8 +197,7 @@ versehentlich zweimal angelegt wird und ein `-2` bekommt, steht der Fehler wiede
 da — und diesmal sucht ihn niemand, weil die Seite ja „schon mal in Ordnung war".
 Die Slug-Ableitung ist die eigentliche Schwachstelle, nicht der einzelne Slug.
 
-Das Skript ist korrigiert — die Ursache ist damit weg. **Offen bleibt die Kosmetik:**
-`albanian-hoodie`, `andorra-hoodie-2`, `andorra-sweater-2` und `afghanistan-shirt-2`
-tragen weiterhin schiefe Slugs. Sie schaden jetzt nichts mehr, sind aber unsauber in
-der Adresszeile. Beim Umbenennen legt WordPress von selbst eine Weiterleitung an, es
-bricht also kein Link.
+Beides ist inzwischen erledigt: das Skript ist korrigiert (die Ursache), und die
+vier Slugs sind begradigt (die Kosmetik) — siehe Nachtrag oben. Der Reihenfolge nach
+war das richtig so: erst die Ursache, dann die Namen. Umgekehrt hätte die
+Slug-Änderung den Fehler nur verschoben.
