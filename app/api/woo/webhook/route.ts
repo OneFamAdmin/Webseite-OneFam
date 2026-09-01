@@ -58,20 +58,29 @@ const RUECKABGEWICKELT = new Set(['refunded', 'cancelled', 'failed']);
  * 500 nur bei einem echten Verarbeitungsfehler — dann SOLL wiederholt werden.
  */
 export async function POST(request: Request) {
-  const secret = process.env.WOO_WEBHOOK_SECRET;
-  if (!secret) {
-    console.error('[woo] WOO_WEBHOOK_SECRET ist nicht gesetzt — Webhook abgewiesen');
-    return new NextResponse('Webhook not configured', { status: 500 });
-  }
-
   // Rohtext ist für den HMAC zwingend — VOR dem Parsen als Text lesen.
   const rawBody = await request.text();
   const topic = request.headers.get('x-wc-webhook-topic');
 
-  // Der Einrichtungs-Ping trägt weder Signatur noch Thema. Er muss mit 200
-  // beantwortet werden, sonst lässt sich der Webhook gar nicht aktivieren.
+  // Der Einrichtungs-Ping wird VOR der Prüfung auf das Geheimnis beantwortet,
+  // und diese Reihenfolge ist Absicht.
+  //
+  // Beim Einrichten entsteht sonst ein Henne-Ei-Problem: WooCommerce pingt die
+  // Adresse in dem Moment, in dem der Webhook angelegt wird — also bevor
+  // irgendjemand das Geheimnis auf beiden Seiten hinterlegen konnte. Antwortet
+  // der Endpunkt darauf mit 500, wird der Webhook nie aktiv, und man sucht den
+  // Fehler an der falschen Stelle.
+  //
+  // Ungefährlich ist das, weil ein Ping nur `webhook_id=<zahl>` enthält: keine
+  // Nutzdaten, kein Datenbankzugriff, nichts, was sich verändern liesse.
   if (istPing(rawBody, topic)) {
     return NextResponse.json({ ok: true, ping: true });
+  }
+
+  const secret = process.env.WOO_WEBHOOK_SECRET;
+  if (!secret) {
+    console.error('[woo] WOO_WEBHOOK_SECRET ist nicht gesetzt — Webhook abgewiesen');
+    return new NextResponse('Webhook not configured', { status: 500 });
   }
 
   if (!verifyWooHmac(rawBody, request.headers.get('x-wc-webhook-signature'), secret)) {
