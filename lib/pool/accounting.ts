@@ -23,6 +23,28 @@ export type CostConfig = {
   defaultCogsPct: number | null;
 };
 
+/** Gewichtsklasse einer Position, wie sie product_costs.item_kind fuehrt. */
+export type ItemKind = 'light' | 'heavy' | null;
+
+/** Versandstufe von Shirt-King: die Preisliste kennt je Land genau zwei. */
+export type ShippingTier = 'single_shirt' | 'standard';
+
+/**
+ * Welche Versandstufe gilt fuer diese Bestellung?
+ *
+ * Shirt-King nennt die beiden Tarife woertlich "<Land> 1 T-Shirt" und
+ * "<Land> ab 2 T-Shirts / 1 Hoodie / 1 Tasse" (client.shirt-king.cloud,
+ * Preisliste 16.03.2026). Die Grenze liegt also bei GENAU EINEM SHIRT — zwei
+ * Shirts kosten bereits den teuren Tarif, nicht erst ein Hoodie.
+ *
+ * Eine Position ohne bekannte Gewichtsklasse zaehlt als 'standard': im Zweifel
+ * der teurere Tarif, damit dem Pool eher zu wenig als zu viel gutgeschrieben wird.
+ */
+export function versandstufe(positionen: { menge: number; kind: ItemKind }[]): ShippingTier {
+  const stueck = positionen.reduce((n, p) => n + (Number.isFinite(p.menge) ? Math.max(0, p.menge) : 0), 0);
+  return stueck === 1 && positionen.every((p) => p.kind === 'light') ? 'single_shirt' : 'standard';
+}
+
 /** Unit production cost for a SKU; return null when unknown (→ default applies). */
 export type UnitCostLookup = (sku: string | null | undefined) => number | null;
 

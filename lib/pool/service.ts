@@ -1,5 +1,5 @@
 import type { createAdminClient } from '@/lib/supabase/admin';
-import { computeContribution, type CostConfig, type LineItem } from '@/lib/pool/accounting';
+import { computeContribution, versandstufe, type CostConfig, type ItemKind, type LineItem } from '@/lib/pool/accounting';
 
 type AdminClient = ReturnType<typeof createAdminClient>;
 
@@ -26,7 +26,7 @@ async function loadConfig(
   };
 }
 
-type Kosten = { cost: number; kind: 'light' | 'heavy' | null };
+type Kosten = { cost: number; kind: ItemKind };
 
 /** Produktschlüssel → Stückkosten + Gewichtsklasse aus product_costs.
  *  Der Schlüssel ist die WooCommerce-product_id als Text (der Shop führt keine SKUs). */
@@ -41,7 +41,7 @@ async function loadCosts(admin: AdminClient, skus: (string | null | undefined)[]
   return new Map(
     (data ?? []).map((r) => [
       r.sku as string,
-      { cost: Number(r.cost_chf), kind: (r.item_kind as 'light' | 'heavy' | null) ?? null },
+      { cost: Number(r.cost_chf), kind: (r.item_kind as ItemKind) ?? null },
     ]),
   );
 }
@@ -49,48 +49,51 @@ async function loadCosts(admin: AdminClient, skus: (string | null | undefined)[]
 /**
  * Was Shirt-King OneFam für den Versand dieser Bestellung belastet, in CHF.
  *
- * Zwei bewusste Vereinfachungen, die im Zweifel zu HOHE Kosten annehmen und den
- * Pool damit eher zu niedrig als zu hoch gutschreiben:
+ * Die Preisliste (client.shirt-king.cloud, Stand 16.03.2026) kennt je Land genau
+ * ZWEI Tarife, und sie heissen dort woertlich:
  *
- * 1. Eine Bestellung = ein Paket. Shirt-King staffelt nach Gewichtsklasse, nicht
- *    nach Stückzahl; für gemischte Bestellungen wird der teurere 'heavy'-Tarif
- *    angesetzt, sobald ein Hoodie oder Sweater dabei ist.
- * 2. Ist das Zielland nicht hinterlegt (Bestellung ausserhalb der 21 belieferten
- *    Länder), wird der teuerste bekannte Tarif dieser Klasse verwendet.
+ *     "<Land> 1 T-Shirt"
+ *     "<Land> ab 2 T-Shirts / 1 Hoodie / 1 Tasse"
  *
- * Auf den Tarif kommt die deutsche USt. (`supplierVatPct`). shipping_costs trägt
- * bewusst den NETTO-Preis aus der Shirt-King-Preisliste, damit die Zahl dort mit
- * der Preisliste vergleichbar bleibt; die Steuer gehört zum Lieferanten, nicht zum
- * Tarif. Belegt durch Rechnung inv-skc-26-30031 (07.08.2026): der Versand steht
- * dort INNERHALB der Bemessungsgrundlage (6.64 + 5.50 + 0.69 + 4.21 = 17.04 netto,
- * darauf 19 % = 20.28 EUR belastet). Als Schweizer Einzelfirma ohne
- * USt.-Registrierung ist diese Vorsteuer nicht rückholbar — es sind echte Kosten.
- * Bis zum 01.09.2026 fehlte dieser Aufschlag; der Pool bekam dadurch rund
- * 0.16 CHF je Bestellung zu viel. Siehe Migration 0011.
+ * Die Grenze laeuft also zwischen genau einem Shirt und allem anderen — nicht
+ * zwischen leicht und schwer, wie es bis zum 01.09.2026 hier modelliert war.
+ * Zwei Shirts kosten bereits den teuren Tarif; das alte Modell hat dafuer den
+ * billigen angesetzt und dem Pool zu viel gutgeschrieben.
+ *
+ * Auf den Tarif kommt die deutsche USt. (`supplierVatPct`). Shirt-Kings eigener
+ * Produktrechner rechnet genauso: Rohteil + Druck + Handling + Versand ergeben
+ * die "Zwischensumme netto", darauf die "MwSt. (19 %)". Belegt am Beispiel des
+ * Rechners: 2.91 + 5.50 + 0.69 + 4.21 = 13.31 netto, MwSt. 2.53, Gesamt 15.84.
+ * Als Schweizer Einzelfirma ohne USt.-Registrierung ist diese Vorsteuer nicht
+ * rueckholbar — es sind echte Kosten. Siehe Migration 0011.
+ *
+ * Ein Land, das die Preisliste nicht einzeln fuehrt, bekommt den internationalen
+ * Tarif ('*'). Das ist kein Schaetzwert, sondern eine Zeile derselben Liste.
  */
 async function versandkosten(
   admin: AdminClient,
   countryCode: string | null,
-  kinds: (('light' | 'heavy') | null)[],
+  /** Stueckzahl und Gewichtsklasse je Position, in Bestellreihenfolge. */
+  positionen: { menge: number; kind: ItemKind }[],
   fxEurChf: number | null,
   supplierVatPct: number,
 ): Promise<number> {
-  const klasse: 'light' | 'heavy' = kinds.includes('heavy') ? 'heavy' : 'light';
+  const stufe = versandstufe(positionen);
   const land = (countryCode ?? '').trim().toUpperCase();
 
   const { data, error } = await admin
     .from('shipping_costs')
     .select('country_code, cost_eur')
-    .eq('item_kind', klasse);
+    .eq('tier', stufe)
+    .in('country_code', [land, '*']);
   if (error) throw new Error(error.message);
   if (!data?.length) return 0;
 
-  const treffer = data.find((r) => r.country_code === land);
-  const eur = treffer
-    ? Number(treffer.cost_eur)
-    : Math.max(...data.map((r) => Number(r.cost_eur))); // unbekanntes Land → teuerster Tarif
+  const treffer = data.find((r) => r.country_code === land) ?? data.find((r) => r.country_code === '*');
+  if (!treffer) return 0;
+
   const kurs = fxEurChf ?? 1;
-  const mitUst = eur * (1 + Math.max(0, supplierVatPct) / 100);
+  const mitUst = Number(treffer.cost_eur) * (1 + Math.max(0, supplierVatPct) / 100);
   return round2(mitUst * kurs);
 }
 
@@ -137,7 +140,10 @@ export async function creditPoolForOrder(
   const versand = await versandkosten(
     admin,
     countryCode ?? null,
-    items.map((i) => (i.sku ? costMap.get(i.sku)?.kind ?? null : null)),
+    items.map((i) => ({
+      menge: Number.isFinite(i.quantity) ? i.quantity : 0,
+      kind: i.sku ? costMap.get(i.sku)?.kind ?? null : null,
+    })),
     config.fxEurChf,
     config.supplierVatPct,
   );

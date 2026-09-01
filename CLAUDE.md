@@ -135,9 +135,11 @@ sind live.
 >   in der `sku`-Spalte (der Shop führt nirgends eine SKU). Shirt 14.12,
 >   Sweater 24.76, Hoodie 30.17 CHF — Rohteil + DTG + Handling, +19 % deutsche
 >   USt., Kurs 0.925.
-> - `shipping_costs`: was Shirt-King je Land und Gewichtsklasse vom PodOS-Guthaben
->   abzieht. **Nicht** die Versandpauschale des Kunden — die steckt bereits in der
->   Bestellsumme und muss gegengerechnet werden, sonst wäre Versand reiner Gewinn.
+> - `shipping_costs`: was Shirt-King je Land vom PodOS-Guthaben abzieht. **Nicht**
+>   die Versandpauschale des Kunden — die steckt bereits in der Bestellsumme und
+>   muss gegengerechnet werden, sonst wäre Versand reiner Gewinn. Seit Migration
+>   `0012` mit der **echten Staffel aus dem Portal** (44 Tarife, 22 Länder inkl.
+>   Rückfall `*`), am 01.09.2026 direkt von `client.shirt-king.cloud` gelesen.
 > - `cost_config.fx_eur_chf`: **der einzige Wechselkurs im System.** Fehlt er,
 >   wirft `creditPoolForOrder` bei einer EUR-Bestellung, statt Euro als Franken zu
 >   verbuchen (~8 % zu viel).
@@ -160,9 +162,24 @@ sind live.
 > `accounting.test.ts` prüft dieselbe Bestellung zusätzlich in EUR gegen Zelle S7
 > des Blattes „Kalkulation" — beide Rechenwege müssen sich treffen.
 >
-> Zwei bewusste Vereinfachungen bei den Versandkosten, beide zugunsten eines eher
-> zu niedrigen Pools: eine Bestellung = ein Paket zum Tarif der schwersten
-> enthaltenen Ware, und ein unbekanntes Zielland bekommt den teuersten Tarif.
+> **Die Versandstaffel läuft nicht über Gewichtsklassen.** Shirt-King führt je Land
+> genau zwei Tarife, und sie heissen wörtlich `"<Land> 1 T-Shirt"` und
+> `"<Land> ab 2 T-Shirts / 1 Hoodie / 1 Tasse"`. Die Grenze liegt bei **genau einem
+> Shirt** — zwei Shirts kosten bereits den teuren Tarif, nicht erst ein Hoodie.
+> `versandstufe()` in `lib/pool/accounting.ts` bildet das ab und ist dort getestet.
+> Bis Migration `0012` war es als `light`/`heavy` modelliert; zwei Shirts nach
+> Norwegen kosteten dadurch 6.27 statt 21.46 CHF.
+>
+> Eine dritte Stufe gibt es in der Preisliste **nicht**: zwei Hoodies kosten dort
+> dasselbe wie einer. Sollte Shirt-King für grössere Sendungen mehr verrechnen,
+> steht das nicht in der Liste und liesse sich nur an einer echten Rechnung
+> ablesen. Ein Land ohne eigenen Eintrag bekommt den internationalen Tarif (`*`) —
+> ebenfalls eine Zeile der Liste, kein Schätzwert.
+>
+> Unsauber ist nur Deutschland: national gibt es `DHL Warenpost 4.21` (durch
+> Rechnung bestätigt, 1 Shirt) und `DHL Paket National 4.60`, aber keinen Tarif mit
+> „1 Hoodie" im Namen. Warenpost trägt keinen Hoodie, also bleibt das Paket; einen
+> teureren nationalen Tarif führt die Liste nicht.
 >
 > **Bestandsaufnahme (01.09.2026):**
 > - 42 Produkte (18 `publish`, 24 `private`), alle `variable`

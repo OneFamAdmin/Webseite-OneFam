@@ -4,7 +4,7 @@
 // Die Zahlen stammen aus OneFam_Margenrechner_20260807_1.xlsx, damit ein
 // Rechenfehler hier gegen die geprüfte Kalkulation auffällt und nicht gegen
 // eine zweite, selbst ausgedachte Wahrheit.
-import { computeContribution, type CostConfig, type LineItem } from './accounting.ts';
+import { computeContribution, versandstufe, type CostConfig, type LineItem } from './accounting.ts';
 
 let fehler = 0;
 function pruefe(bedingung: boolean, text: string) {
@@ -117,6 +117,23 @@ function CONFIG_NULL(): CostConfig {
     VERSAND_DE_HEAVY,
   );
   pruefe(nahe(r.cogsChf, 30.17 * 2 + 14.12 + VERSAND_DE_HEAVY), `Kosten ${r.cogsChf} über drei Stück plus einmal Versand`);
+}
+
+// ── 7. Die Versandstufe folgt der Shirt-King-Preisliste ─────────────────────
+// "<Land> 1 T-Shirt" gegen "<Land> ab 2 T-Shirts / 1 Hoodie / 1 Tasse".
+// Die Grenze liegt bei genau EINEM Shirt — nicht bei leicht gegen schwer.
+{
+  const L = (menge: number) => ({ menge, kind: 'light' as const });
+  const H = (menge: number) => ({ menge, kind: 'heavy' as const });
+
+  pruefe(versandstufe([L(1)]) === 'single_shirt', 'ein Shirt → günstige Stufe');
+  pruefe(versandstufe([L(2)]) === 'standard', 'ZWEI Shirts → schon die teure Stufe');
+  pruefe(versandstufe([L(1), L(1)]) === 'standard', 'zwei Shirts auf zwei Positionen ebenso');
+  pruefe(versandstufe([H(1)]) === 'standard', 'ein Hoodie → teure Stufe');
+  pruefe(versandstufe([H(2)]) === 'standard', 'zwei Hoodies → dieselbe Stufe, die Liste kennt keine dritte');
+  pruefe(versandstufe([L(1), H(1)]) === 'standard', 'Shirt plus Hoodie → teure Stufe');
+  pruefe(versandstufe([{ menge: 1, kind: null }]) === 'standard', 'unbekannte Ware → im Zweifel teurer');
+  pruefe(versandstufe([]) === 'standard', 'leere Bestellung → teurer, nicht gratis');
 }
 
 console.log(`\n${fehler === 0 ? '✓ ALLE PRÜFUNGEN BESTANDEN' : `✗ ${fehler} PRÜFUNG(EN) FEHLGESCHLAGEN`}`);
