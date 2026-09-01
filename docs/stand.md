@@ -3,7 +3,7 @@
 Übergabe an die nächste Sitzung. Vor grösseren Aufgaben hier hineinsehen, vor
 `/clear` oder `/compact` hier fortschreiben.
 
-**Repo sauber, `main` deckungsgleich mit origin, letzter Commit `fd4e7d4`.**
+**Repo sauber, `main` deckungsgleich mit origin.**
 
 ---
 
