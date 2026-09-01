@@ -16,7 +16,8 @@ export PATH="$HOME/.local/node/bin:$PATH"
 | Production build | `npm run build` |
 | Lint | `npm run lint` |
 | Typecheck | `npx tsc --noEmit` (both lint and tsc are expected to be clean) |
-| Draw-engine tests | `node lib/draw/engine.test.mjs` — self-contained assertions, exits non-zero on failure. The only automated test suite in the repo. |
+| Draw-engine tests | `node lib/draw/engine.test.mjs` — self-contained assertions, exits non-zero on failure |
+| Pool-accounting tests | `node --experimental-strip-types lib/pool/accounting.test.ts` — checks the money math against the numbers in the Margenrechner spreadsheet. `*.test.ts` is excluded from `tsconfig.json` because it imports with an explicit `.ts` extension, which only node understands |
 
 Migrations are **not** applied by any script. Numbered files in `supabase/migrations/` are pasted into the Supabase SQL editor by the user (or applied with the Supabase MCP `apply_migration`). Every migration so far is additive; never edit one that has already been applied — add a new numbered file.
 
@@ -126,12 +127,28 @@ sind live.
 > Kunstbestellung: `purchases` → `pending_buyers` → `pool_ledger` → `pool_state`,
 > Retoure bucht zurück, Doppelläufer werden abgewiesen; alle Testspuren entfernt.
 >
-> ⚠️ **Der Pool wird derzeit zu hoch gutgeschrieben.** `cost_config.pool_share_pct`
-> steht auf **20 %**, aber `product_costs` ist leer und es gibt keine SKUs — also
-> ist COGS = 0 und die Rechnung nimmt den **Bruttoumsatz als Marge**. Gemessen:
-> CHF 75 Bestellung → Gutschrift CHF 15, statt 20 % vom echten Gewinn. Bis
-> Schritt 2 (Kosten über `product_id`) steht, entweder `pool_share_pct` auf 0
-> setzen oder die Gutschriften später aus `purchases` korrigieren.
+> **Pool-Rechnung seit Migration `0010` vollständig** (vorher: COGS = 0, also 20 %
+> vom Bruttoumsatz statt vom Gewinn). Quelle aller Zahlen ist
+> `~/Downloads/OneFam_Margenrechner_20260807_1.xlsx` (Einkauf Shirt-King,
+> 07.08.2026) — ändert sich dort etwas, gehört es in `0010` nachgezogen:
+> - `product_costs`: 42 Zeilen, Schlüssel = **WooCommerce-`product_id` als Text**
+>   in der `sku`-Spalte (der Shop führt nirgends eine SKU). Shirt 14.12,
+>   Sweater 24.76, Hoodie 30.17 CHF — Rohteil + DTG + Handling, +19 % deutsche
+>   USt., Kurs 0.925.
+> - `shipping_costs`: was Shirt-King je Land und Gewichtsklasse vom PodOS-Guthaben
+>   abzieht. **Nicht** die Versandpauschale des Kunden — die steckt bereits in der
+>   Bestellsumme und muss gegengerechnet werden, sonst wäre Versand reiner Gewinn.
+> - `cost_config.fx_eur_chf`: **der einzige Wechselkurs im System.** Fehlt er,
+>   wirft `creditPoolForOrder` bei einer EUR-Bestellung, statt Euro als Franken zu
+>   verbuchen (~8 % zu viel).
+>
+> Live nachgerechnet am 01.09.2026, deckungsgleich mit `accounting.test.ts`:
+> Hoodie CHF 75 + 7 Versand nach DE → Kosten 34.43, Gebühr 2.68, Marge 44.89,
+> **Pool 8.98** (vorher wären es 16.40 gewesen).
+>
+> Zwei bewusste Vereinfachungen bei den Versandkosten, beide zugunsten eines eher
+> zu niedrigen Pools: eine Bestellung = ein Paket zum Tarif der schwersten
+> enthaltenen Ware, und ein unbekanntes Zielland bekommt den teuersten Tarif.
 >
 > **Bestandsaufnahme (01.09.2026):**
 > - 42 Produkte (18 `publish`, 24 `private`), alle `variable`
