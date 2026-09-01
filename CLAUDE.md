@@ -120,6 +120,19 @@ sind live.
 > Ohne Schlüssel liefert die öffentliche Store-API (`/wp-json/wc/store/v1/`)
 > bereits Katalog, Preise und Warenkorb-Verhalten.
 >
+> **LIVE seit 01.09.2026:** Webhook id 4 („OneFam Webseite — Kaeufer & Pool",
+> `order.updated` → `https://onefam.ch/api/woo/webhook`) ist aktiv, das Geheimnis
+> liegt in Vercel und `.env.local`. Ende-zu-Ende geprüft mit einer signierten
+> Kunstbestellung: `purchases` → `pending_buyers` → `pool_ledger` → `pool_state`,
+> Retoure bucht zurück, Doppelläufer werden abgewiesen; alle Testspuren entfernt.
+>
+> ⚠️ **Der Pool wird derzeit zu hoch gutgeschrieben.** `cost_config.pool_share_pct`
+> steht auf **20 %**, aber `product_costs` ist leer und es gibt keine SKUs — also
+> ist COGS = 0 und die Rechnung nimmt den **Bruttoumsatz als Marge**. Gemessen:
+> CHF 75 Bestellung → Gutschrift CHF 15, statt 20 % vom echten Gewinn. Bis
+> Schritt 2 (Kosten über `product_id`) steht, entweder `pool_share_pct` auf 0
+> setzen oder die Gutschriften später aus `purchases` korrigieren.
+>
 > **Bestandsaufnahme (01.09.2026):**
 > - 42 Produkte (18 `publish`, 24 `private`), alle `variable`
 > - **Keine einzige SKU** — weder Produkt, Variante noch Bestellposition. Der
