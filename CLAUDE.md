@@ -51,7 +51,20 @@ wenn der EUR-Festpreis auf einer Variation fehlt und hochgerechnet wird.
 
 **Die WooCommerce-Store-API taugt zum Preismessen nicht** — sie zeigt immer den
 umgerechneten Wert, auch für gesunde Produkte. Belastbar ist nur die
-`wc/v3`-Schnittstelle im eingeloggten wp-admin oder die gerenderte Produktseite.
+`wc/v3`-Schnittstelle **im eingeloggten wp-admin** (Nonce aus `wpApiSettings`) oder
+die gerenderte Produktseite. Von aussen mit dem REST-Schlüssel gemessen liefert
+`regular_price` ebenfalls den umgerechneten Wert — auch das ist eine Fehlmessung.
+
+Zwei Dinge, die dabei immer mitzudenken sind:
+
+- **Ein PodOS-Sync legt Variationen neu an und verliert die CURCY-Meta.** Dagegen
+  hängt seit 18.08.2026 Snippet 89 „OneFam EUR-Festpreis-Waechter". Nach einem Sync
+  trotzdem nachmessen.
+- **Snippet 11 trägt die EUR-Preise als feste Zeichenketten** — im `feat`-Objekt der
+  Startseite und in den Kacheln der Länderseiten, 18× je Wert. Ändern sich die
+  EUR-Preise, müssen sie dort **von Hand** nachgezogen werden.
+
+Vollständig: `docs/REGEL-preise.md`.
 
 **Währung folgt dem Gerät, nicht dem Standort:** Zeitzone → IP-Land → Browsersprache.
 Ein Schweizer in Deutschland soll CHF sehen — **Absicht, kein Fehler.** Die
@@ -251,7 +264,9 @@ Umgebung abgeleitet würde jede Vercel-Vorschau sich selbst als kanonisch ausgeb
 
 ## Bildproduktion (Modellbilder, Mockups)
 
-Läuft über Higgsfield. Diese Regeln gelten immer und werden nicht neu verhandelt:
+Läuft über Higgsfield. **Vollständiges Vorgehen für ein Land: `docs/RUNBOOK-laenderlauf.md`**
+(Bildsatz, Sollfarben, Druckmasse, Dateinamen, Produkt verdrahten, Länderseite,
+Aufräumen). Diese Regeln gelten immer und werden nicht neu verhandelt:
 
 * **Keine Standbein-Posen.** Gewicht gleichmässig auf beiden Füssen, Hüfte gerade.
 * **Keine Oberkörperdrehungen.** Brustkorb frontal zur Kamera, sonst sitzt der flach
@@ -264,9 +279,11 @@ Läuft über Higgsfield. Diese Regeln gelten immer und werden nicht neu verhande
   Paares dürfen **nicht wie Geschwister aussehen**.
 * **Kein ByteDance-4K-Upscale** — schärft Gesichter, erfindet aber eine Rippenstruktur
   im Stoff.
-
-> Noch nicht in diesem Repo: `docs/RUNBOOK-laenderlauf.md`, `docs/REGEL-gesichter.md`,
-> `docs/REGEL-preise.md`. Sie liegen im claude.ai-Projekt und sollten hierher.
+* **Gesichter sind nicht austauschbar.** „Hohe Wangenknochen, gerade Nase, kantiger
+  Kiefer, dunkles Haar" ist keine Ethnizität, sondern die Standard-Modellschablone.
+  Vor dem Schreiben die Beschreibung des zuletzt gemachten Landes danebenlegen —
+  decken sich mehr als zwei Merkmale, ist sie nicht fertig.
+  → `docs/REGEL-gesichter.md`
 
 ---
 
@@ -330,3 +347,6 @@ dorthin schreiben.
 | `docs/shop-preisanzeige.md` | Preis-Skript der Startseite, Slug-Falle, Speicher-Falle |
 | `docs/handover-shop-pool.md` | Übergabe Shop/Pool (teilweise überholt) |
 | `docs/deploy-vercel.md` | Vercel-Projekt, Umgebungsvariablen |
+| `docs/REGEL-preise.md` | Preise, Fehlerbild 82,50, richtige Messmethode |
+| `docs/RUNBOOK-laenderlauf.md` | Ein Land komplett — Bild bis Länderseite |
+| `docs/REGEL-gesichter.md` | Warum jedes Land eigene Gesichter braucht |
