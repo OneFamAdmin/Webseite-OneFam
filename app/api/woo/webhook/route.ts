@@ -175,7 +175,13 @@ async function handleOrderPaid(admin: AdminClient, order: WooOrder) {
       user_id: user?.id ?? null,
       email: email || null,
       shop_customer_id: shopCustomerId,
-      gross_chf: Number.isFinite(gross) ? gross : null,
+      // Die ROHE Bestellsumme in der Waehrung der Bestellung. `gross_chf` wird
+      // hier bewusst NICHT gesetzt: der Webhook kennt den Wechselkurs nicht, und
+      // eine EUR-Summe in einer Spalte namens `_chf` war genau der Fehler, den
+      // Migration 0014 behebt. Die Franken traegt die Buchhaltung nach
+      // (creditPoolForOrder) — bleibt sie leer, ist die Bestellung erfasst, aber
+      // noch nicht abgerechnet.
+      gross_original: Number.isFinite(gross) ? gross : null,
       currency,
       status: 'paid',
       updated_at: new Date().toISOString(),

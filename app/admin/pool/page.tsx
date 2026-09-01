@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
-import { ArrowLeft, Wallet, TrendingUp, Receipt, RefreshCw, Trash2 } from 'lucide-react';
+import { ArrowLeft, Wallet, TrendingUp, Receipt, RefreshCw, Trash2, Scale } from 'lucide-react';
 import { createClient } from '@/lib/supabase/server';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { podosConfigured } from '@/lib/podos/client';
@@ -41,6 +41,10 @@ export default async function AdminPoolPage() {
   const costRows = (costs ?? []) as CostRow[];
   const ledgerRows = (ledger ?? []) as LedgerRow[];
   const paid = ((purchases ?? []) as PurchaseRow[]).filter((p) => p.status === 'paid');
+  // gross_chf traegt seit Migration 0014 ausschliesslich FRANKEN. Vorher stand
+  // dort die rohe Bestellsumme in der Waehrung der Bestellung, und diese Summe
+  // warf EUR und CHF in einen Topf — rund 8 % zu hoch, direkt neben einer Marge,
+  // die korrekt in Franken gerechnet war.
   const revenue = paid.reduce((s, p) => s + Number(p.gross_chf ?? 0), 0);
   const margin = paid.reduce((s, p) => s + Number(p.margin_chf ?? 0), 0);
   const podosCount = costRows.filter((c) => c.source === 'podos').length;
@@ -72,6 +76,14 @@ export default async function AdminPoolPage() {
           Pro Verkauf: Marge = Brutto − Produktionskosten − Gebühren; davon {sharePct}% in den Pool. Die Auslosung bleibt
           gratis; Lohn/Fixkosten werden separat gegengerechnet (nie aus dem Pool).
         </p>
+
+        <Link
+          href="/admin/pool/abrechnung"
+          className="mt-5 inline-flex items-center gap-2 rounded-[4px] border border-line px-5 py-2.5 font-body text-sm font-medium text-secondary transition-colors duration-[180ms] hover:border-gold/40 hover:text-primary"
+        >
+          <Scale size={15} strokeWidth={1.8} />
+          Monatsabrechnung (Lohn & Fixkosten)
+        </Link>
 
         {/* overview */}
         <div className="mt-8 grid gap-4 sm:grid-cols-2">

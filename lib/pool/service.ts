@@ -160,6 +160,8 @@ export async function creditPoolForOrder(
   await admin
     .from('purchases')
     .update({
+      // Erst hier steht der Franken-Betrag fest — vorher fehlte der Kurs.
+      gross_chf: gross,
       cogs_chf: contrib.cogsChf,
       fee_chf: contrib.feeChf,
       margin_chf: contrib.marginChf,
