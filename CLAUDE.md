@@ -337,11 +337,14 @@ Messungen sind wertlos — die Zahlen selbst zählen.
 
 ## Stand und Übergaben
 
-Vor grösseren Aufgaben in `docs/` nachsehen. Vor `/clear` oder `/compact` den Stand
-dorthin schreiben.
+**Der aktuelle Arbeitsstand steht in `docs/stand.md`** — offene Punkte, was zuletzt
+gemacht wurde, und die Fallen, die schon einmal Zeit gekostet haben. Vor grösseren
+Aufgaben dort hineinsehen. Vor `/clear` oder `/compact` den Stand dorthin
+fortschreiben.
 
 | Datei | Inhalt |
 |---|---|
+| `docs/stand.md` | **Hier zuerst.** Offene Punkte, letzter Stand, bekannte Fallen |
 | `docs/shop-und-pool-details.md` | WooCommerce-Bestand, Währungsmechanik, Kostenmodell, Versandstaffel |
 | `docs/behoerden-mwst-zoll.md` | ESTV, BAZG, deutscher Zoll — was beantwortet ist, was fehlt |
 | `docs/shop-preisanzeige.md` | Preis-Skript der Startseite, Slug-Falle, Speicher-Falle |
