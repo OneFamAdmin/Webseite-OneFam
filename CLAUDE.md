@@ -296,13 +296,12 @@ nur das Währungs-Plugin, das mit Faktor 1.1 umrechnet — kein Bug, nicht
 
 - Footer-Branding-Zeile untergräbt die Premium-Wirkung
 - Tote Links
-- **Shop, Startseite: Kopf sagt „CHF Fr.", die Produktkarten zeigen EUR** (belegt
-  01.09.2026). Ursache: Das Karten-Skript leitet die Kategorie aus dem Slug der
-  **ersten** Karte ab; die heisst `albanian-hoodie` statt `albania-hoodie`, also
-  fragt es `/wp-json/onefam/v1/cat-prices?category=albanian` ab → `[]` → die Preise
-  werden nie umgeschrieben und der EUR-Fallback aus dem HTML bleibt stehen.
-  Fix: entweder den Produkt-Slug auf `albania-hoodie` korrigieren (mit 301 auf den
-  alten) oder die Kategorie nicht aus dem Slug raten.
+- **Shop, Startseite: Kopf sagt „CHF Fr.", die Produktkarten zeigen EUR** — Ursache
+  vollständig im Skript belegt, **zwei von vier Ländern betroffen** (Albanien und
+  Andorra), fertiger Patch in `docs/shop-preisanzeige.md`. Kurz: das Karten-Skript
+  rät die Kategorie aus dem Slug der ersten Karte, statt das Land zu benutzen, das
+  zwei Zeilen weiter oben in `renderFeat('albania')` schon dasteht. Die Änderung ist
+  im WordPress-Theme fällig, nicht in diesem Repo.
 - Plattform-Inkonsistenz: WooCommerce/Divi neben Shopify
 - Pauschaler Ausschluss des Widerrufsrechts ist nach deutschem Verbraucherrecht
   vermutlich angreifbar — vor Launch prüfen lassen
