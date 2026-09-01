@@ -38,15 +38,24 @@ export type Contribution = {
 const round2 = (n: number) => Math.round((n + Number.EPSILON) * 100) / 100;
 
 /**
- * Compute one order's pool contribution. `gross` is the order total in the store
- * currency; line items drive the COGS. When a line item's SKU has no cost, the
- * config's defaultCogsPct (× that line's gross) is used, or 0 if unset.
+ * Compute one order's pool contribution.
+ *
+ * ALLES IN CHF. Der Aufrufer rechnet eine EUR-Bestellung vorher um (siehe
+ * lib/pool/service.ts) — dieses Modul kennt bewusst nur eine Währung, sonst
+ * müsste jede Formel hier den Kurs mitschleppen.
+ *
+ * `gross` ist die Bestellsumme INKLUSIVE der Versandpauschale, die der Kunde
+ * bezahlt hat. Deshalb muss `shippingCostChf` gegengerechnet werden: das ist,
+ * was Shirt-King OneFam für denselben Versand vom PodOS-Guthaben abzieht.
+ * Ohne diesen Posten wäre der Versand reiner Gewinn, und der Pool bekäme
+ * mehrere Franken je Bestellung zu viel.
  */
 export function computeContribution(
   items: LineItem[],
   gross: number,
   config: CostConfig,
   costOf: UnitCostLookup,
+  shippingCostChf = 0,
 ): Contribution {
   const missing = new Set<string>();
   let cogs = 0;
@@ -64,12 +73,13 @@ export function computeContribution(
     }
   }
 
+  const versand = Number.isFinite(shippingCostChf) ? Math.max(0, shippingCostChf) : 0;
   const fees = gross * (config.feePct / 100) + config.feeFixedChf;
-  const margin = gross - cogs - fees;
+  const margin = gross - cogs - versand - fees;
   const poolCredit = Math.max(0, margin) * (config.poolSharePct / 100);
 
   return {
-    cogsChf: round2(cogs),
+    cogsChf: round2(cogs + versand),
     feeChf: round2(fees),
     marginChf: round2(margin),
     poolCreditChf: round2(poolCredit),

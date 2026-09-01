@@ -6,10 +6,10 @@ type AdminClient = ReturnType<typeof createAdminClient>;
 const round2 = (n: number) => Math.round((n + Number.EPSILON) * 100) / 100;
 
 /** Load the year's pool knobs; safe defaults (share 0 = credits nothing) when unset. */
-async function loadConfig(admin: AdminClient, year: number): Promise<CostConfig> {
+async function loadConfig(admin: AdminClient, year: number): Promise<CostConfig & { fxEurChf: number | null }> {
   const { data } = await admin
     .from('cost_config')
-    .select('pool_share_pct, fee_pct, fee_fixed_chf, default_cogs_pct')
+    .select('pool_share_pct, fee_pct, fee_fixed_chf, default_cogs_pct, fx_eur_chf')
     .eq('year', year)
     .maybeSingle();
   return {
@@ -17,16 +17,64 @@ async function loadConfig(admin: AdminClient, year: number): Promise<CostConfig>
     feePct: Number(data?.fee_pct ?? 0),
     feeFixedChf: Number(data?.fee_fixed_chf ?? 0),
     defaultCogsPct: data?.default_cogs_pct != null ? Number(data.default_cogs_pct) : null,
+    fxEurChf: data?.fx_eur_chf != null ? Number(data.fx_eur_chf) : null,
   };
 }
 
-/** SKU → unit cost map from product_costs (PodOS-synced or manual). */
-async function loadCosts(admin: AdminClient, skus: (string | null | undefined)[]): Promise<Map<string, number>> {
+type Kosten = { cost: number; kind: 'light' | 'heavy' | null };
+
+/** Produktschlüssel → Stückkosten + Gewichtsklasse aus product_costs.
+ *  Der Schlüssel ist die WooCommerce-product_id als Text (der Shop führt keine SKUs). */
+async function loadCosts(admin: AdminClient, skus: (string | null | undefined)[]): Promise<Map<string, Kosten>> {
   const list = [...new Set(skus.filter((s): s is string => !!s))];
   if (!list.length) return new Map();
-  const { data, error } = await admin.from('product_costs').select('sku, cost_chf').in('sku', list);
+  const { data, error } = await admin
+    .from('product_costs')
+    .select('sku, cost_chf, item_kind')
+    .in('sku', list);
   if (error) throw new Error(error.message);
-  return new Map((data ?? []).map((r) => [r.sku as string, Number(r.cost_chf)]));
+  return new Map(
+    (data ?? []).map((r) => [
+      r.sku as string,
+      { cost: Number(r.cost_chf), kind: (r.item_kind as 'light' | 'heavy' | null) ?? null },
+    ]),
+  );
+}
+
+/**
+ * Was Shirt-King OneFam für den Versand dieser Bestellung belastet, in CHF.
+ *
+ * Zwei bewusste Vereinfachungen, die im Zweifel zu HOHE Kosten annehmen und den
+ * Pool damit eher zu niedrig als zu hoch gutschreiben:
+ *
+ * 1. Eine Bestellung = ein Paket. Shirt-King staffelt nach Gewichtsklasse, nicht
+ *    nach Stückzahl; für gemischte Bestellungen wird der teurere 'heavy'-Tarif
+ *    angesetzt, sobald ein Hoodie oder Sweater dabei ist.
+ * 2. Ist das Zielland nicht hinterlegt (Bestellung ausserhalb der 21 belieferten
+ *    Länder), wird der teuerste bekannte Tarif dieser Klasse verwendet.
+ */
+async function versandkosten(
+  admin: AdminClient,
+  countryCode: string | null,
+  kinds: (('light' | 'heavy') | null)[],
+  fxEurChf: number | null,
+): Promise<number> {
+  const klasse: 'light' | 'heavy' = kinds.includes('heavy') ? 'heavy' : 'light';
+  const land = (countryCode ?? '').trim().toUpperCase();
+
+  const { data, error } = await admin
+    .from('shipping_costs')
+    .select('country_code, cost_eur')
+    .eq('item_kind', klasse);
+  if (error) throw new Error(error.message);
+  if (!data?.length) return 0;
+
+  const treffer = data.find((r) => r.country_code === land);
+  const eur = treffer
+    ? Number(treffer.cost_eur)
+    : Math.max(...data.map((r) => Number(r.cost_eur))); // unbekanntes Land → teuerster Tarif
+  const kurs = fxEurChf ?? 1;
+  return round2(eur * kurs);
 }
 
 /**
@@ -38,14 +86,50 @@ async function loadCosts(admin: AdminClient, skus: (string | null | undefined)[]
  */
 export async function creditPoolForOrder(
   admin: AdminClient,
-  args: { orderId: string; year: number; gross: number; items: LineItem[] },
+  args: {
+    orderId: string;
+    year: number;
+    gross: number;
+    items: LineItem[];
+    /** Währung der Bestellung ('CHF' | 'EUR'); fehlt sie, wird CHF angenommen. */
+    currency?: string | null;
+    /** Zielland (ISO-2) für die Versandkosten. */
+    countryCode?: string | null;
+  },
 ) {
-  const { orderId, year, gross, items } = args;
+  const { orderId, year, items, currency, countryCode } = args;
   const config = await loadConfig(admin, year);
   const costMap = await loadCosts(admin, items.map((i) => i.sku));
 
-  const contrib = computeContribution(items, gross, config, (sku) =>
-    sku && costMap.has(sku) ? (costMap.get(sku) as number) : null,
+  // Umrechnung auf CHF. Die Buchhaltung darunter rechnet ausschliesslich in
+  // Franken — eine EUR-Bestellung ungerechnet durchzureichen hiesse, Euro als
+  // Franken zu verbuchen (rund 8 % zu viel).
+  //
+  // Fehlt der Kurs, wird NICHT geraten: dann bleibt die Gutschrift aus und die
+  // Bestellung ist trotzdem vollstaendig in `purchases` erfasst, laesst sich
+  // also spaeter nachbuchen.
+  const waehrung = (currency ?? 'CHF').toUpperCase();
+  if (waehrung !== 'CHF' && config.fxEurChf == null) {
+    throw new Error(`Kein Wechselkurs fuer ${waehrung} in cost_config hinterlegt (Bestellung ${orderId})`);
+  }
+  const kurs = waehrung === 'CHF' ? 1 : (config.fxEurChf as number);
+
+  const gross = round2(args.gross * kurs);
+  const itemsChf: LineItem[] = items.map((i) => ({ ...i, unitPrice: i.unitPrice * kurs }));
+
+  const versand = await versandkosten(
+    admin,
+    countryCode ?? null,
+    items.map((i) => (i.sku ? costMap.get(i.sku)?.kind ?? null : null)),
+    config.fxEurChf,
+  );
+
+  const contrib = computeContribution(
+    itemsChf,
+    gross,
+    config,
+    (sku) => (sku && costMap.has(sku) ? (costMap.get(sku) as Kosten).cost : null),
+    versand,
   );
 
   // Stamp the per-order accounting on the purchase (for the admin + refund reversal).

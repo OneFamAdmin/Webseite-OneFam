@@ -27,7 +27,8 @@ type WooOrder = {
   currency?: string | null;
   total?: string | null;
   customer_id?: number | string | null;
-  billing?: { email?: string | null } | null;
+  billing?: { email?: string | null; country?: string | null } | null;
+  shipping?: { country?: string | null } | null;
   line_items?: WooLineItem[] | null;
 };
 
@@ -195,38 +196,32 @@ async function handleOrderPaid(admin: AdminClient, order: WooOrder) {
     if (pbErr) throw new Error(pbErr.message);
   }
 
-  // Pool-Gutschrift — und hier die dritte Falle: der Shop verkauft in CHF UND in
-  // EUR (nachgemessen am 01.09.2026), die Pool-Rechnung kennt aber nur eine
-  // Währung. Eine EUR-Bestellung als Franken zu verbuchen wäre schlicht falsch.
-  //
-  // Bis die Umrechnung steht (Schritt 3), wird deshalb nur in CHF gutgeschrieben.
-  // Die Bestellung ist oben trotzdem vollständig mit Betrag UND Währung erfasst —
-  // die übersprungenen Gutschriften lassen sich später aus `purchases`
-  // nachbuchen, es geht nichts verloren.
-  if (currency && currency !== 'CHF') {
-    console.warn(`[woo] Pool-Gutschrift für ${orderId} zurückgestellt: Währung ${currency}, Umrechnung fehlt`);
-    return;
-  }
-
   const items: LineItem[] = (order.line_items ?? []).map((li) => {
     const menge = Number(li.quantity ?? 1) || 1;
     const stueck = li.price != null ? Number(li.price) : Number(li.total ?? 0) / menge;
     return {
       // Der Shop führt bei KEINEM Produkt eine SKU (42 von 42 leer, geprüft am
       // 01.09.2026) — auch die Bestellposition liefert keine. Als Kostenschlüssel
-      // bleibt allein die product_id. Sie wird hier in das SKU-Feld gelegt, damit
-      // `product_costs` in Schritt 2 nur befüllt statt umgebaut werden muss.
+      // bleibt allein die product_id; `product_costs.sku` trägt sie als Text
+      // (siehe Migration 0010).
       sku: li.sku || (li.product_id != null ? str(li.product_id) : null),
       quantity: menge,
       unitPrice: Number.isFinite(stueck) ? stueck : 0,
     };
   });
 
+  // Das Zielland bestimmt, was Shirt-King für den Versand abzieht. Lieferadresse
+  // zuerst, Rechnungsadresse als Rückfall — bei digitalen Gastbestellungen ist
+  // die Lieferadresse manchmal leer.
+  const land = (order.shipping?.country || order.billing?.country || '').toUpperCase() || null;
+
   await creditPoolForOrder(admin, {
     orderId,
     year: new Date().getFullYear(),
     gross: Number.isFinite(gross) ? (gross as number) : 0,
     items,
+    currency,
+    countryCode: land,
   });
 }
 
