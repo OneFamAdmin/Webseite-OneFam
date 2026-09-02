@@ -14,7 +14,6 @@
 | 1 | **Anfrage ans Finanzamt Konstanz** stellen | Ab dem ersten Verkauf an einen deutschen Kunden entsteht dort Umsatzsteuer, ob registriert oder nicht. Bisher gab es **genau einen** (#4145, 23.07.2026, 39,57 EUR). Solange noch nichts weiter verkauft ist, ist Luft — die sollte genutzt werden. Entwurf liegt im claude.ai-Projekt. → `behoerden-mwst-zoll.md` |
 | 2 | **Ausführer-Vereinbarung mit Shirt-King** | Der deutsche Zoll gibt schriftliche Festlegung vor. Vor dem ersten echten Paket in ein Drittland klären, nicht danach. Dazu: fakturieren sie Drittlandsendungen mit oder ohne deutsche USt.? |
 | 3 | Widerrufsrecht anwaltlich prüfen | Pauschaler Ausschluss ist nach deutschem Verbraucherrecht vermutlich angreifbar. Vor Launch. |
-| 4 | **`sample-page` im Shop** | Die WordPress-Beispielseite ist öffentlich und indexierbar („Sample Page \| OneFam"). In den Papierkorb — ein Klick, den ich nicht ausführen durfte. |
 
 **Der Trichter bleibt geparkt** (freie Auswahl, Käufer-Voting) bis zur rechtlichen
 Freigabe. Nicht als toten Code aufräumen.
@@ -103,7 +102,10 @@ Messen weitgehend zerfallen:
 antworten mit 404. Die Zahl ist in allen vier Sprachen raus (Snippet 11,
 2'423'744 → 2'423'682), der Satz endet jetzt auf „Nur ein Zeichen — damit deins
 dabei ist." Dazu die Fusszeile auf onefam.ch: nur noch „© 2026 OneFam", die
-Rechtsform steht im Impressum.
+Rechtsform steht im Impressum und als `legalName` in den strukturierten Daten.
+
+Und `sample-page` ist im Papierkorb: `/sample-page/` antwortet mit 404, die
+Seitenliste zaehlt noch 25 statt 26.
 
 ---
 
