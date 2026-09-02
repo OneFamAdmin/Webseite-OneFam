@@ -14,9 +14,8 @@
 | 1 | **Anfrage ans Finanzamt Konstanz** stellen | Ab dem ersten Verkauf an einen deutschen Kunden entsteht dort Umsatzsteuer, ob registriert oder nicht. Bisher gab es **genau einen** (#4145, 23.07.2026, 39,57 EUR). Solange noch nichts weiter verkauft ist, ist Luft — die sollte genutzt werden. Entwurf liegt im claude.ai-Projekt. → `behoerden-mwst-zoll.md` |
 | 2 | **Ausführer-Vereinbarung mit Shirt-King** | Der deutsche Zoll gibt schriftliche Festlegung vor. Vor dem ersten echten Paket in ein Drittland klären, nicht danach. Dazu: fakturieren sie Drittlandsendungen mit oder ohne deutsche USt.? |
 | 3 | Widerrufsrecht anwaltlich prüfen | Pauschaler Ausschluss ist nach deutschem Verbraucherrecht vermutlich angreifbar. Vor Launch. |
-| 4 | **Halbsatz in der Versandrichtlinie** — „richtet sich nach der Menge in deinem Warenkorb" | Die Lieferzeit steht seit 02.09.2026 auf jeder Produktseite (Snippet 102, alle 18 Produkte geprüft, DE/EN/FR/ES). Damit stimmt der erste Teil des Satzes. Der zweite nicht: die Angabe ist eine feste Spanne, keine mengenabhängige. Der Satz liegt im **2,4-MB-Router-Snippet** — dort gilt die Speicher-Falle aus Regel 8. |
+| 4 | Tote Links, Footer-Branding-Zeile, `sample-page`, doppelte Rechtsseiten | Kosmetik, aber sichtbar. → `shop-fusslinks.md` |
 | 5 | Shop-Fusslinks ohne Sprachpräfix | Sieben von neun zeigen auf die englischen Adressen. → `shop-fusslinks.md` |
-| 6 | Tote Links, Footer-Branding-Zeile | Kosmetik, aber sichtbar. |
 
 **Der Trichter bleibt geparkt** (freie Auswahl, Käufer-Voting) bis zur rechtlichen
 Freigabe. Nicht als toten Code aufräumen.
@@ -94,6 +93,13 @@ Preis darüber.
 
 **Bewusst ohne MwSt-Hinweis** — siehe Falle 6 weiter unten.
 
+Dazu der Halbsatz „und richtet sich nach der Menge in deinem Warenkorb" aus der
+Versandrichtlinie **entfernt** — er widersprach der festen Spanne. Betroffen waren
+zwei Snippets: **42** (Übersetzungstabelle, 5 Vorkommen, 187'739 → 187'481 Zeichen)
+und **11** (der englische Satz im HTML, 2'423'797 → 2'423'744). Der Satz ist der
+Schlüssel der Übersetzungstabelle — wer nur eines von beiden ändert, bekommt auf
+den fremdsprachigen Seiten Englisch. Nachgemessen in allen vier Sprachen.
+
 ### Shop war unverschlüsselt erreichbar — behoben 02.09.2026
 
 `http://shop.onefam.ch` lieferte den kompletten Shop im Klartext aus, das
@@ -135,7 +141,13 @@ Web-FTP-Editor: `shop-https.md`.
    eigenen Anfrage zurück. Über HTTP gefragt meldet es `http://`, obwohl in der
    Datenbank `https://` steht. Ich habe daraus einen Fehler abgeleitet, den es nicht
    gab. Für `siteurl` und `home` in wp-admin nachsehen.
-8. **Vor dem Selberbauen im Shop erst die Plugin-Liste ansehen.** Neun Stück, und
+8. **Ein Snippet laesst sich nur mit echten Eingabeereignissen aendern.** Der Editor
+   ist React-gesteuert: `setValue`, `textarea.value`, `cm.save()` — alles wird beim
+   Speichern stillschweigend verworfen (dreimal geprueft). Was geht: echter Mausklick
+   in den Editor, dann `cm.setSelection()`, dann echter Tastendruck. Eine
+   REST-Schnittstelle gibt es in dieser Fassung nicht. Danach IMMER die Zeichenlaenge
+   nach dem Neuladen pruefen und die Live-Seite messen.
+9. **Vor dem Selberbauen im Shop erst die Plugin-Liste ansehen.** Neun Stück, und
    zwei davon machen HTTPS. Ein gesetzter Haken heisst dabei nicht, dass die Regel
    auch geschrieben wurde.
 

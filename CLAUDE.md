@@ -90,10 +90,18 @@ Umschalter sind bewusst abgeschaltet. Mechanik und Testhinweise:
    es richtig aussieht?** Das löst mehr als jede weitere Messrunde.
 6. **Bevor ein Fehler dem Zulieferer zugeschrieben wird, die Quelle messen.**
 7. **Nichts auf der öffentlichen Seite darf etwas versprechen, das die AGB verneinen.**
-8. **Snippets im Shop nur über die REST-Schnittstelle speichern** — der Formularknopf
-   verwirft programmatisch gesetzten Code stillschweigend. Und bei 2,4 MB antwortet
-   der Server mit leerem Rumpf: die Fehlermeldung sagt **nichts** darüber aus, ob
-   gespeichert wurde. Immer die Zeichenlänge im Editor nachprüfen.
+8. **Snippets im Shop: der Formularknopf verwirft programmatisch gesetzten Code
+   stillschweigend.** Der Editor ist React-gesteuert; wer den Inhalt per Skript setzt
+   (`CodeMirror.setValue`, `textarea.value`, auch mit `cm.save()`), klickt danach ins
+   Leere — dreimal geprüft am 02.09.2026, jedes Mal unverändert zurück.
+   **Eine REST-Schnittstelle gibt es in dieser Plugin-Fassung nicht**
+   (`/wp-json/code-snippets/v1/snippets` antwortet nicht); die ältere Anweisung, nur
+   über REST zu speichern, geht also ins Leere. **Was funktioniert:** mit einem
+   *echten Mausklick* in den Editor (Fokus!), die Stelle per `cm.setSelection()`
+   markieren und mit einem *echten Tastendruck* löschen oder tippen — nur so sieht
+   React die Änderung. Und bei 2,4 MB antwortet der Server mit leerem Rumpf: die
+   Fehlermeldung sagt **nichts** darüber aus, ob gespeichert wurde. Immer die
+   Zeichenlänge nach dem Neuladen nachprüfen **und** die Live-Seite messen.
 9. **Kein JavaScript direkt in ein Code-Snippet.** Das Plugin schaltet den Snippet
    dann selbsttätig ab. CSS-only oder eigener Hook.
 10. **Wer einen Produkt-Slug ändert, muss im Router-Snippet die fest verdrahteten
