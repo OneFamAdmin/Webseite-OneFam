@@ -142,7 +142,15 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    // everything except Next internals and static asset files
-    '/((?!_next/static|_next/image|favicon.ico|assets/|.*\\.(?:svg|png|jpg|jpeg|gif|webp|mp4|ico)$).*)',
+    // Alles ausser Next-Interna und statischen Dateien.
+    //
+    // Die Endungsliste ist kein Schoenheitsfehler, sondern der Unterschied
+    // zwischen ausgeliefert und 404: Was hier fehlt, laeuft durch next-intl
+    // und bekommt ein Sprachpraefix verpasst. 02.09.2026 fehlte `webm` —
+    // /hero.webm wurde zu /de/hero.webm umgeschrieben und antwortete mit 404,
+    // obwohl die Datei in public/ liegt. Der Browser fiel still auf hero.mp4
+    // zurueck (18,75 MB statt 10,6 MB), sichtbar nur als 404 in der Konsole.
+    // Wer hier ein neues Dateiformat nach public/ legt, traegt es hier ein.
+    '/((?!_next/static|_next/image|favicon.ico|assets/|.*\\.(?:svg|png|jpg|jpeg|gif|webp|mp4|webm|ico)$).*)',
   ],
 };
