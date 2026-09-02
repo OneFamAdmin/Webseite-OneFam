@@ -14,7 +14,7 @@
 | 1 | **Anfrage ans Finanzamt Konstanz** stellen | Ab dem ersten Verkauf an einen deutschen Kunden entsteht dort Umsatzsteuer, ob registriert oder nicht. Bisher gab es **genau einen** (#4145, 23.07.2026, 39,57 EUR). Solange noch nichts weiter verkauft ist, ist Luft — die sollte genutzt werden. Entwurf liegt im claude.ai-Projekt. → `behoerden-mwst-zoll.md` |
 | 2 | **Ausführer-Vereinbarung mit Shirt-King** | Der deutsche Zoll gibt schriftliche Festlegung vor. Vor dem ersten echten Paket in ein Drittland klären, nicht danach. Dazu: fakturieren sie Drittlandsendungen mit oder ohne deutsche USt.? |
 | 3 | Widerrufsrecht anwaltlich prüfen | Pauschaler Ausschluss ist nach deutschem Verbraucherrecht vermutlich angreifbar. Vor Launch. |
-| 4 | **Pflichtangaben auf der Shop-Produktseite** — „inkl. MwSt." und Lieferzeitraum | Fehlen beide. Die eigene Versandrichtlinie behauptet, die Lieferzeit stehe auf jeder Produktseite — sie steht dort nicht. Für deutsche Kunden Pflicht. Das ist der letzte Shop-Blocker vor dem Launch. |
+| 4 | **Halbsatz in der Versandrichtlinie** — „richtet sich nach der Menge in deinem Warenkorb" | Die Lieferzeit steht seit 02.09.2026 auf jeder Produktseite (Snippet 102, alle 18 Produkte geprüft, DE/EN/FR/ES). Damit stimmt der erste Teil des Satzes. Der zweite nicht: die Angabe ist eine feste Spanne, keine mengenabhängige. Der Satz liegt im **2,4-MB-Router-Snippet** — dort gilt die Speicher-Falle aus Regel 8. |
 | 5 | Shop-Fusslinks ohne Sprachpräfix | Sieben von neun zeigen auf die englischen Adressen. → `shop-fusslinks.md` |
 | 6 | Tote Links, Footer-Branding-Zeile | Kosmetik, aber sichtbar. |
 
@@ -82,6 +82,18 @@ Belege liegen in `docs/`. `RUNBOOK-laenderlauf.md`, `REGEL-preise.md` und
 
 ---
 
+### Lieferzeit auf der Produktseite — ergänzt 02.09.2026
+
+Die Versandrichtlinie sagte zu, die Lieferzeit stehe bei jedem Produkt auf der
+Produktseite; sie stand nirgends. Neues Snippet **102 „OneFam Lieferzeit
+Produktseite"** (aktiv, `woocommerce_single_product_summary`, Priorität 25) setzt
+sie unter den Preis: **3–7 Werktage (Produktion 2–4, Versand 1–3), in die Schweiz
+zzgl. Zollabfertigung** — in allen vier Sprachen, Zahlen aus der Richtlinie.
+Geprüft: alle 18 Produkte, keine Lücke; Kontrast 15,6:1, gleiche Farbe wie der
+Preis darüber.
+
+**Bewusst ohne MwSt-Hinweis** — siehe Falle 6 weiter unten.
+
 ### Shop war unverschlüsselt erreichbar — behoben 02.09.2026
 
 `http://shop.onefam.ch` lieferte den kompletten Shop im Klartext aus, das
@@ -110,11 +122,20 @@ Web-FTP-Editor: `shop-https.md`.
    geantwortet, obwohl die halbe Antwort seit August dokumentiert war.
 5. **Die zwei aktiven Webhooks im Shop unterscheiden sich nur durch Nummer und
    Status.** Vor jeder Aktion filtern, sonst erwischt man die Produktion.
-6. **`wp-json` taugt nicht, um `siteurl` zu bestimmen.** Es spiegelt das Schema der
+6. **Der fehlende MwSt-Hinweis auf der Produktseite ist kein Fehler.** Er wurde am
+   07.08.2026 auf Weisung der ESTV entfernt (Geschaeftsfall 65zq0017): Leistungsort
+   Deutschland, keine MWST-Pflicht in der Schweiz, **kein Ausweis solange nicht
+   registriert**. Dafuer laeuft das aktive Snippet „OneFam Steuerhinweis Produktseite
+   entfernen (ESTV-Vorgabe)", und „Steuern aktivieren" ist in WooCommerce bewusst
+   aus. Der scheinbare Widerspruch zur PAngV steht als Pruefpunkt A3 in
+   `behoerden-mwst-zoll.md` und loest sich mit Frage 7 an Konstanz. Ich habe das am
+   02.09.2026 als Blocker gemeldet, weil ich aus dem Gesetz hergeleitet habe statt
+   nachzulesen — **zum zweiten Mal dieselbe Falle** (siehe Punkt 4).
+7. **`wp-json` taugt nicht, um `siteurl` zu bestimmen.** Es spiegelt das Schema der
    eigenen Anfrage zurück. Über HTTP gefragt meldet es `http://`, obwohl in der
    Datenbank `https://` steht. Ich habe daraus einen Fehler abgeleitet, den es nicht
    gab. Für `siteurl` und `home` in wp-admin nachsehen.
-7. **Vor dem Selberbauen im Shop erst die Plugin-Liste ansehen.** Neun Stück, und
+8. **Vor dem Selberbauen im Shop erst die Plugin-Liste ansehen.** Neun Stück, und
    zwei davon machen HTTPS. Ein gesetzter Haken heisst dabei nicht, dass die Regel
    auch geschrieben wurde.
 
