@@ -348,6 +348,7 @@ fortschreiben.
 | `docs/shop-und-pool-details.md` | WooCommerce-Bestand, Währungsmechanik, Kostenmodell, Versandstaffel |
 | `docs/behoerden-mwst-zoll.md` | ESTV, BAZG, deutscher Zoll — was beantwortet ist, was fehlt |
 | `docs/shop-preisanzeige.md` | Preis-Skript der Startseite, Slug-Falle, Speicher-Falle |
+| `docs/shop-fusslinks.md` | Fusslinks ohne Sprachpraefix, doppelte Rechtsseiten |
 | `docs/handover-shop-pool.md` | Übergabe Shop/Pool (teilweise überholt) |
 | `docs/deploy-vercel.md` | Vercel-Projekt, Umgebungsvariablen |
 | `docs/REGEL-preise.md` | Preise, Fehlerbild 82,50, richtige Messmethode |
