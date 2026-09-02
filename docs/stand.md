@@ -14,7 +14,9 @@
 | 1 | **Anfrage ans Finanzamt Konstanz** stellen | Ab dem ersten Verkauf an einen deutschen Kunden entsteht dort Umsatzsteuer, ob registriert oder nicht. Bisher gab es **genau einen** (#4145, 23.07.2026, 39,57 EUR). Solange noch nichts weiter verkauft ist, ist Luft — die sollte genutzt werden. Entwurf liegt im claude.ai-Projekt. → `behoerden-mwst-zoll.md` |
 | 2 | **Ausführer-Vereinbarung mit Shirt-King** | Der deutsche Zoll gibt schriftliche Festlegung vor. Vor dem ersten echten Paket in ein Drittland klären, nicht danach. Dazu: fakturieren sie Drittlandsendungen mit oder ohne deutsche USt.? |
 | 3 | Widerrufsrecht anwaltlich prüfen | Pauschaler Ausschluss ist nach deutschem Verbraucherrecht vermutlich angreifbar. Vor Launch. |
-| 4 | Tote Links, Footer-Branding-Zeile | Kosmetik, aber sichtbar. |
+| 4 | **Pflichtangaben auf der Shop-Produktseite** — „inkl. MwSt." und Lieferzeitraum | Fehlen beide. Die eigene Versandrichtlinie behauptet, die Lieferzeit stehe auf jeder Produktseite — sie steht dort nicht. Für deutsche Kunden Pflicht. Das ist der letzte Shop-Blocker vor dem Launch. |
+| 5 | Shop-Fusslinks ohne Sprachpräfix | Sieben von neun zeigen auf die englischen Adressen. → `shop-fusslinks.md` |
+| 6 | Tote Links, Footer-Branding-Zeile | Kosmetik, aber sichtbar. |
 
 **Der Trichter bleibt geparkt** (freie Auswahl, Käufer-Voting) bis zur rechtlichen
 Freigabe. Nicht als toten Code aufräumen.
@@ -80,6 +82,17 @@ Belege liegen in `docs/`. `RUNBOOK-laenderlauf.md`, `REGEL-preise.md` und
 
 ---
 
+### Shop war unverschlüsselt erreichbar — behoben 02.09.2026
+
+`http://shop.onefam.ch` lieferte den kompletten Shop im Klartext aus, das
+Anmeldeformular eingeschlossen. Behoben nicht von Hand, sondern durch einmaliges
+Speichern im schon installierten Plugin „Easy HTTPS & SSL" — der Haken war
+gesetzt, der `.htaccess`-Block fehlte trotzdem. Jetzt 301 auf jedem Pfad, HTTPS
+unverändert. Die ganze Geschichte samt Proxy-Falle und dem Absturzfehler im
+Web-FTP-Editor: `shop-https.md`.
+
+---
+
 ## Fallen, die Zeit gekostet haben — nicht noch einmal hineinlaufen
 
 1. **Code Snippets meldet bei Snippet 11 (2,4 MB) einen Speicherfehler, der nichts
@@ -97,6 +110,13 @@ Belege liegen in `docs/`. `RUNBOOK-laenderlauf.md`, `REGEL-preise.md` und
    geantwortet, obwohl die halbe Antwort seit August dokumentiert war.
 5. **Die zwei aktiven Webhooks im Shop unterscheiden sich nur durch Nummer und
    Status.** Vor jeder Aktion filtern, sonst erwischt man die Produktion.
+6. **`wp-json` taugt nicht, um `siteurl` zu bestimmen.** Es spiegelt das Schema der
+   eigenen Anfrage zurück. Über HTTP gefragt meldet es `http://`, obwohl in der
+   Datenbank `https://` steht. Ich habe daraus einen Fehler abgeleitet, den es nicht
+   gab. Für `siteurl` und `home` in wp-admin nachsehen.
+7. **Vor dem Selberbauen im Shop erst die Plugin-Liste ansehen.** Neun Stück, und
+   zwei davon machen HTTPS. Ein gesetzter Haken heisst dabei nicht, dass die Regel
+   auch geschrieben wurde.
 
 ---
 

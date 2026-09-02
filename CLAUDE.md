@@ -75,9 +75,13 @@ Umschalter sind bewusst abgeschaltet. Mechanik und Testhinweise:
 
 ## Arbeitsregeln
 
-1. **Vor dem Bauen nachsehen, ob es das schon gibt.** Der Shop hat 89 Snippets. Für
-   Währung, Preis-Festwerte und Kollektionspreise gibt es fertige Mechanismen.
-   Doppelt gebaute Lösungen arbeiten gegeneinander.
+1. **Vor dem Bauen nachsehen, ob es das schon gibt.** Der Shop hat 89 Snippets **und
+   9 Plugins**. Für Währung, Preis-Festwerte, Kollektionspreise und HTTPS gibt es
+   fertige Mechanismen. Doppelt gebaute Lösungen arbeiten gegeneinander. Am
+   02.09.2026 wurde eine HTTPS-Umleitung von Hand in die `.htaccess` geschrieben —
+   während „Easy HTTPS & SSL" installiert war und nur ein Speichern brauchte.
+   **Und: ein gesetzter Haken in einem Plugin heisst nicht, dass es wirkt.**
+   → `docs/shop-https.md`
 2. **Messen, nicht raten.** Ausgeloggt messen, ohne Cache-Umgehung, ohne
    Query-Parameter — sonst misst man nicht das, was Besucher sehen.
 3. **Bei „alle" auch alle prüfen**, nicht drei Stichproben. Und nie zweimal dieselbe.
@@ -349,6 +353,7 @@ fortschreiben.
 | `docs/behoerden-mwst-zoll.md` | ESTV, BAZG, deutscher Zoll — was beantwortet ist, was fehlt |
 | `docs/shop-preisanzeige.md` | Preis-Skript der Startseite, Slug-Falle, Speicher-Falle |
 | `docs/shop-fusslinks.md` | Fusslinks ohne Sprachpraefix, doppelte Rechtsseiten |
+| `docs/shop-https.md` | HTTPS erzwingen, Proxy-Falle, Web-FTP-Editor-Fehler |
 | `docs/handover-shop-pool.md` | Übergabe Shop/Pool (teilweise überholt) |
 | `docs/deploy-vercel.md` | Vercel-Projekt, Umgebungsvariablen |
 | `docs/REGEL-preise.md` | Preise, Fehlerbild 82,50, richtige Messmethode |
