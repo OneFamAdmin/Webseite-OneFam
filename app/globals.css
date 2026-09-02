@@ -9,7 +9,12 @@
   /* text */
   --text-primary: #ffffff;
   --text-secondary: #c8c8c0;
-  --text-faint: #6b6b6b;
+  /* Aufgehellt am 02.09.2026: #6b6b6b ergab auf --bg nur 3,72:1 und lag damit
+     unter dem Mindestwert 4,5:1. Betroffen war ausgerechnet Kleingedrucktes,
+     das gelesen werden muss — "Kein Kauf noetig. Jederzeit abmeldbar." in 12px.
+     #82827a liegt bei 5,11:1 und bleibt deutlich unter --text-secondary
+     (11,76:1), die Abstufung der drei Textstufen bleibt also erhalten. */
+  --text-faint: #82827a;
 
   /* accent */
   --gold: #c9a84c;
