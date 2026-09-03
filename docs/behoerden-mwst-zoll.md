@@ -18,10 +18,46 @@ CHF 100'000 hilft dort nicht — genau das hat die ESTV festgehalten.
 
 ## Drei Behörden haben geantwortet
 
-**ESTV, 07.08.2026** (Geschäftsfall 65zq0017, Barbara Iseli) — Leistungsort
-Deutschland, deshalb **keine MWST-Pflicht in der Schweiz**, auch über CHF 100'000
-hinaus. Kein MwSt-Ausweis, solange nicht registriert. Umgesetzt am selben Tag über
-Snippet 64 im Shop.
+**ESTV, 07.08.2026** — Eidgenössische Steuerverwaltung, Hauptabteilung
+Mehrwertsteuer, Abteilung Recht / Team 1, Schwarztorstrasse 50, 3003 Bern,
+`mwst@estv.admin.ch`. Bearbeiterin **Barbara Iseli**, Juristische Mitarbeiterin.
+Antwort auf die Anfrage vom **20.07.2026**.
+
+> **Aktenzeichen für Rückfragen: ESTV-ID `052.0428.7495`,
+> Geschäftsfall-ID `65zq0017`, Betreff „Versandhandel – Steuerpflicht".**
+
+Kernaussagen im Wortlaut der Auskunft:
+
+- **Leistungsort** bei Versandlieferungen ist der Ort, an dem die Beförderung oder
+  Versendung zum Abnehmer **beginnt** (Art. 7 Abs. 1 Bst. b MWSTG, Ziff. 2.3 MI 06)
+  — für OneFam also Deutschland.
+- **Keine obligatorische Schweizer MWST-Pflicht**, solange die Einfuhrsteuer auf den
+  Sendungen erhoben wird bzw. die Sendungen darunter fallen und im Inland keine
+  anderen steuerbaren Leistungen erbracht werden (Art. 10 Abs. 2 Bst. d MWSTG) —
+  **auch dann nicht, wenn der weltweite Jahresumsatz CHF 100'000 überschreitet.**
+- **Kein offener Steuerausweis**, solange nicht eingetragen: *„so dürfen Sie die
+  Inlandsteuer den Kunden nicht offen (z.B. im Webshop oder auf Ihren Rechnungen)
+  ausweisen resp. überwälzen."* Umgesetzt am selben Tag über Snippet 64 im Shop.
+
+⚠️ **Zwei Punkte, die eine frühere Zusammenfassung verkürzt hat:**
+
+1. **Es gibt sehr wohl eine Schwelle, die Schweizer Steuerpflicht auslöst.** Die
+   *Sonderregelung Versandhandel* (Art. 7 Abs. 3 Bst. b MWSTG): Wer pro Jahr
+   **mindestens CHF 100'000 Umsatz aus nicht der Einfuhrsteuer unterliegenden
+   Kleinsendungen** erzielt (Einfuhrsteuerbetrag unter CHF 5), dessen Lieferungen
+   gelten als **Inlandlieferungen**. Ab dann sind **alle** weiteren Sendungen aus
+   dem Ausland betroffen, auch die über CHF 5. Die Pflicht beginnt im **Folgejahr**
+   desjenigen Jahres, in dem die Grenze erstmals erreicht wurde. Der Satz „keine
+   MWST-Pflicht, auch über CHF 100'000 hinaus" gilt also nur für die allgemeine
+   Grenze nach Art. 10, **nicht** für den Versandhandel. Diese Zahl gehört
+   mitgezählt.
+2. **Die Unterstellungserklärung Ausland ist eine offene Option**, die bisher
+   nirgends stand. Mit Bewilligung der ESTV (Art. 7 Abs. 3 Bst. a MWSTG) nimmt man
+   die Einfuhr im eigenen Namen vor; alle Lieferungen gelten dann als im Inland
+   erbracht. Folge: Eintragung im MWST-Register nötig, dafür darf die Schweizer
+   MWST offen überwälzt und die bezahlte Einfuhrsteuer als **Vorsteuer** geltend
+   gemacht werden. Freiwillig beantragbar. Für ein Geschäft mit Schwerpunkt Schweiz
+   ist das eine Rechnung, die man aufmachen sollte — sie ist nie aufgemacht worden.
 
 **BAZG, 20.07.2026** (Zoll Nord Basel, Barbara Götz) — Schweizer Einfuhrseite.
 Sendungen aus dem Ausland sind grundsätzlich zoll- und mehrwertsteuerpflichtig,
@@ -29,16 +65,42 @@ aber Steuer- und Zollbeträge **bis CHF 5 werden nicht erhoben**. Der Zusatz, de
 leicht überliest: *„eine Einfuhrveranlagung muss jedoch trotzdem erstellt werden."*
 Die MWST-Frage selbst hat die BAZG an die ESTV weitergereicht — befolgt, beantwortet.
 
-**Deutsche Zollverwaltung** — zwei Aussagen, die vorher nur Annahme waren:
+**Deutsche Zollverwaltung** — Generalzolldirektion, **Zentrale Auskunft**,
+Postfach 10 07 61, 01077 Dresden. Gezeichnet „Im Auftrag, **Herr Kittler**".
+Antwort auf die Anfrage vom **20.07.2026, 13:41**.
 
-- **EORI:** für ein Unternehmen mit Sitz in der Schweiz **keine allgemeine Pflicht**.
-  Nötig nur, wenn OneFam selbst als Anmelder oder Beförderer auftreten will.
+> Kontakt: `info.eori@zoll.de` · Tel. 0228 303-26050 · Fax 0228 303-97924 ·
+> Mo–Fr 08:00–17:00 · Zoll-Portal `www.zoll-portal.de`
+
+- **EORI:** Für Wirtschaftsbeteiligte, die **nicht** im Zollgebiet der Union
+  ansässig sind, besteht *„keine allgemeine und grundsätzliche Pflicht zur
+  Beantragung einer EORI-Nummer"*. Nötig nur, wenn OneFam selbst als **Anmelder**
+  in Zollanmeldungen oder als **Beförderer** auftreten will (Art. 5 UZK-DA).
+  Falls doch gebraucht: kostenlos bei der **Generalzolldirektion –
+  Stammdatenmanagement, Carusufer 3–5, 01099 Dresden**, Vordruck **0870a**.
+  Registrierung nur in **einem** Mitgliedstaat, und zwar dort, wo erstmals eine
+  Zollanmeldung abgegeben wird.
 - **Ausführer:** *„Mit Ausnahme der Ausfuhr von Waren durch eine Privatperson im
   persönlichen Gepäck ist Ausführer immer eine im Zollgebiet der Union ansässige
-  Person."* Es kann also **nur Shirt-King/Heldenwerbung sein**. Und: die
-  Geschäftspartner müssen **vertraglich festlegen**, wer die Rolle übernimmt.
-  Die Grenzzonen-Ausnahme (10-km-Bezirke Ulm, Singen, Lörrach) greift nicht für
-  Pakete, die in Teltow auf den Wagen gehen.
+  Person. Die betreffenden Geschäftspartner müssen in diesem Fall vertragliche
+  oder geschäftliche Vereinbarungen treffen, um festzustellen, wer für die
+  Verbringung der Waren aus dem Zollgebiet der EU verantwortlich ist bzw. die
+  Rolle des Ausführers übernimmt."* Es kann also **nur Shirt-King/Heldenwerbung
+  sein** — und die schriftliche Festlegung verlangt der Zoll ausdrücklich.
+- **Zwei Ausnahmen von der Unionsansässigkeit**, beide für Teltow ohne Bedeutung,
+  aber der Vollständigkeit halber:
+  - **Art. 170 Abs. 3 UZK** — gelegentliche Zollanmeldungen, sofern die Zollstelle
+    es für gerechtfertigt hält, sowie Ausfuhranmeldungen durch in der Schweiz oder
+    Liechtenstein ansässige Personen **bei Zollstellen im Grenzbezirk**.
+  - **Gegenseitigkeitsabkommen mit der Schweiz** (Art. 5 Nr. 4 UZK) — Schweizer und
+    Liechtensteiner dürfen generell als Anmelder auftreten, sofern die Anmeldung in
+    der **10-km-Grenzzone der Hauptzollämter Ulm, Singen und Lörrach** abgegeben
+    wird und der Anmelder der Zollverwaltung Zugriff auf die Buchführung zusagt.
+
+  Beide greifen nicht für Pakete, die in **Teltow** auf den Wagen gehen.
+- **Verbindlichkeit:** *„Soweit die vorstehende Antwort fachliche Ausführungen
+  enthält, begründen diese keine Rechtsansprüche."* Es ist also eine unverbindliche
+  Auskunft — wie die geplante formlose Anfrage an Konstanz auch.
 
 ## Die Lücke
 

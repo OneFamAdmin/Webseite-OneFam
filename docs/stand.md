@@ -80,6 +80,28 @@ Belege liegen in `docs/`. `RUNBOOK-laenderlauf.md`, `REGEL-preise.md` und
 
 ---
 
+### Behördenoriginale nachgetragen — 03.09.2026
+
+Die Antworten von ESTV und deutschem Zoll lagen bisher nur als Zusammenfassung vor.
+Jetzt sind sie im Wortlaut in `behoerden-mwst-zoll.md`, mit Aktenzeichen und
+Kontaktdaten. **Zwei Dinge waren dabei verkürzt:**
+
+- **Es gibt sehr wohl eine Schwelle für Schweizer MWST-Pflicht.** Die Sonderregelung
+  Versandhandel (Art. 7 Abs. 3 Bst. b MWSTG): ab **CHF 100'000 Jahresumsatz aus
+  Kleinsendungen** (Einfuhrsteuer unter CHF 5) gelten die Lieferungen als
+  Inlandlieferungen, Pflicht ab dem Folgejahr — und dann fuer **alle** Sendungen,
+  nicht nur die kleinen. Der bisherige Satz „keine Pflicht, auch ueber CHF 100'000
+  hinaus" galt nur fuer die allgemeine Grenze nach Art. 10. **Diese Zahl gehoert ab
+  sofort mitgezaehlt.**
+- **Die Unterstellungserklaerung Ausland ist eine offene Option**, die nie geprueft
+  wurde: Einfuhr im eigenen Namen, dafuer MWST-Registrierung in der Schweiz — mit
+  dem Recht, die Schweizer MWST offen zu ueberwaelzen und die Einfuhrsteuer als
+  Vorsteuer zu ziehen. Fuer ein Geschaeft mit Schwerpunkt Schweiz eine Rechnung,
+  die sich lohnen koennte.
+
+Beide Behoerdenauskuenfte sind ausdruecklich **unverbindlich** — der Zoll schreibt
+das woertlich hin.
+
 ### Druck und Lieferant — 03.09.2026
 
 Zwei Straenge, festgehalten in `druck-und-lieferant.md`:
