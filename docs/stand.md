@@ -13,7 +13,8 @@
 |---|---|---|
 | 1 | **Anfrage ans Finanzamt Konstanz** stellen | Ab dem ersten Verkauf an einen deutschen Kunden entsteht dort Umsatzsteuer, ob registriert oder nicht. Bisher gab es **genau einen** (#4145, 23.07.2026, 39,57 EUR). Solange noch nichts weiter verkauft ist, ist Luft — die sollte genutzt werden. Entwurf liegt im claude.ai-Projekt. → `behoerden-mwst-zoll.md` |
 | 2 | **Ausführer-Vereinbarung mit Shirt-King** | Der deutsche Zoll gibt schriftliche Festlegung vor. Vor dem ersten echten Paket in ein Drittland klären, nicht danach. Dazu: fakturieren sie Drittlandsendungen mit oder ohne deutsche USt.? |
-| 3 | Widerrufsrecht anwaltlich prüfen | Pauschaler Ausschluss ist nach deutschem Verbraucherrecht vermutlich angreifbar. Vor Launch. |
+| 3 | Widerrufsrecht anwaltlich prüfen | Pauschaler Ausschluss ist nach deutschem Verbraucherrecht vermutlich angreifbar. Vor Launch. **Das geplante Siebdruck-Modell gehört mit auf den Tisch** — bei vorproduzierter Auflage fällt das Argument ganz. → `druck-und-lieferant.md` |
+| 4 | **Rückfragen an Shirt-King** — DTF freischalten, Vorbehandlung, Mindestmenge über Kleidungsstücke und Grössen | Entscheidet, ob der Shop bei Print-on-Demand bleibt oder auf Vorbestellungen umgebaut wird. Acht Punkte, Mailentwurf steht. → `druck-und-lieferant.md` |
 
 **Der Trichter bleibt geparkt** (freie Auswahl, Käufer-Voting) bis zur rechtlichen
 Freigabe. Nicht als toten Code aufräumen.
@@ -76,6 +77,33 @@ Test-Mitschnitt im Shop entfernt.
 CLAUDE.md zusammengeführt und von 26'458 auf rund 17'000 Zeichen gekürzt; die
 Belege liegen in `docs/`. `RUNBOOK-laenderlauf.md`, `REGEL-preise.md` und
 `REGEL-gesichter.md` sind aus dem claude.ai-Projekt hierher gekommen.
+
+---
+
+### Druck und Lieferant — 03.09.2026
+
+Zwei Straenge, festgehalten in `druck-und-lieferant.md`:
+
+**Das Weiss deckt nicht.** Bereits produzierte DTG-Teile kamen mit flauem,
+graustichigem Weiss — bei allen, nicht vereinzelt. Fotos liegen vor. Offen ist,
+ob ueberhaupt vorbehandelt wurde; das entscheidet, ob das Verfahren schuld ist
+oder die Einrichtung. **DTF kostet dasselbe wie DTG (5,50 €), ist fuer unsere
+drei Artikel aber nicht freigeschaltet** — die Kindergroessen derselben Modelle
+dagegen schon. Wenn Shirt-King umstellt, loest sich das 100-Stueck-Problem, und
+Lieferzeit, Widerruf und Vorkasse-Konstrukt bleiben unberuehrt.
+
+**Siebdruck:** Robert Koch hat geantwortet — Mindestmenge 100 je Motiv (nicht je
+Textilfarbe), Einzelversand an Endkunden auch in die Schweiz und EU zugesagt,
+Vorlaufzeit 10–12 Werktage, kein Ueberschuss, Rohteile von ihnen. Zu Groessen und
+Kleidungsstuecken sagt er nichts — das ist die teuerste offene Frage.
+
+### PodOS: unbezahlte Bestellungen gingen in Produktion — behoben 03.09.2026
+
+Ein geteilter WooCommerce-Zahlungslink genuegte, damit PodOS eine Bestellung als
+bezahlt uebernahm und in Produktion gab. HW-Christian hat die Anbindung
+geaendert; die Gutschrift fuer den betroffenen Auftrag ist auf der Kreditkarte
+eingegangen. **Unsere Seite war nie betroffen** — `BEZAHLT` kennt nur
+`processing` und `completed`, `on-hold` bewusst nicht.
 
 ---
 
