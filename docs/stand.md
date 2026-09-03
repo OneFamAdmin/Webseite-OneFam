@@ -15,7 +15,7 @@
 | 2 | **Antwort aus Konstanz abwarten** | Anfrage am 03.09.2026 raus, Bestätigung da. Antwort kommt **per Post nach Basel oder telefonisch**, nicht per Mail. Formlos und damit unverbindlich — reicht das nicht, folgt § 89 Abs. 2 AO (gebührenpflichtig). |
 | 3 | **Ausführer-Vereinbarung mit Shirt-King** | Der deutsche Zoll gibt schriftliche Festlegung vor. Vor dem ersten echten Paket in ein Drittland klären, nicht danach. Dazu: fakturieren sie Drittlandsendungen mit oder ohne deutsche USt.? |
 | 4 | Widerrufsrecht anwaltlich prüfen | Pauschaler Ausschluss ist nach deutschem Verbraucherrecht vermutlich angreifbar. Vor Launch. **Das geplante Siebdruck-Modell gehört mit auf den Tisch** — bei vorproduzierter Auflage fällt das Argument ganz. → `druck-und-lieferant.md` |
-| 5 | **Rückfragen an Shirt-King** — DTF freischalten, Vorbehandlung, Mindestmenge über Kleidungsstücke und Grössen | Entscheidet, ob der Shop bei Print-on-Demand bleibt oder auf Vorbestellungen umgebaut wird. Acht Punkte, Mailentwurf steht. → `druck-und-lieferant.md` |
+| 5 | **Antwort von Shirt-King abwarten** | Anfrage am 03.09.2026 raus, mit den Fotos der flauen DTG-Drucke und den Motiven als Vektor-PDF. Entscheidet, ob der Shop bei Print-on-Demand bleibt oder auf Vorbestellungen umgebaut wird — die DTF-Frage steht bewusst vorne. → `druck-und-lieferant.md` |
 
 **Der Trichter bleibt geparkt** (freie Auswahl, Käufer-Voting) bis zur rechtlichen
 Freigabe. Nicht als toten Code aufräumen.
@@ -125,8 +125,11 @@ Kleidungsstuecken sagt er nichts — das ist die teuerste offene Frage.
 Ein geteilter WooCommerce-Zahlungslink genuegte, damit PodOS eine Bestellung als
 bezahlt uebernahm und in Produktion gab. HW-Christian hat die Anbindung
 geaendert; die Gutschrift fuer den betroffenen Auftrag ist auf der Kreditkarte
-eingegangen. **Unsere Seite war nie betroffen** — `BEZAHLT` kennt nur
-`processing` und `completed`, `on-hold` bewusst nicht.
+eingegangen und am 03.09.2026 gegenueber Christian bestaetigt — mit einem
+geschwaerzten Auszug als Beleg. **Vorgang abgeschlossen.**
+
+**Unsere Seite war nie betroffen** — `BEZAHLT` kennt nur `processing` und
+`completed`, `on-hold` bewusst nicht.
 
 ---
 

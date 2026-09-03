@@ -123,9 +123,16 @@ die bei Mangel kostenlosen Ersatz zusagt. Bei exakt 100 Stueck ohne Reserve heis
 ein Ersatzstueck: neue Auflage oder DTG. Ein Puffer gehoert in die Kalkulation,
 nicht in die Vorsichtsabteilung.
 
-## Offen — Stand 03.09.2026
+## Gefragt am 03.09.2026 — Antwort steht aus
 
-**Vor dem Umbau auf Vorbestellungen zu klaeren:**
+Die Anfrage an Robert Koch ist raus, **mit den Fotos der bisherigen DTG-Drucke**
+als Beleg fuer das flaue Weiss und mit den drei Ländermotiven als Vektor-PDF.
+
+Aufbau der Mail: erst die DTG-Qualitaet (weil sie entscheidet, ob ueberhaupt
+Siebdruck noetig ist), dann DTF als Alternative, dann der Siebdruck. Diese
+Reihenfolge ist Absicht — wenn DTF freigeschaltet wird, erledigt sich der Rest.
+
+**Diese Punkte sind gestellt und offen:**
 
 1. **DTF fuer die drei Artikel freischalten?** Dazu ein Muster auf dem echten
    schwarzen Rohteil, und eines nach mehreren Waeschen. Bei CHF 75 fuer einen
@@ -176,8 +183,15 @@ Geld geflossen war.
 > link is shared from woocomm, podOS will not pick this order up as paid until
 > the status changes in Woocomm to confirm the order is actually paid."
 
-Die **Gutschrift fuer den betroffenen Auftrag ist eingegangen** (Kreditkarte),
-Christian hat um Bestaetigung gebeten.
+Die **Gutschrift fuer den betroffenen Auftrag ist eingegangen** (Kreditkarte).
+Christian hat um Bestaetigung gebeten; sie ist am **03.09.2026 raus**, zusammen
+mit einem **geschwaerzten Auszug** als Beleg — nur die Zeile
+`SHIRT-KING PRINT-ON-DE ... +42,82 EUR, 03.09.2026` ist sichtbar, alle uebrigen
+Buchungen sind ueberdeckt. Die Balken wurden bewusst stehen gelassen statt die
+Zeilen herauszuschneiden: ein zusammengeschnittenes Bild saehe so aus, als waere
+Shirt-King der erste Eintrag. Datei:
+`Downloads/Gutschrift_ShirtKing_03-09-2026_geschwaerzt.png`. **Damit ist der
+Vorgang von unserer Seite abgeschlossen.**
 
 **Unsere Seite war nie betroffen** — und aus demselben Grund. In
 `app/api/woo/webhook/route.ts` gilt:
