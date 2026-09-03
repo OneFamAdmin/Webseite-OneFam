@@ -15,7 +15,7 @@
 | 2 | **Antwort aus Konstanz abwarten** | Anfrage am 03.09.2026 raus, Bestätigung da. Antwort kommt **per Post nach Basel oder telefonisch**, nicht per Mail. Formlos und damit unverbindlich — reicht das nicht, folgt § 89 Abs. 2 AO (gebührenpflichtig). |
 | 3 | **Ausführer-Vereinbarung mit Shirt-King** | Der deutsche Zoll gibt schriftliche Festlegung vor. Vor dem ersten echten Paket in ein Drittland klären, nicht danach. Dazu: fakturieren sie Drittlandsendungen mit oder ohne deutsche USt.? |
 | 4 | Widerrufsrecht anwaltlich prüfen | Pauschaler Ausschluss ist nach deutschem Verbraucherrecht vermutlich angreifbar. Vor Launch. **Das geplante Siebdruck-Modell gehört mit auf den Tisch** — bei vorproduzierter Auflage fällt das Argument ganz. → `druck-und-lieferant.md` |
-| 5 | **Zahlungsweg vom PayPal-Privatkonto auf Payrexx Pay umstellen** | Der Shop kassiert heute über ein PayPal-Privatkonto, das dafür nicht taugt (siehe unten). Payrexx Pay ist bei zahls.ch bereits eingerichtet, das Auszahlungskonto lautet auf den Inhaber. **Vor dem ersten echten Kundengeld erledigen.** |
+| 5 | **PayPal-Altkonto bereinigen** | Der Zahlungsweg läuft bereits über Payrexx Pay (am 04.09.2026 nachgemessen), es fliesst nichts mehr über PayPal. Übrig bleibt das alte Händlerkonto mit 38,23 EUR Guthaben, das für den Shop nicht taugt. Einzelheiten beim Inhaber. |
 | 6 | **Antwort von Shirt-King abwarten** | Anfrage am 03.09.2026 raus, mit den Fotos der flauen DTG-Drucke und den Motiven als Vektor-PDF. Entscheidet, ob der Shop bei Print-on-Demand bleibt oder auf Vorbestellungen umgebaut wird — die DTF-Frage steht bewusst vorne. → `druck-und-lieferant.md` |
 
 **Der Trichter bleibt geparkt** (freie Auswahl, Käufer-Voting) bis zur rechtlichen
@@ -75,10 +75,26 @@ durchgelaufen. Beides zusammen ergibt die Antwort auf die Ausgangsfrage.
 
 ⚠️ **Das PayPal-Händlerkonto ist ein Privatkonto und für den Shop nicht geeignet.**
 Gewerbliche Einnahmen über ein Privatkonto sind nach den PayPal-Bedingungen nicht
-vorgesehen, und die Stammdaten passen nicht zum Betrieb. **Der Zahlungsweg gehört
-auf Payrexx Pay über zahls.ch umgestellt** — dann läuft alles über das
-verifizierte Konto und wird auf die UBS ausgezahlt. Einzelheiten liegen beim
+vorgesehen, und die Stammdaten passen nicht zum Betrieb. Einzelheiten liegen beim
 Inhaber, nicht in dieser Datei.
+
+### Zahlungswege im Shop — am 04.09.2026 gemessen
+
+**Der Weg über PayPal ist schon zu.** In WooCommerce ist **zahls.ch der einzige
+Zahlungsanbieter** und aktiv; das PayPal-Plugin ist nicht einmal installiert. In
+zahls.ch ist **Payrexx Pay der einzige eingerichtete Anbieter** — PayPal steht dort
+wieder unter „Neue Zahlungsanbieter hinzufügen", ist also entfernt worden. Damit
+**kann an der Kasse kein PayPal mehr gewählt werden**, und jeder neue Verkauf läuft
+über zahls.ch auf das Auszahlungskonto.
+
+Was der Kunde sieht: Titel „Kreditkarte, TWINT und Mobile Pay", Logos **TWINT,
+Mastercard, Visa, Apple Pay, Google Pay, Samsung Pay** (PayPal ist nicht
+ausgewählt). Payrexx Pay deckt zusätzlich reka, PostFinance-Karte und Pay by Bank.
+
+**Payrexx Pay Plus ist nicht aktiviert.** Damit fehlen American Express, Diners,
+Discover, Klarna, iDEAL, Bancontact und EPS — für deutsche und niederländische
+Kunden die üblichen Zahlungsmittel. Vor einem EU-Launch prüfen; die Auszahlung
+liefe dort über eine Partnerbank, das ist gesondert anzusehen.
 
 **Am 03.09.2026 behoben:** der Kontoinhaber des Auszahlungskontos hiess bei
 zahls.ch „OneFam", das UBS-Konto lautet aber auf **Labinot Bajrami**. Geändert und
