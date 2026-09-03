@@ -11,10 +11,11 @@
 
 | # | Was | Warum eilig |
 |---|---|---|
-| 1 | **Anfrage ans Finanzamt Konstanz** stellen | Ab dem ersten Verkauf an einen deutschen Kunden entsteht dort Umsatzsteuer, ob registriert oder nicht. Bisher gab es **genau einen** (#4145, 23.07.2026, 39,57 EUR). Solange noch nichts weiter verkauft ist, ist Luft — die sollte genutzt werden. Entwurf liegt im claude.ai-Projekt. → `behoerden-mwst-zoll.md` |
-| 2 | **Ausführer-Vereinbarung mit Shirt-King** | Der deutsche Zoll gibt schriftliche Festlegung vor. Vor dem ersten echten Paket in ein Drittland klären, nicht danach. Dazu: fakturieren sie Drittlandsendungen mit oder ohne deutsche USt.? |
-| 3 | Widerrufsrecht anwaltlich prüfen | Pauschaler Ausschluss ist nach deutschem Verbraucherrecht vermutlich angreifbar. Vor Launch. **Das geplante Siebdruck-Modell gehört mit auf den Tisch** — bei vorproduzierter Auflage fällt das Argument ganz. → `druck-und-lieferant.md` |
-| 4 | **Rückfragen an Shirt-King** — DTF freischalten, Vorbehandlung, Mindestmenge über Kleidungsstücke und Grössen | Entscheidet, ob der Shop bei Print-on-Demand bleibt oder auf Vorbestellungen umgebaut wird. Acht Punkte, Mailentwurf steht. → `druck-und-lieferant.md` |
+| 1 | ⚠️ **Einordnung von Bestellung #4145 klären** | Die Unterlagen führen sie als „genau einen echten Verkauf nach Deutschland" (39,57 EUR), am 03.09.2026 wurde sie als **Testbestellung** bezeichnet — und die Anfrage ans Finanzamt ging mit „keine Verkäufe an deutsche Kunden" hinaus. Beides zusammen geht nicht. War es eine Lieferung an einen Dritten, gehört es nachgereicht. → `behoerden-mwst-zoll.md` |
+| 2 | **Antwort aus Konstanz abwarten** | Anfrage am 03.09.2026 raus, Bestätigung da. Antwort kommt **per Post nach Basel oder telefonisch**, nicht per Mail. Formlos und damit unverbindlich — reicht das nicht, folgt § 89 Abs. 2 AO (gebührenpflichtig). |
+| 3 | **Ausführer-Vereinbarung mit Shirt-King** | Der deutsche Zoll gibt schriftliche Festlegung vor. Vor dem ersten echten Paket in ein Drittland klären, nicht danach. Dazu: fakturieren sie Drittlandsendungen mit oder ohne deutsche USt.? |
+| 4 | Widerrufsrecht anwaltlich prüfen | Pauschaler Ausschluss ist nach deutschem Verbraucherrecht vermutlich angreifbar. Vor Launch. **Das geplante Siebdruck-Modell gehört mit auf den Tisch** — bei vorproduzierter Auflage fällt das Argument ganz. → `druck-und-lieferant.md` |
+| 5 | **Rückfragen an Shirt-King** — DTF freischalten, Vorbehandlung, Mindestmenge über Kleidungsstücke und Grössen | Entscheidet, ob der Shop bei Print-on-Demand bleibt oder auf Vorbestellungen umgebaut wird. Acht Punkte, Mailentwurf steht. → `druck-und-lieferant.md` |
 
 **Der Trichter bleibt geparkt** (freie Auswahl, Käufer-Voting) bis zur rechtlichen
 Freigabe. Nicht als toten Code aufräumen.

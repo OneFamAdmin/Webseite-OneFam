@@ -102,19 +102,45 @@ Antwort auf die Anfrage vom **20.07.2026, 13:41**.
   enthält, begründen diese keine Rechtsansprüche."* Es ist also eine unverbindliche
   Auskunft — wie die geplante formlose Anfrage an Konstanz auch.
 
-## Die Lücke
+## Die Lücke — am 03.09.2026 geschlossen
 
-Alle drei Ketten enden an derselben vierten Stelle, und nur zwei wurden zu Ende
-gegangen. Der deutsche Zoll schreibt ausdrücklich:
+Alle drei Ketten endeten an derselben vierten Stelle, und lange wurden nur zwei zu
+Ende gegangen. Der deutsche Zoll schreibt ausdrücklich:
 
 > „Die umsatzsteuerrechtliche Problematik wird in Deutschland nicht von der
 > Zollverwaltung bearbeitet. Bitte wenden Sie sich daher an das **Finanzamt
 > Konstanz** (ist für Unternehmen mit Sitz in der Schweiz zuständig) oder an das
 > Bundeszentralamt für Steuern."
 
-**Das Finanzamt Konstanz wurde nie angeschrieben.** Der Grund ist nachvollziehbar:
-die ESTV-Auskunft war so klar, dass die deutsche Frage stillschweigend als
-miterledigt galt. Sie wurde nie gestellt. Der Entwurf liegt im Projekt.
+**Die Anfrage ans Finanzamt Konstanz ist am 03.09.2026 raus.** Über das
+Kontaktformular der Finanzämter Baden-Württemberg, Bestätigungsmail an
+`info@onefam.ch` ist eingegangen.
+
+Gestellt wurden **sechs Fragen**: (1) greift § 19 UStG für einen Drittstaatler
+nicht, also Steuerpflicht ab dem ersten Umsatz? (2) Registrierung vor dem ersten
+Verkauf oder im zeitlichen Zusammenhang? (3) OSS trotz fehlender EU-Ansässigkeit,
+weil der Transport in Deutschland beginnt — und gehören die Inlandsverkäufe
+daneben in die reguläre Voranmeldung? (4) Vorsteuerabzug nach Registrierung, und
+ist das BZSt-Vergütungsverfahren dann versperrt? (5) Ist die Lieferung des
+Dienstleisters an OneFam die steuerfreie Ausfuhrlieferung nach § 4 Nr. 1a, § 6
+UStG, wenn er als Ausführer auftritt? (6) Welche Angabe muss bei Lieferungen an
+deutsche Verbraucher neben dem Preis stehen — das ist Prüfpunkt A3.
+
+Der volle Wortlaut liegt als `Anfrage_Finanzamt_Konstanz.txt` in Downloads.
+
+**Die Antwort kommt per Post oder telefonisch**, nicht per E-Mail — das Formular
+sagt das ausdrücklich („Aus Gründen des Datenschutzes erhalten Sie eine Antwort
+grundsätzlich nur telefonisch oder per Brief"). Also den Briefkasten in Basel im
+Auge behalten.
+
+### Praktische Falle beim Kontaktformular
+
+Das Formular lädt **`altcha.min.js`** (Bot-Schutz) und **`openpgp.min.js`**
+(clientseitige Verschlüsselung). **Maschinell ausgefüllte Absendeversuche
+scheitern** mit „Beim Versenden des Formulars ist ein unerwarteter Fehler
+aufgetreten" — zweimal probiert, zweimal gescheitert, mit unterschiedlichem Text.
+Von Hand ausgefüllt ging es auf Anhieb durch. Wer hier wieder etwas einreicht:
+selbst tippen oder einfügen, nicht automatisieren.
 
 ## Die deutsche Rechtslage, soweit ohne Behördenauskunft absehbar
 
@@ -135,9 +161,16 @@ miterledigt galt. Sie wurde nie gestellt. Der Entwurf liegt im Projekt.
 
 ## Sachstand der Umsätze
 
-- **Genau ein echter Verkauf nach Deutschland:** Bestellung #4145, 23.07.2026,
-  Argentina Shirt XS schwarz nach Rheinfelden (Baden), Bruttoerlös **39,57 EUR**.
-  Keine weiteren Verkäufe nach Deutschland oder in die EU.
+- ⚠️ **Bestellung #4145** (23.07.2026, Argentina Shirt XS schwarz nach Rheinfelden
+  (Baden), Bruttoerlös **39,57 EUR**) — **Einordnung ungeklärt.** Diese Unterlage
+  führte sie bisher als „genau einen echten Verkauf nach Deutschland". Am
+  03.09.2026 hat der Inhaber sie als **Testbestellung** bezeichnet, und die Anfrage
+  ans Finanzamt Konstanz ist mit dem Satz „Bisher gab es keine Verkäufe an deutsche
+  Kunden" hinausgegangen. **Beides zusammen geht nicht.** Zu klären, welche Fassung
+  stimmt — und falls es doch eine Lieferung an einen Dritten war, gehört das dem
+  Finanzamt nachgereicht, bevor es jemand anders findet. Auch eine Testlieferung
+  nach Deutschland bleibt umsatzsteuerlich eine Lieferung.
+- Keine weiteren Verkäufe nach Deutschland oder in die EU.
 - **Bestellung #5164 (Basel) zählt nicht** — Fehlbestellung, vom Connector
   ausgelöst, **nie ausgeliefert**, Erstattung von Christian zugesagt.
 
@@ -193,10 +226,14 @@ Bruttoumsatz als Ertrag. Das ist der Stand, der sich belegen lässt.
 
 ## Offen
 
-1. **Anfrage ans Finanzamt Konstanz.** Entwurf liegt im Projekt, sieben Fragen,
-   davon 1–3 eilig (sie entscheiden, ob vor dem Albanien-Start registriert werden
-   muss). Formlose Auskunft ist kostenlos aber unverbindlich; die verbindliche nach
-   § 89 Abs. 2 AO ist gebührenpflichtig und förmlich zu beantragen.
+1. ~~Anfrage ans Finanzamt Konstanz.~~ **Am 03.09.2026 gestellt**, sechs Fragen,
+   Bestätigung eingegangen. Antwort kommt per Post oder Telefon. Es ist eine
+   **formlose** Auskunft: kostenlos, aber **unverbindlich**. Reicht sie für die
+   Investitionsentscheidung nicht, wäre die verbindliche Auskunft nach
+   § 89 Abs. 2 AO der nächste Schritt — gebührenpflichtig und förmlich zu
+   beantragen.
+   **Neu offen:** die Einordnung von Bestellung #4145 (siehe „Sachstand der
+   Umsätze"). Die Anfrage ist mit „keine Verkäufe an deutsche Kunden" hinaus.
 2. **Ausführer-Vereinbarung mit Shirt-King.** Der Zoll gibt schriftliche Festlegung
    vor. Dazu die Frage, ob Drittlandsendungen mit oder ohne deutsche USt. fakturiert
    werden — vor dem ersten echten Paket in die Schweiz zu klären, nicht danach.
