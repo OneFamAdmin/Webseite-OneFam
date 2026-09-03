@@ -1,4 +1,4 @@
-# Stand — 02.09.2026
+# Stand — 03.09.2026
 
 Übergabe an die nächste Sitzung. Vor grösseren Aufgaben hier hineinsehen, vor
 `/clear` oder `/compact` hier fortschreiben.
@@ -22,7 +22,7 @@ Freigabe. Nicht als toten Code aufräumen.
 
 ---
 
-## Was seit dem 01.09.2026 gemacht wurde
+## Was zuletzt gemacht wurde — neueste zuerst
 
 ### Shop-Anbindung von Shopify auf WooCommerce
 
