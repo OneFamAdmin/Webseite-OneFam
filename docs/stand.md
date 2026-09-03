@@ -11,11 +11,12 @@
 
 | # | Was | Warum eilig |
 |---|---|---|
-| 1 | ⚠️ **Einordnung von Bestellung #4145 klären** | Die Unterlagen führen sie als „genau einen echten Verkauf nach Deutschland" (39,57 EUR), am 03.09.2026 wurde sie als **Testbestellung** bezeichnet — und die Anfrage ans Finanzamt ging mit „keine Verkäufe an deutsche Kunden" hinaus. Beides zusammen geht nicht. War es eine Lieferung an einen Dritten, gehört es nachgereicht. → `behoerden-mwst-zoll.md` |
+| 1 | ✅ **Bestellung #4145 ist geklärt — es war eine Testbestellung** | Am 03.09.2026 in beiden Konten belegt: der Inhaber hat selbst gekauft (PayPal, eigene Kreditkarte; Belege liegen vor) und an einen Angehörigen nach Rheinfelden (Baden) liefern lassen. **Kein fremder deutscher Kunde** — die Aussage „keine Verkäufe an deutsche Kunden" gegenüber Konstanz hält also, es ist nichts nachzureichen. **Was bleibt:** die Lieferung nach Deutschland hat stattgefunden und ist umsatzsteuerlich eine Lieferung. → `behoerden-mwst-zoll.md` |
 | 2 | **Antwort aus Konstanz abwarten** | Anfrage am 03.09.2026 raus, Bestätigung da. Antwort kommt **per Post nach Basel oder telefonisch**, nicht per Mail. Formlos und damit unverbindlich — reicht das nicht, folgt § 89 Abs. 2 AO (gebührenpflichtig). |
 | 3 | **Ausführer-Vereinbarung mit Shirt-King** | Der deutsche Zoll gibt schriftliche Festlegung vor. Vor dem ersten echten Paket in ein Drittland klären, nicht danach. Dazu: fakturieren sie Drittlandsendungen mit oder ohne deutsche USt.? |
 | 4 | Widerrufsrecht anwaltlich prüfen | Pauschaler Ausschluss ist nach deutschem Verbraucherrecht vermutlich angreifbar. Vor Launch. **Das geplante Siebdruck-Modell gehört mit auf den Tisch** — bei vorproduzierter Auflage fällt das Argument ganz. → `druck-und-lieferant.md` |
-| 5 | **Antwort von Shirt-King abwarten** | Anfrage am 03.09.2026 raus, mit den Fotos der flauen DTG-Drucke und den Motiven als Vektor-PDF. Entscheidet, ob der Shop bei Print-on-Demand bleibt oder auf Vorbestellungen umgebaut wird — die DTF-Frage steht bewusst vorne. → `druck-und-lieferant.md` |
+| 5 | **Zahlungsweg vom PayPal-Privatkonto auf Payrexx Pay umstellen** | Der Shop kassiert heute über ein PayPal-Privatkonto, das dafür nicht taugt (siehe unten). Payrexx Pay ist bei zahls.ch bereits eingerichtet, das Auszahlungskonto lautet auf den Inhaber. **Vor dem ersten echten Kundengeld erledigen.** |
+| 6 | **Antwort von Shirt-King abwarten** | Anfrage am 03.09.2026 raus, mit den Fotos der flauen DTG-Drucke und den Motiven als Vektor-PDF. Entscheidet, ob der Shop bei Print-on-Demand bleibt oder auf Vorbestellungen umgebaut wird — die DTF-Frage steht bewusst vorne. → `druck-und-lieferant.md` |
 
 **Der Trichter bleibt geparkt** (freie Auswahl, Käufer-Voting) bis zur rechtlichen
 Freigabe. Nicht als toten Code aufräumen.
@@ -23,6 +24,88 @@ Freigabe. Nicht als toten Code aufräumen.
 ---
 
 ## Was zuletzt gemacht wurde — neueste zuerst
+
+### zahls.ch nachgesehen — 03.09.2026: es gab nie etwas auszuzahlen
+
+Frage war, warum keine Auszahlung kam. **Antwort: weil bei zahls.ch nie Geld lag.**
+Alle Werte im eingeloggten Konto `onefam.zahls.ch` gemessen (FREE Plan, Labinot
+Bajrami, info@onefam.ch).
+
+**Die einzige Transaktion überhaupt** — zugleich der Zahlungsbeleg für #4145:
+
+| Feld | Wert |
+|---|---|
+| Datum | 23.07.2026 19:30:40 |
+| Betrag / Status | EUR 39.57 · Bestätigt |
+| **Zahlungsanbieter** | **PayPal** |
+| Zahlungsart | PayPal |
+| **Referenz ID** | **4145** |
+| Typ | E-Commerce |
+| zahls.ch-Gebühr | EUR 0.63 |
+| Position | Argentina Shirt EUR 34.95 + Versand |
+
+**Dashboard:** EUR Gesamtzahlungen 1 · EUR Gesamtumsatz 39.57 · zur Auszahlung
+verfügbar EUR 0.00 · letzte 30 Tage EUR 0.00 / 0 Zahlungen / −100 %.
+
+**Auszahlungsseite:** Payrexx Pay CHF 0.00 verfügbar und 0.00 bald verfügbar,
+Payrexx Pay Plus ebenso, Total CHF 0.00, „Sie haben noch keine Auszahlungen
+erhalten".
+
+**Der Grund steht auf derselben Seite im Klartext:** „Transaktionen, die über einen
+externen Zahlungsanbieter abgewickelt wurden, werden nicht von zahls.ch, sondern
+direkt vom jeweiligen Anbieter ausbezahlt." Die Zahlung lief über PayPal — das Geld
+ging direkt aufs PayPal-Konto, zahls.ch war nur Kasse und hat dafür EUR 0.63
+genommen. Bei zahls.ch gibt es nichts auszuzahlen, und das ist kein Fehler.
+
+Nicht die Ursache, obwohl zuerst vermutet: das Konto ist verifiziert, Payrexx Pay
+ist eingerichtet, ein Auszahlungskonto ist hinterlegt.
+
+**Im PayPal-Konto nachgemessen.** Das im Shop benutzte Käuferkonto führt den
+Vorgang als **Abgang** von 39,57 € — der Inhaber hat die eigene Bestellung mit der
+eigenen Kreditkarte bezahlt. Auf dem **Händlerkonto `info@onefam.ch`** steht
+derselbe Vorgang als Eingang: 39,57 € abzüglich 1,34 € PayPal-Gebühr =
+**38,23 EUR gutgeschrieben**, seit 23.07.2026 unverändert als Guthaben liegend.
+Einziger Posten des Kontos in 90 Tagen. Ertrag ist keiner entstanden, nur Gebühren
+(zahls.ch 0,63 € plus PayPal 1,34 €).
+
+**Warum davon nie etwas auf die UBS kam:** in diesem PayPal-Konto ist **kein
+Bankkonto und keine Karte hinterlegt** — PayPal hatte kein Ziel, wohin es
+auszahlen könnte. Die UBS-IBAN liegt bei zahls.ch, und dort ist nie Geld
+durchgelaufen. Beides zusammen ergibt die Antwort auf die Ausgangsfrage.
+
+⚠️ **Das PayPal-Händlerkonto ist ein Privatkonto und für den Shop nicht geeignet.**
+Gewerbliche Einnahmen über ein Privatkonto sind nach den PayPal-Bedingungen nicht
+vorgesehen, und die Stammdaten passen nicht zum Betrieb. **Der Zahlungsweg gehört
+auf Payrexx Pay über zahls.ch umgestellt** — dann läuft alles über das
+verifizierte Konto und wird auf die UBS ausgezahlt. Einzelheiten liegen beim
+Inhaber, nicht in dieser Datei.
+
+**Am 03.09.2026 behoben:** der Kontoinhaber des Auszahlungskontos hiess bei
+zahls.ch „OneFam", das UBS-Konto lautet aber auf **Labinot Bajrami**. Geändert und
+nach dem Neuladen nachgeprüft. Damit wäre eine Auszahlung nicht mehr an der
+Namensprüfung der Bank gescheitert.
+
+**Drei Dinge, die beim ersten echten Verkauf über Payrexx Pay Geld kosten:**
+
+1. **Nur ein CHF-Auszahlungskonto** (Schweiz, auf den Inhaber lautend), Standardwährung CHF. Im Konto steht: „Für Transaktionen einer
+   Währung ohne Auszahlungskonto wird zusätzlich zur Umrechnung in die
+   Standard-Währung (Tageskurs) eine **Umrechnungsgebühr von 2 %** belastet." Der
+   Shop verkauft in EUR → jeder EUR-Verkauf kostet 2 % extra, solange kein
+   **EUR-Auszahlungskonto** hinterlegt ist.
+2. ~~**Kontoinhaber ist als „OneFam" eingetragen.**~~ **Erledigt am 03.09.2026** —
+   steht jetzt auf „Labinot Bajrami", passend zum UBS-Konto. zahls.ch warnt
+   ausdrücklich, der Name müsse mit der tatsächlichen Bezeichnung des Bankkontos
+   übereinstimmen, sonst lehnt die Bank die Auszahlung ab.
+3. **Auszahlung monatlich, jeweils am 31. Tag**, und nur E-Commerce-Transaktionen,
+   die älter als 8 Tage sind. Ein anderer Rhythmus ist im Konto nicht wählbar —
+   laut Hilfe erst nach drei Monaten Verlauf und nur über den Support.
+
+**Tarif:** FREE Plan, keine Monatsgebühr, 2,9 % + CHF 0.30 je Transaktion. Die
+Händler-Werkzeuge sind vollständig; die Werbeaussage „alle Funktionen in jedem Abo"
+gilt aber **nicht** für die externen Zahlungsanbieter — im Backend sind welche mit
+`UPGRADE` markiert und im FREE Plan gesperrt. Payrexx Pay Plus ist eingerichtet,
+aber **nicht aktiviert**.
+
 
 ### Shop-Anbindung von Shopify auf WooCommerce
 
@@ -258,4 +341,6 @@ Stand, der sich belegen lässt.
 - Infomaniak im Jahr: **CHF 162.88** (Hosting 141.50, onefam.ch 10.70,
   loco-motive.ch 10.68)
 - Vercel, Supabase, Make und Airtable sind **derzeit kostenlos**
+- zahls.ch laeuft im **FREE Plan**: keine Monatsgebuehr, 2,9 % + CHF 0.30 je
+  Transaktion. Bisher einzige Belastung: EUR 0.63 auf Bestellung #4145
 - Pool-Stand 2026: **0.00** — es gab noch keinen echten Verkauf über den Webhook

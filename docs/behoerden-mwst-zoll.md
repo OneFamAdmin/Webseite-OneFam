@@ -161,15 +161,41 @@ selbst tippen oder einfügen, nicht automatisieren.
 
 ## Sachstand der Umsätze
 
-- ⚠️ **Bestellung #4145** (23.07.2026, Argentina Shirt XS schwarz nach Rheinfelden
-  (Baden), Bruttoerlös **39,57 EUR**) — **Einordnung ungeklärt.** Diese Unterlage
-  führte sie bisher als „genau einen echten Verkauf nach Deutschland". Am
-  03.09.2026 hat der Inhaber sie als **Testbestellung** bezeichnet, und die Anfrage
-  ans Finanzamt Konstanz ist mit dem Satz „Bisher gab es keine Verkäufe an deutsche
-  Kunden" hinausgegangen. **Beides zusammen geht nicht.** Zu klären, welche Fassung
-  stimmt — und falls es doch eine Lieferung an einen Dritten war, gehört das dem
-  Finanzamt nachgereicht, bevor es jemand anders findet. Auch eine Testlieferung
-  nach Deutschland bleibt umsatzsteuerlich eine Lieferung.
+- ✅ **Bestellung #4145** (23.07.2026, Argentina Shirt XS schwarz nach Rheinfelden
+  (Baden), Bruttoerlös **39,57 EUR**) — **am 03.09.2026 geklärt: Testbestellung.**
+  Diese Unterlage führte sie bisher als „genau einen echten Verkauf nach
+  Deutschland", der Inhaber bezeichnete sie als Testbestellung, und die Anfrage ans
+  Finanzamt Konstanz ist mit dem Satz „Bisher gab es keine Verkäufe an deutsche
+  Kunden" hinausgegangen. **Der Beleg entscheidet zugunsten der Testbestellung:**
+  bezahlt hat der Inhaber selbst, aus seinem privaten PayPal-Konto mit der eigenen
+  Kreditkarte, an das eigene Händlerkonto `info@onefam.ch`. Ein
+  fremder deutscher Kunde war nie beteiligt. **Die Aussage gegenüber Konstanz hält
+  damit; es ist nichts nachzureichen.**
+
+  **Was davon unberührt bleibt:** die Ware ist tatsächlich nach Deutschland
+  gegangen. Auch eine Testlieferung an einen Angehörigen ist umsatzsteuerlich eine
+  Lieferung — an der Frage, ob in Deutschland Registrierungspflicht besteht, ändert
+  die Klärung nichts.
+
+  **Zahlungsbeleg, am 03.09.2026 im zahls.ch-Konto gemessen** (`onefam.zahls.ch`):
+  23.07.2026 19:30:40, **EUR 39.57**, Status *Bestätigt*,
+  **Referenz-ID 4145**, Zahlungsanbieter *und* Zahlungsart **PayPal**, Typ
+  E-Commerce, zahls.ch-Gebühr EUR 0.63, Position „Argentina Shirt" EUR 34.95 zzgl.
+  Versand, **Kunde ein Angehöriger des Inhabers**. Zweierlei ist damit belegt: es hat ein echter
+  Geldfluss stattgefunden, und der Empfänger trägt den Familiennamen des Inhabers.
+  Das stützt die Lesart „Testbestellung an einen Angehörigen" — **hebt die
+  umsatzsteuerliche Lieferung nach Deutschland aber nicht auf**, und der Erlös von
+  34,95 EUR ist genau der reguläre EUR-Festpreis des Shirts, also kein Sonderpreis
+  unter Angehörigen. Die Zahlung lief über PayPal als externem Zahlungsanbieter;
+  zahls.ch war nur Kasse, das Geld floss direkt auf das PayPal-Konto.
+
+  **Gegenprobe im PayPal-Konto, ebenfalls am 03.09.2026:** dort steht der Vorgang
+  als **Abgang** von 39,57 € — bezahlt mit der eigenen Kreditkarte, als Verkäufer
+  das eigene Händlerkonto `info@onefam.ch`, Versand an einen Angehörigen in
+  Rheinfelden (Baden). Käufer und Verkäufer sind dieselbe Person.
+  **Wirtschaftlich ist kein Erlös entstanden**, nur Gebühren — das ist bei der
+  Frage nach einem steuerbaren Umsatz mitzudenken, ändert aber nichts daran, dass
+  eine Lieferung nach Deutschland stattgefunden hat.
 - Keine weiteren Verkäufe nach Deutschland oder in die EU.
 - **Bestellung #5164 (Basel) zählt nicht** — Fehlbestellung, vom Connector
   ausgelöst, **nie ausgeliefert**, Erstattung von Christian zugesagt.
