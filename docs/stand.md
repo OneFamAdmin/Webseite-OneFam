@@ -101,6 +101,21 @@ zahls.ch „OneFam", das UBS-Konto lautet aber auf **Labinot Bajrami**. Geänder
 nach dem Neuladen nachgeprüft. Damit wäre eine Auszahlung nicht mehr an der
 Namensprüfung der Bank gescheitert.
 
+**Folge dieser Änderung — am 04.09.2026:** zahls.ch wertet jede Änderung der
+Bankverbindung als meldepflichtig und hat **die Auszahlungen pausiert**, bis ein
+aktueller Bankkontoauszug des neuen Kontos vorliegt (PDF aus dem E-Banking,
+Erstellungsdatum sichtbar und nicht älter als 3 Monate, Name und IBAN lesbar;
+Kontostand und Buchungen dürfen geschwärzt werden — Screenshots werden nicht
+akzeptiert). Der Beleg wurde am 04.09.2026 eingereicht, geschwärzt bis auf Name,
+IBAN und Erstellungsdatum.
+
+**Stand danach:** die Menüzeile „Kontoprüfung abschliessen" ist verschwunden, unter
+Payrexx Pay steht „Kontoangaben werden überprüft", Modus **Live**, Status
+**Zahlungen grün · Auszahlungen rot**. Der Shop kann also weiter kassieren, nur die
+Auszahlung ist gesperrt. **Verifizierung dauert ein bis zwei Werktage — ab dem
+08.09.2026 nachsehen, ob der Auszahlungsstatus grün ist.** Mögliche Rückfrage:
+zahls verlangt ein *geschäftliches* Bankkonto, eingereicht wurde ein UBS-Privatkonto.
+
 **Drei Dinge, die beim ersten echten Verkauf über Payrexx Pay Geld kosten:**
 
 1. **Nur ein CHF-Auszahlungskonto** (Schweiz, auf den Inhaber lautend), Standardwährung CHF. Im Konto steht: „Für Transaktionen einer
