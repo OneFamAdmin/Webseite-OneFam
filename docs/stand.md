@@ -18,10 +18,11 @@
 | 5 | **PayPal-Altkonto bereinigen** | Der Zahlungsweg läuft bereits über Payrexx Pay (am 04.09.2026 nachgemessen), es fliesst nichts mehr über PayPal. Übrig bleibt das alte Händlerkonto mit 38,23 EUR Guthaben, das für den Shop nicht taugt. Einzelheiten beim Inhaber. |
 | 6 | **Antwort von Shirt-King abwarten** | Anfrage am 03.09.2026 raus, mit den Fotos der flauen DTG-Drucke und den Motiven als Vektor-PDF. Entscheidet, ob der Shop bei Print-on-Demand bleibt oder auf Vorbestellungen umgebaut wird — die DTF-Frage steht bewusst vorne. → `druck-und-lieferant.md` |
 
-| 7 | ⏳ **Preisangleichung Logo-Linien nachmessen** | Am 06.09.2026 wurden 542 Variationen von CHF 70/60/35 auf 75/65/40 gesetzt — **dasselbe war schon am 31.08.2026 gemacht worden und hielt nicht.** Ursache unbekannt (kein PodOS-Sync). **In ein paar Tagen erneut messen**, mit `wc/v3` im eingeloggten Backend. → `REGEL-preise.md` |
+| 7 | ⚠️ **Preise gesetzt — Ursache gefunden, aber nicht behoben** | Am 07.09.2026 standen **364 Variationen** wieder auf der alten Reihe (Logo-Shirt 35 statt 40, Logo-Sweater 60 statt 65; zwei der vier Produkte **oeffentlich verkauft**). Gesetzt und vollstaendig nachgemessen: 42 Produkte, 3 210 Variationen, **0 Abweichungen**. **Die Ursache liegt bei Shirt-King:** deren Schluessel „heldenwerbung-409340" (Lesen/Schreiben) schrieb heute zweimal die alten Preise zurueck. **Es kommt wieder, solange PodOS die alten Werte fuehrt.** → siehe „Preise: die Ursache" unten und Punkt 11 |
 | 8 | ⏳ **Auszahlungsstatus zahls.ch** | Ab dem 08.09.2026 nachsehen, ob nach der eingereichten Kontobestätigung der Auszahlungsstatus grün ist. Mögliche Rückfrage: zahls verlangt ein geschäftliches Konto, eingereicht wurde ein Privatkonto. |
 | 9 | ✅ **Hero umgebaut — erledigt 07.09.2026** | Marke jetzt als quadratischer Block ueber der Ueberschrift statt als formatfuellender Hintergrund; Laenderkacheln direkt hinter den Hero gezogen. Erstes Kleidungsstueck: **920 → 438 px** (Desktop), **1519 → 540 px** (Handy). Entschieden: Kacheln, **nicht** das Lifestyle-Bild — das zeigt Brasilien, und `/brazil/` ist pausiert. → unten „Hero umgebaut" |
 | 10 | 🎨 **Shop-Design ist NICHT fertig** | Fertig ist der *obere Teil der Startseite*. Weiter offen (Stand 07.09.2026): **der Signature-Abschnitt ist 924 px hoch, verkauft aber nichts** — kein Preis, kein Produktlink, fuenf von sieben Kacheln „Bald verfuegbar"; **im Router liegen 14 fertige Seiten, erreichbar sind 6**; auf der Startseite fehlt seit dem Entfernen der Laenderreihe **jeder Hinweis, dass weitere Laender kommen**. Nicht nachgeprueft: die doppelten Fusszeilen-Fassungen, der Sprach-Cookie-Fehler, die Produktseite mit 18 Galeriebildern. |
+| 11 | 🔴 **Shirt-King muss die CHF-Preise in PodOS korrigieren** | Ihr Schluessel schreibt sie sonst weiter zurueck — am 07.09.2026 zweimal (07:56 und 20:24 Uhr). Soll: **Shirt 40, Sweater 65, Hoodie 75**; sie senden 35 / 60. **Gehoert in die offene Anfrage aus Punkt 6.** Den Schluessel annullieren ist keine Loesung — er ist die Produktanbindung des Fulfillers. |
 
 **Der Trichter bleibt geparkt** (freie Auswahl, Käufer-Voting) bis zur rechtlichen
 Freigabe. Nicht als toten Code aufräumen.
@@ -33,6 +34,92 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 ---
 
 ## Was zuletzt gemacht wurde — neueste zuerst
+
+### Preise: die Ursache gefunden und die Werte gesetzt — 07.09.2026
+
+**Aufgefallen ist es zufaellig**, beim Abfragen der Preise fuer den Signature-Umbau:
+`cat-prices?category=onefam-logo` lieferte **75 / 60 / 35** statt 75 / 65 / 40.
+
+**Vollstaendig nachgemessen** mit `wc/v3` im eingeloggten Backend — der einzigen
+belastbaren Methode:
+
+| Produkt | war | soll | Variationen | Status |
+|---|---|---|---|---|
+| `onefam-logo-shirt` | **35** | 40 | 84 | **publish** |
+| `onefam-logo-sweater` | **60** | 65 | 94 | **publish** |
+| `onefam-white-logo-shirt` | 35 | 40 | 92 | private |
+| `onefam-white-logo-sweater` | 60 | 65 | 94 | private |
+
+**Zwei davon wurden oeffentlich verkauft — CHF 5 zu billig pro Stueck.** Die uebrigen
+38 Produkte waren korrekt.
+
+#### Die Spur
+
+**1. Die 542 stimmen.** Die sechs Produkte der beiden Logo-Linien haben zusammen
+**exakt 542 Variationen** — genau die Zahl aus der Angleichung vom 06.09. Die
+Angleichung war also **vollstaendig**; sie wurde danach rueckgaengig gemacht.
+
+**2. Das Muster.** Beide **Hoodies** korrekt, zuletzt geaendert am 06.09. um 13:06 und
+13:08. Alle vier **Shirts und Sweater** falsch, zuletzt geaendert **heute**, und zwar
+paarweise ueber beide Linien: Sweater 07:56 und 07:57, Shirts 20:24 und 20:25. Ein
+Prozess, der die Linien nacheinander durchgeht.
+
+**3. Der Schluessel.** In den WooCommerce-REST-Schluesseln steht
+**„heldenwerbung-409340 – API" (ID 3, Lesen/Schreiben), zuletzt benutzt am 07.09. um
+20:26 Uhr** — eine Minute nach dem Ueberschreiben der Shirts. Angelegt am 22.07.2026
+um 16:48, **demselben Tag, an dem alle Variationen entstanden**.
+
+**Heldenwerbung ist Shirt-King** (bestaetigt vom Inhaber), PodOS ist deren Programm
+fuer die Produktanbindung. **Der Schluessel muss bleiben** — er ist die Verbindung zum
+Fulfiller. Die alten Preise stehen auf deren Seite.
+
+**4. Warum es nie auffiel.** Snippet 89 uebersetzt CHF → EUR und **akzeptiert dabei
+ausdrücklich beide Reihen**:
+
+```
+// 40 CHF -> 34.95 EUR      35 CHF -> 34.95 EUR   (Logo-Serie)
+// 65 CHF -> 59.99 EUR      60 CHF -> 59.99 EUR
+```
+
+Ein falscher CHF-Preis erzeugt also einen **richtigen** EUR-Preis. Die Seite sieht
+gesund aus, und nur wer CHF im Backend misst, sieht den Fehler. Der Waechter fuehrt
+zudem Buch (`of_eur_wmcp_zaehler` = 489, `of_eur_wmcp_zuletzt`), hat aber **seit dem
+24.08. nicht mehr gefeuert** — er schreibt laut eigenem Kommentar „nur dort, wo nichts
+steht", und ein Sync, der nur CHF aendert, laesst die EUR-Meta stehen. **Deshalb
+schweigt selbst das Protokoll.**
+
+#### Gesetzt, nach dem vorgeschriebenen Weg
+
+Erst **eine einzelne Variation** als Probe (753, onefam-logo-shirt): 35 → 40, und
+`_regular_price_wmcp` blieb unberuehrt bei `{"EUR":"34.95"}`. Dann der Rest ueber
+`variations/batch` in Paketen zu 50.
+
+**Ergebnis, vollstaendig nachgemessen:**
+
+| | |
+|---|---|
+| Produkte geprueft | **42** |
+| Variationen geprueft | **3 210** |
+| CHF-Abweichungen | **0** |
+| EUR-Abweichungen | **0** |
+| Variationen ohne EUR-Festpreis | **0** |
+| gerenderte Produktseiten | 34.95 / 59.99 / 69.99 — korrekt |
+
+#### ⚠️ Es kommt wieder
+
+**Solange PodOS die alten Werte fuehrt, schreibt der naechste Sync sie zurueck** —
+heute waren es zwei. Das gehoert in die offene Anfrage an Shirt-King (Punkt 6): **ihre
+CHF-Preise muessen auf 40 / 65 / 75.**
+
+Ein Vorschlag, der unabhaengig davon hilft und keine Preise anruehrt: **Snippet 89
+sollte einen unerwarteten CHF-Wert protokollieren, statt ihn stillschweigend zu
+schlucken.** Dann wird aus dem unsichtbaren Abdriften ein sichtbares Signal. Noch
+nicht gebaut.
+
+**Und eine Messregel, die hier zum ersten Mal getragen hat:** die Zahl der Variationen
+gegen die Notiz halten. Dass die sechs Produkte **exakt 542** ergeben, hat die
+Erklaerung „die Angleichung war unvollstaendig" widerlegt und den Blick auf das
+Zurueckschreiben gelenkt.
 
 ### Featured umgebaut: Reiter raus, vier Laender nebeneinander — 07.09.2026
 
