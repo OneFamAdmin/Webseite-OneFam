@@ -21,7 +21,7 @@
 | 7 | ⏳ **Preisangleichung Logo-Linien nachmessen** | Am 06.09.2026 wurden 542 Variationen von CHF 70/60/35 auf 75/65/40 gesetzt — **dasselbe war schon am 31.08.2026 gemacht worden und hielt nicht.** Ursache unbekannt (kein PodOS-Sync). **In ein paar Tagen erneut messen**, mit `wc/v3` im eingeloggten Backend. → `REGEL-preise.md` |
 | 8 | ⏳ **Auszahlungsstatus zahls.ch** | Ab dem 08.09.2026 nachsehen, ob nach der eingereichten Kontobestätigung der Auszahlungsstatus grün ist. Mögliche Rückfrage: zahls verlangt ein geschäftliches Konto, eingereicht wurde ein Privatkonto. |
 | 9 | ✅ **Hero umgebaut — erledigt 07.09.2026** | Marke jetzt als quadratischer Block ueber der Ueberschrift statt als formatfuellender Hintergrund; Laenderkacheln direkt hinter den Hero gezogen. Erstes Kleidungsstueck: **920 → 438 px** (Desktop), **1519 → 540 px** (Handy). Entschieden: Kacheln, **nicht** das Lifestyle-Bild — das zeigt Brasilien, und `/brazil/` ist pausiert. → unten „Hero umgebaut" |
-| 10 | 🎨 **Shop-Design ist NICHT fertig** | Fertig ist der *obere Teil der Startseite*. Am 07.09.2026 nachgemessen und weiter offen: **`/white-logo/` und `/antigua-and-barbuda/` antworten 404** statt umzuleiten; das **Lifestyle-Band zeigt weiter Brasilien**, ein pausiertes Land (`/brazil/` → 302); **jedes Land kommt zweimal** auf der Startseite vor (Kachelreihe und Laenderreihe), vorher dreimal; **im Router liegen 14 fertige Seiten, erreichbar sind 6**. Nicht nachgeprueft: die doppelten Fusszeilen-Fassungen, der Sprach-Cookie-Fehler, die Produktseite mit 18 Galeriebildern als Kachelwand. |
+| 10 | 🎨 **Shop-Design ist NICHT fertig** | Fertig ist der *obere Teil der Startseite*. Am 07.09.2026 nachgemessen und weiter offen: das **Lifestyle-Band zeigt weiter Brasilien**, ein pausiertes Land (`/brazil/` → 302); **jedes Land kommt zweimal** auf der Startseite vor (Kachelreihe und Laenderreihe), vorher dreimal; **im Router liegen 14 fertige Seiten, erreichbar sind 6**. Nicht nachgeprueft: die doppelten Fusszeilen-Fassungen, der Sprach-Cookie-Fehler, die Produktseite mit 18 Galeriebildern als Kachelwand. |
 
 **Der Trichter bleibt geparkt** (freie Auswahl, Käufer-Voting) bis zur rechtlichen
 Freigabe. Nicht als toten Code aufräumen.
@@ -33,6 +33,64 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 ---
 
 ## Was zuletzt gemacht wurde — neueste zuerst
+
+### Die zwei toten Adressen gab es nicht — dafuer eine echte — 07.09.2026
+
+In dieser Datei stand: „`/white-logo/` und `/antigua-and-barbuda/` antworten 404 statt
+umzuleiten." **Beides waren falsch notierte Slugs**, keine kaputten Seiten.
+
+**Antigua & Barbuda.** Der Router fuehrt `antigua-barbuda`, ohne „and":
+
+```
+if ( in_array($key, ['antigua-barbuda', 'onefam-antigua-barbuda.html'], true) ) { … }
+```
+
+| Adresse | Antwort |
+|---|---|
+| `/antigua-barbuda/` | **302** → `/shop-by-country/` |
+| `/onefam-antigua-barbuda.html` | **301** → `/antigua-barbuda/` |
+| `/antigua-and-barbuda/` | 404 — **ein Slug, den es nie gab** |
+
+**Damit sind es sieben pausierte Laender, nicht sechs.** Die Liste in Snippet 99
+lautet: `anguilla, antigua-barbuda, bosnia, brazil, brunei, mexico, peru`.
+
+**White Logo.** Auch `/white-logo/` ist nicht der Slug — die Seite im Router traegt
+`data-of-cat="onefam-white-logo"`. Geroutet ist **keine** der beiden Schreibweisen,
+und **die Produkte gibt es ebenfalls nicht** (`/produkt/onefam-white-logo-hoodie/` →
+404). Die Kollektion ist bewusst „Bald verfuegbar"; die Kachel auf der Startseite
+zeigt korrekt auf `/shop-by-country/#sig-logo-white`.
+
+**Fuer Besucher war nie etwas kaputt:** keine der beiden Adressen ist verlinkt — nicht
+auf der Startseite, nicht auf `/shop-by-country/`, nicht auf den Laenderseiten — und
+keine steht in der Sitemap. Erreichbar nur durch Eintippen.
+
+#### Der echte Fund: `/bosnia-and-herzegovina/` lief auf 404
+
+Die Laenderliste im Router fuehrt den Slug **`bosnia-and-herzegovina`**, die Umleitung
+in Snippet 99 kannte aber nur **`bosnia`**. `/bosnia/` leitete korrekt um,
+`/bosnia-and-herzegovina/` lief auf 404. **Bosnien ist die einzige der sieben, bei der
+Liste und Route auseinanderfielen.**
+
+Heute schadete das nichts, weil der Listeneintrag kein `u` traegt und nichts dorthin
+verlinkt. **Aber an dem Tag, an dem Bosnien live geht, baut alles, was Adressen aus
+dieser Liste erzeugt, einen 404** — genau der Fall aus Regel 10 in CLAUDE.md.
+
+**Behoben in Snippet 99** (1 229 → 1 569 Zeichen): die zweite Schreibweise steht jetzt
+mit in der Liste, samt Begruendung als Kommentar. Bewusst *ergaenzt* statt den
+Listeneintrag zu aendern, damit beide Schreibweisen weiter funktionieren.
+
+**Nachgemessen, ausgeloggt:**
+
+| | vorher | nachher |
+|---|---|---|
+| `/bosnia-and-herzegovina/` | **404** | **302** → `/shop-by-country/` |
+| die uebrigen sechs pausierten | 302 | 302 (unveraendert) |
+| die vier aktiven Laender | 200 | 200 (unveraendert) |
+| `/australia/`, `/austria/`, `/algeria/` | 404 | 404 (unveraendert) |
+
+**Regel daraus:** wenn eine Liste Slugs fuehrt und eine Route sie einloest, gehoeren
+beide gegeneinander geprueft — nicht nur die Route allein. Die 242 uebrigen Laender
+der Liste antworten korrekt mit 404, geprueft in Stichproben.
 
 ### Knopfkontrast behoben: 3,56 auf 4,95 — 07.09.2026
 
@@ -948,9 +1006,11 @@ die korrigierten Werte — das Nachfuellen aus Snippet 105 hat gegriffen, wie ge
   Quelle ein. **Im Router steht der falsche Text weiter** — er ist nur noch der
   Notbehelf fuer den Fall, dass der Zwischenspeicher kalt ist. Wer ihn dort
   aufraeumt, sollte „Albanian Hoodie" gleich auf „Albania Hoodie" vereinheitlichen.
-- **Zwei tote Adressen:** `/white-logo/` und `/antigua-and-barbuda/` antworten
-  **404** statt umzuleiten. Die sechs pausierten Laender (Anguilla, Bosnia, Brazil,
-  Brunei, Mexico, Peru) leiten korrekt mit 302 auf `/shop-by-country/`.
+- ~~Zwei tote Adressen: `/white-logo/` und `/antigua-and-barbuda/`.~~ **Beides war
+  falsch notiert** — am 07.09.2026 geprueft, siehe „Die zwei toten Adressen gab es
+  nicht" weiter oben. Es sind **sieben** pausierte Laender, nicht sechs: Anguilla,
+  **Antigua & Barbuda**, Bosnien, Brasilien, Brunei, Mexiko, Peru. Alle leiten mit
+  302 auf `/shop-by-country/`.
 - **Im Router liegen 14 fertige Seiten**, erreichbar sind nur 6: vier Laender plus
   OneFam Logo und Logo Black.
 - ~~Die Signature-Kollektion ist praktisch versteckt.~~ **Erledigt.** Am 07.09.2026
