@@ -35,6 +35,48 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 
 ## Was zuletzt gemacht wurde — neueste zuerst
 
+### Preis-Wache gebaut: Snippet 106 — 07.09.2026
+
+Damit ein Abdriften nicht wieder wochenlang unbemerkt bleibt, gibt es jetzt einen
+**Beobachter, der keine Preise schreibt**: Snippet **106**, „OneFam Preis-Waechter:
+unerwartete CHF-Werte protokollieren", aktiv, Bereich global.
+
+Er haengt an `woocommerce_update_product_variation` und
+`woocommerce_new_product_variation`, liest `_regular_price`, leitet den Sollwert aus
+dem Produkt-Slug ab (hoodie 75, sweater 65, shirt 40) und notiert jede Abweichung.
+
+**Nachsehen unter Einstellungen → Alle Einstellungen (`options.php`):**
+
+| Option | Inhalt |
+|---|---|
+| `of_preis_abweichungen` | letzte 50 Faelle, neueste zuerst, eine Zeile je Fall |
+| `of_preis_abweichungen_zaehler` | wie oft insgesamt |
+| `of_preis_wache_zuletzt` | wann die Wache zuletzt gelaufen ist (Lebenszeichen) |
+
+**Warum ein eigener Snippet und keine Aenderung an 89.** Der Rumpf von Snippet 89
+laesst sich in dieser Umgebung nicht vollstaendig lesen (der Inhaltsfilter sperrt ihn),
+und ein Beobachter gehoert ohnehin getrennt von etwas, das schreibt. Es ist keine
+doppelte Loesung im Sinn von Regel 1: 89 uebersetzt Preise, 106 sieht nur zu.
+
+**Geprueft, nicht nur gebaut.** An einer Variation des **privaten** Produkts
+`onefam-white-logo-shirt` (558) den Preis kurz auf 35 gesetzt:
+
+| | |
+|---|---|
+| Zaehler danach | **1** |
+| Protokollzeile | `… | onefam-white-logo-shirt | Variation 558 | 35 statt 40` |
+| nach Ruecksetzung auf 40 | **kein** neuer Eintrag, Zaehler bleibt 1 |
+| Lebenszeichen | bei jedem Lauf aktualisiert |
+| Preis danach | 40 ✓ |
+
+Die Liste wird bewusst als **Zeichenkette** gespeichert, nicht als Array — ein Array
+zeigt `options.php` nur als „SERIALIZED DATA", und genau dort soll man ohne Werkzeug
+nachsehen koennen. Die erste Fassung hatte diesen Fehler; der Rest wurde mit einem
+Einmal-Werkzeug (Snippet 107, nach dem Lauf geloescht) weggeraeumt.
+
+**Grenze der Wache:** sie schlaegt erst an, wenn etwas schreibt. Sie ersetzt nicht die
+Korrektur bei Shirt-King (Punkt 11), sondern macht sichtbar, ob sie gewirkt hat.
+
 ### Preise: die Ursache gefunden und die Werte gesetzt — 07.09.2026
 
 **Aufgefallen ist es zufaellig**, beim Abfragen der Preise fuer den Signature-Umbau:
