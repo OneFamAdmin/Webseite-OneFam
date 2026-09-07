@@ -1,0 +1,27 @@
+Am 07.09.2026 aus Snippet 11 entfernt (Startseite, stand zwischen COUNTRIES und
+SIGNATURE). Grund: das Hintergrundbild onefam-lifestyle-hero-v2.webp zeigt einen
+Brasilien-Druck, und /brazil/ ist pausiert (302 auf /shop-by-country/) — der Shop
+warb also mit einem Produkt, das es nicht zu kaufen gibt. Ein Ersatzbild gab es
+nicht: in onefam-assets liegt genau ein weiteres Lifestyle-Foto (die Albanerin vor
+dem Cafe), und das ist bereits der Hintergrund des .story-Abschnitts. Die uebrigen
+20 Dateien dort sind freigestellte Produktkarten auf Schwarz.
+
+Dazu kam, dass der Band nichts Eigenes beitrug: seine Aussage steht schon im Hero,
+und sein Knopf war der vierte von sechs Verweisen auf /shop-by-country/ derselben
+Seite.
+
+ZURUECKHOLEN: diesen Block wieder vor "<!-- SIGNATURE" in Snippet 11 einfuegen.
+Das CSS (.worn, .worn::before, .worn .in, .worn h2, .worn p, .worn .pill) steht
+unveraendert im selben Snippet und musste nicht angefasst werden. Vorher ein
+Lifestyle-Bild eines LEBENDEN Landes hinterlegen — sonst ist der Fehler zurueck.
+
+--- Markup, unveraendert ---
+
+<!-- WORN AROUND THE WORLD -->
+<section class="worn">
+  <div class="in">
+    <h2>Worn around the world</h2>
+    <p>Worn with pride – find the country that feels like home.</p>
+    <a href="/shop-by-country/" class="pill">Shop all countries</a>
+  </div>
+</section>

@@ -21,7 +21,7 @@
 | 7 | ⏳ **Preisangleichung Logo-Linien nachmessen** | Am 06.09.2026 wurden 542 Variationen von CHF 70/60/35 auf 75/65/40 gesetzt — **dasselbe war schon am 31.08.2026 gemacht worden und hielt nicht.** Ursache unbekannt (kein PodOS-Sync). **In ein paar Tagen erneut messen**, mit `wc/v3` im eingeloggten Backend. → `REGEL-preise.md` |
 | 8 | ⏳ **Auszahlungsstatus zahls.ch** | Ab dem 08.09.2026 nachsehen, ob nach der eingereichten Kontobestätigung der Auszahlungsstatus grün ist. Mögliche Rückfrage: zahls verlangt ein geschäftliches Konto, eingereicht wurde ein Privatkonto. |
 | 9 | ✅ **Hero umgebaut — erledigt 07.09.2026** | Marke jetzt als quadratischer Block ueber der Ueberschrift statt als formatfuellender Hintergrund; Laenderkacheln direkt hinter den Hero gezogen. Erstes Kleidungsstueck: **920 → 438 px** (Desktop), **1519 → 540 px** (Handy). Entschieden: Kacheln, **nicht** das Lifestyle-Bild — das zeigt Brasilien, und `/brazil/` ist pausiert. → unten „Hero umgebaut" |
-| 10 | 🎨 **Shop-Design ist NICHT fertig** | Fertig ist der *obere Teil der Startseite*. Am 07.09.2026 nachgemessen und weiter offen: das **Lifestyle-Band zeigt weiter Brasilien**, ein pausiertes Land (`/brazil/` → 302); **jedes Land kommt zweimal** auf der Startseite vor (Kachelreihe und Laenderreihe), vorher dreimal; **im Router liegen 14 fertige Seiten, erreichbar sind 6**. Nicht nachgeprueft: die doppelten Fusszeilen-Fassungen, der Sprach-Cookie-Fehler, die Produktseite mit 18 Galeriebildern als Kachelwand. |
+| 10 | 🎨 **Shop-Design ist NICHT fertig** | Fertig ist der *obere Teil der Startseite*. Weiter offen (Stand 07.09.2026): **jedes Land kommt zweimal** auf der Startseite vor (Kachelreihe und Laenderreihe); **im Router liegen 14 fertige Seiten, erreichbar sind 6**. Nicht nachgeprueft: die doppelten Fusszeilen-Fassungen, der Sprach-Cookie-Fehler, die Produktseite mit 18 Galeriebildern als Kachelwand. |
 
 **Der Trichter bleibt geparkt** (freie Auswahl, Käufer-Voting) bis zur rechtlichen
 Freigabe. Nicht als toten Code aufräumen.
@@ -33,6 +33,51 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 ---
 
 ## Was zuletzt gemacht wurde — neueste zuerst
+
+### Lifestyle-Band entfernt: es warb fuer ein pausiertes Land — 07.09.2026
+
+Der Band „Weltweit getragen" zeigte `onefam-lifestyle-hero-v2.webp` — ein Paar mit
+**Brasilien-Druck**. `/brazil/` ist pausiert und leitet mit 302 um. Der Shop warb also
+oberhalb der Signature-Kollektion mit einem Produkt, das man nicht kaufen kann.
+
+**Ein Ersatzbild gibt es nicht.** In `onefam-assets` liegt genau **ein** weiteres
+Lifestyle-Foto — die Albanerin vor dem Cafe (`hf_20260201_173000…`) — und das traegt
+bereits den `.story`-Abschnitt. Die uebrigen **20 Dateien dort sind freigestellte
+Produktkarten auf Schwarz**, keine Lifestyle-Aufnahmen. In der Mediathek findet sich
+unter „lifestyle", „street", „couple", „paar" **nichts**: diese Bilder liegen wie das
+alte Hero-Video von Hand unter `onefam-assets/` und tauchen in keiner Mediensuche auf.
+
+**Dazu kam, dass der Band nichts Eigenes beitrug.** Gemessen auf der Startseite:
+
+| | |
+|---|---|
+| seine Aussage | „finde das Land, das sich wie Zuhause anfuehlt" — sagt der Hero bereits |
+| sein Knopf | `/shop-by-country/` — **dorthin zeigten sechs Links derselben Seite** |
+| sein einziger eigener Beitrag | das Bild — und das war das Problem |
+
+**Deshalb entfernt statt ersetzt.** Das Markup liegt vollstaendig in
+`docs/sicherung/snippet11-worn-band-entfernt-07092026.html`, **das CSS `.worn` steht
+unangetastet in Snippet 11** — Zurueckholen ist Einfuegen, mehr nicht. Bedingung
+dafuer: vorher ein Lifestyle-Bild eines **lebenden** Landes hinterlegen, sonst ist der
+Fehler zurueck.
+
+**Nachgemessen, ausgeloggt:**
+
+| | vorher | nachher |
+|---|---|---|
+| Seitenhoehe | 6 065 px (7,4 Bildschirme) | **5 405 px (6,6)** |
+| Brasilien-Bild auf der Seite | 1× | **0×** |
+| Links auf `/shop-by-country/` | 6 | **5** |
+| Luecke, wo der Band stand | – | **0 px**, Laenderreihe stoesst direkt an Signature |
+| Hero und Kachelreihe | 525 / 525 | unveraendert |
+
+Konsole leer. Snippet 11 nachher **2 485 423 Zeichen**.
+
+**Zur Kommentar-Falle von heute Vormittag:** der eingesetzte Ersatzkommentar wurde
+diesmal vor dem Speichern geprueft — Anfaenge und Enden im ganzen Snippet bleiben bei
+**20/20**. Die erste Pruefung schlug faelschlich an, weil das Fenster bis in den
+naechsten Abschnitt reichte; zu zaehlen ist der eingefuegte Kommentar selbst, nicht
+seine Umgebung.
 
 ### Die zwei toten Adressen gab es nicht — dafuer eine echte — 07.09.2026
 
