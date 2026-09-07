@@ -21,6 +21,7 @@
 | 7 | ⏳ **Preisangleichung Logo-Linien nachmessen** | Am 06.09.2026 wurden 542 Variationen von CHF 70/60/35 auf 75/65/40 gesetzt — **dasselbe war schon am 31.08.2026 gemacht worden und hielt nicht.** Ursache unbekannt (kein PodOS-Sync). **In ein paar Tagen erneut messen**, mit `wc/v3` im eingeloggten Backend. → `REGEL-preise.md` |
 | 8 | ⏳ **Auszahlungsstatus zahls.ch** | Ab dem 08.09.2026 nachsehen, ob nach der eingereichten Kontobestätigung der Auszahlungsstatus grün ist. Mögliche Rückfrage: zahls verlangt ein geschäftliches Konto, eingereicht wurde ein Privatkonto. |
 | 9 | ✅ **Hero umgebaut — erledigt 07.09.2026** | Marke jetzt als quadratischer Block ueber der Ueberschrift statt als formatfuellender Hintergrund; Laenderkacheln direkt hinter den Hero gezogen. Erstes Kleidungsstueck: **920 → 438 px** (Desktop), **1519 → 540 px** (Handy). Entschieden: Kacheln, **nicht** das Lifestyle-Bild — das zeigt Brasilien, und `/brazil/` ist pausiert. → unten „Hero umgebaut" |
+| 10 | 🎨 **Shop-Design ist NICHT fertig** | Fertig ist der *obere Teil der Startseite*. Am 07.09.2026 nachgemessen und weiter offen: **`/white-logo/` und `/antigua-and-barbuda/` antworten 404** statt umzuleiten; das **Lifestyle-Band zeigt weiter Brasilien**, ein pausiertes Land (`/brazil/` → 302); **jedes Land kommt zweimal** auf der Startseite vor (Kachelreihe und Laenderreihe), vorher dreimal; **im Router liegen 14 fertige Seiten, erreichbar sind 6**. Nicht nachgeprueft: die doppelten Fusszeilen-Fassungen, der Sprach-Cookie-Fehler, die Produktseite mit 18 Galeriebildern als Kachelwand. |
 
 **Der Trichter bleibt geparkt** (freie Auswahl, Käufer-Voting) bis zur rechtlichen
 Freigabe. Nicht als toten Code aufräumen.
@@ -32,6 +33,68 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 ---
 
 ## Was zuletzt gemacht wurde — neueste zuerst
+
+### Knopfkontrast behoben: 3,56 auf 4,95 — 07.09.2026
+
+**Der Befund.** Alle Verlaufsknoepfe trugen dunklen Text `#0A0A0A` auf dem vollen
+Markenverlauf. Gegen die einzelnen Stufen gemessen:
+
+| Stufe | Farbe | Kontrast |
+|---|---|---|
+| 0 % | `#FAD649` Gelb | 13,93 ✓ |
+| 28 % | `#EF8031` Orange | 7,36 ✓ |
+| 55 % | `#EB356A` Pink | 4,95 ✓ |
+| 78 % | `#C131BF` Magenta | **4,20 ✗** |
+| 100 % | `#6B46F1` Violett | **3,56 ✗** |
+
+Mindestwert ist 4,5:1. Das **letzte Drittel** jedes Knopfes war nicht normgerecht —
+und das ist die Flaeche, auf der gekauft wird.
+
+**Warum nicht einfach weisse Schrift.** Weiss gegen Violett waere 5,57 ✓, gegen Gelb
+aber **1,6** — komplett unlesbar. **Ein Verlauf ueber diese ganze Bandbreite kann gar
+keine Schrift tragen**, weder helle noch dunkle. Das ist der Kern des Problems und
+der Grund, warum es keine Loesung ueber die Textfarbe gibt.
+
+**Was gemacht wurde.** Eine **zweite** Variable nur fuer Knopfflaechen:
+
+```
+--of-grad:     linear-gradient(135deg,#FAD649 0%,#EF8031 28%,#EB356A 55%,#C131BF 78%,#6B46F1 100%)
+--of-grad-cta: linear-gradient(135deg,#FAD649 0%,#EF8031 42%,#EB356A 100%)
+```
+
+Die helle Haelfte derselben Rampe, schlechtester Wert **4,95:1**. **Der Markenverlauf
+`--of-grad` bleibt unangetastet** und gilt weiter fuer Gesichtsmarke und Pool-Zahl —
+die Regel aus CLAUDE.md, dass es fuer den Verlauf eine einzige Quelle gibt, ist damit
+nicht gebrochen, sondern um einen zweiten benannten Zweck ergaenzt.
+
+**Das ist eine Marken-Entscheidung und in einer Zeile umkehrbar:** wer den vollen
+Verlauf auf Knoepfen zurueckwill, setzt `--of-grad-cta` auf denselben Wert wie
+`--of-grad` — und nimmt den Kontrastfehler wieder in Kauf.
+
+**Geaendert in zwei Snippets:**
+
+| Snippet | was | Stellen |
+|---|---|---|
+| **13** (WooCommerce Reskin) | Variable + Knopfregel | 1 + 1 |
+| **11** (Router) | Variable + Knopfregel | 25 + 25 |
+| **11** | `.waitform button` (Warteliste, Verlauf fest verdrahtet) | 1 |
+
+**Der Wartelisten-Knopf war der versteckte vierte.** Er nutzt die Variable nicht,
+sondern hatte den Verlauf ausgeschrieben — gefunden nur, weil die Zaehlung nicht
+aufging: 26 Fundstellen von `#FAD649`, aber nur 25 Variablendefinitionen. **Wer
+Farben im Shop aendert, sollte immer die Differenz zwischen Definitionen und
+Vorkommen pruefen** — genau in dieser Luecke sitzen die fest verdrahteten Stellen.
+
+**Nachgemessen, ausgeloggt, an allen vier Knopfarten:**
+
+| Knopf | Seite | vorher | nachher |
+|---|---|---|---|
+| „Laender entdecken" | Startseite (Hero) | 3,56 | **4,95** |
+| „Alle Laender ansehen" | Startseite (Lifestyle-Band) | 3,56 | **4,95** |
+| „In den Warenkorb" | Produktseite | 3,56 | **4,95** |
+| „Benachrichtige mich" | `/shop-by-country/` | 3,56 | **4,95** |
+
+Snippet 11 nachher **2 485 087 Zeichen**, Snippet 13 **13 095**.
 
 ### Alte Hero-Dateien geprueft: 7828 und 7829 sind unbenutzt — 07.09.2026
 
@@ -890,17 +953,16 @@ die korrigierten Werte — das Nachfuellen aus Snippet 105 hat gegriffen, wie ge
   Brunei, Mexico, Peru) leiten korrekt mit 302 auf `/shop-by-country/`.
 - **Im Router liegen 14 fertige Seiten**, erreichbar sind nur 6: vier Laender plus
   OneFam Logo und Logo Black.
-- **Die Signature-Kollektion ist praktisch versteckt.** Das Hauptmenue hat vier
-  Eintraege — Startseite, Nach Land shoppen, Ueber uns, Kontakt — und keinen fuer
-  Signature. Sie steht nur als erster Abschnitt auf `/shop-by-country/`, also hinter
-  einem Menuepunkt, der Laender verspricht. **Entschieden am 06.09.2026:** das Menue
-  bekommt zwei Wege, „Signature" und „Nach Land", Signature zuerst. Noch nicht gebaut.
-- **Vier Schriften im Einsatz:** Cabinet Grotesk und Satoshi (richtig), dazu
-  **Inter** fuer die Etiketten „Farbe"/„Groesse" (Snippet 13) und **Trirong**
-  (Serifen) fuer Kartenueberschriften und Fusszeile (Snippet 11 und 26).
-- **Kaufknopf:** `opacity: 0.45` beim Ankommen (WooCommerce-Standard bis zur
-  Variantenwahl), Schrift 13 px, Textkontrast gegen das violette Ende des Verlaufs
-  **3,56:1** — unter dem Mindestwert 4,5:1.
+- ~~Die Signature-Kollektion ist praktisch versteckt.~~ **Erledigt.** Am 07.09.2026
+  nachgemessen: das Menue hat jetzt fuenf Eintraege — Startseite, **Signature**,
+  Nach Land shoppen, Ueber uns, Kontakt.
+- ~~Vier Schriften im Einsatz (Inter, Trirong).~~ **Ueberholt.** Am 07.09.2026 auf
+  der Produktseite gezaehlt: Satoshi (490 Elemente), Cabinet Grotesk (23), Open Sans
+  (23) — Letzteres nur auf einem versteckten `<select>` und damit unsichtbar.
+  **Inter und Trirong sind nicht mehr da.**
+- ~~Kaufknopf `opacity: 0.45`, Schrift 13 px, Kontrast 3,56:1.~~ **Erledigt am
+  07.09.2026.** Deckkraft ist 1, Schrift 15 px, Kontrast ueberall **4,95:1** —
+  siehe „Knopfkontrast" oben.
 - **Produktseite:** heller Bereich `#F4EFE6` im schwarzen Markenraum `#0A0A0A`,
   **18 Galeriebilder** als Kachelwand, grosse Leerflaeche rechts.
 - **Hero der Startseite:** 597 px hoch, Hintergrund `#2C2620`, **kein Bild** — ein
