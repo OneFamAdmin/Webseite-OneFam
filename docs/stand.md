@@ -1,4 +1,4 @@
-# Stand — 06.09.2026
+# Stand — 07.09.2026
 
 Übergabe an die nächste Sitzung. Vor grösseren Aufgaben hier hineinsehen, vor
 `/clear` oder `/compact` hier fortschreiben.
@@ -17,10 +17,9 @@
 | 4 | Widerrufsrecht anwaltlich prüfen | Pauschaler Ausschluss ist nach deutschem Verbraucherrecht vermutlich angreifbar. Vor Launch. **Das geplante Siebdruck-Modell gehört mit auf den Tisch** — bei vorproduzierter Auflage fällt das Argument ganz. → `druck-und-lieferant.md` |
 | 5 | **PayPal-Altkonto bereinigen** | Der Zahlungsweg läuft bereits über Payrexx Pay (am 04.09.2026 nachgemessen), es fliesst nichts mehr über PayPal. Übrig bleibt das alte Händlerkonto mit 38,23 EUR Guthaben, das für den Shop nicht taugt. Einzelheiten beim Inhaber. |
 | 6 | **Antwort von Shirt-King abwarten** | Anfrage am 03.09.2026 raus, mit den Fotos der flauen DTG-Drucke und den Motiven als Vektor-PDF. Entscheidet, ob der Shop bei Print-on-Demand bleibt oder auf Vorbestellungen umgebaut wird — die DTF-Frage steht bewusst vorne. → `druck-und-lieferant.md` |
-
 | 7 | ⚠️ **Preise gesetzt — Ursache gefunden, aber nicht behoben** | Am 07.09.2026 standen **364 Variationen** wieder auf der alten Reihe (Logo-Shirt 35 statt 40, Logo-Sweater 60 statt 65; zwei der vier Produkte **oeffentlich verkauft**). Gesetzt und vollstaendig nachgemessen: 42 Produkte, 3 210 Variationen, **0 Abweichungen**. **Die Ursache liegt bei Shirt-King:** deren Schluessel „heldenwerbung-409340" (Lesen/Schreiben) schrieb heute zweimal die alten Preise zurueck. **Es kommt wieder, solange PodOS die alten Werte fuehrt.** → siehe „Preise: die Ursache" unten und Punkt 11 |
-| 8 | ⏳ **Auszahlungsstatus zahls.ch** | Ab dem 08.09.2026 nachsehen, ob nach der eingereichten Kontobestätigung der Auszahlungsstatus grün ist. Mögliche Rückfrage: zahls verlangt ein geschäftliches Konto, eingereicht wurde ein Privatkonto. |
-| 9 | ✅ **Hero umgebaut — erledigt 07.09.2026** | Marke jetzt als quadratischer Block ueber der Ueberschrift statt als formatfuellender Hintergrund; Laenderkacheln direkt hinter den Hero gezogen. Erstes Kleidungsstueck: **920 → 438 px** (Desktop), **1519 → 540 px** (Handy). Entschieden: Kacheln, **nicht** das Lifestyle-Bild — das zeigt Brasilien, und `/brazil/` ist pausiert. → unten „Hero umgebaut" |
+| 8 | ⏳ **Auszahlungsstatus zahls.ch — ab heute faellig** | Ab dem 08.09.2026 nachsehen, ob nach der eingereichten Kontobestätigung der Auszahlungsstatus grün ist. Mögliche Rückfrage: zahls verlangt ein geschäftliches Konto, eingereicht wurde ein Privatkonto. |
+| 9 | ✅ **Hero umgebaut — erledigt 07.09.2026** | Marke jetzt als quadratischer Block ueber der Ueberschrift statt als formatfuellender Hintergrund; Laenderkacheln direkt hinter den Hero gezogen. Erstes Kleidungsstueck: **920 → 438 px** (Referenzfenster 1440 × 685), **1519 → 540 px** (390 × 844). Entschieden: Kacheln, **nicht** das Lifestyle-Bild — das zeigt Brasilien, und `/brazil/` ist pausiert. → unten „Hero umgebaut" |
 | 10 | 🎨 **Shop-Design: oberer Teil der Startseite fertig** | Stand 07.09.2026: Hero, Kachelreihe, Signature und Featured sind ueberarbeitet, die Seite ist von **9,8 auf 5,7 Bildschirme** geschrumpft. Weiter offen: **im Router liegen 14 fertige Seiten, erreichbar sind 6**; auf der Startseite fehlt seit dem Entfernen der Laenderreihe **jeder Hinweis, dass weitere Laender kommen**. Nicht nachgeprueft: die doppelten Fusszeilen-Fassungen, der Sprach-Cookie-Fehler, die Produktseite mit 18 Galeriebildern. |
 | 11 | 🔴 **Shirt-King muss die CHF-Preise in PodOS korrigieren** | Ihr Schluessel schreibt sie sonst weiter zurueck — am 07.09.2026 zweimal (07:56 und 20:24 Uhr). Soll: **Shirt 40, Sweater 65, Hoodie 75**; sie senden 35 / 60. **Gehoert in die offene Anfrage aus Punkt 6.** Den Schluessel annullieren ist keine Loesung — er ist die Produktanbindung des Fulfillers. |
 
@@ -73,9 +72,28 @@ Konsole leer.
 | Seitenhoehe | 6 787 px (9,8 Bildschirme) | **4 666 px (5,7)** |
 | erstes Kleidungsstueck | 920 px / 1 519 px (Handy) | **525 px** |
 | Produktlinks auf der Seite | 3, hinter Reitern | **4, alle sichtbar** |
-| erster Preis | 1 936 px | **1 558 px**, drei Stufen nebeneinander |
+| Featured-Abschnitt ab | 1 936 px | **1 558 px** |
+| erster sichtbarer Preis | nicht gemessen | **2 264 px**, drei Stufen nebeneinander |
 | Nennungen je Land | 3× | **1×** |
 | Knopfkontrast | 3,56:1 | **4,95:1** |
+
+**Die Abschnitte der Startseite, in dieser Reihenfolge** (gemessen 1440 × 820,
+ausgeloggt):
+
+| Abschnitt | ab | Hoehe | was er zeigt |
+|---|---|---|---|
+| `hero` | 0 | 525 | Marke als Block, Ueberschrift, Knopf |
+| `collage` | 525 | 402 | **vier Laenderkacheln**, vier Spalten, Ware und Gesichter |
+| `tagband` | 927 | 85 | One Love · One Culture · One Fam |
+| `siga` | 1 012 | 546 | Signature, **vier Kacheln in einer Reihe** (2 live, 2 bald) |
+| `featured` | 1 558 | 930 | **vier Produktkarten mit Preis**, je ein Land |
+| `story` | 2 487 | 640 | „Zwei Orte, ein Mensch", Lifestyle-Bild Albanien |
+| `faq` | 3 127 | 1 043 | Fragen |
+| Fusszeile | 4 170 | 435 | |
+
+**Entfallen am 07.09.2026:** die Wappenreihe `.countries` (Doppelung) und das
+Lifestyle-Band `.worn` (warb fuer das pausierte Brasilien). Beide liegen mit
+Rueckholanleitung in `docs/sicherung/`; ihr CSS steht unangetastet im Snippet.
 
 ### Preis-Wache gebaut: Snippet 106 — 07.09.2026
 
@@ -220,7 +238,13 @@ Reiter ueberhaupt Sinn" wurde die Startseite durchgezaehlt:
 | FAQ | 1043 | 0 | – |
 
 **Die ganze Startseite hatte drei Produktlinks**, alle im Featured-Abschnitt, alle vom
-aktiven Reiter. **Der erste Preis erschien bei 1 936 px — 2,4 Bildschirme weit unten.**
+aktiven Reiter. **Der Featured-Abschnitt begann bei 1 936 px — 2,4 Bildschirme weit
+unten**, und davor gab es auf der Seite ueberhaupt keinen Preis.
+
+**Achtung bei dieser Zahl:** 1 936 ist der Anfang des Abschnitts, **nicht** die Stelle,
+an der ein Preis steht — der sitzt in den Karten unter den Bildern. Wer „ab wann sieht
+man einen Preis" messen will, muss den Text messen, nicht den Abschnitt. Heute steht
+der erste Preis bei **2 264 px**; ein Vergleichswert von vorher wurde nie erhoben.
 Featured war also nicht die Dopplung, sondern die **einzige** Stelle mit Ware.
 
 **Warum die Reiter weg mussten.** Ein Reiter-Element zeigt nur seinen aktiven Zustand;
@@ -267,10 +291,10 @@ Tabelle.
 **Nachgemessen, ausgeloggt:** vier Karten bei 1440 / 1000 / 390 px, Spalten 4 / 2 / 1,
 Preise ueberall CHF 75 / 65 / 40 / 75, alle vier Bilder liefern 200, Konsole leer.
 
-**Dabei aufgefallen und noch offen:** der **Signature-Abschnitt ist mit 924 px der
-zweitgroesste Block der Seite und verkauft nichts** — kein Preis, kein Produktlink,
-und **fuenf von sieben Kacheln sind „Bald verfuegbar"**. Er steht direkt **vor** der
-einzigen Stelle mit Ware.
+**Dabei aufgefallen:** der **Signature-Abschnitt war mit 924 px der zweitgroesste
+Block der Seite und verkaufte nichts** — kein Preis, kein Produktlink, und **fuenf von
+sieben Kacheln „Bald verfuegbar"**, direkt **vor** der einzigen Stelle mit Ware.
+**Noch am selben Tag behoben** → „Signature eingedampft" weiter oben.
 
 ### Laenderreihe entfernt: jedes Land stand zweimal auf der Startseite — 07.09.2026
 
@@ -621,8 +645,11 @@ Snippet), drei Eingriffe:
    (Randfarbe gemessen: `rgb(1,1,1)`).
 2. **`<div class="ov"></div>` entfernt** — der Verlaufsschleier war auf Schwarz
    wirkungslos.
-3. **`<!-- CATEGORY COLLAGE -->` direkt hinter den Hero gezogen.** Neue Reihenfolge:
+3. **`<!-- CATEGORY COLLAGE -->` direkt hinter den Hero gezogen.** Reihenfolge danach:
    Hero → Kacheln → Tagband → Laenderreihe → „Weltweit getragen" → Signature.
+   **Achtung, das galt nur wenige Stunden:** noch am 07.09.2026 sind „Weltweit
+   getragen" und die Laenderreihe entfallen. Die heutige Reihenfolge steht unter
+   „Wo die Startseite jetzt steht".
 
 **Warum die Kacheln und nicht das Lifestyle-Bild.** Beides wurde gebaut und
 angesehen. Das Lifestyle-Band waere die naheliegende Wahl gewesen — es heisst sogar
@@ -1354,10 +1381,12 @@ die korrigierten Werte — das Nachfuellen aus Snippet 105 hat gegriffen, wie ge
   siehe „Knopfkontrast" oben.
 - **Produktseite:** heller Bereich `#F4EFE6` im schwarzen Markenraum `#0A0A0A`,
   **18 Galeriebilder** als Kachelwand, grosse Leerflaeche rechts.
-- **Hero der Startseite:** 597 px hoch, Hintergrund `#2C2620`, **kein Bild** — ein
-  Modeladen zeigt oberhalb der Falz kein Kleidungsstueck.
-- **Startseite 6'787 px hoch** (rund neun Bildschirme) fuer 18 Produkte aus vier
-  Laendern; die Laender kommen dreimal vor.
+- ~~Hero der Startseite: 597 px hoch, `#2C2620`, kein Bild.~~ **Zweimal ueberholt.**
+  Es war ein Video ohne Vorschaubild (Korrektur weiter oben), und am 07.09.2026 wurde
+  der Hero umgebaut: 525 px, Marke als Block, Kacheln direkt darunter.
+- ~~Startseite 6'787 px hoch, die Laender kommen dreimal vor.~~ **Ueberholt am
+  07.09.2026:** **4 666 px (5,7 Bildschirme)**, und jedes Land kommt genau **einmal**
+  vor. → „Wo die Startseite jetzt steht" weiter oben.
 - **Zwei Fusszeilen-Fassungen** nebeneinander: „Start/Startseite",
   „Rueckerstattungen/Rueckgabe", „Nutzungsbedingungen/AGB".
 - **Sprach-Cookie schlaegt die Adresse:** mit Cookie `ofl=es` zeigt
