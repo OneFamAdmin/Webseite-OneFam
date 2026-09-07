@@ -21,7 +21,7 @@
 | 7 | ⏳ **Preisangleichung Logo-Linien nachmessen** | Am 06.09.2026 wurden 542 Variationen von CHF 70/60/35 auf 75/65/40 gesetzt — **dasselbe war schon am 31.08.2026 gemacht worden und hielt nicht.** Ursache unbekannt (kein PodOS-Sync). **In ein paar Tagen erneut messen**, mit `wc/v3` im eingeloggten Backend. → `REGEL-preise.md` |
 | 8 | ⏳ **Auszahlungsstatus zahls.ch** | Ab dem 08.09.2026 nachsehen, ob nach der eingereichten Kontobestätigung der Auszahlungsstatus grün ist. Mögliche Rückfrage: zahls verlangt ein geschäftliches Konto, eingereicht wurde ein Privatkonto. |
 | 9 | ✅ **Hero umgebaut — erledigt 07.09.2026** | Marke jetzt als quadratischer Block ueber der Ueberschrift statt als formatfuellender Hintergrund; Laenderkacheln direkt hinter den Hero gezogen. Erstes Kleidungsstueck: **920 → 438 px** (Desktop), **1519 → 540 px** (Handy). Entschieden: Kacheln, **nicht** das Lifestyle-Bild — das zeigt Brasilien, und `/brazil/` ist pausiert. → unten „Hero umgebaut" |
-| 10 | 🎨 **Shop-Design ist NICHT fertig** | Fertig ist der *obere Teil der Startseite*. Weiter offen (Stand 07.09.2026): **`.featured` heisst „Ausgewaehlte Laender", zeigt aber nur Albanien** — Hoodie, Sweater, Shirt; **im Router liegen 14 fertige Seiten, erreichbar sind 6**; auf der Startseite fehlt seit dem Entfernen der Laenderreihe **jeder Hinweis, dass weitere Laender kommen**. Nicht nachgeprueft: die doppelten Fusszeilen-Fassungen, der Sprach-Cookie-Fehler, die Produktseite mit 18 Galeriebildern als Kachelwand. |
+| 10 | 🎨 **Shop-Design ist NICHT fertig** | Fertig ist der *obere Teil der Startseite*. Weiter offen (Stand 07.09.2026): **der Signature-Abschnitt ist 924 px hoch, verkauft aber nichts** — kein Preis, kein Produktlink, fuenf von sieben Kacheln „Bald verfuegbar"; **im Router liegen 14 fertige Seiten, erreichbar sind 6**; auf der Startseite fehlt seit dem Entfernen der Laenderreihe **jeder Hinweis, dass weitere Laender kommen**. Nicht nachgeprueft: die doppelten Fusszeilen-Fassungen, der Sprach-Cookie-Fehler, die Produktseite mit 18 Galeriebildern. |
 
 **Der Trichter bleibt geparkt** (freie Auswahl, Käufer-Voting) bis zur rechtlichen
 Freigabe. Nicht als toten Code aufräumen.
@@ -33,6 +33,73 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 ---
 
 ## Was zuletzt gemacht wurde — neueste zuerst
+
+### Featured umgebaut: Reiter raus, vier Laender nebeneinander — 07.09.2026
+
+**Die Messung, die den Ausschlag gab.** Auf der Frage „macht Andorra als vierter
+Reiter ueberhaupt Sinn" wurde die Startseite durchgezaehlt:
+
+| Abschnitt | Hoehe | Produktlinks | Preis sichtbar |
+|---|---|---|---|
+| Hero | 525 | 0 | – |
+| Kachelreihe | 402 | 0 | – |
+| Signature | **924** | **0** | **–** |
+| Featured | 1019 | **3** | **ja** |
+| Story | 640 | 0 | – |
+| FAQ | 1043 | 0 | – |
+
+**Die ganze Startseite hatte drei Produktlinks**, alle im Featured-Abschnitt, alle vom
+aktiven Reiter. **Der erste Preis erschien bei 1 936 px — 2,4 Bildschirme weit unten.**
+Featured war also nicht die Dopplung, sondern die **einzige** Stelle mit Ware.
+
+**Warum die Reiter weg mussten.** Ein Reiter-Element zeigt nur seinen aktiven Zustand;
+die grosse Mehrheit klickt keinen Reiter an. Bei drei Reitern blieben zwei Drittel
+unsichtbar. Ein vierter Reiter haette das Modul vollstaendiger gemacht, aber nicht
+wirksamer — er haette nur den verborgenen Anteil erhoeht. **Mein „Fehlbefund" vom
+selben Tag (es zeige nur Albanien) beschrieb genau das, was Besucher sehen.**
+
+**Was jetzt steht:** vier Karten, je ein Stueck aus einem anderen Land.
+
+| | |
+|---|---|
+| Albanien Hoodie | CHF 75.00 |
+| Argentinien Sweater | CHF 65.00 |
+| Afghanistan Shirt | CHF 40.00 |
+| Andorra Hoodie | CHF 75.00 |
+
+Damit stehen **drei Preisstufen nebeneinander** statt dreier Preise desselben Landes —
+40 als Einstieg laesst 75 kleiner wirken. Alle vier Laender sind ohne Klick sichtbar,
+Andorra ist als **Ware** dabei statt als weiteres Etikett.
+
+**Die Falle steckte in den Preisen.** `ofFeatPrices()` holte die sichtbaren Preise ueber
+`cat-prices?category=<land>` fuer **ein** Land, gesteuert von `OF_AKT_LAND`. Bei
+gemischten Laendern haetten drei Karten den **festen EUR-Notbehelf** aus dem
+`feat`-Objekt behalten (`€69,99 EUR`) und eine den CHF-Preis. Deshalb laedt die
+Funktion jetzt ueber `OF_FEAT_LAENDER` **alle** vorkommenden Laender und mischt die
+Ergebnisse; `apply()` ordnet ohnehin ueber den Produkt-Slug zu und vertraegt mehrere
+Durchlaeufe. **Nachgemessen: 0 von 4 Karten zeigen den EUR-Notbehelf.**
+
+**Zweite Falle, dieselbe wie bei `cgrid`:** der Reiter-Zuhoerer rief
+`document.getElementById('tabs').addEventListener(...)` **ohne Pruefung** auf. Ein
+blosses Entfernen des Markups haette die Startseite in einen JS-Fehler laufen lassen.
+Der Zuhoerer ist mit entfernt worden.
+
+**Geaendert in Snippet 11** (2 485 970 → **2 487 049**): Reiter-Markup raus,
+`andorra:` in `feat` ergaenzt, `FEAT_MIX` eingefuehrt, `renderFeat` und `ofFeatPrices`
+umgestellt, Reiter-Zuhoerer entfernt, `.fgrid` von drei auf **vier Spalten** (unter
+1100 px zwei, unter 760 px eine).
+
+**Keine Uebersetzung noetig:** Ueberschrift und Unterzeile bleiben unveraendert und
+sind mit vier Laendern weiter richtig; die Produktnamen laufen ueber die bestehende
+Tabelle.
+
+**Nachgemessen, ausgeloggt:** vier Karten bei 1440 / 1000 / 390 px, Spalten 4 / 2 / 1,
+Preise ueberall CHF 75 / 65 / 40 / 75, alle vier Bilder liefern 200, Konsole leer.
+
+**Dabei aufgefallen und noch offen:** der **Signature-Abschnitt ist mit 924 px der
+zweitgroesste Block der Seite und verkauft nichts** — kein Preis, kein Produktlink,
+und **fuenf von sieben Kacheln sind „Bald verfuegbar"**. Er steht direkt **vor** der
+einzigen Stelle mit Ware.
 
 ### Laenderreihe entfernt: jedes Land stand zweimal auf der Startseite — 07.09.2026
 
@@ -75,10 +142,10 @@ Markup in `docs/sicherung/snippet11-laenderreihe-entfernt-07092026.html`, das CS
 (`.countries`, `.cgrid`, `.cbadge`) steht unangetastet und wird von
 `/shop-by-country/` ohnehin gebraucht. Snippet 11 nachher **2 485 970 Zeichen**.
 
-**Beim Pruefen aufgefallen — noch nicht angefasst:** der Abschnitt `.featured` traegt
-die Ueberschrift **„Ausgewaehlte Laender"**, zeigt aber **nur Albanien**: Hoodie,
-Sweater, Shirt und „Alle ansehen". Entweder stimmt die Ueberschrift nicht oder der
-Inhalt. Eine Textaenderung braucht alle vier Sprachen.
+~~Beim Pruefen aufgefallen: `.featured` traegt die Ueberschrift „Ausgewaehlte
+Laender", zeigt aber nur Albanien.~~ **Das war ein Messfehler** — ich hatte nur die
+gerenderten Links gelesen. Es war ein Reiter-Umschalter, Albanien war der aktive
+Reiter. Siehe „Featured umgebaut" oben.
 
 ### Lifestyle-Band entfernt: es warb fuer ein pausiertes Land — 07.09.2026
 
