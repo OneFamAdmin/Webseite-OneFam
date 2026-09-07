@@ -1,4 +1,4 @@
-# Stand — 03.09.2026
+# Stand — 06.09.2026
 
 Übergabe an die nächste Sitzung. Vor grösseren Aufgaben hier hineinsehen, vor
 `/clear` oder `/compact` hier fortschreiben.
@@ -18,12 +18,894 @@
 | 5 | **PayPal-Altkonto bereinigen** | Der Zahlungsweg läuft bereits über Payrexx Pay (am 04.09.2026 nachgemessen), es fliesst nichts mehr über PayPal. Übrig bleibt das alte Händlerkonto mit 38,23 EUR Guthaben, das für den Shop nicht taugt. Einzelheiten beim Inhaber. |
 | 6 | **Antwort von Shirt-King abwarten** | Anfrage am 03.09.2026 raus, mit den Fotos der flauen DTG-Drucke und den Motiven als Vektor-PDF. Entscheidet, ob der Shop bei Print-on-Demand bleibt oder auf Vorbestellungen umgebaut wird — die DTF-Frage steht bewusst vorne. → `druck-und-lieferant.md` |
 
+| 7 | ⏳ **Preisangleichung Logo-Linien nachmessen** | Am 06.09.2026 wurden 542 Variationen von CHF 70/60/35 auf 75/65/40 gesetzt — **dasselbe war schon am 31.08.2026 gemacht worden und hielt nicht.** Ursache unbekannt (kein PodOS-Sync). **In ein paar Tagen erneut messen**, mit `wc/v3` im eingeloggten Backend. → `REGEL-preise.md` |
+| 8 | ⏳ **Auszahlungsstatus zahls.ch** | Ab dem 08.09.2026 nachsehen, ob nach der eingereichten Kontobestätigung der Auszahlungsstatus grün ist. Mögliche Rückfrage: zahls verlangt ein geschäftliches Konto, eingereicht wurde ein Privatkonto. |
+| 9 | ✅ **Hero umgebaut — erledigt 07.09.2026** | Marke jetzt als quadratischer Block ueber der Ueberschrift statt als formatfuellender Hintergrund; Laenderkacheln direkt hinter den Hero gezogen. Erstes Kleidungsstueck: **920 → 438 px** (Desktop), **1519 → 540 px** (Handy). Entschieden: Kacheln, **nicht** das Lifestyle-Bild — das zeigt Brasilien, und `/brazil/` ist pausiert. → unten „Hero umgebaut" |
+
 **Der Trichter bleibt geparkt** (freie Auswahl, Käufer-Voting) bis zur rechtlichen
 Freigabe. Nicht als toten Code aufräumen.
+
+**Am 06.09.2026 wurde der Shop gründlich überarbeitet** — Preise, Sprachen, Schriften,
+Menü, Hero. Alles Einzelne steht weiter unten unter „Shop-Design unter der Lupe"; die
+Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 
 ---
 
 ## Was zuletzt gemacht wurde — neueste zuerst
+
+### Alte Hero-Dateien geprueft: 7828 und 7829 sind unbenutzt — 07.09.2026
+
+Nach dem Hero-Umbau blieb offen, ob die abgeloesten Dateien noch irgendwo haengen.
+An vier Stellen gesucht, nach `onefam-hero-2026.mp4`, `onefam-hero-poster.webp` und
+dem noch aelteren `88fbdf03…`:
+
+| geprueft | Umfang | Treffer 7828/7829 |
+|---|---|---|
+| Anhang-Zuordnung der Dateien | beide | **keine** (`post: null`) |
+| Code-Snippets | **alle 95** | **keine** |
+| Beitraege, Seiten, Produkte (veroeffentlicht) | 25 + 1 + 18 | **keine** |
+| ausgelieferte Seiten, ausgeloggt | **90 Adressen** | **keine** |
+
+**Ergebnis: 7828 (`onefam-hero-poster.webp`) und 7829 (`onefam-hero-2026.mp4`) sind
+unbenutzt und koennen geloescht werden.** Sie haben genau einen Tag gelebt — angelegt
+am 06.09., abgeloest am 07.09.
+
+**Das aeltere 6-MB-Video `88fbdf03…` ist etwas anderes und darf nicht mit weg.** Es
+steht in **sechs inaktiven Snippets**: 9 (Home 1:1), 10 (Router alle Seiten), 16
+(Asset-Migration), 88 und 98 (Router-Duplikate) sowie **103 (die Sicherung vom
+06.09.)**. Wer 103 je zuruecksetzt, braucht diese Datei.
+
+**Was die Pruefung nicht abdeckt:** Entwuerfe und private Inhalte (ohne REST-Nonce
+nicht lesbar), Theme-Dateien, Divi-Theme-Optionen und Widget-Inhalte. Fuer die Frage
+„liegt es auf der Live-Seite" ist das ohne Belang, fuer ein Loeschen sollte man es
+wissen.
+
+**Die Snippets 88, 98 und 103 antworten ueber REST mit leerem Rumpf** — dieselbe
+2,4-MB-Grenze wie bei Snippet 11. Sie waren nur ueber `CODE_SNIPPETS_EDIT.snippet.code`
+auf der jeweiligen Bearbeitungsseite lesbar. Wer kuenftig „alle Snippets" durchsucht,
+muss diese drei plus die 11 gesondert holen, sonst hat er vier stille Luecken.
+
+### Kachelreihe auf vier Spalten — 07.09.2026
+
+Bei drei Spalten und vier Laendern stand die vierte Kachel allein in einer zweiten
+Reihe. Jetzt:
+
+| Fenster | Spalten | Kachel | Waise |
+|---|---|---|---|
+| 1440 px | **4** | 317 × 364 | nein |
+| 1200 px | 4 | 273 × 314 | nein |
+| 1024 px | **2** | 472 × 542 | nein |
+| 900 px | 2 | 410 × 471 | nein |
+| 390 px | 2 | 162 × 186 | nein |
+
+**Warum unter 1100 px zwei und nicht drei.** Mit genau vier Kacheln geht eine Reihe
+ohne Waise nur bei **4, 2 oder 1** Spalte auf. Drei Spalten braechten die Waise
+zurueck; vier Spalten waeren bei 900 px nur noch gut 200 px breit, dann werden die
+Gesichter zu klein. Deshalb: ueber 1100 px vier, darunter zwei.
+
+**Wer ein fuenftes Land aufschaltet, muss hier neu rechnen** — bei fuenf Kacheln
+faengt die Waise von vorne an. Der Hinweis steht auch als Kommentar im CSS.
+
+Am Desktop steht die Reihe damit **in einer Zeile ab 541 px**, Unterkante 905 px bei
+820 px Fensterhoehe — die Kacheln reichen also weiter ueber die Falz hinaus und laden
+zum Weiterscrollen ein. Seitenhoehe 6 610 → **6 065 px**.
+
+Snippet 11 nachher **2 473 611 Zeichen**.
+
+### Kachelreihe gemischt: Mann und Hoodie rein — 07.09.2026
+
+**Vorher vier Mal dasselbe:** Frau, schwarzes Shirt, frontal. Jetzt Frau/Mann im
+Wechsel und drei Hoodies.
+
+| Kachel | vorher | nachher |
+|---|---|---|
+| Albanien | Frau, Shirt schwarz | **Frau, Shirt weiss** (`OneFam_Albanien_Shirt_White_Frau_frontal_4k`) |
+| Argentinien | Frau, Shirt | **Mann, Hoodie schwarz** (`OneFam_Argentinien_Hoodie_schwarz_Mann_frontal_4k`) |
+| Afghanistan | Frau, Shirt schwarz | **Frau, Hoodie schwarz** (`OneFam_Afghanistan_Hoodie_schwarz_Frau_frontal_v3_4k`) |
+| Andorra | Frau, Shirt schwarz | **Mann, Hoodie schwarz** (`OneFam_Andorra_Hoodie_schwarz_Mann_frontal_4k-1`) |
+
+**Der eigentliche Grund ist nicht Abwechslung, sondern Lesbarkeit.** Beim Ansehen der
+Kandidaten fiel auf: **der Hoodie traegt einen grossen Brustdruck, Shirt und Sweater
+einen kleinen.** Auf einer Kachel von 427 px ist der kleine Druck auf schwarzem Stoff
+kaum zu erkennen — die alte Reihe zeigte vier schwarze Oberteile, aber praktisch kein
+Motiv. Am schwaechsten war `Albanien_Sweater_schwarz_Frau`: rot/schwarz auf Schwarz,
+so gut wie unsichtbar.
+
+**Albanien bleibt das Shirt, aber in Weiss** — damit ist das Einstiegsprodukt (40 CHF)
+weiter in der Reihe, der Stoff wechselt, und rot/schwarz liest sich auf Weiss.
+**Afghanistan darf nicht auf Weiss**: dessen Motiv hat weisse Teile und wuerde
+verschwinden — die Regel aus CLAUDE.md, hier praktisch geworden.
+
+Vier verschiedene Gesichter, Geschlechter wechseln sich ab (F, M, F, M) — am Desktop
+in der Dreierreihe F, M, F, am Handy zeilenweise.
+
+**Geprueft:** alle vier Bilder liefern 200 (25–34 kB), alle vier Laenderseiten liefern
+200. Snippet 11 nachher **2 472 951 Zeichen**.
+
+**Falle, in die ich gelaufen bin und die wiederkommen kann:** beim Ergaenzen des
+Kommentars ueber der Kachelreihe kam ein zweites `-->` in die Mitte des bestehenden
+Kommentars. Der Kommentar brach dort auf, und der Rest stand als **sichtbarer Text auf
+der Startseite**. Aufgefallen ist es nur im Bildschirmfoto — in den Kennzahlen nicht.
+**Wer einen HTML-Kommentar erweitert: zaehlen, wie viele `-->` danach im Block stehen.
+Es darf genau eines sein.**
+
+### Hero umgebaut: Marke aus dem Weg, Ware in den ersten Bildschirm — 07.09.2026
+
+**Der Befund, den die Zahlen vom 06.09. nicht hergaben.** Die Ueberschrift stand *im
+Gesicht der Marke*. Ursache gemessen: das Hero-Video war ein 16:9-Rahmen, in dem die
+Marke nur **x 37,1–61,7 %** und **y 23,0–76,3 %** einnimmt — ueber alle 17,5 Sekunden
+unveraendert, sie bewegt sich nicht, nur die Farbe wechselt. `object-fit:cover`
+skaliert so einen Rahmen auf die Breite; die Marke wird dadurch riesig, und mittig
+gesetzter Text landet zwangslaeufig darin. **Das war kein Textproblem, sondern ein
+Zuschnitt-Problem** — die Verkleinerung der Ueberschrift am 06.09. hat es gelindert,
+nicht behoben.
+
+**Neue Dateien.** Video mit ffmpeg auf die Marke zugeschnitten (`crop=820:820:538:126`
+aus dem Original), dann auf 560×560 skaliert, CRF 30:
+
+| | vorher | nachher |
+|---|---|---|
+| Video | `onefam-hero-2026.mp4`, 1920×1080, **217 388 B** | `hero-mark.mp4` (**Mediathek 7830**), 560×560, **109 513 B** |
+| Vorschaubild | `onefam-hero-poster.webp` (7828), 1280×720, 10 468 B | `hero-mark-poster.webp` (**7831**), 560×560, **9 900 B** |
+| Summe | 227 856 B | **119 413 B (−48 %)** |
+
+Das Vorschaubild wurde als PNG hochgeladen und von **Snippet 35 automatisch nach WebP
+gewandelt** (78 268 → 9 900 B). **Die alten Dateien 7828/7829 liegen weiter in der
+Mediathek** — nicht geloescht, weil unklar ist, ob sie anderswo verwendet werden.
+
+**Geaendert in Snippet 11** (dem Router; die Startseiten-CSS steht dort im selben
+Snippet), drei Eingriffe:
+
+1. **Hero-CSS neu.** `height:calc(100vh - 122px)` → `clamp(430px,64vh,580px)`.
+   `.hero .in` ist jetzt eine zentrierte Spalte mit `gap`; das Video sitzt in
+   `.hero .markbox` (Quadrat, `clamp(160px,25vh,225px)`) **im Textfluss** ueber der
+   Ueberschrift. Hintergrund `#2c2620` → `#000`, weil das Video schwarz ist
+   (Randfarbe gemessen: `rgb(1,1,1)`).
+2. **`<div class="ov"></div>` entfernt** — der Verlaufsschleier war auf Schwarz
+   wirkungslos.
+3. **`<!-- CATEGORY COLLAGE -->` direkt hinter den Hero gezogen.** Neue Reihenfolge:
+   Hero → Kacheln → Tagband → Laenderreihe → „Weltweit getragen" → Signature.
+
+**Warum die Kacheln und nicht das Lifestyle-Bild.** Beides wurde gebaut und
+angesehen. Das Lifestyle-Band waere die naheliegende Wahl gewesen — es heisst sogar
+`onefam-lifestyle-hero-v2.webp`. Dagegen sprach dreierlei, alles im Bild sichtbar:
+der Kopf des Mannes wird oben abgeschnitten, die Ueberschrift „Weltweit getragen"
+liegt genau auf den Kleidungsstuecken, und der Knopf rutscht unter die Falz. Dazu
+der harte Grund: **der Druck ist Brasilien, und `/brazil/` antwortet mit 302** — der
+erste Eindruck waere ein Produkt, das es nicht zu kaufen gibt. Die Kacheln zeigen
+vier Laender, vier lesbare Drucke auf schwarzem Stoff, und jede Kachel ist ein
+lebender Link.
+
+**Nachgemessen, ausgeloggt, ohne Cache-Umgehung** (Referenzfenster 1440 × 685 wie bei
+den fuenf Referenzshops, Handy 390 × 844):
+
+| | vorher | nachher |
+|---|---|---|
+| Hero-Hoehe 1440×685 | 563 px | **438 px** |
+| Hero-Hoehe 390×844 | 722 px (85 % des Bildschirms) | **540 px (64 %)** |
+| erstes Kleidungsstueck, Desktop | 920 px = 1,34 Bildschirme | **438 px = 0,64** |
+| erstes Kleidungsstueck, Handy | 1519 px = 1,80 Bildschirme | **540 px = 0,64** |
+| davon ueber der Falz sichtbar | 0 px | **247 px** (Desktop) |
+| Seitenhoehe | 6 787 px | 6 610 px |
+
+**In allen vier Sprachen geprueft**, 1440 × 685 und 390 × 844: Ueberschrift ueberall
+**drei Zeilen, 32 px am Desktop, 24 px am Handy, kein Ueberlauf**. Laengster Text ist
+weiter der franzoesische („Pour celles et ceux qui appartiennent à plus d'un
+endroit"). Laenderseite (`/albania/`) unveraendert, keine Fehler in der Konsole.
+
+**Snippet 11 vorher 2 470 661 Zeichen, nachher 2 472 428** — nach dem Neuladen
+nachgeprueft, Wert stimmt. Der REST-Aufruf antwortete wie erwartet mit **200 und
+leerem Rumpf**; das sagt weiterhin nichts aus, die Pruefung war das Nachladen.
+
+**Sicherung der geaenderten Stellen:** `docs/sicherung/snippet11-hero-css-vor-07092026.css`
+und `docs/sicherung/snippet11-hero-markup-vor-07092026.html`. Vollsicherung des
+Routers vom 06.09. liegt weiter als **Snippet 103**.
+
+**Nebenbefund, der eine alte Notiz korrigiert:** die 2,4 MB von Snippet 11 kommen
+nicht von der Startseite. Der Dark-Theme-Block (`/* hero */ .hero h1{color:#EDE7D6…`)
+steht **25 Mal** im Snippet — einmal je Router-Seite. Die eigentliche Startseiten-CSS
+und das Startseiten-Markup gibt es **je genau einmal**.
+
+
+### Shop-Design unter der Lupe — 06.09.2026
+
+#### Hero: Vorschaubild gesetzt, Video von 6,0 MB auf 0,21 MB — 06.09.2026
+
+**Das Problem, in drei Teilen:**
+
+1. Kein `poster` — bis das Video Daten hatte, zeigte der Hero nur die
+   Hintergrundfarbe `#2C2620`. Wer Autoplay aus hat (iOS-Stromsparmodus,
+   Datensparmodus), sah **nie** ein Bild.
+2. Das Video wog **6,0 MB** (1920×1080, 22 s, 2,27 Mbit/s).
+3. Es beginnt und endet mit einer **Schwarzblende** — bei jedem Schleifendurchlauf
+   blitzte der Hero also schwarz.
+
+**Was gemacht wurde.** Das Video zeigt die Gesichtsmarke in wechselnden Farben auf
+Schwarz — gemessen ueber die ganze Laufzeit liegt die mittlere Helligkeit zwischen
+**0 und 6,8 von 255**, es ist also von Haus aus sehr dunkel.
+
+- **Schnitt auf 2,0–19,5 s.** Die Farben an diesen beiden Punkten sind fast identisch
+  (rgb(45,27,23) gegen rgb(46,29,24)), der Schleifensprung faellt daher nicht auf —
+  und die Schwarzblenden sind weg.
+- **Neu kodiert:** gleiche Aufloesung 1920×1080, CRF 30. **6,0 MB → 0,21 MB, 97 %
+  kleiner**, Qualitaet nachgemessen mit SSIM **0,993** (visuell kein Unterschied).
+- **Vorschaubild** aus Sekunde 9 (helles cremefarbenes Logo), 1280 px breit. Beim
+  Hochladen hat Snippet 35 es automatisch in WebP gewandelt: **10,2 kB**.
+- Im Router: `poster="…"` und `preload="metadata"` ergaenzt, Quelle getauscht.
+
+| | vorher | nachher |
+|---|---|---|
+| Video | 6,0 MB | **0,21 MB** |
+| Vorschaubild | – | **0,010 MB** |
+| Summe | 6,0 MB | **0,22 MB (96 % weniger)** |
+
+**Neue Dateien:** `onefam-hero-poster.webp` (ID 7828),
+`onefam-hero-2026.mp4` (ID 7829), beide unter `/wp-content/uploads/2026/09/`.
+**Das alte Video liegt noch in der Mediathek** — nicht geloescht, weil unklar ist, ob
+es anderswo verwendet wird.
+
+**Geprueft:** `poster` und neue Quelle auf allen vier Startseiten im HTML; im Browser
+zeigt der Hero jetzt das Vorschaubild, auch wenn das Video nicht laedt (`readyState 0`)
+— genau der Fall, den Besucher ohne Autoplay sehen.
+
+**Ueberschrift von 64 px auf 32 px — 06.09.2026, Entscheid des Inhabers.**
+Die Regel steht **einmal** in Snippet 11:
+`.hero h1{...font-size:clamp(30px,5vw,64px)...}` → `clamp(24px,2.6vw,32px)`.
+
+| Fenster | vorher | nachher |
+|---|---|---|
+| 375 px | 30 px | 24 px |
+| 768 px | 38 px | 24 px |
+| 1024 px | 51 px | 27 px |
+| ab 1230 px | 64 px | **32 px** |
+
+`max-width:17ch` blieb unveraendert — die Zeilenlaenge haengt an der Schriftgroesse,
+der Umbruch bleibt daher bei **drei Zeilen**, nur alles wird kleiner.
+
+**Geprueft in allen vier Sprachen, bei 1440 px und 390 px Fensterbreite:** ueberall
+drei Zeilen, **kein Ueberlauf**, 32 px am Desktop, 24 px am Handy. Der laengste Text
+ist der franzoesische („Pour celles et ceux qui appartiennent à plus d'un endroit") —
+auch dort drei Zeilen. Die Gesichtsmarke im Hintergrund ist jetzt sichtbar, statt vom
+Text verdeckt zu werden.
+
+**Offen bleibt der inhaltliche Punkt:** der Hero zeigt die Marke, kein Kleidungsstueck.
+Alle fuenf Referenzshops zeigen an dieser Stelle Ware oder Menschen
+(→ `REFERENZ-shopdesign.md`).
+
+
+#### Referenzshops vermessen — 06.09.2026 → `REFERENZ-shopdesign.md`
+
+Fuenf Shops mit demselben Skript und demselben Fenster (1440 × 685) vermessen, danach
+OneFam mit genau demselben: **Colorful Standard, Asket, Everlane, Aimé Leon Dore,
+Carhartt WIP**. Kein fremder Code uebernommen — nur Masse und Verhaeltnisse.
+
+**Zwei Werte trennen OneFam von allen fuenf:**
+
+| | Referenzen | OneFam |
+|---|---|---|
+| Ueberschrift der Startseite | 13,5 – 32 px | **64 px** |
+| erstes Bild ab | 0 – 279 px (4 von 5 unter 106 px) | **Video ohne Vorschaubild** |
+
+Seitenhoehe ist **kein** Kriterium: die Referenzen reichen von 2,1 bis 10,4
+Bildschirmen, OneFam liegt mit 9,8 mittendrin. Auch die **Produktseite ist in
+Ordnung** — 9 Bilder im Format 4:5 gegen 10 Bilder im Format 4:5 bei Colorful
+Standard, H1 30 gegen 22 px.
+
+#### ⚠️ Korrektur: der Hero hat sehr wohl ein Bild — ein Video ohne `poster`
+
+Weiter unten in dieser Datei steht „Hero der Startseite: 597 px hoch, Hintergrund
+`#2C2620`, **kein Bild**". **Das ist falsch.** Der Hero enthaelt ein
+`<video autoplay muted loop playsinline>`:
+
+| | |
+|---|---|
+| Datei | `88fbdf03…HD-1080p-2.5Mbps-88218841.mp4` |
+| Groesse | **6,0 MB** |
+| `poster` | **fehlt** — im ganzen HTML kein einziges `poster=` |
+
+Ohne Vorschaubild zeigt der Hero bis zum Laden nur die Hintergrundfarbe, darueber die
+64-px-Ueberschrift. Bei 6 MB dauert das mobil mehrere Sekunden — und wer Autoplay aus
+hat (iOS-Stromsparmodus, Datensparmodus), sieht **nie** ein Bild. Die erste Messung
+hat das Video uebersehen, weil sie nur `background-image` und `<img>` geprueft hat.
+
+**Naechste Schritte in der Reihenfolge ihrer Wirkung:** `poster` setzen (kleinster
+Eingriff, groesste Wirkung), Ueberschrift verkleinern, Video verkleinern. Produktseite,
+Bildformat und Seitenlaenge **nicht** anfassen.
+
+
+#### Fusszeile der Shop-Seiten war fest deutsch — behoben 06.09.2026
+
+**Befund:** Kopf- und Fusszeile der WooCommerce-Seiten kommen aus Snippet 26 und
+liegen dort als base64-Bloecke mit **fest deutschen Texten**. Auf den Router-Seiten
+uebersetzt eine Tabelle im Browser; auf den Shop-Seiten gibt es die nicht — auf
+`/de/produkt/albania-hoodie/` mit Cookie `ofl=fr`, `es` oder `en` blieb die Fusszeile
+jedes Mal deutsch. Ein Franzose las dort „Hauptmenue / Schnelllinks / Rueckgabe / AGB".
+
+**Behoben** mit einer neuen Funktion `of_shell_uebersetzen()` in Snippet 26: sie
+uebersetzt den Fusszeilen-Block per `strtr` in die Sprache aus `of_visitor_lang()`.
+Deutsch ist die Vorlage und bleibt unberuehrt. **Die Wortwahl ist absichtlich aus der
+Uebersetzungstabelle in Snippet 11 uebernommen**, damit Router- und Shop-Seiten
+dieselben Begriffe benutzen — wer sie an einer Stelle aendert, muss die andere
+mitziehen.
+
+Geprueft ueber die vier Sprachadressen: *Hauptmenue · Menu principal · Menú principal ·
+Main Menu*, samt allen Links (Confidentialité / Remboursements / Livraison /
+Conditions générales usw.).
+
+**Am selben Tag nachgezogen: Kopfzeile und mobiles Menue.** `of_shell_uebersetzen()`
+laeuft jetzt ueber **vier** base64-Bloecke statt einem — Kopfzeile (0), Fusszeile (1),
+mobiles Menue (2) und den Icon-Block (5). Die Wortliste wurde um `Suche`, `Konto`,
+`Warenkorb` und `Menu` erweitert; diese vier standen **nicht** in der Tabelle von
+Snippet 11, weil sie dort nur als `aria-label` vorkommen — die Uebersetzungen sind
+also neu gesetzt (Search/Account/Cart, Recherche/Compte/Panier, Buscar/Cuenta/Carrito).
+
+Zwei Dinge, auf die dabei zu achten war: die Menuelisten im JS-Block stehen in
+`'...'`-Zeichenketten (`[['/','Startseite'],...]`), eine Uebersetzung mit Apostroph
+wuerde sie zerbrechen — keine der eingetragenen hat einen. Und vor der Ersetzung
+wurde geprueft, dass `Suche`, `Konto`, `Warenkorb` und `Menu` in den JS-Bloecken
+**nirgends als Bezeichner** vorkommen, sondern nur als Text.
+
+Geprueft:
+
+| Adresse | Kopfzeile (`aria-label`) | mobiles Menue, erster Eintrag |
+|---|---|---|
+| `/de/produkt/…` | Konto · Menu · Suche · Warenkorb | Startseite |
+| `/fr/produkt/…` | Compte · Menu · Panier · Recherche | Accueil |
+| `/es/produkt/…` | Buscar · Carrito · Cuenta · Menú | Inicio |
+| `/produkt/…` (en) | Account · Cart · Menu · Search | Home |
+
+Acht Seitentypen danach: alle 200, unveraenderte Groesse.
+
+**Auch die Router-Kopfzeile nachgezogen — 06.09.2026.** Dort waren die `aria-label`
+ebenfalls fest deutsch (`Land suchen`, `Mein Konto`, `Warenkorb`, `Menu`, je 25×), in
+allen vier Sprachen. Betrifft nur Screenreader, ist also unsichtbar, war aber
+derselbe Fehler.
+
+**Gelöst ueber den vorhandenen Mechanismus statt mit einem zweiten.** Snippet 11
+uebersetzt im Browser Textknoten (`tx`) und `placeholder` (`ph`) gegen die Tabelle
+`OF_I18N` — fuer Attribute wie `aria-label` gab es nichts. Neu:
+
+1. Die vier Labels im HTML auf **englische Schluessel** umgestellt
+   (`Search countries`, `My account`, `Cart`, `Menu`) — so wie jeder andere Text im
+   Router auch, damit die Tabelle greift. 75 Ersetzungen.
+2. Vier Eintraege in `OF_I18N` ergaenzt.
+3. Eine Funktion `al(l)` nach dem Vorbild von `ph(l)` eingesetzt (25×) und in
+   `apply()` aufgerufen: `tx(l);ph(l);al(l);links(l);`. Sie merkt sich den
+   Ausgangswert in `data-al`, damit ein Sprachwechsel ohne Neuladen nicht auf einem
+   bereits uebersetzten Wert aufsetzt — genau wie `ph()` es mit `data-ph` macht.
+
+Gemessen im Browser (die Uebersetzung passiert dort, im Quelltext steht Englisch):
+
+| Adresse | aria-label |
+|---|---|
+| `/de/albania/` | Land suchen · Mein Konto · Menü · Warenkorb |
+| `/fr/albania/` | Rechercher un pays · Mon compte · Menu · Panier |
+| `/es/albania/` | Buscar país · Mi cuenta · Menú · Carrito |
+| `?lang=en` | Search countries · My account · Menu · Cart |
+
+40 Router-Seiten geprueft: alle 200, alle mit englischem Schluessel im Quelltext,
+kein deutscher Rest, `al()` ueberall vorhanden.
+
+#### Cookie-Banner: Sprache hinkte hinterher — behoben 06.09.2026
+
+Mit `?lang=en` stand die Ueberschrift des Banners noch auf „Respetamos tu privacidad",
+mit `?lang=fr` auf „We respect your privacy" — jeweils die Sprache des **vorherigen**
+Aufrufs.
+
+**Ursache:** Snippet 37 liefert das Banner als base64-kodiertes Skript ueber
+`/wp-json/onefam/v1/consent`. Darin stand:
+
+```js
+var L=(function(){ var m=document.cookie.match(/(?:^|; )ofl=([a-z]{2})/); if(m) return m[1];
+                   return (document.documentElement.lang||"en").slice(0,2); })();
+```
+
+Das **Cookie zuerst** — waehrend `cur()` in Snippet 11 die Adresse (`?lang=`) zuerst
+liest. Bei einem Sprachwechsel steht im Cookie noch die alte Sprache, weil `apply()`
+sie erst danach schreibt. Reihenfolge auf `?lang=` → Cookie → `documentElement.lang`
+angeglichen, mit Pruefung gegen die vier erlaubten Sprachen.
+
+**Nachgemessen, alle vier Sprachen:**
+
+| | Ueberschrift | Knopf |
+|---|---|---|
+| `?lang=de` | Wir respektieren deine Privatsphäre | Alle akzeptieren |
+| `?lang=en` | We respect your privacy | – |
+| `?lang=fr` | Nous respectons votre vie privée | – |
+| `?lang=es` | Respetamos tu privacidad | Aceptar todo |
+
+⚠️ **Die Falle dabei: `/wp-json/onefam/v1/consent` wird mit
+`cache-control: public, max-age=86400` ausgeliefert.** Nach dem Schreiben zeigte der
+Testbrowser weiter die alte Fassung — erst ein erzwungener Neuabruf
+(`fetch(..., {cache:'reload'})`) brachte die neue. **Wer das Banner-Skript aendert,
+muss damit rechnen, dass wiederkehrende Besucher bis zu 24 Stunden die alte Fassung
+sehen.** Eine Versionsnummer in der Adresse (`?v=…`) waere hier die saubere Loesung —
+noch nicht gebaut.
+
+**Neubeschriftung bei Sprachwechsel: eingebaut, gemessen, wieder zurueckgebaut.**
+
+Eingebaut war eine Neubelegung von `L`, `t`, `PRIV` und `IMP` bei einer Aenderung von
+`documentElement.lang`, ausgeloest ueber einen `MutationObserver`.
+
+⚠️ **Beim Nachmessen zeigte sich, dass es den Fall nicht gibt.** Der Sprachumschalter
+wechselt die **Adresse**: Snippet 53 („OneFam Sprachumschalter wechselt die Adresse")
+ruft `location.assign(ziel(l))`. Die Seite laedt neu, das Banner wird ohnehin in der
+neuen Sprache aufgebaut. Nachgemessen: nach `OF_setLang('fr')` zaehlt ein Beobachter
+**genau eine** Aenderung am `lang`-Attribut, danach steht es wieder auf `de` — die
+Navigation uebernimmt. Ein dauerhafter Sprachwechsel ohne Neuladen existiert im Shop
+nicht.
+
+Der urspruengliche Befund („Banner hinkt eine Sprache hinterher") stammte aus
+`?lang=`-Aufrufen, die zum Testen selbst gebaut worden waren. **Die
+Reihenfolge-Korrektur oben bleibt richtig und wirksam** — `links()` in Snippet 11
+haengt `?lang=` an interne Verweise, solche Adressen kommen real vor.
+
+**Am 06.09.2026 auf Entscheid des Inhabers wieder zurueckgebaut.** Ungenutzter Code in
+einem Einwilligungselement ist Risiko ohne Nutzen. Der Rueckbau wurde als exakte
+Umkehrung der vier Einzelaenderungen gemacht, nicht als Block geschnitten; das
+Consent-Skript ist danach wieder **10'284 Zeichen** lang — Zeichen fuer Zeichen der
+Stand vor dem Einbau. Keine Reste von `ofSprache`, `ofAnsicht`, `ofNeuBeschriften`
+oder `MutationObserver`, Syntax geprueft, `?lang=`-Korrektur erhalten.
+
+**Funktionstest des Banners nach dem Rueckbau:** oeffnet auf `/de/albania/` mit
+„Wir respektieren deine Privatsphäre", auf `/albania/?lang=fr` mit „Nous respectons
+votre vie privée"; ein Klick auf „Nur notwendige" schreibt
+`{"necessary":true,"stats":false,"marketing":false,"v":"1"}`. Zuvor mit dem
+eingebauten Stand ebenso geprueft, inklusive Einstellungen, Haken und Speichern.
+Die Einwilligungslogik war zu keinem Zeitpunkt veraendert.
+
+#### Sprach-Cookie ueberstimmte die Adresse — behoben 06.09.2026
+
+**Die Ursache war eine einzige Zeile Reihenfolge.** Snippet 69 („Produktseite:
+Groessentabelle und Details als Kacheln") las **zuerst das Cookie `ofl`** und erst
+danach `of_visitor_lang()`. Alle anderen Snippets machen es umgekehrt — 57
+(Produktnamen), 61 (Groessentabellen), 62 (Produktdetails) nehmen direkt
+`of_visitor_lang()`.
+
+Dadurch zerfiel die Seite in zwei Sprachen. Gemessen vorher:
+
+| Adresse | Cookie | Fusszeile (`of_visitor_lang`) | Kacheltitel (Cookie) |
+|---|---|---|---|
+| `/de/produkt/…` | `es` | Hauptmenü | **¿Me quedará bien?** |
+| `/fr/produkt/…` | `de` | Menu principal | **Passt mir das?** |
+| `/es/produkt/…` | `de` | Menú principal | **Passt mir das?** |
+
+In Snippet 69 die Reihenfolge umgedreht: `of_visitor_lang()` zuerst, das Cookie nur
+noch als Rueckfall. **`of_visitor_lang()` beruecksichtigt das Praefix der Adresse** —
+steht dort `/de/`, gewinnt Deutsch.
+
+**Nachher, mit absichtlich gegenlaeufigem Cookie `ofl=es` gemessen:**
+
+| Adresse | Produktname | Lieferzeit | Fusszeile | Kacheltitel | Farbe/Grösse |
+|---|---|---|---|---|---|
+| `/de/produkt/…` | Albanien Hoodie | deutsch | Hauptmenü | Passt mir das? | Farbe / Grösse |
+| `/fr/produkt/…` | Albanie Hoodie | franzoesisch | Menu principal | Est-ce que ça me va ? | Couleur / Taille |
+| `/es/produkt/…` | Albania Hoodie | spanisch | Menú principal | ¿Me quedará bien? | Color / Talla |
+| `/produkt/…` (ohne Praefix) | Albania Hoodie | spanisch | Menú principal | ¿Me quedará bien? | Color / Talla |
+
+**Jede Seite ist in sich einsprachig.** Ohne Sprachpraefix entscheidet weiterhin der
+Besucher (Cookie, Browser, Land) — das ist die vorgesehene Mechanik, kein Rest des
+Fehlers.
+
+
+#### Google Fonts ganz abgeschaltet, Kaufknopf, Galerie — 06.09.2026
+
+**Open Sans / Divi.** Die letzte Fremdschrift kam nicht aus einem Snippet, sondern aus
+dem Theme: Divi laedt Open Sans von Google. Abgeschaltet ueber **Divi →
+Theme-Optionen → Allgemein → „Google Fonts Verwenden"** (Feld
+`et_use_google_fonts`, Schalter aus, gespeichert). Nach dem Neuladen geprueft: der
+Schalter bleibt aus.
+
+**Ergebnis, ausgeloggt ueber zehn Seitentypen:** `fonts.googleapis.com` **0** auf
+allen, Fontshare (Cabinet Grotesk + Satoshi) auf allen vorhanden, alle Seiten 200.
+Damit geht **keine Besucher-IP mehr an Google** — das ist neben der Optik auch ein
+Datenschutzpunkt.
+
+Auf der Produktseite steht `Open Sans` noch als `font-family` im Divi-Grundstil, die
+Schrift wird aber nicht mehr geladen. **Sichtbarer Text nutzt jetzt ausschliesslich
+Cabinet Grotesk (12 Elemente) und Satoshi (108).** Die restlichen Treffer sitzen auf
+unsichtbaren Elementen — nachgemessen, nicht angenommen.
+
+⚠️ **Beim Speichern der Divi-Optionen ging meine Sicherung der 144 Felder verloren**
+(window-Variable, die den Seitenwechsel nicht ueberlebt). Ich kann daher **nicht
+belegen**, dass beim Speichern kein anderes Feld mitverstellt wurde. Alle zehn
+Seitentypen antworten unveraendert mit 200 und normaler Groesse; wer ganz sicher gehen
+will, sieht die Theme-Optionen einmal durch.
+
+#### Kaufknopf: zwei eigene Fehlmessungen, ein echter Punkt
+
+**Was ich zuerst gemeldet hatte und was davon stimmt:**
+
+- „`opacity: 0.45` beim Ankommen" — **stimmt**, das ist der deaktivierte Zustand vor
+  der Variantenwahl. Die Regel steht in Snippet 13:
+  `.woocommerce .single_add_to_cart_button.disabled{opacity:.45!important;}`
+- „Der Knopf bleibt auch nach der Variantenwahl blass" — **falsch.** Diese
+  „Korrektur" war selbst ein Messfehler.
+
+⚠️ **Die Ursache ist eine Falle, die jede kuenftige Messung betrifft: im versteckten
+Chrome-Tab friert die Renderpipeline ein.** `getComputedStyle` liefert dann den
+eingefrorenen Zwischenwert einer laufenden CSS-Transition statt des Zielwerts. Der
+Beleg: `button.getAnimations()[0].effect.getKeyframes()` gibt im aktiven Zustand
+`['0.45','1']` (Ziel 1, Dauer 250 ms), im deaktivierten `['1','0.45']`. **Wer eine
+`opacity`, eine Groesse oder eine Position misst, muss den Zielwert aus den Keyframes
+lesen oder in einem sichtbaren Fenster messen** — sonst misst man Zwischenbilder.
+Dasselbe erklaert die schwarzen Screenshots im Browser-Pane zu Beginn der Sitzung und
+warum programmatisches Scrollen dort nicht wirkte.
+
+**Der Knopf verhaelt sich also richtig:** deaktiviert 0.45, nach der Wahl 1, und ein
+Klick ohne Auswahl zeigt bereits einen Hinweis (`C.txt.wahl` in Snippet 13).
+
+**Tatsaechlich geaendert:** Schriftgroesse **13 px → 15 px**, Polsterung 15 → 16 px.
+13 px war fuer den wichtigsten Knopf der Seite zu klein. Kontrast des Textes gegen den
+Verlauf im Bereich, den der Text ueberdeckt: **4,2 bis 7,4:1** — ausreichend; nur die
+aeusseren Enden des Verlaufs liegen darunter (3,56:1 am violetten Ende), dort steht
+aber kein Text.
+
+#### Galerie: in Ordnung, mein Befund war eine Fehlzaehlung
+
+„18 Bilder als Kachelwand" war **Hauptbilder plus Vorschaubilder zusammengezaehlt**.
+Sauber getrennt gemessen:
+
+| | Hauptbilder | Vorschaubilder |
+|---|---|---|
+| beim Laden | 9 | 9 |
+| nach Farbwahl „Black" | 7 | 7 |
+
+Keine Dublette, alle sichtbar. Snippet 92 „Galerie nach Farbe filtern" zeigt beim
+Laden je Farbe ein Freihaengend-Bild (9 Farben) und schaltet bei der Farbwahl auf die
+sieben Ansichten dieser Farbe um. **Das ist vernuenftig — hier ist nichts zu kuerzen.**
+
+Offen bleibt eine Beobachtung vom Anfang der Sitzung: im allerersten Screenshot war
+kurz eine Kachelwand aller Bilder zu sehen, bevor der Filter griff (er laeuft auf
+`window.load` plus Verzoegerung). **Wie lange das dauert, konnte ich nicht verlaesslich
+messen** — im versteckten Tab feuert `load` im eingebetteten Rahmen nicht zuverlaessig.
+Das gehoert in einem sichtbaren Fenster nachgemessen.
+
+
+#### Fremdschriften raus: Trirong, Quattrocento Sans und Inter — 06.09.2026
+
+**Befund vorher:** Der Shop lud **zwei** Fremdschriften von Google Fonts und benutzte
+sie ueberall dort, wo Cabinet Grotesk und Satoshi stehen muessten. Auf der
+Produktseite waren acht Schriftfamilien im Einsatz. Trirong (eine Serifenschrift) trug
+die Kartenueberschriften, die Laendernamen und die Fusszeilen-Ueberschriften — das war
+der Hauptgrund, warum die Fusszeile nach Standard-Theme aussah.
+
+**Ersetzt** — Trirong → Cabinet Grotesk, Quattrocento Sans → Satoshi, Inter → Satoshi:
+
+| Snippet | was | Anzahl |
+|---|---|---|
+| 11 Router | `font-family:'Trirong',serif` | **140** |
+| 11 Router | `font-family:'Cabinet Grotesk','Trirong',serif` | 2 |
+| 11 Router | `font-family:'Quattrocento Sans',sans-serif` | **66** |
+| 11 Router | `font-family:'Satoshi','Quattrocento Sans',sans-serif!important` | 25 |
+| 11 Router | Google-Fonts-`<link>` (googleapis + gstatic) | **75** |
+| 11 Router | `.mnu .x` (Schliessen-Knopf stand auf Arial) | 25 |
+| 26 Kopf-/Fusszeile | im base64-Block: Trirong 5, Quattrocento 4 | 9 |
+| 13 Reskin | `'Inter'` 2, Quattrocento 1 | 3 |
+| 67 Ruecklink | Quattrocento-Rueckfall | 1 |
+| 90 Warenkorb-Hinweis | Quattrocento-Rueckfall | 1 |
+
+⚠️ **Die Falle, die dabei Zeit gekostet hat: in Snippet 26 steckt das CSS
+base64-kodiert.** `echo '<style id="of-shell-css">' . base64_decode('Lm9mc2h7...')` —
+elf solcher Bloecke. Eine Textsuche nach „Trirong" in diesem Snippet meldet **0
+Treffer**, obwohl die Live-Seite die Schrift fuenfmal benutzt. Ich habe daraus zuerst
+geschlossen, das CSS komme von woanders, und die falsche Quelle gesucht. **Wer in
+Snippet 26 etwas sucht, muss die base64-Bloecke vorher dekodieren.** Zum Aendern:
+dekodieren (`atob`, UTF-8-sicher ueber `decodeURIComponent(escape(...))`), ersetzen,
+mit `btoa(unescape(encodeURIComponent(...)))` zurueckkodieren und die alte
+Zeichenkette im Code austauschen. Vorher pruefen, ob der Hin- und Rueckweg die
+gleiche Zeichenkette ergibt — bei Block 3 war das der Fall.
+
+**Endstand, ausgeloggt ueber zehn Seitentypen gemessen:** Trirong **0**, Quattrocento
+**0**, Inter **0**. Fontshare (Cabinet Grotesk + Satoshi) auf allen Seiten vorhanden.
+Auf den Router-Seiten sind jetzt nur noch **Cabinet Grotesk und Satoshi** im Einsatz.
+
+Auf der Produktseite bleiben Treffer stehen, die aber **kein Besucher sieht** —
+nachgemessen: der `a.logo` mit Schriftgroesse **0 px** und transparenter Farbe (die
+Wortmarke ist ein Hintergrundbild, der Text nur fuer Screenreader), die
+`<option>`-Eintraege der ausgeblendeten Auswahllisten (10 px hoch, unsichtbar, weil
+Snippet 23 Farbkreise darueberlegt) und der abgeschaltete Waehrungsumschalter.
+
+**Offen: Divi laedt Open Sans von Google.** Auf Produktseite, Warenkorb und Mein Konto
+haengt noch `et-divi-open-sans-css` → `fonts.googleapis.com`. Das ist eine
+Theme-Einstellung, kein Snippet (Divi → Theme-Optionen → Google Fonts abschalten).
+Zwei Gruende, es abzuschalten: es ist die letzte Fremdschrift, und Google Fonts
+uebertraegt bei jedem Aufruf die IP des Besuchers.
+
+#### Menuelinks tragen jetzt das Sprachpraefix — 06.09.2026
+
+Der Schoenheitsfehler aus `shop-fusslinks.md`, jetzt fuer das Hauptmenue behoben. Die
+Links zeigten auf `/shop-by-country/` statt `/fr/shop-by-country/`; die Seite blieb in
+der richtigen Sprache (die kommt aus dem Cookie), aber eine geteilte Adresse verlor
+sie. Im Menue-Block wird das Praefix jetzt aus `location.pathname` abgeleitet;
+Englisch hat keins und bekommt bewusst keins.
+
+Geprueft in allen vier Sprachen: `/de/…`, `/fr/…`, `/es/…` und praefixlos fuer
+Englisch. Ein Klick von einer Laenderseite auf „Signature" landet auf
+`/de/shop-by-country/#signature`, springt an die Marke und behaelt die Sprache.
+
+
+#### Menue: Signature und Nach Land als zwei Wege — 06.09.2026
+
+**Warum:** Das Hauptmenue hatte vier Eintraege — Startseite, Nach Land shoppen,
+Ueber uns, Kontakt — und **keinen fuer Signature**. Die einzige Kollektion, die
+jeder kaufen kann, egal woher er kommt, lag damit hinter einem Menuepunkt, der
+Laender verspricht. Wer kein zweites Land hat, klickt da nie hin.
+
+**Geaendert in Snippet 11**, im gemeinsamen Menue-Block. Vier Eingriffe:
+
+1. **`items` erweitert** — `Signature` → `/shop-by-country/#signature`,
+   `Shop by Country` → `/shop-by-country/#laender`. Signature steht vor den
+   Laendern. **25 Vorkommen**, alle identisch, eine Ersetzung.
+   „Signature" bleibt in allen vier Sprachen gleich (Markenwort), fuer die anderen
+   Eintraege greift die vorhandene Uebersetzungstabelle.
+2. **Sprungmarke `id="laender"`** an `<div class="secttl"><h2>All countries</h2></div>`
+   gehaengt (1 Vorkommen). `id="signature"` gab es schon.
+3. **Menue schliesst beim Klick auf einen Eintrag.** Das fehlte bisher ganz und faellt
+   erst mit Sprungmarken auf: klickt man sie an, waehrend man schon auf der Seite ist,
+   laedt nichts neu — das Menue waere offen ueber der Sprungstelle stehen geblieben.
+   ⚠️ **Der Block liegt in zwei Fassungen vor**, die sich nur in den Funktionsnamen
+   unterscheiden: **22×** mit `op`/`cl`, **3×** mit `open`/`close`. Wer hier etwas
+   aendert, muss beide treffen — eine Ersetzung erwischt sonst nur einen Teil.
+4. **Sprungmarken werden selbst angesprungen**, samt `scroll-margin-top:90px`, damit
+   die Ueberschrift nicht unter der Kopfzeile klebt.
+
+⚠️ **Die Falle, die dabei Zeit gekostet hat: `scroll-behavior: smooth` steht auf
+`html`.** Ein `scrollIntoView({behavior:'auto'})` uebernimmt genau diesen Wert — der
+sanfte Lauf wird dann vom Nachladen der Kacheln abgebrochen und die Seite bleibt oben
+stehen. Gemessen am 06.09.2026 auf `/de/shop-by-country/#laender`: mit `'auto'`
+scrollY **0**, mit `'instant'` scrollY **1125**. **Nur `'instant'` schlaegt das CSS.**
+Das gilt fuer jeden kuenftigen Ankersprung auf diesen Seiten.
+
+Aus demselben Grund springt der Browser den Anker auch nicht von selbst an: die
+Abschnitte oberhalb werden erst per Skript gefuellt, die Zielposition verschiebt sich
+danach. Darum wird zweimal nachgesprungen (350 ms und 1'400 ms nach `load`).
+
+**Geprueft:**
+
+- **40 Router-Seiten** (10 Seiten × 4 Sprachen): alle 200, alle genau ein Menue-Block,
+  alle mit Signature-Eintrag.
+- Menue auf Franzoesisch: *Accueil · Signature · Acheter par pays · À propos · Contact*.
+- Klick auf einen Sprungeintrag: Menue schliesst, Sprung sitzt (scrollY 1'035,
+  Ueberschrift 90 px unter dem oberen Rand).
+- `#signature` ebenso (scrollY 251, 90 px Versatz).
+- Produktseite, Warenkorb und Mein Konto unveraendert.
+
+**Offen geblieben:** die Menuelinks tragen **kein Sprachpraefix** (`/shop-by-country/`
+statt `/fr/shop-by-country/`). Das war schon vorher so und ist derselbe
+Schoenheitsfehler wie bei den Fusslinks (`shop-fusslinks.md`) — die Seite rendert in
+der Cookie-Sprache weiter, nur die geteilte Adresse verliert die Sprache. Nicht
+angefasst, weil es ueber den Auftrag hinausging.
+
+
+Ausloeser: „der Shop wirkt billig nach Shopify-Store". Gemessen wurde ausgeloggt,
+ohne Cookies, auf Startseite, Laenderseite und Produktseite.
+
+**Der Kern des Eindrucks ist belegbar: das Theme spricht Shopify.** Im rohen
+Server-HTML von `/de/albania/` stehen `Main Menu`, `Quick links`,
+`Subscribe To Our Emails`, `Country/region · Germany | EUR €` und
+**`♥ Follow on shop`**. Erst ein Skript malt Deutsch darueber. Das sichtbarste
+Ueberbleibsel war „REGULAERER PREIS" ueber jedem Preis (aus *Regular price*) —
+sinnlos ohne Streichpreis.
+
+**Erledigt: „Regular price" ist raus.** 43 Vorkommen von
+`<div class="rp">Regular price</div>` aus Snippet 11 entfernt. Snippet danach
+**2'422'177 statt 2'423'682 Zeichen** (Differenz exakt 43 × 35), weiter aktiv,
+Prioritaet 1. Nachgemessen auf 8 Seiten × 4 Sprachen = **32 Aufrufe, ueberall 0**.
+Die tote CSS-Regel `.fcard .rp` steht noch drin.
+
+**Sicherungen liegen als inaktive Snippets:** **103** (Router v4 vor der Aenderung,
+wortgleich, 2'706'005 Zeichen roh) und **104** (Preis-API vor dem Zwischenspeicher).
+Neu angelegt und **aktiv**: **105** (Kartenpreise serverseitig, siehe unten).
+
+#### Der Preis flackerte — behoben
+
+Die Kartenpreise stehen als **EUR-Festwerte im HTML** des Routers; erst danach
+ersetzt ein Skript Name **und** Preis mit den echten Werten aus
+`/wp-json/onefam/v1/cat-prices`. Bis dahin sieht ein Schweizer Besucher
+„€69,99 EUR" statt „CHF 75.00" — und englische Produktnamen.
+
+Gemessen auf `/de/albania/`, echter Seitenaufruf (nicht im Rahmen):
+
+| | vorher | nachher |
+|---|---|---|
+| DOM interaktiv | 1'335 ms | 1'281 ms |
+| API-Aufruf startet | 1'332 ms | 1'279 ms |
+| API-Dauer | **1'261 ms** | **733 ms** |
+| Preis springt auf CHF | **2'593 ms** | **2'012 ms** |
+
+⚠️ **Eine frueher gemeldete Zahl war falsch.** Eine erste Messung in einem
+eingebetteten Rahmen ergab 4'358–7'737 ms; der Rahmen lief parallel zur Seite und
+hat sie ausgebremst. Belastbar sind die Werte oben aus dem echten Aufruf.
+
+**Was gemacht wurde:** Snippet 15 bekam einen Zwischenspeicher (Transient,
+15 Minuten, `?debug=1` umgeht ihn). Grund: die Route baute fuer **jedes** Produkt
+und **jede** Waehrung eine frische `wc_get_product()`-Instanz und jagte sie durch
+die volle CURCY-Filterkette. Die Antwort haengt nicht am Besucher — sie enthaelt
+alle Waehrungen nebeneinander —, darf also zwischengespeichert werden. Geleert
+wird ueber `delete_transient` je Produktkategorie an `woocommerce_update_product`,
+`woocommerce_new_product`, `save_post_product` und gefiltertem `updated_post_meta`;
+eine statische Sperre verhindert, dass ein PodOS-Sync hunderte Male aufraeumt.
+API danach: kalt 826–1'192 ms, **warm 529–718 ms**.
+
+**Alle 18 Preise der sechs erreichbaren Kollektionen vorher/nachher verglichen —
+unveraendert.**
+
+**Danach serverseitig geloest — neues Snippet 105 „OneFam Kartenpreise
+serverseitig einsetzen".** Es setzt Produktname und Preis schon beim Ausliefern in
+die Kacheln, aus demselben Zwischenspeicher. Drei Entscheidungen darin:
+
+1. **Es rechnet nie neu, es liest nur.** Ist der Speicher kalt, bleibt das HTML
+   unveraendert und das Skript aus Snippet 11 springt ein wie vorher. Die
+   Auslieferung darf durch diese Ergaenzung nie langsamer werden.
+2. **Ist der Speicher kalt, wird er nach der Auslieferung gefuellt** — ueber
+   `register_shutdown_function` plus `fastcgi_finish_request`, der Besucher wartet
+   also keine Millisekunde. Ohne das profitierten nur haeufig besuchte Seiten:
+   beim ersten Test war von sechs Kollektionen genau eine warm.
+3. **Zuordnung ueber den Slug im href**, nicht ueber die Reihenfolge der Karten wie
+   im Skript. Wer eine Karte umsortiert, bekommt so keine vertauschten Preise.
+
+Serverseitig ist das unbedenklich, weil die Router-Seiten nicht zwischengespeichert
+werden — gemessen: `cache-control: no-cache, must-revalidate, max-age=0, no-store,
+private`. Jede Auslieferung sieht Waehrung und Sprache ihres eigenen Besuchers.
+Die Waehrung kommt aus `of_target_currency()` (Snippet 25), die Sprache aus
+`of_visitor_lang()`.
+
+**Ergebnis auf `/de/albania/`, im Browser gemessen:** Namen und Preise stehen
+sofort nach dem Parsen richtig da (`Albanien Hoodie` / `CHF 75.00`) und sind nach
+vier Sekunden **unveraendert** — das Skript findet nichts mehr zu tun. DOM
+interaktiv 1'070 ms, `load` 1'123 ms.
+
+**Vollpruefung: 48 Kombinationen** (6 Kollektionen × 4 Sprachen × CH/DE) — kein
+einziger EUR-Notpreis bei einem CH-Besucher, Namen ueberall in der richtigen
+Sprache (`Argentinien` / `Argentina` / `Argentine` / `Argentina`). Warenkorb,
+Produktseite, Kasse, Mein Konto und die Info-Seiten unveraendert in Groesse und
+Status.
+
+⚠️ **Ein Fehler, der dabei zuerst eingebaut und dann behoben wurde:** der erste
+Zwischenspeicher hatte nur den Slug im Schluessel. Die Route liefert aber je nach
+Cookie `ofl` andere Produktnamen — „Albanien Hoodie" (de), „Albanie Hoodie" (fr),
+„Albania Hoodie" (en/es), weil Snippet 57 den angezeigten Namen ersetzt. Damit
+haette jeder die Namen in der Sprache des Besuchers bekommen, der den Speicher
+zufaellig als erster fuellte. Der Schluessel heisst jetzt
+`of_catprices_<sprache>_<slug>`, und geleert wird ueber alle vier Sprachen.
+Nachgemessen: jede Sprache bekommt ihre eigenen Namen, auch beim zweiten Aufruf.
+
+Laufzeit des Speichers steht auf **12 Stunden** (vorher 15 Minuten): seit die Werte
+serverseitig eingesetzt werden, entscheidet sie darueber, wie oft eine selten
+besuchte Seite wieder mit EUR-Notpreisen ausgeliefert wird.
+
+#### ✅ Preisabweichung OneFam-Logo-Kollektion — behoben am 06.09.2026
+
+Auf der **gerenderten Produktseite** gemessen (die belastbare Quelle):
+
+| Produkt | CHF | Regel | EUR | Regel |
+|---|---|---|---|---|
+| OneFam Logo Hoodie | **70.00** | 75 | 69,99 | 69,99 |
+| OneFam Logo Sweater | **60.00** | 65 | 59,99 | 59,99 |
+| OneFam Logo Shirt | **35.00** | 40 | 34,95 | 34,95 |
+| Logo Black Hoodie | 75.00 | 75 | 69,99 | 69,99 |
+| Albanien Hoodie | 75.00 | 75 | 69,99 | 69,99 |
+
+Nur die OneFam-Logo-Linie liegt in CHF **unter** dem Regelpreis, in EUR aber auf
+Regelniveau. `REGEL-preise.md` sagt „ohne Ausnahme". Entweder ist es ein Fehler
+oder eine nicht aufgeschriebene Absicht — **nicht selbst geaendert**.
+
+**Umfang, im eingeloggten wp-admin ueber `wc/v3` gemessen** (die belastbare Quelle):
+
+| Produkt | ID | Variationen | `regular_price` ist | soll |
+|---|---|---|---|---|
+| OneFam Logo Hoodie | 263 | 94 | **70** | 75 |
+| OneFam Logo Sweater | 568 | 94 | **60** | 65 |
+| OneFam Logo Shirt | 665 | 84 | **35** | 40 |
+| OneFam White Logo Hoodie | 69 | 84 | **70** | 75 |
+| OneFam White Logo Sweater | 365 | 94 | **60** | 65 |
+| OneFam White Logo Shirt | 466 | 92 | **35** | 40 |
+
+**542 Variationen, alle durchgaengig CHF 5 zu niedrig** — kein einziger Ausreisser,
+jede Variation eines Produkts traegt denselben falschen Wert. Betroffen ist auch
+die White-Logo-Linie, die noch als „bald verfuegbar" gefuehrt wird. Nicht
+betroffen: Logo Black (75/65/40 korrekt) und alle Laenderprodukte.
+
+**Behoben am 06.09.2026 nach Freigabe des Inhabers.** Alle 542 Variationen ueber
+`wc/v3` im eingeloggten Backend auf die Regelpreise gesetzt.
+
+Vorgehen, das sich bewaehrt hat und beim naechsten Mal wieder so laufen sollte:
+
+1. **Erst den Bestand erfassen.** Alle 542 Variationen mit `regular_price` und
+   `_regular_price_wmcp` gelesen. Befund: vollkommen einheitlich — je Produkt ein
+   einziger CHF-Wert und ein einziger EUR-Wert, kein Ausreisser, kein Leerwert.
+2. **Dann eine einzelne Variation als Probe** (263/357, 5XL Worker Blue) von 70 auf
+   75. Ergebnis: `regular_price` 75, `_regular_price_wmcp` unveraendert
+   `{"EUR":"69.99"}`. Damit war belegt, dass ein Schreiben auf `regular_price` den
+   EUR-Festpreis nicht mitreisst — genau das Risiko, gegen das Snippet 89 haengt.
+3. **Danach der Rest** in Paketen zu 50 ueber
+   `POST /wp-json/wc/v3/products/<id>/variations/batch`. 541 weitere, keine Fehler.
+
+**Der EUR-Festpreis liegt je Variation im Meta `_regular_price_wmcp`**, Form
+`{"EUR":"69.99"}` — so, wie es `REGEL-preise.md` beschreibt. Das ist die Stelle, die
+ein PodOS-Sync verliert und die Snippet 89 wieder herstellt.
+
+**Nachkontrolle, alles gemessen:**
+
+- **542 Variationen einzeln nachgelesen: 0 Abweichungen in CHF, 0 in EUR.**
+- Gerenderte Produktseiten: OneFam Logo Hoodie CHF 75.00, Sweater CHF 65.00,
+  Shirt CHF 40.00.
+- **Fehlerbild-Kontrolle:** 12 Produktseiten (6 Produkte × CH/DE) auf
+  82,50 / 71,50 / 44,00 geprueft — **kein einziges Vorkommen**.
+- API ueber alle sechs Kollektionen, beide Waehrungen: durchgaengig
+  **CHF 75/65/40** und **EUR 69,99/59,99/34,95**.
+
+**Und dann die vollstaendige Kontrolle ueber den ganzen Katalog** — nicht nur ueber
+die sechs geaenderten Produkte:
+
+| | |
+|---|---|
+| Produkte geprueft | **42** (18 oeffentlich, 24 privat) |
+| Variationen geprueft | **3'218** (1'426 oeffentlich, 1'792 privat) |
+| CHF-Stufen | **eine** je Kleidungsstueck — 75 / 65 / 40 |
+| EUR-Stufen | **eine** je Kleidungsstueck — 69,99 / 59,99 / 34,95 |
+| Variationen ohne EUR-Festpreis | **0** |
+| Abweichungen | **0** |
+
+⚠️ **Das war nicht das erste Mal.** `REGEL-preise.md` haelt fest, dass **dieselben
+542 Variationen schon am 31.08.2026** von 70/60/35 auf 75/65/40 angehoben wurden.
+Am 06.09.2026 standen sie wieder auf 70/60/35.
+
+**Ein PodOS-Sync war es nicht:** alle betroffenen Variationen tragen als Anlagedatum
+den **22.07.2026** und wurden seither nicht neu erzeugt — derselbe Tag wie bei Logo
+Black, das korrekt auf 75 stand. Ein Sync haette ein juengeres Datum hinterlassen.
+Was tatsaechlich geschah, ist nicht mehr feststellbar: entweder wurde die Angleichung
+am 31.08. dokumentiert aber nicht ausgefuehrt, oder etwas hat sie zurueckgesetzt, ohne
+die Variationen anzufassen. Fuer das Erste spricht, dass die Nachkontrolle vom selben
+Tag stammt wie eine dort eingestandene Fehlmessung.
+
+**Daraus die neue Regel in `REGEL-preise.md`: eine Preisangleichung ist erst fertig,
+wenn sie an einem spaeteren Tag noch einmal nachgemessen wurde.** Also: diese hier
+in ein paar Tagen erneut pruefen, bevor sie als erledigt gilt.
+
+**Nebenbei bestaetigt:** der Zwischenspeicher aus Snippet 15 leert sich bei einer
+Produktaenderung tatsaechlich selbst. Direkt nach dem Schreiben lieferte
+`/de/onefam-logo/` einmal wieder den statischen EUR-Notpreis, beim naechsten Aufruf
+die korrigierten Werte — das Nachfuellen aus Snippet 105 hat gegriffen, wie gebaut.
+
+#### Weitere Befunde, noch offen
+
+- ✅ **Produktnamen englisch auf deutschen Seiten — erledigt.** `Albania Shirt`,
+  `Albania Sweater`, **`Albanian Hoodie`** standen im Router hartkodiert und liefen
+  deshalb nicht durch Snippet 57. Snippet 105 setzt jetzt den Namen aus derselben
+  Quelle ein. **Im Router steht der falsche Text weiter** — er ist nur noch der
+  Notbehelf fuer den Fall, dass der Zwischenspeicher kalt ist. Wer ihn dort
+  aufraeumt, sollte „Albanian Hoodie" gleich auf „Albania Hoodie" vereinheitlichen.
+- **Zwei tote Adressen:** `/white-logo/` und `/antigua-and-barbuda/` antworten
+  **404** statt umzuleiten. Die sechs pausierten Laender (Anguilla, Bosnia, Brazil,
+  Brunei, Mexico, Peru) leiten korrekt mit 302 auf `/shop-by-country/`.
+- **Im Router liegen 14 fertige Seiten**, erreichbar sind nur 6: vier Laender plus
+  OneFam Logo und Logo Black.
+- **Die Signature-Kollektion ist praktisch versteckt.** Das Hauptmenue hat vier
+  Eintraege — Startseite, Nach Land shoppen, Ueber uns, Kontakt — und keinen fuer
+  Signature. Sie steht nur als erster Abschnitt auf `/shop-by-country/`, also hinter
+  einem Menuepunkt, der Laender verspricht. **Entschieden am 06.09.2026:** das Menue
+  bekommt zwei Wege, „Signature" und „Nach Land", Signature zuerst. Noch nicht gebaut.
+- **Vier Schriften im Einsatz:** Cabinet Grotesk und Satoshi (richtig), dazu
+  **Inter** fuer die Etiketten „Farbe"/„Groesse" (Snippet 13) und **Trirong**
+  (Serifen) fuer Kartenueberschriften und Fusszeile (Snippet 11 und 26).
+- **Kaufknopf:** `opacity: 0.45` beim Ankommen (WooCommerce-Standard bis zur
+  Variantenwahl), Schrift 13 px, Textkontrast gegen das violette Ende des Verlaufs
+  **3,56:1** — unter dem Mindestwert 4,5:1.
+- **Produktseite:** heller Bereich `#F4EFE6` im schwarzen Markenraum `#0A0A0A`,
+  **18 Galeriebilder** als Kachelwand, grosse Leerflaeche rechts.
+- **Hero der Startseite:** 597 px hoch, Hintergrund `#2C2620`, **kein Bild** — ein
+  Modeladen zeigt oberhalb der Falz kein Kleidungsstueck.
+- **Startseite 6'787 px hoch** (rund neun Bildschirme) fuer 18 Produkte aus vier
+  Laendern; die Laender kommen dreimal vor.
+- **Zwei Fusszeilen-Fassungen** nebeneinander: „Start/Startseite",
+  „Rueckerstattungen/Rueckgabe", „Nutzungsbedingungen/AGB".
+- **Sprach-Cookie schlaegt die Adresse:** mit Cookie `ofl=es` zeigt
+  `/de/produkt/albania-hoodie/` spanische Akkordeon-Titel („¿Me quedará bien?"),
+  EUR-Preise bei „CHF Fr." im Kopf und den Seitentitel „Modus fuer alle …" statt
+  „Mode". Nach dem Loeschen der Cookies alles korrekt.
+
 
 ### zahls.ch nachgesehen — 03.09.2026: es gab nie etwas auszuzahlen
 
@@ -312,7 +1194,10 @@ Web-FTP-Editor: `shop-https.md`.
 1. **Code Snippets meldet bei Snippet 11 (2,4 MB) einen Speicherfehler, der nichts
    bedeutet.** HTTP 200 mit leerem Rumpf. Beim ersten Patch **war** gespeichert, bei
    zwei weiteren Knopfdrücken **nicht**. Nie nach der Meldung urteilen — Seite neu
-   laden und die Zeichenlänge prüfen. Zuverlässig geht nur die REST-Schnittstelle.
+   laden und die Zeichenlänge prüfen. **Auch über REST bleibt der Rumpf leer**, und
+   `GET` auf Snippet 11 liefert ebenfalls nichts — den Code dieses einen Snippets holt
+   man aus `CODE_SNIPPETS_EDIT.snippet.code` auf `admin.php?page=edit-snippet&id=11`
+   (2'706'005 Zeichen roh, 2'423'682 entschluesselt, gemessen am 06.09.2026).
 2. **Preise nur im eingeloggten wp-admin messen.** Store-API *und* `wc/v3` von aussen
    liefern beide den umgerechneten Wert. Von aussen meldet der Hoodie
    `regular_price` 69.99, im wp-admin korrekt 75.
@@ -337,12 +1222,19 @@ Web-FTP-Editor: `shop-https.md`.
    eigenen Anfrage zurück. Über HTTP gefragt meldet es `http://`, obwohl in der
    Datenbank `https://` steht. Ich habe daraus einen Fehler abgeleitet, den es nicht
    gab. Für `siteurl` und `home` in wp-admin nachsehen.
-8. **Ein Snippet laesst sich nur mit echten Eingabeereignissen aendern.** Der Editor
-   ist React-gesteuert: `setValue`, `textarea.value`, `cm.save()` — alles wird beim
-   Speichern stillschweigend verworfen (dreimal geprueft). Was geht: echter Mausklick
-   in den Editor, dann `cm.setSelection()`, dann echter Tastendruck. Eine
-   REST-Schnittstelle gibt es in dieser Fassung nicht. Danach IMMER die Zeichenlaenge
-   nach dem Neuladen pruefen und die Live-Seite messen.
+8. **Die REST-Schnittstelle fuer Snippets gibt es doch — korrigiert am 06.09.2026.**
+   Der Satz „gibt es in dieser Fassung nicht" war eine Fehlmessung: ohne Nonce
+   antwortet `/wp-json/code-snippets/v1/snippets` mit 403 `rest_cookie_invalid_nonce`
+   und wirkt tot. Der Nonce steht im eingeloggten wp-admin auf jeder
+   Snippet-Bearbeitungsseite in **`CODE_SNIPPETS.restAPI.nonce`** — nicht in
+   `wpApiSettings`, das war der Irrweg. Lesen mit `GET .../snippets/<id>`, schreiben
+   mit `POST` auf dieselbe Adresse und dem **vollstaendigen** Objekt (`name`, `desc`,
+   `code`, `scope`, `active`, `priority`, `tags`); fehlt `active: true`, ist das
+   Snippet danach aus. Am 06.09.2026 an Snippet 4 durchgespielt: geschrieben,
+   nachgemessen, zurueckgesetzt. Der Editorweg (echter Mausklick, `cm.setSelection()`,
+   echter Tastendruck) bleibt nur noch der Notnagel — programmatisch gesetzter Code
+   wird dort weiterhin still verworfen. Danach IMMER die Zeichenlaenge nach dem
+   Neuladen pruefen und die Live-Seite messen.
 9. **Vor dem Selberbauen im Shop erst die Plugin-Liste ansehen.** Neun Stück, und
    zwei davon machen HTTPS. Ein gesetzter Haken heisst dabei nicht, dass die Regel
    auch geschrieben wurde.
