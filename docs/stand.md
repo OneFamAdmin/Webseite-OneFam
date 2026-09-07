@@ -21,7 +21,7 @@
 | 7 | ⚠️ **Preise gesetzt — Ursache gefunden, aber nicht behoben** | Am 07.09.2026 standen **364 Variationen** wieder auf der alten Reihe (Logo-Shirt 35 statt 40, Logo-Sweater 60 statt 65; zwei der vier Produkte **oeffentlich verkauft**). Gesetzt und vollstaendig nachgemessen: 42 Produkte, 3 210 Variationen, **0 Abweichungen**. **Die Ursache liegt bei Shirt-King:** deren Schluessel „heldenwerbung-409340" (Lesen/Schreiben) schrieb heute zweimal die alten Preise zurueck. **Es kommt wieder, solange PodOS die alten Werte fuehrt.** → siehe „Preise: die Ursache" unten und Punkt 11 |
 | 8 | ⏳ **Auszahlungsstatus zahls.ch** | Ab dem 08.09.2026 nachsehen, ob nach der eingereichten Kontobestätigung der Auszahlungsstatus grün ist. Mögliche Rückfrage: zahls verlangt ein geschäftliches Konto, eingereicht wurde ein Privatkonto. |
 | 9 | ✅ **Hero umgebaut — erledigt 07.09.2026** | Marke jetzt als quadratischer Block ueber der Ueberschrift statt als formatfuellender Hintergrund; Laenderkacheln direkt hinter den Hero gezogen. Erstes Kleidungsstueck: **920 → 438 px** (Desktop), **1519 → 540 px** (Handy). Entschieden: Kacheln, **nicht** das Lifestyle-Bild — das zeigt Brasilien, und `/brazil/` ist pausiert. → unten „Hero umgebaut" |
-| 10 | 🎨 **Shop-Design ist NICHT fertig** | Fertig ist der *obere Teil der Startseite*. Weiter offen (Stand 07.09.2026): **der Signature-Abschnitt ist 924 px hoch, verkauft aber nichts** — kein Preis, kein Produktlink, fuenf von sieben Kacheln „Bald verfuegbar"; **im Router liegen 14 fertige Seiten, erreichbar sind 6**; auf der Startseite fehlt seit dem Entfernen der Laenderreihe **jeder Hinweis, dass weitere Laender kommen**. Nicht nachgeprueft: die doppelten Fusszeilen-Fassungen, der Sprach-Cookie-Fehler, die Produktseite mit 18 Galeriebildern. |
+| 10 | 🎨 **Shop-Design: oberer Teil der Startseite fertig** | Stand 07.09.2026: Hero, Kachelreihe, Signature und Featured sind ueberarbeitet, die Seite ist von **9,8 auf 5,7 Bildschirme** geschrumpft. Weiter offen: **im Router liegen 14 fertige Seiten, erreichbar sind 6**; auf der Startseite fehlt seit dem Entfernen der Laenderreihe **jeder Hinweis, dass weitere Laender kommen**. Nicht nachgeprueft: die doppelten Fusszeilen-Fassungen, der Sprach-Cookie-Fehler, die Produktseite mit 18 Galeriebildern. |
 | 11 | 🔴 **Shirt-King muss die CHF-Preise in PodOS korrigieren** | Ihr Schluessel schreibt sie sonst weiter zurueck — am 07.09.2026 zweimal (07:56 und 20:24 Uhr). Soll: **Shirt 40, Sweater 65, Hoodie 75**; sie senden 35 / 60. **Gehoert in die offene Anfrage aus Punkt 6.** Den Schluessel annullieren ist keine Loesung — er ist die Produktanbindung des Fulfillers. |
 
 **Der Trichter bleibt geparkt** (freie Auswahl, Käufer-Voting) bis zur rechtlichen
@@ -34,6 +34,48 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 ---
 
 ## Was zuletzt gemacht wurde — neueste zuerst
+
+### Signature eingedampft: von sieben Kacheln auf vier — 07.09.2026
+
+Der Abschnitt zeigte **zwei lebende Kollektionen und fuenf „Bald verfuegbar"** — er
+bestand also zu fuenf Siebteln aus Ankuendigungen, war mit **902 px der zweitgroesste
+Block der Startseite**, enthielt **keinen einzigen Preis und keinen Produktlink**, und
+stand direkt **vor** der einzigen Stelle mit Ware.
+
+Dazu kam eine Doppelung im Kleinen: der Untertitel sagt bereits „heute in Farbe und
+Schwarz, **bald in weiteren Farben**" — die fuenf Kacheln wiederholten denselben Satz
+noch einmal im Bild.
+
+**Geaendert:** eine Konstante `SOON_ZEIGEN=2` im Signature-Skript, die Schleife laeuft
+jetzt ueber `Math.min(SOON_ZEIGEN, SOON.length)`. **Die Liste `SOON` bleibt
+vollstaendig** — sie ist der Fahrplan, nur die Anzeige ist begrenzt.
+
+**Warum genau zwei:** `.sgrid` ist vierspaltig. Zwei lebende plus zwei angekuendigte
+fuellen die Reihe **genau** — eine fuenfte Kachel reisst eine zweite Reihe auf. Wer
+mehr zeigen will, erhoeht den Wert und rechnet die Reihe neu; der Hinweis steht als
+Kommentar daneben.
+
+**Nachgemessen, ausgeloggt:**
+
+| | vorher | nachher |
+|---|---|---|
+| Signature-Hoehe | 902 px | **546 px** |
+| Kacheln | 7 (2 live, 5 bald) | **4** (2 live, 2 bald) |
+| Reihen | 2 | **1** |
+| Seitenhoehe gesamt | 5 405 px | **4 666 px (5,7 Bildschirme)** |
+
+Konsole leer.
+
+#### Wo die Startseite jetzt steht
+
+| | Sitzungsbeginn | jetzt |
+|---|---|---|
+| Seitenhoehe | 6 787 px (9,8 Bildschirme) | **4 666 px (5,7)** |
+| erstes Kleidungsstueck | 920 px / 1 519 px (Handy) | **525 px** |
+| Produktlinks auf der Seite | 3, hinter Reitern | **4, alle sichtbar** |
+| erster Preis | 1 936 px | **1 558 px**, drei Stufen nebeneinander |
+| Nennungen je Land | 3× | **1×** |
+| Knopfkontrast | 3,56:1 | **4,95:1** |
 
 ### Preis-Wache gebaut: Snippet 106 — 07.09.2026
 
