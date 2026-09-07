@@ -17,9 +17,43 @@ Am 31.08.2026 wurden OneFam Logo und OneFam White Logo von CHF 70 / 60 / 35 auf
 75 / 65 / 40 angehoben (542 Variationen), damit der Katalog einheitlich ist.
 Entscheid Labi. Die EUR-Festpreise waren schon vorher überall gleich und blieben es.
 
-**Stand nach der Angleichung, an allen 21 Live-Produkten einzeln gemessen:**
-21 Produkte, **eine** CHF-Stufe je Kleidungsstück, **eine** EUR-Stufe,
-**0 Variationen ohne Festpreis**.
+### ⚠ Diese Angleichung hielt nicht — am 06.09.2026 stand sie wieder auf 70 / 60 / 35
+
+Gemessen im eingeloggten wp-admin über `wc/v3`: **dieselben 542 Variationen**,
+OneFam Logo und OneFam White Logo, wieder auf CHF 70 / 60 / 35. Die EUR-Festpreise
+waren dabei durchgehend korrekt.
+
+**Ein PodOS-Sync war es nicht.** Alle betroffenen Variationen tragen als Anlagedatum
+den **22.07.2026** und wurden seither nicht neu erzeugt — das ist derselbe Tag wie bei
+Logo Black, das korrekt auf 75 stand. Ein Sync, der Variationen neu anlegt, hätte ein
+jüngeres Datum hinterlassen.
+
+**Was tatsächlich geschah, ist nicht mehr feststellbar.** Zwei Möglichkeiten, keine
+davon belegbar: die Angleichung wurde am 31.08. dokumentiert, aber nicht (vollständig)
+ausgeführt — oder etwas hat sie später zurückgesetzt, ohne die Variationen anzufassen.
+Für die erste Möglichkeit spricht, dass die Nachkontrolle vom selben Tag stammt wie die
+im Abschnitt „Wie man Preise richtig misst" beschriebene Fehlmessung.
+
+**Daraus die Regel: eine Preisangleichung ist erst fertig, wenn sie an einem
+späteren Tag noch einmal nachgemessen wurde** — mit `wc/v3` im eingeloggten Backend,
+nicht mit der Store-API.
+
+**Stand am 06.09.2026, nach der erneuten Angleichung — alle Produkte einzeln
+gemessen, nicht in Stichproben:**
+
+| | |
+|---|---|
+| Produkte geprüft | **42** (18 öffentlich, 24 privat) |
+| Variationen geprüft | **3'218** (1'426 öffentlich, 1'792 privat) |
+| CHF-Stufen je Kleidungsstück | **eine** — 75 / 65 / 40 |
+| EUR-Stufen je Kleidungsstück | **eine** — 69,99 / 59,99 / 34,95 |
+| Variationen ohne EUR-Festpreis | **0** |
+| Abweichungen | **0** |
+
+Vorgehen beim Schreiben, das sich bewährt hat: erst den Bestand vollständig lesen,
+dann **eine einzelne Variation** als Probe ändern und prüfen, ob
+`_regular_price_wmcp` unberührt bleibt, erst dann der Rest über
+`POST /wp-json/wc/v3/products/<id>/variations/batch` in Paketen zu 50.
 
 ## ⛔ 82,50 / 71,50 / 44,00 ist KEIN Preis
 

@@ -90,18 +90,26 @@ Umschalter sind bewusst abgeschaltet. Mechanik und Testhinweise:
    es richtig aussieht?** Das löst mehr als jede weitere Messrunde.
 6. **Bevor ein Fehler dem Zulieferer zugeschrieben wird, die Quelle messen.**
 7. **Nichts auf der öffentlichen Seite darf etwas versprechen, das die AGB verneinen.**
-8. **Snippets im Shop: der Formularknopf verwirft programmatisch gesetzten Code
-   stillschweigend.** Der Editor ist React-gesteuert; wer den Inhalt per Skript setzt
-   (`CodeMirror.setValue`, `textarea.value`, auch mit `cm.save()`), klickt danach ins
-   Leere — dreimal geprüft am 02.09.2026, jedes Mal unverändert zurück.
-   **Eine REST-Schnittstelle gibt es in dieser Plugin-Fassung nicht**
-   (`/wp-json/code-snippets/v1/snippets` antwortet nicht); die ältere Anweisung, nur
-   über REST zu speichern, geht also ins Leere. **Was funktioniert:** mit einem
-   *echten Mausklick* in den Editor (Fokus!), die Stelle per `cm.setSelection()`
-   markieren und mit einem *echten Tastendruck* löschen oder tippen — nur so sieht
-   React die Änderung. Und bei 2,4 MB antwortet der Server mit leerem Rumpf: die
-   Fehlermeldung sagt **nichts** darüber aus, ob gespeichert wurde. Immer die
-   Zeichenlänge nach dem Neuladen nachprüfen **und** die Live-Seite messen.
+8. **Snippets im Shop: die REST-Schnittstelle gibt es doch — sie braucht nur den
+   richtigen Nonce.** Korrigiert am 06.09.2026. Die ältere Anweisung, es gebe keine
+   (`/wp-json/code-snippets/v1/snippets` „antwortet nicht"), war eine Fehlmessung:
+   ohne Nonce antwortet die Route mit 403 `rest_cookie_invalid_nonce` und wirkt tot.
+   Der Nonce steht im eingeloggten wp-admin auf **jeder Snippet-Bearbeitungsseite**
+   in `CODE_SNIPPETS.restAPI.nonce` (nicht in `wpApiSettings`) — mitgeben als Kopfzeile
+   `X-WP-Nonce`. Lesen: `GET .../snippets/<id>`. Schreiben: `POST` auf dieselbe Adresse
+   mit dem **vollständigen** Objekt (`name`, `desc`, `code`, `scope`, `active`,
+   `priority`, `tags`) — fehlt `active: true`, ist das Snippet danach aus.
+   Am 06.09.2026 an Snippet 4 geprüft: geschrieben, nachgemessen, zurückgesetzt.
+   **Der Editorweg bleibt der Notnagel:** der Formularknopf verwirft programmatisch
+   gesetzten Code stillschweigend (`CodeMirror.setValue`, `textarea.value`, `cm.save()`
+   — dreimal geprüft am 02.09.2026). Dann hilft nur echter Mausklick in den Editor,
+   `cm.setSelection()`, echter Tastendruck.
+   **Zwei Dinge gelten weiter:** Bei 2,4 MB (Snippet 11) antwortet der Server mit
+   leerem Rumpf, auch über REST — die Meldung sagt **nichts** darüber aus, ob
+   gespeichert wurde; und `GET` auf Snippet 11 liefert ebenfalls leer. Den Code
+   dieses einen Snippets holt man stattdessen aus `CODE_SNIPPETS_EDIT.snippet.code`
+   auf `admin.php?page=edit-snippet&id=11`. Nach jedem Schreiben: Zeichenlänge nach
+   dem Neuladen nachprüfen **und** die Live-Seite messen.
 9. **Kein JavaScript direkt in ein Code-Snippet.** Das Plugin schaltet den Snippet
    dann selbsttätig ab. CSS-only oder eigener Hook.
 10. **Wer einen Produkt-Slug ändert, muss im Router-Snippet die fest verdrahteten
@@ -368,3 +376,4 @@ fortschreiben.
 | `docs/REGEL-preise.md` | Preise, Fehlerbild 82,50, richtige Messmethode |
 | `docs/RUNBOOK-laenderlauf.md` | Ein Land komplett — Bild bis Länderseite |
 | `docs/REGEL-gesichter.md` | Warum jedes Land eigene Gesichter braucht |
+| `docs/REFERENZ-shopdesign.md` | Gemessene Sollwerte aus fünf Referenzshops (Hero, Typo, Bildformat) |
