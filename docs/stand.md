@@ -46,11 +46,19 @@ dem noch aelteren `88fbdf03…`:
 | Beitraege, Seiten, Produkte (veroeffentlicht) | 25 + 1 + 18 | **keine** |
 | ausgelieferte Seiten, ausgeloggt | **90 Adressen** | **keine** |
 
-**Ergebnis: 7828 (`onefam-hero-poster.webp`) und 7829 (`onefam-hero-2026.mp4`) sind
-unbenutzt und koennen geloescht werden.** Sie haben genau einen Tag gelebt — angelegt
-am 06.09., abgeloest am 07.09.
+**Ergebnis: 7828 (`onefam-hero-poster.webp`) und 7829 (`onefam-hero-2026.mp4`) waren
+unbenutzt.** Sie haben genau einen Tag gelebt — angelegt am 06.09., abgeloest am 07.09.
+**Am 07.09.2026 vom Inhaber geloescht**; danach nachgemessen: beide Kennungen liefern
+404 ueber die REST-Schnittstelle und beide Dateien 404 am Server. Startseite in
+Deutsch und Franzoesisch sowie `/albania/` unveraendert, Hero-Video spielt
+(`readyState 4`, 560x560, kein Fehler), **kein einziger fehlgeschlagener Abruf und
+kein kaputtes Bild**, Konsole leer.
 
-**Das aeltere 6-MB-Video `88fbdf03…` ist etwas anderes und darf nicht mit weg.** Es
+**Das aeltere 6-MB-Video `88fbdf03…` ist etwas anderes und darf nicht mit weg** — es
+ist unangetastet (07.09.2026 geprueft: **200, 6 261 774 B**). Achtung bei der Suche
+danach: es liegt **nicht in der Mediathek**, sondern von Hand unter
+`/wp-content/uploads/onefam-assets/`. Deshalb findet es die Medien-Suche ueber REST
+nicht — die richtige Adresse steht im Markup von Snippet 103. Es
 steht in **sechs inaktiven Snippets**: 9 (Home 1:1), 10 (Router alle Seiten), 16
 (Asset-Migration), 88 und 98 (Router-Duplikate) sowie **103 (die Sicherung vom
 06.09.)**. Wer 103 je zuruecksetzt, braucht diese Datei.
