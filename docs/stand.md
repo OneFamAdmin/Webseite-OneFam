@@ -21,7 +21,7 @@
 | 7 | ⏳ **Preisangleichung Logo-Linien nachmessen** | Am 06.09.2026 wurden 542 Variationen von CHF 70/60/35 auf 75/65/40 gesetzt — **dasselbe war schon am 31.08.2026 gemacht worden und hielt nicht.** Ursache unbekannt (kein PodOS-Sync). **In ein paar Tagen erneut messen**, mit `wc/v3` im eingeloggten Backend. → `REGEL-preise.md` |
 | 8 | ⏳ **Auszahlungsstatus zahls.ch** | Ab dem 08.09.2026 nachsehen, ob nach der eingereichten Kontobestätigung der Auszahlungsstatus grün ist. Mögliche Rückfrage: zahls verlangt ein geschäftliches Konto, eingereicht wurde ein Privatkonto. |
 | 9 | ✅ **Hero umgebaut — erledigt 07.09.2026** | Marke jetzt als quadratischer Block ueber der Ueberschrift statt als formatfuellender Hintergrund; Laenderkacheln direkt hinter den Hero gezogen. Erstes Kleidungsstueck: **920 → 438 px** (Desktop), **1519 → 540 px** (Handy). Entschieden: Kacheln, **nicht** das Lifestyle-Bild — das zeigt Brasilien, und `/brazil/` ist pausiert. → unten „Hero umgebaut" |
-| 10 | 🎨 **Shop-Design ist NICHT fertig** | Fertig ist der *obere Teil der Startseite*. Weiter offen (Stand 07.09.2026): **jedes Land kommt zweimal** auf der Startseite vor (Kachelreihe und Laenderreihe); **im Router liegen 14 fertige Seiten, erreichbar sind 6**. Nicht nachgeprueft: die doppelten Fusszeilen-Fassungen, der Sprach-Cookie-Fehler, die Produktseite mit 18 Galeriebildern als Kachelwand. |
+| 10 | 🎨 **Shop-Design ist NICHT fertig** | Fertig ist der *obere Teil der Startseite*. Weiter offen (Stand 07.09.2026): **`.featured` heisst „Ausgewaehlte Laender", zeigt aber nur Albanien** — Hoodie, Sweater, Shirt; **im Router liegen 14 fertige Seiten, erreichbar sind 6**; auf der Startseite fehlt seit dem Entfernen der Laenderreihe **jeder Hinweis, dass weitere Laender kommen**. Nicht nachgeprueft: die doppelten Fusszeilen-Fassungen, der Sprach-Cookie-Fehler, die Produktseite mit 18 Galeriebildern als Kachelwand. |
 
 **Der Trichter bleibt geparkt** (freie Auswahl, Käufer-Voting) bis zur rechtlichen
 Freigabe. Nicht als toten Code aufräumen.
@@ -33,6 +33,52 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 ---
 
 ## Was zuletzt gemacht wurde — neueste zuerst
+
+### Laenderreihe entfernt: jedes Land stand zweimal auf der Startseite — 07.09.2026
+
+Die Wappenreihe `.countries` (1012–1284 px) zeigte **dieselben vier Laender** wie die
+Kachelreihe darueber (525–927 px) und verlinkte **dieselben vier Seiten** — dazwischen
+lagen 85 px Tagband. Die Kachelreihe ist die staerkere von beiden: Ware, Gesichter,
+Namen. Die Wappenreihe zeigte nur Wappen.
+
+**Was dabei verloren geht — bitte nicht uebersehen:** die fuenfte Kachel **„Bald
+verfuegbar"**. Das war auf der Startseite der **einzige** Hinweis, dass weitere Laender
+kommen. In die Kachelreihe passt sie nicht: dort stehen vier Kacheln in vier Spalten,
+eine fuenfte erzeugt wieder eine Waise. **Das ist ein offener Punkt, kein erledigter.**
+
+**Eine Falle steckte darin.** Das fuellende Skript rief
+`document.getElementById('cgrid').innerHTML` **ohne Pruefung** auf. Ein blosses
+Entfernen des Abschnitts haette die Startseite in einen JS-Fehler laufen lassen — und
+zwar in dem Skriptblock, der auch Waehrung und Uebersetzung bedient. Steht jetzt als
+`(document.getElementById('cgrid')||{}).innerHTML`.
+
+**Und eine Fehlzaehlung, die fast in die Irre gefuehrt haette:** eine erste Suche
+meldete den Kasten `id="cgrid"` **zweimal**. Tatsaechlich gibt es ihn **einmal** — die
+Zeile enthaelt „cgrid" zweimal (`class="cgrid" id="cgrid"`), und die Suchschleife
+zaehlte dieselbe Zeile doppelt. Haette ich das geglaubt, waere die Absicherung als
+unnoetig durchgegangen. **Beim Zaehlen von Vorkommen immer pruefen, ob das Muster in
+derselben Zeile mehrfach steht.** `/shop-by-country/` hat eine eigene Reihe unter der
+Kennung `allc` und ist nicht betroffen.
+
+**Nachgemessen, ausgeloggt:**
+
+| | vorher | nachher |
+|---|---|---|
+| Nennungen je Land auf der Startseite | 2 | **1** |
+| Links auf die vier Laenderseiten | 8 | **4** |
+| Seitenhoehe | 5 405 px (6,6 Bildschirme) | **5 133 px (6,3)** |
+| Fehler in der Konsole | – | **keine** |
+| `/shop-by-country/` | 253 Eintraege | 253, unveraendert |
+| Startseite Franzoesisch | – | Kacheln uebersetzt, keine Fehler |
+
+Markup in `docs/sicherung/snippet11-laenderreihe-entfernt-07092026.html`, das CSS
+(`.countries`, `.cgrid`, `.cbadge`) steht unangetastet und wird von
+`/shop-by-country/` ohnehin gebraucht. Snippet 11 nachher **2 485 970 Zeichen**.
+
+**Beim Pruefen aufgefallen — noch nicht angefasst:** der Abschnitt `.featured` traegt
+die Ueberschrift **„Ausgewaehlte Laender"**, zeigt aber **nur Albanien**: Hoodie,
+Sweater, Shirt und „Alle ansehen". Entweder stimmt die Ueberschrift nicht oder der
+Inhalt. Eine Textaenderung braucht alle vier Sprachen.
 
 ### Lifestyle-Band entfernt: es warb fuer ein pausiertes Land — 07.09.2026
 

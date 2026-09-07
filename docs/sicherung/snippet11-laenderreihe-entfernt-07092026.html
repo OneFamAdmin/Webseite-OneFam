@@ -1,0 +1,30 @@
+Am 07.09.2026 aus Snippet 11 entfernt (Startseite, stand zwischen TAGLINE und
+SIGNATURE). Grund: die Reihe zeigte dieselben vier Laender wie die Kachelreihe
+darueber und verlinkte dieselben vier Seiten, nur 85 px Tagband dazwischen. Die
+Kachelreihe ist die staerkere von beiden — Ware, Gesichter, Namen — die Reihe hier
+zeigte nur Wappen.
+
+WAS DABEI VERLOREN GEHT: die fuenfte Kachel "Bald verfuegbar". Das war auf der
+Startseite der einzige Hinweis, dass weitere Laender kommen. Wer das ersetzen will,
+braucht eine andere Stelle dafuer — in die Kachelreihe passt sie nicht, dort stehen
+vier Kacheln in vier Spalten und eine fuenfte erzeugt wieder eine Waise.
+
+MITGEAENDERT: das fuellende Skript rief document.getElementById('cgrid').innerHTML
+ohne Pruefung auf. Ohne Absicherung haette die Startseite nach dem Entfernen einen
+JS-Fehler geworfen. Steht jetzt als (document.getElementById('cgrid')||{}).innerHTML.
+Diesen Kasten gab es genau einmal im ganzen Snippet; /shop-by-country/ hat eine
+eigene Reihe mit der Kennung "allc" und ist nicht betroffen.
+
+ZURUECKHOLEN: diesen Block wieder vor "<!-- SIGNATURE" einfuegen. Das CSS
+(.countries, .cgrid, .cbadge) steht unveraendert im Snippet und wird von
+/shop-by-country/ ohnehin gebraucht. Die Skript-Absicherung kann bleiben.
+
+--- Markup, unveraendert ---
+
+<!-- COUNTRIES -->
+<section class="countries" id="countries">
+  <div class="wrap">
+    
+    <div class="cgrid" id="cgrid"></div>
+  </div>
+</section>
