@@ -33,10 +33,13 @@ const intlMiddleware = createIntlMiddleware(routing);
 // unter app/[locale]/. Sie behalten ihre bestehende Adresse ohne Praefix.
 // Sobald ihre Texte in den Uebersetzungsdateien liegen, ziehen sie um und
 // verschwinden aus dieser Liste.
+// '/dev' und '/design' standen hier bis zum 08.09.2026. Beides waren interne
+// Vorschauen (Routenuebersicht, Design-Studien zum Reiseziel-Voting mit
+// Demo-Daten); sie sind vor dem Launch entfernt worden. Wer sie zurueckholt,
+// traegt sie hier wieder ein — sonst macht next-intl aus /dev ein /en/dev, und
+// das gibt es nicht: die Seite antwortet dann mit 404.
 const OHNE_SPRACHE = [
   '/admin',
-  '/dev',
-  '/design',
   '/api',
   '/auth',
   '/join/bestaetigen',

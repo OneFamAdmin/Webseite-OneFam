@@ -317,7 +317,9 @@ schlichte Warteliste (`app/actions/join.ts` → `waitlist`, Migration `0008`),
 absichtlich unbenutzt in `components/`. **Nicht als toten Code aufräumen** — das ist
 der Weg zurück, beschrieben in `docs/handover-shop-pool.md`.
 
-`/dev` und `/design` sind interne Vorschauen und müssen vor dem Launch weg.
+`/dev` und `/design` **sind am 08.09.2026 entfernt worden** (in Git bis Commit
+`8e37e8e` enthalten). Wer sie zurückholt, trägt sie wieder in `OHNE_SPRACHE`
+in `middleware.ts` ein — sonst antworten sie mit 404.
 
 ---
 

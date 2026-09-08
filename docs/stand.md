@@ -35,6 +35,85 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 
 ## Was zuletzt gemacht wurde — neueste zuerst
 
+### Aufgeraeumt: toter Link fuer Kaeufer, /dev und /design entfernt — 08.09.2026
+
+#### Der tote Link sass hinter dem Login
+
+`/mein-bereich` zeigte eingeloggten **Kaeufern** eine grosse Goldkachel
+„Reiseziel-Voting" mit dem Aufruf „Jetzt mitbestimmen". Sie verlinkte auf
+`/reiseziel` — eine Route, die beim Umschwenken auf trust-first (20.07.2026)
+**geloescht** wurde. Der Link lief also auf einen **404**, und zwar ausgerechnet
+bei den Leuten, die schon gekauft haben.
+
+**Warum es niemandem auffiel:** die Kachel erscheint nur im Zustand `buyer`. Wer
+ausgeloggt oder als Nicht-Kaeufer draufsieht, bekommt sie nie zu Gesicht.
+
+Von den **12** Fundstellen fuer `/reiseziel` im Code war das die **einzige**, die
+ein Besucher erreichen konnte. Die uebrigen sind geparkter Trichter-Code
+(`app/actions/reiseziel.ts`, `components/ReisezielVoting.tsx`,
+`components/DestinationVote.tsx`), der Admin-Bereich (`/admin/voting`), die
+geloeschte Dev-Uebersicht und Kommentare. **Alle bewusst gelassen** — das ist der
+Weg zurueck.
+
+**Geaendert wurde nicht nur der Link.** Die Seite bewarb an fuenf Stellen ein
+Feature, das bis zur rechtlichen Freigabe geparkt ist — das faellt unter
+Arbeitsregel 7. Jetzt: Kaeufer-Kachel ohne Ziel („Reiseziel-Voting — in
+Vorbereitung"), Besucher-Karte von „verschlossen" auf „in Vorbereitung" (es ist
+nicht verschlossen, es gibt es noch nicht), Einleitungssaetze fuer Gast und
+Kaeufer entschaerft, `metadata.description` gekuerzt. `MapPin` und `Lock` sind
+dadurch unbenutzt und aus den Importen raus.
+
+#### /dev und /design sind weg
+
+Sechs Dateien: `app/dev/{layout,page}.tsx`, `app/dev/faces/page.tsx`,
+`app/dev/redesign/page.tsx`, `app/design/{layout,page}.tsx`. Interne Vorschauen
+(Routenuebersicht, Gesichter-Vergleich, Redesign-Studie, Voting-Design mit
+Demo-Daten).
+
+**In Git sind sie bis Commit `8e37e8e` enthalten** — von dort zurueckholbar.
+`components/VotingDesignMap.tsx` und `lib/geo/` bleiben unangetastet, sie gehoeren
+zum geparkten Trichter.
+
+Mitgezogen, weil es sonst kaputtgeht oder in die Irre fuehrt:
+
+| Datei | Was |
+|---|---|
+| `middleware.ts` | `/dev` und `/design` aus `OHNE_SPRACHE`, mit Kommentar warum sie dort standen |
+| `app/robots.ts` | beide aus der `disallow`-Liste — eine robots.txt soll nicht auf Seiten hinweisen, die es nicht gibt |
+| `components/VotingDesignMap.tsx` | Kommentar verwies auf die „/design demo", jetzt mit Datum als entfernt vermerkt |
+
+#### Nachgemessen, im laufenden Dev-Server
+
+| | |
+|---|---|
+| `/dev`, `/design`, `/dev/faces`, `/dev/redesign` | **404** (ueber `/de/...`, weil sie nicht mehr an next-intl vorbeilaufen) |
+| `/reiseziel` | 404 — unveraendert, war vorher schon so |
+| `/join`, `/mein-bereich`, `/`, `/de` | **200**, unveraendert |
+| `/mein-bereich` in allen drei Zustaenden | **0** Verweise auf `/reiseziel` (vorher 1 im Zustand `buyer`) |
+| `robots.txt` | nennt nur noch `/admin`, `/api/`, `/auth/` |
+| `npx tsc --noEmit` | **0 Fehler** |
+| `npm run lint` | nur die fuenf bekannten `<img>`-Warnungen, keine neuen |
+| `npm run build` | durch; `/dev` und `/design` stehen nicht mehr in der Routenliste |
+
+**Eine Falle dabei:** `npx tsc --noEmit` meldete zuerst **12 Fehler** zu den eben
+geloeschten Routen. Die kamen aus `.next/types/` — Next generiert dort je Route
+eine Typdatei, und die blieben liegen. **Kein echter Fehler:** nach `rm -rf .next`
+und einem frischen Bau ist es sauber. Wer nach dem Loeschen einer Route rote
+Typfehler sieht, sollte zuerst das nachsehen.
+
+#### Nebenbei aufgefallen, nicht angefasst
+
+Der Sprachumschalter zeigt auf `/mein-bereich` **EN mit britischer Flagge**,
+obwohl die Seite deutsch ist. Die Seite liegt ausserhalb von `app/[locale]/` und
+traegt deshalb kein Praefix, der Umschalter faellt auf die Standardsprache
+zurueck. **Bestand, nicht durch das Aufraeumen entstanden.** Betrifft alle Seiten
+aus `OHNE_SPRACHE` mit sichtbarer Navigation.
+
+Die **Footer-Branding-Zeile** aus den offenen Baustellen ist bewusst
+stehengeblieben — was daran die Premium-Wirkung untergraebt, ist eine
+Markenentscheidung und keine Aufraeumarbeit.
+
+
 ### Fuenf Modellbilder aus der Galerie des Argentinien-Sweaters — 08.09.2026
 
 Auf Zuruf entfernt, **nur beim Sweater** (Produkt **1963**, Slug

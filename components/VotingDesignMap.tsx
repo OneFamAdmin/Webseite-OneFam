@@ -1047,7 +1047,7 @@ export default function VotingDesignMap({
   // null until measured in the browser — the d3 geometry isn't bit-identical between Node
   // and the browser, so we DON'T render it during SSR (that would hydration-mismatch).
   const [dims, setDims] = useState<{ w: number; h: number } | null>(null);
-  // A page can stack many of these maps (the /design demo has 8). Building all of them on load
+  // A page can stack many of these maps (the /design demo, removed 08.09.2026, had 8). Building all of them on load
   // means 16 d3 layouts (desktop+mobile) in one burst → a slow first paint. So each map only
   // builds (and only downloads the 50m geometry) once it is near the viewport.
   const [near, setNear] = useState(false);
