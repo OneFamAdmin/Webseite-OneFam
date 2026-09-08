@@ -1,0 +1,25 @@
+Snippet 11, Seite /shop-by-country/: die vier Stellen im Zustand VOR dem Umbau der
+Laenderwand am 08.09.2026. Zurueckholen = diese vier Stuecke wieder einsetzen; die
+Kacheln, die Suche und das Eintrage-Fenster haengen an nichts anderem.
+
+--- 1) CSS (eine Zeile, danach kamen .livegrid/.cut/.csearch2/.mehrbtn dazu) ---
+.cgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:30px 20px}
+
+--- 2) Markup: Ueberschrift "Alle Laender" (davor kam die Reihe "Jetzt verfuegbar") ---
+  <div class="secttl" id="laender" style="scroll-margin-top:90px"><h2>All countries</h2></div>
+
+--- 3) Markup: die Wand (davor kam das zweite Suchfeld, danach der Mehr-Knopf) ---
+  <div class="cgrid" id="allc"></div>
+
+--- 4) Rendern: eine Zeile, alle 253 Kacheln in dieselbe Wand ---
+  document.getElementById('allc').innerHTML=GRID.slice().sort(function(x,y){return x.t.localeCompare(y.t,'de',{sensitivity:'base'});}).map(tile).join('');
+
+--- 5) Suche: traf nur den englischen Namen aus data-n ---
+  var sInput=document.getElementById('csearch');
+  var noresult=document.getElementById('noresult');
+  var tiles=[].slice.call(document.querySelectorAll('#allc .cotile'));
+  sInput.addEventListener('input',function(){
+    var q=(sInput.value||'').toLowerCase().trim(), shown=0;
+    tiles.forEach(function(t){var m=!q||t.getAttribute('data-n').indexOf(q)>=0;t.classList.toggle('hide',!m);if(m)shown++;});
+    noresult.hidden=shown>0;
+  });

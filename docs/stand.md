@@ -20,7 +20,7 @@
 | 7 | ⚠️ **Preise gesetzt — Ursache gefunden, aber nicht behoben** | Am 07.09.2026 standen **364 Variationen** wieder auf der alten Reihe (Logo-Shirt 35 statt 40, Logo-Sweater 60 statt 65; zwei der vier Produkte **oeffentlich verkauft**). Gesetzt und vollstaendig nachgemessen: 42 Produkte, 3 210 Variationen, **0 Abweichungen**. **Die Ursache liegt bei Shirt-King:** deren Schluessel „heldenwerbung-409340" (Lesen/Schreiben) schrieb heute zweimal die alten Preise zurueck. **Es kommt wieder, solange PodOS die alten Werte fuehrt.** → siehe „Preise: die Ursache" unten und Punkt 11 |
 | 8 | ⚠️ **zahls.ch geprueft — ein Punkt bleibt offen** | Am 08.09.2026 im eingeloggten Konto nachgesehen: **ein Auszahlungskonto ist hinterlegt**, keine Warnung, keine Rueckfrage, kein Verifizierungshinweis. **Aber der Kontoinhaber ist „Labinot Bajrami", eine Privatperson** — und zahls verlangt woertlich ein **geschaeftliches** Bankkonto. Beanstandet wird es nicht; es zeigt sich erst beim ersten echten Betrag. Guthaben ueberall CHF 0.00, nie eine Auszahlung erhalten. → „zahls.ch nachgesehen" unten |
 | 9 | ✅ **Hero umgebaut — erledigt 07.09.2026** | Marke jetzt als quadratischer Block ueber der Ueberschrift statt als formatfuellender Hintergrund; Laenderkacheln direkt hinter den Hero gezogen. Erstes Kleidungsstueck: **920 → 438 px** (Referenzfenster 1440 × 685), **1519 → 540 px** (390 × 844). Entschieden: Kacheln, **nicht** das Lifestyle-Bild — das zeigt Brasilien, und `/brazil/` ist pausiert. → unten „Hero umgebaut" |
-| 10 | 🎨 **Shop-Design: Startseite fertig, Unterseiten offen** | Stand 08.09.2026: der Hinweis „weitere Laender folgen" ist als Zeile unter der Kachelreihe zurueck, in allen vier Sprachen (Seite 4 666 → **4 712 px**). Die doppelten Fusszeilen und die 18 Galeriebilder waren **keine Befunde** — nachgeprueft, siehe unten. Die Signature-Reihe auf `/shop-by-country/` steht ebenfalls auf **vier** Kacheln (Seite 13 501 → **13 215 px**). **Die 14 Router-Seiten gehoeren nicht hierher:** den acht umgeleiteten fehlen die Modellbilder, das ist ein Laenderlauf, kein Design (→ „Die 14 Router-Seiten nachgezaehlt"). **Weiter offen im Design:** die Laenderwand von 249 „Bald verfuegbar"-Kacheln (11 706 px); die Produktseite nutzt nur **958 von 1440 px** Breite; der Sprach-Cookie-Fehler. |
+| 10 | 🎨 **Shop-Design: Startseite fertig, Unterseiten offen** | Stand 08.09.2026: der Hinweis „weitere Laender folgen" ist als Zeile unter der Kachelreihe zurueck, in allen vier Sprachen (Seite 4 666 → **4 712 px**). Die doppelten Fusszeilen und die 18 Galeriebilder waren **keine Befunde** — nachgeprueft, siehe unten. Die Signature-Reihe auf `/shop-by-country/` steht ebenfalls auf **vier** Kacheln (Seite 13 501 → **13 215 px**). **Die 14 Router-Seiten gehoeren nicht hierher:** den acht umgeleiteten fehlen die Modellbilder, das ist ein Laenderlauf, kein Design (→ „Die 14 Router-Seiten nachgezaehlt"). Die Laenderwand ist am 08.09. von **11 706 auf 1 043 px** gekuerzt (Seite 13 215 → **3 063**, Handy 31 299 → **5 511**), die kaputte Suche behoben. **Weiter offen im Design:** die Produktseite nutzt nur **958 von 1440 px** Breite; der Sprach-Cookie-Fehler. |
 | 11 | 🔴 **Shirt-King muss die CHF-Preise in PodOS korrigieren** | Ihr Schluessel schreibt sie sonst weiter zurueck — am 07.09.2026 zweimal (07:56 und 20:24 Uhr). Soll: **Shirt 40, Sweater 65, Hoodie 75**; sie senden 35 / 60. **Gehoert in die offene Anfrage aus Punkt 6.** Den Schluessel annullieren ist keine Loesung — er ist die Produktanbindung des Fulfillers. |
 
 **Der Trichter bleibt geparkt** (freie Auswahl, Käufer-Voting) bis zur rechtlichen
@@ -33,6 +33,115 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 ---
 
 ## Was zuletzt gemacht wurde — neueste zuerst
+
+### Laenderwand: Suche war kaputt, Wand von 11 706 auf 1 043 px — 08.09.2026
+
+Zwei Dinge an einem Ort: ein Fehler, den ich beim Messen gefunden habe, und der
+Umbau, der daraus folgte.
+
+#### Der Fehler: die Suche fand kein deutsches Land
+
+Die Kacheln zeigen den **uebersetzten** Namen, der Filter verglich aber nur
+`data-n` — den **englischen**. Auf einem Shop, der deutsch ausgeliefert wird, und
+bei einer Wand aus 253 Kacheln, in der die Suche der einzige brauchbare Weg ist.
+
+**Gemessen, ausgeloggt, auf `/de/shop-by-country/`** (Zahl der sichtbaren Kacheln):
+
+| Eingabe | vorher | nachher |
+|---|---|---|
+| schweiz · deutschland · frankreich · griechenland | **0 · 0 · 0 · 0** | **1 · 1 · 1 · 1** |
+| türkei · turkei · tuerkei | 0 · 0 · 0 | **1 · 1 · 1** |
+| österreich · osterreich · oesterreich | – | **1 · 1 · 1** |
+| åland · aland | – | **2 · 2** |
+| switzerland · germany · france | 1 · 1 · 1 | **1 · 1 · 1** |
+| xyzq | 0 | **0 + Hinweis „Kein Land passt…"** |
+
+**Vier Spuren statt einer:** englischer und sichtbarer Name, jeder in zwei
+Schreibweisen — `ofNorm()` nimmt die Akzente weg („Türkei" → „turkei"), `ofUml()`
+schreibt den Umlaut aus („Türkei" → „tuerkei", ß → ss). **Mit nur einer der beiden
+fand „tuerkei" nichts** — das kam erst in der zweiten Messrunde heraus, die erste
+Fassung hatte nur `ofNorm()`.
+
+**Auch in den anderen Sprachen geprueft**, je mit geloeschtem `ofl`-Cookie:
+`/fr/` suisse · allemagne · espagne · grèce · grece → je 1;
+`/es/` suiza · alemania · francia · japón · japon → je 1.
+
+#### Der Umbau: lebende Laender nach vorn, Rest eingeklappt
+
+Die vier kaufbaren Laender standen **alphabetisch zwischen 249 „Bald
+verfuegbar"-Kacheln** — Albanien auf Platz 5, Argentinien auf 12. Wer scrollte, lief
+an ihnen vorbei.
+
+**Drei Eingriffe:**
+
+1. **Reihe „Jetzt verfuegbar"** ueber der Wand, vier Kacheln. Sie kommt aus
+   **derselben Liste `GRID`**, Bedingung `a===1` — nichts ist doppelt gepflegt. Wer
+   ein Land aufschaltet, setzt weiterhin nur `"a":1,"u":"/<slug>/"`, die Kachel
+   wandert von selbst nach oben.
+2. **Wand eingeklappt auf 24 Kacheln** plus Knopf „Alle 249 Länder anzeigen".
+   **Tippen klappt automatisch auf**, sonst bliebe ein Treffer unter der Kante.
+   24 ist durch 6, 4 und 2 teilbar — die Spaltenzahl der Wand je nach Breite.
+3. **Zweites Suchfeld direkt ueber der Wand.** Das obere stand **650 px** darueber,
+   am Handy **826 px**; aus der Wand heraus war es nicht erreichbar. Beide Felder
+   haengen am selben Filter und halten sich gegenseitig auf Stand.
+
+**Regel 1 hat sich ausgezahlt.** Fuer die Ueberschrift wollte ich „Available now"
+ins Woerterbuch schreiben — **den Schluessel gab es schon, in allen 25 Kopien**, mit
+„Jetzt verfügbar". Der Eintrag waere ein Duplikat mit abweichender Uebersetzung
+gewesen. Jetzt steht dort der vorhandene Schluessel, und „Jetzt verfügbar" passt
+ohnehin besser zum „Bald verfügbar" der Kacheln.
+
+**Nachgemessen, ausgeloggt** (1440 × 820, `/de/`):
+
+| | vorher | nachher |
+|---|---|---|
+| Seitenhoehe | 13 215 px | **3 063 px** |
+| Seitenhoehe Handy 390 × 844 | 31 299 px (**37,1 Bildschirme**) | **5 511 px (6,5)** |
+| Wand | 11 706 px, 253 Kacheln | **1 043 px, 24 von 249** |
+| kaufbare Laender | verstreut auf Platz 5, 8, 9, 12 | **eigene Reihe ab 880 px** |
+| Weg vom Suchfeld zur Wand | 650 px (Handy 826) | **57 px** |
+| aufgeklappt (Knopf gedrueckt) | – | 249 Kacheln, Seite 13 459 px |
+
+**Aufbau danach** (Desktop, ab Seitenanfang): „Jetzt verfuegbar" 829 · Reihe 880
+(264 px) · „Alle Länder" 1 195 · zweites Suchfeld 1 310 · Wand 1 367 (1 043 px) ·
+Knopf 2 445.
+
+**Verhalten geprueft, nicht angenommen:**
+
+| Eingabe | Reihe „Jetzt verfuegbar" | Wand | Knopf |
+|---|---|---|---|
+| leer | 4 Kacheln | 24 | sichtbar |
+| „albanien" | **1** | 0 | weg |
+| „schweiz" | **ausgeblendet** | 1 | weg |
+| „xyzq" | ausgeblendet | 0 | weg, **Hinweis da** |
+| Knopf gedrueckt | 4 | **249** | weg |
+
+Eingabe im zweiten Feld setzt das erste mit (geprueft mit „peru"). **Das
+Eintrage-Fenster laeuft weiter:** Klick auf eine Wandkachel oeffnet „Åland Islands –
+Bald verfügbar" mit „Kommt, sobald sich 50 Leute eingetragen haben"; der Tiefenlink
+`#sig-logo-platinum` oeffnet weiter sein Fenster. **Die Nachfrage-Erfassung bleibt
+also vollstaendig** — jedes der 253 Laender ist ueber die Suche in einem Schritt
+erreichbar.
+
+**Ein Detail, das beim Messen auffiel:** die Kachelbilder in `collections/` sind nur
+**176 × 176 px** (rund 6,8 KB). Ueber die volle Breite waeren die neuen Kacheln
+312 px breit gewesen — **176 % Vergroesserung**. Deshalb ist die Reihe auf
+`minmax(0,220px)` gedeckelt: Bild **218 px (124 %)**, die Wand daneben zeigt 199 px
+(113 %). **Wer groessere Kacheln will, braucht zuerst groessere Dateien.**
+
+**Nicht das Problem war das Gewicht:** 253 Bilder à 6,8 KB sind rund 1,7 MB, aber
+alle `loading="lazy"`. Die Wand war zu **lang**, nicht zu schwer.
+
+**Snippet 11 in vier Schritten:** 2 490 562 → 2 491 636 (Suche trifft den
+angezeigten Namen) → 2 492 269 (zweite Schreibweise) → 2 496 612 (Umbau) →
+**2 497 039** (Kacheldeckel). Nach jedem Schreiben neu geladen und nachgeprueft,
+`active` immer `true`, `code_error` leer. Konsole in einem frischen Tab leer.
+Sicherung: `docs/sicherung/snippet11-laenderwand-vor-08092026.txt`.
+
+**Falle, fast hineingelaufen:** die Konsole zeigte 32 Meldungen „404". Das waren
+**meine eigenen Messungen** aus derselben Sitzung — die Abfrage der pausierten
+Produktadressen, die erwartungsgemaess 404 liefern. Der Puffer haelt sie ueber
+Seitenwechsel hinweg. **Konsolenbefunde nur in einem frischen Tab werten.**
 
 ### Die 14 Router-Seiten nachgezaehlt — die Notiz war irrefuehrend (08.09.2026)
 
