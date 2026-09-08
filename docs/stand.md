@@ -20,7 +20,7 @@
 | 7 | ⚠️ **Preise gesetzt — Ursache gefunden, aber nicht behoben** | Am 07.09.2026 standen **364 Variationen** wieder auf der alten Reihe (Logo-Shirt 35 statt 40, Logo-Sweater 60 statt 65; zwei der vier Produkte **oeffentlich verkauft**). Gesetzt und vollstaendig nachgemessen: 42 Produkte, 3 210 Variationen, **0 Abweichungen**. **Die Ursache liegt bei Shirt-King:** deren Schluessel „heldenwerbung-409340" (Lesen/Schreiben) schrieb heute zweimal die alten Preise zurueck. **Es kommt wieder, solange PodOS die alten Werte fuehrt.** → siehe „Preise: die Ursache" unten und Punkt 11 |
 | 8 | ⚠️ **zahls.ch geprueft — ein Punkt bleibt offen** | Am 08.09.2026 im eingeloggten Konto nachgesehen: **ein Auszahlungskonto ist hinterlegt**, keine Warnung, keine Rueckfrage, kein Verifizierungshinweis. **Aber der Kontoinhaber ist „Labinot Bajrami", eine Privatperson** — und zahls verlangt woertlich ein **geschaeftliches** Bankkonto. Beanstandet wird es nicht; es zeigt sich erst beim ersten echten Betrag. Guthaben ueberall CHF 0.00, nie eine Auszahlung erhalten. → „zahls.ch nachgesehen" unten |
 | 9 | ✅ **Hero umgebaut — erledigt 07.09.2026** | Marke jetzt als quadratischer Block ueber der Ueberschrift statt als formatfuellender Hintergrund; Laenderkacheln direkt hinter den Hero gezogen. Erstes Kleidungsstueck: **920 → 438 px** (Referenzfenster 1440 × 685), **1519 → 540 px** (390 × 844). Entschieden: Kacheln, **nicht** das Lifestyle-Bild — das zeigt Brasilien, und `/brazil/` ist pausiert. → unten „Hero umgebaut" |
-| 10 | 🎨 **Shop-Design: Startseite fertig, Unterseiten offen** | Stand 08.09.2026: der Hinweis „weitere Laender folgen" ist als Zeile unter der Kachelreihe zurueck, in allen vier Sprachen (Seite 4 666 → **4 712 px**). Die doppelten Fusszeilen und die 18 Galeriebilder waren **keine Befunde** — nachgeprueft, siehe unten. Die Signature-Reihe auf `/shop-by-country/` steht ebenfalls auf **vier** Kacheln (Seite 13 501 → **13 215 px**). **Die 14 Router-Seiten gehoeren nicht hierher:** den acht umgeleiteten fehlen die Modellbilder, das ist ein Laenderlauf, kein Design (→ „Die 14 Router-Seiten nachgezaehlt"). Die Laenderwand ist am 08.09. von **11 706 auf 1 043 px** gekuerzt (Seite 13 215 → **3 063**, Handy 31 299 → **5 511**), die kaputte Suche behoben. **Weiter offen im Design:** die Produktseite nutzt nur **958 von 1440 px** Breite; der Sprach-Cookie-Fehler. |
+| 10 | 🎨 **Shop-Design: Startseite fertig, Unterseiten offen** | Stand 08.09.2026: der Hinweis „weitere Laender folgen" ist als Zeile unter der Kachelreihe zurueck, in allen vier Sprachen (Seite 4 666 → **4 712 px**). Die doppelten Fusszeilen und die 18 Galeriebilder waren **keine Befunde** — nachgeprueft, siehe unten. Die Signature-Reihe auf `/shop-by-country/` steht ebenfalls auf **vier** Kacheln (Seite 13 501 → **13 215 px**). **Die 14 Router-Seiten gehoeren nicht hierher:** den acht umgeleiteten fehlen die Modellbilder, das ist ein Laenderlauf, kein Design (→ „Die 14 Router-Seiten nachgezaehlt"). Die Laenderwand ist am 08.09. von **11 706 auf 1 043 px** gekuerzt (Seite 13 215 → **3 063**, Handy 31 299 → **5 511**), die kaputte Suche behoben. Der Sprach-Cookie-Fehler ist behoben (Snippets 42 und 26 lesen jetzt die Adresse vor dem Cookie). **Weiter offen:** die Produktseite nutzt nur **958 von 1440 px** Breite; `/de/warenkorb/` und `/de/kasse/` verlieren ihr Sprachpraefix. |
 | 11 | 🔴 **Shirt-King muss die CHF-Preise in PodOS korrigieren** | Ihr Schluessel schreibt sie sonst weiter zurueck — am 07.09.2026 zweimal (07:56 und 20:24 Uhr). Soll: **Shirt 40, Sweater 65, Hoodie 75**; sie senden 35 / 60. **Gehoert in die offene Anfrage aus Punkt 6.** Den Schluessel annullieren ist keine Loesung — er ist die Produktanbindung des Fulfillers. |
 
 **Der Trichter bleibt geparkt** (freie Auswahl, Käufer-Voting) bis zur rechtlichen
@@ -33,6 +33,88 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 ---
 
 ## Was zuletzt gemacht wurde — neueste zuerst
+
+### Sprach-Cookie: die Adresse gewinnt jetzt auch im Browser — 08.09.2026
+
+Die alte Notiz sagte, mit Cookie `ofl=es` zeige `/de/produkt/albania-hoodie/`
+spanische Kacheltitel. **Das stimmt nicht mehr** — genau das wurde am 06.09.2026 in
+Snippet 69 behoben, und am 08.09.2026 nachgemessen: Produktseite, Startseite,
+Laenderseiten sind mit gegenlaeufigem Cookie durchgehend einsprachig.
+
+**Der Fehler sass woanders — auf den WooCommerce-Seiten.** Gemessen auf
+`/de/mein-konto/` mit Cookie `ofl=es`, nach 2,7 Sekunden also im Ruhezustand:
+
+| | vorher |
+|---|---|
+| Adresse, `lang`-Attribut | `/de/…`, `de-DE` |
+| **Server** liefert | **deutsch** — Ueberschrift „Mein Konto", Umschalter-Chip „DE" |
+| **im Browser** stand dann | Ueberschrift **„Mi cuenta"**, Chip **„ES"** |
+| Anmeldeformular, Fusszeile | **deutsch** („Anmelden", „Passwort vergessen?", „Hauptmenü") |
+
+**Eine Seite in zwei Sprachen, dauerhaft.** Ursache waren **zwei** Stellen im
+Browser-Code, die das Cookie **vor** der Adresse lasen — dieselbe Verwechslung wie am
+06.09. in Snippet 69, nur auf der anderen Seite der Leitung:
+
+1. **Snippet 42 „Uebersetzungen Nachtrag"** — `cur()` las `?lang=`, dann das Cookie,
+   dann `lang`. Es uebersetzt, was in seinem Woerterbuch steht; alles andere (das
+   ganze WooCommerce-Formular) blieb in der Serversprache.
+2. **Snippet 26 „Kopf-/Fusszeile auf Shop-Seiten"** — der Sprachumschalter baut den
+   Chip aus einem eigenen `cur()`, ebenfalls Cookie zuerst. **Der Code liegt dort als
+   base64-Block**, deshalb findet ihn keine Textsuche im Snippet.
+
+**In beiden steht jetzt vor dem Cookie eine Zeile**, die das Praefix der Adresse
+liest — dieselbe Rangfolge, die `of_visitor_lang()` serverseitig laengst hat.
+**Ohne Praefix entscheidet weiter das Cookie**; das ist die gewollte Mechanik.
+
+**Nachgemessen, ausgeloggt, jeweils mit absichtlich gegenlaeufigem Cookie:**
+
+| Fall | Chip | Ueberschrift | Formular |
+|---|---|---|---|
+| `/de/mein-konto/` + `ofl=es` | **DE** | Mein Konto | deutsch |
+| `/fr/mein-konto/` + `ofl=de` | **FR** | Mon compte | franzoesisch |
+| `/warenkorb/` (ohne Praefix) + `ofl=es` | ES | Carrito | spanisch — **unveraendert richtig** |
+
+**Ohne Regression:** Produktseite (Chip DE, „Albanien Hoodie", CHF 75.00, deutsche
+Kacheltitel), Startseite (4 712 px, Hinweiszeile da), `/shop-by-country/` (3 063 px,
+„Jetzt verfügbar", „Alle 249 Länder anzeigen"). **Der Umschalter schaltet weiter:**
+Klick auf ES fuehrt von `/de/shop-by-country/` nach `/es/shop-by-country/`, Chip ES,
+Inhalt spanisch. Konsole in einem frischen Tab leer.
+
+Snippet 42: 187 481 → **187 622** Zeichen. Snippet 26: 48 501 → **48 885**.
+
+#### ⚠️ Drei Fallen, alle drei heute hineingelaufen
+
+**1. Ein doppeltes Anfuehrungszeichen hat Snippet 42 stillgelegt.** Der erste Versuch
+enthielt einen mehrzeiligen Kommentar mit `"Mein Konto"` darin. **Das JS steht dort in
+einer doppelt gequoteten PHP-Zeichenkette** — das `"` hat sie beendet. Folge: das
+Snippet meldete **keinen** `code_error`, blieb scheinbar in Ordnung, **aber sein
+ganzer Skriptblock verschwand von jeder Seite**. Aufgefallen ist es erst, weil danach
+auf `/warenkorb/` die Ueberschriften deutsch blieben. Zurueckgestellt aus dem
+Originalcode, dann einzeilig und ohne `"`, ohne `$`, ohne Backslash neu gesetzt.
+**Regel daraus: im Snippet-Code niemals `"` oder `$` einfuegen, ohne vorher zu
+wissen, in welcher Art Zeichenkette man landet — und nach jedem Schreiben pruefen,
+ob der erzeugte Block auf der Seite noch da ist.**
+
+**2. `active: true` im Rumpf reicht nicht.** Nach dem Schreiben stand Snippet 42 auf
+**inaktiv**, obwohl `active: true` mitgesendet wurde. Geholfen hat erst
+`POST /wp-json/code-snippets/v1/snippets/42/activate`. **Nach jedem Schreiben `active`
+zurueckzulesen ist Pflicht, nicht Kuer.**
+
+**3. Zu frueh gemessen.** Der erste Blick auf `/de/warenkorb/` zeigte ein
+Sprachgemisch — das war **das Flackern beim Laden**: Snippet 42 uebersetzt in mehreren
+Durchgaengen (sofort, nach 120 ms, nach 600 ms, nach `load`). Nach 900 ms war die
+Seite einheitlich. **Erst nach gut einer Sekunde messen, sonst misst man den
+Zwischenzustand.** Der echte Fehler auf `/de/mein-konto/` blieb dagegen auch nach
+2,7 Sekunden stehen — daran waren sie zu unterscheiden.
+
+#### Was dabei nebenbei auffiel, noch offen
+
+**`/de/warenkorb/` und `/de/kasse/` verlieren das Praefix** und landen auf
+`/warenkorb/`. Ab dort entscheidet das Cookie — nach der gewollten Mechanik richtig,
+aber die ausdrueckliche Wahl in der Adresse ist weg. `/de/mein-konto/` behaelt ihr
+Praefix, die beiden anderen nicht. **Das ist eine Polylang-Einstellung an den
+WooCommerce-Seiten, kein Snippet** — vor dem Launch ansehen, weil der Weg zur Kasse
+davon betroffen ist.
 
 ### Laenderwand: Suche war kaputt, Wand von 11 706 auf 1 043 px — 08.09.2026
 
@@ -1769,10 +1851,10 @@ die korrigierten Werte — das Nachfuellen aus Snippet 105 hat gegriffen, wie ge
 - ~~Zwei Fusszeilen-Fassungen nebeneinander.~~ **Gibt es nicht mehr** — am
   08.09.2026 auf Produkt- und Router-Seite wortgleich gemessen. Siehe „Drei Befunde
   aus Punkt 10 nachgeprueft" oben.
-- **Sprach-Cookie schlaegt die Adresse:** mit Cookie `ofl=es` zeigt
-  `/de/produkt/albania-hoodie/` spanische Akkordeon-Titel („¿Me quedará bien?"),
-  EUR-Preise bei „CHF Fr." im Kopf und den Seitentitel „Modus fuer alle …" statt
-  „Mode". Nach dem Loeschen der Cookies alles korrekt.
+- ~~Sprach-Cookie schlaegt die Adresse auf der Produktseite.~~ **Am 08.09.2026
+  nachgemessen: trifft nicht mehr zu** — das war am 06.09. in Snippet 69 behoben.
+  Der Fehler sass auf den WooCommerce-Seiten (`/de/mein-konto/`) und ist jetzt
+  ebenfalls behoben. → „Sprach-Cookie: die Adresse gewinnt jetzt auch im Browser"
 
 
 ### zahls.ch nachgesehen — 03.09.2026: es gab nie etwas auszuzahlen
