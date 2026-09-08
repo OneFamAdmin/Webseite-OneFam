@@ -250,6 +250,86 @@ Bruttoumsatz als Ertrag. Das ist der Stand, der sich belegen lässt.
 
 ---
 
+## Was ein Schweizer Kunde wirklich zahlt — gerechnet am 08.09.2026
+
+Anlass war die Frage des Inhabers, ob die CHF-Preise zu hoch sind. **Die Rechnung
+zeigt: nicht der Preis ist das Problem, sondern die zweite Rechnung an der Tuer.**
+
+**Grundlage, alles aus den eigenen Daten:** COGS Shirt 14.12 · Sweater 24.76 ·
+Hoodie 30.17 CHF (`product_costs`), Versandkosten von Shirt-King in die Schweiz
+7.50 / 13.50 EUR je Stufe (`shipping_costs`) = 6.94 / 12.49 CHF, Gebuehren 2.90 % +
+0.30 CHF, Kurs 0.9250 (`cost_config`), Versandpauschale an den Kunden 18 CHF.
+
+| | im Shop | an der Tuer | **all-in** | Marge |
+|---|---|---|---|---|
+| **Shirt** | 40 + 18 = **58** | **nichts** — 8,1 % sind 4.70 und damit unter der 5-Franken-Grenze | **58** | 34.96 |
+| **Sweater** | 65 + 18 = **83** | 6.72 Steuer + Zustellgebuehr | **~99–107** | 37.63 |
+| **Hoodie** | 75 + 18 = **93** | 7.53 Steuer + Zustellgebuehr | **~112–120** | 47.34 |
+
+**Das Shirt ist fuer die Schweiz heute schon das saubere Produkt** — es bleibt von
+selbst unter der Grenze.
+
+### Drei Hebel, mit Zahlen
+
+**1. Preis senken, Tuer bleibt offen.** Hoodie auf 65: der Kunde spart 10 im Shop und
+zahlt an der Tuer weiter (all-in ~102–107). Kostet **9.71 Marge** und loest nichts.
+
+**2. Unter die Grenze kommen.** Steuerfrei bleibt eine Sendung bis **61.72 CHF**
+Sendungswert (8,1 % davon sind genau 5.00). Wie man das zwischen Ware und Versand
+aufteilt, ist egal — die Obergrenze fuer die Marge eines zollfreien Hoodie-Pakets
+liegt bei **16.97 CHF** gegen 47.34 heute. **Das kostet rund 30 Franken je
+Bestellung.**
+
+**3. Die Tuer schliessen — Unterstellungserklaerung Ausland.** Die Option steht seit
+der ESTV-Auskunft in diesem Dokument und ist nie aufgemacht worden. Eigene Einfuhr,
+Schweizer MWST offen ausgewiesen, gezahlte Einfuhrsteuer als Vorsteuer:
+
+| | heute | mit Unterstellung |
+|---|---|---|
+| Kunde zahlt | 93 + Tuerrechnung ≈ **112–120** | **93, fertig** |
+| Marge | 47.34 | **40.37** |
+
+**Der gefuehlte Preis sinkt um 20 bis 27 Franken, und es kostet 7 Franken Marge** —
+nicht 30 wie bei Hebel 2 und nicht 10 fuer nichts wie bei Hebel 1. Voraussetzung ist
+die ESTV-Bewilligung und die Registrierung im Schweizer MWST-Register.
+
+**Empfehlung: Preise nicht senken, Hebel 3 pruefen.** Der Kunde zahlt nicht zu viel
+fuer die Ware, er zahlt zweimal.
+
+### ⚠️ Drei Annahmen in dieser Rechnung sind NICHT belegt
+
+Wer danach entscheidet, muss sie zuerst pruefen — in den Behoerdenauskunften oben
+steht nur die 5-Franken-Grenze der BAZG:
+
+1. **Der Satz von 8,1 %.** Aus allgemeiner Kenntnis eingesetzt, nicht aus einer
+   Auskunft in diesem Dokument.
+2. **Ob die Versandkosten in den Steuerwert zaehlen.** Hier wurde damit gerechnet.
+   Zaehlt nur die Ware, verschieben sich alle Schwellen nach oben.
+3. **Die Zustellgebuehr.** Post und DHL verlangen erfahrungsgemaess 11 bis 19 CHF fuer
+   die Verzollung. **Nirgends belegt** — und sie entscheidet mit darueber, wie schlimm
+   die Tuerrechnung wirkt.
+
+### Nebenbefund: eine Waehrung waere keine Loesung
+
+Ebenfalls am 08.09.2026 geprueft, weil der Gedanke aufkam, alles in EUR zu verkaufen
+(dann passten auch die Preise, die der PodOS-Sync schreibt). **Die CHF-Preise sind
+keine umgerechneten Europreise, sondern eine hoehere Reihe:**
+
+| | heute CHF | EUR-Preis umgerechnet (0.925) | Unterschied |
+|---|---|---|---|
+| Hoodie | 75 | 64.74 | **−10.26 (−13,7 %)** |
+| Sweater | 65 | 55.49 | **−9.51 (−14,6 %)** |
+| Shirt | 40 | 32.33 | **−7.67 (−19,2 %)** |
+
+Dazu zwei Gruende, die dagegen sprechen: **TWINT** rechnet in Franken, und der
+einzige aktive Zahlweg ist zahls mit dem Titel „Kreditkarte, TWINT und Mobile Pay" —
+ob TWINT bei einem EUR-Warenkorb ueberhaupt angeboten wird, muss zahls beantworten.
+Und das **Auszahlungskonto bei zahls ist ein Schweizer CHF-Konto**: bei EUR-Einnahmen
+rechnet der Anbieter um, die Umrechnung wandert also vom Kunden zum Haendler.
+
+**Das Sync-Argument ist ohnehin entfallen** — seit dem 08.09.2026 stellt Snippet 108
+jeden fremden oder leeren Preis sofort zurueck (siehe `stand.md`).
+
 ## Offen
 
 1. ~~Anfrage ans Finanzamt Konstanz.~~ **Am 03.09.2026 gestellt**, sechs Fragen,
@@ -260,6 +340,10 @@ Bruttoumsatz als Ertrag. Das ist der Stand, der sich belegen lässt.
    beantragen.
    **Neu offen:** die Einordnung von Bestellung #4145 (siehe „Sachstand der
    Umsätze"). Die Anfrage ist mit „keine Verkäufe an deutsche Kunden" hinaus.
+1b. **Unterstellungserklärung Ausland prüfen (ESTV).** Am 08.09.2026 durchgerechnet:
+   sie senkt den gefühlten Preis für Schweizer Kunden um 20 bis 27 CHF und kostet rund
+   7 CHF Marge je Hoodie — gegen 30 CHF, wenn man stattdessen unter die Zollfreigrenze
+   preist. → „Was ein Schweizer Kunde wirklich zahlt"
 2. **Ausführer-Vereinbarung mit Shirt-King.** Der Zoll gibt schriftliche Festlegung
    vor. Dazu die Frage, ob Drittlandsendungen mit oder ohne deutsche USt. fakturiert
    werden — vor dem ersten echten Paket in die Schweiz zu klären, nicht danach.
