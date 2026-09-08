@@ -14,7 +14,7 @@
 | 1 | ✅ **Bestellung #4145 ist geklärt — es war eine Testbestellung** | Am 03.09.2026 in beiden Konten belegt: der Inhaber hat selbst gekauft (PayPal, eigene Kreditkarte; Belege liegen vor) und an einen Angehörigen nach Rheinfelden (Baden) liefern lassen. **Kein fremder deutscher Kunde** — die Aussage „keine Verkäufe an deutsche Kunden" gegenüber Konstanz hält also, es ist nichts nachzureichen. **Was bleibt:** die Lieferung nach Deutschland hat stattgefunden und ist umsatzsteuerlich eine Lieferung. → `behoerden-mwst-zoll.md` |
 | 2 | **Antwort aus Konstanz abwarten** | Anfrage am 03.09.2026 raus, Bestätigung da. Antwort kommt **per Post nach Basel oder telefonisch**, nicht per Mail. Formlos und damit unverbindlich — reicht das nicht, folgt § 89 Abs. 2 AO (gebührenpflichtig). |
 | 3 | **Ausführer-Vereinbarung mit Shirt-King** | Der deutsche Zoll gibt schriftliche Festlegung vor. Vor dem ersten echten Paket in ein Drittland klären, nicht danach. Dazu: fakturieren sie Drittlandsendungen mit oder ohne deutsche USt.? |
-| 3b | 🇨🇭 **Unterstellungserklärung Ausland — Antrag an die ESTV, noch nicht gestellt** | **Nicht zu verwechseln mit der Anfrage ans Finanzamt Konstanz** (die ist am 03.09.2026 raus und wartet auf Antwort). Das hier ist die **Schweizer** Seite: ein **freiwilliger Antrag** an die ESTV Bern, kein Fragebogen — Anknüpfungspunkt wäre das bestehende Aktenzeichen ESTV-ID `052.0428.7495`, Geschäftsfall `65zq0017`. **Bisher ist dazu nichts eingereicht.** Am 08.09.2026 gerechnet: ein Schweizer Kunde zahlt für einen Hoodie **93 CHF im Shop plus 7.53 Einfuhrsteuer und Zustellgebühr — all-in rund 112 bis 120**. Mit eigener Einfuhr zahlt er **93 und fertig**, und es kostet **7 CHF Marge** statt 30, die eine Preissenkung unter die Zollfreigrenze kosten würde. Preise senken löst es **nicht**. Drei Annahmen darin sind unbelegt (Satz 8,1 %, Versand im Steuerwert, Höhe der Zustellgebühr). → `behoerden-mwst-zoll.md` |
+| 3b | 🇨🇭 **Unterstellungserklärung Ausland — Entwurf liegt bereit, bewusst nicht abgeschickt** | **Nicht zu verwechseln mit der Anfrage ans Finanzamt Konstanz** (die ist am 03.09.2026 raus und wartet auf Antwort). Das hier ist die **Schweizer** Seite: ein **freiwilliger Antrag** an die ESTV Bern, kein Fragebogen — Anknüpfungspunkt wäre das bestehende Aktenzeichen ESTV-ID `052.0428.7495`, Geschäftsfall `65zq0017`. **Der Entwurf liegt in `docs/entwuerfe/anfrage-estv-unterstellungserklaerung.md`; abgeschickt wird er, sobald echte Bestellungen in die Schweiz laufen.** Am 08.09.2026 gerechnet: ein Schweizer Kunde zahlt für einen Hoodie **93 CHF im Shop plus 7.53 Einfuhrsteuer und Zustellgebühr — all-in rund 112 bis 120**. Mit eigener Einfuhr zahlt er **93 und fertig**, und es kostet **7 CHF Marge** statt 30, die eine Preissenkung unter die Zollfreigrenze kosten würde. Preise senken löst es **nicht**. Drei Annahmen darin sind unbelegt (Satz 8,1 %, Versand im Steuerwert, Höhe der Zustellgebühr). → `behoerden-mwst-zoll.md` |
 | 4 | Widerrufsrecht anwaltlich prüfen | Pauschaler Ausschluss ist nach deutschem Verbraucherrecht vermutlich angreifbar. Vor Launch. **Das geplante Siebdruck-Modell gehört mit auf den Tisch** — bei vorproduzierter Auflage fällt das Argument ganz. → `druck-und-lieferant.md` |
 | 5 | **PayPal-Altkonto bereinigen** | Der Zahlungsweg läuft bereits über Payrexx Pay (am 04.09.2026 nachgemessen), es fliesst nichts mehr über PayPal. Übrig bleibt das alte Händlerkonto mit 38,23 EUR Guthaben, das für den Shop nicht taugt. Einzelheiten beim Inhaber. |
 | 6 | **Antwort von Shirt-King abwarten** | Anfrage am 03.09.2026 raus, mit den Fotos der flauen DTG-Drucke und den Motiven als Vektor-PDF. Entscheidet, ob der Shop bei Print-on-Demand bleibt oder auf Vorbestellungen umgebaut wird — die DTF-Frage steht bewusst vorne. → `druck-und-lieferant.md` |
@@ -34,6 +34,43 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 ---
 
 ## Was zuletzt gemacht wurde — neueste zuerst
+
+### Entschieden am 08.09.2026: erst zusehen, dann entscheiden
+
+**Der Inhaber hat entschieden, alles so zu belassen** und erst zu sehen, wie OneFam
+ankommt und ob es echte Interessenten gibt. Das betrifft ausdruecklich:
+
+| | |
+|---|---|
+| **Preise** | bleiben CHF 40 / 65 / 75 und EUR 34,95 / 59,99 / 69,99. **Nicht gesenkt** — die Rechnung vom 08.09. zeigt, dass der Schweizer nicht zu viel fuer die Ware zahlt, sondern zweimal zahlt |
+| **Waehrung** | bleibt zweigleisig, keine Umstellung auf EUR |
+| **Unterstellungserklaerung** | Anfrage **geschrieben, bewusst nicht abgeschickt** |
+| **Nachricht an Shirt-King** | ebenfalls nur bereitgelegt — der Sync richtet seit Snippet 108 keinen Schaden mehr an |
+
+**Das ist keine Vertagung ins Ungewisse, sondern an eine Bedingung geknuepft:**
+sobald echte Bestellungen in die Schweiz laufen, wird die Tuerrechnung real und die
+beiden Entwuerfe sind abschickbereit.
+
+#### Entwurf der ESTV-Anfrage liegt bereit
+
+`docs/entwuerfe/anfrage-estv-unterstellungserklaerung.md` — an die ESTV Bern,
+Abteilung Recht / Team 1, mit Anknuepfung an das bestehende Aktenzeichen
+(**ESTV-ID 052.0428.7495, Geschaeftsfall 65zq0017**, Bearbeiterin Barbara Iseli).
+
+Acht Fragen: (1) Voraussetzungen und Verfahren, (2) ab wann die Bewilligung wirkt,
+(3) Folgen fuer Registrierung, Ausweis und Vorsteuerabzug, (4) was der deutsche
+Versender bei der Einfuhrveranlagung braucht, (5) ab wann die Schweizer MWST
+ausgewiesen werden darf oder muss, (6) ob die Kleinsendungen weiter auf die
+100'000er-Grenze zaehlen, (7) ob sich die Unterstellung wieder aufheben laesst,
+(8) ob sich die Beurteilung des Leistungsorts aus der Auskunft vom 07.08.2026 aendert.
+
+**Drei Dinge sind vor dem Absenden zu klaeren** und stehen im Entwurf unten:
+die **Rechtsform** (die GmbH gibt es noch nicht, die ESTV fragt nach dem
+Steuersubjekt), **Frage 4 haengt an Shirt-King** — sie ist die Schweizer Haelfte der
+offenen Ausfuehrer-Vereinbarung und gehoert mit ihr in einem Zug geklaert —, und
+**Frage 8 ist bewusst zurueckhaltend**, weil die deutsche Seite das Finanzamt
+Konstanz beantwortet.
+
 
 ### Preise zum dritten Mal zurueckgeschrieben — und was das ueber PodOS sagt (08.09.2026)
 
