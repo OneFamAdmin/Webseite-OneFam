@@ -35,6 +35,71 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 
 ## Was zuletzt gemacht wurde — neueste zuerst
 
+### Neunzehn Modellbilder aus den drei Andorra-Produkten — 08.09.2026
+
+| Produkt | ID | vorher | entfernt | jetzt |
+|---|---|---|---|---|
+| Sweater | 3888 | 39 | 4 | **35** |
+| Hoodie | 3968 | 42 | 5 | **37** |
+| Shirt | 3108 | 56 | 10 | **46** |
+
+**Sicherung:** `docs/sicherungen/galerien-andorra-vor-08092026.md`. Dateien
+bleiben in der Mediathek, keine der Variationen (76 / 82 / 80) war betroffen.
+
+#### Anthracite beim Shirt: eine Farbe ohne Modellbild — bewusst
+
+**Alle sechs Anthracite-Modellbilder** des Shirts sind raus (`Frau_frontal`,
+`Frau_Taschen`, `Frau_Huefte`, `Mann_frontal`, `Mann_Taschen`, `Mann_Huefte`).
+Vor dem Loeschen nachgefragt, weil damit eine ganze Farbe ohne Modellbild
+dasteht — **ausdruecklich bestaetigt**, zusammen mit „keine neuen mehr
+produzieren".
+
+**Nachgemessen, was ein Besucher sieht:** das freihaengende Shirt wird als
+Hauptbild ausgeliefert (600 × 745), die Thumbnail-Leiste ist leer. Kein leerer
+Zustand. Zweiter Fall dieser Art nach dem Afghanistan-Hoodie in Weiss.
+
+Beim **Hoodie in Anthracite** ist der Mann komplett weg; Frau bleibt mit
+`Frau_Taschen` und `Frau_Huefte`.
+
+#### Die Unregelmaessigkeit bestaetigt sich
+
+Auch Andorra hat **drei bis sieben Ansichten je Farbe** — wie Afghanistan, anders
+als Argentinien. Damit ist klar: **die Regelmaessigkeit von Argentinien war die
+Ausnahme.** Wer ein weiteres Land aufraeumt, holt je Farbe die tatsaechliche
+Liste aus der Schnittstelle, bevor er ueber die Thumbnail-Position zuordnet.
+
+**Zwei Screenshots hatten zwei umrandete Thumbnails** (eines aktiv, eines unter
+dem Mauszeiger) — beide am Bild aufgeloest: beim Hoodie in Schwarz lacht die Frau
+mit haengenden Armen (`Frau_frontal`), beim Shirt in Worker Blue lacht sie mit
+Haenden in den Hosentaschen (`Frau_Taschen`).
+
+#### Nachgemessen
+
+| | |
+|---|---|
+| `wc/v3` frisch gelesen | **35 / 37 / 46**, keines der 19 mehr enthalten |
+| Hauptbilder | alle drei unveraendert `schwarz_Freihaengend` |
+| Shirt, Farbumschalter | weiter **alle neun** Farben |
+| **ausgeloggt gemessen**, alle drei | keiner der 19 Dateinamen mehr im HTML |
+| Preise | Shirt **CHF 40.00** · **€ 34.95**, Sweater **€ 59.99**, Hoodie **€ 69.99** — Soll-Reihe, **kein** Fehlerbild |
+
+### Bilanz aller neun aufgeraeumten Produkte — 08.09.2026
+
+| Land | vorher | entfernt | jetzt |
+|---|---|---|---|
+| Argentinien | 129 | 27 | 102 |
+| Afghanistan | 141 | 15 | 126 |
+| Andorra | 137 | 19 | 118 |
+| **Summe** | **407** | **61** | **346** |
+
+**Es werden keine neuen Bilder erzeugt** — fuer alle drei Laender ausdruecklich
+bestaetigt. Alle 61 Dateien liegen weiter in der Mediathek, jede Galerie ist
+ueber `docs/sicherungen/` vollstaendig zurueckdrehbar.
+
+**Zwei Farben stehen jetzt ohne Modellbild da:** Afghanistan-Hoodie in Weiss und
+Andorra-Shirt in Anthracite. Beide zeigen das Kleidungsstueck freihaengend.
+
+
 ### Fuenfzehn Modellbilder aus den drei Afghanistan-Produkten — 08.09.2026
 
 | Produkt | ID | vorher | entfernt | jetzt |
