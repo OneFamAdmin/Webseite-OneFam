@@ -1,4 +1,4 @@
-# Stand — 07.09.2026
+# Stand — 08.09.2026
 
 Übergabe an die nächste Sitzung. Vor grösseren Aufgaben hier hineinsehen, vor
 `/clear` oder `/compact` hier fortschreiben.
@@ -20,7 +20,7 @@
 | 7 | ⚠️ **Preise gesetzt — Ursache gefunden, aber nicht behoben** | Am 07.09.2026 standen **364 Variationen** wieder auf der alten Reihe (Logo-Shirt 35 statt 40, Logo-Sweater 60 statt 65; zwei der vier Produkte **oeffentlich verkauft**). Gesetzt und vollstaendig nachgemessen: 42 Produkte, 3 210 Variationen, **0 Abweichungen**. **Die Ursache liegt bei Shirt-King:** deren Schluessel „heldenwerbung-409340" (Lesen/Schreiben) schrieb heute zweimal die alten Preise zurueck. **Es kommt wieder, solange PodOS die alten Werte fuehrt.** → siehe „Preise: die Ursache" unten und Punkt 11 |
 | 8 | ⚠️ **zahls.ch geprueft — ein Punkt bleibt offen** | Am 08.09.2026 im eingeloggten Konto nachgesehen: **ein Auszahlungskonto ist hinterlegt**, keine Warnung, keine Rueckfrage, kein Verifizierungshinweis. **Aber der Kontoinhaber ist „Labinot Bajrami", eine Privatperson** — und zahls verlangt woertlich ein **geschaeftliches** Bankkonto. Beanstandet wird es nicht; es zeigt sich erst beim ersten echten Betrag. Guthaben ueberall CHF 0.00, nie eine Auszahlung erhalten. → „zahls.ch nachgesehen" unten |
 | 9 | ✅ **Hero umgebaut — erledigt 07.09.2026** | Marke jetzt als quadratischer Block ueber der Ueberschrift statt als formatfuellender Hintergrund; Laenderkacheln direkt hinter den Hero gezogen. Erstes Kleidungsstueck: **920 → 438 px** (Referenzfenster 1440 × 685), **1519 → 540 px** (390 × 844). Entschieden: Kacheln, **nicht** das Lifestyle-Bild — das zeigt Brasilien, und `/brazil/` ist pausiert. → unten „Hero umgebaut" |
-| 10 | 🎨 **Shop-Design: oberer Teil der Startseite fertig** | Stand 07.09.2026: Hero, Kachelreihe, Signature und Featured sind ueberarbeitet, die Seite ist von **9,8 auf 5,7 Bildschirme** geschrumpft. Weiter offen: **im Router liegen 14 fertige Seiten, erreichbar sind 6**; auf der Startseite fehlt seit dem Entfernen der Laenderreihe **jeder Hinweis, dass weitere Laender kommen**. Nicht nachgeprueft: die doppelten Fusszeilen-Fassungen, der Sprach-Cookie-Fehler, die Produktseite mit 18 Galeriebildern. |
+| 10 | 🎨 **Shop-Design: Startseite fertig, Unterseiten offen** | Stand 08.09.2026: der Hinweis „weitere Laender folgen" ist als Zeile unter der Kachelreihe zurueck, in allen vier Sprachen (Seite 4 666 → **4 712 px**). Die doppelten Fusszeilen und die 18 Galeriebilder waren **keine Befunde** — nachgeprueft, siehe unten. **Weiter offen:** im Router liegen 14 fertige Seiten, erreichbar sind 6; `/shop-by-country/` ist **13 501 px** hoch (249 von 253 Kacheln „Bald verfuegbar"); die Signature-Reihe zeigt dort noch **sieben** Kacheln statt vier; die Produktseite nutzt **958 von 1440 px** Breite; der Sprach-Cookie-Fehler ist unveraendert. |
 | 11 | 🔴 **Shirt-King muss die CHF-Preise in PodOS korrigieren** | Ihr Schluessel schreibt sie sonst weiter zurueck — am 07.09.2026 zweimal (07:56 und 20:24 Uhr). Soll: **Shirt 40, Sweater 65, Hoodie 75**; sie senden 35 / 60. **Gehoert in die offene Anfrage aus Punkt 6.** Den Schluessel annullieren ist keine Loesung — er ist die Produktanbindung des Fulfillers. |
 
 **Der Trichter bleibt geparkt** (freie Auswahl, Käufer-Voting) bis zur rechtlichen
@@ -33,6 +33,93 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 ---
 
 ## Was zuletzt gemacht wurde — neueste zuerst
+
+### Hinweiszeile auf der Startseite: weitere Laender folgen — 08.09.2026
+
+Punkt 10 fuehrte als offen: seit dem Entfernen der Wappenreihe am 07.09.2026 stand
+auf der Startseite **nirgends mehr, dass weitere Laender kommen** — die Kachel „Bald
+verfuegbar" war Teil der entfernten Reihe.
+
+**Eingebaut ist eine Zeile, keine fuenfte Kachel.** `.colgrid` ist vierspaltig; eine
+fuenfte Kachel reisst eine zweite Reihe auf und drueckt die Gesichter unter 200 px —
+davor warnt der CSS-Kommentar an derselben Stelle seit dem 07.09. Die Zeile sitzt
+unter den vier Kacheln, links der Satz, rechts der Link auf `/shop-by-country/`:
+
+> Vier Länder sind fertig — weitere folgen.    Alle Länder ansehen →
+
+**Der Link fuehrt bewusst dorthin**, weil diese Seite ein Suchfeld je Land und eine
+E-Mail-Anmeldung hat — der Weg fuer jemanden, dessen Land noch fehlt.
+
+**Nur ein neuer Woerterbuch-Eintrag noetig.** Vor dem Schreiben nachgesehen (Regel 1):
+`OF_I18N` fuehrte den Schluessel **`Shop all countries`** bereits in allen vier
+Sprachen („Alle Länder ansehen", „Voir tous les pays", „Ver todos los países"). Neu
+dazu kam nur der Satz. **Die Uebersetzung laeuft ueber `tx()`**, das Textknoten
+getrimmt gegen `OF_I18N` schlaegt — deshalb steht im Markup der **englische**
+Schluessel, wie ueberall sonst.
+
+**Das Woerterbuch steht 25 Mal im Snippet**, einmal je Router-Seite. Der Eintrag ist
+**nur in die erste Kopie** gesetzt (Position 100 031, vor der zweiten bei 210 011) —
+die gehoert zur Startseite, und nur die hat eine Kachelreihe.
+
+**Nachgemessen, ausgeloggt, ohne Cache-Umgehung** (1440 × 820 und 390 × 844):
+
+| | vorher | nachher |
+|---|---|---|
+| Seitenhoehe 1440 × 820 | 4 666 px | **4 712 px** |
+| `collage` | 402 px | **448 px** |
+| `siga` ab · `featured` ab | 1 012 · 1 558 | **1 057 · 1 603** |
+| Kachelbreite Desktop · Handy | 317 · 162 px | **unveraendert** |
+| Zeile ab · Hoehe (Desktop) | – | **923 px · 28 px**, einzeilig |
+| Zeile ab · Hoehe (390 × 844) | – | **961 px · 57 px**, zweizeilig, 14 px |
+| Querlauf am Handy | – | **keiner** |
+| Fehler in der Konsole | – | **keine** |
+
+**Kontrast auf `#0A0A0A` gerechnet:** Satz `rgba(199,199,190,.72)` → **6,3:1**,
+Link `#C9A84C` → **8,6:1**. Beide ueber der Schwelle 4,5:1.
+
+**In allen vier Sprachen geprueft** — jeweils mit geloeschtem `ofl`-Cookie, sonst
+misst man den Cookie und nicht die Adresse:
+
+| | |
+|---|---|
+| `/en/` | Four countries are ready — more will follow. · Shop all countries → |
+| `/de/` | Vier Länder sind fertig — weitere folgen. · Alle Länder ansehen → |
+| `/fr/` | Quatre pays sont prêts — d’autres suivront. · Voir tous les pays → |
+| `/es/` | Cuatro países ya están listos — pronto llegan más. · Ver todos los países → |
+
+**Snippet 11 vorher 2 487 858 Zeichen, nachher 2 489 599** — nach dem Neuladen
+nachgeprueft, `active` weiter `true`, `code_error` leer. Der REST-Aufruf antwortete
+wie erwartet mit **200 und leerem Rumpf**; das sagt nichts, die Pruefung war das
+Nachladen und die Live-Messung. Sicherung des Zustands davor:
+`docs/sicherung/snippet11-collage-vor-08092026.html`.
+
+**⚠️ Die Vier steht als Text im Woerterbuch.** Wer ein fuenftes Land aufschaltet, muss
+sie in allen vier Sprachen nachziehen — der Hinweis steht als Kommentar neben dem CSS.
+
+**Nebenbei aufgefallen, noch offen:** die vier Kacheln und der Hero-Knopf verlinken
+**ohne Sprachpraefix** (`/albania/`, `/shop-by-country/`), die Menuelinks seit dem
+06.09. **mit** (`/de/shop-by-country/`). Die Sprache geht dabei nicht verloren — am
+08.09. auf `/albania/` mit Cookie `ofl=de` geprueft: Seite deutsch. Die neue Zeile
+folgt dem Umfeld und bleibt praefixlos. **Einheitlich ist es nicht.**
+
+### Drei Befunde aus Punkt 10 nachgeprueft — 08.09.2026
+
+| Befund von frueher | Messung am 08.09.2026 |
+|---|---|
+| „Zwei Fusszeilen-Fassungen nebeneinander" | **Gibt es nicht mehr.** Produktseite und Router-Seite zeigen wortgleich dieselbe: „Startseite · Nach Land shoppen · Ueber uns · Kontakt" und „Datenschutz · Rueckgabe · Versand · AGB". Der Fusszeilen-Fix vom 06.09. hat das miterledigt. |
+| „Produktseite mit 18 Galeriebildern als Kachelwand" | **War eine Fehlzaehlung.** Im Markup liegen 18 Bilder, **sichtbar sind 9** — als Schieber uebereinander (alle bei `top` 218) plus 9 Vorschaubilder bei 827 px. Der Kaufknopf sitzt bei **624 px**, also ueber der Falz. |
+| Ueberschrift „Country" unuebersetzt | **Kein Fehler.** Das ist der Platzhalter-Titel `#csm-title` im **ausgeblendeten** „Bald verfuegbar"-Fenster; er wird beim Klick auf eine Kachel gefuellt. |
+
+**Der echte offene Punkt der Produktseite ist die Breite:** Galerie 479 px + Textspalte
+479 px = **958 von 1440 px**. Rechts bleibt eine Leerflaeche, und der helle Bereich
+`#F4EFE6` steht weiter im schwarzen Markenraum.
+
+**`/shop-by-country/` gemessen** (1440 × 820, ausgeloggt): **13 501 px hoch**,
+`#allc` allein **11 706 px** mit **253 Kacheln — 4 verlinkt, 249 „Bald verfuegbar"**
+(als `<button>`, sie laufen also in kein 404). Die Wand hat aber ein **Suchfeld**
+(„Nach deinem Land suchen…") und je Land eine E-Mail-Anmeldung, sie ist nicht nur
+Deko. **Offen bleibt:** die Signature-Reihe zeigt dort weiter **sieben** Kacheln
+(2 live, 5 „bald") — auf der Startseite sind es seit dem 07.09. **vier**.
 
 ### zahls.ch nachgesehen — 08.09.2026
 
@@ -1422,15 +1509,18 @@ die korrigierten Werte — das Nachfuellen aus Snippet 105 hat gegriffen, wie ge
   07.09.2026.** Deckkraft ist 1, Schrift 15 px, Kontrast ueberall **4,95:1** —
   siehe „Knopfkontrast" oben.
 - **Produktseite:** heller Bereich `#F4EFE6` im schwarzen Markenraum `#0A0A0A`,
-  **18 Galeriebilder** als Kachelwand, grosse Leerflaeche rechts.
+  und **958 von 1440 px** Breite genutzt — rechts bleibt Leerflaeche. ~~18
+  Galeriebilder als Kachelwand~~ war eine **Fehlzaehlung**: 18 im Markup, **9
+  sichtbar**, Kaufknopf bei 624 px ueber der Falz (08.09.2026).
 - ~~Hero der Startseite: 597 px hoch, `#2C2620`, kein Bild.~~ **Zweimal ueberholt.**
   Es war ein Video ohne Vorschaubild (Korrektur weiter oben), und am 07.09.2026 wurde
   der Hero umgebaut: 525 px, Marke als Block, Kacheln direkt darunter.
 - ~~Startseite 6'787 px hoch, die Laender kommen dreimal vor.~~ **Ueberholt am
   07.09.2026:** **4 666 px (5,7 Bildschirme)**, und jedes Land kommt genau **einmal**
   vor. → „Wo die Startseite jetzt steht" weiter oben.
-- **Zwei Fusszeilen-Fassungen** nebeneinander: „Start/Startseite",
-  „Rueckerstattungen/Rueckgabe", „Nutzungsbedingungen/AGB".
+- ~~Zwei Fusszeilen-Fassungen nebeneinander.~~ **Gibt es nicht mehr** — am
+  08.09.2026 auf Produkt- und Router-Seite wortgleich gemessen. Siehe „Drei Befunde
+  aus Punkt 10 nachgeprueft" oben.
 - **Sprach-Cookie schlaegt die Adresse:** mit Cookie `ofl=es` zeigt
   `/de/produkt/albania-hoodie/` spanische Akkordeon-Titel („¿Me quedará bien?"),
   EUR-Preise bei „CHF Fr." im Kopf und den Seitentitel „Modus fuer alle …" statt
