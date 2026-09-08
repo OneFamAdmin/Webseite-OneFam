@@ -35,6 +35,77 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 
 ## Was zuletzt gemacht wurde — neueste zuerst
 
+### Zwoelf Modellbilder aus dem Argentinien-Shirt — 08.09.2026
+
+Produkt **2985** (`argentina-shirt`), Galerie **49 → 37 Bilder**. Damit ist die
+Durchsicht der drei Argentinien-Produkte abgeschlossen.
+
+| Anhang-ID | Datei |
+|---|---|
+| 7359 · 7361 | `Red_Frau_frontal` · `Red_Mann_Huefte` |
+| 7354 · 7352 · 7355 | `MindfulBlue_Frau_frontal` · `Frau_Huefte` · `Mann_Huefte` |
+| 7348 · 7349 | `CottonPink_Frau_frontal` · `CottonPink_Mann_Huefte` |
+| 7342 · 7343 | `CoolHeatherGrey_Frau_frontal` · `CoolHeatherGrey_Mann_Huefte` |
+| 7371 · 7374 | `schwarz_Frau_frontal` · `schwarz_Mann_Taschen` |
+| 7336 | `AquaBlue_Frau_frontal` |
+
+**Sicherung:** `docs/sicherungen/galerie-2985-argentinien-shirt-vor-08092026.md`
+— alle 49 Anhang-IDs in der urspruenglichen Reihenfolge. Dateien bleiben in der
+Mediathek, keine der **62 Variationen** war betroffen.
+
+#### Ein Muster, das erst in der Summe sichtbar wird
+
+**Bei allen sechs betroffenen Farben ist es `Frau_frontal`** — und
+`Mann_Huefte` faellt bei vier Farben. **Weiss ist die einzige Farbe, die
+unangetastet blieb** und als einzige noch alle sieben Ansichten hat.
+
+Das legt nahe, dass der Erzeugungsfehler an **Pose und Farbe** haengt und nicht
+zufaellig streut. Wer spaeter neue Bilder erzeugt, sollte genau diese beiden
+Posen zuerst pruefen — und den weissen Satz als Referenz danebenlegen, weil er
+offensichtlich gelungen ist.
+
+#### Was jede Farbe jetzt noch hat
+
+| Farbe | Bilder |
+|---|---|
+| **White** | **7** — unveraendert, alle Ansichten |
+| Aqua Blue | 6 |
+| Red · Cotton Pink · Cool Heather Grey · Schwarz | je 5 |
+| **Mindful Blue** | **4** — davon nur eines mit einer Frau (`Frau_Taschen`) |
+
+#### Nachgemessen
+
+| | |
+|---|---|
+| `wc/v3` frisch gelesen | **37 Bilder**, keines der zwoelf mehr enthalten |
+| Hauptbild | unveraendert `schwarz_Freihaengend` |
+| gerenderte Seite, eingeloggt | Mindful Blue 4, White 7 — die zwoelf fehlen |
+| Farbumschalter | weiter **alle sieben** Farben |
+| **ausgeloggt gemessen** | keiner der zwoelf Dateinamen mehr im HTML |
+| Preis eingeloggt · ausgeloggt | **CHF 40.00** · **€ 34.95** — beide richtig, **nicht** das Fehlerbild 44,00 |
+
+#### Der Anker hat auch hier getragen — mit einem Sonderfall
+
+Alle zwoelf ueber die **Thumbnail-Position** zugeordnet; diesmal war die Leiste
+auf jedem Screenshot sichtbar. **Auf dem roten Screenshot waren zwei Thumbnails
+umrandet** (Position 2 und 3) — eines aktiv, eines unter dem Mauszeiger.
+Aufgeloest am Bild: die Frau hat die Arme seitlich haengen, nicht in den
+Hosentaschen, also `Frau_frontal`.
+
+### Bilanz der drei Argentinien-Produkte — 08.09.2026
+
+| Produkt | vorher | entfernt | jetzt |
+|---|---|---|---|
+| Sweater (1963) | 38 | 5 | **33** |
+| Hoodie (1787) | 42 | 10 | **32** |
+| Shirt (2985) | 49 | 12 | **37** |
+| **Summe** | 129 | **27** | **102** |
+
+**Es werden keine neuen Bilder erzeugt** — ausdruecklich entschieden. Alle 27
+Dateien liegen weiter in der Mediathek, jede Galerie ist ueber
+`docs/sicherungen/` vollstaendig zurueckdrehbar.
+
+
 ### Zehn schlecht erzeugte Modellbilder aus dem Argentinien-Hoodie — 08.09.2026
 
 Auf Zuruf entfernt, **nur beim Hoodie** (Produkt **1787**, Slug
