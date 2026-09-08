@@ -35,6 +35,79 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 
 ## Was zuletzt gemacht wurde — neueste zuerst
 
+### Laenderkacheln der Shop-Startseite: vier Farben statt dreimal Schwarz — 08.09.2026
+
+Die vier Kacheln unter dem Hero zeigten **dreimal denselben schwarzen Hoodie**
+(Argentinien, Afghanistan, Andorra), nur Albanien war ein weisses Shirt — trotz
+eines Sortiments mit sehr vielen Farben. Der Wechsel Frau/Mann/Frau/Mann war
+schon vorher richtig und ist geblieben.
+
+| | vorher | jetzt |
+|---|---|---|
+| Albanien (Frau) | Shirt **Weiss** | Sweater **Cotton Pink** |
+| Argentinien (Mann) | Hoodie **Schwarz** | Shirt **Aqua Blue** |
+| Afghanistan (Frau) | Hoodie **Schwarz** | Hoodie **Glazed Green** |
+| Andorra (Mann) | Hoodie **Schwarz** | Hoodie **Viva Yellow** |
+
+Nebenbei wechseln jetzt auch die Kleidungsstuecke (Sweater, Shirt, Hoodie,
+Hoodie) statt dreimal Hoodie.
+
+#### Wo das steht — und warum es schwer zu finden war
+
+**Snippet 11 „OneFam Seiten (Router v4 – final)"**, als `background-image` in
+`a.ctile` innerhalb `section.collage`. Die Bilder sind **fest verdrahtete
+Dateinamen**, kein Produktbezug.
+
+Die Suche kostete einen Umweg: die Kacheln benutzen **keine `<img>`-Elemente**,
+deshalb fand die naheliegende Suche nur die Produktkacheln weiter unten. Und
+`ctile` kommt in **keinem** der 54 aktiven Snippets vor — ausser in Snippet 11,
+das wegen seiner Groesse nicht mitdurchsucht werden kann.
+
+#### Die Farbwahl, und warum Albanien nicht Rot wurde
+
+Jede Farbe greift eine Flaggenfarbe des Landes auf: Argentinien hellblau,
+Afghanistan gruen, Andorra gelb.
+
+**Fuer Albanien war Rot die naheliegende Wahl** (die Flagge ist rot) — und
+falsch. Am Bild geprueft: auf rotem Stoff **verschwindet das rot-schwarze
+Wappen fast vollstaendig**. Genau die Regel „Motive immer auf hellem und auf
+dunklem Stoff ansehen". Sieben Albanien-Farben nebeneinandergelegt; Salbeigruen
+zeigte das Motiv am klarsten, kollidiert aber mit Afghanistans Gruen. Gewaehlt
+wurde **Cotton Pink**: hebt sich klar von Hellblau, Gruen und Gelb ab, und das
+Wappen bleibt lesbar.
+
+#### Die 2,4-MB-Falle ist wieder aufgetreten — und die Pruefung hat sie gefangen
+
+Das Schreiben ueber REST antwortete mit **Status 200 und leerem Rumpf**, genau
+wie dokumentiert. **Diese Antwort sagt nichts darueber aus, ob gespeichert
+wurde.** Erst die beiden vorgeschriebenen Pruefungen belegen es:
+
+| | |
+|---|---|
+| Zeichenlaenge nach dem Neuladen | **2 497 055** — exakt der berechnete Wert (vorher 2 497 039, +16) |
+| Snippet danach | weiter **aktiv** |
+| alle vier alten Dateinamen | **weg** |
+| alle vier neuen Dateinamen | **drin** |
+| **Startseite ausgeloggt gemessen** | alle vier Kacheln liefern die neuen Bilder, Links unveraendert (`/albania/`, `/argentina/`, `/afghanistan/`, `/andorra/`) |
+
+**Vor dem Schreiben geprueft:** jeder der vier alten Dateinamen kam im
+2,4-MB-Code **genau einmal** vor — sonst waere die Ersetzung nicht eindeutig
+gewesen. Und alle vier neuen Bilder liefern in der Groesse `768x953`
+**HTTP 200**; ohne diese Groesse waere die Kachel leer geblieben.
+
+#### Der Weg zurueck
+
+| Land | alter Dateiname |
+|---|---|
+| Albanien | `OneFam_Albanien_Shirt_White_Frau_frontal_4k-768x953.webp` |
+| Argentinien | `OneFam_Argentinien_Hoodie_schwarz_Mann_frontal_4k-768x953.webp` |
+| Afghanistan | `OneFam_Afghanistan_Hoodie_schwarz_Frau_frontal_v3_4k-768x953.webp` |
+| Andorra | `OneFam_Andorra_Hoodie_schwarz_Mann_frontal_4k-1-768x953.webp` |
+
+Alle vier liegen unter `/wp-content/uploads/2026/08/`; nur der Dateiname im
+`url(...)` wurde getauscht.
+
+
 ### Neunzehn Modellbilder aus den drei Andorra-Produkten — 08.09.2026
 
 | Produkt | ID | vorher | entfernt | jetzt |
