@@ -149,3 +149,61 @@ export function legalPath(locale: Locale, seite: 'agb' | 'datenschutz' | 'impres
 export function joinPath(locale: Locale): string {
   return locale === DEFAULT_LOCALE ? '/join' : `/${locale}/join`;
 }
+
+/**
+ * Pfade, die NICHT unter app/[locale]/ liegen und deshalb kein Sprachpraefix
+ * tragen. Sie sind bewusst nur auf Deutsch zu haben.
+ *
+ * Diese Liste stand bis zum 08.09.2026 in middleware.ts. Sie ist hierher
+ * gezogen, weil sie an zwei Stellen gebraucht wird: die Middleware fuehrt diese
+ * Pfade an next-intl vorbei, und die Kopfzeile blendet auf ihnen den
+ * Sprachumschalter aus. Zwei Kopien derselben Liste waeren genau die Art
+ * doppelt gebauter Loesung, die frueher oder spaeter auseinanderlaeuft.
+ *
+ * Wer hier etwas eintraegt oder herausnimmt, aendert damit beides.
+ */
+export const OHNE_SPRACHE = [
+  '/admin',
+  '/api',
+  '/auth',
+  '/join/bestaetigen',
+  '/archiv',
+  '/login',
+  '/mein-bereich',
+];
+
+/**
+ * Dasselbe fuer die beiden Metadaten-Routen aus app/robots.ts und
+ * app/sitemap.ts. Sie liegen ebenfalls ausserhalb von app/[locale]/ und wurden
+ * beim ersten Anlauf still zu /en/sitemap.xml umgeschrieben — Ergebnis: die
+ * Sitemap, die gerade erst in der Search Console eingereicht wurde, antwortete
+ * mit 404. Genau die Art Fehler, die niemandem auffaellt, weil man Seiten
+ * prueft und Metadaten-Routen vergisst.
+ */
+export const DATEIEN_OHNE_SPRACHE = ['/sitemap.xml', '/robots.txt'];
+
+/** Liegt dieser Pfad ausserhalb der Sprachstruktur? */
+export function istOhneSprache(pfad: string): boolean {
+  if (DATEIEN_OHNE_SPRACHE.includes(pfad)) return true;
+  return OHNE_SPRACHE.some((p) => pfad === p || pfad.startsWith(`${p}/`));
+}
+
+/**
+ * Kopfzeile, mit der die Middleware dem Wurzel-Layout meldet: diese Anfrage
+ * geht auf eine Seite ausserhalb der Sprachstruktur.
+ *
+ * Der Umweg ueber eine Kopfzeile ist noetig, weil app/layout.tsx eine
+ * Server-Komponente ist und keinen Zugriff auf den Pfad hat — usePathname()
+ * gibt es nur im Browser.
+ */
+export const PFAD_OHNE_SPRACHE_HEADER = 'x-onefam-ohne-sprache';
+
+/**
+ * Die Sprache der Seiten ausserhalb von app/[locale]/.
+ *
+ * Sie sind alle auf Deutsch geschrieben — /login, /mein-bereich, /archiv,
+ * /join/bestaetigen. Wer eine davon uebersetzt, schiebt sie unter
+ * app/[locale]/ und nimmt sie aus OHNE_SPRACHE; dieser Wert wird dann fuer
+ * sie nicht mehr gebraucht.
+ */
+export const SPRACHE_OHNE_PRAEFIX: Locale = 'de';

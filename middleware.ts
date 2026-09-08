@@ -1,7 +1,7 @@
 import { type NextRequest, NextResponse } from 'next/server';
 import { createServerClient } from '@supabase/ssr';
 import createIntlMiddleware from 'next-intl/middleware';
-import { DEFAULT_LOCALE, LOCALES, routing } from '@/i18n/routing';
+import { DEFAULT_LOCALE, LOCALES, PFAD_OHNE_SPRACHE_HEADER, istOhneSprache, routing } from '@/i18n/routing';
 import { COUNTRY_HEADER, LOCALE_COOKIE, detectLocale } from '@/i18n/geo';
 
 // Zwei Aufgaben in einer Middleware, Reihenfolge ist wichtig:
@@ -22,44 +22,16 @@ import { COUNTRY_HEADER, LOCALE_COOKIE, detectLocale } from '@/i18n/geo';
 // Cookies von Supabase auf die intl-Antwort GESETZT, statt eine neue zu bauen.
 const intlMiddleware = createIntlMiddleware(routing);
 
-// Diese Bereiche liegen NICHT unter app/[locale]/ und duerfen deshalb nicht
-// umgeschrieben werden. Ohne diese Liste macht next-intl aus /admin ein
-// /en/admin — und das gibt es nicht, die Seite antwortet mit 404.
+// Welche Bereiche ausserhalb von app/[locale]/ liegen, steht seit dem
+// 08.09.2026 in i18n/routing.ts — dort, weil die Kopfzeile dieselbe Liste
+// braucht, um auf diesen Seiten den Sprachumschalter auszublenden.
 //
-// Sie muessen die Middleware trotzdem durchlaufen: /admin und /auth/callback
-// brauchen die aufgefrischte Supabase-Sitzung. Deshalb werden sie hier nicht
-// aus dem Matcher genommen, sondern nur an next-intl vorbeigefuehrt.
-// Diese Seiten sind (noch) nicht uebersetzt und liegen deshalb bewusst NICHT
-// unter app/[locale]/. Sie behalten ihre bestehende Adresse ohne Praefix.
-// Sobald ihre Texte in den Uebersetzungsdateien liegen, ziehen sie um und
-// verschwinden aus dieser Liste.
-// '/dev' und '/design' standen hier bis zum 08.09.2026. Beides waren interne
-// Vorschauen (Routenuebersicht, Design-Studien zum Reiseziel-Voting mit
-// Demo-Daten); sie sind vor dem Launch entfernt worden. Wer sie zurueckholt,
-// traegt sie hier wieder ein — sonst macht next-intl aus /dev ein /en/dev, und
-// das gibt es nicht: die Seite antwortet dann mit 404.
-const OHNE_SPRACHE = [
-  '/admin',
-  '/api',
-  '/auth',
-  '/join/bestaetigen',
-  '/archiv',
-  '/login',
-  '/mein-bereich',
-];
-
-// Dasselbe gilt fuer die beiden Metadaten-Routen aus app/robots.ts und
-// app/sitemap.ts. Sie liegen ebenfalls ausserhalb von app/[locale]/ und wurden
-// beim ersten Anlauf still zu /en/sitemap.xml umgeschrieben — Ergebnis: die
-// Sitemap, die gerade erst in der Search Console eingereicht wurde, antwortete
-// mit 404. Genau die Art Fehler, die niemandem auffaellt, weil man Seiten
-// prueft und Metadaten-Routen vergisst.
-const DATEIEN_OHNE_SPRACHE = ['/sitemap.xml', '/robots.txt'];
-
-function istOhneSprache(pfad: string) {
-  if (DATEIEN_OHNE_SPRACHE.includes(pfad)) return true;
-  return OHNE_SPRACHE.some((p) => pfad === p || pfad.startsWith(`${p}/`));
-}
+// Sie duerfen nicht umgeschrieben werden: ohne diese Liste macht next-intl aus
+// /admin ein /en/admin, und das gibt es nicht — die Seite antwortet mit 404.
+// Sie muessen die Middleware trotzdem durchlaufen, weil /admin und
+// /auth/callback die aufgefrischte Supabase-Sitzung brauchen. Deshalb werden
+// sie hier nicht aus dem Matcher genommen, sondern nur an next-intl
+// vorbeigefuehrt.
 
 /** Traegt der Pfad bereits ein Sprachpraefix? '/de', '/fr/agb' → ja. */
 function hatSprachPraefix(pfad: string) {
@@ -107,9 +79,27 @@ export async function middleware(request: NextRequest) {
   const umleitung = spracheUmleiten(request);
   if (umleitung) return umleitung;
 
-  const response = istOhneSprache(request.nextUrl.pathname)
-    ? NextResponse.next({ request })
-    : intlMiddleware(request);
+  // Der Header sagt dem Wurzel-Layout, dass diese Seite ausserhalb der
+  // Sprachstruktur liegt und deutsch ist. Ohne ihn kann app/layout.tsx das nicht
+  // wissen: getLocale() von next-intl faellt dort auf Englisch zurueck, und
+  // <html lang> stand deshalb auf "en" ueber durchgehend deutschem Text —
+  // gemessen am 08.09.2026 auf /mein-bereich und /login. An dieser Angabe liest
+  // Google die Sprache ab, und Vorleseprogramme waehlen danach ihre Aussprache.
+  //
+  // Bewusst nur in DIESEM Zweig: hier wird ohnehin ein eigenes
+  // NextResponse.next() gebaut. Im intl-Zweig darf die Antwort nicht ersetzt
+  // werden — das wirft die Sprach-Umschreibung von next-intl weg, und die ganze
+  // Seite faellt ohne Fehlermeldung auf Englisch zurueck (siehe oben).
+  const ohneSprache = istOhneSprache(request.nextUrl.pathname);
+
+  let response: NextResponse;
+  if (ohneSprache) {
+    const kopfzeilen = new Headers(request.headers);
+    kopfzeilen.set(PFAD_OHNE_SPRACHE_HEADER, '1');
+    response = NextResponse.next({ request: { headers: kopfzeilen } });
+  } else {
+    response = intlMiddleware(request);
+  }
 
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;

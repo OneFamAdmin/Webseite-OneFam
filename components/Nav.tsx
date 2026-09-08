@@ -3,13 +3,14 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import MaxWidth from './MaxWidth';
 import Button from './Button';
 import { BRAND_GRADIENT } from '@/lib/brand';
 import LocaleSwitcher from './LocaleSwitcher';
-import { homePath, joinPath, shopUrl, type Locale } from '@/i18n/routing';
+import { homePath, istOhneSprache, joinPath, shopUrl, type Locale } from '@/i18n/routing';
 
 // Shop-Adresse pro Sprache — siehe i18n/routing.ts. Stand vorher fest auf /de/.
 
@@ -40,6 +41,26 @@ const KOPF_VERLAUF =
  */
 const Nav = ({ ueberHero = false }: { ueberHero?: boolean }) => {
   const t = useTranslations('nav');
+  const pfad = usePathname();
+
+  // Auf Seiten ausserhalb von app/[locale]/ ist der Sprachumschalter falsch.
+  //
+  // Gemessen am 08.09.2026 auf /mein-bereich: der Knopf zeigte die britische
+  // Flagge und "EN", obwohl jedes Wort der Seite deutsch ist. Der Grund ist
+  // kein Fehler im Umschalter — diese Seiten laufen an next-intl vorbei (Liste
+  // OHNE_SPRACHE in i18n/routing.ts), also faellt useLocale() auf die
+  // Standardsprache Englisch zurueck.
+  //
+  // Die falsche Flagge waere nur die halbe Wahrheit. Auch mit deutscher Flagge
+  // bliebe der Knopf falsch: /login und /mein-bereich gibt es nicht in vier
+  // Sprachen, und die Eintraege im Klappmenue fuehren ohnehin auf die
+  // STARTSEITE der jeweiligen Sprache. Ein Umschalter, der die aktuelle Seite
+  // verlaesst, verspricht eine Uebersetzung, die es nicht gibt.
+  //
+  // Deshalb wird er hier gar nicht erst gezeigt — es gibt nichts zu wechseln.
+  // Sobald eine dieser Seiten uebersetzt ist, zieht sie unter app/[locale]/ um
+  // und faellt aus OHNE_SPRACHE; dann ist der Umschalter automatisch wieder da.
+  const ohneSprache = istOhneSprache(pfad);
   const locale = useLocale() as Locale;
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -155,7 +176,7 @@ const Nav = ({ ueberHero = false }: { ueberHero?: boolean }) => {
           <div className="col-start-3 flex items-center justify-self-end">
             {/* Desktop: Sprachumschalter + CTA */}
             <div className="hidden items-center gap-5 md-1:flex">
-              <LocaleSwitcher />
+              {!ohneSprache && <LocaleSwitcher />}
               {/* whitespace-nowrap: ohne das darf der Knopf umbrechen, und dann
                   ist "Join the / Fam" seine Mindestbreite — knapp über 800 px
                   nimmt sich das Raster genau diese und der Knopf steht plötzlich
@@ -221,7 +242,7 @@ const Nav = ({ ueberHero = false }: { ueberHero?: boolean }) => {
           <Button as="a" href={joinPath(locale)} variant="primary" className="mt-2" style={{ background: BRAND_GRADIENT }} onClick={() => setOpen(false)}>
             {t('join')}
           </Button>
-          <LocaleSwitcher variant="mobile" onNavigate={() => setOpen(false)} />
+          {!ohneSprache && <LocaleSwitcher variant="mobile" onNavigate={() => setOpen(false)} />}
         </nav>
       </div>
     </>

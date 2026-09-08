@@ -35,6 +35,103 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 
 ## Was zuletzt gemacht wurde — neueste zuerst
 
+### Britische Flagge ueber deutschem Text — behoben 08.09.2026
+
+Auf `/mein-bereich` und `/login` zeigte der Sprachumschalter **die britische
+Flagge und „EN"**, obwohl jedes Wort der Seite deutsch ist.
+
+#### Die Ursache war keine im Umschalter
+
+Diese Seiten liegen ausserhalb von `app/[locale]/` und laufen bewusst an
+next-intl vorbei (Liste `OHNE_SPRACHE`). Damit hat die Seite **keine Sprache**,
+und `useLocale()` faellt auf die Standardsprache Englisch zurueck. Der Umschalter
+zeigte also getreu an, was er vorfand.
+
+**Es waren drei Fehler uebereinander**, nicht einer:
+
+| | vorher | jetzt |
+|---|---|---|
+| Sprachumschalter | britische Flagge, „EN" | **nicht mehr vorhanden** |
+| `<html lang>` | `en` ueber deutschem Text | **`de`** |
+| Menue-Knopf gegenueber Vorleseprogrammen | „Open menu" | **„Menü öffnen"** |
+
+Der zweite war der ernsteste, obwohl man ihn nicht sieht: an `<html lang>` liest
+Google die Sprache ab, und Vorleseprogramme waehlen danach ihre Aussprache.
+
+#### Warum der Umschalter weg ist und nicht auf Deutsch steht
+
+Auch mit deutscher Flagge bliebe er falsch. `/login` und `/mein-bereich` gibt es
+**nicht in vier Sprachen**, und die Eintraege im Klappmenue fuehren ohnehin auf
+die **Startseite** der jeweiligen Sprache. Ein Umschalter, der die aktuelle Seite
+verlaesst, verspricht eine Uebersetzung, die es nicht gibt. Sobald eine dieser
+Seiten uebersetzt ist, zieht sie unter `app/[locale]/` um, faellt aus
+`OHNE_SPRACHE` — und der Umschalter ist von selbst wieder da.
+
+#### Die Liste liegt jetzt an einer Stelle
+
+`OHNE_SPRACHE` stand in `middleware.ts`. Sie wird aber an **zwei** Stellen
+gebraucht: die Middleware fuehrt diese Pfade an next-intl vorbei, die Kopfzeile
+blendet auf ihnen den Umschalter aus. Deshalb steht sie samt `istOhneSprache()`
+jetzt in `i18n/routing.ts`, und beide holen sie von dort. Zwei Kopien waeren
+genau die doppelt gebaute Loesung, vor der Arbeitsregel 1 warnt.
+
+Fuer `<html lang>` braucht das Wurzel-Layout den Pfad — als Server-Komponente
+hat es den nicht. Die Middleware setzt deshalb die Kopfzeile
+`x-onefam-ohne-sprache`, **nur im `OHNE_SPRACHE`-Zweig**, wo ohnehin ein eigenes
+`NextResponse.next()` gebaut wird. Der intl-Zweig bleibt unangetastet — dort eine
+Antwort zu ersetzen wirft die Sprach-Umschreibung weg und die ganze Seite faellt
+still auf Englisch zurueck.
+
+#### Zwei eigene Fehler auf dem Weg
+
+1. **Erst nur die Sprache umgestellt, nicht die Texte.** Danach stand `lang="de"`
+   ueber einem Menue, dessen Knopf sich weiter mit „Open menu" meldete:
+   `getMessages()` ohne Argument holt den Satz, den `i18n/request.ts` bestimmt hat
+   — und der faellt fuer diese Pfade auf Englisch zurueck. Richtig ist
+   `getMessages({ locale })`.
+2. **Angenommen, die Navigation sei unuebersetzt.** „About", „Code", „FAQ",
+   „Shop", „Join the Fam" stehen in **allen vier** Sprachdateien gleich — das
+   sind Markenbegriffe, kein Fehler. Nachgesehen in
+   `messages/{de,en,fr,es}.json`. Unterschiedlich sind nur die unsichtbaren
+   Beschriftungen (`language`, `menu_open`, `menu_close`).
+
+#### Nachgemessen
+
+| Pfad | `lang` | Umschalter | Menue-Knopf |
+|---|---|---|---|
+| `/mein-bereich`, `/mein-bereich?as=buyer` | **de** | **0** (vorher 2) | Menü öffnen |
+| `/login` | **de** | **0** (vorher 2) | Menü öffnen |
+| `/de`, `/de/join` | de | 2 | Menü öffnen |
+| `/fr`, `/fr/agb` | fr | 2 bzw. 0 | Ouvrir le menu |
+| `/es` | es | 2 | Abrir menú |
+
+**Die Rueckfall-Falle ist ausdruecklich geprueft** — alle vier Sprachen liefern
+weiter ihre eigenen Titel, nichts faellt auf Englisch zurueck. Die
+Spracherkennung mit gesetzten Kopfzeilen gemessen:
+
+| Accept-Language | Antwort |
+|---|---|
+| `de-DE,de;q=0.9` | 307 → `/de`, Quelle `browser` |
+| `fr-FR,fr;q=0.9` | 307 → `/fr`, Quelle `browser` |
+| `es-ES,es;q=0.9` | 307 → `/es`, Quelle `browser` |
+| `en-US,en;q=0.9` und leer | 200 ohne Praefix |
+
+`npx tsc --noEmit` 0 Fehler · `npm run lint` keine Fehler · `npm run build` durch,
+37 Seiten.
+
+#### Zwei Dinge, die dabei nur so aussahen wie Fehler
+
+- **`/archiv` antwortet mit 404.** Das ist **Absicht** und im Code begruendet: die
+  beiden Archiveintraege widersprachen sich, die Seite liefert bewusst 404 statt
+  einer Weiterleitung. Nicht angefasst.
+- **`/` lieferte im Browser ploetzlich Franzoesisch.** Im Testfenster lag ein
+  `NEXT_LOCALE=fr` aus einem frueheren Versuch. Das Cookie schlaegt die
+  Browsersprache — **genau die gewollte Reihenfolge**. Nach dem Loeschen wieder
+  Deutsch.
+- **`/de/agb` hat keinen Umschalter.** Auch Bestand: `LegalLayout` benutzt
+  bewusst nicht die Kopfzeile der Startseite.
+
+
 ### Aufgeraeumt: toter Link fuer Kaeufer, /dev und /design entfernt — 08.09.2026
 
 #### Der tote Link sass hinter dem Login

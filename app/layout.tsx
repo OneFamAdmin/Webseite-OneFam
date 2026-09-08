@@ -5,7 +5,14 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getLocale } from 'next-intl/server';
 import MainLayout from '@/layout';
 import { SITE_URL, DEFAULT_TITLE, DEFAULT_DESCRIPTION, pageMetadata } from '@/lib/seo';
-import { DEFAULT_LOCALE, HTML_LANG, isLocale } from '@/i18n/routing';
+import { headers } from 'next/headers';
+import {
+  DEFAULT_LOCALE,
+  HTML_LANG,
+  PFAD_OHNE_SPRACHE_HEADER,
+  SPRACHE_OHNE_PRAEFIX,
+  isLocale,
+} from '@/i18n/routing';
 
 const cabinet = localFont({
   src: './fonts/CabinetGrotesk-Variable.woff2',
@@ -49,15 +56,44 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const messages = await getMessages();
   const roh = await getLocale();
-  const locale = isLocale(roh) ? roh : DEFAULT_LOCALE;
+  const erkannt = isLocale(roh) ? roh : DEFAULT_LOCALE;
+
+  // Seiten ausserhalb von app/[locale]/ laufen an next-intl vorbei, also meldet
+  // getLocale() dort die Standardsprache Englisch — obwohl /login und
+  // /mein-bereich durchgehend deutsch sind. Die Middleware setzt fuer genau
+  // diese Pfade eine Kopfzeile; erst damit steht hier die richtige Sprache.
+  //
+  // Umgestellt wird beides: <html lang> UND die Sprache des
+  // NextIntlClientProvider samt seiner Texte.
+  //
+  // Die sichtbaren Menuepunkte aendert das nicht — "About", "Code", "FAQ",
+  // "Shop", "Join the Fam" stehen in allen vier Sprachdateien gleich, das sind
+  // Markenbegriffe (am 08.09.2026 in messages/{de,en,fr,es}.json nachgesehen).
+  // Was sich unterscheidet, sind die UNSICHTBAREN Beschriftungen: der
+  // Menue-Knopf meldete sich auf /mein-bereich und /login gegenueber
+  // Vorleseprogrammen mit "Open menu" statt "Menü öffnen".
+  //
+  // Der Seiteninhalt selbst ist davon unberuehrt: diese Seiten tragen ihre
+  // Texte fest im TSX, sie holen nichts aus messages/.
+  const kopf = await headers();
+  const ohneSprache = kopf.get(PFAD_OHNE_SPRACHE_HEADER) === '1';
+  const locale = ohneSprache ? SPRACHE_OHNE_PRAEFIX : erkannt;
+  const htmlSprache = HTML_LANG[locale];
+
+  // getMessages() MIT der Sprache aufrufen, nicht ohne. Ohne Argument holt es
+  // den Satz, den i18n/request.ts bestimmt hat — und der faellt fuer Pfade
+  // ausserhalb von app/[locale]/ auf Englisch zurueck. Beim ersten Anlauf am
+  // 08.09.2026 stand deshalb lang="de" ueber einem Menue, dessen Knopf sich
+  // gegenueber Vorleseprogrammen weiter mit "Open menu" meldete: die
+  // Kennzeichnung war umgestellt, die Texte nicht.
+  const messages = await getMessages({ locale });
 
   // <html lang> stand vorher fest auf "de" — auch dann, wenn der Seitentitel
   // englisch war. Das ist die Angabe, an der Vorleseprogramme ihre Aussprache
   // wählen und an der Google die Sprache der Seite abliest.
   return (
-    <html lang={HTML_LANG[locale]}>
+    <html lang={htmlSprache}>
       <body className={`${cabinet.variable} ${satoshi.variable} antialiased`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <MainLayout>{children}</MainLayout>
