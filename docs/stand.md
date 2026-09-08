@@ -35,6 +35,71 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 
 ## Was zuletzt gemacht wurde — neueste zuerst
 
+### Fuenfzehn Modellbilder aus den drei Afghanistan-Produkten — 08.09.2026
+
+| Produkt | ID | vorher | entfernt | jetzt |
+|---|---|---|---|---|
+| Shirt | 3786 | 47 | 2 | **45** |
+| Hoodie | 2566 | 46 | 8 | **38** |
+| Sweater | 2668 | 48 | 5 | **43** |
+
+**Sicherung:** `docs/sicherungen/galerien-afghanistan-vor-08092026.md` — alle drei
+Reihenfolgen vollstaendig. Dateien bleiben in der Mediathek, **keine** der
+Variationen (84 / 86 / 86) war betroffen.
+
+#### ⚠️ Die Falle, die hier fast zugeschnappt waere
+
+**Die Afghanistan-Galerien sind NICHT regelmaessig aufgebaut.** Bei Argentinien
+hatte jede Farbe exakt sieben Ansichten — deshalb liess sich die
+Thumbnail-Position dort mit einer **festen Tabelle** aufloesen (1 Freihaengend,
+2 Frau_frontal, 3 Frau_Taschen, 4 Frau_Huefte, 5 Mann_frontal, 6 Mann_Taschen,
+7 Mann_Huefte).
+
+**Hier hat jede Farbe zwischen zwei und sieben Ansichten.** Der Hoodie in Weiss
+hatte nur `Freihaengend` und `Mann_frontal`. Waere die Argentinien-Tabelle blind
+uebernommen worden, haette „Position 2" bei Weiss auf `Frau_frontal` gezeigt —
+ein Bild, das es dort gar nicht gibt.
+
+**Richtig ist: je Farbe die tatsaechliche Liste aus der Schnittstelle holen.**
+Das gilt fuer jedes weitere Land, das so aufgeraeumt wird — die Regelmaessigkeit
+von Argentinien ist die Ausnahme, nicht die Regel.
+
+#### Zwei Farben sind danach sehr duenn
+
+| | |
+|---|---|
+| **Hoodie Weiss** | nur noch `Freihaengend` — **kein Modellbild mehr** |
+| **Hoodie Rot** | nur noch `Freihaengend` und `Frau_frontal` |
+
+**Nachgemessen, was ein Besucher bei Weiss sieht:** das freihaengende Produktbild
+wird weiter als Hauptbild ausgeliefert (600 × 745), die **Thumbnail-Leiste ist
+leer** — normales Verhalten, wenn nur ein Bild da ist. Also **kein leerer
+Zustand**, aber die schwaechste Darstellung im ganzen Shop. Bewusst so gelassen:
+es werden keine neuen Bilder erzeugt.
+
+#### Nachgemessen
+
+| | |
+|---|---|
+| `wc/v3` frisch gelesen | **45 / 38 / 43**, keines der 15 mehr enthalten |
+| Hauptbilder | alle drei unveraendert `schwarz_Freihaengend` |
+| gerenderte Seite (Hoodie) | Schwarz 7, Rot 2, Weiss 1 Bild — Farbumschalter weiter mit **allen neun** Farben |
+| **ausgeloggt gemessen**, alle drei | keiner der 15 Dateinamen mehr im HTML |
+| Preise eingeloggt · ausgeloggt | Hoodie **CHF 75.00** · **€ 69.99**, Shirt **€ 34.95**, Sweater **€ 59.99** — alle drei die Soll-Reihe, **kein** Fehlerbild |
+
+### Bilanz aller sechs aufgeraeumten Produkte — 08.09.2026
+
+| Land | Produkt | vorher | entfernt | jetzt |
+|---|---|---|---|---|
+| Argentinien | Sweater · Hoodie · Shirt | 129 | 27 | 102 |
+| Afghanistan | Shirt · Hoodie · Sweater | 141 | 15 | 126 |
+| **Summe** | | **270** | **42** | **228** |
+
+**Es werden keine neuen Bilder erzeugt** — ausdruecklich entschieden. Alle 42
+Dateien liegen weiter in der Mediathek, jede Galerie ist ueber
+`docs/sicherungen/` vollstaendig zurueckdrehbar.
+
+
 ### Zwoelf Modellbilder aus dem Argentinien-Shirt — 08.09.2026
 
 Produkt **2985** (`argentina-shirt`), Galerie **49 → 37 Bilder**. Damit ist die
