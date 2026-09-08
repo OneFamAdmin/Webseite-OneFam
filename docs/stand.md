@@ -35,6 +35,65 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 
 ## Was zuletzt gemacht wurde — neueste zuerst
 
+### Fuenf Modellbilder aus der Galerie des Argentinien-Sweaters — 08.09.2026
+
+Auf Zuruf entfernt, **nur beim Sweater** (Produkt **1963**, Slug
+`argentina-sweater`). Galerie **38 → 33 Bilder**. Die Dateien liegen weiter in der
+Mediathek; entfernt wurde allein die Zuordnung zur Produktgalerie.
+
+| Anhang-ID | Datei |
+|---|---|
+| 7413 | `..._schwarz_Frau_Taschen_4k.webp` |
+| 7412 | `..._schwarz_Frau_Huefte_4k.webp` |
+| 7416 | `..._schwarz_Mann_Taschen_4k.webp` |
+| 7395 | `..._MindfulBlue_Frau_Taschen_4k.webp` |
+| 7403 | `..._Red_Mann_Taschen_4k.webp` |
+
+**Sicherung der alten Reihenfolge:**
+`docs/sicherungen/galerie-1963-argentinien-sweater-vor-08092026.md` — dort stehen
+alle 38 Anhang-IDs in der urspruenglichen Reihenfolge und der Weg zurueck.
+
+#### Wie die Bilder identifiziert wurden — die Screenshots allein reichten nicht
+
+Von fuenf Screenshots trugen nur **zwei** die Adresse in der Statuszeile. Die
+uebrigen drei zeigten Posen, die sich bei 38 aehnlichen Aufnahmen nicht sicher
+unterscheiden lassen. Der belastbare Anker war die **Position des markierten
+Thumbnails**: die Galerie zeigt bei gewaehlter Farbe genau die Bilder dieser Farbe
+in der Galerie-Reihenfolge.
+
+**Erst geprueft, ob der Anker traegt:** bei den zwei Screenshots mit sichtbarer
+Adresse ergab die Position exakt dieselbe Datei (Schwarz Position 4 =
+`Frau_Huefte`, Position 6 = `Mann_Taschen`). Danach die Reihenfolge an der echten
+Produktseite je Farbe **nachgemessen**, nicht angenommen — bei Rot steht auf
+Position 6 `Red_Mann_Taschen`.
+
+**Vor dem Schreiben geprueft:** keine der **66 Variationen** benutzte eines der
+fuenf Bilder als Variationsbild. Sonst haetten diese Variationen danach kein Bild
+mehr gehabt.
+
+#### Nachgemessen
+
+| | |
+|---|---|
+| `wc/v3` frisch gelesen | **33 Bilder**, keines der fuenf mehr enthalten |
+| Hauptbild | unveraendert `schwarz_Freihaengend` |
+| gerenderte Seite, eingeloggt | Schwarz 4, Mindful Blue 5, Rot 6 Bilder — die fuenf fehlen |
+| **ausgeloggt gemessen** (`credentials:'omit'`, ohne Query-Parameter) | keiner der fuenf Dateinamen mehr im HTML |
+| Preis dabei | **CHF 65.00**, unveraendert |
+
+#### Zwei Dinge, die dabei auffielen
+
+1. **Vier der fuenf sind die `Taschen`-Pose** — nur `schwarz_Frau_Huefte` faellt
+   heraus. Steckt dahinter die Absicht, diese Pose loszuwerden, sind **fuenf
+   weitere** noch drin: `CottonPink_Frau_Taschen`, `MindfulBlue_Mann_Taschen`,
+   `Red_Frau_Taschen`, `White_Frau_Taschen`, `White_Mann_Taschen`. Bewusst **nicht**
+   mitentfernt — der Auftrag lautete ausdruecklich „genau diese fuenf".
+2. **Ein PodOS-Sync koennte die Galerie neu aufbauen.** Belegt ist das nur fuer
+   Preise und Variationen (siehe oben, drei Rueckschreibungen). Snippet 108 wacht
+   **nur ueber Preise**, nicht ueber Bilder. Nach dem naechsten Sync also
+   nachsehen, ob die fuenf wieder da sind.
+
+
 ### Entschieden am 08.09.2026: erst zusehen, dann entscheiden
 
 **Der Inhaber hat entschieden, alles so zu belassen** und erst zu sehen, wie OneFam
