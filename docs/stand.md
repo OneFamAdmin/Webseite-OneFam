@@ -35,6 +35,48 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 
 ## Was zuletzt gemacht wurde — neueste zuerst
 
+### Nachgesteuert: Afghanistan und Andorra in „Ausgewaehlte Laender" — 08.09.2026
+
+| | vorher | jetzt |
+|---|---|---|
+| Afghanistan Shirt (Frau) | Green Bay (hell) | **Glazed Green** (dunkel), Pose `Frau_Huefte` |
+| Andorra Hoodie (Mann) | Cotton Pink | **Rot**, Pose `Mann_frontal` |
+
+**Der Wechsel bleibt** Frau/Mann/Frau/Mann, das Produkt hinter jeder Kachel
+ebenfalls (Link, Name und Preis unveraendert).
+
+**Die Aenderung bei Afghanistan raeumt einen eigenen Vorbehalt aus:** auf dem
+hellen Green Bay war das **weisse** Motiv blass — auf Glazed Green steht es
+klar. Bei Andorra sitzt das blau-gelbe Motiv auf Rot sehr kontrastreich.
+
+**Stand beider Reihen:**
+
+| Land | Reihe 1 (Laenderkacheln) | Reihe 2 (Ausgewaehlte Laender) |
+|---|---|---|
+| Albanien | Mann · Schwarz · Hoodie | Frau · Weiss · Hoodie |
+| Argentinien | Frau · Aqua Blue · Shirt | Mann · Mindful Blue · Sweater |
+| Afghanistan | Frau · Rot · Sweater | Frau · **Glazed Green** · Shirt |
+| Andorra | Mann · Viva Yellow · Hoodie | Mann · **Rot** · Hoodie |
+
+Acht verschiedene Bilder. Rot kommt zweimal vor, aber bei **verschiedenen
+Laendern und verschiedenen Kleidungsstuecken** — kein doppeltes Bild.
+
+#### Nachgemessen
+
+| | |
+|---|---|
+| Zeichenlaenge nach dem Neuladen | **2 497 068** — exakt berechnet (vorher 2 497 073, −5) |
+| Snippet | weiter **aktiv** |
+| die beiden anderen Bilder der Reihe | **unberuehrt** |
+| die vier Bilder der Reihe 1 | **unberuehrt**, einzeln geprueft |
+| **Startseite ausgeloggt** | alle vier Dateinamen der Reihe 2 im HTML, **keiner** der beiden alten |
+| Preise | **CHF 75 · 65 · 40 · 75**, unveraendert |
+
+Beide alten Namen kamen diesmal **nur noch einmal** im ganzen Code vor (die
+`fcard`-Doppelungen betrafen die urspruenglichen Schwarz-Bilder, nicht die am
+08.09. gesetzten) — trotzdem wieder positionsgenau im `feat`-Bereich ersetzt.
+
+
 ### „Ausgewaehlte Laender" entschwaerzt — 08.09.2026
 
 Die zweite Reihe auf der Startseite (Produktkacheln mit Preis) zeigte **alle
