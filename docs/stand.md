@@ -106,6 +106,60 @@ Beim naechsten Zaehlen im Kopf behalten.
 Shirt-King angekommen ist, sieht man daran, dass `of_preis_abweichungen_zaehler` nicht
 weiter steigt. Stand jetzt: **188**.
 
+#### Was ein leeres Preisfeld anrichtet — am 08.09.2026 gemessen
+
+Vor der Bitte an Shirt-King, das Preisfeld zu leeren, wurde geprueft, was dann bei uns
+passiert. Versuch an **Variation 558** des **privaten** Produkts
+`onefam-white-logo-shirt`, danach sofort zurueckgesetzt:
+
+| | |
+|---|---|
+| REST-Antwort auf `regular_price: ""` | **200** — WooCommerce nimmt den leeren Wert an |
+| Variation danach | `purchasable` **false** — **nicht mehr bestellbar** |
+| EUR-Festpreis | bleibt `{"EUR":"34.95"}` — **rettet nichts** |
+| Produkt danach | zeigt weiter **40** und gilt als kaufbar, weil die uebrigen Variationen den Preis haben |
+| Preis-Wache | **schwieg** — Zaehler blieb bei 188 |
+
+**Der Ausfall waere also unsichtbar gewesen:** die Produktseite sieht gesund aus, nur
+die betroffene Groesse/Farbe faellt still aus dem Sortiment. **Ein leeres Feld ist
+damit schlimmer als ein falscher Preis** — und genau das waere passiert, haetten wir
+Shirt-King gebeten, die Preise bei sich zu loeschen.
+
+**Die Wache wurde ergaenzt.** Snippet 106 hat einen zweiten Beobachter bekommen
+(`of_preis_leer_pruefen`, Prioritaet 21, schreibt weiterhin keine Preise): er meldet
+Preise, die **leer oder keine Zahl** sind, in dasselbe Protokoll.
+
+**Nachgeprueft, nicht nur gebaut:** Preis erneut geleert → Zaehler **188 → 189**,
+Protokollzeile
+`2026-09-08 13:51:55 | onefam-white-logo-shirt | Variation 558 | PREIS LEER`.
+Danach auf 40 zurueckgesetzt, `purchasable` wieder **true**, EUR-Meta unveraendert.
+Snippet 106: **3 040 → 4 938 Zeichen**, aktiv, kein Code-Fehler.
+
+#### Der Bestellweg braucht die Preise in PodOS nicht
+
+Lesend geprueft, weil die Frage aufkam, ob ein Verzicht den Kaufweg bricht:
+
+| | |
+|---|---|
+| Webhook **id 2** | `order.updated` → `connector.api.podos.io/v1/woocommerce/or…`, **aktiv** |
+| Inhalt | die vollstaendige Bestellung — Beispiel 5165: Posten „Anguilla Shirt – S, Red", **40.00**, Waehrung **CHF**, Summe 58.00 |
+| unsere Kosten | kommen aus `product_costs` (Margenrechner), **nicht** aus PodOS |
+
+**Der Verkaufspreis reist also mit jeder Bestellung mit.** PodOS muss ihn nicht
+gespeichert haben. **Zwei Dinge bleiben trotzdem zu klaeren, bevor dort etwas geloescht
+wird:** der **Zollwert** fuer Drittlandpakete (Shirt-King versendet und stellt die
+Handelsrechnung — der Wert muss irgendwoher kommen) und das **Kostenfeld**, das der
+gebaute PodOS-COGS-Abgleich spaeter lesen soll.
+
+**Entwurf der Nachricht an Christian:**
+`docs/entwuerfe/nachricht-shirtking-preise-08092026.md` — auf Deutsch, er sitzt in
+Berlin. Kernbitte: **das Preisfeld aus dem Sync nehmen, nicht bei sich leeren.**
+
+**Nebenbefund, der eine aeltere Notiz korrigiert:** Bestellung 5165 traegt
+`variation_id 3114`. In `shop-und-pool-details.md` steht „Bestellpositionen tragen
+`variation_id = 0`". Das gilt so nicht mehr — wer sich darauf verlaesst, misst neu.
+
+
 ### Sprachpraefix bei Warenkorb und Kasse — nachgemessen, **bewusst nicht gebaut** (08.09.2026)
 
 **Der Befund von heute Vormittag stimmt, kostet aber nichts.** Gemessen mit `curl`,
