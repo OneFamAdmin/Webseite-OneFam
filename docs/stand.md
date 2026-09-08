@@ -35,6 +35,57 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 
 ## Was zuletzt gemacht wurde — neueste zuerst
 
+### Preis-Wache zurueckgesetzt — 08.09.2026
+
+| | vorher | jetzt |
+|---|---|---|
+| Vorfaelle | **367** | **0** |
+| Protokollzeilen | 50 | 0 |
+| Letzte Pruefung | 2026-09-08 20:36:34 | **unveraendert** |
+
+**Vorher gesichert:** `docs/sicherungen/preis-wache-protokoll-vor-reset-08092026.md`
+— die 50 Zeilen sind Beleg fuer den vierten Preis-Vorfall und waeren sonst
+verloren gewesen.
+
+#### Was die 50 Zeilen zeigten
+
+| | |
+|---|---|
+| Zeitraum | **20:35:54 bis 20:36:24** — 30 Sekunden |
+| Produkt | **ausschliesslich** `onefam-white-logo-shirt` (ID 466, **privat**) |
+| Variationen | **50**, IDs 467 bis 516, fortlaufend |
+| Muster | **ausschliesslich** „35 statt 40" |
+
+50 Variationen in 30 Sekunden mit fortlaufenden IDs — ein maschineller Durchlauf,
+kein Einzelzugriff. 35 ist der gerundete EUR-Preis (34,95) im CHF-Feld, dasselbe
+Muster wie „60 statt 65" am Morgen.
+
+#### „Letzte Pruefung" bleibt mit Absicht stehen
+
+Der Reset loescht Zaehler und Protokoll, **nicht** `of_preis_wache_zuletzt`. Das
+ist richtig: der Wert haengt in Snippet 106 an einem `$lebenszeichen` und wird
+beim **Lauf** der Wache gesetzt, nicht beim Vorfall. Er beantwortet die Frage
+„laeuft die Wache ueberhaupt noch?" — und die soll ein Reset nicht loeschen.
+
+#### ⚠️ Eine eigene Aussage von vorhin war zu absolut
+
+Weiter oben stand, die Wache sei „von aussen nicht auslesbar". **Genauer:** eine
+eigene Ansicht gab es nicht, aber Snippet 106 nennt in seinem Kopfkommentar
+selbst einen Weg — **Einstellungen → Alle Einstellungen (`options.php`)**, die
+Rohliste aller WordPress-Optionen. Unbequem, aber vorhanden. Snippet 109 ersetzt
+das nicht, es macht es lesbar (gefiltert, ausgewertet, mit Reset).
+
+**Lehre:** vor „gibt es nicht" den Kopfkommentar des betroffenen Snippets lesen —
+die frueheren Sitzungen haben ihre Wege dort notiert.
+
+#### Ein Detail zur Bedienung
+
+Der erste Mausklick auf den Zuruecksetzen-Knopf loeste **nicht** aus; erst ein
+gezieltes Absenden des Formulars ueber den Knopf wirkte. Wer die Seite von Hand
+bedient und nichts passieren sieht: einfach nochmal klicken und die Meldung
+„Zaehler und Protokoll zurueckgesetzt" abwarten.
+
+
 ### Preis-Wache ist auslesbar — und liefert sofort einen Befund (08.09.2026)
 
 **Neu: Snippet 109 „OneFam Preis-Wache: Ausgabe unter WooCommerce"**, aktiv,
