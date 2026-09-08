@@ -35,6 +35,46 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 
 ## Was zuletzt gemacht wurde — neueste zuerst
 
+### Afghanistan-Kachel auf den roten Sweater gesetzt — 08.09.2026
+
+Auf Zuruf: `OneFam_Afghanistan_Sweater_Red_Frau_frontal_4k-1-768x953.webp`
+statt des gruenen Hoodies. Zugeordnet ueber die Thumbnail-Position — bei Rot hat
+der Afghanistan-Sweater genau **fuenf** Bilder, so viele wie im Screenshot
+sichtbar, und Position 2 ist `Frau_frontal`.
+
+**Stand der Reihe jetzt:**
+
+| | Land | Person | Farbe | Teil |
+|---|---|---|---|---|
+| 1 | Albanien | Mann | Schwarz | Hoodie |
+| 2 | Argentinien | Frau | Aqua Blue | Shirt |
+| 3 | Afghanistan | Frau | **Rot** | Sweater |
+| 4 | Andorra | Mann | Viva Yellow | Hoodie |
+
+Vier verschiedene Farben, drei verschiedene Kleidungsstuecke. Das Motiv steht
+auf jedem Bild kontrastreich: weiss auf Rot, gold auf Hellblau, rot auf Schwarz,
+blau-rot auf Gelb.
+
+**Der Wechsel Mann/Frau bleibt unterbrochen** (Mann → Frau → Frau → Mann). Zweimal
+darauf hingewiesen, beide Male wurde bewusst ein Frauenbild gewaehlt — damit ist
+es eine Entscheidung, kein Versehen. Wer ihn spaeter doch herstellen will,
+braucht **nur eine** Aenderung: Argentinien zurueck auf
+`AquaBlue_Mann_frontal` oder Afghanistan auf ein Maennerbild.
+
+#### Nachgemessen
+
+| | |
+|---|---|
+| Zeichenlaenge nach dem Neuladen | **2 497 043** — exakt berechnet (vorher 2 497 051, −8) |
+| Snippet | weiter **aktiv** |
+| die drei anderen Kacheln | **unberuehrt**, einzeln geprueft |
+| **Startseite ausgeloggt** | liefert das neue Bild, Links unveraendert |
+
+Dritter Schreibvorgang in Folge mit **Status 200 und leerem Rumpf** — das ist bei
+diesem Snippet der Normalfall und kein Fehlerzeichen. Belastbar sind allein
+Zeichenlaenge und Live-Messung.
+
+
 ### Kacheln Albanien und Argentinien auf Zuruf getauscht — 08.09.2026
 
 Zwei der vier Kacheln wurden auf ausdruecklich benannte Bilder gesetzt:
