@@ -18,7 +18,7 @@
 | 5 | **PayPal-Altkonto bereinigen** | Der Zahlungsweg läuft bereits über Payrexx Pay (am 04.09.2026 nachgemessen), es fliesst nichts mehr über PayPal. Übrig bleibt das alte Händlerkonto mit 38,23 EUR Guthaben, das für den Shop nicht taugt. Einzelheiten beim Inhaber. |
 | 6 | **Antwort von Shirt-King abwarten** | Anfrage am 03.09.2026 raus, mit den Fotos der flauen DTG-Drucke und den Motiven als Vektor-PDF. Entscheidet, ob der Shop bei Print-on-Demand bleibt oder auf Vorbestellungen umgebaut wird — die DTF-Frage steht bewusst vorne. → `druck-und-lieferant.md` |
 | 7 | ⚠️ **Preise gesetzt — Ursache gefunden, aber nicht behoben** | Am 07.09.2026 standen **364 Variationen** wieder auf der alten Reihe (Logo-Shirt 35 statt 40, Logo-Sweater 60 statt 65; zwei der vier Produkte **oeffentlich verkauft**). Gesetzt und vollstaendig nachgemessen: 42 Produkte, 3 210 Variationen, **0 Abweichungen**. **Die Ursache liegt bei Shirt-King:** deren Schluessel „heldenwerbung-409340" (Lesen/Schreiben) schrieb heute zweimal die alten Preise zurueck. **Es kommt wieder, solange PodOS die alten Werte fuehrt.** → siehe „Preise: die Ursache" unten und Punkt 11 |
-| 8 | ⏳ **Auszahlungsstatus zahls.ch — ab heute faellig** | Ab dem 08.09.2026 nachsehen, ob nach der eingereichten Kontobestätigung der Auszahlungsstatus grün ist. Mögliche Rückfrage: zahls verlangt ein geschäftliches Konto, eingereicht wurde ein Privatkonto. |
+| 8 | ⚠️ **zahls.ch geprueft — ein Punkt bleibt offen** | Am 08.09.2026 im eingeloggten Konto nachgesehen: **ein Auszahlungskonto ist hinterlegt**, keine Warnung, keine Rueckfrage, kein Verifizierungshinweis. **Aber der Kontoinhaber ist „Labinot Bajrami", eine Privatperson** — und zahls verlangt woertlich ein **geschaeftliches** Bankkonto. Beanstandet wird es nicht; es zeigt sich erst beim ersten echten Betrag. Guthaben ueberall CHF 0.00, nie eine Auszahlung erhalten. → „zahls.ch nachgesehen" unten |
 | 9 | ✅ **Hero umgebaut — erledigt 07.09.2026** | Marke jetzt als quadratischer Block ueber der Ueberschrift statt als formatfuellender Hintergrund; Laenderkacheln direkt hinter den Hero gezogen. Erstes Kleidungsstueck: **920 → 438 px** (Referenzfenster 1440 × 685), **1519 → 540 px** (390 × 844). Entschieden: Kacheln, **nicht** das Lifestyle-Bild — das zeigt Brasilien, und `/brazil/` ist pausiert. → unten „Hero umgebaut" |
 | 10 | 🎨 **Shop-Design: oberer Teil der Startseite fertig** | Stand 07.09.2026: Hero, Kachelreihe, Signature und Featured sind ueberarbeitet, die Seite ist von **9,8 auf 5,7 Bildschirme** geschrumpft. Weiter offen: **im Router liegen 14 fertige Seiten, erreichbar sind 6**; auf der Startseite fehlt seit dem Entfernen der Laenderreihe **jeder Hinweis, dass weitere Laender kommen**. Nicht nachgeprueft: die doppelten Fusszeilen-Fassungen, der Sprach-Cookie-Fehler, die Produktseite mit 18 Galeriebildern. |
 | 11 | 🔴 **Shirt-King muss die CHF-Preise in PodOS korrigieren** | Ihr Schluessel schreibt sie sonst weiter zurueck — am 07.09.2026 zweimal (07:56 und 20:24 Uhr). Soll: **Shirt 40, Sweater 65, Hoodie 75**; sie senden 35 / 60. **Gehoert in die offene Anfrage aus Punkt 6.** Den Schluessel annullieren ist keine Loesung — er ist die Produktanbindung des Fulfillers. |
@@ -33,6 +33,48 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 ---
 
 ## Was zuletzt gemacht wurde — neueste zuerst
+
+### zahls.ch nachgesehen — 08.09.2026
+
+Punkt 8 sagte: „ab dem 08.09.2026 nachsehen, ob der Auszahlungsstatus gruen ist".
+**Einen ausdruecklichen Status gibt es nicht.** Was es gibt, ist ein hinterlegtes
+Konto ohne Beanstandung — und eine Regel, die es nicht erfuellt.
+
+**Gemessen im eingeloggten Konto** (`onefam.zahls.ch/cadmin/`, FREE Plan, Labinot
+Bajrami / info@onefam.ch, 2FA per E-Mail eingerichtet):
+
+| | |
+|---|---|
+| Auszahlungskonto | **hinterlegt** — Schweiz, Waehrung CHF, BIC leer *(IBAN bewusst nicht notiert)* |
+| **Kontoinhaber** | **„Labinot Bajrami"** |
+| Guthaben Payrexx Pay / Pay Plus | CHF 0.00 / CHF 0.00, verfuegbar wie „bald verfuegbar" |
+| Total zur Auszahlung | **CHF 0.00** |
+| bisherige Auszahlungen | **keine** („Sie haben noch keine Auszahlungen erhalten") |
+| Auszahlungsrhythmus | **monatlich, jeweils am 31.**, enthaelt E-Commerce-Transaktionen **aelter als 8 Tage** |
+| Dashboard EUR | 1 Zahlung, Umsatz EUR 39.57, letzte 30 Tage EUR 0.00 / −100 % |
+| Warnungen, Rueckfragen, Verifizierungshinweise | **keine** |
+
+**Der offene Punkt, woertlich aus dem Formular:**
+
+> „Es muss sich um ein **geschaeftliches Bankkonto** (keine QR-IBAN) handeln und der
+> Name des Kontoinhabers muss mit der tatsaechlichen Bezeichnung des Kontos
+> uebereinstimmen, damit die Auszahlung **von Ihrer Bank** akzeptiert wird."
+
+Hinterlegt ist ein Konto auf eine **Privatperson**. **zahls.ch beanstandet das nicht** —
+es gibt keine Fehlermeldung und keine Sperre. Die Regel sagt aber, dass die **Bank**
+die Gutschrift ablehnen kann. Da nie eine Auszahlung stattgefunden hat (Guthaben 0),
+ist das **ungetestet** und faellt erst beim ersten echten Betrag auf.
+
+**Zahlungsanbieter, mitgeprueft:** **Payrexx Pay ist eingerichtet**, Payrexx Pay Plus
+(Auszahlung durch Partnerbank) ist **nicht** aktiviert, und **PayPal steht wieder unter
+„hinzufuegen"** — ist also nicht mehr als Anbieter eingerichtet. Das bestaetigt die
+Messung vom 04.09.: neues Geld landet bei zahls.ch, nicht mehr direkt bei PayPal.
+Damit wird die Kontofrage beim ersten Verkauf real.
+
+**Zu tun:** entweder ein geschaeftliches Konto hinterlegen (haengt an der GmbH, die
+ohnehin auf der Liste vor dem Launch steht) oder bei zahls.ch vorab klaeren, ob sie
+fuer ein Einzelunternehmen ein Privatkonto akzeptieren. **Vor dem ersten echten
+Verkauf klaeren, nicht danach** — sonst haengt der erste Betrag fest.
 
 ### Signature eingedampft: von sieben Kacheln auf vier — 07.09.2026
 
