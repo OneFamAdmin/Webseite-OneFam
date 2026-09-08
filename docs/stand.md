@@ -35,6 +35,62 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 
 ## Was zuletzt gemacht wurde — neueste zuerst
 
+### Kacheln Albanien und Argentinien auf Zuruf getauscht — 08.09.2026
+
+Zwei der vier Kacheln wurden auf ausdruecklich benannte Bilder gesetzt:
+
+| | vorher (Farbrunde) | jetzt |
+|---|---|---|
+| Albanien | Sweater Cotton Pink, **Frau** | Hoodie **Schwarz**, **Mann** |
+| Argentinien | Shirt Aqua Blue, **Mann** | Shirt Aqua Blue, **Frau** (`Frau_Taschen`) |
+
+Afghanistan (Glazed Green, Frau) und Andorra (Viva Yellow, Mann) sind
+**unberuehrt** — beim Schreiben mitgeprueft.
+
+#### ⚠️ Damit ist der Wechsel Mann/Frau unterbrochen
+
+Die Reihe steht jetzt auf **Mann → Frau → Frau → Mann**. Zwei Frauen in der
+Mitte. Die Vorgabe „immer ein Mann, eine Frau, im Wechsel" ist damit nicht mehr
+erfuellt.
+
+**Ohne neue Bilder aufloesbar**, beide Dateien sind vorhanden und in `768x953`
+geprueft (HTTP 200):
+
+| | statt | waere |
+|---|---|---|
+| Afghanistan | `GlazedGreen_Frau_frontal` | `OneFam_Afghanistan_Hoodie_GlazedGreen_Mann_frontal_v3_4k-768x953.webp` |
+| Andorra | `VivaYellow_Mann_frontal` | `OneFam_Andorra_Hoodie_VivaYellow_Frau_frontal_4k-1-768x953.webp` |
+
+Ergebnis waere **Mann → Frau → Mann → Frau** bei unveraenderten Farben.
+**Nicht ausgefuehrt** — die beiden Kacheln waren nicht beauftragt.
+
+#### Nachgemessen
+
+| | |
+|---|---|
+| Zeichenlaenge nach dem Neuladen | **2 497 051** — exakt berechnet (vorher 2 497 055, −4) |
+| Snippet | weiter **aktiv** |
+| **Startseite ausgeloggt** | beide neuen Bilder ausgeliefert, Links unveraendert |
+| Farben jetzt | Schwarz · Aqua Blue · Glazed Green · Viva Yellow |
+
+**Der leere Rumpf trat wieder auf** (Status 200, 0 Byte) — wie beim ersten Mal
+ohne Aussagekraft; belegt haben es erst Laenge und Live-Messung.
+
+**Eine Falle am Rande:** die Navigation aus einer Produkt-Bearbeitungsseite
+heraus wurde von einem „Seite verlassen?"-Dialog blockiert, weil dort vorher
+eine Bildvorschau ins DOM geschrieben worden war. `force` half nicht;
+`window.onbeforeunload = null` und `location.replace(...)` schon. Es gingen
+keine echten Bearbeitungen verloren — auf der Produktseite war nichts geaendert
+worden.
+
+#### Zur Bildwahl von Albanien
+
+Albanien ist damit wieder ein dunkles Kleidungsstueck. **Das ist hier kein
+Rueckschritt:** das rote Wappen steht auf Schwarz sehr kontrastreich — deutlich
+besser lesbar als auf dem roten Sweater, an dem die Farbrunde vorher gescheitert
+war. Der Preis dafuer ist eine Farbe weniger in der Reihe.
+
+
 ### Laenderkacheln der Shop-Startseite: vier Farben statt dreimal Schwarz — 08.09.2026
 
 Die vier Kacheln unter dem Hero zeigten **dreimal denselben schwarzen Hoodie**
