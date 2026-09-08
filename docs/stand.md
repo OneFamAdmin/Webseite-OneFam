@@ -35,6 +35,70 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 
 ## Was zuletzt gemacht wurde — neueste zuerst
 
+### Preis-Wache ist auslesbar — und liefert sofort einen Befund (08.09.2026)
+
+**Neu: Snippet 109 „OneFam Preis-Wache: Ausgabe unter WooCommerce"**, aktiv,
+Scope `admin`. Erreichbar unter **WooCommerce → OneFam Preis-Wache**
+(`/wp-admin/admin.php?page=onefam-preis-wache`).
+
+Zeigt letzte Pruefung, Zaehler und Protokoll; ein Knopf setzt beides zurueck.
+**Reines PHP, kein JavaScript** — Arbeitsregel 9; das Zuruecksetzen laeuft ueber
+ein POST-Formular mit `check_admin_referer`. Berechtigung `manage_woocommerce`
+wird **zweimal** geprueft, weil `add_submenu_page` nur den Menuepunkt ausblendet
+und die Adresse direkt aufrufbar bleibt.
+
+#### ⚠️ Der erste Blick korrigiert die Einschaetzung von vorhin
+
+Eine halbe Stunde zuvor stand hier, der Schluesselzugriff um 20:36 „kann ein
+blosser Lesezugriff gewesen sein". **Das war falsch.** Die Wache protokolliert:
+
+| | |
+|---|---|
+| Letzte Pruefung | **2026-09-08 20:36:34** |
+| Vorfaelle seit dem letzten Zuruecksetzen | **367** |
+| Protokollzeilen (Ringpuffer) | 50 |
+
+Beispielzeilen: `2026-09-08 20:36:24 | onefam-white-logo-shirt | Variation 467 |
+35 statt 40` — **das bekannte Muster:** 35 ist der gerundete EUR-Preis, der im
+CHF-Feld landet.
+
+**Es war also ein echter Sync mit Schreibzugriff, kein Lesen.** Und
+`onefam-white-logo-shirt` steht danach wieder sauber: **92 Variationen, 0
+Abweichungen, alle CHF 40** — Snippet 108 hat sie zurueckgestellt, ohne dass es
+jemand bemerkt haette. Das Produkt ist ausserdem **privat**, es entstand also
+kein Schaden im Laden.
+
+#### Damit ist der PodOS-Vorbehalt weitgehend ausgeraeumt
+
+Der Beweis, der heute Nachmittag noch fehlte, liegt jetzt vor:
+
+1. Um **20:36** lief ein Sync, der **Preise geschrieben** hat — 367 Vorfaelle
+   protokolliert, kein Zweifel mehr an der Aktivitaet.
+2. **Snippet 108 hat sie alle korrigiert**, nachgemessen: 0 Abweichungen.
+3. **Die Galeriebilder hat derselbe Sync nicht angefasst** — keine der 61
+   entfernten Anhang-IDs ist zurueck, alle neun Produkte auf Sollwert.
+
+**Ein Sync mit Schreibrechten hat Bilder also nachweislich nicht
+zurueckgeschrieben.** Restrisiko bleibt, dass ein *anderer* Sync-Typ (etwa ein
+vollstaendiger Produktabgleich statt eines Preis-Laufs) sich anders verhaelt —
+die Sollwerte zum Nachzaehlen stehen im Eintrag darueber.
+
+#### Der Zaehler wurde bewusst NICHT zurueckgesetzt
+
+367 ist die Summe seit dem Bau von Snippet 106 am 07.09.2026. Wer ihn auf Null
+stellt, sieht den naechsten Vorfall sofort als neuen — das ist der Sinn des
+Knopfes. **Erst nachmessen, dann zuruecksetzen**, sonst verschwindet ein
+laufender Vorfall in der alten Summe.
+
+#### Nachgemessen nach dem Anlegen
+
+| | |
+|---|---|
+| Startseite · Produktseite ausgeloggt | **200**, kein PHP-Fehler im Rumpf |
+| wp-admin eingeloggt | **200**, kein PHP-Fehler, Menuepunkt vorhanden |
+| Snippet 109 | **aktiv**, Scope `admin` |
+
+
 ### PodOS-Sync: Bilder sind NICHT zurueckgeschrieben — geprueft 08.09.2026, 22:42
 
 Der offene Vorbehalt („schreibt ein Sync auch Galeriebilder zurueck?") ist erstmals
