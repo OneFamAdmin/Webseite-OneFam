@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import Link from 'next/link';
 import Nav from '@/components/Nav';
-import { ArrowRight, Lock, MapPin, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import { createClient } from '@/lib/supabase/server';
 import Button from '@/components/Button';
 import { pageMetadata } from '@/lib/seo';
@@ -10,7 +10,7 @@ import { pageMetadata } from '@/lib/seo';
 // ein Suchtreffer darauf wäre für jeden anderen leer.
 export const metadata = pageMetadata({
   title: 'Mein Bereich — OneFam',
-  description: 'Dein OneFam-Bereich — als Käufer: die Reiseziel-Wahl.',
+  description: 'Dein OneFam-Bereich.',
   path: '/mein-bereich',
   noindex: true,
 });
@@ -62,7 +62,7 @@ export default async function MeinBereichPage({
         {state === 'guest' && (
           <>
             <p className="mt-3 max-w-[640px] font-body text-lg leading-[1.7] text-secondary">
-              Melde dich an, um deinen Bereich zu sehen — und, als Käufer, über das nächste Reiseziel mitzubestimmen.
+              Melde dich an, um deinen Bereich zu sehen — als Käufer wartet dort später die Reiseziel-Wahl auf dich.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button as="a" href="/login" variant="primary">
@@ -91,10 +91,10 @@ export default async function MeinBereichPage({
                 tone="soon"
               />
               <Card
-                icon={<Lock size={20} strokeWidth={1.5} className="text-faint" />}
-                title="Reiseziel-Wahl — Käufer-Extra"
-                body="Das Mitbestimmen über das nächste Reiseziel ist ein Extra für Käufer."
-                tone="locked"
+                icon={<Sparkles size={20} strokeWidth={1.5} className="text-faint" />}
+                title="Reiseziel-Wahl — in Vorbereitung"
+                body="Das Mitbestimmen über das nächste Reiseziel ist als Käufer-Extra geplant."
+                tone="soon"
                 cta={
                   <Button as="a" href="/" variant="secondary" className="mt-1 px-5 py-2.5 text-sm">
                     Käufer werden
@@ -110,35 +110,32 @@ export default async function MeinBereichPage({
         {state === 'buyer' && (
           <>
             <p className="mt-3 max-w-[660px] font-body text-lg leading-[1.7] text-secondary">
-              Willkommen zurück. Hier bestimmst du mit, wohin die OneFam-Reise als Nächstes geht.
+              Willkommen zurück. Hier ist dein Überblick — und alles, was als Käufer dazukommt.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              <Link
-                href="/reiseziel"
-                className="group relative col-span-full overflow-hidden rounded-[14px] border border-gold/40 bg-bg p-6 transition-colors duration-200 hover:border-gold sm:p-7"
-                style={{ background: 'radial-gradient(120% 140% at 0% 0%, rgba(201,168,76,0.10), transparent 60%)' }}
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <MapPin size={18} strokeWidth={1.5} className="text-gold" />
-                      <span className="font-body text-xs font-medium uppercase tracking-[0.18em] text-gold">
-                        Käufer-Extra
-                      </span>
-                    </div>
-                    <h2 className="mt-3 font-display text-2xl font-semibold text-primary">Reiseziel-Voting</h2>
-                    <p className="mt-2 max-w-[460px] font-body text-base leading-relaxed text-secondary">
-                      Stimme mit, wohin es geht — erst der Kontinent, dann das Land, dann der Ort. Jede Phase mit eigenem
-                      Countdown.
-                    </p>
-                    <span className="mt-4 inline-flex items-center gap-1.5 font-body text-sm font-medium text-gold">
-                      Jetzt mitbestimmen
-                      <ArrowRight size={16} strokeWidth={1.5} className="transition-transform group-hover:translate-x-0.5" />
-                    </span>
-                  </div>
-                </div>
-              </Link>
+              {/* Hier stand bis zum 08.09.2026 eine grosse Goldkachel "Reiseziel-Voting",
+                  die auf /reiseziel verlinkte. Diese Route ist beim Umschwenken auf
+                  trust-first (20.07.2026) geloescht worden — der Link lief seitdem auf
+                  einen 404, und zwar ausgerechnet fuer eingeloggte Kaeufer, also fuer
+                  die Leute, die schon gekauft haben. Aufgefallen ist es erst, weil beim
+                  Aufraeumen nach Verweisen auf die geloeschte Route gesucht wurde.
+
+                  Statt den Link zu flicken steht hier jetzt eine Karte ohne Ziel: das
+                  Voting ist gebaut und getestet, aber bis zur rechtlichen Freigabe
+                  geparkt. Eine Kachel, die "Jetzt mitbestimmen" verspricht, waere
+                  genau das, was Arbeitsregel 7 verbietet.
+
+                  Der Weg zurueck: Kachel wieder als <Link href="/reiseziel"> aufbauen,
+                  sobald app/[locale]/reiseziel wieder existiert. Die Bausteine dafuer
+                  liegen unangetastet in components/ (ReisezielVoting, VotingDesignMap)
+                  und app/actions/reiseziel.ts — siehe docs/handover-shop-pool.md. */}
+              <Card
+                icon={<Sparkles size={20} strokeWidth={1.5} className="text-faint" />}
+                title="Reiseziel-Voting — in Vorbereitung"
+                body="Als Käufer bestimmst du später mit, wohin die OneFam-Reise geht — erst der Kontinent, dann das Land, dann der Ort. Wir sagen dir Bescheid, sobald die Runde offen ist."
+                tone="soon"
+              />
 
               <Card
                 icon={<Sparkles size={20} strokeWidth={1.5} className="text-faint" />}

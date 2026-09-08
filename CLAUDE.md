@@ -343,7 +343,8 @@ der Weg zurück, beschrieben in `docs/handover-shop-pool.md`.
 - **Ausführer-Vereinbarung mit Shirt-King** — schriftlich festzulegen, vor dem ersten
   echten Paket in ein Drittland.
 - Footer-Branding-Zeile untergräbt die Premium-Wirkung
-- Tote Links
+- ~~Tote Links~~ — der einzige öffentlich erreichbare (`/mein-bereich` → `/reiseziel`,
+  nur im Zustand `buyer` sichtbar) ist am 08.09.2026 behoben. → `docs/stand.md`
 - Pauschaler Ausschluss des Widerrufsrechts ist nach deutschem Verbraucherrecht
   vermutlich angreifbar — vor Launch prüfen lassen
 
