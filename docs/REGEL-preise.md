@@ -93,6 +93,35 @@ nicht definiert — dann vorher auf die Produktliste wechseln.
 
 Alternativ: die **gerenderte Produktseite** ansehen. Was der Kunde sieht, zählt.
 
+## ⚠ Seit dem 08.09.2026 werden Preise automatisch zurueckgestellt
+
+**Snippet 108 „OneFam Preis-Rueckstellung"** (aktiv, global, Prioritaet 30) setzt an
+jeder Variation den Sollwert, sobald ein anderer oder ein **leerer** Preis
+geschrieben wird. Gebaut, weil der Schluessel von Shirt-King die Preise dreimal
+zurueckgeschrieben hat (07.09. zweimal, 08.09. einmal) und sich das bei PodOS
+absehbar nicht abstellen laesst.
+
+**Das heisst fuer jede Preisaenderung:** die Sollwerte stehen jetzt an **drei**
+Stellen, und alle drei muessen gemeinsam nachgezogen werden — sonst dreht die
+Automatik die Aenderung im wp-admin sofort zurueck:
+
+| | |
+|---|---|
+| **Snippet 108** | `of_preis_sollwert()` — die Automatik selbst |
+| **Snippet 106** | die Wache, die Abweichungen nur protokolliert |
+| **Snippet 11** | die festen Zeichenketten der Startseite und der Laenderkacheln |
+
+Dazu die EUR-Festpreise je Variation (`_regular_price_wmcp`) und Snippet 89.
+
+**Nachsehen, ob und wie oft eingegriffen wurde** (Einstellungen → Alle Einstellungen):
+`of_preis_rueckstellung_zaehler` und `of_preis_rueckstellung_zuletzt`; die Versuche
+selbst stehen weiter in `of_preis_abweichungen`.
+
+**Aktionspreise (`sale_price`) fasst die Automatik nicht an** — sie notiert nur, dass
+einer gefunden wurde. Am 08.09.2026 hatte keine der 438 geprueften Variationen einen.
+
+**Ruecknahme:** Snippet 108 deaktivieren. Es schreibt nichts als den Preis.
+
 ## Wo Preise sonst noch stehen
 
 **Snippet 11 trägt Preise als feste Zeichenketten**, nicht aus der Datenbank:

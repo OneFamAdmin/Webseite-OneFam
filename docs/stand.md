@@ -21,7 +21,7 @@
 | 8 | ⚠️ **zahls.ch geprueft — ein Punkt bleibt offen** | Am 08.09.2026 im eingeloggten Konto nachgesehen: **ein Auszahlungskonto ist hinterlegt**, keine Warnung, keine Rueckfrage, kein Verifizierungshinweis. **Aber der Kontoinhaber ist „Labinot Bajrami", eine Privatperson** — und zahls verlangt woertlich ein **geschaeftliches** Bankkonto. Beanstandet wird es nicht; es zeigt sich erst beim ersten echten Betrag. Guthaben ueberall CHF 0.00, nie eine Auszahlung erhalten. → „zahls.ch nachgesehen" unten |
 | 9 | ✅ **Hero umgebaut — erledigt 07.09.2026** | Marke jetzt als quadratischer Block ueber der Ueberschrift statt als formatfuellender Hintergrund; Laenderkacheln direkt hinter den Hero gezogen. Erstes Kleidungsstueck: **920 → 438 px** (Referenzfenster 1440 × 685), **1519 → 540 px** (390 × 844). Entschieden: Kacheln, **nicht** das Lifestyle-Bild — das zeigt Brasilien, und `/brazil/` ist pausiert. → unten „Hero umgebaut" |
 | 10 | 🎨 **Shop-Design: Startseite fertig, Unterseiten offen** | Stand 08.09.2026: der Hinweis „weitere Laender folgen" ist als Zeile unter der Kachelreihe zurueck, in allen vier Sprachen (Seite 4 666 → **4 712 px**). Die doppelten Fusszeilen und die 18 Galeriebilder waren **keine Befunde** — nachgeprueft, siehe unten. Die Signature-Reihe auf `/shop-by-country/` steht ebenfalls auf **vier** Kacheln (Seite 13 501 → **13 215 px**). **Die 14 Router-Seiten gehoeren nicht hierher:** den acht umgeleiteten fehlen die Modellbilder, das ist ein Laenderlauf, kein Design (→ „Die 14 Router-Seiten nachgezaehlt"). Die Laenderwand ist am 08.09. von **11 706 auf 1 043 px** gekuerzt (Seite 13 215 → **3 063**, Handy 31 299 → **5 511**), die kaputte Suche behoben. Der Sprach-Cookie-Fehler ist behoben (Snippets 42 und 26 lesen jetzt die Adresse vor dem Cookie). Die Produktseite hat eine **neutrale Buehne** statt des warmen Cremes — die Fotos sitzen jetzt randlos. **Weiter offen:** die Karte ist 1 080 statt 1 360 px breit (erst neue Bildgroessen noetig), die Produktfotos brauchen einen **einheitlichen Hintergrund beim Ausgeben**, `/de/warenkorb/` und `/de/kasse/` verlieren ihr Sprachpraefix — **nachgemessen und bewusst nicht gebaut**, weil kein Link dorthin fuehrt, die Sprache ueber das Cookie erhalten bleibt und die Seiten `noindex` tragen. |
-| 11 | 🔴 **Shirt-King darf keine Preise in den Shop schreiben** | **Am 08.09.2026 zum dritten Mal passiert** (08:32–08:34, 188 Variationen, beide Sweater auf 60 statt 65; einer davon **publish**). Zurueckgesetzt und vollstaendig nachgemessen: 42 Produkte, 3 218 Variationen, 0 Abweichungen. **Neu belegt:** der Sync schreibt **nur den Basispreis**, und der ist **CHF** — die EUR-Festpreise bleiben unberuehrt. Die ankommenden Werte 35 / 60 sind die gerundeten **EUR**-Preise. **Deshalb waere „EUR-Preise in PodOS eintragen" der falsche Schluss.** Bitte an Shirt-King, in dieser Reihenfolge: **gar keine Preise schreiben**, sonst CHF 40 / 65 / 75 — und die Frage, ob PodOS ueberhaupt CHF fuehren kann. **Gehoert in die offene Anfrage aus Punkt 6.** |
+| 11 | ✅ **Preis-Rueckschreiben ist entschaerft — Snippet 108 stellt zurueck** | **Am 08.09.2026 zum dritten Mal passiert** (08:32–08:34, 188 Variationen, beide Sweater auf 60 statt 65; einer davon **publish**). Zurueckgesetzt und vollstaendig nachgemessen: 42 Produkte, 3 218 Variationen, 0 Abweichungen. **Neu belegt:** der Sync schreibt **nur den Basispreis**, und der ist **CHF** — die EUR-Festpreise bleiben unberuehrt. Die ankommenden Werte 35 / 60 sind die gerundeten **EUR**-Preise. **Deshalb waere „EUR-Preise in PodOS eintragen" der falsche Schluss.** Bitte an Shirt-King, in dieser Reihenfolge: **gar keine Preise schreiben**, sonst CHF 40 / 65 / 75 — und die Frage, ob PodOS ueberhaupt CHF fuehren kann. **Seit dem 08.09.2026 faengt Snippet 108 es ab** (geprueft: falscher wie leerer Preis springen sofort auf den Sollwert zurueck). Die Bitte an Shirt-King ist damit **kein Sperrpunkt mehr**, nur noch eine Information. |
 
 **Der Trichter bleibt geparkt** (freie Auswahl, Käufer-Voting) bis zur rechtlichen
 Freigabe. Nicht als toten Code aufräumen.
@@ -158,6 +158,82 @@ Berlin. Kernbitte: **das Preisfeld aus dem Sync nehmen, nicht bei sich leeren.**
 **Nebenbefund, der eine aeltere Notiz korrigiert:** Bestellung 5165 traegt
 `variation_id 3114`. In `shop-und-pool-details.md` steht „Bestellpositionen tragen
 `variation_id = 0`". Das gilt so nicht mehr — wer sich darauf verlaesst, misst neu.
+
+
+#### Entschieden: von hier aus loesen, nicht bei Shirt-King (08.09.2026)
+
+**Der Einwand des Inhabers, und er traegt:** PodOS gehoert einer britischen Firma;
+eine Sync-Funktion fuer einen einzelnen Haendler zu aendern hiesse Ticket, Rueckfragen
+und Warten — mit ungewissem Ausgang. Die Nachricht an Christian ist deshalb **nicht
+der Weg zur Loesung**, sondern hoechstens eine Information nebenher.
+
+**Zuerst geprueft, ob es nicht doch einfacher geht: die EUR-Preise in PodOS
+eintragen.** Rechnerisch ginge das fast auf — waere EUR unsere Basiswaehrung, kaeme
+von dort 35 / 60 / 70 gegen unsere 34,95 / 59,99 / 69,99, ein Fehler von **1 bis 5
+Rappen**. **Es scheitert daran, dass unsere Basiswaehrung CHF ist** und der Wert
+**ohne Umrechnung** in genau diesem Feld ankommt:
+
+| | soll CHF | kaeme aus PodOS | Verlust je Stueck |
+|---|---|---|---|
+| Hoodie | 75 | 69,99 | **−5,01 (−6,7 %)** |
+| Sweater | 65 | 59,99 | **−5,01 (−7,7 %)** |
+| Shirt | 40 | 34,95 | **−5,05 (−12,6 %)** |
+
+**Und die Annahme „Shirt-King versendet nur in EU-Laender" stimmt nicht.** Die
+Versandliste des eigenen Shops nennt **Schweiz, Norwegen, Liechtenstein und UK &
+Nordirland** — vier Drittlaender; die Tarifliste von Shirt-King fuehrt sie einzeln
+(44 Tarife, 22 Laender). Fuer PodOS mag der typische Kunde deutsch sein, fuer OneFam
+ist die Schweiz der Heimatmarkt — deshalb ist CHF ueberhaupt die Basiswaehrung.
+
+**Die Basiswaehrung auf EUR umstellen** waere die einzige Variante, in der PodOS'
+Werte passen. Sie kostet: alle 3 218 Variationen umhaengen, die CURCY-Festpreise
+spiegeln, Snippet 89 umdrehen, Zahlungsweg und Buchhaltung nachziehen — und der
+Schweizer Kunde zahlte in Euro, mit Fremdwaehrungsgebuehr seiner Bank. **Verworfen.**
+
+**Ebenfalls verworfen:** den Schluessel auf „nur Lesen" setzen. Der Sync legt auch
+Variationen an (3 210 → 3 218 zwischen dem 07. und 08.09.), das braeche vermutlich die
+Produktanbindung. Und: das Preisfeld aus fremden Anfragen herausfiltern — dann
+entstuenden **neu angelegte Variationen ohne Preis**, und die sind unverkaeuflich.
+
+### Snippet 108: Preise stellen sich jetzt selbst zurueck — 08.09.2026
+
+**Gebaut**: „OneFam Preis-Rueckstellung: falsche und leere CHF-Preise korrigieren",
+**ID 108**, aktiv, global, **Prioritaet 30** — also nach der Wache (20 und 21), damit
+der Versuch erst protokolliert und dann korrigiert wird.
+
+Er haengt an denselben zwei Haken (`woocommerce_update_product_variation`,
+`woocommerce_new_product_variation`), leitet den Sollwert aus dem Slug des
+Elternprodukts ab (hoodie 75, sweater 65, shirt 40) und setzt ihn, sobald etwas
+anderes oder **nichts** dort steht. Eine statische Sperre verhindert, dass das eigene
+`save()` den Haken erneut ausloest.
+
+**Geprueft, nicht nur gebaut** — an Variation 558 des **privaten**
+`onefam-white-logo-shirt`:
+
+| Versuch | Ergebnis | Protokoll |
+|---|---|---|
+| Preis auf **35** gesetzt | **sofort wieder 40**, kaufbar, EUR-Meta `{"EUR":"34.95"}` unberuehrt | `… | Variation 558 | 35 -> 40` |
+| Preis **geleert** | **sofort wieder 40**, kaufbar | `… | Variation 558 | LEER -> 40` |
+
+Zaehler `of_preis_rueckstellung_zaehler` danach **2**. Die Wache hat beide Versuche
+zusaetzlich notiert (`of_preis_abweichungen_zaehler` 189 → **191**) — **so bleibt
+sichtbar, wie oft der Sync es versucht**, auch wenn es keinen Schaden mehr anrichtet.
+Stichprobe ueber vier Produkte (364 Variationen) danach: **0 Abweichungen**.
+
+**ACHTUNG, das ist ab jetzt eine Preisautomatik.** Die Sollwerte stehen an **drei**
+Stellen — Snippet 108, Snippet 106 und die festen Zeichenketten in Snippet 11 — und
+muessen gemeinsam nachgezogen werden. Sonst dreht die Automatik eine Preisaenderung im
+wp-admin sofort zurueck. Steht auch in `REGEL-preise.md`.
+
+**Aktionspreise werden nicht angefasst**, nur notiert: am 08.09.2026 hatte keine der
+438 geprueften Variationen einen, und wer einmal eine Aktion fahren will, soll nicht
+gegen eine Automatik kaempfen muessen. **Das bleibt die eine offene Luecke** — ein
+Aktionspreis vom Sync wuerde nur im Protokoll auftauchen, nicht korrigiert werden.
+
+**Die Nachricht an Christian bleibt sinnvoll, aber klein:** drei Saetze, dass wir das
+Ueberschreiben jetzt selbst abfangen — damit dort niemand raetselt, wenn Fehler
+auflaufen. Der lange Entwurf in `docs/entwuerfe/` ist damit ueberholt und nur noch die
+Belegsammlung.
 
 
 ### Sprachpraefix bei Warenkorb und Kasse — nachgemessen, **bewusst nicht gebaut** (08.09.2026)
