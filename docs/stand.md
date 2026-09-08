@@ -35,6 +35,63 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 
 ## Was zuletzt gemacht wurde — neueste zuerst
 
+### PodOS-Sync: Bilder sind NICHT zurueckgeschrieben — geprueft 08.09.2026, 22:42
+
+Der offene Vorbehalt („schreibt ein Sync auch Galeriebilder zurueck?") ist erstmals
+gemessen. **Ergebnis: nein.**
+
+| Produkt | Soll | Ist | zurueckgekehrte Bilder |
+|---|---|---|---|
+| Argentinien Sweater 1963 | 33 | **33** | 0 |
+| Argentinien Hoodie 1787 | 32 | **32** | 0 |
+| Argentinien Shirt 2985 | 37 | **37** | 0 |
+| Afghanistan Shirt 3786 | 45 | **45** | 0 |
+| Afghanistan Hoodie 2566 | 38 | **38** | 0 |
+| Afghanistan Sweater 2668 | 43 | **43** | 0 |
+| Andorra Sweater 3888 | 35 | **35** | 0 |
+| Andorra Hoodie 3968 | 37 | **37** | 0 |
+| Andorra Shirt 3108 | 46 | **46** | 0 |
+
+**Keine der 61 entfernten Anhang-IDs ist wieder in einer Galerie.**
+
+Mitgeprueft, weil ein Sync sich dort zuerst zeigt:
+
+| | |
+|---|---|
+| Variationen der neun Produkte | **678**, exakt wie am Nachmittag gezaehlt — **keine neu angelegt** |
+| CHF-Preise ueber alle 678 Variationen | **0 Abweichungen** (40 / 65 / 75 je nach Produkt) |
+
+#### Es war auch tatsaechlich Aktivitaet da — das macht den Befund erst belastbar
+
+Ein „nichts passiert" waere wertlos, wenn gar kein Sync gelaufen waere. Deshalb
+der Schluessel nachgesehen:
+
+**Schluessel ID 3 „heldenwerbung-409340 – API" (Lesen/Schreiben) zuletzt benutzt:
+08.09.2026, 20:36 Uhr.** Die Bildloeschungen liefen um 18:45, 19:08, 19:35 und
+20:36; gemessen wurde um **22:42** — also gut zwei Stunden nach dem letzten
+Zugriff mit dem Schreibschluessel, und die Bilder sind weiterhin weg.
+
+#### Was damit NICHT bewiesen ist
+
+Der Zeitstempel sagt nur „Schluessel benutzt", **nicht** „vollstaendiger
+Produkt-Sync gelaufen". Der Zugriff um 20:36 kann ein blosser Lesezugriff
+gewesen sein. Die drei bekannten Preis-Rueckschreibungen waren jeweils grosse
+Aktionen (zuletzt 188 Variationen) und fanden **morgens** statt.
+
+**Der Vorbehalt ist damit abgeschwaecht, nicht ausgeraeumt.** Nach dem naechsten
+belegten Sync erneut zaehlen — die Sollwerte stehen in der Tabelle oben.
+
+#### Die Preis-Wache laesst sich von aussen nicht auslesen
+
+Snippet 106 schreibt seine Befunde in **`wp_options`**
+(`of_preis_wache_zuletzt`, `of_preis_abweichungen_zaehler`,
+`of_preis_abweichungen`), hat aber **keine REST-Route, keine Admin-Seite und
+keinen GET-Parameter**. Der Zaehler — der zeigen wuerde, ob Snippet 108
+zwischendurch eingreifen musste — ist deshalb nur ueber die Datenbank oder ein
+zusaetzliches Snippet zu sehen. **Wer die Wache regelmaessig auswerten will,
+muss ihr zuerst eine Ausgabe geben.**
+
+
 ### Signature-Satz neu geschrieben — 08.09.2026
 
 **Vorher:** „Nicht jeder gehoert zu genau einem Land. Das OneFam-Zeichen tragen
