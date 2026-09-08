@@ -20,7 +20,7 @@
 | 7 | ⚠️ **Preise gesetzt — Ursache gefunden, aber nicht behoben** | Am 07.09.2026 standen **364 Variationen** wieder auf der alten Reihe (Logo-Shirt 35 statt 40, Logo-Sweater 60 statt 65; zwei der vier Produkte **oeffentlich verkauft**). Gesetzt und vollstaendig nachgemessen: 42 Produkte, 3 210 Variationen, **0 Abweichungen**. **Die Ursache liegt bei Shirt-King:** deren Schluessel „heldenwerbung-409340" (Lesen/Schreiben) schrieb heute zweimal die alten Preise zurueck. **Es kommt wieder, solange PodOS die alten Werte fuehrt.** → siehe „Preise: die Ursache" unten und Punkt 11 |
 | 8 | ⚠️ **zahls.ch geprueft — ein Punkt bleibt offen** | Am 08.09.2026 im eingeloggten Konto nachgesehen: **ein Auszahlungskonto ist hinterlegt**, keine Warnung, keine Rueckfrage, kein Verifizierungshinweis. **Aber der Kontoinhaber ist „Labinot Bajrami", eine Privatperson** — und zahls verlangt woertlich ein **geschaeftliches** Bankkonto. Beanstandet wird es nicht; es zeigt sich erst beim ersten echten Betrag. Guthaben ueberall CHF 0.00, nie eine Auszahlung erhalten. → „zahls.ch nachgesehen" unten |
 | 9 | ✅ **Hero umgebaut — erledigt 07.09.2026** | Marke jetzt als quadratischer Block ueber der Ueberschrift statt als formatfuellender Hintergrund; Laenderkacheln direkt hinter den Hero gezogen. Erstes Kleidungsstueck: **920 → 438 px** (Referenzfenster 1440 × 685), **1519 → 540 px** (390 × 844). Entschieden: Kacheln, **nicht** das Lifestyle-Bild — das zeigt Brasilien, und `/brazil/` ist pausiert. → unten „Hero umgebaut" |
-| 10 | 🎨 **Shop-Design: Startseite fertig, Unterseiten offen** | Stand 08.09.2026: der Hinweis „weitere Laender folgen" ist als Zeile unter der Kachelreihe zurueck, in allen vier Sprachen (Seite 4 666 → **4 712 px**). Die doppelten Fusszeilen und die 18 Galeriebilder waren **keine Befunde** — nachgeprueft, siehe unten. **Weiter offen:** im Router liegen 14 fertige Seiten, erreichbar sind 6; `/shop-by-country/` ist **13 501 px** hoch (249 von 253 Kacheln „Bald verfuegbar"); die Signature-Reihe zeigt dort noch **sieben** Kacheln statt vier; die Produktseite nutzt **958 von 1440 px** Breite; der Sprach-Cookie-Fehler ist unveraendert. |
+| 10 | 🎨 **Shop-Design: Startseite fertig, Unterseiten offen** | Stand 08.09.2026: der Hinweis „weitere Laender folgen" ist als Zeile unter der Kachelreihe zurueck, in allen vier Sprachen (Seite 4 666 → **4 712 px**). Die doppelten Fusszeilen und die 18 Galeriebilder waren **keine Befunde** — nachgeprueft, siehe unten. **Weiter offen:** im Router liegen 14 fertige Seiten, erreichbar sind 6; `/shop-by-country/` ist **13 501 px** hoch (249 von 253 Kacheln „Bald verfuegbar"); die Signature-Reihe steht dort seit dem 08.09. ebenfalls auf **vier** Kacheln (Seite 13 501 → **13 215 px**); die Produktseite nutzt **958 von 1440 px** Breite; der Sprach-Cookie-Fehler ist unveraendert. |
 | 11 | 🔴 **Shirt-King muss die CHF-Preise in PodOS korrigieren** | Ihr Schluessel schreibt sie sonst weiter zurueck — am 07.09.2026 zweimal (07:56 und 20:24 Uhr). Soll: **Shirt 40, Sweater 65, Hoodie 75**; sie senden 35 / 60. **Gehoert in die offene Anfrage aus Punkt 6.** Den Schluessel annullieren ist keine Loesung — er ist die Produktanbindung des Fulfillers. |
 
 **Der Trichter bleibt geparkt** (freie Auswahl, Käufer-Voting) bis zur rechtlichen
@@ -33,6 +33,67 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 ---
 
 ## Was zuletzt gemacht wurde — neueste zuerst
+
+### Signature-Reihe auf /shop-by-country/ auch auf vier Kacheln — 08.09.2026
+
+Auf der Startseite steht die Signature-Reihe seit dem 07.09. auf vier Kacheln, auf
+`/shop-by-country/` standen weiter **sieben**. `.sigrid` ist dort ebenfalls
+vierspaltig — die fuenfte Kachel riss eine zweite Reihe auf, in der **drei Kacheln
+standen und ein Platz leer blieb**.
+
+**Der Eingriff ist derselbe wie am 07.09., aber die Stelle war anders gebaut.** Auf
+der Startseite gab es bereits eine Liste `SOON`; hier waren die sieben Kacheln **fest
+verkettet** (`kauf(...) + kauf(...) + bald(...) × 5`). Daraus ist jetzt eine Liste
+`BALD` mit `BALD_ZEIGEN=2` und einer Schleife geworden. **Die Liste bleibt
+vollstaendig** — Platinum, Bronze und Gold stehen mit ihren Bildadressen unveraendert
+im Snippet, nur die Anzeige ist begrenzt. Damit ist die Mechanik auf beiden Seiten
+dieselbe.
+
+**Die Tiefenlinks bleiben fuer alle fuenf gueltig — nachgeprueft, nicht vermutet.**
+`/shop-by-country/#sig-logo-<name>` ruft `openM()` ueber den **Namen**, nicht ueber
+die Kachel:
+
+| Adresse | Kachel sichtbar? | Fenster oeffnet |
+|---|---|---|
+| `#sig-logo-white` | ja | **„Logo White – Bald verfügbar"** |
+| `#sig-logo-platinum` | **nein** | **„Logo Platinum – Bald verfügbar"** |
+| `#sig-logo-gold` | **nein** | **„Logo Gold – Bald verfügbar"** |
+
+Die Startseite verlinkt ohnehin nur White und Pink — sie baut ihre Links aus
+`'/shop-by-country/#sig-'+slug(SOON[i][0])` und zeigt seit dem 07.09. nur die ersten
+zwei.
+
+**Nachgemessen, ausgeloggt, ohne Cache-Umgehung** (1440 × 820, `/de/`):
+
+| | vorher | nachher |
+|---|---|---|
+| Kacheln in `#lltiles` | 7 (2 live, 5 bald) | **4** (2 live, 2 bald) |
+| Reihen | 2, zweite mit einer Luecke | **1, voll** |
+| Hoehe `#lltiles` | 564 px | **278 px** |
+| Abschnitt `#signature` | 721 px | **435 px** |
+| `#allc` beginnt bei | 1 219 px | **934 px** |
+| Seitenhoehe | 13 501 px | **13 215 px** |
+| Eintraege in `#allc` | 253 | **253, unveraendert** |
+
+**Alle vier Sprachen, je mit geloeschtem `ofl`-Cookie:** vier Kacheln, Reihe 278 px,
+Abzeichen uebersetzt — „Bald verfügbar", „Coming soon", „Bientôt disponible",
+„Próximamente". Seitenhoehe fr 13 171, es 13 148, en 13 125 px. Konsole leer.
+
+**Handy 390 × 844:** `.sigrid` faellt unter 860 px auf zwei Spalten, vier Kacheln
+ergeben **zwei volle Reihen** (419 px), kein Querlauf. **Startseite unveraendert**
+nachgemessen: 4 712 px, Hinweiszeile da, `#sgrid` weiter vier Kacheln.
+
+**Snippet 11 vorher 2 489 599 Zeichen, nachher 2 490 562** — nach dem Neuladen
+nachgeprueft, `active` weiter `true`, `code_error` leer. Sicherung des alten Blocks:
+`docs/sicherung/snippet11-signature-shopbycountry-vor-08092026.js`.
+
+**⚠️ Messfalle, in die ich zuerst hineingelaufen bin.** Der erste Test der Tiefenlinks
+sagte „Fenster oeffnet nicht" — auch fuer die **sichtbare** Kachel White. Ursache:
+das Browser-Werkzeug ruft die Adresse ohne Anker auf und **setzt den Anker erst nach
+dem Laden**; beim Start war `location.hash` leer, und die Pruefung im Skript laeuft
+genau einmal beim Laden. **Richtig gemessen wird so:** Anker setzen, **dann neu
+laden**. Danach oeffneten alle drei Fenster. Haette ich der ersten Messung geglaubt,
+haette ich einen Fehler gesucht, den es nicht gibt.
 
 ### Hinweiszeile auf der Startseite: weitere Laender folgen — 08.09.2026
 
@@ -118,8 +179,9 @@ folgt dem Umfeld und bleibt praefixlos. **Einheitlich ist es nicht.**
 `#allc` allein **11 706 px** mit **253 Kacheln — 4 verlinkt, 249 „Bald verfuegbar"**
 (als `<button>`, sie laufen also in kein 404). Die Wand hat aber ein **Suchfeld**
 („Nach deinem Land suchen…") und je Land eine E-Mail-Anmeldung, sie ist nicht nur
-Deko. **Offen bleibt:** die Signature-Reihe zeigt dort weiter **sieben** Kacheln
-(2 live, 5 „bald") — auf der Startseite sind es seit dem 07.09. **vier**.
+Deko. ~~Offen bleibt: die Signature-Reihe zeigt dort weiter sieben Kacheln.~~
+**Erledigt am 08.09.2026** — auch dort vier, siehe „Signature-Reihe auf
+/shop-by-country/" oben.
 
 ### zahls.ch nachgesehen — 08.09.2026
 
