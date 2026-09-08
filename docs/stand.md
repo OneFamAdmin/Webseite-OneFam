@@ -35,6 +35,70 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 
 ## Was zuletzt gemacht wurde — neueste zuerst
 
+### Zehn schlecht erzeugte Modellbilder aus dem Argentinien-Hoodie — 08.09.2026
+
+Auf Zuruf entfernt, **nur beim Hoodie** (Produkt **1787**, Slug
+`argentina-hoodie`). Galerie **42 → 32 Bilder**. Grund: der Druck sitzt verzerrt
+oder unsauber auf dem Stoff.
+
+**Ausdruecklich entschieden: es werden keine neuen Bilder dafuer erzeugt.** Die
+betroffenen Farben zeigen kuenftig weniger Ansichten — das ist gewollt, kein
+offener Punkt.
+
+| Anhang-ID | Datei |
+|---|---|
+| 7324 · 7323 · 7325 | `White_Frau_frontal` · `White_Frau_Taschen` · `White_Mann_Huefte` |
+| 7317 | `Red_Frau_Taschen` |
+| 7306 · 7309 | `CottonPink_Frau_frontal` · `CottonPink_Mann_frontal` |
+| 7314 | `HeatherGrey_Mann_Taschen` |
+| 7303 · 7298 | `AquaBlue_Mann_frontal` · `AquaBlue_Frau_frontal` |
+| 7331 | `schwarz_Mann_Taschen` |
+
+**Sicherung:** `docs/sicherungen/galerie-1787-argentinien-hoodie-vor-08092026.md`
+— alle 42 Anhang-IDs in der urspruenglichen Reihenfolge und der Weg zurueck.
+Dateien bleiben in der Mediathek, keine der **56 Variationen** benutzte eines
+der zehn als Variationsbild.
+
+#### Was jede Farbe jetzt noch hat
+
+| Farbe | Bilder | Modellbilder |
+|---|---|---|
+| Heather Grey · Red · Schwarz | **6** | je 5 |
+| Aqua Blue · Cotton Pink | **5** | je 4 |
+| **White** | **4** | **3 — davon nur eines mit einer Frau** (`Frau_Huefte`) |
+
+**White ist der duennste Fall.** Wer dort spaeter nachlegen will, braucht genau
+zwei Aufnahmen: eine Frau frontal und eine mit Haenden in der Bauchtasche.
+
+#### Nachgemessen
+
+| | |
+|---|---|
+| `wc/v3` frisch gelesen | **32 Bilder**, keines der zehn mehr enthalten |
+| Hauptbild | unveraendert `schwarz_Freihaengend` |
+| gerenderte Seite, eingeloggt | White 4, Aqua Blue 5, Schwarz 6 — die zehn fehlen |
+| **ausgeloggt gemessen** (`credentials:'omit'`) | keiner der zehn Dateinamen mehr im HTML |
+| Preis eingeloggt gerendert | **CHF 75.00** |
+
+**Eine Beobachtung, die kurz nach einem Preisfehler aussah:** ausgeloggt und
+ohne Cookies liefert der Server **€ 69.99** statt CHF 75.00. Das ist **richtig**
+— die Waehrung folgt dem Geraet (Zeitzone → IP-Land → Browsersprache), und einem
+`fetch` ohne Cookies fehlen diese Signale; im Browser korrigiert das Skript. Und
+69,99 ist der korrekte EUR-Festpreis, **nicht** das Fehlerbild 82,50.
+
+#### Wie die zehn identifiziert wurden
+
+**Sieben ueber die Position des markierten Thumbnails.** Die Galerie zeigt bei
+gewaehlter Farbe genau deren Bilder in der Galerie-Reihenfolge: 1 Freihaengend,
+2 Frau_frontal, 3 Frau_Taschen, 4 Frau_Huefte, 5 Mann_frontal, 6 Mann_Taschen,
+7 Mann_Huefte. Derselbe Anker wie beim Sweater, dort an zwei Bildern mit
+sichtbarer Adresse geprueft.
+
+**Bei den drei weissen war die Thumbnail-Leiste abgeschnitten.** Die wurden ueber
+die Pose zugeordnet und mit den Originalen nebeneinandergelegt: Arme seitlich =
+`frontal`, Haende in der Bauchtasche = `Taschen`, Hand an der Huefte = `Huefte`.
+
+
 ### Britische Flagge ueber deutschem Text — behoben 08.09.2026
 
 Auf `/mein-bereich` und `/login` zeigte der Sprachumschalter **die britische
