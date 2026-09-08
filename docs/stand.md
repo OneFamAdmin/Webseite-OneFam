@@ -35,6 +35,63 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 
 ## Was zuletzt gemacht wurde — neueste zuerst
 
+### „Ausgewaehlte Laender" entschwaerzt — 08.09.2026
+
+Die zweite Reihe auf der Startseite (Produktkacheln mit Preis) zeigte **alle
+vier Kleidungsstuecke in Schwarz**. Jetzt vier Farben, dazu ein sauberer Wechsel
+Frau/Mann/Frau/Mann:
+
+| | Produkt | Person | Farbe |
+|---|---|---|---|
+| 1 | Albania Hoodie | **Frau** | **Weiss** |
+| 2 | Argentina Sweater | **Mann** | **Mindful Blue** |
+| 3 | Afghanistan Shirt | **Frau** | **Green Bay** |
+| 4 | Andorra Hoodie | **Mann** | **Cotton Pink** |
+
+**Bewusst andere Farben als in der Kachelreihe darueber** (Schwarz, Aqua Blue,
+Rot, Viva Yellow) — sonst stuende dasselbe Kleidungsstueck zweimal auf einer
+Seite. Das Produkt selbst ist durch den Link festgelegt und wurde nicht
+geaendert; nur das Bild.
+
+#### ⚠️ Hier war blindes Ersetzen gefaehrlich
+
+Anders als bei der Kachelreihe kommen diese Dateinamen **mehrfach** im Code vor
+(zwei- bis dreimal), und `fcard` steht **528×** im Snippet — dieselbe Kachelform
+wird auch ausserhalb der Startseite benutzt.
+
+**Gemessen statt angenommen:** die Startseiten-Bilder liegen im `feat`-Objekt
+zwischen Position **47 000 und 51 000**; die uebrigen Vorkommen liegen bei
+1,3 bis 1,8 Millionen und gehoeren zu `fcard`-Bloecken anderer Seiten. Ersetzt
+wurde deshalb **positionsgenau** (von hinten nach vorn, damit sich die Positionen
+nicht verschieben) statt per `replace`.
+
+**Der Beleg, dass es gewirkt hat, ohne Fremdes zu treffen:** die Zahl der
+Vorkommen ausserhalb sank bei jedem Namen um **genau eins** (2→1, 3→2, 2→1,
+2→1).
+
+#### Nachgemessen
+
+| | |
+|---|---|
+| Zeichenlaenge nach dem Neuladen | **2 497 073** — exakt berechnet (vorher 2 497 043, +30) |
+| Snippet | weiter **aktiv** |
+| die vier neuen Namen im `feat`-Bereich | alle **vorhanden** |
+| die vier Bilder der Kachelreihe darueber | **unberuehrt**, einzeln geprueft |
+| **Startseite ausgeloggt** | alle vier neuen Dateinamen im HTML, **keiner** der alten |
+| Preise in der Reihe | **CHF 75 · 65 · 40 · 75**, unveraendert |
+
+Vierter Schreibvorgang in Folge mit **Status 200 und leerem Rumpf** — bei diesem
+Snippet der Normalfall.
+
+#### Ein Detail fuer das naechste Mal
+
+Die Karten dieser Reihe sind im gelieferten HTML **nicht** ueber `a.fcard`
+auffindbar (die Klasse sitzt auf einem anderen Element), und die Bilder sind
+**nicht** die Produkt-Hauptbilder — beim Afghanistan-Shirt zeigt die Kachel
+`Frau_frontal`, das Produkt-Hauptbild ist aber `Freihaengend`. Wer hier misst,
+sucht am besten direkt nach den Dateinamen.
+
+
 ### Afghanistan-Kachel auf den roten Sweater gesetzt — 08.09.2026
 
 Auf Zuruf: `OneFam_Afghanistan_Sweater_Red_Frau_frontal_4k-1-768x953.webp`
