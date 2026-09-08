@@ -20,7 +20,7 @@
 | 7 | ⚠️ **Preise gesetzt — Ursache gefunden, aber nicht behoben** | Am 07.09.2026 standen **364 Variationen** wieder auf der alten Reihe (Logo-Shirt 35 statt 40, Logo-Sweater 60 statt 65; zwei der vier Produkte **oeffentlich verkauft**). Gesetzt und vollstaendig nachgemessen: 42 Produkte, 3 210 Variationen, **0 Abweichungen**. **Die Ursache liegt bei Shirt-King:** deren Schluessel „heldenwerbung-409340" (Lesen/Schreiben) schrieb heute zweimal die alten Preise zurueck. **Es kommt wieder, solange PodOS die alten Werte fuehrt.** → siehe „Preise: die Ursache" unten und Punkt 11 |
 | 8 | ⚠️ **zahls.ch geprueft — ein Punkt bleibt offen** | Am 08.09.2026 im eingeloggten Konto nachgesehen: **ein Auszahlungskonto ist hinterlegt**, keine Warnung, keine Rueckfrage, kein Verifizierungshinweis. **Aber der Kontoinhaber ist „Labinot Bajrami", eine Privatperson** — und zahls verlangt woertlich ein **geschaeftliches** Bankkonto. Beanstandet wird es nicht; es zeigt sich erst beim ersten echten Betrag. Guthaben ueberall CHF 0.00, nie eine Auszahlung erhalten. → „zahls.ch nachgesehen" unten |
 | 9 | ✅ **Hero umgebaut — erledigt 07.09.2026** | Marke jetzt als quadratischer Block ueber der Ueberschrift statt als formatfuellender Hintergrund; Laenderkacheln direkt hinter den Hero gezogen. Erstes Kleidungsstueck: **920 → 438 px** (Referenzfenster 1440 × 685), **1519 → 540 px** (390 × 844). Entschieden: Kacheln, **nicht** das Lifestyle-Bild — das zeigt Brasilien, und `/brazil/` ist pausiert. → unten „Hero umgebaut" |
-| 10 | 🎨 **Shop-Design: Startseite fertig, Unterseiten offen** | Stand 08.09.2026: der Hinweis „weitere Laender folgen" ist als Zeile unter der Kachelreihe zurueck, in allen vier Sprachen (Seite 4 666 → **4 712 px**). Die doppelten Fusszeilen und die 18 Galeriebilder waren **keine Befunde** — nachgeprueft, siehe unten. Die Signature-Reihe auf `/shop-by-country/` steht ebenfalls auf **vier** Kacheln (Seite 13 501 → **13 215 px**). **Die 14 Router-Seiten gehoeren nicht hierher:** den acht umgeleiteten fehlen die Modellbilder, das ist ein Laenderlauf, kein Design (→ „Die 14 Router-Seiten nachgezaehlt"). Die Laenderwand ist am 08.09. von **11 706 auf 1 043 px** gekuerzt (Seite 13 215 → **3 063**, Handy 31 299 → **5 511**), die kaputte Suche behoben. Der Sprach-Cookie-Fehler ist behoben (Snippets 42 und 26 lesen jetzt die Adresse vor dem Cookie). **Weiter offen:** die Produktseite nutzt nur **958 von 1440 px** Breite; `/de/warenkorb/` und `/de/kasse/` verlieren ihr Sprachpraefix. |
+| 10 | 🎨 **Shop-Design: Startseite fertig, Unterseiten offen** | Stand 08.09.2026: der Hinweis „weitere Laender folgen" ist als Zeile unter der Kachelreihe zurueck, in allen vier Sprachen (Seite 4 666 → **4 712 px**). Die doppelten Fusszeilen und die 18 Galeriebilder waren **keine Befunde** — nachgeprueft, siehe unten. Die Signature-Reihe auf `/shop-by-country/` steht ebenfalls auf **vier** Kacheln (Seite 13 501 → **13 215 px**). **Die 14 Router-Seiten gehoeren nicht hierher:** den acht umgeleiteten fehlen die Modellbilder, das ist ein Laenderlauf, kein Design (→ „Die 14 Router-Seiten nachgezaehlt"). Die Laenderwand ist am 08.09. von **11 706 auf 1 043 px** gekuerzt (Seite 13 215 → **3 063**, Handy 31 299 → **5 511**), die kaputte Suche behoben. Der Sprach-Cookie-Fehler ist behoben (Snippets 42 und 26 lesen jetzt die Adresse vor dem Cookie). Die Produktseite hat eine **neutrale Buehne** statt des warmen Cremes — die Fotos sitzen jetzt randlos. **Weiter offen:** die Karte ist 1 080 statt 1 360 px breit (erst neue Bildgroessen noetig), die Produktfotos brauchen einen **einheitlichen Hintergrund beim Ausgeben**, und `/de/warenkorb/` und `/de/kasse/` verlieren ihr Sprachpraefix. |
 | 11 | 🔴 **Shirt-King muss die CHF-Preise in PodOS korrigieren** | Ihr Schluessel schreibt sie sonst weiter zurueck — am 07.09.2026 zweimal (07:56 und 20:24 Uhr). Soll: **Shirt 40, Sweater 65, Hoodie 75**; sie senden 35 / 60. **Gehoert in die offene Anfrage aus Punkt 6.** Den Schluessel annullieren ist keine Loesung — er ist die Produktanbindung des Fulfillers. |
 
 **Der Trichter bleibt geparkt** (freie Auswahl, Käufer-Voting) bis zur rechtlichen
@@ -33,6 +33,80 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 ---
 
 ## Was zuletzt gemacht wurde — neueste zuerst
+
+### Produktseite: neutrale Buehne statt Creme — 08.09.2026
+
+Die Notiz sagte „heller Bereich `#F4EFE6` im schwarzen Markenraum". Beim Messen kam
+etwas Genaueres heraus: **das Problem ist nicht, dass die Flaeche hell ist, sondern
+dass sie warm ist.**
+
+**Die Produktfotos haben einen eingebackenen Hintergrund** — kein Alphakanal, rund
+**45 % der Bildflaeche**. Er ist **neutral grau und schwankt**; an 14 Bildern
+gemessen:
+
+| | |
+|---|---|
+| Spannweite der Hintergruende | **230 bis 246** (Grauwert) |
+| dunkelste | die **Weiss**-Aufnahmen (230, 233) — dort wurde auf das weisse Stueck belichtet |
+| Buehne vorher | Creme `#F4EFE6` = **244, 239, 230** |
+| Unterschied | steckt fast ganz im **Blaukanal**: 230 gegen 243 |
+
+Auf warmem Creme stand deshalb um **jedes** Foto ein kuehles Rechteck — und weil die
+Fotos untereinander um 16 Stufen schwanken, gibt es **keine Flaechenfarbe, die alle
+trifft**.
+
+**Geaendert: `body.single-product #left-area` auf `#F1F1F1`** — der Mittelwert der
+gemessenen Hintergruende. Bewusst **nur die Produktseite**; Warenkorb, Kasse und Konto
+zeigen keine Produktfotos in dieser Groesse und behalten das Creme (nachgemessen:
+Warenkorb weiter `rgb(244, 239, 230)`).
+
+**Nachgemessen am Albanien-Shirt, Abstand Bild zu Buehne je Kanal:**
+
+| Bild | Hintergrund | Abstand |
+|---|---|---|
+| GreenBay | 240,240,240 | **1 / 1 / 1** |
+| schwarz | 243,243,243 | 2 / 2 / 2 |
+| Red · GlazedGreen | 246,246,246 | 5 / 5 / 5 |
+| **White** | 230,233,230 | **11 / 8 / 11** — sichtbar, aber **neutral, ohne Farbstich** |
+| **CottonPink** | 231,216,221 | **10 / 25 / 20** — **rosa eingefaerbt** |
+
+**Der Rosa-Fund ist kein Messfehler.** An **acht Punkten** der Bildkante geprueft
+(vier Ecken, vier Kantenmitten): ueberall 231,216,221 bis 233,219,224. **Der
+Hintergrund dieser einen Aufnahme ist wirklich rosa** — die zieht auf jeder neutralen
+Flaeche ein farbiges Rechteck.
+
+**Damit ist die eigentliche Loesung benannt und liegt nicht im CSS:** ein
+**einheitlicher Hintergrund beim Ausgeben der Produktfotos**. Solange er zwischen 230
+und 246 schwankt und eine Aufnahme rosa ist, kann keine Flaechenfarbe alle treffen.
+Steht als Punkt beim naechsten Bildlauf.
+
+**Nicht angefasst: die Breite.** Die Karte ist 1 080 px breit, der Rest der Seite
+nutzt 1 360. Verbreitern kostet aber Schaerfe: **die Galeriedatei ist 600 px breit
+und wird bei 479 px angezeigt, ein `srcset` gibt es nicht** — eine 620-px-Spalte
+wuerde sie hochrechnen. Das Original mit **3 712 px** liegt vor (`data-large_image`,
+fuer die Lupe). **Erst neue Bildgroessen, dann verbreitern.**
+
+#### Zwei Fehler, die beim Messen mit auffielen — beide gab es schon vorher
+
+**1. Die Brotkrume war zu blass.** `#8A8A82` auf der hellen Flaeche ergab **3,08:1**
+bei 12,5 px Schrift — unter der Schwelle 4,5:1. Jetzt `#5C5C56`: **5,96:1** auf der
+Produktseite, rund 6,0:1 auf dem Creme der uebrigen Shop-Seiten. Dieselbe Korrektur
+wie beim Kaufknopf am 07.09.2026 (3,56 → 4,95).
+
+**2. „Ähnliche Produkte" ist absichtlich unsichtbar.** Die Ueberschrift wird
+**in der Flaechenfarbe gemalt** statt ausgeblendet — so bleibt ihr Abstand erhalten.
+Das faellt nur auf, wenn man die Flaechenfarbe aendert: sie waere sonst als blasses
+Creme auf Grau erschienen. **Mitgezogen auf `#F1F1F1`**, mit einem Kommentar an beiden
+Stellen: wer eine aendert, muss die andere nachziehen.
+
+**Kontraste danach, alle auf `#F1F1F1` gerechnet:** Ueberschrift **15,82:1** ·
+Kaufknopf **17,53:1** · Brotkrume **5,96:1** · die versteckte Ueberschrift **1,00:1**
+(so gewollt).
+
+**Weiter nachgemessen:** Seite 3 310 px (1440 × 820), am Handy 390 × 844 die Karte
+359 px breit, Galerie 357 px, Seite 4 828 px, **kein Querlauf**. Konsole in einem
+frischen Tab leer. Snippet 13 „OneFam WooCommerce Reskin (Dark Brand)":
+**13 095 → 14 835 Zeichen**, aktiv, kein Code-Fehler.
 
 ### Sprach-Cookie: die Adresse gewinnt jetzt auch im Browser — 08.09.2026
 
@@ -1838,10 +1912,12 @@ die korrigierten Werte — das Nachfuellen aus Snippet 105 hat gegriffen, wie ge
 - ~~Kaufknopf `opacity: 0.45`, Schrift 13 px, Kontrast 3,56:1.~~ **Erledigt am
   07.09.2026.** Deckkraft ist 1, Schrift 15 px, Kontrast ueberall **4,95:1** —
   siehe „Knopfkontrast" oben.
-- **Produktseite:** heller Bereich `#F4EFE6` im schwarzen Markenraum `#0A0A0A`,
-  und **958 von 1440 px** Breite genutzt — rechts bleibt Leerflaeche. ~~18
-  Galeriebilder als Kachelwand~~ war eine **Fehlzaehlung**: 18 im Markup, **9
-  sichtbar**, Kaufknopf bei 624 px ueber der Falz (08.09.2026).
+- ~~Produktseite: heller Bereich `#F4EFE6` im schwarzen Markenraum.~~ **Am
+  08.09.2026 geaendert** — die Buehne ist jetzt neutral `#F1F1F1`, damit die Fotos
+  randlos sitzen; das Creme war warm, die Fotohintergruende sind neutral. Offen
+  bleibt die **Breite** (1 080 statt 1 360 px; erst neue Bildgroessen) und der
+  **uneinheitliche Fotohintergrund** (230 bis 246, eine Aufnahme rosa). → „Produktseite:
+  neutrale Buehne statt Creme"
 - ~~Hero der Startseite: 597 px hoch, `#2C2620`, kein Bild.~~ **Zweimal ueberholt.**
   Es war ein Video ohne Vorschaubild (Korrektur weiter oben), und am 07.09.2026 wurde
   der Hero umgebaut: 525 px, Marke als Block, Kacheln direkt darunter.
