@@ -293,6 +293,18 @@ Schweizer MWST offen ausgewiesen, gezahlte Einfuhrsteuer als Vorsteuer:
 nicht 30 wie bei Hebel 2 und nicht 10 fuer nichts wie bei Hebel 1. Voraussetzung ist
 die ESTV-Bewilligung und die Registrierung im Schweizer MWST-Register.
 
+**Die Unterstellungserklaerung haengt an KEINER Umsatzschwelle.** Sie ist freiwillig
+(Art. 7 Abs. 3 Bst. a MWSTG) und wird nicht dadurch entbehrlich, dass man unter
+CHF 100'000 liegt — die 100'000 entscheiden nur, ob man **muss**, nicht ob man
+**darf**. Wer sie nicht beantragt, laesst die Tuerrechnung beim Kunden. Zwei Zahlen
+nicht verwechseln:
+
+| | |
+|---|---|
+| **Art. 10 MWSTG**, allgemeine Grenze CHF 100'000 | greift laut ESTV-Auskunft hier ohnehin nicht, solange die Einfuhrsteuer erhoben wird — **auch ueber 100'000 hinaus** |
+| **Art. 7 Abs. 3 Bst. b**, Versandhandel | CHF 100'000 aus **Kleinsendungen** (Einfuhrsteuer unter CHF 5) machen die Pflicht ab dem **Folgejahr** — **das Shirt-Paket mit 58 CHF ist genau so eine Kleinsendung**, diese Umsaetze gehoeren also mitgezaehlt |
+| **Unterstellungserklaerung**, Art. 7 Abs. 3 Bst. a | **freiwillig, schwellenlos** — der Weg, dem Kunden die Tuerrechnung abzunehmen |
+
 **Empfehlung: Preise nicht senken, Hebel 3 pruefen.** Der Kunde zahlt nicht zu viel
 fuer die Ware, er zahlt zweimal.
 
