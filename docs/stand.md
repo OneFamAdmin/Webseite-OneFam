@@ -119,6 +119,35 @@ Spracherkennung mit gesetzten Kopfzeilen gemessen:
 `npx tsc --noEmit` 0 Fehler · `npm run lint` keine Fehler · `npm run build` durch,
 37 Seiten.
 
+#### Live nachgemessen nach dem Deploy — 08.09.2026
+
+Vier Commits nach `main` gepusht (`8e37e8e..64bf42d`), Vercel hat deployt.
+Auf **onefam.ch** gemessen, nicht in der Vorschau:
+
+| Pfad | Status | `html lang` | Umschalter |
+|---|---|---|---|
+| `/dev`, `/design`, `/dev/faces`, `/dev/redesign` | **404** | — | — |
+| `/reiseziel` | 404 | — | — |
+| `/mein-bereich`, `/login` | **200** | **de** | **keiner** |
+| `/`, `/de`, `/de/join` | 200 | de | Sprache: Deutsch |
+| `/fr` | 200 | **fr** | Langue: Français |
+| `/es` | 200 | **es** | Idioma: Español |
+
+`/mein-bereich` liefert live ausserdem `aria-label="Menü öffnen"` und
+`"Menü schliessen"` — vorher „Open menu" / „Close menu".
+
+**Eine Falle beim Abnehmen:** die erste Messung direkt nach dem Push zeigte
+`/dev` bereits als 404, `/mein-bereich` aber noch mit `lang="en"`. Das sah nach
+einem halb wirksamen Umbau aus, war aber nur ein **noch laufender Deploy** —
+statische Antworten waren schon umgestellt, die dynamische Seite noch nicht.
+Wer hier zu frueh misst, jagt einen Fehler, den es nicht gibt. Der verlaessliche
+Anker war `robots.txt`: sobald dort `/dev` und `/design` fehlen, ist der neue
+Stand ausgeliefert.
+
+**Zur Einordnung:** `/` antwortet ueber curl auf Deutsch, obwohl keine
+Browsersprache mitgeschickt wird. Das ist der Vercel-Laenderkopf (Schweiz) —
+die dokumentierte Reihenfolge Cookie → Accept-Language → Land → Englisch.
+
 #### Zwei Dinge, die dabei nur so aussahen wie Fehler
 
 - **`/archiv` antwortet mit 404.** Das ist **Absicht** und im Code begruendet: die
