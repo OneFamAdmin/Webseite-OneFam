@@ -20,7 +20,7 @@
 | 7 | ⚠️ **Preise gesetzt — Ursache gefunden, aber nicht behoben** | Am 07.09.2026 standen **364 Variationen** wieder auf der alten Reihe (Logo-Shirt 35 statt 40, Logo-Sweater 60 statt 65; zwei der vier Produkte **oeffentlich verkauft**). Gesetzt und vollstaendig nachgemessen: 42 Produkte, 3 210 Variationen, **0 Abweichungen**. **Die Ursache liegt bei Shirt-King:** deren Schluessel „heldenwerbung-409340" (Lesen/Schreiben) schrieb heute zweimal die alten Preise zurueck. **Es kommt wieder, solange PodOS die alten Werte fuehrt.** → siehe „Preise: die Ursache" unten und Punkt 11 |
 | 8 | ⚠️ **zahls.ch geprueft — ein Punkt bleibt offen** | Am 08.09.2026 im eingeloggten Konto nachgesehen: **ein Auszahlungskonto ist hinterlegt**, keine Warnung, keine Rueckfrage, kein Verifizierungshinweis. **Aber der Kontoinhaber ist „Labinot Bajrami", eine Privatperson** — und zahls verlangt woertlich ein **geschaeftliches** Bankkonto. Beanstandet wird es nicht; es zeigt sich erst beim ersten echten Betrag. Guthaben ueberall CHF 0.00, nie eine Auszahlung erhalten. → „zahls.ch nachgesehen" unten |
 | 9 | ✅ **Hero umgebaut — erledigt 07.09.2026** | Marke jetzt als quadratischer Block ueber der Ueberschrift statt als formatfuellender Hintergrund; Laenderkacheln direkt hinter den Hero gezogen. Erstes Kleidungsstueck: **920 → 438 px** (Referenzfenster 1440 × 685), **1519 → 540 px** (390 × 844). Entschieden: Kacheln, **nicht** das Lifestyle-Bild — das zeigt Brasilien, und `/brazil/` ist pausiert. → unten „Hero umgebaut" |
-| 10 | 🎨 **Shop-Design: Startseite fertig, Unterseiten offen** | Stand 08.09.2026: der Hinweis „weitere Laender folgen" ist als Zeile unter der Kachelreihe zurueck, in allen vier Sprachen (Seite 4 666 → **4 712 px**). Die doppelten Fusszeilen und die 18 Galeriebilder waren **keine Befunde** — nachgeprueft, siehe unten. **Weiter offen:** im Router liegen 14 fertige Seiten, erreichbar sind 6; `/shop-by-country/` ist **13 501 px** hoch (249 von 253 Kacheln „Bald verfuegbar"); die Signature-Reihe steht dort seit dem 08.09. ebenfalls auf **vier** Kacheln (Seite 13 501 → **13 215 px**); die Produktseite nutzt **958 von 1440 px** Breite; der Sprach-Cookie-Fehler ist unveraendert. |
+| 10 | 🎨 **Shop-Design: Startseite fertig, Unterseiten offen** | Stand 08.09.2026: der Hinweis „weitere Laender folgen" ist als Zeile unter der Kachelreihe zurueck, in allen vier Sprachen (Seite 4 666 → **4 712 px**). Die doppelten Fusszeilen und die 18 Galeriebilder waren **keine Befunde** — nachgeprueft, siehe unten. Die Signature-Reihe auf `/shop-by-country/` steht ebenfalls auf **vier** Kacheln (Seite 13 501 → **13 215 px**). **Die 14 Router-Seiten gehoeren nicht hierher:** den acht umgeleiteten fehlen die Modellbilder, das ist ein Laenderlauf, kein Design (→ „Die 14 Router-Seiten nachgezaehlt"). **Weiter offen im Design:** die Laenderwand von 249 „Bald verfuegbar"-Kacheln (11 706 px); die Produktseite nutzt nur **958 von 1440 px** Breite; der Sprach-Cookie-Fehler. |
 | 11 | 🔴 **Shirt-King muss die CHF-Preise in PodOS korrigieren** | Ihr Schluessel schreibt sie sonst weiter zurueck — am 07.09.2026 zweimal (07:56 und 20:24 Uhr). Soll: **Shirt 40, Sweater 65, Hoodie 75**; sie senden 35 / 60. **Gehoert in die offene Anfrage aus Punkt 6.** Den Schluessel annullieren ist keine Loesung — er ist die Produktanbindung des Fulfillers. |
 
 **Der Trichter bleibt geparkt** (freie Auswahl, Käufer-Voting) bis zur rechtlichen
@@ -33,6 +33,79 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 ---
 
 ## Was zuletzt gemacht wurde — neueste zuerst
+
+### Die 14 Router-Seiten nachgezaehlt — die Notiz war irrefuehrend (08.09.2026)
+
+Punkt 10 fuehrte „im Router liegen 14 fertige Seiten, erreichbar sind 6". Die Zahlen
+stimmen, **das Wort „fertig" nicht** — und das aendert, wer den Punkt loesen kann.
+
+**Der Router hat 25 Seitenbloecke**, je `in_array($key, [...])` mit einem Heredoc
+`OFPG_0` bis `OFPG_24`. Elf davon sind Geruest und Recht (Startseite,
+`shop-by-country`, `produkt`, About, Kontakt, Kontaktangaben, Impressum, Rueckgabe,
+Versand, Datenschutz, AGB), **vierzehn sind Kollektionsseiten**:
+
+| erreichbar (6) | umgeleitet (8) |
+|---|---|
+| `afghanistan`, `albania`, `andorra`, `argentina` | `anguilla`, `antigua-barbuda`, `bosnia`, `brazil`, `brunei`, `mexico`, `peru` |
+| `logo-black`, `onefam-logo` | **`onefam-white`** |
+
+Die sechs antworten mit **200**, Kopfzeile `X-OneFam-Router: 1`, rund **114 600
+Zeichen** je Seite. Die acht antworten mit **302 auf `/shop-by-country/``**.
+
+**Die achte ist keine Laenderseite.** Frueher stand hier „sieben pausierte Laender" —
+das stimmt, aber die Liste hat acht Eintraege: sieben Laender **und die Logo-Linie
+Weiss** (`onefam-white`).
+
+**Wer umleitet: Snippet 99** „OneFam pausierte Laender umleiten (31.08.2026)" —
+**aktiv**, Geltungsbereich global, Prioritaet 10, 1 569 Zeichen, haengt an `init` mit
+Prioritaet 0, schneidet das Sprachpraefix ab und leitet die gelisteten Slugs mit 302
+um. Sein eigener Kommentar sagt den Grund: *„Die sieben Laender sind noch nicht fertig
+bebildert; ihre Produkte stehen auf privat."*
+
+**Nachgemessen, was den acht wirklich fehlt** — nicht aus dem Kommentar uebernommen:
+
+| | die vier lebenden Laender | die acht umgeleiteten |
+|---|---|---|
+| Modellbilder im Router | `OneFam_<Land>_..._4k-600x745.webp` (2026/08) → **200** | `onefam-<land>-hoodie-mann.webp` (2026/07) → **404, alle acht** |
+| Dateien mit „frontal" in der Mediathek | Albanien 56, Afghanistan 43, Argentinien 36, Andorra 34 | **keine einzige** |
+| Produkte im Frontend | 200 | **404** |
+| Produkte im wp-admin | veroeffentlicht | **privat**, Preise korrekt (Shirt 40 · Sweater 65 · Hoodie 75) |
+| Produktbilder je Produkt | – | **8 bis 11** vorhanden (Freisteller je Farbe) |
+
+**Die Modellbilder sind der Engpass, nicht der Router.** Von den 169 Dateien mit
+„frontal" in der Mediathek gehoert **keine** zu einem der acht. Die Produkte liegen
+fertig da, mit Preisen und Farbbildern — es fehlt der Bildersatz aus dem
+Laenderlauf. **`onefam-white` hat ueberdies gar keine Produkte** (Suche nach
+`white-logo` liefert nichts) — dort wartet laut Snippet-99-Kommentar der Siebdruck.
+
+**Kein Loch in der Umleitung.** Geprueft: `/mexico`, `/de/mexico/`, `/en/mexico/`,
+`/onefam-mexico.html`, `/onefam-brazil.html`, `/onefam-onefam-white.html` enden alle
+auf `/shop-by-country/`. Zum Vergleich: `/onefam-albania.html` endet mit **200** auf
+`/albania/`. Eine pausierte Seite ist auf keinem dieser Wege erreichbar.
+
+#### Was ein Land wirklich braucht, um aufzugehen
+
+Fuenf Schritte, drei davon ausserhalb des Routers. **Nur Schritt 1 ist Arbeit von
+Stunden, der Rest sind Minuten:**
+
+1. **Modellbilder erzeugen** — `RUNBOOK-laenderlauf.md`, Higgsfield. Das ist der
+   Engpass.
+2. **Im Router die Bildadressen des Landes** auf die neuen Dateinamen ziehen
+   (heute zeigen sie auf den geloeschten Satz von 2026/07).
+3. **Produkte von privat auf veroeffentlicht** — und dabei die **EUR-Festpreise je
+   Variation** pruefen, sonst steht das Fehlerbild 82,50 / 71,50 / 44,00 da.
+4. **Slug aus `$pausiert` in Snippet 99 entfernen.**
+5. **In der Laenderliste von `/shop-by-country/`** den Eintrag von `"a":0,"u":""` auf
+   `"a":1,"u":"/<slug>/"` setzen — die Liste ist fest verdrahtet, die Kachel wird
+   sonst nicht golden. Heute stehen genau vier auf `"a":1`.
+
+**Und zwei Stellen auf der Startseite, die niemand automatisch nachzieht:** die
+Kachelreihe `.colgrid` ist **fest auf vier Kacheln** verdrahtet (vier Spalten, siehe
+CSS-Kommentar), und die Hinweiszeile darunter sagt woertlich **„Vier Länder sind
+fertig"** — in allen vier Sprachen in `OF_I18N`.
+
+**Damit gehoert Punkt 10 nicht mehr ins Shop-Design.** Er ist ein Laenderlauf, und
+der beginnt bei den Bildern.
 
 ### Signature-Reihe auf /shop-by-country/ auch auf vier Kacheln — 08.09.2026
 
@@ -1558,8 +1631,12 @@ die korrigierten Werte — das Nachfuellen aus Snippet 105 hat gegriffen, wie ge
   nicht" weiter oben. Es sind **sieben** pausierte Laender, nicht sechs: Anguilla,
   **Antigua & Barbuda**, Bosnien, Brasilien, Brunei, Mexiko, Peru. Alle leiten mit
   302 auf `/shop-by-country/`.
-- **Im Router liegen 14 fertige Seiten**, erreichbar sind nur 6: vier Laender plus
-  OneFam Logo und Logo Black.
+- ~~Im Router liegen 14 fertige Seiten, erreichbar sind nur 6.~~ **Irrefuehrend
+  formuliert, am 08.09.2026 nachgemessen:** die 14 Kollektionsseiten sind **nicht
+  fertig** — den acht umgeleiteten fehlen die Modellbilder (alle Bildadressen 404,
+  keine Datei in der Mediathek), ihre Produkte stehen auf privat. Umgeleitet wird von
+  **Snippet 99**. Es sind sieben Laender **und** die Logo-Linie Weiss. → „Die 14
+  Router-Seiten nachgezaehlt" oben.
 - ~~Die Signature-Kollektion ist praktisch versteckt.~~ **Erledigt.** Am 07.09.2026
   nachgemessen: das Menue hat jetzt fuenf Eintraege — Startseite, **Signature**,
   Nach Land shoppen, Ueber uns, Kontakt.
