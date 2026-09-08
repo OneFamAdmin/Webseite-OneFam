@@ -35,6 +35,56 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 
 ## Was zuletzt gemacht wurde — neueste zuerst
 
+### Signature-Satz neu geschrieben — 08.09.2026
+
+**Vorher:** „Nicht jeder gehoert zu genau einem Land. Das OneFam-Zeichen tragen
+alle — heute in Farbe und Schwarz, bald in weiteren Farben."
+
+**Jetzt:** „**Ein Zeichen, kein Land. Wer es traegt, weiss warum — wer es
+erkennt, gehoert dazu.**"
+
+| Sprache | neuer Satz |
+|---|---|
+| EN | A mark, not a country. Those who wear it know why — those who recognise it belong. |
+| FR | Un signe, pas un pays. Qui le porte sait pourquoi — qui le reconnaît en fait partie. |
+| ES | Un signo, no un país. Quien lo lleva sabe por qué — quien lo reconoce pertenece. |
+
+#### Warum der alte Satz nicht trug
+
+Er war eine **Beschreibung** und endete beim **Lagerbestand** („heute in Farbe
+und Schwarz, bald in weiteren Farben"). Das ist Information, kein Grund zu
+kaufen. Der neue behaelt die Information (die Linie ohne Landesbezug) und setzt
+den Zugehoerigkeits-Kern der Marke als Distinktion ein.
+
+#### ⚠️ Eine Dopplung, die fast entstanden waere
+
+Der erste Entwurf griff zur Figur „fuer X gibt es kein Wort — nur ein Zeichen".
+**Genau dieser Satz steht bereits auf derselben Startseite** („Fuer das Gefuehl,
+an einem Ort zu leben und an einem anderen zu fehlen, gibt es kein Wort. Nur ein
+Zeichen — damit deins dabei ist."), rund 700 Zeichen weiter im Code.
+Vor dem Texten geprueft und verworfen. **Wer hier weiterschreibt, sollte die
+Startseite vorher nach vorhandenen Bildern absuchen** — die Marke hat wenige,
+starke Figuren, und zweimal dieselbe entwertet beide.
+
+#### Umfang
+
+Der Satz stand **zweimal** im Snippet: im `SIG`-Block der Startseite (Position
+~39 246) und in einem zweiten Block (~171 858), dessen Route `/signature/`
+derzeit **404** liefert. **Beide** geaendert, damit sie nicht auseinanderlaufen,
+falls die Seite spaeter live geht. Mal vier Sprachen = **acht** Ersetzungen.
+
+#### Nachgemessen
+
+| | |
+|---|---|
+| Zeichenlaenge nach dem Neuladen | **2 496 710** — exakt berechnet (vorher 2 497 068, −358) |
+| Snippet | weiter **aktiv** |
+| neue Saetze im Code | je **2×** (beide Bloecke), alle vier Sprachen |
+| alte Saetze | in **allen vier Sprachen weg** |
+| die acht Kachelbilder | **unberuehrt**, stichprobenartig geprueft |
+| **Live ausgeloggt**, `/`, `/de/`, `/fr/`, `/es/` | alle vier neuen Saetze im HTML, alter Text nirgends |
+
+
 ### Wechsel Mann/Frau in Reihe 1 hergestellt — 08.09.2026
 
 | | vorher | jetzt |
