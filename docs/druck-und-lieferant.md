@@ -206,3 +206,109 @@ Ein geteilter Zahlungslink laesst die Bestellung auf `pending` oder `on-hold`
 stehen — beides ist nicht in dieser Menge, der Pool wird also nicht
 gutgeschrieben. Und `markReversed` steigt bei einer Bestellung, die nie bezahlt
 war, wortlos aus. **Nicht aendern**, ohne diesen Absatz zu lesen.
+
+---
+
+# Printful als Alternative — und die Verfahrensrichtung
+
+**Aufgenommen am 08.09.2026.** Anlass: die Frage, wann welches Druckverfahren
+gilt und ob ein Wechsel zu Printful sinnvoll waere.
+
+> ⚠️ **Herkunft der Angaben in diesem Abschnitt:** eine KI-Recherche
+> (Google AI Mode), **nicht bei Printful nachgemessen und nicht von Printful
+> bestaetigt**. Alles darunter ist **Recherchestand, kein Befund.** Vor einer
+> Entscheidung gilt Arbeitsregel 2 — messen, nicht raten: Testbestellung,
+> Preisliste im eingeloggten Konto, Verfuegbarkeit je Land.
+> Der Rest dieser Datei (Preise, Katalogzahlen, Roberts Zusagen) ist dagegen
+> abgelesen bzw. schriftlich zugesagt.
+
+## Die Verfahrensrichtung — unabhaengig vom Lieferanten
+
+Der Konsens der Recherche deckt sich mit dem, was oben schon steht, und laesst
+sich auf die drei Motivarten von OneFam abbilden:
+
+| Motiv | Verfahren | Warum |
+|---|---|---|
+| **OneFam-Zeichen, einfarbig** | **DTG** | Tinte zieht in die Faser, kein Fremdkoerper auf der Brust. Traegt den „leises Erkennungszeichen"-Charakter. |
+| **Verlaufsmotiv (Gradient)** | **DTG**, auf tiefschwarz eher **DTF** | DTG bildet Verlaeufe weich ab. Auf sehr dunklem Stoff braucht es die Weissunterlage — genau die Stelle, an der es heute flau wird. |
+| **Laenderlinien, mehrfarbig** | **DTF** | Deckkraft ist im Film angelegt, feine bunte Linien bleiben scharf und versinken nicht im dunklen Stoff. |
+| **Spaeter: Caps, Mischgewebe, Reisetextil** | **DTF** | DTG ist auf Baumwolle beschraenkt. |
+
+**Das ist keine neue Erkenntnis, sondern bestaetigt die offene Frage oben:**
+koennen Creator 2.0, Changer 2.0 und Cruiser 2.0 bei Shirt-King auf **DTF**
+umgestellt werden? Solange die drei fest als DTG im Katalog stehen, laesst sich
+die Zuordnung nicht umsetzen — **egal bei welchem Lieferanten.**
+
+**Siebdruck bleibt draussen, solange Print-on-Demand laeuft.** Er rechnet sich ab
+ca. 100 gleichen Teilen; fuer die mehrfarbigen Laenderlinien braucht jede Farbe
+ein eigenes Sieb, und die Weissunterlage zaehlt mit (steht oben). Verlaeufe kann
+er ohnehin nur rastern. Fuer ein einfarbiges Logo in Auflage waere er
+unschlagbar — das ist aber ein anderes Geschaeftsmodell, siehe „Was der
+Siebdruck kaputt machen wuerde".
+
+## Was Printful anders macht
+
+| | Shirt-King / Heldenwerbung | Printful |
+|---|---|---|
+| Produktion | **Teltow bei Berlin**, ein Ort | mehrere Werke; Stanley/Stella laut Recherche **nur in EU-Werken** (Lettland, Spanien) |
+| Rohteile | Stanley/Stella u. a., Preise oben abgelesen | fuehrt **dieselben** Modelle: Creator 2.0 (STTU169), Changer 2.0 (STSU178), Cruiser 2.0 (STSU177) |
+| Anbindung | PodOS, Projekt `onefam-441595` | eigenes **WooCommerce-Plugin**; verlangt Permalinks ausser „Einfach" und die **Legacy-REST-API** |
+| Naehe | deutsches Familienunternehmen, Ansprechpartner mit Namen | Grosskonzern, standardisierter Ablauf |
+
+**Der Vergleich ist ungewoehnlich sauber moeglich**, weil beide dieselben drei
+Rohteile fuehren. Die Netto-Rohteilpreise bei Shirt-King stehen oben
+(6,64 / 16,30 / 21,22 €) — ein Preisvergleich braucht also nur die
+Printful-Seite.
+
+## Vier Nebenwirkungen, die ein Wechsel haette — die wiegen schwerer als der Stueckpreis
+
+1. **Die Steuerfrage verschiebt sich, sie verschwindet nicht.** Der ganze
+   Vorbehalt in `behoerden-mwst-zoll.md` haengt daran, dass die Ware **in Teltow
+   startet** und der Verkauf damit umsatzsteuerlich in Deutschland stattfindet.
+   Produziert Printful in Lettland oder Spanien, ist es **ein anderes Land mit
+   eigenen Regeln** — die offene Anfrage ans Finanzamt Konstanz waere dann
+   womoeglich gegenstandslos, dafuer stellt sich dieselbe Frage neu. **Vor einem
+   Wechsel gehoert das geklaert, nicht danach.**
+2. **Das Preis-Rueckschreiben waere weg.** Vier belegte Vorfaelle (07.09. zweimal,
+   08.09. zweimal), zuletzt 367 protokollierte Abweichungen — alle aus dem
+   PodOS-Sync von Shirt-King. Ein Wechsel loest das an der Wurzel; Snippet 108
+   und die Preis-Wache waeren nicht mehr noetig. **Das ist der staerkste
+   sachliche Punkt fuer Printful.**
+3. **Der Shop muesste neu bestueckt werden.** 42 Produkte, ueber 3 200
+   Variationen, Slugs, EUR-Festpreise, die von Hand gepflegten Kacheln in
+   Snippet 11 und die am 08.09. aufgeraeumten Galerien. Wer den Slug aendert,
+   zerreisst ausserdem die Preis-Zuordnung im Router (Arbeitsregel 10).
+   **Das ist Wochen, nicht Tage.**
+4. **Die Modellbilder haengen nicht am Lieferanten.** Sie sind selbst erzeugt und
+   bleiben nutzbar. Nur die **Druckdateien** muessten gegen Printfuls Vorgaben
+   geprueft werden.
+
+## Was zuerst passieren muss — die Reihenfolge
+
+**Der Wechsel ist heute nicht zu entscheiden, weil die entscheidende Antwort
+fehlt.** Offener Punkt 6 in `stand.md`: die Anfrage an Shirt-King vom
+03.09.2026 ist unbeantwortet.
+
+1. **Antwort von Shirt-King abwarten.** Zwei Fragen entscheiden alles:
+   war die DTG-Einrichtung fehlerhaft (dann liefert DTG, ohne jeden Wechsel),
+   und laesst sich auf **DTF** umstellen (dann ist die Verfahrensfrage geloest)?
+2. **Faellt eine der beiden Antworten aus**, wird Printful zur ernsten Option —
+   dann aber mit einer **Testbestellung derselben drei Modelle** und einem
+   Vergleich der Weissdeckung auf dunklem Stoff. Nicht nach Prospekt entscheiden;
+   genau daran ist die Sache bei Shirt-King ja gescheitert.
+3. **Vor jedem Wechsel: die Steuerfrage neu stellen** (Nummer 1 oben).
+4. **Nie beide Wege parallel bespielen.** Zwei Fulfiller auf denselben Produkten
+   heisst zwei Sync-Quellen auf denselben Preisfeldern — das Problem, das gerade
+   erst eingefangen wurde.
+
+## Wenn OneFam eines Tages global verkauft
+
+Die Recherche nennt einen Punkt, der zur Marke passt: „For souls who belong to
+more than one place" heisst potenziell Kunden ausserhalb Europas. Shirt-King
+versendet weltweit, aber **immer aus Teltow** — mit Zoll und Laufzeit fuer den
+Kunden. Printful koennte in anderen Regionen lokal produzieren, **allerdings
+laut Recherche nicht mit Stanley/Stella** (nur EU-Werke), sondern mit anderen
+Rohteilen. Das hiesse: **anderes Produkt fuer andere Regionen** — und damit ein
+Bruch in Haptik und Qualitaet, den eine Marke mit „Values, not facade" schwer
+erklaeren kann. **Ungeloest, und vor einem globalen Start zu entscheiden.**
+

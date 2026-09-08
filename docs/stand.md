@@ -35,6 +35,59 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 
 ## Was zuletzt gemacht wurde — neueste zuerst
 
+### Druckverfahren und Printful: Richtung festgehalten — 08.09.2026
+
+Eine KI-Recherche zu DTG/DTF/Siebdruck und zu Printful als moeglichem Lieferanten
+ist in **`docs/druck-und-lieferant.md`** aufgenommen — bewusst **dort** und nicht
+als neue Datei, weil die Datei DTG, DTF, Siebdruck und Shirt-King bereits
+ausfuehrlich behandelt. **Printful und Stanley/Stella fehlten darin komplett.**
+
+**Als Recherchestand gekennzeichnet, nicht als Befund** — nichts davon ist bei
+Printful nachgemessen.
+
+#### Die Verfahrensrichtung
+
+| Motiv | Verfahren |
+|---|---|
+| OneFam-Zeichen, einfarbig | **DTG** |
+| Verlaufsmotiv | DTG, auf tiefschwarz eher **DTF** |
+| Laenderlinien, mehrfarbig | **DTF** |
+| spaeter Caps / Mischgewebe | **DTF** |
+
+**Das bestaetigt nur, was in der Datei schon stand:** die Zuordnung scheitert
+heute daran, dass Creator 2.0, Changer 2.0 und Cruiser 2.0 bei Shirt-King **fest
+als DTG** im Katalog stehen. Siebdruck bleibt draussen, solange
+Print-on-Demand laeuft.
+
+#### Der Vergleich ist ungewoehnlich sauber moeglich
+
+Printful fuehrt **dieselben drei Stanley/Stella-Modelle**. Die Netto-Rohteilpreise
+bei Shirt-King sind bereits abgelesen (6,64 / 16,30 / 21,22 €) — es fehlt nur die
+Printful-Seite.
+
+#### Vier Nebenwirkungen eines Wechsels, festgehalten
+
+1. **Die Steuerfrage verschiebt sich, sie verschwindet nicht.** Der Vorbehalt in
+   `behoerden-mwst-zoll.md` haengt daran, dass die Ware **in Teltow** startet.
+   Produziert Printful in Lettland oder Spanien, waere die Anfrage an Konstanz
+   womoeglich gegenstandslos — und dieselbe Frage stellte sich neu.
+2. **Das Preis-Rueckschreiben waere weg** — vier belegte Vorfaelle, alle aus dem
+   PodOS-Sync. **Der staerkste sachliche Punkt fuer Printful.**
+3. **Der Shop muesste neu bestueckt werden** — 42 Produkte, ueber 3 200
+   Variationen, Slugs, EUR-Festpreise, die Kacheln in Snippet 11. Wochen, nicht
+   Tage.
+4. **Nie beide Wege parallel** — zwei Fulfiller auf denselben Preisfeldern ist
+   genau das Problem, das gerade eingefangen wurde.
+
+#### Entschieden ist damit nichts — und das ist der Punkt
+
+Die Weiche haengt an **offenem Punkt 6**: der unbeantworteten Anfrage an
+Shirt-King vom 03.09.2026. War die DTG-Einrichtung fehlerhaft, liefert DTG ohne
+jeden Wechsel. Laesst sich auf DTF umstellen, ist die Verfahrensfrage geloest.
+**Erst wenn eine der beiden Antworten ausfaellt, wird Printful zur ernsten
+Option** — dann mit Testbestellung derselben drei Modelle, nicht nach Prospekt.
+
+
 ### Preis-Wache zurueckgesetzt — 08.09.2026
 
 | | vorher | jetzt |
