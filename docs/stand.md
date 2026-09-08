@@ -35,6 +35,54 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 
 ## Was zuletzt gemacht wurde — neueste zuerst
 
+### Wechsel Mann/Frau in Reihe 1 hergestellt — 08.09.2026
+
+| | vorher | jetzt |
+|---|---|---|
+| Afghanistan | Sweater Rot, **Frau** (`Frau_frontal`) | Sweater Rot, **Mann** (`Mann_Taschen`) |
+| Andorra | Hoodie Viva Yellow, **Mann** (`Mann_frontal`) | Hoodie Viva Yellow, **Frau** (`Frau_frontal`) |
+
+**Reihe 1 steht jetzt auf Mann → Frau → Mann → Frau.** Farben und
+Kleidungsstuecke sind **unveraendert** — nur die abgebildete Person wechselt.
+Die ausdruecklich gewaehlten Bilder fuer Albanien und Argentinien bleiben
+unangetastet.
+
+#### Eine eigene Fehlaussage, korrigiert
+
+Zuvor stand hier, „eine einzige Aenderung an Argentinien" wuerde den Wechsel
+herstellen. **Das war falsch.** Aus Mann → Frau → Frau → Mann wird durch einen
+Tausch bei Argentinien Mann → **Mann** → Frau → Mann — immer noch kein Wechsel.
+Noetig sind **zwei** Aenderungen, und zwar an Position 3 und 4.
+
+#### Warum diese beiden Posen
+
+`Mann_Taschen` und `Frau_frontal` stehen beide **symmetrisch** — Gewicht auf
+beiden Fuessen, Huefte gerade. Die Alternativen (`Mann_Huefte`, `Frau_Huefte`)
+sind Standbein-Posen und widersprechen der Bildregel.
+
+#### ⚠️ Hier haette die uebliche Pruefung versagt
+
+**Die Zeichenlaenge blieb exakt gleich** (2 497 068 vorher wie nachher) — weil
+`Red_Frau_frontal` und `Red_Mann_Taschen` gleich viele Zeichen haben, ebenso
+`VivaYellow_Mann_frontal` und `VivaYellow_Frau_frontal`.
+
+**Damit taugt die Laengenpruefung in diesem Fall nicht als Beleg.** Wer nur sie
+heranzieht, kann nicht unterscheiden zwischen „gespeichert" und „gar nichts
+passiert". Belegt haben es hier die **Namensproben** im Code und die
+**Live-Messung**:
+
+| | |
+|---|---|
+| neue Namen im `collage`-Bereich | beide **vorhanden** |
+| alte Namen im ganzen Code | beide **weg** |
+| Albanien und Argentinien in Reihe 1 | **unberuehrt** |
+| alle vier Bilder der Reihe 2 | **unberuehrt** |
+| **Startseite ausgeloggt** | Mann · Frau · Mann · Frau bei Schwarz · Aqua Blue · Rot · Viva Yellow |
+
+**Merke:** bei gleich langen Ersetzungen ist die Laenge nur ein
+Plausibilitaetstest, kein Nachweis.
+
+
 ### Nachgesteuert: Afghanistan und Andorra in „Ausgewaehlte Laender" — 08.09.2026
 
 | | vorher | jetzt |
