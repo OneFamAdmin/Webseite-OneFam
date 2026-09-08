@@ -21,7 +21,7 @@
 | 8 | ⚠️ **zahls.ch geprueft — ein Punkt bleibt offen** | Am 08.09.2026 im eingeloggten Konto nachgesehen: **ein Auszahlungskonto ist hinterlegt**, keine Warnung, keine Rueckfrage, kein Verifizierungshinweis. **Aber der Kontoinhaber ist „Labinot Bajrami", eine Privatperson** — und zahls verlangt woertlich ein **geschaeftliches** Bankkonto. Beanstandet wird es nicht; es zeigt sich erst beim ersten echten Betrag. Guthaben ueberall CHF 0.00, nie eine Auszahlung erhalten. → „zahls.ch nachgesehen" unten |
 | 9 | ✅ **Hero umgebaut — erledigt 07.09.2026** | Marke jetzt als quadratischer Block ueber der Ueberschrift statt als formatfuellender Hintergrund; Laenderkacheln direkt hinter den Hero gezogen. Erstes Kleidungsstueck: **920 → 438 px** (Referenzfenster 1440 × 685), **1519 → 540 px** (390 × 844). Entschieden: Kacheln, **nicht** das Lifestyle-Bild — das zeigt Brasilien, und `/brazil/` ist pausiert. → unten „Hero umgebaut" |
 | 10 | 🎨 **Shop-Design: Startseite fertig, Unterseiten offen** | Stand 08.09.2026: der Hinweis „weitere Laender folgen" ist als Zeile unter der Kachelreihe zurueck, in allen vier Sprachen (Seite 4 666 → **4 712 px**). Die doppelten Fusszeilen und die 18 Galeriebilder waren **keine Befunde** — nachgeprueft, siehe unten. Die Signature-Reihe auf `/shop-by-country/` steht ebenfalls auf **vier** Kacheln (Seite 13 501 → **13 215 px**). **Die 14 Router-Seiten gehoeren nicht hierher:** den acht umgeleiteten fehlen die Modellbilder, das ist ein Laenderlauf, kein Design (→ „Die 14 Router-Seiten nachgezaehlt"). Die Laenderwand ist am 08.09. von **11 706 auf 1 043 px** gekuerzt (Seite 13 215 → **3 063**, Handy 31 299 → **5 511**), die kaputte Suche behoben. Der Sprach-Cookie-Fehler ist behoben (Snippets 42 und 26 lesen jetzt die Adresse vor dem Cookie). Die Produktseite hat eine **neutrale Buehne** statt des warmen Cremes — die Fotos sitzen jetzt randlos. **Weiter offen:** die Karte ist 1 080 statt 1 360 px breit (erst neue Bildgroessen noetig), die Produktfotos brauchen einen **einheitlichen Hintergrund beim Ausgeben**, `/de/warenkorb/` und `/de/kasse/` verlieren ihr Sprachpraefix — **nachgemessen und bewusst nicht gebaut**, weil kein Link dorthin fuehrt, die Sprache ueber das Cookie erhalten bleibt und die Seiten `noindex` tragen. |
-| 11 | 🔴 **Shirt-King muss die CHF-Preise in PodOS korrigieren** | Ihr Schluessel schreibt sie sonst weiter zurueck — am 07.09.2026 zweimal (07:56 und 20:24 Uhr). Soll: **Shirt 40, Sweater 65, Hoodie 75**; sie senden 35 / 60. **Gehoert in die offene Anfrage aus Punkt 6.** Den Schluessel annullieren ist keine Loesung — er ist die Produktanbindung des Fulfillers. |
+| 11 | 🔴 **Shirt-King darf keine Preise in den Shop schreiben** | **Am 08.09.2026 zum dritten Mal passiert** (08:32–08:34, 188 Variationen, beide Sweater auf 60 statt 65; einer davon **publish**). Zurueckgesetzt und vollstaendig nachgemessen: 42 Produkte, 3 218 Variationen, 0 Abweichungen. **Neu belegt:** der Sync schreibt **nur den Basispreis**, und der ist **CHF** — die EUR-Festpreise bleiben unberuehrt. Die ankommenden Werte 35 / 60 sind die gerundeten **EUR**-Preise. **Deshalb waere „EUR-Preise in PodOS eintragen" der falsche Schluss.** Bitte an Shirt-King, in dieser Reihenfolge: **gar keine Preise schreiben**, sonst CHF 40 / 65 / 75 — und die Frage, ob PodOS ueberhaupt CHF fuehren kann. **Gehoert in die offene Anfrage aus Punkt 6.** |
 
 **Der Trichter bleibt geparkt** (freie Auswahl, Käufer-Voting) bis zur rechtlichen
 Freigabe. Nicht als toten Code aufräumen.
@@ -33,6 +33,78 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 ---
 
 ## Was zuletzt gemacht wurde — neueste zuerst
+
+### Preise zum dritten Mal zurueckgeschrieben — und was das ueber PodOS sagt (08.09.2026)
+
+**Die Wache hat gehalten.** Snippet 106, am 07.09. gebaut, hat den naechsten Vorfall
+protokolliert — und diesmal war er innerhalb von Minuten sichtbar statt nach Wochen.
+
+| | |
+|---|---|
+| Zeitpunkt | **08.09.2026, 08:32 bis 08:34** |
+| Schluessel | ID 3 „heldenwerbung-409340 – API", Lesen/Schreiben, **zuletzt benutzt 8:34 Uhr** |
+| Protokoll `of_preis_abweichungen_zaehler` | **188**, alle Zeilen „60 statt 65" |
+| betroffen | `onefam-logo-sweater` (**publish**) und `onefam-white-logo-sweater` (privat), je 94 Variationen |
+| Hoodies und Shirts | **unberuehrt** |
+
+#### Der Befund, der die Frage nach der Waehrung beantwortet
+
+**Der Sync schreibt ausschliesslich `regular_price` — den Basispreis.** Die
+EUR-Meta derselben Variation stand danach unveraendert auf
+`_regular_price_wmcp = {"EUR":"59.99"}`. Das gilt fuer alle drei bisherigen
+Rueckschreibungen (07.09. zweimal, 08.09. einmal).
+
+Daraus folgt:
+
+1. **Der EUR-Preis im Shop kommt nicht aus PodOS.** Er liegt als CURCY-Festpreis an
+   jeder Variation und wird vom Sync nicht angefasst.
+2. **Was von dort kommt, landet im Basispreis — und die Basiswaehrung ist CHF.**
+   Deshalb sind die Preise in PodOS relevant, und zwar unfreiwillig.
+3. **Die Werte, die ankommen, sind die gerundeten EUR-Preise:** 35 gegen 34,95 und
+   60 gegen 59,99. Das ist ein **starkes Indiz**, dass in PodOS die EUR-Reihe steht —
+   **kein Beweis**. Belegen kann das nur ein Blick ins PodOS-Konto oder Shirt-King;
+   der PodOS-Schluessel fehlt weiterhin.
+
+**Damit kippt die naheliegende Schlussfolgerung.** „PodOS sitzt in Deutschland, also
+tragen wir dort die EUR-Preise ein" waere genau der Fehler, den wir sehen: sie landen
+wieder im CHF-Feld, der Shop verkauft dauerhaft 5 CHF zu billig, und die EUR-Anzeige
+bleibt richtig — deshalb faellt es nicht auf.
+
+#### Was Shirt-King gefragt werden muss, in dieser Reihenfolge
+
+1. **Ihr Sync soll Preisfelder gar nicht schreiben.** Verkaufspreise gehoeren dem
+   Haendler; ein Fulfiller braucht Produktzuordnung und Produktion, keine Ladenpreise.
+   Das loest es endgueltig, unabhaengig davon, welche Waehrung PodOS fuehren kann.
+2. **Falls er schreiben muss:** die CHF-Reihe **40 / 65 / 75** — und dazu die Frage,
+   die den Ausschlag gibt: **kann PodOS ueberhaupt CHF fuehren?** Wenn nein, bleibt
+   nur Punkt 1.
+3. **Den Schluessel auf „Lesen" setzen ist der Notnagel** — er ist die
+   Produktanbindung des Fulfillers, das bricht vermutlich Bestellungen.
+
+#### Zurueckgesetzt und vollstaendig nachgemessen
+
+Erst eine einzelne Variation als Probe (**662**, `onefam-logo-sweater`): 60 → 65, die
+EUR-Meta blieb bei `{"EUR":"59.99"}`. Dann die uebrigen **187** ueber
+`variations/batch` in Paketen zu 50.
+
+**Danach der ganze Bestand geprueft, nicht nur die zwei Produkte:**
+
+| | |
+|---|---|
+| Produkte | **42** |
+| Variationen | **3 218** |
+| CHF-Abweichungen | **0** |
+| EUR-Abweichungen | **0** |
+| Variationen ohne EUR-Festpreis | **0** |
+| gerenderte Seite `onefam-logo-sweater` | **CHF 65.00** |
+
+**Ein Detail am Rande:** am 07.09. waren es **3 210** Variationen, heute **3 218** —
+acht mehr. Ein Sync legt also nicht nur Preise zurueck, er legt auch Variationen an.
+Beim naechsten Zaehlen im Kopf behalten.
+
+**Die Wache bleibt der beste Beleg fuer die Wirkung einer Korrektur:** ob die Bitte an
+Shirt-King angekommen ist, sieht man daran, dass `of_preis_abweichungen_zaehler` nicht
+weiter steigt. Stand jetzt: **188**.
 
 ### Sprachpraefix bei Warenkorb und Kasse — nachgemessen, **bewusst nicht gebaut** (08.09.2026)
 
