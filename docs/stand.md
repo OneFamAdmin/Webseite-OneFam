@@ -23,6 +23,7 @@
 | 9 | ✅ **Hero umgebaut — erledigt 07.09.2026** | Marke jetzt als quadratischer Block ueber der Ueberschrift statt als formatfuellender Hintergrund; Laenderkacheln direkt hinter den Hero gezogen. Erstes Kleidungsstueck: **920 → 438 px** (Referenzfenster 1440 × 685), **1519 → 540 px** (390 × 844). Entschieden: Kacheln, **nicht** das Lifestyle-Bild — das zeigt Brasilien, und `/brazil/` ist pausiert. → unten „Hero umgebaut" |
 | 10 | 🎨 **Shop-Design: Startseite fertig, Unterseiten offen** | Stand 08.09.2026: der Hinweis „weitere Laender folgen" ist als Zeile unter der Kachelreihe zurueck, in allen vier Sprachen (Seite 4 666 → **4 712 px**). Die doppelten Fusszeilen und die 18 Galeriebilder waren **keine Befunde** — nachgeprueft, siehe unten. Die Signature-Reihe auf `/shop-by-country/` steht ebenfalls auf **vier** Kacheln (Seite 13 501 → **13 215 px**). **Die 14 Router-Seiten gehoeren nicht hierher:** den acht umgeleiteten fehlen die Modellbilder, das ist ein Laenderlauf, kein Design (→ „Die 14 Router-Seiten nachgezaehlt"). Die Laenderwand ist am 08.09. von **11 706 auf 1 043 px** gekuerzt (Seite 13 215 → **3 063**, Handy 31 299 → **5 511**), die kaputte Suche behoben. Der Sprach-Cookie-Fehler ist behoben (Snippets 42 und 26 lesen jetzt die Adresse vor dem Cookie). Die Produktseite hat eine **neutrale Buehne** statt des warmen Cremes — die Fotos sitzen jetzt randlos. **Weiter offen:** die Karte ist 1 080 statt 1 360 px breit (erst neue Bildgroessen noetig), die Produktfotos brauchen einen **einheitlichen Hintergrund beim Ausgeben**, `/de/warenkorb/` und `/de/kasse/` verlieren ihr Sprachpraefix — **nachgemessen und bewusst nicht gebaut**, weil kein Link dorthin fuehrt, die Sprache ueber das Cookie erhalten bleibt und die Seiten `noindex` tragen. |
 | 11 | ✅ **Preis-Rueckschreiben ist entschaerft — Snippet 108 stellt zurueck** | **Am 08.09.2026 zum dritten Mal passiert** (08:32–08:34, 188 Variationen, beide Sweater auf 60 statt 65; einer davon **publish**). Zurueckgesetzt und vollstaendig nachgemessen: 42 Produkte, 3 218 Variationen, 0 Abweichungen. **Neu belegt:** der Sync schreibt **nur den Basispreis**, und der ist **CHF** — die EUR-Festpreise bleiben unberuehrt. Die ankommenden Werte 35 / 60 sind die gerundeten **EUR**-Preise. **Deshalb waere „EUR-Preise in PodOS eintragen" der falsche Schluss.** Bitte an Shirt-King, in dieser Reihenfolge: **gar keine Preise schreiben**, sonst CHF 40 / 65 / 75 — und die Frage, ob PodOS ueberhaupt CHF fuehren kann. **Seit dem 08.09.2026 faengt Snippet 108 es ab** (geprueft: falscher wie leerer Preis springen sofort auf den Sollwert zurueck). Die Bitte an Shirt-King ist damit **kein Sperrpunkt mehr**, nur noch eine Information. |
+| 12 | 🧵 **Stickerei und Modellwechsel — aufgenommen, nichts entschieden** | Am 12.09.2026 aus zwei KI-Sitzungen uebernommen: **Stick** als drittes Verfahren (Idealfall die einfarbige Signature — Garn deckt immer, loest Weiss-auf-Schwarz **ohne** Siebdruck und ohne Mindestmenge 100), eine Stick-oder-DTG-Einschaetzung **je Land**, und der Vorschlag, Shirt und Hoodie auf **Freestyler / Slammer** zu wechseln. **Drei Dinge sind zu tun:** Stickerei bei Shirt-King anfragen (Preis, Mindestmenge — sie steht **nicht** im Katalog, anders als die Analyse behauptet), ein **Freestyler-Muster** zu den Drucktests dazubestellen, und **nicht wechseln**, bevor die erste Stick- oder Siebdruckauflage ansteht: der Wechsel kostet **+6,72 €** (Shirt) bzw. **+10,54 €** (Hoodie) im Einkauf, die Verkaufspreise bleiben — beim Shirt stehen dann **21,52 CHF** Herstellkosten gegen **40 CHF** Verkauf. → `druck-und-lieferant.md` |
 
 **Der Trichter bleibt geparkt** (freie Auswahl, Käufer-Voting) bis zur rechtlichen
 Freigabe. Nicht als toten Code aufräumen.
@@ -34,6 +35,45 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 ---
 
 ## Was zuletzt gemacht wurde — neueste zuerst
+
+### Stickerei, Modellwechsel und Stick-oder-DTG je Land — 12.09.2026
+
+Zwei KI-Sitzungen (eine ohne, eine mit Projektzugriff) sind in
+**`docs/druck-und-lieferant.md`** aufgenommen — wieder **dort** und nicht als
+neue Datei, weil die Datei DTG, DTF, Siebdruck und Shirt-King schon behandelt.
+**Als Recherche- und Einschaetzungsstand gekennzeichnet, nicht als Befund.**
+
+**Der eigentliche Gewinn steckt im Stick:** die einfarbige Signature (Logo
+Black, Logo White, Volltoene) laesst sich sticken, und **Garn deckt immer**.
+Damit waere das Weiss-auf-Schwarz-Problem der Signature geloest — **ohne**
+Siebdruck und **ohne** die Mindestmenge 100. Das bunte Logo mit Verlauf geht
+nicht. Bei den Laendern lohnt Stick nur fuer wenige: jedes Motiv muss einmal
+aufbereitet werden, und das kostet je Motiv — bei 252 Laendern ist das der
+Kostentreiber.
+
+**Drei Punkte der Analyse waren falsch und sind dort richtiggestellt:** die
+Laendermotive sind **Flaechen** (Gesicht plus Flagge), keine Linien oder Routen;
+**Stick steht nicht im Shirt-King-Katalog** (acht Optionen, Preisstand
+16.03.2026) und waere separat anzufragen; und **DTG oder DTF ist nicht frei
+waehlbar**, sondern haengt fest am Rohteil.
+
+**Zum Modellwechsel (Creator 2.0 → Freestyler, Cruiser 2.0 → Slammer):**
+gerechnet, aber nicht empfohlen. Einkauf **+6,72 €** und **+10,54 €** je Stueck,
+Herstellkosten damit **14,12 → 21,52 CHF** (Shirt) und **30,17 → 41,77 CHF**
+(Hoodie, Slammer; Striker 51,20). Die Verkaufspreise 75 / 65 / 40 sind gesetzt,
+der Wechsel geht also **voll zulasten der Marge und des Pool-Anteils**. Dazu
+kaemen eine **neue Kosten-Migration** (0010 ist angewendet und wird nie
+geaendert), die Pruefung von `item_kind` in der Versandstaffel und **alle
+Modellbilder neu**, weil Druckmasse und Ghost-Referenz je Schnitt geeicht sind.
+Der **„Ledger" aus der Analyse existiert im Katalog nicht.**
+
+**Nebenbei aufgenommen, rechtlich zu pruefen (Arbeitsregel 12):** die Analyse
+haelt einen Namenskonflikt mit der Hostel-Kette *Onefam Hostels*
+(`onefamhostels.com`) fuer unproblematisch, weil Marken nur fuer ihre Waren- und
+Dienstleistungsklassen geschuetzt sind (Spezialitaetsprinzip) und Beherbergung
+etwas anderes ist als Bekleidung. **Das ist eine KI-Einschaetzung, keine
+Auskunft** — vor dem Launch gehoert eine Markenrecherche dazu, und die gehoert
+nicht in eine KI-Antwort.
 
 ### Druckverfahren und Printful: Richtung festgehalten — 08.09.2026
 

@@ -312,3 +312,163 @@ Rohteilen. Das hiesse: **anderes Produkt fuer andere Regionen** — und damit ei
 Bruch in Haptik und Qualitaet, den eine Marke mit „Values, not facade" schwer
 erklaeren kann. **Ungeloest, und vor einem globalen Start zu entscheiden.**
 
+
+---
+
+# Stickerei, Modellwechsel und Stick-oder-DTG je Land — 12.09.2026
+
+Aufgenommen aus einer Fremdanalyse (KI, Marke und Produktion) und einer zweiten
+KI-Sitzung mit Projektzugriff. **Recherche- und Einschaetzungsstand, nicht
+gemessen** — mit Ausnahme der Zahlen, die weiter oben in dieser Datei bereits
+belegt sind.
+
+## Drei Punkte der Fremdanalyse, die nicht stimmen
+
+1. **Die Laendermotive sind keine Linien oder Routen.** Es ist das lachende
+   Gesicht mit der Flagge dahinter, also **Flaechen**. Die dort empfohlene
+   Vorbereitung fuer DTF (Konturen auf 1 mm verstaerken, Kontur umwandeln,
+   Pfade vereinen) passt auf ein Linienmotiv, **nicht auf unseres**.
+2. **„Shirt-King bietet Stickerei direkt an" trifft fuer unser Konto nicht zu.**
+   Der Katalog im Kundenportal fuehrt acht Optionen (Liste oben, Preisstand
+   16.03.2026) — **Stick ist nicht dabei**. Stickerei waere wie der Siebdruck
+   **separat anzufragen**.
+3. **DTG oder DTF ist nicht frei waehlbar.** Die Druckart haengt bei Shirt-King
+   **fest am Rohteil im Katalog** (steht oben). Eine Empfehlung „fuer das Logo
+   DTG, fuer die Laender DTF" laesst sich heute gar nicht einstellen.
+
+## Stickerei als drittes Verfahren
+
+| | |
+|---|---|
+| **Idealfall** | die **einfarbige Signature** (Logo Black, Logo White, Volltoene). Garn deckt immer — damit waere das Weiss-auf-Schwarz-Problem der Signature geloest, **ohne Siebdruck und ohne Mindestmenge 100**. |
+| **Geht nicht** | das bunte Logo mit **Farbverlauf**. Stickbar nur in Farbstufen, das ist ein anderes Motiv. |
+| **Haken Textil** | ein vollflaechiger Stick von rund **8 × 10 cm** wird auf dem duennen Creator-Shirt (180 g/m²) steif und zieht den Stoff zusammen. Auf Sweater und Hoodie (350 g/m²) ist das unkritisch. |
+| **Haken Kosten** | jedes Motiv muss einmal **fuers Sticken aufbereitet** werden (Punchen), und das kostet **je Motiv**. Bei **252 Laendern** lohnt das nur fuer wenige. |
+
+**Vorschlag aus der Sitzung: Signature sticken, die Laender per DTG drucken.**
+
+**Offen:** Preis, Mindestmenge und ueberhaupt die Verfuegbarkeit von Stickerei
+sind bei Shirt-King **nicht angefragt** — sie gehoeren in dieselbe Anfrage wie
+die DTF-Umstellung.
+
+## Stick oder DTG je Land — Einschaetzung, keine Messung
+
+Grundlage: die Flagge liegt in **echten Proportionen** hinter dem Gesicht,
+Wappen eingeschlossen. Ob ein Motiv stickbar ist, haengt deshalb direkt an der
+Flagge. Motivbreite auf dem Shirt laut PodOS **rund 8 cm**; Teile unter etwa
+**3 bis 4 mm** gehen beim Sticken verloren.
+
+**Gemessen sind nur Albanien und Afghanistan**, alles andere ist geschaetzt.
+Afghanistan: die Schahaada-Schrift liegt **gemessen bei etwa 0,35 mm** und
+laeuft zu — heikel, weil es religioeser Text ist.
+
+**DTG geht bei allen 252 Motiven**, es gibt keine Farbgrenze; der Unterschied
+ist nur die Schaerfe. **Auf dunklem Stoff haengt jedes Motiv weiter am Test der
+Weissdeckung**, denn jedes enthaelt Weiss.
+
+### Gut stickbar — die Flagge besteht nur aus Flaechen
+
+Armenien, Bahamas, Bahrain, Bangladesch, Belgien, Benin, Botswana, Bulgarien,
+Côte d'Ivoire, Daenemark, Deutschland, Estland, Finnland, Frankreich, Gabun,
+Gambia, Griechenland, Guinea, Guyana, Indonesien, Irland, Island, Italien,
+Jamaika, Japan, Jemen, Katar, Kolumbien, Kongo-Brazzaville, Kuwait, Laos,
+Lettland, Litauen, Luxemburg, Madagaskar, Mali, Mauritius, Monaco, Myanmar,
+Niederlande, Niger, Nigeria, Norwegen, Oesterreich, Palaestina, Palau, Peru,
+Polen, Rumaenien, Russland, Schweden, Schweiz, Seychellen, Sierra Leone,
+Somalia, St. Lucia, St. Vincent, Suedafrika, Sudan, Tansania, Thailand, Tonga,
+Trinidad und Tobago, Tschad, Tschechien, Ukraine, Ungarn, Vereinigte Arabische
+Emirate, Vietnam.
+
+### Stickbar nur mit vereinfachtem Motiv
+
+Sterne werden rundlich, Symbole werden zur Silhouette:
+
+Albanien (Adler nur als Silhouette), Algerien, Antigua, Aserbaidschan, Barbados,
+Bosnien, Burkina Faso, Burundi, Chile, China, Dschibuti, Georgien, Ghana,
+Guinea-Bissau, Honduras, Israel, Jordanien, Kamerun, Kanada, Komoren, Kongo (DR),
+Kuba, Lesotho, Liberia, Libyen, Malawi, Malediven, Malta, Marokko,
+Marshallinseln, Mauretanien, Mikronesien, Namibia, Nauru, Nepal, Nordkorea,
+Nordmazedonien, Pakistan, Panama, Puerto Rico, Ruanda, Salomonen, Samoa,
+São Tomé, Senegal, St. Kitts, Suriname, Syrien, Taiwan, Timor-Leste, Togo,
+Tunesien, Tuerkei, Vereinigtes Koenigreich, Zentralafrika.
+
+### Nur DTG — Wappen, Schrift oder viele kleine Sterne
+
+Alle uebrigen, darunter Afghanistan, Andorra, Argentinien, Brasilien, Brunei,
+Mexiko, Spanien, Portugal, Kroatien, Serbien, USA, Indien, Saudi-Arabien —
+**und die meisten Territorien**.
+
+### Wie scharf DTG wird — aus der ersten Runde ueber elf Motive
+
+| Ergebnis | Laender |
+|---|---|
+| Sauber | Peru, Bosnien, **Albanien** (gemessen, der Adler ist kraeftig genug) |
+| Gut, Kleinteile werden weich | Argentinien (Sonne), Andorra (Wappen), Antigua (Sonne), Anguilla (Delfine) |
+| Details gehen verloren | Mexiko (Adler im Mund wird ein Farbfleck), Brunei (Wappen unscharf), Brasilien (Schriftzug auf dem Band nicht lesbar), **Afghanistan** (Schrift laeuft zu) |
+
+**Die Signature:** Logo Black, Logo White und die einfarbigen Toene sind der
+ideale Fall fuers Sticken. Das bunte Logo mit Verlauf nur per DTG.
+
+## Modellwechsel Shirt und Hoodie — gerechnet, nicht empfohlen
+
+Die Analyse raet zu **Oversize**, weil der Medium-Fit bei der Zielgruppe wie
+Werbe-Merch wirke:
+
+| | heute | Vorschlag |
+|---|---|---|
+| Shirt | Creator 2.0, 180 g/m² | **Freestyler STTU788**, 240 g/m², Relaxed Fit |
+| Sweater | Changer 2.0, 350 g/m² | **bleibt** — kein Aenderungsbedarf |
+| Hoodie | Cruiser 2.0, 350 g/m² | **Slammer** (im Shirt-King-Katalog „Oversized Hoodie") oder **Striker** (schwer) |
+
+**Der in der Analyse genannte „Ledger" existiert im Katalog nicht**, und der
+Slammer ist dort nicht das schwere Modell, sondern das Oversize-Modell.
+
+### Was der Wechsel im Einkauf kostet
+
+| | Rohteil heute | Rohteil neu | Mehrkosten |
+|---|---|---|---|
+| Shirt | 6,64 € | Freestyler **13,36 €** | **+6,72 €** |
+| Hoodie | 21,22 € | Slammer **31,76 €** | **+10,54 €** |
+| Hoodie | 21,22 € | Striker | **+19,10 €** |
+
+Auf die Herstellkosten in `supabase/migrations/0010_kosten.sql` gerechnet
+(Rohteil + 5,50 Druck + 0,69 Handling, × 1,19 USt, × 0,925 CHF):
+
+| | heute | mit Wechsel |
+|---|---|---|
+| Shirt | 14,12 CHF | **21,52 CHF** |
+| Hoodie (Slammer) | 30,17 CHF | **41,77 CHF** |
+| Hoodie (Striker) | 30,17 CHF | **51,20 CHF** |
+
+**Beim Shirt wird es eng.** 40 CHF Verkaufspreis gegen 21,52 CHF Herstellkosten,
+davon gehen **Versand und Gebuehren noch ab**. Die Verkaufspreise 75 / 65 / 40
+sind gesetzt (`docs/REGEL-preise.md`) — der Wechsel geht also **voll zulasten
+der Marge und damit des Pool-Anteils**.
+
+### Was am Wechsel sonst noch haengt
+
+1. **Neue Migration fuer die Herstellkosten** — `0010` ist angewendet und wird
+   **nie geaendert**; es braucht eine neue Nummer mit neuen `product_costs`.
+   Dabei `item_kind` (`light` / `heavy`) pruefen: ein 240-g-Shirt kann in der
+   Versandstaffel kippen.
+2. **Alle Modellbilder und Mockups neu.** Die Druckmasse sind **je Schnitt**
+   geeicht und die Ghost-Referenz haengt an der Stanley/Stella-Bildadresse mit
+   dem Modellcode im Pfad → `docs/RUNBOOK-laenderlauf.md`, Abschnitt 2.
+3. **Slugs nicht anfassen** — sonst reisst die Preis-Zuordnung im Router
+   (Arbeitsregel 10).
+
+### Die Empfehlung aus der Sitzung
+
+**Jetzt nicht wechseln.** Ein **Freestyler-Muster** zu den ohnehin faelligen
+Drucktests dazubestellen und erst **mit der ersten Siebdruck- oder
+Stickauflage** umstellen. Ein Argument spricht wirklich fuer den Wechsel: **ein
+schweres Shirt vertraegt einen Stick deutlich besser als der duenne Creator.**
+
+## Was an diesem Abschnitt ungeprueft ist
+
+- Die Rohteilpreise **13,36 / 31,76 €** und der Striker-Aufschlag stammen aus
+  der zweiten Sitzung und sind **hier nicht nachgemessen**.
+- **STTU788** sowie die Grammaturen 240 und 400 g/m² sind Prospektangaben.
+- **Stickerei bei Shirt-King ist nicht angefragt** — weder Preis noch Mindestmenge.
+- Die Laenderzuordnung oben ist eine **Einschaetzung nach Flaggenaufbau**, keine
+  Messung der Druckdateien. Messbar waeren sie wie Albanien und Afghanistan.
