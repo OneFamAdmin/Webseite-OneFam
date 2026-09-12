@@ -322,16 +322,19 @@ KI-Sitzung mit Projektzugriff. **Recherche- und Einschaetzungsstand, nicht
 gemessen** — mit Ausnahme der Zahlen, die weiter oben in dieser Datei bereits
 belegt sind.
 
-## Drei Punkte der Fremdanalyse, die nicht stimmen
+## Drei Punkte der Fremdanalyse — zwei stimmen nicht, einer nur halb
 
-1. **Die Laendermotive sind keine Linien oder Routen.** Es ist das lachende
-   Gesicht mit der Flagge dahinter, also **Flaechen**. Die dort empfohlene
-   Vorbereitung fuer DTF (Konturen auf 1 mm verstaerken, Kontur umwandeln,
-   Pfade vereinen) passt auf ein Linienmotiv, **nicht auf unseres**.
-2. **„Shirt-King bietet Stickerei direkt an" trifft fuer unser Konto nicht zu.**
-   Der Katalog im Kundenportal fuehrt acht Optionen (Liste oben, Preisstand
-   16.03.2026) — **Stick ist nicht dabei**. Stickerei waere wie der Siebdruck
-   **separat anzufragen**.
+1. **Die Laendermotive sind keine Routen — aber sehr wohl eine Strichzeichnung.**
+   Am 12.09.2026 nachgemessen: unterbrochene Striche, die Flagge liegt **in** den
+   Strichen. **Die hier zuvor notierte Gegendarstellung („Flagge dahinter, also
+   Flaechen") war selbst falsch** und ist korrigiert → `stick-und-druck-je-land.md`.
+   Die dort empfohlene 1-mm-Vorbereitung fuer DTF bleibt trotzdem gegenstandslos:
+   unsere Striche sind **5,35 mm** breit, nicht 1 mm.
+2. **„Shirt-King bietet Stickerei direkt an" — richtig, aber nicht im Selbstbedienungsweg.**
+   Am 12.09.2026 auf shirt-king.de gelesen: Stickerei wird angeboten, **ab 30 Stueck
+   je Motiv**. Im Katalog des Kundenportals (acht Optionen, Preisstand 16.03.2026)
+   steht sie nicht — sie laeuft also **ueber Anfrage und als Auflage**, nicht ueber
+   Print-on-Demand.
 3. **DTG oder DTF ist nicht frei waehlbar.** Die Druckart haengt bei Shirt-King
    **fest am Rohteil im Katalog** (steht oben). Eine Empfehlung „fuer das Logo
    DTG, fuer die Laender DTF" laesst sich heute gar nicht einstellen.
@@ -340,63 +343,40 @@ belegt sind.
 
 | | |
 |---|---|
-| **Idealfall** | die **einfarbige Signature** (Logo Black, Logo White, Volltoene). Garn deckt immer — damit waere das Weiss-auf-Schwarz-Problem der Signature geloest, **ohne Siebdruck und ohne Mindestmenge 100**. |
+| **Idealfall** | die **einfarbige Signature** (Logo Black, Logo White, Volltoene). Garn deckt immer — damit waere das Weiss-auf-Schwarz-Problem der Signature geloest, **ohne Siebdruck**. |
 | **Geht nicht** | das bunte Logo mit **Farbverlauf**. Stickbar nur in Farbstufen, das ist ein anderes Motiv. |
+| **Mindestmenge** | **30 Stueck je Motiv** (shirt-king.de, gelesen 12.09.2026). Damit ist Stick **kein Print-on-Demand**, sondern eine Auflage — wie der Siebdruck, nur mit niedrigerer Schwelle als dessen 100. |
 | **Haken Textil** | ein vollflaechiger Stick von rund **8 × 10 cm** wird auf dem duennen Creator-Shirt (180 g/m²) steif und zieht den Stoff zusammen. Auf Sweater und Hoodie (350 g/m²) ist das unkritisch. |
 | **Haken Kosten** | jedes Motiv muss einmal **fuers Sticken aufbereitet** werden (Punchen), und das kostet **je Motiv**. Bei **252 Laendern** lohnt das nur fuer wenige. |
+| **Garn** | **trilobales Polyester** statt Viskose. Viskose glaenzt staerker, wird aber nach mehreren Waeschen matt; Polyester ist farb-, wasch-, UV- und chlorbestaendig und mit trilobalem Garn nahe am selben Glanz. Recherche, nicht gemessen — welche Reihen Shirt-King fuehrt, ist zu erfragen. |
 
-**Vorschlag aus der Sitzung: Signature sticken, die Laender per DTG drucken.**
+**Damit steht der Vorschlag: die Signature sticken** — ein Motiv, wenige Farben,
+30 Stueck sind erreichbar. **Die Laender bleiben beim Druck**, weil 252 Motive
+252 Stickdateien und 252 × 30 Stueck hiessen.
 
-**Offen:** Preis, Mindestmenge und ueberhaupt die Verfuegbarkeit von Stickerei
-sind bei Shirt-King **nicht angefragt** — sie gehoeren in dieselbe Anfrage wie
-die DTF-Umstellung.
+**Offen bei Shirt-King:** Stickpreis je Stueck, Kosten fuers Punchen, gefuehrte
+Garnreihen, und ob die 30 Stueck je Motiv oder je Bestellung gelten. Gehoert in
+dieselbe Anfrage wie die DTF-Umstellung.
 
-## Stick oder DTG je Land — Einschaetzung, keine Messung
+## Stick, DTF oder DTG je Land — am 12.09.2026 gemessen und neu gefasst
 
-Grundlage: die Flagge liegt in **echten Proportionen** hinter dem Gesicht,
-Wappen eingeschlossen. Ob ein Motiv stickbar ist, haengt deshalb direkt an der
-Flagge. Motivbreite auf dem Shirt laut PodOS **rund 8 cm**; Teile unter etwa
-**3 bis 4 mm** gehen beim Sticken verloren.
+**Was hier bis zum 12.09.2026 stand, war falsch.** Die Einteilung ging davon aus,
+die Motive seien „das Gesicht mit der Flagge dahinter, also flaechige Farbfelder",
+und leitete daraus ab, welches Land stickbar ist. Nachgemessen an den 196 Dateien
+in `public/faces/` stimmt die Annahme nicht:
 
-**Gemessen sind nur Albanien und Afghanistan**, alles andere ist geschaetzt.
-Afghanistan: die Schahaada-Schrift liegt **gemessen bei etwa 0,35 mm** und
-laeuft zu — heikel, weil es religioeser Text ist.
+**Das Motiv ist eine Strichzeichnung mit unterbrochenen Strichen, und die Flagge
+liegt *in* den Strichen.** Die Striche sind ueber alle Laender identisch und
+**5,35 mm** breit (bei 80 mm Motivbreite) — also **nicht** das Problem. Das Problem
+sind die Farbstuecke **innerhalb** eines Strichs, teils nur **1,0 mm²**.
 
-**DTG geht bei allen 252 Motiven**, es gibt keine Farbgrenze; der Unterschied
-ist nur die Schaerfe. **Auf dunklem Stoff haengt jedes Motiv weiter am Test der
-Weissdeckung**, denn jedes enthaelt Weiss.
+**Die vollstaendige Einteilung mit Messwerten, Schwellen und allen 196 Laendern
+steht jetzt in `docs/stick-und-druck-je-land.md`** — 60 Laender ohne Vorbehalt
+stickbar, 112 nur mit vereinfachtem Motiv, 24 nur mit DTF.
 
-### Gut stickbar — die Flagge besteht nur aus Flaechen
-
-Armenien, Bahamas, Bahrain, Bangladesch, Belgien, Benin, Botswana, Bulgarien,
-Côte d'Ivoire, Daenemark, Deutschland, Estland, Finnland, Frankreich, Gabun,
-Gambia, Griechenland, Guinea, Guyana, Indonesien, Irland, Island, Italien,
-Jamaika, Japan, Jemen, Katar, Kolumbien, Kongo-Brazzaville, Kuwait, Laos,
-Lettland, Litauen, Luxemburg, Madagaskar, Mali, Mauritius, Monaco, Myanmar,
-Niederlande, Niger, Nigeria, Norwegen, Oesterreich, Palaestina, Palau, Peru,
-Polen, Rumaenien, Russland, Schweden, Schweiz, Seychellen, Sierra Leone,
-Somalia, St. Lucia, St. Vincent, Suedafrika, Sudan, Tansania, Thailand, Tonga,
-Trinidad und Tobago, Tschad, Tschechien, Ukraine, Ungarn, Vereinigte Arabische
-Emirate, Vietnam.
-
-### Stickbar nur mit vereinfachtem Motiv
-
-Sterne werden rundlich, Symbole werden zur Silhouette:
-
-Albanien (Adler nur als Silhouette), Algerien, Antigua, Aserbaidschan, Barbados,
-Bosnien, Burkina Faso, Burundi, Chile, China, Dschibuti, Georgien, Ghana,
-Guinea-Bissau, Honduras, Israel, Jordanien, Kamerun, Kanada, Komoren, Kongo (DR),
-Kuba, Lesotho, Liberia, Libyen, Malawi, Malediven, Malta, Marokko,
-Marshallinseln, Mauretanien, Mikronesien, Namibia, Nauru, Nepal, Nordkorea,
-Nordmazedonien, Pakistan, Panama, Puerto Rico, Ruanda, Salomonen, Samoa,
-São Tomé, Senegal, St. Kitts, Suriname, Syrien, Taiwan, Timor-Leste, Togo,
-Tunesien, Tuerkei, Vereinigtes Koenigreich, Zentralafrika.
-
-### Nur DTG — Wappen, Schrift oder viele kleine Sterne
-
-Alle uebrigen, darunter Afghanistan, Andorra, Argentinien, Brasilien, Brunei,
-Mexiko, Spanien, Portugal, Kroatien, Serbien, USA, Indien, Saudi-Arabien —
-**und die meisten Territorien**.
+**Zur Haltbarkeit, weil es verwechselt wird:** DTG **blaettert nicht ab**, es
+**verblasst** — die Tinte sitzt in der Faser. Was sich loesen kann, ist die
+**DTF-Folie**, weil sie aufliegt.
 
 ### Wie scharf DTG wird — aus der ersten Runde ueber elf Motive
 
@@ -407,7 +387,7 @@ Mexiko, Spanien, Portugal, Kroatien, Serbien, USA, Indien, Saudi-Arabien —
 | Details gehen verloren | Mexiko (Adler im Mund wird ein Farbfleck), Brunei (Wappen unscharf), Brasilien (Schriftzug auf dem Band nicht lesbar), **Afghanistan** (Schrift laeuft zu) |
 
 **Die Signature:** Logo Black, Logo White und die einfarbigen Toene sind der
-ideale Fall fuers Sticken. Das bunte Logo mit Verlauf nur per DTG.
+ideale Fall fuers Sticken. Das bunte Logo mit Verlauf nur per DTG oder DTF.
 
 ## Modellwechsel Shirt und Hoodie — gerechnet, nicht empfohlen
 
@@ -469,6 +449,7 @@ schweres Shirt vertraegt einen Stick deutlich besser als der duenne Creator.**
 - Die Rohteilpreise **13,36 / 31,76 €** und der Striker-Aufschlag stammen aus
   der zweiten Sitzung und sind **hier nicht nachgemessen**.
 - **STTU788** sowie die Grammaturen 240 und 400 g/m² sind Prospektangaben.
-- **Stickerei bei Shirt-King ist nicht angefragt** — weder Preis noch Mindestmenge.
-- Die Laenderzuordnung oben ist eine **Einschaetzung nach Flaggenaufbau**, keine
-  Messung der Druckdateien. Messbar waeren sie wie Albanien und Afghanistan.
+- **Bei Shirt-King ist der Stickpreis nicht angefragt.** Belegt ist nur, dass es
+  Stickerei gibt und sie **ab 30 Stueck** laeuft (Website, 12.09.2026).
+- Die Laendereinteilung in `stick-und-druck-je-land.md` ist an den **Webdateien**
+  (256 px) gemessen, nicht an den Druck-PDF, und deckt **196 von 252** Laendern ab.

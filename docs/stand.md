@@ -23,7 +23,7 @@
 | 9 | ✅ **Hero umgebaut — erledigt 07.09.2026** | Marke jetzt als quadratischer Block ueber der Ueberschrift statt als formatfuellender Hintergrund; Laenderkacheln direkt hinter den Hero gezogen. Erstes Kleidungsstueck: **920 → 438 px** (Referenzfenster 1440 × 685), **1519 → 540 px** (390 × 844). Entschieden: Kacheln, **nicht** das Lifestyle-Bild — das zeigt Brasilien, und `/brazil/` ist pausiert. → unten „Hero umgebaut" |
 | 10 | 🎨 **Shop-Design: Startseite fertig, Unterseiten offen** | Stand 08.09.2026: der Hinweis „weitere Laender folgen" ist als Zeile unter der Kachelreihe zurueck, in allen vier Sprachen (Seite 4 666 → **4 712 px**). Die doppelten Fusszeilen und die 18 Galeriebilder waren **keine Befunde** — nachgeprueft, siehe unten. Die Signature-Reihe auf `/shop-by-country/` steht ebenfalls auf **vier** Kacheln (Seite 13 501 → **13 215 px**). **Die 14 Router-Seiten gehoeren nicht hierher:** den acht umgeleiteten fehlen die Modellbilder, das ist ein Laenderlauf, kein Design (→ „Die 14 Router-Seiten nachgezaehlt"). Die Laenderwand ist am 08.09. von **11 706 auf 1 043 px** gekuerzt (Seite 13 215 → **3 063**, Handy 31 299 → **5 511**), die kaputte Suche behoben. Der Sprach-Cookie-Fehler ist behoben (Snippets 42 und 26 lesen jetzt die Adresse vor dem Cookie). Die Produktseite hat eine **neutrale Buehne** statt des warmen Cremes — die Fotos sitzen jetzt randlos. **Weiter offen:** die Karte ist 1 080 statt 1 360 px breit (erst neue Bildgroessen noetig), die Produktfotos brauchen einen **einheitlichen Hintergrund beim Ausgeben**, `/de/warenkorb/` und `/de/kasse/` verlieren ihr Sprachpraefix — **nachgemessen und bewusst nicht gebaut**, weil kein Link dorthin fuehrt, die Sprache ueber das Cookie erhalten bleibt und die Seiten `noindex` tragen. |
 | 11 | ✅ **Preis-Rueckschreiben ist entschaerft — Snippet 108 stellt zurueck** | **Am 08.09.2026 zum dritten Mal passiert** (08:32–08:34, 188 Variationen, beide Sweater auf 60 statt 65; einer davon **publish**). Zurueckgesetzt und vollstaendig nachgemessen: 42 Produkte, 3 218 Variationen, 0 Abweichungen. **Neu belegt:** der Sync schreibt **nur den Basispreis**, und der ist **CHF** — die EUR-Festpreise bleiben unberuehrt. Die ankommenden Werte 35 / 60 sind die gerundeten **EUR**-Preise. **Deshalb waere „EUR-Preise in PodOS eintragen" der falsche Schluss.** Bitte an Shirt-King, in dieser Reihenfolge: **gar keine Preise schreiben**, sonst CHF 40 / 65 / 75 — und die Frage, ob PodOS ueberhaupt CHF fuehren kann. **Seit dem 08.09.2026 faengt Snippet 108 es ab** (geprueft: falscher wie leerer Preis springen sofort auf den Sollwert zurueck). Die Bitte an Shirt-King ist damit **kein Sperrpunkt mehr**, nur noch eine Information. |
-| 12 | 🧵 **Stickerei und Modellwechsel — aufgenommen, nichts entschieden** | Am 12.09.2026 aus zwei KI-Sitzungen uebernommen: **Stick** als drittes Verfahren (Idealfall die einfarbige Signature — Garn deckt immer, loest Weiss-auf-Schwarz **ohne** Siebdruck und ohne Mindestmenge 100), eine Stick-oder-DTG-Einschaetzung **je Land**, und der Vorschlag, Shirt und Hoodie auf **Freestyler / Slammer** zu wechseln. **Drei Dinge sind zu tun:** Stickerei bei Shirt-King anfragen (Preis, Mindestmenge — sie steht **nicht** im Katalog, anders als die Analyse behauptet), ein **Freestyler-Muster** zu den Drucktests dazubestellen, und **nicht wechseln**, bevor die erste Stick- oder Siebdruckauflage ansteht: der Wechsel kostet **+6,72 €** (Shirt) bzw. **+10,54 €** (Hoodie) im Einkauf, die Verkaufspreise bleiben — beim Shirt stehen dann **21,52 CHF** Herstellkosten gegen **40 CHF** Verkauf. → `druck-und-lieferant.md` |
+| 12 | 🧵 **Stickerei: gepruefte Grundlage, Entscheidung offen** | Am 12.09.2026 selbst nachgesehen und gemessen. **Shirt-King bietet Stickerei — ab 30 Stueck je Motiv** (Website gelesen; im Kundenportal-Katalog steht sie nicht, sie laeuft also ueber Anfrage). **Das Motiv ist nachgemessen:** Strichzeichnung mit unterbrochenen Strichen, **5,35 mm** breit, die Flagge liegt **in** den Strichen — die frueher hier notierte Annahme (Flagge dahinter, flaechig) war falsch und ist korrigiert. Einteilung: **60 Laender ohne Vorbehalt stickbar, 112 nur vereinfacht, 24 nur DTF** (196 von 252 Motiven, gemessen an den Webdateien) → `stick-und-druck-je-land.md`. **Zu tun:** bei Shirt-King Stickpreis, Punch-Kosten und Garnreihen erfragen (Empfehlung **trilobales Polyester**, nicht Viskose), Freestyler-Muster zu den Drucktests dazubestellen, und den Modellwechsel erst mit der ersten Auflage machen (+6,72 € Shirt, +10,54 € Hoodie im Einkauf). → `druck-und-lieferant.md` |
 
 **Der Trichter bleibt geparkt** (freie Auswahl, Käufer-Voting) bis zur rechtlichen
 Freigabe. Nicht als toten Code aufräumen.
@@ -35,6 +35,44 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 ---
 
 ## Was zuletzt gemacht wurde — neueste zuerst
+
+### Motive nachgemessen, Stickerei belegt — 12.09.2026
+
+**Eine eigene Annahme ist dabei umgefallen.** In `druck-und-lieferant.md` stand,
+die Laendermotive seien das Gesicht mit der Flagge **dahinter**, also flaechige
+Farbfelder. Gemessen an den **196 Dateien in `public/faces/`** stimmt das nicht:
+es ist eine **Strichzeichnung** mit unterbrochenen Strichen, und die Flagge liegt
+**in** den Strichen.
+
+| Messwert | |
+|---|---|
+| Motivbreite auf dem Shirt (PodOS) | 80 mm |
+| Strichbreite, Mittel ueber 196 Motive | **5,35 mm** (Spanne 5,33 bis 5,42) |
+| duennste Stellen (auslaufende Enden) | rund **1,4 mm** |
+| Hauptfarben je Motiv | Median **4**, Spanne **2 bis 18** |
+| kleinste Farbflaeche im Strich | teils **1,0 mm²** |
+
+Die Strichzeichnung ist **fuer alle Laender identisch** — nur die Fuellung
+wechselt. **Der Strich ist damit nie das Problem** (5,35 mm liegt weit ueber der
+Stickgrenze von 3 bis 4 mm), sondern die Farbwechsel **im** Strich.
+
+**Einteilung daraus** (Schwellen offengelegt in `stick-und-druck-je-land.md`):
+**60** Laender ohne Vorbehalt stickbar, **112** nur mit vereinfachtem Motiv,
+**24** nur mit DTF. Gemessen sind die **Webdateien** (256 px), nicht die
+Druck-PDF, und es sind **196 von 252** Laendern.
+
+**Stickerei bei Shirt-King ist belegt:** sie wird angeboten, **ab 30 Stueck je
+Motiv**. Damit ist Stick **kein Print-on-Demand**, sondern eine Auflage — fuer die
+**Signature** erreichbar, fuer 252 Laendermotive nicht.
+
+**Zur Haltbarkeit, weil es verwechselt wird:** DTG **blaettert nicht ab**, es
+**verblasst** — die Tinte sitzt in der Faser. Was sich loesen kann, ist die
+**DTF-Folie**, weil sie aufliegt. Von DTG auf DTF zu wechseln, um Abblaettern zu
+vermeiden, tauscht das Verblassen also gegen genau dieses Risiko.
+
+**Garn:** **trilobales Polyester** statt Viskose. Viskose glaenzt staerker, wird
+aber nach mehreren Waeschen matt; Polyester haelt Farbe, Waesche, UV und Chlor und
+kommt trilobal nah an denselben Glanz. Recherche, nicht gemessen.
 
 ### Stickerei, Modellwechsel und Stick-oder-DTG je Land — 12.09.2026
 
