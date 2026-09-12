@@ -1,115 +1,141 @@
-# Stick, DTF oder DTG — je Land
+# Stick oder Druck — je Land
 
-Gemessen am **12.09.2026** an den 196 Motivdateien in `public/faces/`. Das ist die
-erste Messung dieser Art; vorher lag hier eine **Einschaetzung nach Flaggenaufbau,
-und die war falsch** — warum, steht gleich unten.
+Gemessen am **12.09.2026** an den 196 Motivdateien in `public/faces/`.
+**Neu gefasst am selben Tag**, nachdem zwei Vorgaben dazukamen: **es darf nichts
+weggelassen werden**, und der **Hoodie** traegt ein deutlich groesseres Motiv.
 
-> **Vorbehalt, der mitzulesen ist:** gemessen wurden die **Webdateien** (256 × 256 px,
-> PNG), nicht die Druck-PDF. Die liegen unter `~/Downloads/Designs/Muster shirt-king/`
-> auf dem Mac und sind hier nicht erreichbar. Fuer die Geometrie des Motivs reicht
-> das; fuer eine Freigabe an den Sticker ist **die Druckdatei** zu vermessen.
-> Ausserdem stehen im Shop **252** Laender, hier sind **196** Dateien.
-
----
-
-## Was das Motiv wirklich ist — die alte Annahme war falsch
-
-Bis zum 12.09.2026 stand in `druck-und-lieferant.md`, die Motive seien „das lachende
-Gesicht mit der **Flagge dahinter**, also flaechige Farbfelder". **Das stimmt nicht.**
-
-Das Motiv ist eine **Strichzeichnung des Gesichts** — Brauen, Augen, Nase, Mund und
-Wangenbogen als einzelne, **unterbrochene** Striche. Die Flagge ist **nicht
-dahinter**, sie liegt **in den Strichen drin**: jeder Strich ist mit dem
-Flaggenausschnitt gefuellt, der an dieser Stelle liegt. Ausserhalb der Striche ist
-das Motiv **leer**.
-
-Das dreht die ganze Beurteilung um. Nicht die Flagge entscheidet, ob ein Land
-stickbar ist, sondern **wie klein die Farbstuecke innerhalb eines 5-mm-Strichs
-werden**.
-
-## Die Messwerte
-
-| | Wert |
-|---|---|
-| Motivbreite auf dem Shirt (PodOS) | **80 mm** |
-| Strichbreite, Mittel ueber alle 196 Motive | **5,35 mm** (Spanne 5,33 bis 5,42) |
-| duennste Stellen (auslaufende Strichenden) | **rund 1,4 mm** |
-| Hauptfarben je Motiv (ueber 2 % Flaeche) | Median **4**, Spanne **2 bis 18** |
-| kleinste zusammenhaengende Farbflaeche | teils **1,0 mm²** |
-
-**Die Strichzeichnung selbst ist fuer alle 196 Laender identisch** — gleiche
-Bounding-Box, gleiche Deckung, gleiche Strichbreite. Nur die Fuellung wechselt.
-
-**Damit ist der Strich kein Problem.** 5,35 mm liegt weit ueber der Stickgrenze von
-3 bis 4 mm. Das Problem sind die **Farbwechsel im Strich**.
-
-## Was das fuer die drei Verfahren heisst
-
-| Verfahren | Urteil fuer dieses Motiv |
-|---|---|
-| **Stickerei** | Der Strich ist breit genug. Es scheitert oder gelingt an der Zahl der Farben und an Farbstuecken unter etwa 2 mm². |
-| **DTF** | Unkritisch. Die Sorge „feine Linien brechen auf" gilt fuer echte Haarlinien; bei 5,35 mm breiten Strichen ist das kein Thema. Deckkraft schon im Film. |
-| **DTG** | Technisch bei allen 252 moeglich. Haengt weiter am Test der Weissdeckung auf dunklem Stoff. |
-
-**Zur Haltbarkeit, weil es leicht verwechselt wird:** DTG **blaettert nicht ab** — die
-Tinte sitzt in der Faser, sie **verblasst** mit den Waeschen. Was abplatzen oder sich
-an den Raendern loesen kann, ist die **DTF-Folie**, weil sie auf dem Stoff aufliegt.
-Wer wegen „blaettert ab" von DTG auf DTF wechselt, tauscht also das Verblassen gegen
-genau das Risiko ein, das er vermeiden wollte. Der Ausweg gegen beides heisst
-**Stickerei** — dort gibt es weder Tinte noch Folie.
+> **Zwei Vorbehalte, die mitzulesen sind.** Gemessen sind die **Webdateien**
+> (256 × 256 px), nicht die EPS-Druckdaten — die liegen auf der externen Platte
+> am Mac und sind aus dieser Sitzung nicht erreichbar. Und es sind **196 von 252**
+> Laendern.
 
 ---
 
-## Die Einteilung
+## Was das Motiv ist
 
-Schwellen, offengelegt, damit sie nachpruefbar sind:
+Eine **Strichzeichnung des Gesichts** — Brauen, Augen, Nase, Mund, Wangenbogen als
+einzelne, **unterbrochene** Striche. Die Flagge liegt **in** den Strichen, nicht
+dahinter; ausserhalb ist das Motiv leer. Die Strichzeichnung ist **fuer alle Laender
+identisch**, nur die Fuellung wechselt.
 
-| Gruppe | Bedingung |
+**Die frueher hier notierte Beschreibung (Gesicht vor flaechiger Flagge) war falsch.**
+
+## Die Druckmasse — und eine korrigierte Zahl
+
+| Stueck | Druckbreite | Strichbreite | Motivflaeche |
+|---|---|---|---|
+| **Hoodie** (Cruiser 2.0) | **166 mm** | **11,1 mm** | rund 7 240 mm² |
+| Sweater (Changer 2.0) | 69 mm | 4,6 mm | rund 1 250 mm² |
+| Shirt (Creator 2.0) | 69 mm | 4,6 mm | rund 1 250 mm² |
+
+Quelle der Druckbreiten: `RUNBOOK-laenderlauf.md`, Abschnitt Druckmasse — dort
+kanonisch gemessen. **Die hier zuvor verwendeten 80 mm waren falsch übernommen.**
+
+Der Hoodie traegt also **Faktor 2,4 in der Breite und 5,8 in der Flaeche**.
+
+## Die Messung: was ginge verloren, wenn nichts weggelassen wird
+
+Gezaehlt wurde je Motiv der **Anteil der Motivflaeche, der in Teilen steckt, die
+schmaler als 1 mm sind** — die Grenze, unter der ein Satinstich nicht mehr
+ausfuehrbar ist. **Null heisst: vollstaendig stickbar, ohne etwas wegzulassen.**
+
+### Shirt und Sweater, 69 mm
+
+| Verlust | Motive |
 |---|---|
-| **A — ohne Vorbehalt stickbar** | hoechstens 3 Hauptfarben, unter 1 % der Flaeche in Stuecken kleiner 4 mm², kleinstes Farbstueck mindestens 2 mm² |
-| **B — stickbar, aber das Motiv muss vereinfacht werden** | hoechstens 5 Hauptfarben, hoechstens 8 % der Flaeche in Stuecken kleiner 4 mm² |
-| **C — nicht sticken, sondern DTF** | alles andere: Wappen, Schrift oder viele kleine Sterne im Strich |
+| **unter 0,5 %** — ohne Weglassen stickbar | **116** |
+| 0,5 bis 2 % | 35 |
+| 2 bis 5 % | 19 |
+| **ueber 5 %** — nicht stickbar, ohne etwas zu opfern | **26** |
 
-### A — ohne Vorbehalt stickbar (60 Laender)
+Die schwierigsten:
 
-Armenien, Bangladesch, Barbados, Benin, Bolivien, Botswana, Bulgarien, Chile,
-DR Kongo, Deutschland, Dominik. Rep., Estland, Gabun, Georgien, Grenada,
-Grossbritannien, Guinea, Indonesien, Irland, Island, Israel, Jamaika, Jemen,
-Kanada, Kolumbien, Kongo, Kosovo, Laos, Lettland, Litauen, Luxemburg,
-Madagaskar, Malediven, Mali, Mauretanien, Monaco, Niederlande, Niger,
-Nigeria, Nordmaz., Norwegen, Panama, Peru, Polen, Rumänien, Schweden,
-Schweiz, Sierra Leone, Somalia, St. Vincent, Togo, Trinidad & Tobago, Tschad,
-Tschechien, Tunesien, Türkei, Ukraine, Ungarn, Vietnam, Österreich.
+| Land | Verlust | Farben |
+|---|---|---|
+| San Marino | 39.6 % | 15 |
+| Serbien | 21.6 % | 8 |
+| Sri Lanka | 19.2 % | 6 |
+| Kambodscha | 18.5 % | 7 |
+| Bhutan | 18.1 % | 5 |
+| Afghanistan | 16.7 % | 6 |
+| Portugal | 15.6 % | 7 |
+| Spanien | 14.4 % | 9 |
+| Sambia | 12.4 % | 6 |
+| Andorra | 12.0 % | 7 |
+| Turkmenistan | 11.2 % | 5 |
+| Moldau | 10.8 % | 6 |
+| Saudi-Arabien | 10.6 % | 3 |
+| Senegal | 10.3 % | 4 |
+| Belize | 10.1 % | 7 |
 
-### B — stickbar nach Vereinfachung (112 Laender)
+### Hoodie, 166 mm — **die Messung traegt hier nicht**
 
-Sterne werden rundlich, Wappen werden zur Silhouette, benachbarte Toene fallen
-zusammen. **Je Motiv einmal von Hand zu entscheiden** — das ist Arbeit, keine
-Einstellung.
+Rechnerisch kommt fuer **alle 196** Motive ein Verlust von **0,00 %** heraus. Dieses
+Ergebnis ist aber **kein Befund, sondern ein Artefakt der Messquelle**: die Webdatei
+hat 158 px Motivbreite, bei 166 mm Druckbreite ist **ein Pixel 1,05 mm** gross. Alles,
+was feiner als 1 mm waere, **kann in dieser Datei gar nicht vorkommen**. Die Datei
+kann die Frage also nicht beantworten.
 
-Albanien, Algerien, Angola, Antigua & B., Argentinien, Aserbaidschan,
-Australien, Bahamas, Bahrain, Belarus, Belgien, Bosnien, Brasilien, Brunei,
-Burkina Faso, Burundi, Costa Rica, Dschibuti, Dänemark, El Salvador,
-Elfenbeinküste, Eritrea, Fidschi, Finnland, Frankreich, Gambia, Ghana,
-Griechenland, Guatemala, Guinea-Bissau, Haiti, Honduras, Indien, Irak, Iran,
-Italien, Japan, Jordanien, Kamerun, Kap Verde, Kasachstan, Katar, Kenia,
-Kiribati, Komoren, Kroatien, Kuba, Kuwait, Lesotho, Libanon, Liberia, Libyen,
-Liechtenstein, Malawi, Malaysia, Malta, Marokko, Marshallinseln, Mauritius,
-Mexiko, Mikronesien, Mongolei, Mosambik, Myanmar, Namibia, Nauru, Nepal,
-Neuseeland, Nordkorea, Oman, Pakistan, Palau, Palästina, Papua-Neuguinea,
-Paraguay, Philippinen, Ruanda, Salomonen, Samoa, Seychellen, Simbabwe,
-Singapur, Slowakei, Slowenien, St. Kitts & N., St. Lucia, Sudan, Suriname,
-Syrien, São Tomé & P., Südafrika, Südkorea, Tadschikistan, Taiwan, Tansania,
-Thailand, Timor-Leste, Tonga, Tuvalu, USA, Uganda, Uruguay, Usbekistan,
-Vanuatu, Vatikan, Venezuela, Ver. Arab. Emirate, Zentralafr. Rep., Zypern,
-Ägypten, Äquatorialguinea, Äthiopien.
+**Was sich trotzdem sagen laesst:** jedes Detail, das in der Webdatei sichtbar ist,
+liegt am Hoodie ueber der Stickgrenze. Die Richtung stimmt also — der Hoodie loest
+sehr viel. **Belegen laesst es sich nur an den EPS-Dateien.**
 
-### C — nicht sticken, mit DTF drucken (24 Laender)
+## Drei Grenzen, die die Groesse nicht aufhebt
 
-Afghanistan, Andorra, Belize, Bhutan, China, Dominica, Ecuador, Eswatini,
-Guyana, Kambodscha, Kirgisistan, Moldau, Montenegro, Nicaragua, Portugal,
-Sambia, San Marino, Saudi-Arabien, Senegal, Serbien, Spanien, Sri Lanka,
-Südsudan, Turkmenistan.
+1. **Die Nadel.** Unter rund 1 mm gibt es keinen Satinstich, Schrift braucht 4 bis
+   5 mm Zeichenhoehe. Die Schahaada auf der afghanischen Flagge wurde mit **0,35 mm**
+   gemessen; mal 2,4 sind das **0,84 mm** — weiter darunter.
+2. **Jede Farbe ist ein Fadenwechsel.** Bis zu **18** Hauptfarben je Motiv, und sie
+   wechseln **innerhalb** eines Strichs. Das ist Maschinenzeit, keine Frage der Groesse.
+3. **Die Stichmasse.** Rund **7 240 mm²** Stickflaeche am Hoodie, nach Faustwert
+   **etwa 11 000 Stiche** (Shirt: rund 1 250 mm², etwa 1 900 Stiche). Das ist eine
+   grossflaechige Stickerei auf der Brust — steif, schwer, und im Preis laeuft die
+   Stichzahl mit.
+
+---
+
+## Die Laender
+
+### Ohne Weglassen stickbar — Shirt und Sweater (116 von 196)
+
+Albanien, Antigua & B., Argentinien, Armenien, Australien, Bahamas, Bahrain,
+Bangladesch, Barbados, Benin, Bolivien, Bosnien, Botswana, Bulgarien, Chile,
+Costa Rica, DR Kongo, Deutschland, Dschibuti, Dänemark, Elfenbeinküste,
+Estland, Frankreich, Gabun, Gambia, Georgien, Ghana, Grenada,
+Grossbritannien, Guinea, Guinea-Bissau, Indonesien, Irland, Island, Israel,
+Italien, Jamaika, Jemen, Jordanien, Kamerun, Kanada, Kap Verde, Kolumbien,
+Kongo, Kosovo, Kuwait, Laos, Libyen, Litauen, Luxemburg, Madagaskar, Malawi,
+Malaysia, Malediven, Mali, Marokko, Mauretanien, Mauritius, Mikronesien,
+Monaco, Mongolei, Myanmar, Nauru, Nepal, Niederlande, Niger, Nigeria,
+Nordmaz., Norwegen, Oman, Pakistan, Palau, Palästina, Panama,
+Papua-Neuguinea, Peru, Philippinen, Polen, Rumänien, Salomonen, Samoa,
+Schweden, Schweiz, Seychellen, Sierra Leone, Somalia, St. Kitts & N.,
+St. Lucia, St. Vincent, Sudan, Syrien, São Tomé & P., Südafrika, Südkorea,
+Südsudan, Taiwan, Tansania, Thailand, Timor-Leste, Togo, Tonga,
+Trinidad & Tobago, Tschad, Tschechien, Tunesien, Tuvalu, Türkei, Ukraine,
+Ungarn, Usbekistan, Vanuatu, Venezuela, Ver. Arab. Emirate, Vietnam,
+Zentralafr. Rep., Österreich.
+
+### Verlust 0,5 bis 2 % (35)
+
+Algerien, Belarus, Brasilien, Burundi, Dominik. Rep., El Salvador, Eswatini,
+Fidschi, Indien, Irak, Kasachstan, Katar, Kenia, Kiribati, Komoren, Kroatien,
+Lesotho, Lettland, Libanon, Liechtenstein, Malta, Marshallinseln, Mosambik,
+Namibia, Paraguay, Simbabwe, Slowenien, Suriname, Tadschikistan, USA, Uganda,
+Uruguay, Ägypten, Äquatorialguinea, Äthiopien.
+
+### Verlust 2 bis 5 % (19)
+
+Angola, Belgien, Brunei, Burkina Faso, Dominica, Ecuador, Eritrea, Finnland,
+Griechenland, Guyana, Honduras, Japan, Kuba, Liberia, Nordkorea, Ruanda,
+Singapur, Slowakei, Zypern.
+
+### Verlust ueber 5 % — nur drucken (26)
+
+Afghanistan, Andorra, Aserbaidschan, Belize, Bhutan, China, Guatemala, Haiti,
+Iran, Kambodscha, Kirgisistan, Mexiko, Moldau, Montenegro, Neuseeland,
+Nicaragua, Portugal, Sambia, San Marino, Saudi-Arabien, Senegal, Serbien,
+Spanien, Sri Lanka, Turkmenistan, Vatikan.
 
 ---
 
@@ -117,38 +143,27 @@ Südsudan, Turkmenistan.
 
 Logo Black, Logo White und die einfarbigen Toene sind der **ideale** Stickfall: eine
 Farbe, breite Striche, kein Detail. Das bunte Logo mit **Farbverlauf** laesst sich
-nicht sticken — ein Verlauf waere in Farbstufen zu zerlegen und damit ein anderes
-Motiv.
+nicht sticken.
 
-## Was gegen einen Alleingang spricht
+## Was gegen Stick auf der Laenderlinie spricht
 
-**Stickerei bei Shirt-King gibt es ab 30 Stueck je Motiv** (Quelle: die
-Produktseiten und die FAQ von shirt-king.de, gelesen am 12.09.2026). Das ist
-**kein Print-on-Demand mehr**, sondern eine Auflage — wie der Siebdruck, nur mit
-niedrigerer Schwelle (dort 100).
+**Stickerei bei Shirt-King gibt es ab 30 Stueck je Motiv** (Website, gelesen
+12.09.2026). Das ist **kein Print-on-Demand**, sondern eine Auflage. Fuer 252 Laender
+hiesse das 252 Stickdateien und 252 × 30 Stueck. **Fuer die Signature ist es
+erreichbar, fuer die Laender nicht** — solange keine Vorbestellrunde laeuft.
 
-Fuer 252 Laender heisst das 252 × 30 Stueck, und dazu je Motiv einmal die
-**Stickdatei** (Punchen), die ebenfalls je Motiv kostet. **Rechnerisch ist Stick
-fuer die Laenderlinie kein Weg** — wohl aber fuer die **Signature**, wo es genau ein
-Motiv in wenigen Farben ist.
+## Garn
 
-## Garn: welcher Glanz
+**Trilobales Polyester**, nicht Viskose. Viskose glaenzt staerker, wird aber nach
+mehreren Waeschen matt; Polyester haelt Farbe, Waesche, UV und Chlor und kommt
+trilobal nah an denselben Glanz. Recherche, nicht gemessen.
 
-| | Viskose (Rayon) | Polyester |
-|---|---|---|
-| Glanz | **hoeher**, weicher Seidenglanz | etwas ruhiger, mit **trilobalem** Garn nahe dran |
-| Haltbarkeit | verliert den Glanz nach mehreren Waeschen, wird matt | farb-, wasch-, UV- und chlorbestaendig |
-| geeignet fuer | Dekoratives, selten Getragenes | **Kleidung, die oft gewaschen wird** |
+## Was als Naechstes zu messen ist — in dieser Reihenfolge
 
-**Empfehlung: trilobales Polyester.** Der gewuenschte leichte Glanz ist da, ohne dass
-das Motiv nach zehn Waeschen stumpf aussieht — und ein Shirt, das getragen wird, wird
-oft gewaschen. Reine Viskose nur, wenn der Glanz wichtiger ist als der Zustand nach
-einem Jahr. **Das ist Recherche, nicht gemessen**; welche Garnreihen Shirt-King
-fuehrt, ist zu erfragen.
-
-## Was als Naechstes zu messen ist
-
-1. Dieselbe Messung an den **Druck-PDF** statt an den Webdateien.
+1. **Die EPS-Dateien** auf der externen Platte „Labi extern", Ordner der
+   Laenderkollektion. Erst daran ist die Hoodie-Frage zu beantworten. Dafuer muss
+   Claude Code **lokal auf dem Mac** laufen — aus der Cloud-Sitzung gibt es keinen
+   Zugriff auf die Platte.
 2. Die **56 fehlenden** Laender (196 Dateien gegen 252 Produkte im Shop).
-3. Bei Shirt-King erfragen: Stickpreis je Stueck, Kosten fuers Punchen, gefuehrte
-   Garnreihen, und ob die 30 Stueck je Motiv oder je Bestellung gelten.
+3. Bei Shirt-King: Stickpreis je 1 000 Stiche, Kosten fuers Punchen, Garnreihen,
+   und ob die 30 Stueck je Motiv oder je Bestellung gelten.

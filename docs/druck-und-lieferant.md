@@ -329,7 +329,7 @@ belegt sind.
    Strichen. **Die hier zuvor notierte Gegendarstellung („Flagge dahinter, also
    Flaechen") war selbst falsch** und ist korrigiert → `stick-und-druck-je-land.md`.
    Die dort empfohlene 1-mm-Vorbereitung fuer DTF bleibt trotzdem gegenstandslos:
-   unsere Striche sind **5,35 mm** breit, nicht 1 mm.
+   unsere Striche sind **4,6 mm** breit (Hoodie 11,1 mm), nicht 1 mm.
 2. **„Shirt-King bietet Stickerei direkt an" — richtig, aber nicht im Selbstbedienungsweg.**
    Am 12.09.2026 auf shirt-king.de gelesen: Stickerei wird angeboten, **ab 30 Stueck
    je Motiv**. Im Katalog des Kundenportals (acht Optionen, Preisstand 16.03.2026)
@@ -366,13 +366,17 @@ und leitete daraus ab, welches Land stickbar ist. Nachgemessen an den 196 Dateie
 in `public/faces/` stimmt die Annahme nicht:
 
 **Das Motiv ist eine Strichzeichnung mit unterbrochenen Strichen, und die Flagge
-liegt *in* den Strichen.** Die Striche sind ueber alle Laender identisch und
-**5,35 mm** breit (bei 80 mm Motivbreite) — also **nicht** das Problem. Das Problem
-sind die Farbstuecke **innerhalb** eines Strichs, teils nur **1,0 mm²**.
+liegt *in* den Strichen.** Die Striche sind ueber alle Laender identisch: **4,6 mm**
+bei 69 mm Druckbreite (Shirt und Sweater), **11,1 mm** bei 166 mm (Hoodie) — also
+**nicht** das Problem. Das Problem sind die Farbstuecke **innerhalb** eines Strichs.
 
-**Die vollstaendige Einteilung mit Messwerten, Schwellen und allen 196 Laendern
-steht jetzt in `docs/stick-und-druck-je-land.md`** — 60 Laender ohne Vorbehalt
-stickbar, 112 nur mit vereinfachtem Motiv, 24 nur mit DTF.
+**Die vollstaendige Einteilung mit Messwerten und allen 196 Laendern steht in
+`docs/stick-und-druck-je-land.md`.** Sie ist am 12.09.2026 **neu gefasst worden**,
+weil zwei Vorgaben dazukamen: **es darf nichts weggelassen werden**, und der
+**Hoodie** traegt 166 statt 69 mm. Gemessen wird seitdem der **Anteil der Flaeche
+in Teilen unter 1 mm** — am Shirt sind **116 von 196** Motiven ohne Verlust stickbar,
+**26** verlieren ueber 5 %. **Am Hoodie kann die Webdatei die Frage nicht
+beantworten** (ein Pixel waere dort 1,05 mm) — dafuer braucht es die EPS-Dateien.
 
 **Zur Haltbarkeit, weil es verwechselt wird:** DTG **blaettert nicht ab**, es
 **verblasst** — die Tinte sitzt in der Faser. Was sich loesen kann, ist die
