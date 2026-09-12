@@ -23,6 +23,7 @@
 | 9 | ✅ **Hero umgebaut — erledigt 07.09.2026** | Marke jetzt als quadratischer Block ueber der Ueberschrift statt als formatfuellender Hintergrund; Laenderkacheln direkt hinter den Hero gezogen. Erstes Kleidungsstueck: **920 → 438 px** (Referenzfenster 1440 × 685), **1519 → 540 px** (390 × 844). Entschieden: Kacheln, **nicht** das Lifestyle-Bild — das zeigt Brasilien, und `/brazil/` ist pausiert. → unten „Hero umgebaut" |
 | 10 | 🎨 **Shop-Design: Startseite fertig, Unterseiten offen** | Stand 08.09.2026: der Hinweis „weitere Laender folgen" ist als Zeile unter der Kachelreihe zurueck, in allen vier Sprachen (Seite 4 666 → **4 712 px**). Die doppelten Fusszeilen und die 18 Galeriebilder waren **keine Befunde** — nachgeprueft, siehe unten. Die Signature-Reihe auf `/shop-by-country/` steht ebenfalls auf **vier** Kacheln (Seite 13 501 → **13 215 px**). **Die 14 Router-Seiten gehoeren nicht hierher:** den acht umgeleiteten fehlen die Modellbilder, das ist ein Laenderlauf, kein Design (→ „Die 14 Router-Seiten nachgezaehlt"). Die Laenderwand ist am 08.09. von **11 706 auf 1 043 px** gekuerzt (Seite 13 215 → **3 063**, Handy 31 299 → **5 511**), die kaputte Suche behoben. Der Sprach-Cookie-Fehler ist behoben (Snippets 42 und 26 lesen jetzt die Adresse vor dem Cookie). Die Produktseite hat eine **neutrale Buehne** statt des warmen Cremes — die Fotos sitzen jetzt randlos. **Weiter offen:** die Karte ist 1 080 statt 1 360 px breit (erst neue Bildgroessen noetig), die Produktfotos brauchen einen **einheitlichen Hintergrund beim Ausgeben**, `/de/warenkorb/` und `/de/kasse/` verlieren ihr Sprachpraefix — **nachgemessen und bewusst nicht gebaut**, weil kein Link dorthin fuehrt, die Sprache ueber das Cookie erhalten bleibt und die Seiten `noindex` tragen. |
 | 11 | ✅ **Preis-Rueckschreiben ist entschaerft — Snippet 108 stellt zurueck** | **Am 08.09.2026 zum dritten Mal passiert** (08:32–08:34, 188 Variationen, beide Sweater auf 60 statt 65; einer davon **publish**). Zurueckgesetzt und vollstaendig nachgemessen: 42 Produkte, 3 218 Variationen, 0 Abweichungen. **Neu belegt:** der Sync schreibt **nur den Basispreis**, und der ist **CHF** — die EUR-Festpreise bleiben unberuehrt. Die ankommenden Werte 35 / 60 sind die gerundeten **EUR**-Preise. **Deshalb waere „EUR-Preise in PodOS eintragen" der falsche Schluss.** Bitte an Shirt-King, in dieser Reihenfolge: **gar keine Preise schreiben**, sonst CHF 40 / 65 / 75 — und die Frage, ob PodOS ueberhaupt CHF fuehren kann. **Seit dem 08.09.2026 faengt Snippet 108 es ab** (geprueft: falscher wie leerer Preis springen sofort auf den Sollwert zurueck). Die Bitte an Shirt-King ist damit **kein Sperrpunkt mehr**, nur noch eine Information. |
+| 12 | 🧵 **Stickerei: gemessen, und eine Frage bleibt offen** | Am 12.09.2026 selbst nachgesehen und zweimal gemessen. **Shirt-King bietet Stickerei — ab 30 Stueck je Motiv** (Website; im Kundenportal-Katalog steht sie nicht, sie laeuft ueber Anfrage). **Das Motiv:** Strichzeichnung mit unterbrochenen Strichen, die Flagge liegt **in** den Strichen; Strichbreite **4,6 mm** am Shirt, **11,1 mm** am Hoodie. Vorgabe von Labi: **es darf nichts weggelassen werden.** Danach gemessen (Anteil der Flaeche unter 1 mm): am Shirt **116 von 196** Motiven ohne Verlust, **26** verlieren ueber 5 % (schlechtestes San Marino, 39,6 %). **Am Hoodie kann die Webdatei es nicht beantworten** — ein Pixel waere dort 1,05 mm gross. **Dafuer braucht es die EPS-Dateien von der Platte „Labi extern", und dafuer muss Claude Code lokal auf dem Mac laufen.** → `stick-und-druck-je-land.md` |
 
 **Der Trichter bleibt geparkt** (freie Auswahl, Käufer-Voting) bis zur rechtlichen
 Freigabe. Nicht als toten Code aufräumen.
@@ -34,6 +35,103 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 ---
 
 ## Was zuletzt gemacht wurde — neueste zuerst
+
+### Motive nachgemessen — und die Hoodie-Frage bleibt offen — 12.09.2026
+
+**Eine eigene Annahme ist umgefallen, und eine uebernommene Zahl war falsch.**
+Die Laendermotive sind **keine** Flagge hinter einem Gesicht, sondern eine
+**Strichzeichnung** mit unterbrochenen Strichen; die Flagge liegt **in** den
+Strichen. Und die Motivbreite ist **nicht** 80 mm — kanonisch gemessen stehen im
+`RUNBOOK-laenderlauf.md`: **Hoodie 166 mm, Sweater und Shirt je 69 mm**.
+
+| Messwert | Shirt / Sweater | Hoodie |
+|---|---|---|
+| Druckbreite | 69 mm | **166 mm** |
+| Strichbreite | **4,6 mm** | **11,1 mm** |
+| Motivflaeche | rund 1 250 mm² | rund **7 240 mm²** |
+| Stiche (Faustwert) | rund 1 900 | rund **11 000** |
+
+**Labis Vorgabe: es darf nichts weggelassen werden.** Damit faellt die mittlere
+Gruppe („vereinfacht sticken") weg, und gemessen wird nur noch eines: **der Anteil
+der Motivflaeche in Teilen, die schmaler als 1 mm sind** — unter dieser Grenze gibt
+es keinen Satinstich.
+
+| Verlust am Shirt | Motive |
+|---|---|
+| unter 0,5 % — ohne Weglassen stickbar | **116** |
+| 0,5 bis 2 % | 35 |
+| 2 bis 5 % | 19 |
+| ueber 5 % | **26** |
+
+Schlechteste: San Marino 39,6 %, Serbien 21,6 %, Sri Lanka 19,2 %, Kambodscha 18,5 %,
+Bhutan 18,1 %, Afghanistan 16,7 %.
+
+**Am Hoodie rechnet dieselbe Messung fuer alle 196 Motive 0,00 % heraus — und das
+ist ein Artefakt, kein Befund.** Die Webdatei hat 158 px Motivbreite; bei 166 mm ist
+**ein Pixel 1,05 mm** gross, feineres kann darin gar nicht vorkommen. Die Richtung
+stimmt (der Hoodie loest sehr viel), belegen laesst es sich **nur an den
+EPS-Dateien** auf der externen Platte — und dafuer muss Claude Code **lokal auf dem
+Mac** laufen, aus der Cloud-Sitzung gibt es keinen Zugriff darauf.
+
+**Drei Grenzen hebt die Groesse nicht auf:** die Nadel (unter 1 mm kein Satinstich,
+Schrift braucht 4 bis 5 mm), die **Farbwechsel im Strich** (bis 18 Hauptfarben je
+Motiv), und die **Stichmasse** am Hoodie (rund 11 000 Stiche sind steif, schwer und
+gehen in den Preis).
+
+**Stickerei bei Shirt-King ist belegt:** angeboten **ab 30 Stueck je Motiv**. Damit
+ist Stick **kein Print-on-Demand**, sondern eine Auflage — fuer die **Signature**
+erreichbar, fuer 252 Laendermotive nicht.
+
+**Zur Haltbarkeit, weil es verwechselt wird:** DTG **blaettert nicht ab**, es
+**verblasst** — die Tinte sitzt in der Faser. Was sich loesen kann, ist die
+**DTF-Folie**, weil sie aufliegt.
+
+**Garn:** **trilobales Polyester** statt Viskose. Viskose glaenzt staerker, wird
+aber nach mehreren Waeschen matt. Recherche, nicht gemessen.
+
+### Stickerei, Modellwechsel und Stick-oder-DTG je Land — 12.09.2026
+
+> **Teilweise ueberholt vom Eintrag darueber (gleicher Tag, spaeter).** Gueltig bleibt
+> hier alles zum **Modellwechsel** und zu den Preisen. Ueberholt sind die
+> Motivbeschreibung (Flagge dahinter) und die Einteilung 60/112/24 — beides ist
+> nachgemessen worden.
+
+Zwei KI-Sitzungen (eine ohne, eine mit Projektzugriff) sind in
+**`docs/druck-und-lieferant.md`** aufgenommen — wieder **dort** und nicht als
+neue Datei, weil die Datei DTG, DTF, Siebdruck und Shirt-King schon behandelt.
+**Als Recherche- und Einschaetzungsstand gekennzeichnet, nicht als Befund.**
+
+**Der eigentliche Gewinn steckt im Stick:** die einfarbige Signature (Logo
+Black, Logo White, Volltoene) laesst sich sticken, und **Garn deckt immer**.
+Damit waere das Weiss-auf-Schwarz-Problem der Signature geloest — **ohne**
+Siebdruck und **ohne** die Mindestmenge 100. Das bunte Logo mit Verlauf geht
+nicht. Bei den Laendern lohnt Stick nur fuer wenige: jedes Motiv muss einmal
+aufbereitet werden, und das kostet je Motiv — bei 252 Laendern ist das der
+Kostentreiber.
+
+**Drei Punkte der Analyse waren falsch und sind dort richtiggestellt:** die
+Laendermotive sind **Flaechen** (Gesicht plus Flagge), keine Linien oder Routen;
+**Stick steht nicht im Shirt-King-Katalog** (acht Optionen, Preisstand
+16.03.2026) und waere separat anzufragen; und **DTG oder DTF ist nicht frei
+waehlbar**, sondern haengt fest am Rohteil.
+
+**Zum Modellwechsel (Creator 2.0 → Freestyler, Cruiser 2.0 → Slammer):**
+gerechnet, aber nicht empfohlen. Einkauf **+6,72 €** und **+10,54 €** je Stueck,
+Herstellkosten damit **14,12 → 21,52 CHF** (Shirt) und **30,17 → 41,77 CHF**
+(Hoodie, Slammer; Striker 51,20). Die Verkaufspreise 75 / 65 / 40 sind gesetzt,
+der Wechsel geht also **voll zulasten der Marge und des Pool-Anteils**. Dazu
+kaemen eine **neue Kosten-Migration** (0010 ist angewendet und wird nie
+geaendert), die Pruefung von `item_kind` in der Versandstaffel und **alle
+Modellbilder neu**, weil Druckmasse und Ghost-Referenz je Schnitt geeicht sind.
+Der **„Ledger" aus der Analyse existiert im Katalog nicht.**
+
+**Nebenbei aufgenommen, rechtlich zu pruefen (Arbeitsregel 12):** die Analyse
+haelt einen Namenskonflikt mit der Hostel-Kette *Onefam Hostels*
+(`onefamhostels.com`) fuer unproblematisch, weil Marken nur fuer ihre Waren- und
+Dienstleistungsklassen geschuetzt sind (Spezialitaetsprinzip) und Beherbergung
+etwas anderes ist als Bekleidung. **Das ist eine KI-Einschaetzung, keine
+Auskunft** — vor dem Launch gehoert eine Markenrecherche dazu, und die gehoert
+nicht in eine KI-Antwort.
 
 ### Druckverfahren und Printful: Richtung festgehalten — 08.09.2026
 

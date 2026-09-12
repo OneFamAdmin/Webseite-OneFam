@@ -312,3 +312,148 @@ Rohteilen. Das hiesse: **anderes Produkt fuer andere Regionen** — und damit ei
 Bruch in Haptik und Qualitaet, den eine Marke mit „Values, not facade" schwer
 erklaeren kann. **Ungeloest, und vor einem globalen Start zu entscheiden.**
 
+
+---
+
+# Stickerei, Modellwechsel und Stick-oder-DTG je Land — 12.09.2026
+
+Aufgenommen aus einer Fremdanalyse (KI, Marke und Produktion) und einer zweiten
+KI-Sitzung mit Projektzugriff. **Recherche- und Einschaetzungsstand, nicht
+gemessen** — mit Ausnahme der Zahlen, die weiter oben in dieser Datei bereits
+belegt sind.
+
+## Drei Punkte der Fremdanalyse — zwei stimmen nicht, einer nur halb
+
+1. **Die Laendermotive sind keine Routen — aber sehr wohl eine Strichzeichnung.**
+   Am 12.09.2026 nachgemessen: unterbrochene Striche, die Flagge liegt **in** den
+   Strichen. **Die hier zuvor notierte Gegendarstellung („Flagge dahinter, also
+   Flaechen") war selbst falsch** und ist korrigiert → `stick-und-druck-je-land.md`.
+   Die dort empfohlene 1-mm-Vorbereitung fuer DTF bleibt trotzdem gegenstandslos:
+   unsere Striche sind **4,6 mm** breit (Hoodie 11,1 mm), nicht 1 mm.
+2. **„Shirt-King bietet Stickerei direkt an" — richtig, aber nicht im Selbstbedienungsweg.**
+   Am 12.09.2026 auf shirt-king.de gelesen: Stickerei wird angeboten, **ab 30 Stueck
+   je Motiv**. Im Katalog des Kundenportals (acht Optionen, Preisstand 16.03.2026)
+   steht sie nicht — sie laeuft also **ueber Anfrage und als Auflage**, nicht ueber
+   Print-on-Demand.
+3. **DTG oder DTF ist nicht frei waehlbar.** Die Druckart haengt bei Shirt-King
+   **fest am Rohteil im Katalog** (steht oben). Eine Empfehlung „fuer das Logo
+   DTG, fuer die Laender DTF" laesst sich heute gar nicht einstellen.
+
+## Stickerei als drittes Verfahren
+
+| | |
+|---|---|
+| **Idealfall** | die **einfarbige Signature** (Logo Black, Logo White, Volltoene). Garn deckt immer — damit waere das Weiss-auf-Schwarz-Problem der Signature geloest, **ohne Siebdruck**. |
+| **Geht nicht** | das bunte Logo mit **Farbverlauf**. Stickbar nur in Farbstufen, das ist ein anderes Motiv. |
+| **Mindestmenge** | **30 Stueck je Motiv** (shirt-king.de, gelesen 12.09.2026). Damit ist Stick **kein Print-on-Demand**, sondern eine Auflage — wie der Siebdruck, nur mit niedrigerer Schwelle als dessen 100. |
+| **Haken Textil** | ein vollflaechiger Stick von rund **8 × 10 cm** wird auf dem duennen Creator-Shirt (180 g/m²) steif und zieht den Stoff zusammen. Auf Sweater und Hoodie (350 g/m²) ist das unkritisch. |
+| **Haken Kosten** | jedes Motiv muss einmal **fuers Sticken aufbereitet** werden (Punchen), und das kostet **je Motiv**. Bei **252 Laendern** lohnt das nur fuer wenige. |
+| **Garn** | **trilobales Polyester** statt Viskose. Viskose glaenzt staerker, wird aber nach mehreren Waeschen matt; Polyester ist farb-, wasch-, UV- und chlorbestaendig und mit trilobalem Garn nahe am selben Glanz. Recherche, nicht gemessen — welche Reihen Shirt-King fuehrt, ist zu erfragen. |
+
+**Damit steht der Vorschlag: die Signature sticken** — ein Motiv, wenige Farben,
+30 Stueck sind erreichbar. **Die Laender bleiben beim Druck**, weil 252 Motive
+252 Stickdateien und 252 × 30 Stueck hiessen.
+
+**Offen bei Shirt-King:** Stickpreis je Stueck, Kosten fuers Punchen, gefuehrte
+Garnreihen, und ob die 30 Stueck je Motiv oder je Bestellung gelten. Gehoert in
+dieselbe Anfrage wie die DTF-Umstellung.
+
+## Stick, DTF oder DTG je Land — am 12.09.2026 gemessen und neu gefasst
+
+**Was hier bis zum 12.09.2026 stand, war falsch.** Die Einteilung ging davon aus,
+die Motive seien „das Gesicht mit der Flagge dahinter, also flaechige Farbfelder",
+und leitete daraus ab, welches Land stickbar ist. Nachgemessen an den 196 Dateien
+in `public/faces/` stimmt die Annahme nicht:
+
+**Das Motiv ist eine Strichzeichnung mit unterbrochenen Strichen, und die Flagge
+liegt *in* den Strichen.** Die Striche sind ueber alle Laender identisch: **4,6 mm**
+bei 69 mm Druckbreite (Shirt und Sweater), **11,1 mm** bei 166 mm (Hoodie) — also
+**nicht** das Problem. Das Problem sind die Farbstuecke **innerhalb** eines Strichs.
+
+**Die vollstaendige Einteilung mit Messwerten und allen 196 Laendern steht in
+`docs/stick-und-druck-je-land.md`.** Sie ist am 12.09.2026 **neu gefasst worden**,
+weil zwei Vorgaben dazukamen: **es darf nichts weggelassen werden**, und der
+**Hoodie** traegt 166 statt 69 mm. Gemessen wird seitdem der **Anteil der Flaeche
+in Teilen unter 1 mm** — am Shirt sind **116 von 196** Motiven ohne Verlust stickbar,
+**26** verlieren ueber 5 %. **Am Hoodie kann die Webdatei die Frage nicht
+beantworten** (ein Pixel waere dort 1,05 mm) — dafuer braucht es die EPS-Dateien.
+
+**Zur Haltbarkeit, weil es verwechselt wird:** DTG **blaettert nicht ab**, es
+**verblasst** — die Tinte sitzt in der Faser. Was sich loesen kann, ist die
+**DTF-Folie**, weil sie aufliegt.
+
+### Wie scharf DTG wird — aus der ersten Runde ueber elf Motive
+
+| Ergebnis | Laender |
+|---|---|
+| Sauber | Peru, Bosnien, **Albanien** (gemessen, der Adler ist kraeftig genug) |
+| Gut, Kleinteile werden weich | Argentinien (Sonne), Andorra (Wappen), Antigua (Sonne), Anguilla (Delfine) |
+| Details gehen verloren | Mexiko (Adler im Mund wird ein Farbfleck), Brunei (Wappen unscharf), Brasilien (Schriftzug auf dem Band nicht lesbar), **Afghanistan** (Schrift laeuft zu) |
+
+**Die Signature:** Logo Black, Logo White und die einfarbigen Toene sind der
+ideale Fall fuers Sticken. Das bunte Logo mit Verlauf nur per DTG oder DTF.
+
+## Modellwechsel Shirt und Hoodie — gerechnet, nicht empfohlen
+
+Die Analyse raet zu **Oversize**, weil der Medium-Fit bei der Zielgruppe wie
+Werbe-Merch wirke:
+
+| | heute | Vorschlag |
+|---|---|---|
+| Shirt | Creator 2.0, 180 g/m² | **Freestyler STTU788**, 240 g/m², Relaxed Fit |
+| Sweater | Changer 2.0, 350 g/m² | **bleibt** — kein Aenderungsbedarf |
+| Hoodie | Cruiser 2.0, 350 g/m² | **Slammer** (im Shirt-King-Katalog „Oversized Hoodie") oder **Striker** (schwer) |
+
+**Der in der Analyse genannte „Ledger" existiert im Katalog nicht**, und der
+Slammer ist dort nicht das schwere Modell, sondern das Oversize-Modell.
+
+### Was der Wechsel im Einkauf kostet
+
+| | Rohteil heute | Rohteil neu | Mehrkosten |
+|---|---|---|---|
+| Shirt | 6,64 € | Freestyler **13,36 €** | **+6,72 €** |
+| Hoodie | 21,22 € | Slammer **31,76 €** | **+10,54 €** |
+| Hoodie | 21,22 € | Striker | **+19,10 €** |
+
+Auf die Herstellkosten in `supabase/migrations/0010_kosten.sql` gerechnet
+(Rohteil + 5,50 Druck + 0,69 Handling, × 1,19 USt, × 0,925 CHF):
+
+| | heute | mit Wechsel |
+|---|---|---|
+| Shirt | 14,12 CHF | **21,52 CHF** |
+| Hoodie (Slammer) | 30,17 CHF | **41,77 CHF** |
+| Hoodie (Striker) | 30,17 CHF | **51,20 CHF** |
+
+**Beim Shirt wird es eng.** 40 CHF Verkaufspreis gegen 21,52 CHF Herstellkosten,
+davon gehen **Versand und Gebuehren noch ab**. Die Verkaufspreise 75 / 65 / 40
+sind gesetzt (`docs/REGEL-preise.md`) — der Wechsel geht also **voll zulasten
+der Marge und damit des Pool-Anteils**.
+
+### Was am Wechsel sonst noch haengt
+
+1. **Neue Migration fuer die Herstellkosten** — `0010` ist angewendet und wird
+   **nie geaendert**; es braucht eine neue Nummer mit neuen `product_costs`.
+   Dabei `item_kind` (`light` / `heavy`) pruefen: ein 240-g-Shirt kann in der
+   Versandstaffel kippen.
+2. **Alle Modellbilder und Mockups neu.** Die Druckmasse sind **je Schnitt**
+   geeicht und die Ghost-Referenz haengt an der Stanley/Stella-Bildadresse mit
+   dem Modellcode im Pfad → `docs/RUNBOOK-laenderlauf.md`, Abschnitt 2.
+3. **Slugs nicht anfassen** — sonst reisst die Preis-Zuordnung im Router
+   (Arbeitsregel 10).
+
+### Die Empfehlung aus der Sitzung
+
+**Jetzt nicht wechseln.** Ein **Freestyler-Muster** zu den ohnehin faelligen
+Drucktests dazubestellen und erst **mit der ersten Siebdruck- oder
+Stickauflage** umstellen. Ein Argument spricht wirklich fuer den Wechsel: **ein
+schweres Shirt vertraegt einen Stick deutlich besser als der duenne Creator.**
+
+## Was an diesem Abschnitt ungeprueft ist
+
+- Die Rohteilpreise **13,36 / 31,76 €** und der Striker-Aufschlag stammen aus
+  der zweiten Sitzung und sind **hier nicht nachgemessen**.
+- **STTU788** sowie die Grammaturen 240 und 400 g/m² sind Prospektangaben.
+- **Bei Shirt-King ist der Stickpreis nicht angefragt.** Belegt ist nur, dass es
+  Stickerei gibt und sie **ab 30 Stueck** laeuft (Website, 12.09.2026).
+- Die Laendereinteilung in `stick-und-druck-je-land.md` ist an den **Webdateien**
+  (256 px) gemessen, nicht an den Druck-PDF, und deckt **196 von 252** Laendern ab.

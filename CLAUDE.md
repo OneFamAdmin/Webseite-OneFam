@@ -373,6 +373,7 @@ fortschreiben.
 | `docs/shop-preisanzeige.md` | Preis-Skript der Startseite, Slug-Falle, Speicher-Falle |
 | `docs/shop-fusslinks.md` | Fusslinks ohne Sprachpraefix, doppelte Rechtsseiten |
 | `docs/shop-https.md` | HTTPS erzwingen, Proxy-Falle, Web-FTP-Editor-Fehler |
+| `docs/stick-und-druck-je-land.md` | Motiv nachgemessen (Strichzeichnung), was ohne Weglassen stickbar ist |
 | `docs/druck-und-lieferant.md` | DTG/DTF/Siebdruck, Shirt-King, PodOS-Zahlungsfehler, **Printful als Alternative** |
 | `docs/handover-shop-pool.md` | Übergabe Shop/Pool (teilweise überholt) |
 | `docs/deploy-vercel.md` | Vercel-Projekt, Umgebungsvariablen |
