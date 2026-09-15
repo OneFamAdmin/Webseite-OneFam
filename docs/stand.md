@@ -17,7 +17,7 @@
 | 3b | 🇨🇭 **Unterstellungserklärung Ausland — Entwurf liegt bereit, bewusst nicht abgeschickt** | **Nicht zu verwechseln mit der Anfrage ans Finanzamt Konstanz** (die ist am 03.09.2026 raus und wartet auf Antwort). Das hier ist die **Schweizer** Seite: ein **freiwilliger Antrag** an die ESTV Bern, kein Fragebogen — Anknüpfungspunkt wäre das bestehende Aktenzeichen ESTV-ID `052.0428.7495`, Geschäftsfall `65zq0017`. **Der Entwurf liegt in `docs/entwuerfe/anfrage-estv-unterstellungserklaerung.md`; abgeschickt wird er, sobald echte Bestellungen in die Schweiz laufen.** Am 08.09.2026 gerechnet: ein Schweizer Kunde zahlt für einen Hoodie **93 CHF im Shop plus 7.53 Einfuhrsteuer und Zustellgebühr — all-in rund 112 bis 120**. Mit eigener Einfuhr zahlt er **93 und fertig**, und es kostet **7 CHF Marge** statt 30, die eine Preissenkung unter die Zollfreigrenze kosten würde. Preise senken löst es **nicht**. Drei Annahmen darin sind unbelegt (Satz 8,1 %, Versand im Steuerwert, Höhe der Zustellgebühr). → `behoerden-mwst-zoll.md` |
 | 4 | Widerrufsrecht anwaltlich prüfen | Pauschaler Ausschluss ist nach deutschem Verbraucherrecht vermutlich angreifbar. Vor Launch. **Das geplante Siebdruck-Modell gehört mit auf den Tisch** — bei vorproduzierter Auflage fällt das Argument ganz. → `druck-und-lieferant.md` |
 | 5 | **PayPal-Altkonto bereinigen** | Der Zahlungsweg läuft bereits über Payrexx Pay (am 04.09.2026 nachgemessen), es fliesst nichts mehr über PayPal. Übrig bleibt das alte Händlerkonto mit 38,23 EUR Guthaben, das für den Shop nicht taugt. Einzelheiten beim Inhaber. |
-| 6 | **Antwort von Shirt-King abwarten** | Anfrage am 03.09.2026 raus, mit den Fotos der flauen DTG-Drucke und den Motiven als Vektor-PDF. Entscheidet, ob der Shop bei Print-on-Demand bleibt oder auf Vorbestellungen umgebaut wird — die DTF-Frage steht bewusst vorne. → `druck-und-lieferant.md` |
+| 6 | **Shirt-King: Antwort auf die Rueckmail abwarten** | Robert hat am **15.09.2026** geantwortet: **DTF ist im Print-on-Demand umstellbar.** Die Umstellung der drei Artikel ist **am 15.09.2026 um 18:01 per Rueckmail beauftragt**, dazu Fragen zur einheitlichen Druckgroesse, zum Stick und dazu, ob Siebdruck und Stick die feinen Motive tragen oder DTG/DTF besser ist. **Nach der Umstellung: Testbestellung und Waschtest — macht Labi.** → „Shirt-King: Antwort und Rueckmail — 15.09.2026" unten, `druck-und-lieferant.md` |
 | 7 | ⚠️ **Preise gesetzt — Ursache gefunden, aber nicht behoben** | Am 07.09.2026 standen **364 Variationen** wieder auf der alten Reihe (Logo-Shirt 35 statt 40, Logo-Sweater 60 statt 65; zwei der vier Produkte **oeffentlich verkauft**). Gesetzt und vollstaendig nachgemessen: 42 Produkte, 3 210 Variationen, **0 Abweichungen**. **Die Ursache liegt bei Shirt-King:** deren Schluessel „heldenwerbung-409340" (Lesen/Schreiben) schrieb heute zweimal die alten Preise zurueck. **Es kommt wieder, solange PodOS die alten Werte fuehrt.** → siehe „Preise: die Ursache" unten und Punkt 11 |
 | 8 | ⚠️ **zahls.ch geprueft — ein Punkt bleibt offen** | Am 08.09.2026 im eingeloggten Konto nachgesehen: **ein Auszahlungskonto ist hinterlegt**, keine Warnung, keine Rueckfrage, kein Verifizierungshinweis. **Aber der Kontoinhaber ist „Labinot Bajrami", eine Privatperson** — und zahls verlangt woertlich ein **geschaeftliches** Bankkonto. Beanstandet wird es nicht; es zeigt sich erst beim ersten echten Betrag. Guthaben ueberall CHF 0.00, nie eine Auszahlung erhalten. → „zahls.ch nachgesehen" unten |
 | 9 | ✅ **Hero umgebaut — erledigt 07.09.2026** | Marke jetzt als quadratischer Block ueber der Ueberschrift statt als formatfuellender Hintergrund; Laenderkacheln direkt hinter den Hero gezogen. Erstes Kleidungsstueck: **920 → 438 px** (Referenzfenster 1440 × 685), **1519 → 540 px** (390 × 844). Entschieden: Kacheln, **nicht** das Lifestyle-Bild — das zeigt Brasilien, und `/brazil/` ist pausiert. → unten „Hero umgebaut" |
@@ -35,6 +35,51 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 ---
 
 ## Was zuletzt gemacht wurde — neueste zuerst
+
+### Shirt-King: Antwort und Rueckmail — 15.09.2026
+
+**Robert Koch hat am 15.09.2026 um 15:18 geantwortet.** Das Entscheidende:
+**DTF ist fuer unsere drei Artikel im Print-on-Demand umstellbar.** Profile je
+Artikel oder Motiv gibt es dort nicht. Im Siebdruck zaehlen Shirt, Sweater und
+Hoodie **zusammen** auf die 100 Stueck, aber **nur bei gleicher Druckgroesse**.
+Heute sind es 6,9 und 16,6 cm, also zwei. Alle Antworten stehen als Tabelle in
+`druck-und-lieferant.md`.
+
+**Rueckmail am 15.09.2026 um 18:01 gesendet** (T-Online, selber Verlauf), mit
+Labis Freigabe. Inhalt: DTF-Umstellung beauftragt; welches Verfahren bei
+`SKO25223869` und #4145 lief, plus deren Druckdateien; empfohlene einheitliche
+Druckbreite; Stickkosten und Mindestmenge; und **ob Siebdruck und Stick die feinen
+Motive detailliert tragen oder DTG/DTF besser ist**. Mitgeschickt sind vier Motive
+(White, Albanien, Montenegro, San Marino) und die Uebersicht. Die Mail nennt sie
+ausdruecklich **Anschauung, keine Druckdateien**. Im Quelltext der gesendeten Mail
+geprueft: jede der fuenf Dateien genau einmal.
+
+**Zwei Befunde nebenbei:**
+
+- **Die Motive waren am 03.09.2026 gar nicht mitgegangen.** Laut Gesendet-Ordner
+  hatte die Mail um 13:51 keinen Anhang und die um 14:08 nur zwei Fotos. Die Doku
+  hatte „mit den Motiven als Vektor-PDF" notiert; das ist korrigiert.
+- **„Das Weiss deckt bei allen Teilen nicht" gilt nicht uneingeschraenkt.** Labi:
+  Der Drummer-Hoodie `SKO24209460` (05.10.2024) war **Albanien auf Schwarz, DTG,
+  und sah gut aus**. Er ist deshalb aus der Mail genommen. Albanien hat aber kaum
+  Weiss, der Druck belegt also die Farben, **nicht die Weissdeckung**.
+
+**Aus Labis Entwurf vor dem Senden gestrichen:** „8 cm Motivbreite", „12,2 cm
+Rahmen" und eine Tabelle „duennste tragende Farbflaeche" (2,06 mm Median, 0,24 mm
+San Marino). Die 80 mm sind die am 12.09. als falsch erkannte Zahl, die mm-Werte
+sind nirgends belegt. **Nicht wieder verwenden.**
+
+**Fallen beim Senden ueber Apple Mail per AppleScript:**
+- **Ein sichtbares Antwortfenster holt sich die Tastatur.** Was Labi gleichzeitig
+  in Claude tippte, landete zweimal oben im Mailtext („N das", „eg"). Deshalb
+  ohne Fenster anlegen (`reply … without opening window`, nicht `visible`), den
+  Inhalt pruefen und direkt `send`.
+- **`mail attachments` einer gesendeten Mail zeigt falsche Namen** (San Marino
+  doppelt, White fehlte). Belastbar ist nur der Quelltext (`source`,
+  `filename=`).
+
+**Offen:** Roberts Antwort auf die Rueckmail. Nach der DTF-Umstellung:
+Testbestellung und Waschtest, beides macht Labi.
 
 ### PodOS-Schluessel und COGS-Abgleich: bewusst ueberholt, nicht verloren — 14.09.2026
 
@@ -3750,7 +3795,9 @@ das woertlich hin.
 Zwei Straenge, festgehalten in `druck-und-lieferant.md`:
 
 **Das Weiss deckt nicht.** Bereits produzierte DTG-Teile kamen mit flauem,
-graustichigem Weiss — bei allen, nicht vereinzelt. Fotos liegen vor. Offen ist,
+graustichigem Weiss — bei allen, nicht vereinzelt (**am 15.09.2026 eingeschraenkt:**
+der Drummer-Hoodie 2024, Albanien auf Schwarz, DTG, sah gut aus — siehe
+„Shirt-King: Antwort und Rueckmail"). Fotos liegen vor. Offen ist,
 ob ueberhaupt vorbehandelt wurde; das entscheidet, ob das Verfahren schuld ist
 oder die Einrichtung. **DTF kostet dasselbe wie DTG (5,50 €), ist fuer unsere
 drei Artikel aber nicht freigeschaltet** — die Kindergroessen derselben Modelle

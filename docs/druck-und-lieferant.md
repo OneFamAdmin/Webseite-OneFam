@@ -17,7 +17,17 @@ Shirt-King und Button-King, Bestellabwicklung ueber PodOS
 ## Das eigentliche Problem: das Weiss deckt nicht
 
 Bereits produzierte Teile kamen mit **flauem, graustichigem Weiss** aus dem
-DTG-Druck — bei **allen** Teilen, nicht vereinzelt. Fotos liegen vor.
+DTG-Druck. Fotos liegen vor.
+
+> **Eingeschraenkt am 15.09.2026.** Hier stand „bei **allen** Teilen, nicht
+> vereinzelt". Das stimmt so nicht. Labi zum Drummer 2.0 Hoodie `SKO24209460`
+> (05.10.2024): **Albanien auf Schwarz, DTG, sah gut aus.**
+> Vorsicht beim Schluss daraus: Albanien ist rot/schwarz und hat **kaum Weiss**.
+> Der Druck belegt die Farbwiedergabe auf dunklem Stoff, **nicht die Weissdeckung**.
+> Die beanstandeten Faelle sind Motive mit viel Weiss (Cruiser-Hoodie
+> `SKO25223869` mit weissem Logo, reklamiert; Argentina-Shirt #4145).
+> Robert am 15.09.2026: 100 % Weiss in der Datei wird zu 100 % gedruckt, „bei DTG
+> kann es allerdings ab und an zu Schwankungen kommen".
 
 DTG auf dunklem Stoff braucht zwingend eine **Vorbehandlung**, darauf eine
 **Weissunterlage**, erst dann die Farben. Fehlt die Vorbehandlung oder ist sie zu
@@ -123,10 +133,67 @@ die bei Mangel kostenlosen Ersatz zusagt. Bei exakt 100 Stueck ohne Reserve heis
 ein Ersatzstueck: neue Auflage oder DTG. Ein Puffer gehoert in die Kalkulation,
 nicht in die Vorsichtsabteilung.
 
-## Gefragt am 03.09.2026 — Antwort steht aus
+## Roberts Antwort vom 15.09.2026 — und die Rueckmail
+
+**Robert hat am 15.09.2026 um 15:18 auf die Anfrage vom 03.09. geantwortet.**
+Schriftlich, per Mail an `labinot.bajrami@t-online.de`:
+
+| Thema | Antwort |
+|---|---|
+| **DTF fuer Creator/Changer/Cruiser 2.0** | **Umstellbar im Print-on-Demand**, auf Zuruf |
+| Vorbehandlung und Weissunterlage bei DTG | Werden auf dunklem Stoff **grundsaetzlich** gemacht. Kornit Atlas und Aeoon Compact Ai1, die Grundierung wird im Drucker aufgesprueht. 100 % Weiss in der Datei wird zu 100 % gedruckt, „ab und an Schwankungen" |
+| Einstellungen je Motiv, Profil je Artikel | **Nein** im Print-on-Demand. Ein Profil gibt es nur bei Bestellungen ueber shirt-king.de, auf Nachfrage |
+| Grenzen von DTF | Das Motiv endet an der Folienkante, **keine weichen transparenten Uebergaenge**. Ab etwa **30 × 40 cm** wirkt DTF plastikartig |
+| Muster | **Keine** bedruckten Sonderanfertigungen, **keine** gewaschenen Muster. Weg: Testbestellung ueber den Shop, Waschtest selbst bei 30 °C, auf links |
+| Siebdruck, 100 Stueck | Je Motiv. **Shirts, Sweater und Hoodies zaehlen zusammen**, solange Druckmotiv, Druckgroesse und Druckfarben gleich bleiben (40 + 35 + 25 = 100) |
+| Groessen | Keine Mindestmenge je Groesse, keine Staffel. Die eine Druckgroesse muss von der kleinsten Groesse bis 5XL funktionieren |
+| Druckgroesse | Eine fuer alle Groessen. Eine zweite braucht eigene Siebe, kostet mehr und **teilt die Menge** |
+| Standort Siebdruck | Feste Partnerbetriebe in Deutschland, **Versand immer aus Deutschland** |
+| Einzelversand | Nach DE, CH und EU. Kosten kalkuliert er je Auftrag |
+| Wiederholungsauflage | Die Einrichtung faellt **jedes Mal neu** an, eine Nachauflage wird nicht guenstiger |
+
+**Was daraus folgt:** Die Druckgroessen von heute, **6,9 cm** an Shirt und
+Sweater und **16,6 cm** am Hoodie, waeren im Siebdruck **zwei** Druckgroessen und
+zaehlten nicht zusammen auf die 100.
+
+### Rueckmail vom 15.09.2026, 18:01
+
+Gesendet vom T-Online-Konto im selben Verlauf („Re: nfrage Siebdruck …"):
+
+1. **DTF-Umstellung der drei Artikel beauftragt.** Gefragt, welches Verfahren bei
+   `SKO25223869` (Cruiser 2.0 Hoodie, 21.08.2025, reklamiert) und #4145
+   (Argentina-Shirt) tatsaechlich lief, und um die Druckdateien dazu. Der
+   Widerspruch zu Katrins Einschaetzung vom Dezember 2025 („etwas deckender",
+   25 % Nachlass aufs Textil) ist offen angesprochen.
+2. **Siebdruck:** empfohlene einheitliche Druckbreite fuer XXS bis 5XL und die
+   maximale Druckflaeche je Kleidungsstueck.
+3. **Stick:** ob die 30 Stueck ueber alle drei Teile gelten, Punchkosten,
+   Stichpreis je 1 000 Stiche, maximale Stickflaeche, Grenze der Strichstaerke.
+4. **Welches Verfahren traegt die Motive:** Kommen sie im Siebdruck und im Stick
+   so detailliert heraus wie in der Datei, oder lieber DTG/DTF? Gern je Motiv und
+   mit einer Grenzzahl je Verfahren. Mitgeschickt **zur Veranschaulichung,
+   ausdruecklich nicht als Druckdateien:** `White.png`,
+   `OneFam_Albanien_S6.pdf`, `OneFam_Montenegro_S144.pdf`,
+   `OneFam_San-Marino_S207.pdf`, `OneFam_Muster_Uebersicht.png`. Genannte
+   Messwerte (Flaechenanteil unter 1 mm, Shirt / Hoodie): Albanien 0,3 / 0,0 %,
+   Montenegro 13,0 / 1,0 %, San Marino 25,7 / 2,2 %. Ueber alle 253 Motive
+   liegen am Shirt 32 und am Hoodie 4 ueber 5 %.
+5. Pflegehinweise bei DTF, und ob es unbedruckte Blanks gibt: Sparker 2.0 Heavy
+   (STTU171), Slammer 2.0 (STSU209).
+
+**Vor dem Senden aus dem Entwurf gestrichen, damit es nicht wieder hineinrutscht:**
+„8 cm Motivbreite", „12,2 × 12,2 cm Rahmen" und eine Tabelle „duennste tragende
+Farbflaeche" (Median 2,06 mm, San Marino 0,24 mm usw.). 80 mm ist die am
+12.09.2026 als falsch erkannte Zahl, die mm-Werte sind nirgends belegt.
+Gestrichen ist auch der Drummer-Hoodie `SKO24209460`, siehe den Kasten oben.
+
+## Gefragt am 03.09.2026 — beantwortet am 15.09.2026, siehe oben
 
 Die Anfrage an Robert Koch ist raus, **mit den Fotos der bisherigen DTG-Drucke**
-als Beleg fuer das flaue Weiss und mit den drei Ländermotiven als Vektor-PDF.
+als Beleg fuer das flaue Weiss. ~~mit den drei Ländermotiven als Vektor-PDF~~ —
+**am 15.09.2026 im Gesendet-Ordner nachgesehen: die Motive gingen nicht mit.** Die
+Mail um 13:51 hatte keinen Anhang, die Nachreichung um 14:08 nur `IMG_5448.jpeg`
+und `IMG_0863.jpeg`. Die Motive gingen erst mit der Rueckmail vom 15.09.2026 raus.
 
 Aufbau der Mail: erst die DTG-Qualitaet (weil sie entscheidet, ob ueberhaupt
 Siebdruck noetig ist), dann DTF als Alternative, dann der Siebdruck. Diese
@@ -292,6 +359,11 @@ fehlt.** Offener Punkt 6 in `stand.md`: die Anfrage an Shirt-King vom
 1. **Antwort von Shirt-King abwarten.** Zwei Fragen entscheiden alles:
    war die DTG-Einrichtung fehlerhaft (dann liefert DTG, ohne jeden Wechsel),
    und laesst sich auf **DTF** umstellen (dann ist die Verfahrensfrage geloest)?
+   **Am 15.09.2026 beantwortet:** DTF ist umstellbar, die Umstellung ist
+   beauftragt. Zur Einrichtung sagt Robert, auf dunklem Stoff werde immer
+   grundiert. Geklaert ist sie erst mit den angefragten Auftragsdaten. Printful
+   rueckt damit nach hinten; es kommt erst wieder in Frage, wenn die
+   DTF-Testbestellung nicht deckt.
 2. **Faellt eine der beiden Antworten aus**, wird Printful zur ernsten Option —
    dann aber mit einer **Testbestellung derselben drei Modelle** und einem
    Vergleich der Weissdeckung auf dunklem Stoff. Nicht nach Prospekt entscheiden;
@@ -355,8 +427,9 @@ belegt sind.
 252 Stickdateien und 252 × 30 Stueck hiessen.
 
 **Offen bei Shirt-King:** Stickpreis je Stueck, Kosten fuers Punchen, gefuehrte
-Garnreihen, und ob die 30 Stueck je Motiv oder je Bestellung gelten. Gehoert in
-dieselbe Anfrage wie die DTF-Umstellung.
+Garnreihen, und ob die 30 Stueck je Motiv oder je Bestellung gelten. **Am
+15.09.2026 in der Rueckmail an Robert gefragt**, zusammen mit der DTF-Umstellung.
+Nicht gefragt wurde nach den Garnreihen.
 
 ## Stick, DTF oder DTG je Land — am 12.09.2026 gemessen und neu gefasst
 
