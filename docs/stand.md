@@ -36,6 +36,98 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 
 ## Was zuletzt gemacht wurde — neueste zuerst
 
+### PodOS-Schluessel und COGS-Abgleich: bewusst ueberholt, nicht verloren — 14.09.2026
+
+**Kurz:** Der Abgleich „Kosten von PodOS synchronisieren" in `/admin/pool` laeuft
+nicht, und das ist **kein verlorener Stand**, sondern Folge einer bewussten
+Entscheidung. Die Produktionskosten kommen seit dem 01.09.2026 **von Hand aus dem
+Margenrechner**, nicht aus PodOS.
+
+#### Was am 14.09.2026 gemessen wurde
+
+| | |
+|---|---|
+| `/admin/pool` (angemeldet) | meldet „**PodOS-API noch nicht konfiguriert**", **kein** Sync-Knopf |
+| Vercel `webseite-one-fam` | `PODOS_API_KEY`, `PODOS_PROJECT` (beide geschuetzt), `PODOS_API_BASE`, `PODOS_COST_FIELD` — **alle vorhanden**, „Production and Preview", angelegt 4. Juli |
+| Produktion auf `onefam.ch` | Commit `4108140` vom 08.09.2026 — also **nach** dem 4. Juli gebaut |
+| Code seit dem ersten Commit (21.06.) | liest exakt `PODOS_API_KEY` / `PODOS_PROJECT` — kein Namenswechsel |
+| Vercel `onefam-kennzahlen` | keine Variablen |
+| `.env.local` lokal | keine PODOS-Zeilen |
+| Make.com | keine PodOS-Verbindung |
+| `product_costs` | **42** Eintraege, alle Quelle `kalkulation-20260807`: Hoodie 30.17, Sweater 24.76, Shirt 14.12 |
+| `cost_config` 2026 | Anteil **10 %**, Gebuehr 2,9 % + 0.30 |
+
+**Schluss:** Namen stehen in Vercel, die Seite haelt PodOS trotzdem fuer nicht
+eingerichtet → **mindestens einer der beiden Werte ist leer**. Nicht einsehbar
+(geschuetzt), aber jede andere Ursache ist ausgeschlossen.
+
+#### Wie es dazu kam — aus den Sitzungsprotokollen
+
+1. **04.07.2026** (Sitzung „Shopify intigration"): P2 samt PodOS-Client gebaut. Der
+   Schluessel war da noch **ausstehend bei Christian**. Anteil auf 20 % gesetzt;
+   Inhaber-Entscheidung: **mit Kosten warten, bis echte Werte da sind**. Die
+   PodOS-Variablen stammen von diesem Tag — offenbar ohne echten Schluessel.
+2. **01.09.2026** (Migrationen `0010`–`0013`): Kosten **von Hand** hinterlegt,
+   Anteil auf **10 %**. Schluessel = WooCommerce-`product_id`, weil **der Shop keine
+   einzige SKU fuehrt** (`shop-und-pool-details.md`). In `stand.md` steht dazu
+   woertlich: „unsere Kosten kommen aus `product_costs` (Margenrechner), **nicht**
+   aus PodOS".
+
+#### Warum der Abgleich ohnehin nicht passen wuerde
+
+- **SKU gegen Produktnummer:** der Abgleich schreibt nach PodOS-SKU, der Pool sucht
+  nach WooCommerce-`product_id`. Selbst mit gueltigem Schluessel wuerden die
+  PodOS-Zeilen **keiner Bestellung zugeordnet**.
+- **Er verschluckt Fehler:** `fetchProductCosts` faengt jeden Fehler mit
+  `catch { break; }` ab. Ein falscher Schluessel ergibt „erfolgreich, nichts
+  geschrieben" — kein 401, keine Meldung. **Ein „es passiert nichts" nach dem
+  Klick ist deshalb kein Befund.**
+- **Ueberschreib-Risiko:** bei gleicher SKU ersetzt der `upsert` einen Handwert.
+
+#### Wer das wieder anfasst
+
+Nur sinnvoll, wenn Kosten kuenftig **automatisch** aus PodOS kommen sollen. Dann
+in dieser Reihenfolge: (1) Abgleich so umbauen, dass er Fehler meldet und nur
+„gesetzt/leer" anzeigt, (2) SKU-Zuordnung zu `product_id` klaeren,
+(3) Private Secure Key aus PodOS → Projects → Settings → **API Settings** in
+Vercel eintragen und neu bereitstellen. **Bis dahin ist nichts zu tun.**
+
+#### Nebenbefunde vom selben Tag
+
+- **Retouren bei PodOS:** Christian am 14.09.2026 im Faden gefragt, ob physische
+  Ruecksendungen ueber API oder Ereignis kommen. **Geld** bei Erstattung/Storno ist
+  schon geloest: WooCommerce-Webhook bucht `refunded`/`cancelled`/`failed` zurueck
+  (`reversePoolForOrder`). Die Detailseiten der PodOS-API-Doku laden nicht
+  (Ladekreis), eine oeffentliche Doku gibt es nicht.
+- **Supabase-Werkzeug:** jede SQL-Abfrage, auch `select 1`, lief in einen
+  Verbindungs-Timeout — die Live-Seite las ihre Daten zur selben Zeit normal. Ein
+  Werkzeug-, kein Datenbankproblem.
+- **Vercel-Logs** reichen im Hobby-Tarif nur **1 Stunde** zurueck.
+
+
+### Stickbarkeit an den EPS-Druckdaten nachgemessen — 12.09.2026
+
+**Die Messung an den Webdateien ist ersetzt.** Gemessen sind jetzt die **253 EPS** der
+Länderkollektion von der externen Platte, gerendert mit Ghostscript auf 1 142 bis
+1 146 px Motivbreite — **0,145 mm je Pixel am Hoodie, 0,060 am Shirt**, beides unter
+der 0,20-mm-Schwelle, ab der das Messskript warnt.
+
+**Hoodie 166 mm:** 213 von 253 unter 0,5 % Verlust (152 davon exakt 0,00), 20 · 16 ·
+**4 über 5 %** (Portugal 7,1 · Haiti 6,9 · Serbien 6,5 · Spanien 6,2).
+**Shirt/Sweater 69 mm:** 173 · 28 · 20 · **32 über 5 %**, schlechtestes San Marino 25,7.
+
+**Der Befund, der zählt:** die alte Tabelle war in **beide** Richtungen falsch — an
+denselben 196 Ländern werden 114 jetzt niedriger, **36 höher** gemessen. Argentinien
+stand in der besten Gruppe und liegt am Shirt bei 12,8 %. Die Warnung „zu grob
+aufgelöst" galt nicht nur dem Hoodie, sondern **auch der 69-mm-Tabelle** (0,44 mm/px).
+
+**Zwei Dinge sind offen:** Mayotte liegt zweimal vor, und ein Motiv (Kopie 99) ist
+keinem Land zuzuordnen. Russland fehlt in der Sammlung ganz.
+
+Alles Einzelne mit Länderlisten: `stick-und-druck-je-land.md`. Die freigestellten
+Motive liegen unter `~/Documents/onefam-stickmessung/motive/`, ausserhalb des Repos.
+
+
 ### Motive nachgemessen — und die Hoodie-Frage bleibt offen — 12.09.2026
 
 **Eine eigene Annahme ist umgefallen, und eine uebernommene Zahl war falsch.**

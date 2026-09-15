@@ -31,6 +31,17 @@ import argparse, glob, json, os, sys
 import numpy as np
 from PIL import Image
 
+# 12.09.2026: scipy wird benutzt, wenn es da ist — sonst laeuft der reine
+# numpy-Weg weiter. Grund: an den EPS-Druckdaten ist das Motiv rund 1 150 px
+# breit statt 256, und dort brauchte der numpy-Weg 5 min 20 s je Bild; 253
+# Motive mal zwei Druckbreiten waeren ueber 40 Stunden gewesen. Beide Wege
+# rechnen dasselbe: exakte euklidische Distanz und Vierer-Nachbarschaft —
+# am Motiv "Kopie 10" gegengerechnet, beide Male 2,07 % Verlust.
+try:
+    from scipy import ndimage as _nd
+except ImportError:
+    _nd = None
+
 NACHBARN = ((1, 0), (-1, 0), (1, 1), (-1, 1))
 
 
@@ -54,6 +65,8 @@ def _edt1d(f):
 
 
 def distanz(maske):
+    if _nd is not None:
+        return _nd.distance_transform_edt(maske)
     f = np.where(maske, 1e20, 0.0)
     for i in range(f.shape[0]):
         f[i] = _edt1d(f[i])
@@ -65,6 +78,11 @@ def distanz(maske):
 def komponenten(maske):
     """Zusammenhaengende Flecken per Maximum-Ausbreitung. Langsamer als eine
     Bibliothek, aber ohne Abhaengigkeit — und die Bilder sind klein."""
+    if _nd is not None:
+        # label() zaehlt ab 1 und laesst den Hintergrund auf 0; hier muss der
+        # Hintergrund -1 sein, damit die Auswertung unten unveraendert bleibt.
+        lab, _ = _nd.label(maske)
+        return np.where(maske, lab, -1)
     lab = np.where(maske, np.arange(maske.size).reshape(maske.shape), -1)
     while True:
         alt = lab.copy()
