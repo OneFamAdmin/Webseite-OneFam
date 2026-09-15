@@ -17,12 +17,13 @@
 | 3b | 🇨🇭 **Unterstellungserklärung Ausland — Entwurf liegt bereit, bewusst nicht abgeschickt** | **Nicht zu verwechseln mit der Anfrage ans Finanzamt Konstanz** (die ist am 03.09.2026 raus und wartet auf Antwort). Das hier ist die **Schweizer** Seite: ein **freiwilliger Antrag** an die ESTV Bern, kein Fragebogen — Anknüpfungspunkt wäre das bestehende Aktenzeichen ESTV-ID `052.0428.7495`, Geschäftsfall `65zq0017`. **Der Entwurf liegt in `docs/entwuerfe/anfrage-estv-unterstellungserklaerung.md`; abgeschickt wird er, sobald echte Bestellungen in die Schweiz laufen.** Am 08.09.2026 gerechnet: ein Schweizer Kunde zahlt für einen Hoodie **93 CHF im Shop plus 7.53 Einfuhrsteuer und Zustellgebühr — all-in rund 112 bis 120**. Mit eigener Einfuhr zahlt er **93 und fertig**, und es kostet **7 CHF Marge** statt 30, die eine Preissenkung unter die Zollfreigrenze kosten würde. Preise senken löst es **nicht**. Drei Annahmen darin sind unbelegt (Satz 8,1 %, Versand im Steuerwert, Höhe der Zustellgebühr). → `behoerden-mwst-zoll.md` |
 | 4 | Widerrufsrecht anwaltlich prüfen | Pauschaler Ausschluss ist nach deutschem Verbraucherrecht vermutlich angreifbar. Vor Launch. **Das geplante Siebdruck-Modell gehört mit auf den Tisch** — bei vorproduzierter Auflage fällt das Argument ganz. → `druck-und-lieferant.md` |
 | 5 | **PayPal-Altkonto bereinigen** | Der Zahlungsweg läuft bereits über Payrexx Pay (am 04.09.2026 nachgemessen), es fliesst nichts mehr über PayPal. Übrig bleibt das alte Händlerkonto mit 38,23 EUR Guthaben, das für den Shop nicht taugt. Einzelheiten beim Inhaber. |
-| 6 | **Antwort von Shirt-King abwarten** | Anfrage am 03.09.2026 raus, mit den Fotos der flauen DTG-Drucke und den Motiven als Vektor-PDF. Entscheidet, ob der Shop bei Print-on-Demand bleibt oder auf Vorbestellungen umgebaut wird — die DTF-Frage steht bewusst vorne. → `druck-und-lieferant.md` |
+| 6 | **Shirt-King: Antwort auf die Rueckmail abwarten** | Robert hat am **15.09.2026** geantwortet: **DTF ist im Print-on-Demand umstellbar.** Die Umstellung der drei Artikel ist **am 15.09.2026 um 18:01 per Rueckmail beauftragt**, dazu Fragen zur einheitlichen Druckgroesse, zum Stick und dazu, ob Siebdruck und Stick die feinen Motive tragen oder DTG/DTF besser ist. **Nach der Umstellung: Testbestellung und Waschtest — macht Labi.** → „Shirt-King: Antwort und Rueckmail — 15.09.2026" unten, `druck-und-lieferant.md` |
 | 7 | ⚠️ **Preise gesetzt — Ursache gefunden, aber nicht behoben** | Am 07.09.2026 standen **364 Variationen** wieder auf der alten Reihe (Logo-Shirt 35 statt 40, Logo-Sweater 60 statt 65; zwei der vier Produkte **oeffentlich verkauft**). Gesetzt und vollstaendig nachgemessen: 42 Produkte, 3 210 Variationen, **0 Abweichungen**. **Die Ursache liegt bei Shirt-King:** deren Schluessel „heldenwerbung-409340" (Lesen/Schreiben) schrieb heute zweimal die alten Preise zurueck. **Es kommt wieder, solange PodOS die alten Werte fuehrt.** → siehe „Preise: die Ursache" unten und Punkt 11 |
 | 8 | ⚠️ **zahls.ch geprueft — ein Punkt bleibt offen** | Am 08.09.2026 im eingeloggten Konto nachgesehen: **ein Auszahlungskonto ist hinterlegt**, keine Warnung, keine Rueckfrage, kein Verifizierungshinweis. **Aber der Kontoinhaber ist „Labinot Bajrami", eine Privatperson** — und zahls verlangt woertlich ein **geschaeftliches** Bankkonto. Beanstandet wird es nicht; es zeigt sich erst beim ersten echten Betrag. Guthaben ueberall CHF 0.00, nie eine Auszahlung erhalten. → „zahls.ch nachgesehen" unten |
 | 9 | ✅ **Hero umgebaut — erledigt 07.09.2026** | Marke jetzt als quadratischer Block ueber der Ueberschrift statt als formatfuellender Hintergrund; Laenderkacheln direkt hinter den Hero gezogen. Erstes Kleidungsstueck: **920 → 438 px** (Referenzfenster 1440 × 685), **1519 → 540 px** (390 × 844). Entschieden: Kacheln, **nicht** das Lifestyle-Bild — das zeigt Brasilien, und `/brazil/` ist pausiert. → unten „Hero umgebaut" |
 | 10 | 🎨 **Shop-Design: Startseite fertig, Unterseiten offen** | Stand 08.09.2026: der Hinweis „weitere Laender folgen" ist als Zeile unter der Kachelreihe zurueck, in allen vier Sprachen (Seite 4 666 → **4 712 px**). Die doppelten Fusszeilen und die 18 Galeriebilder waren **keine Befunde** — nachgeprueft, siehe unten. Die Signature-Reihe auf `/shop-by-country/` steht ebenfalls auf **vier** Kacheln (Seite 13 501 → **13 215 px**). **Die 14 Router-Seiten gehoeren nicht hierher:** den acht umgeleiteten fehlen die Modellbilder, das ist ein Laenderlauf, kein Design (→ „Die 14 Router-Seiten nachgezaehlt"). Die Laenderwand ist am 08.09. von **11 706 auf 1 043 px** gekuerzt (Seite 13 215 → **3 063**, Handy 31 299 → **5 511**), die kaputte Suche behoben. Der Sprach-Cookie-Fehler ist behoben (Snippets 42 und 26 lesen jetzt die Adresse vor dem Cookie). Die Produktseite hat eine **neutrale Buehne** statt des warmen Cremes — die Fotos sitzen jetzt randlos. **Weiter offen:** die Karte ist 1 080 statt 1 360 px breit (erst neue Bildgroessen noetig), die Produktfotos brauchen einen **einheitlichen Hintergrund beim Ausgeben**, `/de/warenkorb/` und `/de/kasse/` verlieren ihr Sprachpraefix — **nachgemessen und bewusst nicht gebaut**, weil kein Link dorthin fuehrt, die Sprache ueber das Cookie erhalten bleibt und die Seiten `noindex` tragen. |
 | 11 | ✅ **Preis-Rueckschreiben ist entschaerft — Snippet 108 stellt zurueck** | **Am 08.09.2026 zum dritten Mal passiert** (08:32–08:34, 188 Variationen, beide Sweater auf 60 statt 65; einer davon **publish**). Zurueckgesetzt und vollstaendig nachgemessen: 42 Produkte, 3 218 Variationen, 0 Abweichungen. **Neu belegt:** der Sync schreibt **nur den Basispreis**, und der ist **CHF** — die EUR-Festpreise bleiben unberuehrt. Die ankommenden Werte 35 / 60 sind die gerundeten **EUR**-Preise. **Deshalb waere „EUR-Preise in PodOS eintragen" der falsche Schluss.** Bitte an Shirt-King, in dieser Reihenfolge: **gar keine Preise schreiben**, sonst CHF 40 / 65 / 75 — und die Frage, ob PodOS ueberhaupt CHF fuehren kann. **Seit dem 08.09.2026 faengt Snippet 108 es ab** (geprueft: falscher wie leerer Preis springen sofort auf den Sollwert zurueck). Die Bitte an Shirt-King ist damit **kein Sperrpunkt mehr**, nur noch eine Information. |
+| 12 | 🧵 **Stickerei: gemessen, und eine Frage bleibt offen** | Am 12.09.2026 selbst nachgesehen und zweimal gemessen. **Shirt-King bietet Stickerei — ab 30 Stueck je Motiv** (Website; im Kundenportal-Katalog steht sie nicht, sie laeuft ueber Anfrage). **Das Motiv:** Strichzeichnung mit unterbrochenen Strichen, die Flagge liegt **in** den Strichen; Strichbreite **4,6 mm** am Shirt, **11,1 mm** am Hoodie. Vorgabe von Labi: **es darf nichts weggelassen werden.** Danach gemessen (Anteil der Flaeche unter 1 mm): am Shirt **116 von 196** Motiven ohne Verlust, **26** verlieren ueber 5 % (schlechtestes San Marino, 39,6 %). **Am Hoodie kann die Webdatei es nicht beantworten** — ein Pixel waere dort 1,05 mm gross. **Dafuer braucht es die EPS-Dateien von der Platte „Labi extern", und dafuer muss Claude Code lokal auf dem Mac laufen.** → `stick-und-druck-je-land.md` |
 
 **Der Trichter bleibt geparkt** (freie Auswahl, Käufer-Voting) bis zur rechtlichen
 Freigabe. Nicht als toten Code aufräumen.
@@ -34,6 +35,240 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 ---
 
 ## Was zuletzt gemacht wurde — neueste zuerst
+
+### Shirt-King: Antwort und Rueckmail — 15.09.2026
+
+**Robert Koch hat am 15.09.2026 um 15:18 geantwortet.** Das Entscheidende:
+**DTF ist fuer unsere drei Artikel im Print-on-Demand umstellbar.** Profile je
+Artikel oder Motiv gibt es dort nicht. Im Siebdruck zaehlen Shirt, Sweater und
+Hoodie **zusammen** auf die 100 Stueck, aber **nur bei gleicher Druckgroesse**.
+Heute sind es 6,9 und 16,6 cm, also zwei. Alle Antworten stehen als Tabelle in
+`druck-und-lieferant.md`.
+
+**Rueckmail am 15.09.2026 um 18:01 gesendet** (T-Online, selber Verlauf), mit
+Labis Freigabe. Inhalt: DTF-Umstellung beauftragt; welches Verfahren bei
+`SKO25223869` und #4145 lief, plus deren Druckdateien; empfohlene einheitliche
+Druckbreite; Stickkosten und Mindestmenge; und **ob Siebdruck und Stick die feinen
+Motive detailliert tragen oder DTG/DTF besser ist**. Mitgeschickt sind vier Motive
+(White, Albanien, Montenegro, San Marino) und die Uebersicht. Die Mail nennt sie
+ausdruecklich **Anschauung, keine Druckdateien**. Im Quelltext der gesendeten Mail
+geprueft: jede der fuenf Dateien genau einmal.
+
+**Zwei Befunde nebenbei:**
+
+- **Die Motive waren am 03.09.2026 gar nicht mitgegangen.** Laut Gesendet-Ordner
+  hatte die Mail um 13:51 keinen Anhang und die um 14:08 nur zwei Fotos. Die Doku
+  hatte „mit den Motiven als Vektor-PDF" notiert; das ist korrigiert.
+- **„Das Weiss deckt bei allen Teilen nicht" gilt nicht uneingeschraenkt.** Labi:
+  Der Drummer-Hoodie `SKO24209460` (05.10.2024) war **Albanien auf Schwarz, DTG,
+  und sah gut aus**. Er ist deshalb aus der Mail genommen. Albanien hat aber kaum
+  Weiss, der Druck belegt also die Farben, **nicht die Weissdeckung**.
+
+**Aus Labis Entwurf vor dem Senden gestrichen:** „8 cm Motivbreite", „12,2 cm
+Rahmen" und eine Tabelle „duennste tragende Farbflaeche" (2,06 mm Median, 0,24 mm
+San Marino). Die 80 mm sind die am 12.09. als falsch erkannte Zahl, die mm-Werte
+sind nirgends belegt. **Nicht wieder verwenden.**
+
+**Fallen beim Senden ueber Apple Mail per AppleScript:**
+- **Ein sichtbares Antwortfenster holt sich die Tastatur.** Was Labi gleichzeitig
+  in Claude tippte, landete zweimal oben im Mailtext („N das", „eg"). Deshalb
+  ohne Fenster anlegen (`reply … without opening window`, nicht `visible`), den
+  Inhalt pruefen und direkt `send`.
+- **`mail attachments` einer gesendeten Mail zeigt falsche Namen** (San Marino
+  doppelt, White fehlte). Belastbar ist nur der Quelltext (`source`,
+  `filename=`).
+
+**Offen:** Roberts Antwort auf die Rueckmail. Nach der DTF-Umstellung:
+Testbestellung und Waschtest, beides macht Labi.
+
+### PodOS-Schluessel und COGS-Abgleich: bewusst ueberholt, nicht verloren — 14.09.2026
+
+**Kurz:** Der Abgleich „Kosten von PodOS synchronisieren" in `/admin/pool` laeuft
+nicht, und das ist **kein verlorener Stand**, sondern Folge einer bewussten
+Entscheidung. Die Produktionskosten kommen seit dem 01.09.2026 **von Hand aus dem
+Margenrechner**, nicht aus PodOS.
+
+#### Was am 14.09.2026 gemessen wurde
+
+| | |
+|---|---|
+| `/admin/pool` (angemeldet) | meldet „**PodOS-API noch nicht konfiguriert**", **kein** Sync-Knopf |
+| Vercel `webseite-one-fam` | `PODOS_API_KEY`, `PODOS_PROJECT` (beide geschuetzt), `PODOS_API_BASE`, `PODOS_COST_FIELD` — **alle vorhanden**, „Production and Preview", angelegt 4. Juli |
+| Produktion auf `onefam.ch` | Commit `4108140` vom 08.09.2026 — also **nach** dem 4. Juli gebaut |
+| Code seit dem ersten Commit (21.06.) | liest exakt `PODOS_API_KEY` / `PODOS_PROJECT` — kein Namenswechsel |
+| Vercel `onefam-kennzahlen` | keine Variablen |
+| `.env.local` lokal | keine PODOS-Zeilen |
+| Make.com | keine PodOS-Verbindung |
+| `product_costs` | **42** Eintraege, alle Quelle `kalkulation-20260807`: Hoodie 30.17, Sweater 24.76, Shirt 14.12 |
+| `cost_config` 2026 | Anteil **10 %**, Gebuehr 2,9 % + 0.30 |
+
+**Schluss:** Namen stehen in Vercel, die Seite haelt PodOS trotzdem fuer nicht
+eingerichtet → **mindestens einer der beiden Werte ist leer**. Nicht einsehbar
+(geschuetzt), aber jede andere Ursache ist ausgeschlossen.
+
+#### Wie es dazu kam — aus den Sitzungsprotokollen
+
+1. **04.07.2026** (Sitzung „Shopify intigration"): P2 samt PodOS-Client gebaut. Der
+   Schluessel war da noch **ausstehend bei Christian**. Anteil auf 20 % gesetzt;
+   Inhaber-Entscheidung: **mit Kosten warten, bis echte Werte da sind**. Die
+   PodOS-Variablen stammen von diesem Tag — offenbar ohne echten Schluessel.
+2. **01.09.2026** (Migrationen `0010`–`0013`): Kosten **von Hand** hinterlegt,
+   Anteil auf **10 %**. Schluessel = WooCommerce-`product_id`, weil **der Shop keine
+   einzige SKU fuehrt** (`shop-und-pool-details.md`). In `stand.md` steht dazu
+   woertlich: „unsere Kosten kommen aus `product_costs` (Margenrechner), **nicht**
+   aus PodOS".
+
+#### Warum der Abgleich ohnehin nicht passen wuerde
+
+- **SKU gegen Produktnummer:** der Abgleich schreibt nach PodOS-SKU, der Pool sucht
+  nach WooCommerce-`product_id`. Selbst mit gueltigem Schluessel wuerden die
+  PodOS-Zeilen **keiner Bestellung zugeordnet**.
+- **Er verschluckt Fehler:** `fetchProductCosts` faengt jeden Fehler mit
+  `catch { break; }` ab. Ein falscher Schluessel ergibt „erfolgreich, nichts
+  geschrieben" — kein 401, keine Meldung. **Ein „es passiert nichts" nach dem
+  Klick ist deshalb kein Befund.**
+- **Ueberschreib-Risiko:** bei gleicher SKU ersetzt der `upsert` einen Handwert.
+
+#### Wer das wieder anfasst
+
+Nur sinnvoll, wenn Kosten kuenftig **automatisch** aus PodOS kommen sollen. Dann
+in dieser Reihenfolge: (1) Abgleich so umbauen, dass er Fehler meldet und nur
+„gesetzt/leer" anzeigt, (2) SKU-Zuordnung zu `product_id` klaeren,
+(3) Private Secure Key aus PodOS → Projects → Settings → **API Settings** in
+Vercel eintragen und neu bereitstellen. **Bis dahin ist nichts zu tun.**
+
+#### Nebenbefunde vom selben Tag
+
+- **Retouren bei PodOS:** Christian am 14.09.2026 im Faden gefragt, ob physische
+  Ruecksendungen ueber API oder Ereignis kommen. **Geld** bei Erstattung/Storno ist
+  schon geloest: WooCommerce-Webhook bucht `refunded`/`cancelled`/`failed` zurueck
+  (`reversePoolForOrder`). Die Detailseiten der PodOS-API-Doku laden nicht
+  (Ladekreis), eine oeffentliche Doku gibt es nicht.
+- **Supabase-Werkzeug:** jede SQL-Abfrage, auch `select 1`, lief in einen
+  Verbindungs-Timeout — die Live-Seite las ihre Daten zur selben Zeit normal. Ein
+  Werkzeug-, kein Datenbankproblem.
+- **Vercel-Logs** reichen im Hobby-Tarif nur **1 Stunde** zurueck.
+
+
+### Stickbarkeit an den EPS-Druckdaten nachgemessen — 12.09.2026
+
+**Die Messung an den Webdateien ist ersetzt.** Gemessen sind jetzt die **253 EPS** der
+Länderkollektion von der externen Platte, gerendert mit Ghostscript auf 1 142 bis
+1 146 px Motivbreite — **0,145 mm je Pixel am Hoodie, 0,060 am Shirt**, beides unter
+der 0,20-mm-Schwelle, ab der das Messskript warnt.
+
+**Hoodie 166 mm:** 213 von 253 unter 0,5 % Verlust (152 davon exakt 0,00), 20 · 16 ·
+**4 über 5 %** (Portugal 7,1 · Haiti 6,9 · Serbien 6,5 · Spanien 6,2).
+**Shirt/Sweater 69 mm:** 173 · 28 · 20 · **32 über 5 %**, schlechtestes San Marino 25,7.
+
+**Der Befund, der zählt:** die alte Tabelle war in **beide** Richtungen falsch — an
+denselben 196 Ländern werden 114 jetzt niedriger, **36 höher** gemessen. Argentinien
+stand in der besten Gruppe und liegt am Shirt bei 12,8 %. Die Warnung „zu grob
+aufgelöst" galt nicht nur dem Hoodie, sondern **auch der 69-mm-Tabelle** (0,44 mm/px).
+
+**Zwei Dinge sind offen:** Mayotte liegt zweimal vor, und ein Motiv (Kopie 99) ist
+keinem Land zuzuordnen. Russland fehlt in der Sammlung ganz.
+
+Alles Einzelne mit Länderlisten: `stick-und-druck-je-land.md`. Die freigestellten
+Motive liegen unter `~/Documents/onefam-stickmessung/motive/`, ausserhalb des Repos.
+
+
+### Motive nachgemessen — und die Hoodie-Frage bleibt offen — 12.09.2026
+
+**Eine eigene Annahme ist umgefallen, und eine uebernommene Zahl war falsch.**
+Die Laendermotive sind **keine** Flagge hinter einem Gesicht, sondern eine
+**Strichzeichnung** mit unterbrochenen Strichen; die Flagge liegt **in** den
+Strichen. Und die Motivbreite ist **nicht** 80 mm — kanonisch gemessen stehen im
+`RUNBOOK-laenderlauf.md`: **Hoodie 166 mm, Sweater und Shirt je 69 mm**.
+
+| Messwert | Shirt / Sweater | Hoodie |
+|---|---|---|
+| Druckbreite | 69 mm | **166 mm** |
+| Strichbreite | **4,6 mm** | **11,1 mm** |
+| Motivflaeche | rund 1 250 mm² | rund **7 240 mm²** |
+| Stiche (Faustwert) | rund 1 900 | rund **11 000** |
+
+**Labis Vorgabe: es darf nichts weggelassen werden.** Damit faellt die mittlere
+Gruppe („vereinfacht sticken") weg, und gemessen wird nur noch eines: **der Anteil
+der Motivflaeche in Teilen, die schmaler als 1 mm sind** — unter dieser Grenze gibt
+es keinen Satinstich.
+
+| Verlust am Shirt | Motive |
+|---|---|
+| unter 0,5 % — ohne Weglassen stickbar | **116** |
+| 0,5 bis 2 % | 35 |
+| 2 bis 5 % | 19 |
+| ueber 5 % | **26** |
+
+Schlechteste: San Marino 39,6 %, Serbien 21,6 %, Sri Lanka 19,2 %, Kambodscha 18,5 %,
+Bhutan 18,1 %, Afghanistan 16,7 %.
+
+**Am Hoodie rechnet dieselbe Messung fuer alle 196 Motive 0,00 % heraus — und das
+ist ein Artefakt, kein Befund.** Die Webdatei hat 158 px Motivbreite; bei 166 mm ist
+**ein Pixel 1,05 mm** gross, feineres kann darin gar nicht vorkommen. Die Richtung
+stimmt (der Hoodie loest sehr viel), belegen laesst es sich **nur an den
+EPS-Dateien** auf der externen Platte — und dafuer muss Claude Code **lokal auf dem
+Mac** laufen, aus der Cloud-Sitzung gibt es keinen Zugriff darauf.
+
+**Drei Grenzen hebt die Groesse nicht auf:** die Nadel (unter 1 mm kein Satinstich,
+Schrift braucht 4 bis 5 mm), die **Farbwechsel im Strich** (bis 18 Hauptfarben je
+Motiv), und die **Stichmasse** am Hoodie (rund 11 000 Stiche sind steif, schwer und
+gehen in den Preis).
+
+**Stickerei bei Shirt-King ist belegt:** angeboten **ab 30 Stueck je Motiv**. Damit
+ist Stick **kein Print-on-Demand**, sondern eine Auflage — fuer die **Signature**
+erreichbar, fuer 252 Laendermotive nicht.
+
+**Zur Haltbarkeit, weil es verwechselt wird:** DTG **blaettert nicht ab**, es
+**verblasst** — die Tinte sitzt in der Faser. Was sich loesen kann, ist die
+**DTF-Folie**, weil sie aufliegt.
+
+**Garn:** **trilobales Polyester** statt Viskose. Viskose glaenzt staerker, wird
+aber nach mehreren Waeschen matt. Recherche, nicht gemessen.
+
+### Stickerei, Modellwechsel und Stick-oder-DTG je Land — 12.09.2026
+
+> **Teilweise ueberholt vom Eintrag darueber (gleicher Tag, spaeter).** Gueltig bleibt
+> hier alles zum **Modellwechsel** und zu den Preisen. Ueberholt sind die
+> Motivbeschreibung (Flagge dahinter) und die Einteilung 60/112/24 — beides ist
+> nachgemessen worden.
+
+Zwei KI-Sitzungen (eine ohne, eine mit Projektzugriff) sind in
+**`docs/druck-und-lieferant.md`** aufgenommen — wieder **dort** und nicht als
+neue Datei, weil die Datei DTG, DTF, Siebdruck und Shirt-King schon behandelt.
+**Als Recherche- und Einschaetzungsstand gekennzeichnet, nicht als Befund.**
+
+**Der eigentliche Gewinn steckt im Stick:** die einfarbige Signature (Logo
+Black, Logo White, Volltoene) laesst sich sticken, und **Garn deckt immer**.
+Damit waere das Weiss-auf-Schwarz-Problem der Signature geloest — **ohne**
+Siebdruck und **ohne** die Mindestmenge 100. Das bunte Logo mit Verlauf geht
+nicht. Bei den Laendern lohnt Stick nur fuer wenige: jedes Motiv muss einmal
+aufbereitet werden, und das kostet je Motiv — bei 252 Laendern ist das der
+Kostentreiber.
+
+**Drei Punkte der Analyse waren falsch und sind dort richtiggestellt:** die
+Laendermotive sind **Flaechen** (Gesicht plus Flagge), keine Linien oder Routen;
+**Stick steht nicht im Shirt-King-Katalog** (acht Optionen, Preisstand
+16.03.2026) und waere separat anzufragen; und **DTG oder DTF ist nicht frei
+waehlbar**, sondern haengt fest am Rohteil.
+
+**Zum Modellwechsel (Creator 2.0 → Freestyler, Cruiser 2.0 → Slammer):**
+gerechnet, aber nicht empfohlen. Einkauf **+6,72 €** und **+10,54 €** je Stueck,
+Herstellkosten damit **14,12 → 21,52 CHF** (Shirt) und **30,17 → 41,77 CHF**
+(Hoodie, Slammer; Striker 51,20). Die Verkaufspreise 75 / 65 / 40 sind gesetzt,
+der Wechsel geht also **voll zulasten der Marge und des Pool-Anteils**. Dazu
+kaemen eine **neue Kosten-Migration** (0010 ist angewendet und wird nie
+geaendert), die Pruefung von `item_kind` in der Versandstaffel und **alle
+Modellbilder neu**, weil Druckmasse und Ghost-Referenz je Schnitt geeicht sind.
+Der **„Ledger" aus der Analyse existiert im Katalog nicht.**
+
+**Nebenbei aufgenommen, rechtlich zu pruefen (Arbeitsregel 12):** die Analyse
+haelt einen Namenskonflikt mit der Hostel-Kette *Onefam Hostels*
+(`onefamhostels.com`) fuer unproblematisch, weil Marken nur fuer ihre Waren- und
+Dienstleistungsklassen geschuetzt sind (Spezialitaetsprinzip) und Beherbergung
+etwas anderes ist als Bekleidung. **Das ist eine KI-Einschaetzung, keine
+Auskunft** — vor dem Launch gehoert eine Markenrecherche dazu, und die gehoert
+nicht in eine KI-Antwort.
 
 ### Druckverfahren und Printful: Richtung festgehalten — 08.09.2026
 
@@ -3560,7 +3795,9 @@ das woertlich hin.
 Zwei Straenge, festgehalten in `druck-und-lieferant.md`:
 
 **Das Weiss deckt nicht.** Bereits produzierte DTG-Teile kamen mit flauem,
-graustichigem Weiss — bei allen, nicht vereinzelt. Fotos liegen vor. Offen ist,
+graustichigem Weiss — bei allen, nicht vereinzelt (**am 15.09.2026 eingeschraenkt:**
+der Drummer-Hoodie 2024, Albanien auf Schwarz, DTG, sah gut aus — siehe
+„Shirt-King: Antwort und Rueckmail"). Fotos liegen vor. Offen ist,
 ob ueberhaupt vorbehandelt wurde; das entscheidet, ob das Verfahren schuld ist
 oder die Einrichtung. **DTF kostet dasselbe wie DTG (5,50 €), ist fuer unsere
 drei Artikel aber nicht freigeschaltet** — die Kindergroessen derselben Modelle
