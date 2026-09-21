@@ -295,8 +295,50 @@ gehoert gefragt.
 **Und ein Zeitstempel:** Von allen Produkten traegt genau eines ein
 Aenderungsdatum von **vor fuenf Tagen** — „OneFam White Logo Hoodie", also der
 **16.09.2026**, der Tag von Christians Nachricht und seines Videos. Alle uebrigen
-stehen auf „2mo". Was dort geaendert wurde, ist aus der Oberflaeche nicht
-ersichtlich.
+stehen auf „2mo".
+
+### Was am White Logo Hoodie geaendert wurde: nicht feststellbar, und warum
+
+Am 21.09.2026 gezielt nachgesehen. **Ergebnis: PodOS gibt es nicht her.**
+
+- **Kein Aenderungsprotokoll.** Weder Power Edit noch der Produktdialog (Basic,
+  Metainfo, Variants, Advanced, AI Video) zeigen eine Historie, einen Bearbeiter
+  oder ein Auditfeld. Nur das Datum in der Listenspalte „Updated".
+- **Die API ist vom Browser aus zu.** Die App spricht
+  `https://api.podos.io/v1/catalog/products/<id>?project=onefam-441595`. Ein
+  eigener Aufruf von der Seite aus scheitert: ohne Token **401**, mit
+  XSRF-Kopfzeile **CORS-Fehler**. Ein Bearer-Token liegt weder in localStorage
+  noch erreichbar im Seitenkontext.
+- **Ein Zustandsvergleich hilft nicht.** Hoodie gegen die beiden unveraenderten
+  Geschwister (White Logo Sweater und Shirt) zeigt nur Unterschiede, die ohnehin
+  bestehen: andere Farbpalette, andere Groessenverfuegbarkeit, anderer Preis.
+
+**Der einzige belastbare Weg ist, Christian zu fragen** — er hat es getan, sein
+Video vom 16.09. (`bildschirmaufnahme-2026-09-16-um-09.mov`) liegt im Kanal
+`onefam`, und er hat vermutlich genau an diesem Produkt vorgefuehrt, wie man auf
+DTF umstellt. **Falls ja, steht dieser eine Hoodie jetzt womoeglich teilweise auf
+DTF** — also genau in dem gemischten Zustand, den Labi nicht will.
+
+### Nebenbefund beim Vergleich: zwei Preislinien in PodOS
+
+| Produkt | Preis in PodOS | EUR-Festpreis laut `REGEL-preise.md` | CHF-Preis |
+|---|---|---|---|
+| White Logo Shirt | **35,00 €** | 34,95 | 40 |
+| White Logo Sweater | **60,00 €** | 59,99 | 65 |
+| White Logo Hoodie | **70,00 €** | 69,99 | 75 |
+| Afghanistan/Albania/Brazil Shirt | **40,00 €** | 34,95 | 40 |
+| dieselben Sweater | **65,00 €** | 59,99 | 65 |
+| dieselben Hoodies | **75,00 €** | 69,99 | 75 |
+
+**Die Signature-Linie traegt die gerundeten EUR-Werte, die Laenderlinie die
+CHF-Werte im selben Feld.** Beide koennen nicht richtig sein. Das Muster
+„**35 statt 40**" ist dasselbe, das die Preis-Wache am 08.09.2026 als vierten
+Vorfall protokolliert hat — damals an `onefam-white-logo-shirt`.
+→ `docs/sicherungen/preis-wache-protokoll-vor-reset-08092026.md`
+
+**Nicht geklaert:** ob das PodOS-Preisfeld ueberhaupt auf den Shop durchschlaegt
+oder nur ein Katalogwert ist. **Vor einer Korrektur erst messen** — und zwar nach
+der Methode aus `REGEL-preise.md`, nicht an der Store-API.
 
 **Drei Dinge, die daraus folgen:**
 
