@@ -360,14 +360,18 @@ Messungen sind wertlos — die Zahlen selbst zählen.
 
 ## Stand und Übergaben
 
-**Der aktuelle Arbeitsstand steht in `docs/stand.md`** — offene Punkte, was zuletzt
+**Wer einen neuen Chat beginnt, liest zuerst
+`docs/UEBERGABE-neuer-chat-21092026.md`** — sie fasst beide Straenge zusammen
+(Stickerei und Motive; Shop, Brand-Site und Lieferant) und nennt die naechsten
+Schritte. Danach gilt: **der laufende Arbeitsstand steht in `docs/stand.md`** — offene Punkte, was zuletzt
 gemacht wurde, und die Fallen, die schon einmal Zeit gekostet haben. Vor grösseren
 Aufgaben dort hineinsehen. Vor `/clear` oder `/compact` den Stand dorthin
 fortschreiben.
 
 | Datei | Inhalt |
 |---|---|
-| `docs/stand.md` | **Hier zuerst.** Offene Punkte, letzter Stand, bekannte Fallen |
+| `docs/UEBERGABE-neuer-chat-21092026.md` | **Beim Start eines neuen Chats zuerst.** Stick-Entscheidung, alle 252 Motive, Shop- und Lieferantenstand, naechste Schritte |
+| `docs/stand.md` | Offene Punkte, letzter Stand, bekannte Fallen |
 | `docs/shop-und-pool-details.md` | WooCommerce-Bestand, Währungsmechanik, Kostenmodell, Versandstaffel |
 | `docs/behoerden-mwst-zoll.md` | ESTV, BAZG, deutscher Zoll — was beantwortet ist, was fehlt |
 | `docs/shop-preisanzeige.md` | Preis-Skript der Startseite, Slug-Falle, Speicher-Falle |
