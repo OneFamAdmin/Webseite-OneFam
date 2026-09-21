@@ -239,6 +239,53 @@ den Stick deutlich erreichbarer, als die Uebergabe annahm.
 vom 16.09. („ausschliesslich Stick"). Er begruendet es mit Auflagenhoehe und
 Motivdetail, nicht mit der Anmutung — die Markenfrage beantwortet er nicht.
 
+### ⚠️ Im PodOS-Chat nachgesehen (21.09.2026): die DTF-Umstellung ist NICHT ausgefuehrt
+
+**Gelesen im PodOS-Chat, Kanal `onefam`, Nachricht von HW-Christian vom
+16.09.2026** (das beigefuegte Video heisst `bildschirmaufnahme-2026-09-16-um-09.mov`):
+
+> „@LabiAbi Hallo, du moechtest Produkte in DTF erstellen. Ich kann das nicht
+> global aendern, da es alle Kunden betreffen wuerde. Du muesstest dies bei den
+> Varianten, die du auf DTF umstellen moechtest, anpassen. Hier ist ein Video,
+> das dir zeigt, wie du das machst. Mir ist kein Weg bekannt, alles auf einmal
+> zu aendern. Es ist ja farbabhaengig, und bei dir war es das Schwarz, das dich
+> gestoert hat. Vielleicht passt du nur die dunklen Farben an. Ich werde
+> herausfinden, ob es eine Moeglichkeit gibt, Aenderungen in Massen vorzunehmen,
+> ohne andere Kunden zu beeinflussen."
+
+**Das widerspricht Robert direkt.** Robert am 15.09.: „Deine drei Artikel koennen
+wir im Print-on-Demand von DTG auf DTF umstellen. Sag mir einfach Bescheid."
+Am 16.09. bestaetigt er das nochmal. Christian sagt am selben Tag: **geht nicht,
+mach es selbst, je Variante.**
+
+**Bestaetigt durch den Katalog:** `/catalog/products/list` im Projekt
+onefam-441595 meldet **„Nothing here yet"** — es liegt kein einziges eigenes
+Produkt in PodOS. Es ist also auch nichts umgestellt und nichts zurueckgestellt
+worden.
+
+**Drei Dinge, die daraus folgen:**
+
+1. **Das Verfahren haengt an der Farbvariante, nicht am Artikel.** Das steht so
+   in keiner anderen Unterlage. Robert redet von „den drei Artikeln", Christian
+   von „den Varianten" — das ist nicht dasselbe, und Christians Fassung ist die
+   praktisch geltende.
+2. **Christians Abkuerzung ist brauchbar:** nur die **dunklen** Farbvarianten auf
+   DTF umstellen. Das Weiss-Problem gibt es nur dort. Damit schrumpft die
+   Handarbeit erheblich.
+3. **Wer die Umstellung will, muss entscheiden, wer sie macht.** Robert sagt
+   „wir", Christian sagt „du". Solange das nicht geklaert ist, passiert nichts —
+   und genau das ist seit dem 15.09. der Fall.
+
+**Nebenbefund aus demselben Kanal:** Die **Ausfuehrer-Bestaetigung** ist bereits
+gefragt worden (Labi an Christian, vor rund zwei Monaten): ob Heldenwerbung beim
+Versand aus Deutschland als Ausfuehrer/Anmelder auftritt. Christians Antwort:
+„zur eins ist dein Fall sehr Speziell, hatten wir so noch nicht und muessen das
+noch pruefen lassen." Danach hat sich der Begriff **„Spezialfall" im Faden auf
+das Shopify-/WooCommerce-Thema verschoben**, und als das erledigt war, galt der
+Spezialfall als erledigt. **Die Zollfrage ist dabei untergegangen und nie
+beantwortet worden.** Sie muss neu gestellt werden, getrennt und ohne anderes
+Thema daneben.
+
 ### Was weiterhin offen ist
 
 - **Punchkosten je Motiv und Stichpreis je 1 000 Stiche** — nicht beantwortet.

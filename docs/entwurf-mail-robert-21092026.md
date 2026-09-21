@@ -10,6 +10,13 @@ oder zurueckgezogen wird. Der Entwurf laesst ihn laufen, mit der Begruendung,
 dass der Shop weiter als Print-on-Demand verkauft und der Stick das
 Drop-Modell ist. **Wenn das nicht stimmt, muss Punkt 1 umgeschrieben werden.**
 
+**Nachgetragen am 21.09.2026 nach dem Blick in den PodOS-Chat:** Die Umstellung
+ist **nicht ausgefuehrt**. Christian hat am 16.09. geschrieben, er koenne das
+nicht global aendern, Labi muesse es **je Variante** selbst tun — waehrend
+Robert am 15.09. und am 16.09. schrieb, *sie* koennten die drei Artikel
+umstellen. Punkt 1 ist deshalb keine Nachfrage mehr, sondern ein
+**Widerspruch, der aufgeloest werden muss**.
+
 ---
 
 Betreff: Re: nfrage Siebdruck — Auflage aus Vorbestellungen (Bestandskunde PodOS, Projekt onefam-441595)
@@ -20,16 +27,31 @@ danke, das hilft mir weiter — besonders die Zahl zur Mindeststrichstärke und
 die Einordnung zum Siebdruck. Ich habe daraus eine Entscheidung abgeleitet und
 komme mit vier konkreten Punkten zurück.
 
-**1) DTF bleibt, und läuft es schon?**
+**1) DTF: ihr und Christian sagt mir gerade Gegenteiliges**
 
 Deine Empfehlung nehme ich an: Für das laufende Geschäft im Shop bleibt es bei
 DTF. Der Stick ist für mich etwas anderes — eine limitierte Linie aus
 Vorbestellungen, kein Print-on-Demand. Die beiden stehen sich also nicht im Weg.
 
-Eine Bestätigung brauche ich trotzdem: Ich hatte die Umstellung auf DTF für
-Creator 2.0, Changer 2.0 und Cruiser 2.0 am 15.09. beauftragt. Ist sie
-durchgeführt, und ab wann greift sie bei neuen Bestellungen? Ich möchte meine
-Testbestellung erst danach auslösen, sonst messe ich wieder DTG.
+Nur ist die Umstellung bis heute nicht passiert, und ich weiß nicht, wer sie
+machen soll. Du hast mir am 15.09. geschrieben: „Deine drei Artikel können wir
+im Print-on-Demand von DTG auf DTF umstellen. Sag mir einfach Bescheid." Ich
+habe am selben Abend Bescheid gegeben.
+
+Christian hat mir am 16.09. im PodOS-Chat geantwortet, er könne das nicht global
+ändern, weil es alle Kunden beträfe, und ich müsse es selbst bei jeder Variante
+einstellen — mit einem Video dazu. Er schreibt außerdem, es hänge an der Farbe,
+nicht am Artikel, und schlägt vor, nur die dunklen Farben umzustellen.
+
+Das sind zwei verschiedene Auskünfte, und solange sie nebeneinander stehen,
+passiert nichts. Deshalb drei Fragen:
+
+- Stellt ihr die drei Artikel um, wie du geschrieben hast, oder muss ich das je
+  Variante selbst machen?
+- Falls ich: Reicht es, nur die dunklen Farbvarianten umzustellen? Das Weiß ist
+  auf hellen Stoffen ohnehin kein Thema.
+- Und ab wann greift es bei neuen Bestellungen? Ich möchte meine Testbestellung
+  erst danach auslösen, sonst messe ich wieder DTG.
 
 **2) Stick — jetzt mit allen Angaben, die du brauchst**
 
