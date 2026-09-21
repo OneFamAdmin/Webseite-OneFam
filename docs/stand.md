@@ -41,6 +41,17 @@
 | 14 | **94 Variationen am White Logo Sweater verloren** | Beim Setzen der PodOS-Preise am 21.09., 16:46:37 Serverzeit. Produkt ist **privat**, Kunden sehen nichts. **Nicht repariert** — erst Christians Antwort abwarten, sonst wird Handarbeit doppelt gemacht. **Neue Regel: nach einer PodOS-Preisaenderung den Variationsbestand zaehlen, Sollwert 3'218 ueber 42 Produkte.** |
 | 15 | **Ausfuehrer-Bestaetigung ist laengst gefragt — und untergegangen** | Punkt 3 oben liest sich, als sei sie nie gestellt worden. Tatsaechlich hat Labi sie vor rund zwei Monaten im PodOS-Chat gefragt; Christian: „dein Fall ist sehr Speziell, muessen wir pruefen lassen". Danach hat sich der Begriff **„Spezialfall" auf das Shopify-Thema verschoben**, und mit dessen Erledigung galt auch die Zollfrage als erledigt. **Sie ist nie beantwortet worden und muss neu raus — getrennt, ohne anderes Thema daneben.** |
 
+**Am 21.09.2026 abends, nach vollstaendiger Durchsicht des PodOS-Chats:**
+
+| # | Was | Stand |
+|---|---|---|
+| 16 | ✅ **Retouren sind beantwortet — und sie kosten** | Christians Antwort lag seit rund sechs Tagen in einem eingeklappten Thread. **Keine Erstattung der Produktionskosten bei Ruecksendung**, ausser bei Reklamation; die Ware geht zurueck an OneFam. **Der Pool-Anteil wird zurueckgebucht, COGS und Versand bleiben haengen.** Gehoert ins Kostenmodell und in die Widerrufs-Abwaegung. |
+| 17 | ✅ **Connector-Fehler behoben, #5164 erstattet** | Wortlaut des Fixes liegt vor: PodOS uebernimmt eine WooCommerce-Bestellung erst, wenn dort der Zahlungsstatus bestaetigt ist. Die Gutschrift von 42,82 € ist auf der Kreditkarte eingegangen. **Punkt erledigt.** |
+| 18 | ⚠️ **Vorbestellungen bringen ueber PodOS keinen Preisvorteil** | Christian woertlich: „Da innerhalb der Cloud, es keine Staffeln gibt, wuerden Vorbestellungen keinen preislichen Vorteil mit sich bringen." **Das Drop-Modell rechnet sich nur ausserhalb der Cloud** — als Auflage bei Shirt-King direkt (Siebdruck ab 100, Stick ab 30). |
+| 19 | ❓ **Rohteil `STSU178` — Freischaltung hakte, Ausgang unbekannt** | Vor drei Monaten: `STSU177` freigeschaltet, bei `STSU178` wurde die Aenderung nicht uebernommen, Entwickler informiert. **Ob es je erledigt wurde, steht nirgends.** Relevant, falls der Rohteilwechsel kommt. |
+
+→ Alles belegt in `docs/podos-chat-vollstaendig-21092026.md`
+
 ---
 
 **Der Trichter bleibt geparkt** (freie Auswahl, Käufer-Voting) bis zur rechtlichen

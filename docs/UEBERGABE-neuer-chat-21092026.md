@@ -330,7 +330,15 @@ PodOS-Chat, Kanal `onefam`, als Antwort in seinem Faden gesendet:**
 > das? Die Detailseiten der API-Doku laden bei uns übrigens nicht, sie bleiben beim
 > Ladekreis hängen. VG Labi
 
-**Antwort steht noch aus.** Hintergrund: Die **Geldseite** der Retouren ist schon
+**⚠️ Überholt — die Antwort ist da.** Am 21.09.2026 im PodOS-Chat gefunden, sie lag
+in einem eingeklappten Thread und war seit rund sechs Tagen unbeantwortet
+liegengeblieben. Christian: **Retourenmanagement ist „aktuell in Planung"**, die
+Ware geht **zurück an OneFam** zum möglichen Weiterverkauf, und — der teure Teil —
+**„keine Erstattung unsererseits für die Produktion"**, ausgenommen Reklamationen.
+**Eine Retoure ist damit kein Nullsummenspiel: COGS und Versand bleiben bei
+OneFam.** → `docs/podos-chat-vollstaendig-21092026.md`
+
+Hintergrund: Die **Geldseite** der Retouren ist schon
 gelöst — der WooCommerce-Webhook behandelt `refunded`, `cancelled`, `failed` und
 bucht den Pool-Anteil automatisch zurück (`reversePoolForOrder`). Die PodOS-API
 listet **20 Schnittstellen, keine für Retouren und keine Webhooks**; die
