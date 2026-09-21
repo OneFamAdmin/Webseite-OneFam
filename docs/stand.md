@@ -7,6 +7,29 @@
 
 ---
 
+## ⏳ Beim Start einer neuen Sitzung: Waechter starten
+
+Stand 21.09.2026 warten **vier Nachrichten** auf Antwort — zweimal Robert Koch
+per Mail (Stick/DTF um 17:52, Ausfuehrer um 20:18), zweimal HW-Christian im
+PodOS-Chat (Hoodie-Aenderung vom 16.09., die 94 verlorenen Variationen).
+
+Christians Chat-Antworten loesen eine Benachrichtigungsmail von Heldenwerbung
+aus — beides laeuft also ueber dasselbe Postfach. Ein Waechter, der alle fuenf
+Minuten nachsieht und sich meldet, sobald etwas eintrifft:
+
+```bash
+bash tools/postfach-waechter.sh
+```
+
+Im Hintergrund laufen lassen. Er misst seine Basislinie selbst, laeuft 14 Stunden
+(oder `bash tools/postfach-waechter.sh 6` fuer sechs) und beendet sich, sobald
+eine Antwort da ist.
+
+**Ein Waechter laeuft immer nur fuer die Sitzung, die ihn gestartet hat.** In
+einer neuen Sitzung also neu starten.
+
+---
+
 ## Das Wichtigste zuerst — offene Punkte
 
 | # | Was | Warum eilig |
