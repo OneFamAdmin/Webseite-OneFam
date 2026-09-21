@@ -192,10 +192,78 @@ die Laenderlinie** — anders als in PodOS. Gegengeprueft auf der Einzelseite
 3'218 Variationen, 0 Abweichungen). Alles andere ist eine Teilmessung und muss
 als solche benannt werden.
 
+---
+
+## Vollmessung vom 21.09.2026 im eingeloggten wp-admin — und der Beleg
+
+Gemessen ueber `wc/v3` mit dem Nonce aus `wpApiSettings`, **alle Produkte, alle
+Variationen einzeln**, nicht in Stichproben.
+
+| | |
+|---|---|
+| Produkte geprueft | **42** |
+| Variationen geprueft | **3'218** |
+| CHF-Stufen | **genau drei**: 40 (1'030×) · 65 (1'128×) · 75 (1'060×) |
+| EUR-Stufen | **genau drei**: 34,95 (1'030×) · 59,99 (1'128×) · 69,99 (1'060×) |
+| Variationen ohne EUR-Festpreis | **0** |
+| Abweichungen vom Sollwert | **0** |
+
+**Identisch mit der Messung vom 06.09.2026.** Auch die White-Logo-Linie, die den
+Verdacht ausgeloest hatte, steht vollstaendig richtig:
+
+| Produkt | ID | Status | Variationen | CHF | EUR |
+|---|---|---|---|---|---|
+| OneFam White Logo Shirt | 466 | privat | 92 | **40** (alle) | **34,95** (alle) |
+| OneFam White Logo Sweater | 365 | privat | 94 | **65** (alle) | **59,99** (alle) |
+| OneFam White Logo Hoodie | 69 | privat | 84 | **75** (alle) | **69,99** (alle) |
+
+### ⚠ Der Shop ist nur deshalb richtig, weil die Automatik laeuft
+
+**Preis-Wache am 21.09.2026 abgerufen** (WooCommerce → OneFam Preis-Wache):
+
+| | |
+|---|---|
+| Letzte Pruefung | **2026-09-21 11:27:20** |
+| Vorfaelle seit dem letzten Zuruecksetzen | **3'430** |
+
+Das Protokoll zeigt fuer **denselben Tag, 11:26:51 bis 11:27:20**, einen
+zusammenhaengenden Durchlauf ueber `onefam-white-logo-sweater`, Variationen 366
+bis 415, durchgehend mit dem Muster **„60 statt 65"**.
+
+**Damit ist die Frage beantwortet, die seit dem 06.09.2026 offen stand.** Die
+Werte, die dort hineingeschrieben werden, sind **exakt die PodOS-Werte**:
+Sweater 60, und in PodOS steht die Signature-Linie auf **35 / 60 / 70**. Die
+WooCommerce-IDs stimmen ebenfalls ueberein — Power Edit nennt fuer diese drei
+Produkte 466, 365 und 69, genau die IDs oben.
+
+**Schluss:** Etwas schreibt fortlaufend die PodOS-Preise in den Shop, und
+**Snippet 108 stellt sie jedes Mal zurueck**. Der Zaehler stand am 08.09.2026
+bei 367 und wurde damals zurueckgesetzt; heute steht er bei **3'430**.
+
+**Die alte Notiz „was tatsaechlich geschah, ist nicht mehr feststellbar" ist
+damit ueberholt.** Es war kein einmaliger Vorfall, sondern ein Dauerzustand.
+
+**Zwei Dinge, die daraus folgen:**
+
+1. **Schaltet jemand Snippet 108 ab, fallen die Preise binnen Minuten zurueck**
+   auf 35 / 60 / 70. Das Snippet ist keine Absicherung mehr, sondern
+   Betriebsvoraussetzung.
+2. **Die Ursache liegt bei PodOS, nicht im Shop.** Der Shop repariert
+   zuverlaessig, aber er repariert etwas, das gar nicht kaputtgehen muesste.
+   **Der richtige Ort fuer die Korrektur ist das PodOS-Preisfeld** — dort stehen
+   fuer die Signature-Linie 35 / 60 / 70 statt 40 / 65 / 75.
+
+**Nicht gemacht:** Zaehler und Protokoll wurden **nicht** zurueckgesetzt, und in
+PodOS wurde **kein** Preis geaendert. Beides gehoert Labi.
+
 ### Offene Frage an den Lieferanten
 
-**Ist das PodOS-Preisfeld die Quelle der Rueckfaelle auf 70 / 60 / 35?** Die
-Werte stimmen exakt mit dem ueberein, was am 31.08. angehoben wurde und am 06.09.
-wieder dastand. Die alte Notiz „was tatsaechlich geschah, ist nicht mehr
-feststellbar" hat damit erstmals einen Kandidaten. **Belegt ist es nicht** — es
-ist nicht geklaert, ob das PodOS-Feld ueberhaupt in den Shop schreibt.
+~~**Ist das PodOS-Preisfeld die Quelle der Rueckfaelle auf 70 / 60 / 35?**~~
+**Am 21.09.2026 belegt, siehe oben:** ja. Der Schreibvorgang laeuft
+fortlaufend, das Muster im Protokoll ist „60 statt 65" auf genau den Produkten,
+die in PodOS auf 35 / 60 / 70 stehen.
+
+**Was jetzt noch zu klaeren ist — mit Shirt-King, nicht im Shop:**
+Warum steht die Signature-Linie in PodOS auf einem anderen Preis als die
+Laenderlinie, und wie wird das dort dauerhaft korrigiert? Solange das offen ist,
+laeuft Snippet 108 als Dauerreparatur.
