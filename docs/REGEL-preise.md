@@ -323,9 +323,18 @@ Und es trifft ausgerechnet wieder den Sweater — dasselbe Produkt, das am
 Variationsbestand zaehlen, nicht nur die Preise pruefen.** Der Sollwert ist
 **3'218** ueber 42 Produkte.
 
-### Stand: nicht repariert
+### Stand: nicht repariert, Christian gefragt
 
 **Bewusst nichts wiederhergestellt.** 94 Variationen neu anzulegen ist ein
 Eingriff, der Labi gehoert — und es ist offen, ob ein erneuter PodOS-Sync sie
 selbst zurueckbringt (das waere der Weg, der den Schaden verursacht hat) oder ob
 sie im Shop von Hand aufgebaut werden muessen.
+
+**Um 19:09 erneut gemessen: weiterhin 0 Variationen**, `date_modified`
+unveraendert `2026-09-21T16:46:37`. In den 23 Minuten seit dem Vorfall hat sich
+nichts von selbst wiederhergestellt.
+
+**Christian ist am 21.09.2026 im PodOS-Chat gefragt worden**, Kanal `onefam`,
+mit drei Fragen: was passiert ist und ob der Sync Variationen entfernt, ob sie
+von ihrer Seite wieder angelegt werden koennen, und ob bei jeder Preisaenderung
+in Power Edit damit zu rechnen ist. **Antwort steht aus.**
