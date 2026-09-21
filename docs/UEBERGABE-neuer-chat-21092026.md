@@ -46,12 +46,14 @@ Mindestbreite bei 8 cm Motivbreite**. **251 von 252** bestehen die Prüfung.
 1. **Kirgisistan (Seite 120).** Einziges Motiv, das die 1,5-mm-Regel nicht besteht
    (**18,6 %**; in der Messtabelle 16,8 %). Empfehlung **2,0 mm (5,0 %)**. Drei
    Varianten liegen im Paket.
-2. **Stickbetrieb auswählen.** Angefragt ist bisher **niemand**. Kandidaten:
-   massgestickt.de, paniho-shirt.de, stickbetrieb.de. Zu klären: **Punchkosten je
-   Motiv, Stickkosten je Teil, Aufpreis je Garnfarbe, Mindestmenge, maximale
+2. **Stickbetrieb auswählen.** ⚠️ **Teilweise überholt, siehe Nachtrag unten:**
+   **Shirt-King stickt selbst**, ab **30 Stück je Motiv**, und ist seit dem
+   15.09. gefragt. Weitere Kandidaten bleiben massgestickt.de, paniho-shirt.de,
+   stickbetrieb.de. Zu klären ist überall dasselbe: **Punchkosten je Motiv,
+   Stickkosten je Teil, Aufpreis je Garnfarbe, Mindestmenge, maximale
    Stickfläche**, und ob sie **Stanley/Stella** in den schweren Qualitäten beziehen.
-3. **Rückfrage an Robert Koch (Shirt-King)** liegt entworfen, aber **ungesendet**.
-   → `MAIL-ENTWURF-antwort-robert-15092026`
+3. **Rückfrage an Robert Koch (Shirt-King)** ⚠️ **überholt: ist gesendet**, am
+   15.09.2026 um 18:01. Siehe Nachtrag.
 4. **Rohteilwechsel in PodOS** (Sparker 2.0 Heavy / Slammer 2.0) — nie ausgeführt,
    durch die Stick-Entscheidung überholt. Muss neu bewertet werden.
 5. **Widerrufsrecht bei Vorbestellung** — juristisch offen, gehört zum Anwalt.
@@ -155,6 +157,51 @@ Kontrollpunkten**. Die rekonstruierte `iso.txt` und die Seitenregel stimmen also
 **Lauf:** `cd tools/stickfassung && python3 lauf_alle.py` — die PDF wird über die
 Umgebungsvariable `PDF` gefunden, voreingestellt auf den Pfad im Downloads-Ordner.
 Ergebnis landet in `tools/stickfassung/stick15/`.
+
+## ⚠️ Nachtrag vom 21.09.2026 — aus dem Repo, nicht aus dem claude.ai-Projekt
+
+Beim Einchecken kam heraus, dass zwei Angaben oben **überholt** sind. Sie stammen
+aus dem Stand vom 17.09.; im Repo steht seit dem **15.09.** mehr. Belegt in
+`docs/druck-und-lieferant.md` und Commit `547d698`.
+
+**Robert Koch hat am 15.09.2026 geantwortet:**
+
+| | |
+|---|---|
+| **DTF** | für **Creator, Changer und Cruiser** im Print-on-Demand **umstellbar**. Profile je Artikel gibt es dort **nicht**. |
+| **Siebdruck** | Shirt, Sweater und Hoodie zählen **zusammen** auf die 100 Stück — **aber nur bei gleicher Druckgrösse**. Heute sind es **6,9 und 16,6 cm**. |
+
+**Die Rückmail ging am 15.09.2026 um 18:01 raus:** DTF-Umstellung **beauftragt**,
+dazu Fragen zu Druckgrösse, **Stick** und ob Siebdruck und Stick die feinen Motive
+tragen. Vier Motive als Anschauung angehängt, ausdrücklich **keine** Druckdateien.
+
+**Daraus folgt ein offener Punkt, der oben fehlt:** Die **DTF-Umstellung wurde am
+15.09. beauftragt** — einen Tag **bevor** am 16.09. „ausschliesslich Stick"
+entschieden wurde. **Ist dieser Auftrag noch aktiv, und soll er zurückgezogen
+werden?** Das gehört als Erstes geklärt, sonst stellt Shirt-King etwas um, das
+niemand mehr will.
+
+**Was über Stickerei bei Shirt-King schon belegt ist** (`docs/druck-und-lieferant.md`,
+Abschnitt „Stickerei als drittes Verfahren"):
+
+- **Mindestmenge 30 Stück je Motiv** (Website, gelesen 12.09.2026). Damit ist Stick
+  **kein Print-on-Demand**, sondern eine Auflage — wie Siebdruck, nur mit
+  niedrigerer Schwelle als dessen 100.
+- **Das bunte Logo mit Farbverlauf geht nicht.** Stickbar nur in Farbstufen, und
+  das ist ein anderes Motiv.
+- **Textil-Haken:** ein vollflächiger Stick von rund **8 × 10 cm** wird auf dem
+  dünnen Creator-Shirt (180 g/m²) **steif und zieht den Stoff zusammen**. Auf
+  Sweater und Hoodie (350 g/m²) unkritisch. **Spricht für schwerere Rohteile.**
+- **Punchkosten fallen je Motiv an** — bei 252 Ländern der entscheidende
+  Kostentreiber. Der Stickpreis je Stück ist bei Shirt-King **noch nicht angefragt**.
+- Die ältere Ländereinteilung in `docs/stick-und-druck-je-land.md` beruht auf den
+  **Webdateien** und ist durch die 1,5-mm-Messung vom 17.09. **überholt**.
+
+**Zwei Korrekturen aus derselben Mail**, die für den Ton gegenüber Shirt-King
+zählen: Die Motive gingen am **03.09. laut Gesendet-Ordner gar nicht mit**. Und
+das Weiss deckte **nicht bei allen** Teilen schlecht — der Drummer-Hoodie 2024
+(Albanien, DTG) sah gut aus, belegt aber nur die Farben, weil Albanien kaum Weiss
+enthält. Die 8-cm- und 12,2-cm-Angaben aus dem alten Entwurf sind **falsch**.
 
 ---
 
@@ -321,15 +368,18 @@ das Problem, das gerade eingefangen wurde.
 
 # D — Was als Nächstes ansteht
 
-1. **Stickbetrieb anfragen** (Punkt 2 oben) — der eigentliche Engpass. Ohne
-   Stückpreise keine Kalkulation und kein Drop-Termin.
-2. **Kirgisistan entscheiden** (2,0 mm) — eine Minute Arbeit, blockiert sonst die
+1. **DTF-Auftrag bei Shirt-King klären** (siehe Nachtrag) — am 15.09. beauftragt,
+   am 16.09. durch die Stick-Entscheidung überholt. Zurückziehen oder laufen lassen?
+2. **Stickpreise einholen** — der eigentliche Engpass. Ohne Stückpreise und
+   Punchkosten keine Kalkulation und kein Drop-Termin. Bei Shirt-King ist die Frage
+   seit dem 15.09. gestellt, eine Antwort steht aus; weitere Betriebe sind ungefragt.
+3. **Kirgisistan entscheiden** (2,0 mm) — eine Minute Arbeit, blockiert sonst die
    Vollständigkeit.
-3. **ZIP lokal sichern** oder bewusst auf Neuerzeugung setzen (Code liegt jetzt im
+4. **ZIP lokal sichern** oder bewusst auf Neuerzeugung setzen (Code liegt jetzt im
    Repo, PDF ist da).
-4. **Antwort von Christian** zu den Retouren abwarten.
-5. **Anwalt:** Widerruf bei Vorbestellung.
-6. **Offen aus Strang B:** Konstanz (Umsatzsteuer), Geschäftskonto bei zahls.ch,
+5. **Antwort von Christian** zu den Retouren abwarten.
+6. **Anwalt:** Widerruf bei Vorbestellung.
+7. **Offen aus Strang B:** Konstanz (Umsatzsteuer), Geschäftskonto bei zahls.ch,
    Ausführer-Vereinbarung.
 
 **Was ausdrücklich NICHT mehr ansteht:** PodOS-COGS-Abgleich, DTF-Freischaltung,
