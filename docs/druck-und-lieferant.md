@@ -258,10 +258,45 @@ wir im Print-on-Demand von DTG auf DTF umstellen. Sag mir einfach Bescheid."
 Am 16.09. bestaetigt er das nochmal. Christian sagt am selben Tag: **geht nicht,
 mach es selbst, je Variante.**
 
-**Bestaetigt durch den Katalog:** `/catalog/products/list` im Projekt
-onefam-441595 meldet **„Nothing here yet"** — es liegt kein einziges eigenes
-Produkt in PodOS. Es ist also auch nichts umgestellt und nichts zurueckgestellt
-worden.
+**Korrektur vom selben Tag, eine Stunde spaeter:** Der erste Blick auf
+`/catalog/products/list` meldete „Nothing here yet" — **das war eine
+Fehlmessung.** Die Seite braucht rund 25 Sekunden zum Laden, und „Nothing here
+yet" ist der Zwischenzustand, nicht das Ergebnis. **Die Produkte sind
+vollstaendig da**, Laenderlinie und Signature-Linie, mit WooCommerce-IDs und
+SKUs (`DIY-BLANK-…`). **Regel fuer PodOS: jede Liste ausladen lassen, bevor man
+sie liest.**
+
+**Was in der Oberflaeche nachgesehen wurde (21.09.2026), und was dabei herauskam:**
+
+| Ort | Felder | Druckverfahren? |
+|---|---|---|
+| **Power Edit**, Produktsicht | Name, Price, WooCommerce ID, Description, Tags, Internal Tags, MetaTitle, MetaDesc, Licence, Enabled, Feed, ID | **nein** |
+| **Power Edit**, Variantensicht | zusaetzlich Colour, Size, SKU, Stock | **nein** |
+| **Produktdialog**, Reiter *Basic* | Name, Beschreibung, Farben, Price, Designbereich (Upload / Drive / Generate) | **nein** |
+| **Produktdialog**, Reiter *Variants* | Variant ID, Colour, Size, SKU, Neck Label, Pricing, Display Image | **nein** |
+| **Produktdialog**, Reiter *Advanced* | Additional Files, Special Application, **Embroidery Files**, Labels, Licence, Developer fields | **nein** |
+
+**Das Verfahren ist an keiner dieser Stellen einstellbar.** Christian schreibt
+„bei den Varianten anpassen" — in der Variantentabelle gibt es das Feld nicht.
+Vermutlich fuehrt der Weg ueber den Design-/Studio-Editor, den sein Video zeigt;
+**das ist nicht verifiziert.**
+
+**Nebenbefund, der fuer den Stick zaehlt:** Im Reiter *Advanced* steht
+
+> **Embroidery Files** — „Upload a production ready OFM to convert this product
+> to embroidery mode (**not recommended**)"
+
+**PodOS kann Stickerei also als Print-on-Demand**, nicht nur als Auflage ab 30
+Stueck — es braucht dafuer eine fertig gepunchte **OFM-Datei** je Produkt. Das
+Punchen bleibt damit der Engpass, aber die Mindestmenge 30 waere es
+moeglicherweise nicht. Warum PodOS selbst davon abraet, ist unbekannt und
+gehoert gefragt.
+
+**Und ein Zeitstempel:** Von allen Produkten traegt genau eines ein
+Aenderungsdatum von **vor fuenf Tagen** — „OneFam White Logo Hoodie", also der
+**16.09.2026**, der Tag von Christians Nachricht und seines Videos. Alle uebrigen
+stehen auf „2mo". Was dort geaendert wurde, ist aus der Oberflaeche nicht
+ersichtlich.
 
 **Drei Dinge, die daraus folgen:**
 

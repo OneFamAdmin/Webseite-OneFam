@@ -10,6 +10,11 @@ oder zurueckgezogen wird. Der Entwurf laesst ihn laufen, mit der Begruendung,
 dass der Shop weiter als Print-on-Demand verkauft und der Stick das
 Drop-Modell ist. **Wenn das nicht stimmt, muss Punkt 1 umgeschrieben werden.**
 
+**Gesendet am 21.09.2026.** Der Entwurf ist vorher um Labis Vorgabe ergaenzt
+worden: **kein gemischtes Druckverfahren innerhalb einer Linie.** Christians
+Vorschlag, nur die dunklen Farben umzustellen, ist damit abgelehnt — er wuerde
+am selben Motiv zwei verschiedene Drucke erzeugen.
+
 **Nachgetragen am 21.09.2026 nach dem Blick in den PodOS-Chat:** Die Umstellung
 ist **nicht ausgefuehrt**. Christian hat am 16.09. geschrieben, er koenne das
 nicht global aendern, Labi muesse es **je Variante** selbst tun — waehrend
@@ -40,18 +45,30 @@ habe am selben Abend Bescheid gegeben.
 
 Christian hat mir am 16.09. im PodOS-Chat geantwortet, er könne das nicht global
 ändern, weil es alle Kunden beträfe, und ich müsse es selbst bei jeder Variante
-einstellen — mit einem Video dazu. Er schreibt außerdem, es hänge an der Farbe,
-nicht am Artikel, und schlägt vor, nur die dunklen Farben umzustellen.
+einstellen. Er schlägt vor, nur die dunklen Farben umzustellen, weil mich ja das
+Schwarz gestört habe.
 
-Das sind zwei verschiedene Auskünfte, und solange sie nebeneinander stehen,
-passiert nichts. Deshalb drei Fragen:
+Dazu muss ich deutlich sein: **Ein gemischtes Verfahren innerhalb derselben
+Linie kommt für mich nicht in Frage.** Wenn der schwarze Hoodie im DTF läuft und
+der weiße im DTG, sind das zwei verschiedene Drucke am selben Motiv —
+unterschiedliche Kante, unterschiedlicher Glanz, unterschiedliche Haptik. Ein
+Kunde, der zwei Farben bestellt, sieht das sofort, und bei meinem Preispunkt ist
+das ein Problem. Entweder läuft die ganze Linie im DTF oder gar nicht.
 
-- Stellt ihr die drei Artikel um, wie du geschrieben hast, oder muss ich das je
-  Variante selbst machen?
-- Falls ich: Reicht es, nur die dunklen Farbvarianten umzustellen? Das Weiß ist
-  auf hellen Stoffen ohnehin kein Thema.
-- Und ab wann greift es bei neuen Bestellungen? Ich möchte meine Testbestellung
-  erst danach auslösen, sonst messe ich wieder DTG.
+Ich habe in PodOS nachgesehen, wo ich das einstellen soll, und finde es nicht:
+weder in Power Edit — in der Produkt- und in der Variantenansicht —, noch im
+Produktdialog unter Basic, Variants oder Advanced. Ein Feld für das
+Druckverfahren gibt es an keiner dieser Stellen.
+
+Deshalb drei Fragen:
+
+- Stellt ihr die drei Artikel um, wie du geschrieben hast, oder muss ich das
+  selbst tun? Wenn ich: wo genau, und gilt es dann für alle Farben?
+- Falls es nur variantenweise geht: Könnt ihr es einmalig für alle Varianten
+  dieser drei Artikel durchführen? Ich brauche ein einheitliches Verfahren, nicht
+  eine Teilmenge.
+- Ab wann greift es bei neuen Bestellungen? Ich möchte meine Testbestellung erst
+  danach auslösen, sonst messe ich wieder DTG.
 
 **2) Stick — jetzt mit allen Angaben, die du brauchst**
 
@@ -87,6 +104,13 @@ Damit die Fragen, die ich für die Kalkulation brauche:
 Wenn es hilft, schicke ich dir ein einzelnes Motiv in der Stickfassung als
 Vektordatei, damit du an einem echten Beispiel kalkulieren kannst. Sag mir
 einfach, in welchem Format du es brauchst.
+
+Und eine Frage, die sich mir beim Blick in PodOS gestellt hat: Unter Advanced
+gibt es das Feld „Embroidery Files" mit dem Hinweis, man könne ein
+produktionsfertiges OFM hochladen und das Produkt damit in den Stickmodus
+schalten — dabei steht „not recommended". Heißt das, Stick ginge auch im
+Print-on-Demand, ohne die 30 Stück? Und warum ratet ihr davon ab? Falls das ein
+gangbarer Weg wäre, ändert das meine Planung erheblich.
 
 **3) Eine Rückfrage zur Mindeststrichstärke**
 
