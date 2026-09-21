@@ -319,6 +319,25 @@ Video vom 16.09. (`bildschirmaufnahme-2026-09-16-um-09.mov`) liegt im Kanal
 DTF umstellt. **Falls ja, steht dieser eine Hoodie jetzt womoeglich teilweise auf
 DTF** — also genau in dem gemischten Zustand, den Labi nicht will.
 
+**Christian ist am 21.09.2026 danach gefragt worden.** Gesendet im PodOS-Chat,
+Kanal `onefam`, als neue Nachricht im Hauptfaden:
+
+> Hallo Christian, danke fuer das Video. Zwei Fragen dazu. 1) Beim Produkt
+> „OneFam White Logo Hoodie" steht als Aenderungsdatum der 16.09. — alle anderen
+> Produkte stehen auf zwei Monaten. Hast du dort etwas umgestellt? Falls ja: was
+> genau, und laeuft der Hoodie jetzt teilweise auf DTF? 2) Ich finde die
+> Einstellung selbst nicht. Weder in Power Edit (Produkt- und Variantenansicht)
+> noch im Produktdialog unter Basic, Variants oder Advanced gibt es ein Feld fuer
+> das Druckverfahren. Wo genau sitzt es? Wichtig fuer mich: Ich brauche ein
+> einheitliches Verfahren ueber die ganze Linie. Nur die dunklen Farben auf DTF
+> geht nicht — dann haette dasselbe Motiv je nach Stofffarbe zwei verschiedene
+> Drucke, und das sieht ein Kunde sofort. Gruss Labi
+
+**Bewusst kurz gehalten:** Christian hat am 31.07.2026 im selben Kanal
+angemerkt, bei langen Auflistungen verliere sich die Kernfrage („bei der ganzen
+AI Auflistung verlieret sich die Kernfrage"). Zwei nummerierte Fragen und ein
+Satz zur Vorgabe, mehr nicht.
+
 ### Nebenbefund beim Vergleich: zwei Preislinien in PodOS
 
 | Produkt | Preis in PodOS | EUR-Festpreis laut `REGEL-preise.md` | CHF-Preis |
