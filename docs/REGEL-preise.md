@@ -143,3 +143,59 @@ liegt bei rund 1.08. EUR-Kunden zahlen dadurch etwa ein Fünftel weniger als
 Schweizer Kunden. Das steht seit dem Übergabeprotokoll vom 01.08. als bewusst zu
 treffende Entscheidung — **wenn die EUR-Preise steigen sollen, betrifft das alle
 Produkte gemeinsam**, plus die festen Zeichenketten in Snippet 11.
+
+---
+
+## Messung vom 21.09.2026 — ausgeloggt, gerenderte Seiten
+
+**Anlass:** In PodOS steht die Signature-Linie auf **35 / 60 / 70**, die
+Laenderlinie auf **40 / 65 / 75** (Power Edit, Feld „Price", Waehrungszeichen €).
+Das sind genau die Werte, die am 31.08.2026 angehoben und am 06.09.2026 wieder
+zurueckgefallen waren. → `docs/druck-und-lieferant.md`
+
+**Gemessen ausgeloggt, ohne Query-Parameter, ohne Cache-Umgehung.** Das Geraet
+steht in der Schweiz, angezeigt wird also CHF — das ist genau die Stufe, um die
+es geht.
+
+### Alle 18 oeffentlichen Produkte: korrekt
+
+| Produkt | Hoodie | Sweater | Shirt |
+|---|---|---|---|
+| Afghanistan | CHF 75.00 | CHF 65.00 | CHF 40.00 |
+| Albanien | CHF 75.00 | CHF 65.00 | CHF 40.00 |
+| Andorra | CHF 75.00 | CHF 65.00 | CHF 40.00 |
+| Argentinien | CHF 75.00 | CHF 65.00 | CHF 40.00 |
+| **Logo Black** | CHF 75.00 | CHF 65.00 | CHF 40.00 |
+| **OneFam Logo** | CHF 75.00 | CHF 65.00 | CHF 40.00 |
+
+**Keine Abweichung. Die Signature-Linie steht im Shop auf demselben Niveau wie
+die Laenderlinie** — anders als in PodOS. Gegengeprueft auf der Einzelseite
+`/produkt/onefam-logo-hoodie/`: CHF 75.00.
+
+### Was diese Messung NICHT abdeckt — und warum
+
+1. **Die White-Logo-Linie ist nicht oeffentlich.**
+   `/produkt/onefam-white-logo-hoodie/` antwortet ausgeloggt mit **404**. Genau
+   die Linie, die in PodOS auf 70 steht, laesst sich ohne Anmeldung nicht messen.
+   Von 42 Produkten sind 18 oeffentlich und 24 privat.
+2. **Die Variationsebene fehlt.** Die Produktseite traegt
+   `data-product_variations="false"` — bei mehr als 30 Variationen laedt
+   WooCommerce sie per AJAX nach, statt sie einzubetten. Der angezeigte Preis ist
+   der Produktpreis, **nicht** der Beleg, dass jede einzelne Variation stimmt.
+   Genau auf Variationsebene sind die bisherigen Vorfaelle aufgetreten.
+3. **EUR ist so nicht messbar.** Der EUR-Festpreis steht in
+   `_regular_price_wmcp` je Variation und ist nur im Backend lesbar. Die Anzeige
+   folgt dem Geraet, und der Umschalter ist bewusst aus.
+
+**Fuer eine vollstaendige Aussage braucht es den eingeloggten wp-admin und
+`wc/v3` mit dem Nonce aus `wpApiSettings`** — so wie am 06.09.2026 (42 Produkte,
+3'218 Variationen, 0 Abweichungen). Alles andere ist eine Teilmessung und muss
+als solche benannt werden.
+
+### Offene Frage an den Lieferanten
+
+**Ist das PodOS-Preisfeld die Quelle der Rueckfaelle auf 70 / 60 / 35?** Die
+Werte stimmen exakt mit dem ueberein, was am 31.08. angehoben wurde und am 06.09.
+wieder dastand. Die alte Notiz „was tatsaechlich geschah, ist nicht mehr
+feststellbar" hat damit erstmals einen Kandidaten. **Belegt ist es nicht** — es
+ist nicht geklaert, ob das PodOS-Feld ueberhaupt in den Shop schreibt.
