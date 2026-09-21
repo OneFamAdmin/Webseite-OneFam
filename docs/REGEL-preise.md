@@ -267,3 +267,65 @@ die in PodOS auf 35 / 60 / 70 stehen.
 Warum steht die Signature-Linie in PodOS auf einem anderen Preis als die
 Laenderlinie, und wie wird das dort dauerhaft korrigiert? Solange das offen ist,
 laeuft Snippet 108 als Dauerreparatur.
+
+---
+
+## ⛔ 21.09.2026: PodOS-Preise korrigiert — und dabei 94 Variationen verloren
+
+**Auf Labis Auftrag** wurden in PodOS (Power Edit, Feld „Price") die drei
+Signature-Produkte von **35 / 60 / 70** auf **40 / 65 / 75** gesetzt. Vorgehen
+nach Regel: erst der Hoodie allein als Probe, gespeichert, neu geladen, geprueft
+— dann Shirt und Sweater.
+
+**Beides hat gewirkt, und beides hatte eine Folge.**
+
+### Was funktioniert hat
+
+| Produkt | WooCommerce-ID | Variationen | CHF | EUR |
+|---|---|---|---|---|
+| OneFam White Logo Shirt | 466 | 92 | **40** (alle) | **34,95** (alle) |
+| OneFam White Logo Hoodie | 69 | 84 | **75** (alle) | **69,99** (alle) |
+
+In PodOS steht die Variantenebene des Hoodie jetzt auf **75** statt 70. Der
+Preis-Wache-Zaehler blieb bei **3'430** stehen — **keine neuen Rueckstellungen**.
+Die Korrektur an der Wurzel wirkt also.
+
+### Was kaputtgegangen ist
+
+**`OneFam White Logo Sweater` (ID 365, privat) hat seine 94 Variationen
+verloren.**
+
+| | |
+|---|---|
+| Variationen vorher | **94** |
+| Variationen jetzt | **0** |
+| `date_modified` | **2026-09-21T16:46:37** (Serverzeit ≈ 18:46 lokal) |
+| Gesamtbestand vorher | **3'218** |
+| Gesamtbestand jetzt | **3'124** |
+| Betroffene Produkte | **genau eines** — die uebrigen 41 sind vollstaendig |
+
+**Der Zeitstempel faellt mit dem Speichern in PodOS zusammen.** Ueber 30 Sekunden
+sechsmal nachgemessen: der Stand bleibt bei 0, es baut sich **nicht** von selbst
+wieder auf.
+
+**Eingrenzung:** Das Produkt ist **privat**, im Laden also nicht sichtbar. Die
+oeffentlichen Geschwister sind unberuehrt (Logo Black Sweater 70, OneFam Logo
+Sweater 94).
+
+### Was das ueber den Sync sagt
+
+Bekannt war: „Ein Sync legt nicht nur Preise zurueck, er legt auch Variationen
+an" (07.09. → 08.09.: 3'210 → 3'218). **Neu belegt: er kann sie auch entfernen.**
+Und es trifft ausgerechnet wieder den Sweater — dasselbe Produkt, das am
+08.09.2026 und heute um 11:27 die Rueckstellungs-Durchlaeufe hatte.
+
+**Daraus die Regel: Wer in PodOS einen Preis aendert, muss danach den
+Variationsbestand zaehlen, nicht nur die Preise pruefen.** Der Sollwert ist
+**3'218** ueber 42 Produkte.
+
+### Stand: nicht repariert
+
+**Bewusst nichts wiederhergestellt.** 94 Variationen neu anzulegen ist ein
+Eingriff, der Labi gehoert — und es ist offen, ob ein erneuter PodOS-Sync sie
+selbst zurueckbringt (das waere der Weg, der den Schaden verursacht hat) oder ob
+sie im Shop von Hand aufgebaut werden muessen.
