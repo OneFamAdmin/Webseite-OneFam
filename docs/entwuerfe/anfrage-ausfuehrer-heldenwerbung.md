@@ -1,6 +1,11 @@
 # Entwurf: Ausfuehrer-Vereinbarung — Anfrage an Heldenwerbung
 
-**Nicht gesendet.** Stand 21.09.2026.
+**✅ Gesendet am 21.09.2026 um 20:18:53** an `robert.koch@heldenwerbung.de`,
+bestaetigt im Gesendet-Ordner des T-Online-Kontos.
+
+**Labi hat den Vorbehalt zu Frage 4 gesehen und den Versand trotzdem
+beauftragt** — die Frage ist bewusst als Frage nach deren Praxis formuliert,
+nicht als Rechtsbehauptung, deshalb ist das vertretbar.
 
 ## Warum eigener Vorgang
 
