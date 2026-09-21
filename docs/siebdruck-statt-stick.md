@@ -8,6 +8,32 @@ Gemessen am **21.09.2026** an der Originaldatei
 Anlass war Labis Frage: *koennte man, wenn der Stick nicht kommt, den Siebdruck
 mit der 1,0-mm-Fassung machen — und das Motiv kleiner als 8 cm?*
 
+> ## ⚠️ Nachtrag vom 21.09.2026 — der Lieferant sagt etwas anderes
+>
+> Nach dieser Messung wurde Roberts Mail vom **16.09.2026, 08:44** gelesen (sie
+> lag im T-Online-Postfach und war beim Messen nicht bekannt). Darin steht:
+>
+> **„Fuer alle Druck- und Stickverfahren sollte diese [die Mindeststrichstaerke]
+> mindestens 1 bis 1,5 mm betragen."**
+>
+> Diese Messung rechnet mit **0,3 mm** — dem ueblichen Recherchewert fuer
+> Textil-Siebdruck. **Bei Roberts Zahl faellt der Vorteil des Siebdrucks weg:**
+> statt 0 Motiven ueber 5 % sind es dann 36 (bei 1,0 mm) bis 45 (bei 1,5 mm) —
+> dasselbe Bild wie beim Stick. Die Zeilen 1,0 mm und 1,5 mm der Tabelle unten
+> sind dann die geltenden, nicht die Zeile 0,3 mm.
+>
+> **Damit braucht auch der Siebdruck eine vereinfachte Fassung.** Die Ueberlegung,
+> ueber den Siebdruck das Detail zu retten, traegt bei diesem Lieferanten nicht.
+>
+> **Einschraenkung:** Robert gibt **eine** Zahl fuer alle Verfahren, obwohl
+> ausdruecklich nach einer Zahl **je** Verfahren gefragt war. Das ist eine
+> Vorlagen-Faustregel, keine Aufloesungsgrenze — technisch kann Siebdruck feiner
+> als Stick. Wer den Siebdruck ernsthaft will, muss nachhaken.
+>
+> Er nennt ausserdem **8–10 cm** als Breite fuer ein Brustmotiv und raet vom
+> Siebdruck ab: **„eher unrentabel"**, Empfehlung DTF.
+> → `docs/druck-und-lieferant.md`, Abschnitt „Roberts zweite Antwort vom 16.09.2026"
+
 ---
 
 ## Die kurze Antwort zuerst
@@ -15,8 +41,10 @@ mit der 1,0-mm-Fassung machen — und das Motiv kleiner als 8 cm?*
 1. **Die 1,0-mm-Fassung ist fuer den Siebdruck die falsche Datei.** Sie ist eine
    Stick-Vereinfachung und wirft Detail weg, das der Siebdruck tragen koennte.
    Fuer Siebdruck nimmt man das **Original**.
-2. **Kleiner als 8 cm geht weit.** Ein Siebdruck mit **4 cm** Motivbreite bildet
-   immer noch **mehr** ab als ein Stick mit 8 cm.
+2. **Kleiner als 8 cm geht weit** — *sofern* die Verfahrensgrenze bei 0,3 mm
+   liegt. Dann bildet ein Siebdruck mit **4 cm** Motivbreite immer noch **mehr**
+   ab als ein Stick mit 8 cm. **Nach Roberts 1–1,5 mm gilt das nicht**, siehe
+   Nachtrag oben; er empfiehlt ohnehin 8–10 cm.
 3. **Die Grenze des Siebdrucks ist nicht die Feinheit, sondern die Farbzahl** —
    und die Mindestmenge von 100 statt 30 Stueck je Motiv.
 
@@ -144,8 +172,10 @@ Abschnitt „Was der Siebdruck kaputt machen wuerde".
 
 ## Zwei Vorbehalte, die diese Messung nicht aufloest
 
-1. **Die 0,3 mm sind Recherche, nicht Roberts Zusage.** Solange die Antwort auf
-   Punkt 4 der Mail vom 15.09.2026 fehlt, ist die Groessentabelle eine Rechnung.
+1. **Die 0,3 mm sind Recherche — und Robert hat inzwischen widersprochen.** Er
+   nennt am 16.09.2026 **1 bis 1,5 mm fuer alle Verfahren**. Die Groessentabelle
+   oben gilt damit nur, wenn sich eine feinere Siebdruckgrenze belegen laesst.
+   Siehe Nachtrag am Anfang.
 2. **Der Passer ist bei diesen Motiven vermutlich die haertere Grenze als die
    Strichbreite.** Die Flagge liegt *in* den Strichen, die Farben stossen direkt
    aneinander; jede ist ein eigener Siebdurchgang. Die Passgenauigkeit auf Textil

@@ -187,6 +187,78 @@ Farbflaeche" (Median 2,06 mm, San Marino 0,24 mm usw.). 80 mm ist die am
 12.09.2026 als falsch erkannte Zahl, die mm-Werte sind nirgends belegt.
 Gestrichen ist auch der Drummer-Hoodie `SKO24209460`, siehe den Kasten oben.
 
+## Roberts zweite Antwort vom 16.09.2026, 08:44 — die Grenzzahl je Verfahren
+
+**Gelesen am 21.09.2026 direkt im Postfach** (Mail.app, Konto T-Online,
+`robert.koch@heldenwerbung.de`). Antwort auf die Rueckmail vom 15.09., 18:01.
+
+| Thema | Antwort |
+|---|---|
+| **Mindeststrichstaerke** | **„Fuer alle Druck- und Stickverfahren sollte diese mindestens 1 bis 1,5 mm betragen."** Eine Zahl fuer alle Verfahren — die Frage nach einer Zahl **je** Verfahren ist damit nicht beantwortet |
+| **Siebdruck, Empfehlung** | Bei Platzierung auf der linken Brust **8–10 cm Breite**, je nach Motiv. Praxistest: Motiv in Zielgroesse aus Papier ausschneiden und aufs Textil legen |
+| **Siebdruck, Fazit** | **„Aufgrund der kleinen Auflagen und der detaillierten Motive ist Siebdruck in deinem Fall eher unrentabel."** Empfehlung: **DTF** |
+| **DTF** | Empfohlen fuer diese Motive, **„da deine Motive eher klein sind"** — besonders auf Hoodies, fuer deckendes 100%iges Weiss ohne Schwankungen |
+| **Stick, Mindestmenge** | **30 Stueck je Motiv, kombinierbar ueber T-Shirts, Hoodies, Sweater etc.** — die offene Frage aus der Uebergabe ist damit beantwortet: **ja, sie zaehlen zusammen** |
+| **Stick, Punchen** | Stickprogramm wird **je Motiv einmalig** erstellt. **Kein Preis genannt** |
+| **Stick, Groesse** | Maximale Stickflaeche entspricht der Druckflaeche. Grosse Stickereien (z. B. 30 x 20 cm) sind **unkomfortabel zu tragen und meist nicht wirtschaftlich** |
+| **Stick, Machbarkeit** | **Keine verbindliche Aussage** — erst nach Einsicht des Motivs und Angabe des Zielmaterials. Die vier Motive lagen der Mail vom 15.09. bei |
+| **SKO25223869** | Ueber ein Jahr alt, im Nachhinein schwer zu beurteilen. Druckdaten waren in Ordnung, **die Maschinen wurden seitdem teils ueberholt oder ersetzt**. Keine genaue Aussage mehr moeglich |
+| **#4145** | **„Die Druckdatei ist zwar nicht optimal, aber ein 100%iges Weiss sollte auch als solches gedruckt werden."** |
+| **Verfahren bei beiden Auftraegen** | **DTG** |
+| **DTG-Schwankungen** | Reklamationsquote **1,7 %** |
+| **Unbedruckte Blanks** | **Ja, ueber den Shop bestellen** |
+
+### Was daraus folgt — und was es umwirft
+
+**1. Roberts Grenzzahl nimmt dem Siebdruck seinen Vorteil.** Die Messung vom
+21.09. (`docs/siebdruck-statt-stick.md`) ging von rund **0,3 mm** aus, dem
+ueblichen Recherchewert fuer Textil-Siebdruck. Bei dieser Zahl liegt bei 8 cm
+Motivbreite **kein einziges** Motiv ueber 5 % Verlust. **Bei Roberts 1 bis
+1,5 mm sind es 36 bis 45** — praktisch dasselbe Bild wie beim Stick. Setzt man
+seine Empfehlung von 10 cm an, sind es bei 1,0 mm noch **25 Motive ueber 5 %**.
+
+**Damit braucht auch der Siebdruck eine vereinfachte Fassung**, und die
+1,5-mm-Stickfassung ist dann die richtige Datei. Die Ueberlegung, ueber den
+Siebdruck das Detail zu retten, traegt bei diesem Lieferanten nicht.
+
+**Aber:** Robert gibt **eine** Zahl fuer alle Verfahren. Das ist eine
+Vorlagen-Faustregel, keine verfahrensspezifische Aufloesungsgrenze — technisch
+kann Siebdruck feiner als Stick. Genau die Aufschluesselung war gefragt und
+blieb aus. **Wer den Siebdruck ernsthaft will, muss hier nachhaken.**
+
+**2. Die 8 cm sind rehabilitiert — als Empfehlung, nicht als Messwert.** Robert
+nennt fuer ein Brustmotiv **8–10 cm**. Die Zahl war im Entwurf gestrichen
+worden, weil sie am 12.09. als falsch erkannt wurde; als Bezugsgroesse der
+Messung war sie das auch. Als **Druckgroesse** liegt sie richtig.
+
+**3. Die Stick-Mindestmenge zaehlt ueber die Kleidungsstuecke zusammen.** 30
+Stueck je Motiv ueber Shirt, Sweater und Hoodie — nicht 30 je Teil. Das macht
+den Stick deutlich erreichbarer, als die Uebergabe annahm.
+
+**4. Der Lieferant selbst raet zu DTF.** Sein Fazit steht gegen die Entscheidung
+vom 16.09. („ausschliesslich Stick"). Er begruendet es mit Auflagenhoehe und
+Motivdetail, nicht mit der Anmutung — die Markenfrage beantwortet er nicht.
+
+### Was weiterhin offen ist
+
+- **Punchkosten je Motiv und Stichpreis je 1 000 Stiche** — nicht beantwortet.
+  Ohne sie keine Kalkulation und kein Drop-Termin. **Der eigentliche Engpass.**
+- **Maximale Druck- und Stickflaeche in Zahlen**, getrennt nach Shirt, Sweater,
+  Hoodie — nicht beantwortet.
+- **Die Druckdateien zu SKO25223869 und #4145** — ausdruecklich erbeten,
+  **nicht geschickt** (die Mail vom 16.09. hat keine Anhaenge).
+- **Der Widerspruch zu Katrins Einschaetzung** (Dezember 2025: „etwas deckender
+  haette es sein koennen", 25 % Nachlass) — mit dem Alter der Bestellung
+  beantwortet, in der Sache nicht aufgeloest.
+- **Pflegehinweise bei DTF** — nicht beantwortet.
+- **Ob die DTF-Umstellung tatsaechlich ausgefuehrt wurde** — Robert bestaetigt
+  sie **nicht ausdruecklich**, er empfiehlt DTF erneut. Beauftragt war sie am
+  15.09.
+- **Eine Strichstaerken-Grenze je Verfahren** — durch die Einheitszahl ersetzt.
+
+**Stand des Fadens am 21.09.2026: Labi hat auf die Mail vom 16.09. nicht
+geantwortet.** Letzte gesendete Nachricht ist die vom 15.09., 18:01.
+
 ## Gefragt am 03.09.2026 — beantwortet am 15.09.2026, siehe oben
 
 Die Anfrage an Robert Koch ist raus, **mit den Fotos der bisherigen DTG-Drucke**
