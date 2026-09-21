@@ -1,0 +1,253 @@
+Seite;ISO;Land / Gebiet;Original zu duenn %;1,0mm zu duenn %;1,0mm Farben;1,5mm zu duenn %;1,5mm Farben;1,0mm besteht;1,5mm besteht;Hinweis
+1;AD;Andorra;33,0;2,2;5;2,3;4;ja;ja;
+2;AE;Vereinigte Arabische Emirate;7,8;1,6;4;1,6;4;ja;ja;
+3;AF;Afghanistan;57,4;16,2;2;3,0;2;nein;ja;
+4;AG;Antigua und Barbuda;14,2;6,1;5;2,7;5;ja;ja;
+5;AI;Anguilla;29,9;10,0;4;5,1;4;ja;ja;Gebiet
+6;AL;Albanien;31,6;14,6;2;9,4;2;nein;ja;
+7;AM;Armenien;8,0;1,6;3;1,6;3;ja;ja;
+8;AO;Angola;16,2;5,3;3;2,7;3;ja;ja;
+9;AQ;Antarktis;9,9;3,5;2;1,6;2;ja;ja;Gebiet
+10;AR;Argentinien;34,6;1,8;3;1,8;3;ja;ja;
+11;AS;Amerikanisch-Samoa;30,4;4,3;7;2,0;5;ja;ja;Gebiet
+12;AT;Österreich;7,8;1,6;2;1,6;2;ja;ja;
+13;AU;Australien;27,9;9,8;3;4,2;3;ja;ja;
+14;AW;Aruba;19,3;3,9;4;1,6;3;ja;ja;Gebiet
+15;AX;Åland;10,2;2,9;3;2,9;3;ja;ja;Gebiet
+16;AZ;Aserbaidschan;19,4;4,7;4;2,3;4;ja;ja;
+17;BA;Bosnien und Herzegowina;13,9;6,8;3;2,4;3;ja;ja;
+18;BB;Barbados;9,7;2,2;3;2,2;3;ja;ja;
+19;BD;Bangladesch;7,7;2,0;2;2,0;2;ja;ja;
+20;BE;Belgien;7,7;1,6;3;1,6;3;ja;ja;
+21;BF;Burkina Faso;11,4;2,3;3;1,9;3;ja;ja;
+22;BG;Bulgarien;8,3;1,6;3;1,6;3;ja;ja;
+23;BH;Bahrain;10,5;1,8;2;1,6;2;ja;ja;
+24;BI;Burundi;14,6;2,8;3;1,9;3;ja;ja;
+25;BJ;Benin;9,1;2,7;3;1,6;3;ja;ja;
+26;BL;Saint-Barthélemy;52,1;8,0;7;1,6;7;ja;ja;Gebiet
+27;BM;Bermuda;41,4;7,1;5;4,7;5;ja;ja;Gebiet
+28;BN;Brunei;35,3;5,6;4;2,4;4;ja;ja;
+29;BO;Bolivien;7,6;1,6;3;1,6;3;ja;ja;
+30;BQ;Bonaire;16,4;5,0;5;2,8;5;ja;ja;Gebiet
+31;BR;Brasilien;13,5;2,5;4;1,5;3;ja;ja;
+32;BS;Bahamas;7,7;2,5;3;2,3;3;ja;ja;
+33;BT;Bhutan;48,1;5,7;3;2,9;3;ja;ja;
+34;BV;Bouvetinsel;12,6;5,4;3;3,2;3;ja;ja;Gebiet
+35;BW;Botsuana;11,3;3,3;3;3,3;3;ja;ja;
+36;BY;Belarus;26,7;10,4;3;3,2;3;ja;ja;
+37;BZ;Belize;54,8;7,2;7;3,0;3;ja;ja;
+38;CA;Kanada;10,8;4,0;2;2,8;2;ja;ja;
+39;CC;Kokosinseln;17,1;5,2;2;5,1;2;ja;ja;Gebiet
+40;CD;Kongo (Dem. Rep.);10,4;2,3;3;2,2;3;ja;ja;
+41;CF;Zentralafrikanische Republik;10,6;3,7;5;2,4;5;ja;ja;
+42;CG;Kongo;8,2;1,9;3;1,6;3;ja;ja;
+43;CH;Schweiz;8,6;2,4;2;1,6;2;ja;ja;
+44;CI;Côte d'Ivoire;8,1;1,6;3;1,6;3;ja;ja;
+45;CK;Cookinseln;26,2;14,1;3;4,6;3;nein;ja;Gebiet
+46;CL;Chile;15,1;3,3;3;2,9;3;ja;ja;
+47;CM;Kamerun;11,4;2,8;3;2,6;3;ja;ja;
+48;CN;China;9,1;3,5;2;1,6;2;ja;ja;
+49;CO;Kolumbien;8,2;1,6;3;1,6;3;ja;ja;
+50;CR;Costa Rica;21,9;7,8;6;2,5;3;ja;ja;
+51;CU;Kuba;18,5;3,8;3;2,8;3;ja;ja;
+52;CV;Kap Verde;13,0;4,4;4;1,6;4;ja;ja;
+53;CW;Curaçao;14,6;3,6;3;2,2;3;ja;ja;Gebiet
+54;CX;Weihnachtsinsel;18,3;6,5;3;2,7;3;ja;ja;Gebiet
+55;CY;Zypern;31,4;10,8;3;5,3;3;ja;ja;
+56;CZ;Tschechien;12,1;2,3;3;2,3;3;ja;ja;
+57;DE;Deutschland;7,4;1,9;3;1,6;3;ja;ja;
+58;DJ;Dschibuti;10,8;3,0;4;2,8;4;ja;ja;
+59;DK;Dänemark;7,7;2,6;2;2,4;2;ja;ja;
+60;DM;Dominica;21,4;5,1;6;3,0;6;ja;ja;
+61;DO;Dominikanische Republik;19,7;5,5;3;2,7;3;ja;ja;
+62;DZ;Algerien;13,1;3,3;3;1,6;3;ja;ja;
+63;EC;Ecuador;49,1;4,5;9;3,2;7;ja;ja;
+64;EE;Estland;9,6;1,6;3;1,6;3;ja;ja;
+65;EG;Ägypten;27,0;4,2;4;3,7;4;ja;ja;
+66;EH;Westsahara;11,3;5,5;4;3,7;4;ja;ja;Gebiet
+67;ER;Eritrea;38,7;5,4;4;3,2;4;ja;ja;
+68;ES;Spanien;50,2;15,9;5;3,5;4;nein;ja;
+69;ET;Äthiopien;29,3;6,9;4;3,3;4;ja;ja;
+70;FI;Finnland;7,5;1,6;2;1,6;2;ja;ja;
+71;FJ;Fidschi;29,9;4,9;5;4,0;5;ja;ja;
+72;FK;Falklandinseln;37,0;6,2;5;3,0;5;ja;ja;Gebiet
+73;FM;Mikronesien;14,7;6,7;2;3,5;2;ja;ja;
+74;FO;Färöer;12,2;3,9;3;1,9;3;ja;ja;Gebiet
+75;FR;Frankreich;9,5;1,7;3;1,6;3;ja;ja;
+76;GA;Gabun;8,0;1,6;3;1,6;3;ja;ja;
+77;XE-ENG;England;9,4;2,6;2;2,3;2;ja;ja;Gebiet
+78;XE-NIR;Nordirland;25,2;4,0;2;3,5;2;ja;ja;Gebiet
+79;XE-SCT;Schottland;8,2;2,4;2;2,4;2;ja;ja;Gebiet
+80;XE-WLS;Wales;55,4;4,1;3;2,4;3;ja;ja;Gebiet
+81;GB;Vereinigtes Königreich;12,1;2,6;3;2,3;3;ja;ja;
+82;GD;Grenada;17,0;4,9;3;2,0;3;ja;ja;
+83;GE;Georgien;11,2;6,1;2;3,2;2;ja;ja;
+84;GF;Französisch-Guayana;11,1;5,1;3;2,3;3;ja;ja;Gebiet
+85;GG;Guernsey;11,7;2,5;3;1,6;3;ja;ja;Gebiet
+86;GH;Ghana;13,0;2,5;4;2,0;4;ja;ja;
+87;GI;Gibraltar;35,4;7,4;3;3,7;3;ja;ja;Gebiet
+88;GL;Grönland;12,4;1,6;2;1,6;2;ja;ja;Gebiet
+89;GM;Gambia;9,1;2,6;4;2,3;4;ja;ja;
+90;GN;Guinea;8,6;1,9;3;1,9;3;ja;ja;
+91;GP;Guadeloupe;33,9;4,6;4;4,4;3;ja;ja;Gebiet
+92;GQ;Äquatorialguinea;15,6;7,6;5;3,3;5;ja;ja;
+93;GR;Griechenland;11,6;1,6;2;1,6;2;ja;ja;
+94;GS;Südgeorgien;41,2;12,4;11;2,9;8;nein;ja;Gebiet
+95;GT;Guatemala;31,2;1,8;4;1,6;2;ja;ja;
+96;GU;Guam;32,6;10,7;8;4,3;8;ja;ja;Gebiet
+97;GW;Guinea-Bissau;9,6;2,7;4;2,2;4;ja;ja;
+98;GY;Guyana;25,5;2,3;5;2,3;5;ja;ja;
+99;HK;Hongkong;15,8;1,8;2;1,8;2;ja;ja;Gebiet
+100;HM;Heard und McDonaldinseln;18,9;6,1;3;4,9;3;ja;ja;Gebiet
+101;HN;Honduras;15,4;2,7;2;2,4;2;ja;ja;
+102;HR;Kroatien;33,4;7,2;4;4,7;4;ja;ja;
+103;HT;Haiti;47,4;2,1;4;2,4;4;ja;ja;
+104;HU;Ungarn;8,9;1,6;3;1,6;3;ja;ja;
+105;ID;Indonesien;8,3;1,6;2;1,6;2;ja;ja;
+106;IE;Irland;8,2;1,6;3;1,6;3;ja;ja;
+107;IL;Israel;16,9;7,8;2;4,2;2;ja;ja;
+108;IM;Isle of Man;29,7;3,5;3;1,7;2;ja;ja;Gebiet
+109;IN;Indien;24,3;8,0;4;2,8;4;ja;ja;
+110;IO;Brit. Terr. im Ind. Ozean;22,5;6,1;3;1,9;3;ja;ja;Gebiet
+111;IQ;Irak;23,5;6,2;4;3,9;4;ja;ja;
+112;IR;Iran;36,7;3,0;3;2,1;3;ja;ja;
+113;IS;Island;7,7;2,1;3;2,1;3;ja;ja;
+114;IT;Italien;8,5;1,7;3;1,6;3;ja;ja;
+115;JE;Jersey;19,6;7,5;3;2,3;3;ja;ja;Gebiet
+116;JM;Jamaika;8,1;2,4;3;2,4;3;ja;ja;
+117;JO;Jordanien;11,8;3,6;4;2,6;4;ja;ja;
+118;JP;Japan;8,7;1,9;2;1,6;2;ja;ja;
+119;KE;Kenia;18,9;7,7;4;2,4;4;ja;ja;
+120;KG;Kirgisistan;50,1;22,6;2;16,8;2;nein;nein;
+121;KH;Kambodscha;44,9;1,6;3;2,1;3;ja;ja;
+122;KI;Kiribati;23,5;4,3;4;3,3;4;ja;ja;
+123;KM;Komoren;16,2;6,1;5;4,2;5;ja;ja;
+124;KN;St. Kitts und Nevis;14,5;2,6;5;1,6;5;ja;ja;
+125;KP;Nordkorea;15,1;3,1;3;2,8;3;ja;ja;
+126;KR;Südkorea;18,2;4,1;4;2,5;4;ja;ja;
+127;KW;Kuwait;10,6;2,4;4;2,4;4;ja;ja;
+128;KY;Kaimaninseln;46,8;7,4;9;2,4;6;ja;ja;Gebiet
+129;KZ;Kasachstan;36,8;17,4;2;7,0;2;nein;ja;
+130;LA;Laos;9,4;1,6;3;1,6;3;ja;ja;
+131;LB;Libanon;19,9;7,0;3;4,8;3;ja;ja;
+132;LC;St. Lucia;10,1;2,1;4;1,9;4;ja;ja;
+133;LI;Liechtenstein;31,9;3,0;4;1,6;4;ja;ja;
+134;LK;Sri Lanka;29,3;7,3;2;4,7;2;ja;ja;
+135;LR;Liberia;13,6;3,6;3;3,0;3;ja;ja;
+136;LS;Lesotho;20,8;12,1;4;2,7;4;nein;ja;
+137;LT;Litauen;8,3;2,6;3;2,6;3;ja;ja;
+138;LU;Luxemburg;9,2;3,2;3;3,1;3;ja;ja;
+139;LV;Lettland;10,5;2,7;2;1,6;2;ja;ja;
+140;LY;Libyen;16,9;4,6;4;2,3;4;ja;ja;
+141;MA;Marokko;20,1;8,0;2;1,6;2;ja;ja;
+142;MC;Monaco;10,2;1,6;2;1,6;2;ja;ja;
+143;MD;Moldau;38,9;6,5;5;1,6;4;ja;ja;
+144;ME;Montenegro;76,3;6,6;4;1,8;4;ja;ja;
+145;MF;Saint-Martin;9,5;1,7;3;1,6;3;ja;ja;Gebiet
+146;MG;Madagaskar;7,8;1,6;3;1,6;3;ja;ja;
+147;MH;Marshallinseln;16,9;9,6;3;1,6;3;ja;ja;
+148;MK;Nordmazedonien;8,7;2,6;2;2,6;2;ja;ja;
+149;ML;Mali;8,5;1,9;3;1,6;3;ja;ja;
+150;MM;Myanmar;10,1;2,0;4;1,8;4;ja;ja;
+151;MN;Mongolei;17,6;7,7;3;3,2;3;ja;ja;
+152;MO;Macau;38,7;11,2;3;3,8;3;ja;ja;Gebiet
+153;MP;Nördliche Marianen;58,6;18,0;7;7,2;7;nein;ja;Gebiet
+154;MQ;Martinique;5,8;1,6;3;1,6;3;ja;ja;Gebiet
+155;MR;Mauretanien;13,9;6,4;3;2,8;3;ja;ja;
+156;MS;Montserrat;23,3;7,0;8;1,6;6;ja;ja;Gebiet
+157;MT;Malta;12,9;1,8;2;1,6;2;ja;ja;
+158;MU;Mauritius;10,5;1,8;4;1,6;4;ja;ja;
+159;MV;Malediven;8,0;1,6;3;1,6;3;ja;ja;
+160;MW;Malawi;20,1;5,0;3;1,6;3;ja;ja;
+161;MX;Mexiko;49,7;3,5;8;1,9;5;ja;ja;
+162;MY;Malaysia;15,0;5,5;4;3,0;4;ja;ja;
+163;MZ;Mosambik;18,2;8,6;5;2,0;5;ja;ja;
+164;NA;Namibia;23,6;6,0;5;4,3;5;ja;ja;
+165;NC;Neukaledonien;27,9;3,6;5;2,1;5;ja;ja;Gebiet
+166;NE;Niger;12,1;3,5;3;2,3;3;ja;ja;
+167;NF;Norfolkinsel;42,8;5,4;2;1,6;2;ja;ja;Gebiet
+168;NG;Nigeria;8,8;2,0;2;1,9;2;ja;ja;
+169;NI;Nicaragua;63,1;6,6;5;3,4;5;ja;ja;
+170;NL;Niederlande;7,9;2,2;3;2,3;3;ja;ja;
+171;NO;Norwegen;13,0;3,5;3;2,8;3;ja;ja;
+172;NP;Nepal;10,6;3,6;3;1,7;3;ja;ja;
+173;NR;Nauru;14,6;6,5;3;3,1;3;ja;ja;
+174;NU;Niue;31,6;12,1;4;6,1;4;nein;ja;Gebiet
+175;NZ;Neuseeland;14,0;3,8;3;2,4;3;ja;ja;
+176;OM;Oman;14,2;1,6;3;1,6;3;ja;ja;
+177;PA;Panama;9,2;2,2;3;2,1;3;ja;ja;
+178;PE;Peru;7,4;2,7;2;2,7;2;ja;ja;
+179;PF;Französisch-Polynesien;26,8;6,1;4;2,3;4;ja;ja;Gebiet
+180;PG;Papua-Neuguinea;11,7;3,6;4;2,6;4;ja;ja;
+181;PH;Philippinen;13,5;5,3;4;2,4;4;ja;ja;
+182;PK;Pakistan;9,8;2,4;2;1,6;2;ja;ja;
+183;PL;Polen;8,2;2,9;2;1,6;2;ja;ja;
+184;PM;St. Pierre und Miquelon;62,2;7,5;6;2,8;6;ja;ja;Gebiet
+185;PN;Pitcairn;39,1;14,1;8;4,6;7;nein;ja;Gebiet
+186;PR;Puerto Rico;11,8;1,9;3;2,1;3;ja;ja;Gebiet
+187;PS;Palästina;9,5;2,0;4;1,9;4;ja;ja;Gebiet
+188;PT;Portugal;51,1;14,4;5;4,5;4;nein;ja;
+189;PW;Palau;8,3;1,7;2;1,6;2;ja;ja;
+190;PY;Paraguay;25,3;2,9;4;2,1;3;ja;ja;
+191;QA;Katar;16,7;4,9;2;1,5;2;ja;ja;
+192;RE;Réunion;13,0;3,7;3;3,5;3;ja;ja;Gebiet
+193;RO;Rumänien;8,3;2,1;3;2,1;3;ja;ja;
+194;RS;Serbien;70,3;8,4;4;3,2;4;ja;ja;
+195;RW;Ruanda;17,4;1,6;3;1,6;3;ja;ja;
+196;SA;Saudi-Arabien;33,9;9,2;2;3,4;2;ja;ja;
+197;SB;Salomonen;8,1;4,0;4;2,2;4;ja;ja;
+198;SC;Seychellen;10,8;1,9;5;1,8;5;ja;ja;
+199;SD;Sudan;8,3;2,4;4;2,2;4;ja;ja;
+200;SE;Schweden;10,7;1,9;2;1,6;2;ja;ja;
+201;SG;Singapur;14,3;3,2;2;2,3;2;ja;ja;
+202;SH;St. Helena;33,0;5,6;5;4,5;5;ja;ja;Gebiet
+203;SI;Slowenien;14,3;5,4;3;2,0;3;ja;ja;
+204;SJ;Svalbard und Jan Mayen;12,6;5,4;3;3,2;3;ja;ja;Gebiet
+205;SK;Slowakei;19,7;5,6;3;2,6;3;ja;ja;
+206;SL;Sierra Leone;9,0;2,4;3;2,1;3;ja;ja;
+207;SM;San Marino;76,4;8,3;8;4,0;8;ja;ja;
+208;SN;Senegal;11,2;3,4;3;3,1;3;ja;ja;
+209;SO;Somalia;11,6;3,9;2;3,9;2;ja;ja;
+210;SR;Suriname;13,5;4,6;4;2,5;4;ja;ja;
+211;SS;Südsudan;14,4;2,7;6;1,6;6;ja;ja;
+212;ST;São Tomé und Príncipe;12,3;2,0;4;2,0;4;ja;ja;
+213;SV;El Salvador;45,2;2,1;2;1,6;2;ja;ja;
+214;SX;Sint Maarten;36,7;10,5;6;6,3;6;ja;ja;Gebiet
+215;SY;Syrien;12,1;5,1;4;2,9;4;ja;ja;
+216;SZ;Eswatini;26,4;6,7;6;4,0;6;ja;ja;
+217;TC;Turks- und Caicosinseln;21,4;6,9;6;1,6;4;ja;ja;Gebiet
+218;TD;Tschad;7,5;1,6;3;1,6;3;ja;ja;
+219;TF;Franz. Südgebiete;14,9;4,1;3;1,6;3;ja;ja;Gebiet
+220;TG;Togo;12,1;3,0;4;1,6;4;ja;ja;
+221;TH;Thailand;10,4;2,6;3;2,4;3;ja;ja;
+222;TJ;Tadschikistan;27,4;15,3;4;5,8;4;nein;ja;
+223;TK;Tokelau;13,1;6,7;3;2,0;2;ja;ja;Gebiet
+224;TL;Timor-Leste;11,2;3,0;4;2,7;4;ja;ja;
+225;TM;Turkmenistan;42,4;4,6;3;3,4;3;ja;ja;
+226;TN;Tunesien;12,8;4,2;2;3,4;2;ja;ja;
+227;TO;Tonga;8,9;2,9;2;1,6;2;ja;ja;
+228;TR;Türkei;9,5;2,1;2;1,6;2;ja;ja;
+229;TT;Trinidad und Tobago;7,4;2,4;3;2,0;3;ja;ja;
+230;TV;Tuvalu;13,9;5,0;2;3,2;2;ja;ja;
+231;TW;Taiwan;19,4;6,7;3;3,1;3;ja;ja;
+232;TZ;Tansania;9,9;2,7;4;2,4;4;ja;ja;
+233;UA;Ukraine;9,2;1,6;2;1,6;2;ja;ja;
+234;UG;Uganda;23,3;8,0;4;3,4;4;ja;ja;
+235;US;Vereinigte Staaten;26,9;6,0;3;2,6;3;ja;ja;
+236;UY;Uruguay;25,9;10,7;4;1,6;4;ja;ja;
+237;UZ;Usbekistan;16,5;7,2;4;1,6;3;ja;ja;
+238;VA;Vatikanstadt;33,9;4,7;5;2,4;4;ja;ja;
+239;VC;St. Vincent und die Grenadinen;9,3;3,1;3;3,1;3;ja;ja;
+240;VE;Venezuela;13,2;3,9;4;3,2;4;ja;ja;
+241;VG;Britische Jungferninseln;38,9;4,9;6;2,5;5;ja;ja;Gebiet
+242;VI;Amerikanische Jungferninseln;56,6;16,7;4;5,0;4;nein;ja;Gebiet
+243;VN;Vietnam;9,3;1,9;2;1,9;2;ja;ja;
+244;VU;Vanuatu;19,0;6,7;4;1,9;4;ja;ja;
+245;WF;Wallis und Futuna;10,7;3,7;2;2,9;2;ja;ja;Gebiet
+246;WS;Samoa;11,8;3,6;3;2,7;3;ja;ja;
+247;XK;Kosovo;13,4;2,3;3;2,6;3;ja;ja;Gebiet
+248;YE;Jemen;8,9;3,3;3;2,2;3;ja;ja;
+249;YT;Mayotte;44,9;6,5;5;1,6;4;ja;ja;Gebiet
+250;ZA;Südafrika;11,7;2,8;5;1,6;5;ja;ja;
+251;ZM;Sambia;22,4;4,2;4;1,6;4;ja;ja;
+252;ZW;Simbabwe;30,9;7,0;5;2,2;5;ja;ja;
