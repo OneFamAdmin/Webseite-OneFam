@@ -378,6 +378,7 @@ fortschreiben.
 | `docs/shop-fusslinks.md` | Fusslinks ohne Sprachpraefix, doppelte Rechtsseiten |
 | `docs/shop-https.md` | HTTPS erzwingen, Proxy-Falle, Web-FTP-Editor-Fehler |
 | `docs/stick-und-druck-je-land.md` | An den EPS nachgemessen: was ohne Weglassen stickbar ist, Hoodie gegen Shirt |
+| `docs/siebdruck-statt-stick.md` | **Am Original nachgemessen (alle 252):** was der Siebdruck bei welcher Motivbreite traegt, Farbzahl als eigentlicher Engpass |
 | `docs/druck-und-lieferant.md` | DTG/DTF/Siebdruck, Shirt-King, PodOS-Zahlungsfehler, **Printful als Alternative** |
 | `docs/handover-shop-pool.md` | Übergabe Shop/Pool (teilweise überholt) |
 | `docs/deploy-vercel.md` | Vercel-Projekt, Umgebungsvariablen |
