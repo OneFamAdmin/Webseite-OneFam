@@ -42,7 +42,7 @@ einer neuen Sitzung also neu starten.
 | 5 | **PayPal-Altkonto bereinigen** | Der Zahlungsweg läuft bereits über Payrexx Pay (am 04.09.2026 nachgemessen), es fliesst nichts mehr über PayPal. Übrig bleibt das alte Händlerkonto mit 38,23 EUR Guthaben, das für den Shop nicht taugt. Einzelheiten beim Inhaber. |
 | 6 | **Shirt-King: Antwort auf die Rueckmail abwarten** | Robert hat am **15.09.2026** geantwortet: **DTF ist im Print-on-Demand umstellbar.** Die Umstellung der drei Artikel ist **am 15.09.2026 um 18:01 per Rueckmail beauftragt**, dazu Fragen zur einheitlichen Druckgroesse, zum Stick und dazu, ob Siebdruck und Stick die feinen Motive tragen oder DTG/DTF besser ist. **Nach der Umstellung: Testbestellung und Waschtest — macht Labi.** → „Shirt-King: Antwort und Rueckmail — 15.09.2026" unten, `druck-und-lieferant.md` |
 | 7 | ⚠️ **Preise gesetzt — Ursache gefunden, aber nicht behoben** | Am 07.09.2026 standen **364 Variationen** wieder auf der alten Reihe (Logo-Shirt 35 statt 40, Logo-Sweater 60 statt 65; zwei der vier Produkte **oeffentlich verkauft**). Gesetzt und vollstaendig nachgemessen: 42 Produkte, 3 210 Variationen, **0 Abweichungen**. **Die Ursache liegt bei Shirt-King:** deren Schluessel „heldenwerbung-409340" (Lesen/Schreiben) schrieb heute zweimal die alten Preise zurueck. **Es kommt wieder, solange PodOS die alten Werte fuehrt.** → siehe „Preise: die Ursache" unten und Punkt 11 |
-| 8 | ⚠️ **zahls.ch: Auszahlungen sind freigeschaltet — ein Punkt bleibt** | Am **22.09.2026** nachgemessen: unter Payrexx Pay (Modus **Live**) steht **Status: Zahlungen gruen · Auszahlungen gruen**. Die Kontopruefung nach der Namenskorrektur ist durch, der geschwaerzte UBS-Auszug wurde akzeptiert, keine Warnung mehr im Konto. **Offen bleibt nur:** hinterlegt ist ein UBS-**Privat**konto, zahls verlangt woertlich ein **geschaeftliches**. zahls beanstandet es nicht — es kann sich erst beim ersten echten Betrag zeigen, wenn die **Bank** die Gutschrift prueft. Guthaben ueberall CHF 0.00, nie eine Auszahlung erhalten. → „zahls.ch nachgesehen" unten |
+| 8 | ⏳ **zahls.ch: EUR-Konto eingetragen, Pruefung laeuft** | Am **22.09.2026** war der Status erst **gruen/gruen** (die Pruefung nach der Namenskorrektur war durch). Danach wurde ein **EUR-Auszahlungskonto** hinterlegt, damit EUR-Umsaetze nicht mehr 2 % Umrechnung kosten — **das hat die Auszahlungen erneut pausiert**. Kontoangaben am 22.09.2026 eingereicht, 4 von 4 Punkten gruen. **Offen bleibt:** beide Konten lauten auf eine **Privatperson**, zahls verlangt woertlich ein **geschaeftliches** Konto — und das EUR-Konto liegt in **Deutschland**, was die ungeklaerte Frage der Registrierungspflicht beruehrt. Guthaben ueberall CHF 0.00, nie eine Auszahlung erhalten. → „zahls.ch nachgesehen" unten |
 | 9 | ✅ **Hero umgebaut — erledigt 07.09.2026** | Marke jetzt als quadratischer Block ueber der Ueberschrift statt als formatfuellender Hintergrund; Laenderkacheln direkt hinter den Hero gezogen. Erstes Kleidungsstueck: **920 → 438 px** (Referenzfenster 1440 × 685), **1519 → 540 px** (390 × 844). Entschieden: Kacheln, **nicht** das Lifestyle-Bild — das zeigt Brasilien, und `/brazil/` ist pausiert. → unten „Hero umgebaut" |
 | 10 | 🎨 **Shop-Design: Startseite fertig, Unterseiten offen** | Stand 08.09.2026: der Hinweis „weitere Laender folgen" ist als Zeile unter der Kachelreihe zurueck, in allen vier Sprachen (Seite 4 666 → **4 712 px**). Die doppelten Fusszeilen und die 18 Galeriebilder waren **keine Befunde** — nachgeprueft, siehe unten. Die Signature-Reihe auf `/shop-by-country/` steht ebenfalls auf **vier** Kacheln (Seite 13 501 → **13 215 px**). **Die 14 Router-Seiten gehoeren nicht hierher:** den acht umgeleiteten fehlen die Modellbilder, das ist ein Laenderlauf, kein Design (→ „Die 14 Router-Seiten nachgezaehlt"). Die Laenderwand ist am 08.09. von **11 706 auf 1 043 px** gekuerzt (Seite 13 215 → **3 063**, Handy 31 299 → **5 511**), die kaputte Suche behoben. Der Sprach-Cookie-Fehler ist behoben (Snippets 42 und 26 lesen jetzt die Adresse vor dem Cookie). Die Produktseite hat eine **neutrale Buehne** statt des warmen Cremes — die Fotos sitzen jetzt randlos. **Weiter offen:** die Karte ist 1 080 statt 1 360 px breit (erst neue Bildgroessen noetig), die Produktfotos brauchen einen **einheitlichen Hintergrund beim Ausgeben**, `/de/warenkorb/` und `/de/kasse/` verlieren ihr Sprachpraefix — **nachgemessen und bewusst nicht gebaut**, weil kein Link dorthin fuehrt, die Sprache ueber das Cookie erhalten bleibt und die Seiten `noindex` tragen. |
 | 11 | ✅ **Preis-Rueckschreiben ist entschaerft — Snippet 108 stellt zurueck** | **Am 08.09.2026 zum dritten Mal passiert** (08:32–08:34, 188 Variationen, beide Sweater auf 60 statt 65; einer davon **publish**). Zurueckgesetzt und vollstaendig nachgemessen: 42 Produkte, 3 218 Variationen, 0 Abweichungen. **Neu belegt:** der Sync schreibt **nur den Basispreis**, und der ist **CHF** — die EUR-Festpreise bleiben unberuehrt. Die ankommenden Werte 35 / 60 sind die gerundeten **EUR**-Preise. **Deshalb waere „EUR-Preise in PodOS eintragen" der falsche Schluss.** Bitte an Shirt-King, in dieser Reihenfolge: **gar keine Preise schreiben**, sonst CHF 40 / 65 / 75 — und die Frage, ob PodOS ueberhaupt CHF fuehren kann. **Seit dem 08.09.2026 faengt Snippet 108 es ab** (geprueft: falscher wie leerer Preis springen sofort auf den Sollwert zurueck). Die Bitte an Shirt-King ist damit **kein Sperrpunkt mehr**, nur noch eine Information. |
@@ -2270,8 +2270,45 @@ dort steht er tatsaechlich nicht.
 **Was weiter offen bleibt:** das hinterlegte Konto ist ein UBS-**Privat**konto,
 waehrend zahls woertlich ein geschaeftliches verlangt. Die Pruefung ist zwar durch,
 aber der Satz im Formular zielt auf die **Bank**, nicht auf zahls — ungetestet,
-solange nie ein echter Betrag geflossen ist. Ebenso unveraendert: **kein
-EUR-Auszahlungskonto**, EUR-Umsaetze kosten darum 2 % Umrechnung.
+solange nie ein echter Betrag geflossen ist.
+
+### EUR-Auszahlungskonto hinterlegt — ebenfalls 22.09.2026
+
+Die 2 % Umrechnungsgebuehr entstehen **nicht**, weil zahls ein Schweizer Anbieter
+ist, sondern weil fuer eine Waehrung **kein Auszahlungskonto** hinterlegt war. Die
+Zahlung selbst wird nicht gewandelt — das Guthaben entsteht in EUR und wird erst
+**beim Auszahlen** in die Standardwaehrung (CHF) umgerechnet, weil es sonst
+nirgends hinkann.
+
+**Geloest ohne neue Kosten:** der Inhaber hat laengst ein privates EUR-Konto bei
+einer deutschen Volksbank, das ohnehin laeuft (rund 5.95 EUR Kontofuehrung im
+Monat, Altmodell „VR-GiroOnline"). Es ist am 22.09.2026 als **EUR-Auszahlungskonto**
+hinterlegt worden. Ein zusaetzliches EUR-Konto bei der UBS waere unnoetig gewesen —
+dort kostet es 3 bis 5 CHF im Monat bei kostenloser Eroeffnung, was sich erst ab
+rund 3 000 EUR Jahresumsatz gegen die 2 % rechnet.
+
+**Zwei Fallen, die dabei Zeit gekostet haben:**
+
+1. **Jede Aenderung der Bankverbindung pausiert die Auszahlungen erneut** und
+   verlangt einen frischen Kontoauszug (PDF aus dem E-Banking, Erstellungsdatum
+   sichtbar, nicht aelter als 3 Monate, Name und IBAN lesbar; Kontostand und
+   Buchungen duerfen geschwaerzt werden — Screenshots werden nicht akzeptiert).
+   Waehrend der Pruefung sind die Felder gesperrt.
+2. **Der Beleg muss an ZWEI Stellen hinterlegt werden.** Der Upload im
+   Auszahlungs-Formular (beim Konto) genuegt **nicht**: die Kontopruefung fuehrt
+   unter *Weitere Informationen* eine eigene **offene Rueckfrage**, die separat mit
+   Datei und Antworttext beantwortet und dann ueber *Kontoangaben einreichen*
+   abgeschickt werden muss. Wer nur das Formular ausfuellt, wartet vergeblich.
+
+**Nebenbefund:** das BIC-Feld blieb nach dem Speichern leer und liess sich waehrend
+der Pruefung nicht mehr aendern. Der BIC steht deshalb im Antworttext an das
+Compliance-Team. Fuer SEPA genuegt die IBAN, es duerfte also folgenlos bleiben.
+
+⚠️ **Zu bedenken:** der Shop-Erloes in Euro laeuft damit kuenftig auf ein **deutsches**
+Konto. Die Ware startet ohnehin in Teltow, und ob in Deutschland
+Registrierungspflicht besteht, ist nicht geklaert — ein deutsches Empfaengerkonto
+ist ein weiterer Anknuepfungspunkt dorthin. Das gehoert zur Anfrage an Konstanz.
+→ `behoerden-mwst-zoll.md`
 
 ### zahls.ch nachgesehen — 08.09.2026
 
