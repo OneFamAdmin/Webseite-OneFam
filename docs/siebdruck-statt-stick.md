@@ -60,6 +60,23 @@ mit der 1,0-mm-Fassung machen — und das Motiv kleiner als 8 cm?*
 
 ---
 
+> ### ⚠️ Einordnung der Kennzahl (nachgetragen 22.09.2026)
+>
+> `tools/sieb-messen.py` zaehlt einen Farbfleck als verloren, wenn **seine
+> dickste Stelle** unter der Grenze liegt (2 × groesster einschreibbarer Radius).
+> Ein Fleck, der nur streckenweise zu duenn wird, zaehlt damit als heil.
+>
+> **Die Pipeline der Stickfassung misst strenger:** `v2.messe()` nimmt den
+> **Median der Skelett-Distanz**, urteilt also nach der *typischen* Breite eines
+> Flecks. Deshalb kommen die beiden Messungen zu verschiedenen Zahlen — bei
+> Albanien 0,01 % gegen 9,4 %.
+>
+> **Beide sind richtig, sie beantworten verschiedene Fragen.** Fuer den Druck
+> zaehlt, ob ein Strich **durchgehend** traegt — da ist das strengere Mass das
+> ehrlichere. **Die Zahlen unten sind also eine untere Schranke des Verlusts.**
+> Fuer die Reihenfolge der Motive (welches ist einfach, welches schwer) taugen
+> sie trotzdem, denn beide Masse sortieren gleich.
+
 ## Wie gemessen wurde, und warum nicht mit dem alten Skript
 
 `tools/motiv-messen.py` (12.09.2026) beantwortet genau eine Frage gegen genau
