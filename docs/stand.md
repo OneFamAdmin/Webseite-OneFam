@@ -9,9 +9,11 @@
 
 ## ⏳ Beim Start einer neuen Sitzung: Waechter starten
 
-Stand 21.09.2026 warten **vier Nachrichten** auf Antwort — zweimal Robert Koch
-per Mail (Stick/DTF um 17:52, Ausfuehrer um 20:18), zweimal HW-Christian im
-PodOS-Chat (Hoodie-Aenderung vom 16.09., die 94 verlorenen Variationen).
+**Stand 22.09.2026:** Robert hat um 16:48 auf die Stick/DTF-Mail geantwortet.
+**Offen sind noch drei:** die **Ausfuehrer-Anfrage** (21.09., 20:18, eigener
+Betreff) und die beiden Chat-Nachrichten an HW-Christian. **Christian ist im
+Urlaub** — Robert hat das am 22.09. geschrieben und angekuendigt, dass
+Detailfragen deshalb laenger brauchen.
 
 Christians Chat-Antworten loesen eine Benachrichtigungsmail von Heldenwerbung
 aus — beides laeuft also ueber dasselbe Postfach. Ein Waechter, der alle fuenf
@@ -63,6 +65,25 @@ einer neuen Sitzung also neu starten.
 | 13 | **DTF-Umstellung: Robert und Christian sagen Gegenteiliges** | Robert (15. und 16.09.): „koennen wir umstellen". Christian (16.09., PodOS-Chat): kann es **nicht global**, Labi muesse es **je Variante** selbst tun, es sei **farbabhaengig**. Deshalb ist seit dem 15.09. nichts passiert. **Labis Vorgabe: kein gemischtes Verfahren innerhalb einer Linie** — Christians Abkuerzung „nur die dunklen Farben" ist damit abgelehnt. In beiden Faeden gefragt. |
 | 14 | **94 Variationen am White Logo Sweater verloren** | Beim Setzen der PodOS-Preise am 21.09., 16:46:37 Serverzeit. Produkt ist **privat**, Kunden sehen nichts. **Nicht repariert** — erst Christians Antwort abwarten, sonst wird Handarbeit doppelt gemacht. **Neue Regel: nach einer PodOS-Preisaenderung den Variationsbestand zaehlen, Sollwert 3'218 ueber 42 Produkte.** |
 | 15 | ✅ **Ausfuehrer-Anfrage am 21.09.2026, 20:18 raus** — eigener Betreff, eigener Faden | Punkt 3 oben liest sich, als sei sie nie gestellt worden. Tatsaechlich hat Labi sie vor rund zwei Monaten im PodOS-Chat gefragt; Christian: „dein Fall ist sehr Speziell, muessen wir pruefen lassen". Danach hat sich der Begriff **„Spezialfall" auf das Shopify-Thema verschoben**, und mit dessen Erledigung galt auch die Zollfrage als erledigt. **Sie wurde nie beantwortet.** Deshalb am 21.09.2026 neu gestellt, getrennt und ohne anderes Thema daneben — vier Fragen: schriftliche Bestaetigung der Ausfuehrerrolle, Ausgangsvermerk fuer die Buchhaltung, Versandstandort (Teltow oder Partnerbetrieb), Fakturierung bei Drittlandsendungen. → `docs/entwuerfe/anfrage-ausfuehrer-heldenwerbung.md` |
+
+### Nachtrag 22.09.2026 — Roberts dritte Antwort
+
+| Punkt | Neuer Stand |
+|---|---|
+| **13** (DTF-Widerspruch) | ✅ **Aufgeloest.** Robert am 22.09.: „hier gab es leider eine Misskommunikation" — **Labi muss es je Artikel selbst umstellen**, und zwar **fuer alle Farben**, „da sonst unterschiedliche Druckbilder zwischen DTG und DTF entstehen". Damit ist Labis Vorgabe vom Lieferanten bestaetigt. **Wo die Einstellung sitzt, weiss Robert nicht** und erkundigt sich. |
+| **2** (Stickpreise) | ⚠️ **Halb beantwortet. Punchkosten: 65 € einmalig je Motiv.** Garn: 100 % Polyester. **Der Stueckpreis fehlt weiter** — Robert braucht dafuer „1:1 die finalen Motive inklusive der gewuenschten Stickgroesse". |
+| **Stick als POD** | ❌ **Erledigt, negativ.** „Wir bieten kein POD im Stickbereich an, auch wenn die Option im Backend eventuell noch angezeigt wird. Das werden wir noch anpassen." Das OFM-Feld unter *Advanced* fuehrt zu nichts. **Stick bleibt eine Auflage ab 30 Stueck.** |
+| **Strichstaerke** | ✅ **Endlich je Verfahren.** Digitaldruck und Stick **1,0–1,5 mm**, **Siebdruck 0,5–1,0 mm**. Korrigiert die Pauschalauskunft vom 16.09. → `docs/siebdruck-statt-stick.md` |
+| **DTF-Pflege** | ✅ Auf links, max. 30–40 °C Schonwaschgang, mildes Feinwaschmittel, kein Weichspueler, keine Bleiche. Gehoert in Produktbeschreibung und Pflegeetikett. |
+
+**Die Zahl, die zaehlt: 65 € Punchkosten je Motiv.** Alle 252 zu punchen waeren
+**16 380 €**, bevor ein Teil gestickt ist. Ein einzelnes Land kostet 65 € plus
+30 Stueck Mindestmenge — **das spricht fuer das Drop-Modell und gegen einen
+Vollausbau.**
+
+**Zum zweiten Mal nicht geliefert:** die Druckdateien zu `SKO25223869` und `#4145`.
+
+---
 
 **Am 21.09.2026 abends, nach vollstaendiger Durchsicht des PodOS-Chats:**
 

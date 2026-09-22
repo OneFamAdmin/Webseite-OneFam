@@ -382,6 +382,94 @@ Spezialfall als erledigt. **Die Zollfrage ist dabei untergegangen und nie
 beantwortet worden.** Sie muss neu gestellt werden, getrennt und ohne anderes
 Thema daneben.
 
+## Roberts dritte Antwort vom 22.09.2026, 16:48 — die ersten harten Zahlen
+
+**Wichtig vorweg: Christian ist im Urlaub.** Robert schreibt, er sei „selbst
+eigentlich nicht mehr tief im POD-Thema involviert" — Detailfragen brauchen
+deshalb laenger. Das erklaert auch, warum im PodOS-Chat nichts zurueckkommt.
+
+### 1. DTF — die Misskommunikation ist eingeraeumt
+
+> „Ja, hier gab es leider eine Misskommunikation. Die Umstellung von DTG auf DTF
+> musst du tatsaechlich fuer jeden Artikel manuell vornehmen. **Ich empfehle dir
+> ebenfalls dringend, die Umstellung fuer alle Farben vorzunehmen, da sonst
+> unterschiedliche Druckbilder zwischen DTG und DTF entstehen.** Wo genau diese
+> Einstellung in deinem Backend vorzunehmen ist, weiss ich aktuell leider nicht
+> und muss mich dazu selbst erst erkundigen."
+
+**Damit ist Labis Vorgabe vom Lieferanten bestaetigt:** kein gemischtes Verfahren
+innerhalb einer Linie. Christians Vorschlag, nur die dunklen Farben umzustellen,
+ist damit vom Tisch.
+
+**Weiter offen bleibt, wo die Einstellung sitzt** — Robert weiss es nicht, und in
+der Oberflaeche ist sie am 21.09. an fuenf Stellen vergeblich gesucht worden.
+
+### 2. Stick — Punchkosten stehen, der Stueckpreis nicht
+
+| | |
+|---|---|
+| **Punchkosten** | **65 € einmalig je Motiv** |
+| **Garn** | **100 % Polyester** (auf die Frage nach *trilobalem* Polyester nicht eingegangen) |
+| **Mindestmenge** | 30 Stueck je Motiv, wie gehabt |
+| **Maximale Stickflaeche** | „entspricht zwar theoretisch der Druckflaeche, grosse Motive zu sticken macht jedoch wenig Sinn" — **wieder keine Zahl** |
+| **Stickpreis je Teil** | **nicht genannt** — er braucht erst die Dateien |
+| **Textil** | Der Wechsel Creator → Sparker ist ein **Stylwechsel**: Standard 180 g/m² → **Relaxed Fit 215 g/m²**. Fuer Stickerei empfiehlt er eher den Sparker. Dazu woertlich: **„Persoenlich bin ich kein Fan von flaechigen Sticks auf T-Shirts, da dies den Tragekomfort einschraenkt."** |
+
+**Was er fuer die Kalkulation braucht:** „1:1 die finalen Motive inklusive der
+gewuenschten Stickgroesse".
+
+### 3. ⚠️ Kein Print-on-Demand im Stick — die OFM-Option ist ein Ueberbleibsel
+
+> „Wir bieten **kein POD im Stickbereich** an, auch wenn die Option im Backend
+> eventuell noch angezeigt wird. **Das werden wir noch anpassen.** Stick ist erst
+> ab einer Mindestmenge von 30 Stueck pro Motiv moeglich."
+
+**Damit ist die Hoffnung vom 21.09. erledigt.** Das Feld „Embroidery Files —
+Upload a production ready OFM… (not recommended)" im Reiter *Advanced* fuehrt zu
+nichts; es wird sogar entfernt. **Stick bleibt eine Auflage ab 30 Stueck.**
+
+### 4. Die Mindeststrichstaerke — endlich je Verfahren
+
+> - **Digitaldruck & Stick:** „Bitte nimm die 1,0 bis 1,5 mm als festen Richtwert
+>   an. 1mm geht eben auch - 1,5mm ist halt besser ;-)"
+> - **Siebdruck:** „Hier liegt die Mindeststrichstaerke bei **0,5 bis 1,0 mm**."
+
+**Das korrigiert die Auskunft vom 16.09.** („1 bis 1,5 mm fuer alle Verfahren")
+und stellt den Vorteil des Siebdrucks wieder her.
+→ `docs/siebdruck-statt-stick.md`
+
+### 5. Waschempfehlung DTF — vollstaendig beantwortet
+
+Auf links drehen · **max. 30–40 °C im Schonwaschgang** · mildes Feinwaschmittel ·
+**kein Weichspueler** (schwaecht die Haftung) · **keine Bleichmittel** (beschaedigen
+die Farben). Gehoert in die Produktbeschreibung und aufs Pflegeetikett.
+
+### Was auch diesmal fehlt
+
+- **Die Druckdateien zu `SKO25223869` und `#4145`** — zum zweiten Mal erbeten,
+  zum zweiten Mal nicht geschickt und nicht erwaehnt.
+- **Stickpreis je Teil** bzw. je 1 000 Stiche, **Aufpreis je Garnfarbe**,
+  **maximale Stickflaeche in cm**.
+- **Antwort auf die Ausfuehrer-Anfrage** vom 21.09., 20:18 — eigener Betreff,
+  bisher unbeantwortet.
+
+### Was daraus fuer die Kalkulation folgt
+
+**65 € je Motiv sind die erste harte Zahl der ganzen Stick-Strecke.**
+
+| | |
+|---|---|
+| Alle 252 Motive punchen | **16 380 €**, bevor ein einziges Teil gestickt ist |
+| Ein einzelnes Land punchen | **65 €** |
+| Punchkosten je Teil bei genau 30 Stueck | **2,17 €** |
+
+**Das spricht fuer das Drop-Modell und gegen einen Vollausbau.** Ein Land kostet
+65 € Einrichtung plus 30 Stueck Mindestmenge — das ist ein ueberschaubarer
+Einstieg. Die ganze Kollektion auf einmal zu punchen waere es nicht.
+
+**Was zur vollstaendigen Kalkulation noch fehlt, ist der Stickpreis je Teil.** Und
+den bekommt Labi erst, wenn er die finalen Motive mit Stickgroesse schickt.
+
 ### Was weiterhin offen ist
 
 - **Punchkosten je Motiv und Stichpreis je 1 000 Stiche** — nicht beantwortet.
