@@ -9,8 +9,13 @@
 
 ## ⏳ Beim Start einer neuen Sitzung: Waechter starten
 
-**Stand 22.09.2026:** Robert hat um 16:48 auf die Stick/DTF-Mail geantwortet.
-**Offen sind noch drei:** die **Ausfuehrer-Anfrage** (21.09., 20:18, eigener
+**Stand 22.09.2026, 18:40:** Die **Preisanfrage Albanien** ist raus — erster
+Drop, mit dem Original-EPS und dem freigestellten Motiv im Anhang. Gefragt sind
+zwei Stueckpreise (Siebdruck 100 Stueck, Stick 30 Stueck), die Versandkosten je
+Paket, und vier Punkte, die aus frueheren Mails unbeantwortet blieben.
+→ `docs/entwuerfe/anfrage-albanien-preise.md`
+
+**Offen sind damit vier Nachrichten:** die Preisanfrage Albanien (22.09.), die **Ausfuehrer-Anfrage** (21.09., 20:18, eigener
 Betreff) und die beiden Chat-Nachrichten an HW-Christian. **Christian ist im
 Urlaub** — Robert hat das am 22.09. geschrieben und angekuendigt, dass
 Detailfragen deshalb laenger brauchen.

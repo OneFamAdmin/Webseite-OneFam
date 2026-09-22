@@ -1,6 +1,7 @@
 # Entwurf: Preisanfrage Albanien — Siebdruck und Stick
 
-**Nicht gesendet.** Stand 22.09.2026.
+**✅ Gesendet am 22.09.2026 um 18:40:46** an `robert.koch@heldenwerbung.de`,
+mit beiden Anhaengen — im Gesendet-Ordner bestaetigt.
 
 ## Warum Albanien, und warum nur zwei Verfahren
 
@@ -79,14 +80,36 @@ findest du das Motiv.
 Damit ich rechnen kann, brauche ich die Zahlen nebeneinander. DTF kenne ich schon
 aus der Preisliste, das musst du nicht nochmal aufschlüsseln.
 
-**Zwei Kleinigkeiten**
+**Und weil jetzt ein konkreter Auftrag im Raum steht: die Versandkosten**
 
-- Wie gross darf die Stickfläche auf Shirt, Sweater und Hoodie maximal sein? Du
-  hattest geschrieben, sie entspreche der Druckfläche — mir fehlen die Zahlen in
-  cm, um die Motivgrösse endgültig festzulegen.
-- Die Druckdateien zu **SKO25223869** und **#4145** hatte ich zweimal erbeten,
-  sie waren beide Male nicht dabei. Falls sie sich nicht herausgeben lassen, sag
-  mir das bitte kurz — dann hake ich es ab und höre auf zu fragen.
+Am 03.09. hattest du geschrieben, dass du Kommissionierung und Einzelversand
+„zum konkreten Auftrag" kalkulierst. Genau der liegt jetzt vor: eine Auflage
+Albanien, die in Einzelpaketen an unsere Kundinnen und Kunden geht.
+
+**Was kostet Kommissionierung und Versand je Paket, getrennt nach Deutschland,
+EU und Schweiz?** Ohne diese Zahl kann ich den Endpreis nicht bilden — der
+Versand macht bei einem einzelnen Teil einen grossen Teil davon aus.
+
+**Vier Punkte, die aus den letzten Mails offen sind**
+
+1. **Garnart beim Stick.** Du hast „100 % Polyester" geschrieben. Meine Frage
+   war, ob es **trilobales** Polyester ist. Das macht optisch den Unterschied —
+   trilobal kommt dem Glanz von Viskose nahe, hält aber Wäsche und UV deutlich
+   besser. Für meinen Preispunkt ist das relevant.
+
+2. **Maximale Stickfläche in Zahlen**, getrennt für Shirt, Sweater und Hoodie.
+   Du hattest geschrieben, sie entspreche der Druckfläche — mir fehlen die
+   cm-Werte, um die Motivgrösse endgültig festzulegen.
+
+3. **Wo stelle ich DTF ein?** Du wolltest dich erkundigen, weil du es selbst
+   nicht wusstest. Ich habe inzwischen im Backend gesucht und finde es nicht:
+   weder in Power Edit (Produkt- und Variantenansicht) noch im Produktdialog
+   unter Basic, Variants oder Advanced gibt es ein Feld für das Druckverfahren.
+   Solange ich es nicht finde, läuft mein Shop weiter auf DTG.
+
+4. **Die Druckdateien zu SKO25223869 und #4145.** Die hatte ich zweimal erbeten,
+   sie waren beide Male nicht dabei. Falls sie sich nicht herausgeben lassen, sag
+   mir das bitte kurz — dann hake ich es ab und höre auf zu fragen.
 
 Beste Grüsse
 Labinot
