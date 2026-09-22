@@ -7,33 +7,54 @@
 
 ---
 
-## ⏳ Beim Start einer neuen Sitzung: Waechter starten
+## 🟢 Stand am Ende des 22.09.2026 — hier anfangen
 
-**Stand 22.09.2026, 18:40:** Die **Preisanfrage Albanien** ist raus — erster
-Drop, mit dem Original-EPS und dem freigestellten Motiv im Anhang. Gefragt sind
-zwei Stueckpreise (Siebdruck 100 Stueck, Stick 30 Stueck), die Versandkosten je
-Paket, und vier Punkte, die aus frueheren Mails unbeantwortet blieben.
-→ `docs/entwuerfe/anfrage-albanien-preise.md`
+**Vier Nachrichten sind draussen und warten auf Antwort.** Labi liest seine Mails
+selbst, ein Waechter ist nicht noetig (`tools/postfach-waechter.sh` gibt es
+trotzdem, falls doch einmal gebraucht).
 
-**Offen sind damit vier Nachrichten:** die Preisanfrage Albanien (22.09.), die **Ausfuehrer-Anfrage** (21.09., 20:18, eigener
-Betreff) und die beiden Chat-Nachrichten an HW-Christian. **Christian ist im
-Urlaub** — Robert hat das am 22.09. geschrieben und angekuendigt, dass
-Detailfragen deshalb laenger brauchen.
+| An wen | Wann | Worum |
+|---|---|---|
+| **Robert Koch**, Mail | 21.09., 20:18 | **Ausfuehrer** bei Drittlandsendungen — eigener Betreff |
+| **Robert Koch**, Mail | 22.09., 18:40 | **Preisanfrage Albanien** — Siebdruck 100 Stueck, Stick 30 Stueck, Versandkosten je Paket, dazu vier bisher uebergangene Punkte |
+| **HW-Christian**, PodOS-Chat | 21.09. | Was am 16.09. am White Logo Hoodie geaendert wurde |
+| **HW-Christian**, PodOS-Chat | 21.09. | Die **94 verlorenen Variationen** |
 
-Christians Chat-Antworten loesen eine Benachrichtigungsmail von Heldenwerbung
-aus — beides laeuft also ueber dasselbe Postfach. Ein Waechter, der alle fuenf
-Minuten nachsieht und sich meldet, sobald etwas eintrifft:
+**Christian ist im Urlaub** (Robert am 22.09.) — im Chat kommt vorerst nichts
+zurueck. Robert antwortet erfahrungsgemaess innerhalb eines Tages.
 
-```bash
-bash tools/postfach-waechter.sh
-```
+### Die Entscheidung, die am 22.09. gefallen ist
 
-Im Hintergrund laufen lassen. Er misst seine Basislinie selbst, laeuft 14 Stunden
-(oder `bash tools/postfach-waechter.sh 6` fuer sechs) und beendet sich, sobald
-eine Antwort da ist.
+**Albanien ist der erste Drop.** Grund: grosse Diaspora. Technisch ausserdem das
+leichte Ende — **genau 2 Farben**, am Original-EPS gemessen **0,01 % Verlust bei
+1,0 mm**, 0,35 % bei 1,5 mm. **Albanien braucht in keinem Verfahren eine
+vereinfachte Fassung.**
 
-**Ein Waechter laeuft immer nur fuer die Sitzung, die ihn gestartet hat.** In
-einer neuen Sitzung also neu starten.
+### Was jetzt geht und vorher nicht ging
+
+- **Die EPS-Druckdaten sind erreichbar:** `~/Downloads/onefam-eps`, 253 Dateien,
+  215 MB. ⚠️ **`~/Documents`, `~/Desktop` und externe Datentraeger sind fuer
+  Claude Code durch TCC gesperrt** — alles, was gelesen werden soll, muss unter
+  `~/Downloads` liegen.
+- **Motiv → Land ist automatisierbar:** `tools/motiv-finden.py` vergleicht das
+  Farbprofil einer PDF-Seite mit allen EPS. Albanien: PDF-Seite 6 → „Kopie 5",
+  Abstand 0,085 gegen 0,429 beim Zweitbesten. **Der Treffer gilt erst, wenn die
+  Flaggenkachel stimmt** — das Skript schreibt sie zur Sichtpruefung heraus.
+
+### Was als Naechstes ansteht
+
+1. **Roberts Antwort auf die Preisanfrage abwarten.** Ohne Stueckpreis und
+   Versandkosten keine Kalkulation und kein Drop-Termin.
+2. **Die 94 Variationen am White Logo Sweater** (ID 365, privat) sind weg —
+   **nicht repariert**, bis Christian antwortet. Sollwert des Gesamtbestands:
+   **3 218 Variationen ueber 42 Produkte**, aktuell 3 124.
+3. **DTF ist weiterhin nicht umgestellt.** Robert am 22.09.: Labi muss es je
+   Artikel selbst tun, **fuer alle Farben**. Wo die Einstellung sitzt, weiss
+   niemand — in der Oberflaeche an fuenf Stellen vergeblich gesucht.
+4. **Die Stickfassungen gibt es nicht mehr als Dateien.** Das ZIP ist nirgends
+   auf dem Mac; die Pipeline in `tools/stickfassung/` braucht `opencv-python`,
+   `scikit-image` und `pdftoppm`, **alle drei fehlen**.
+   → `docs/stickdateien-bestand-22092026.md`
 
 ---
 

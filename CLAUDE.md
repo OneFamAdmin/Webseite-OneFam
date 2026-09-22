@@ -123,6 +123,12 @@ Umschalter sind bewusst abgeschaltet. Mechanik und Testhinweise:
     entscheiden, sondern markieren und nachfragen.
 13. Neue Methoden aus AI-Workflow-Videos werden gegen die bestehende Pipeline
     getestet, nicht auf Zuruf übernommen.
+14. **Claude Code kommt nicht überall hin.** `~/Documents`, `~/Desktop` und
+    **externe Datenträger** sind durch TCC gesperrt — `ls` antwortet mit
+    „Operation not permitted". Lesbar sind `~/Downloads` und das Projekt.
+    **Was gelesen werden soll, gehört nach `~/Downloads`.** Die EPS-Druckdaten
+    liegen deshalb in `~/Downloads/onefam-eps` (253 Dateien, 215 MB).
+    Mail.app ist dagegen per `osascript` erreichbar — nie über `~/Library/Mail`.
 
 ---
 
@@ -155,6 +161,9 @@ export PATH="$HOME/.local/node/bin:$PATH"
 | Ziehungs-Tests | `node lib/draw/engine.test.mjs` |
 | Pool-Tests | `node --experimental-strip-types lib/pool/accounting.test.ts` |
 | Abrechnungs-Tests | `node --experimental-strip-types lib/pool/abrechnung.test.ts` |
+| Motiv → EPS-Datei finden | `python3 tools/motiv-finden.py --seite <PDF-Seite>` |
+| Motive gegen Druckgrenzen messen | `python3 tools/sieb-messen.py --ziel <csv>` |
+| Auf Lieferantenantwort warten | `bash tools/postfach-waechter.sh` |
 
 `*.test.ts` ist aus `tsconfig.json` ausgeschlossen, weil es mit expliziter
 `.ts`-Endung importiert — das versteht nur node.
@@ -339,11 +348,12 @@ in `middleware.ts` ein — sonst antworten sie mit 404.
 
 ## Offene Baustellen
 
-- **Anfrage ans Finanzamt Konstanz** — nie gestellt, obwohl der deutsche Zoll
-  ausdrücklich dorthin verweist. Entwurf im claude.ai-Projekt.
-  → `docs/behoerden-mwst-zoll.md`
-- **Ausführer-Vereinbarung mit Shirt-King** — schriftlich festzulegen, vor dem ersten
-  echten Paket in ein Drittland.
+- ~~**Anfrage ans Finanzamt Konstanz**~~ — **ist am 03.09.2026 raus**, Antwort
+  kommt per Post oder telefonisch. → `docs/behoerden-mwst-zoll.md`
+- **Ausführer-Vereinbarung mit Shirt-King** — **am 21.09.2026 um 20:18 gefragt**,
+  eigener Betreff, Antwort steht aus. Vorher war sie im PodOS-Chat schon einmal
+  gestellt worden und **untergegangen**, weil sie neben einem anderen Thema
+  stand. → `docs/entwuerfe/anfrage-ausfuehrer-heldenwerbung.md`
 - Footer-Branding-Zeile untergräbt die Premium-Wirkung
 - ~~Tote Links~~ — der einzige öffentlich erreichbare (`/mein-bereich` → `/reiseziel`,
   nur im Zustand `buyer` sichtbar) ist am 08.09.2026 behoben. → `docs/stand.md`
@@ -378,6 +388,8 @@ fortschreiben.
 | `docs/shop-fusslinks.md` | Fusslinks ohne Sprachpraefix, doppelte Rechtsseiten |
 | `docs/shop-https.md` | HTTPS erzwingen, Proxy-Falle, Web-FTP-Editor-Fehler |
 | `docs/stick-und-druck-je-land.md` | An den EPS nachgemessen: was ohne Weglassen stickbar ist, Hoodie gegen Shirt |
+| `docs/stickdateien-bestand-22092026.md` | **Vor jeder Stick-Arbeit:** was an Dateien da ist, was fehlt, und die Entscheidung Original gegen vereinfachte Fassung |
+| `docs/podos-chat-vollstaendig-21092026.md` | Alle 41 Chat-Antworten von Shirt-King ausgewertet — mehrere „offene" Punkte waren laengst beantwortet |
 | `docs/siebdruck-statt-stick.md` | **Am Original nachgemessen (alle 252):** was der Siebdruck bei welcher Motivbreite traegt, Farbzahl als eigentlicher Engpass |
 | `docs/druck-und-lieferant.md` | DTG/DTF/Siebdruck, Shirt-King, PodOS-Zahlungsfehler, **Printful als Alternative** |
 | `docs/handover-shop-pool.md` | Übergabe Shop/Pool (teilweise überholt) |

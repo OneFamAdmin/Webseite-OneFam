@@ -1,6 +1,14 @@
 # Übergabe für einen neuen Chat — Stand 21.09.2026
 
 Einstiegsdokument. Wer hiermit anfängt, braucht keinen alten Chatverlauf mehr.
+
+> ⚠️ **Am 21. und 22.09.2026 ist viel dazugekommen, das hier noch nicht steht.**
+> Unter anderem: Albanien ist als erster Drop entschieden, vier Nachrichten sind
+> beim Lieferanten draussen, die Ursache der Preis-Rückfälle ist gefunden und
+> behoben, und 94 Variationen sind dabei verlorengegangen.
+> **Deshalb zuerst `docs/stand.md` lesen — dort steht der aktuelle Stand ganz
+> oben.** Dieses Dokument danach, für den Hintergrund.
+
 Zuerst lesen, dann `CLAUDE.md`, dann `docs/stand.md`.
 
 Enthält zwei Stränge, die **getrennt** entstanden sind:
