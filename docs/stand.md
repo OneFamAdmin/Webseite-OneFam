@@ -42,7 +42,7 @@ einer neuen Sitzung also neu starten.
 | 5 | **PayPal-Altkonto bereinigen** | Der Zahlungsweg läuft bereits über Payrexx Pay (am 04.09.2026 nachgemessen), es fliesst nichts mehr über PayPal. Übrig bleibt das alte Händlerkonto mit 38,23 EUR Guthaben, das für den Shop nicht taugt. Einzelheiten beim Inhaber. |
 | 6 | **Shirt-King: Antwort auf die Rueckmail abwarten** | Robert hat am **15.09.2026** geantwortet: **DTF ist im Print-on-Demand umstellbar.** Die Umstellung der drei Artikel ist **am 15.09.2026 um 18:01 per Rueckmail beauftragt**, dazu Fragen zur einheitlichen Druckgroesse, zum Stick und dazu, ob Siebdruck und Stick die feinen Motive tragen oder DTG/DTF besser ist. **Nach der Umstellung: Testbestellung und Waschtest — macht Labi.** → „Shirt-King: Antwort und Rueckmail — 15.09.2026" unten, `druck-und-lieferant.md` |
 | 7 | ⚠️ **Preise gesetzt — Ursache gefunden, aber nicht behoben** | Am 07.09.2026 standen **364 Variationen** wieder auf der alten Reihe (Logo-Shirt 35 statt 40, Logo-Sweater 60 statt 65; zwei der vier Produkte **oeffentlich verkauft**). Gesetzt und vollstaendig nachgemessen: 42 Produkte, 3 210 Variationen, **0 Abweichungen**. **Die Ursache liegt bei Shirt-King:** deren Schluessel „heldenwerbung-409340" (Lesen/Schreiben) schrieb heute zweimal die alten Preise zurueck. **Es kommt wieder, solange PodOS die alten Werte fuehrt.** → siehe „Preise: die Ursache" unten und Punkt 11 |
-| 8 | ⚠️ **zahls.ch geprueft — ein Punkt bleibt offen** | Am 08.09.2026 im eingeloggten Konto nachgesehen: **ein Auszahlungskonto ist hinterlegt**, keine Warnung, keine Rueckfrage, kein Verifizierungshinweis. **Aber der Kontoinhaber ist „Labinot Bajrami", eine Privatperson** — und zahls verlangt woertlich ein **geschaeftliches** Bankkonto. Beanstandet wird es nicht; es zeigt sich erst beim ersten echten Betrag. Guthaben ueberall CHF 0.00, nie eine Auszahlung erhalten. → „zahls.ch nachgesehen" unten |
+| 8 | ⚠️ **zahls.ch: Auszahlungen sind freigeschaltet — ein Punkt bleibt** | Am **22.09.2026** nachgemessen: unter Payrexx Pay (Modus **Live**) steht **Status: Zahlungen gruen · Auszahlungen gruen**. Die Kontopruefung nach der Namenskorrektur ist durch, der geschwaerzte UBS-Auszug wurde akzeptiert, keine Warnung mehr im Konto. **Offen bleibt nur:** hinterlegt ist ein UBS-**Privat**konto, zahls verlangt woertlich ein **geschaeftliches**. zahls beanstandet es nicht — es kann sich erst beim ersten echten Betrag zeigen, wenn die **Bank** die Gutschrift prueft. Guthaben ueberall CHF 0.00, nie eine Auszahlung erhalten. → „zahls.ch nachgesehen" unten |
 | 9 | ✅ **Hero umgebaut — erledigt 07.09.2026** | Marke jetzt als quadratischer Block ueber der Ueberschrift statt als formatfuellender Hintergrund; Laenderkacheln direkt hinter den Hero gezogen. Erstes Kleidungsstueck: **920 → 438 px** (Referenzfenster 1440 × 685), **1519 → 540 px** (390 × 844). Entschieden: Kacheln, **nicht** das Lifestyle-Bild — das zeigt Brasilien, und `/brazil/` ist pausiert. → unten „Hero umgebaut" |
 | 10 | 🎨 **Shop-Design: Startseite fertig, Unterseiten offen** | Stand 08.09.2026: der Hinweis „weitere Laender folgen" ist als Zeile unter der Kachelreihe zurueck, in allen vier Sprachen (Seite 4 666 → **4 712 px**). Die doppelten Fusszeilen und die 18 Galeriebilder waren **keine Befunde** — nachgeprueft, siehe unten. Die Signature-Reihe auf `/shop-by-country/` steht ebenfalls auf **vier** Kacheln (Seite 13 501 → **13 215 px**). **Die 14 Router-Seiten gehoeren nicht hierher:** den acht umgeleiteten fehlen die Modellbilder, das ist ein Laenderlauf, kein Design (→ „Die 14 Router-Seiten nachgezaehlt"). Die Laenderwand ist am 08.09. von **11 706 auf 1 043 px** gekuerzt (Seite 13 215 → **3 063**, Handy 31 299 → **5 511**), die kaputte Suche behoben. Der Sprach-Cookie-Fehler ist behoben (Snippets 42 und 26 lesen jetzt die Adresse vor dem Cookie). Die Produktseite hat eine **neutrale Buehne** statt des warmen Cremes — die Fotos sitzen jetzt randlos. **Weiter offen:** die Karte ist 1 080 statt 1 360 px breit (erst neue Bildgroessen noetig), die Produktfotos brauchen einen **einheitlichen Hintergrund beim Ausgeben**, `/de/warenkorb/` und `/de/kasse/` verlieren ihr Sprachpraefix — **nachgemessen und bewusst nicht gebaut**, weil kein Link dorthin fuehrt, die Sprache ueber das Cookie erhalten bleibt und die Seiten `noindex` tragen. |
 | 11 | ✅ **Preis-Rueckschreiben ist entschaerft — Snippet 108 stellt zurueck** | **Am 08.09.2026 zum dritten Mal passiert** (08:32–08:34, 188 Variationen, beide Sweater auf 60 statt 65; einer davon **publish**). Zurueckgesetzt und vollstaendig nachgemessen: 42 Produkte, 3 218 Variationen, 0 Abweichungen. **Neu belegt:** der Sync schreibt **nur den Basispreis**, und der ist **CHF** — die EUR-Festpreise bleiben unberuehrt. Die ankommenden Werte 35 / 60 sind die gerundeten **EUR**-Preise. **Deshalb waere „EUR-Preise in PodOS eintragen" der falsche Schluss.** Bitte an Shirt-King, in dieser Reihenfolge: **gar keine Preise schreiben**, sonst CHF 40 / 65 / 75 — und die Frage, ob PodOS ueberhaupt CHF fuehren kann. **Seit dem 08.09.2026 faengt Snippet 108 es ab** (geprueft: falscher wie leerer Preis springen sofort auf den Sollwert zurueck). Die Bitte an Shirt-King ist damit **kein Sperrpunkt mehr**, nur noch eine Information. |
@@ -2237,6 +2237,41 @@ folgt dem Umfeld und bleibt praefixlos. **Einheitlich ist es nicht.**
 Deko. ~~Offen bleibt: die Signature-Reihe zeigt dort weiter sieben Kacheln.~~
 **Erledigt am 08.09.2026** — auch dort vier, siehe „Signature-Reihe auf
 /shop-by-country/" oben.
+
+### zahls.ch: Auszahlungen freigeschaltet — 22.09.2026
+
+**Frage war: sind Auszahlungen moeglich? Ja.** Im eingeloggten Konto gemessen
+(`onefam.zahls.ch/cadmin/`, Labinot Bajrami / info@onefam.ch):
+
+| | |
+|---|---|
+| Payrexx Pay, Modus | **Live** |
+| **Status** | **Zahlungen ✅ gruen · Auszahlungen ✅ gruen** |
+| Auszahlungskonto | hinterlegt, Schweiz, Waehrung CHF *(IBAN bewusst nicht notiert)* |
+| Guthaben Payrexx Pay / Pay Plus | CHF 0.00 / CHF 0.00, verfuegbar wie „bald verfuegbar" |
+| Total zur Auszahlung | CHF 0.00 |
+| bisherige Auszahlungen | **keine** |
+| Auszahlungsrhythmus | monatlich, jeweils am 31., Transaktionen **aelter als 8 Tage** |
+| Warnungen im Konto | **keine** — „Kontopruefung abschliessen" ist verschwunden |
+| Verfuegbare Zahlungsarten | Mastercard, Visa, Apple Pay, Google Pay, Samsung Pay, TWINT (alle mit gruenem Haken) |
+| Tarif | heisst jetzt **„EINSTEIGER Plan"** statt „FREE Plan" — nur ein neuer Name, gleiche Stufe ohne Monatsgebuehr |
+
+**Damit ist die Sperre vom 04.09.2026 aufgehoben.** Die Namenskorrektur am
+Auszahlungskonto („OneFam" → „Labinot Bajrami") galt bei zahls als Aenderung der
+Bankverbindung und hatte die Auszahlungen pausiert; der am 04.09. eingereichte
+geschwaerzte UBS-Kontoauszug wurde akzeptiert.
+
+**Berichtigung zum Abschnitt vom 08.09. unten:** dort steht „einen ausdruecklichen
+Status gibt es nicht". **Doch, es gibt ihn** — auf der Anbieterseite
+`index.php?cmd=checkout&act=psps&tpl=edit&id=44` unter *Online-Handel → Status*.
+Am 08.09. wurde an der falschen Stelle gesucht (Auszahlungsseite und Dashboard);
+dort steht er tatsaechlich nicht.
+
+**Was weiter offen bleibt:** das hinterlegte Konto ist ein UBS-**Privat**konto,
+waehrend zahls woertlich ein geschaeftliches verlangt. Die Pruefung ist zwar durch,
+aber der Satz im Formular zielt auf die **Bank**, nicht auf zahls — ungetestet,
+solange nie ein echter Betrag geflossen ist. Ebenso unveraendert: **kein
+EUR-Auszahlungskonto**, EUR-Umsaetze kosten darum 2 % Umrechnung.
 
 ### zahls.ch nachgesehen — 08.09.2026
 
