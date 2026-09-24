@@ -25,10 +25,6 @@
     "intro": "OneFam n'est pas une marque de vêtements comme les autres. OneFam est un espace pour celles et ceux qui se prennent mutuellement au sérieux – y compris les rêves qu'on ne raconte à personne d'autre.",
     "cards": [
       {
-        "title": "Une fam, pas une foule.",
-        "text": "Pas pour tout le monde. Et c'est précisément le principe."
-      },
-      {
         "title": "Des valeurs, pas une façade.",
         "text": "Le vêtement exprime une posture, il n'est pas l'essentiel."
       },
@@ -116,11 +112,11 @@
     "long_label": "La version longue",
     "long": [
       "Les quatre phrases ci-dessus sont le résultat, pas le début. Voici d'où elles viennent.",
-      "Nous nous prenons au sérieux — OneFam est né dans une période silencieuse, quand la proximité passait un temps par les écrans. Cela a commencé doucement : de petites réunions triées sur le volet, pour des gens qui voulaient se retrouver pour de vrai. ⟦LACUNE 1 — une phrase sur l'une de ces premières soirées : qui était là, de quoi on a parlé, ce qui était différent.⟧ Depuis, « sur quoi travailles-tu » n'est pas une formule chez nous.",
-      "Nous te le disons en face — ⟦LACUNE 2 — un moment où quelqu'un t'a dit quelque chose de désagréable sans détour, et ce que cela a changé. Deux ou trois phrases suffisent, rien de dramatique.⟧ Depuis, la règle tient : qui a un problème avec quelqu'un l'a avec lui — pas avec les autres.",
-      "Nous nous rendons utiles — ⟦LACUNE 3 — un exemple où quelqu'un d'ici a ouvert une porte à un autre : une recommandation, un contact, un conseil qui a déclenché quelque chose. Sans noms, si tu préfères.⟧ Nous n'en tenons aucun registre. Celui qui ne fait que prendre s'aperçoit un jour qu'il revient moins.",
-      "Nous protégeons la pièce — ⟦LACUNE 4 — pourquoi cela compte pour toi. Y a-t-il eu un moment où quelque chose est sorti d'ici, et où la pièce n'a plus été la même ?⟧ C'est la plus inconfortable des quatre, et celle dont les trois autres dépendent : on ne parle franchement que si l'on sait où cela reste.",
-      "Il n'y a rien de plus ici. Qui a lu jusque-là sait déjà si c'est pour lui."
+      "Nous nous prenons au sérieux — OneFam n'a pas commencé comme une marque de mode, mais par un sentiment : être dans la bonne pièce, avec les bonnes personnes, là où l'on n'avait pas à s'expliquer. Qui a une réponse avec une virgule connaît assez l'autre version — la question de suivi, le petit silence, l'explication. Ici, cela disparaît. Reste la seule question qui compte : sur quoi travailles-tu. Et nous attendons la réponse.",
+      "Nous te le disons en face — Dans une pièce où personne n'a à s'expliquer, on peut aussi dire ce qui dérange. Cela ne touche pas qui tu es, seulement ce que tu fais en ce moment. C'est précisément ce qui rend la franchise possible ici. Et c'est pourquoi parler de quelqu'un plutôt qu'avec lui est la seule chose qui ne passe pas : cela lui retire la possibilité de répondre.",
+      "Nous nous rendons utiles — Ce n'est pas une déclaration d'intention, cela fonctionne déjà. Le prochain pays, c'est la fam qui le décide — nous fabriquons ce pour quoi assez de gens s'inscrivent. À petite échelle, c'est pareil : tu vois le signe sur quelqu'un, et une conversation commence qui n'aurait pas eu lieu autrement. Nous n'en tenons aucun registre. Celui qui ne fait que prendre s'aperçoit un jour qu'il revient moins.",
+      "Nous protégeons la pièce — C'est la plus inconfortable des quatre, et celle dont les trois autres dépendent. « On n'a pas à s'expliquer » ne tient que tant que rien ne sort. Une pièce d'où les choses sortent devient vite une pièce où plus personne ne dit rien. Pas de drame, pas de public, pas de captures d'écran — non par goût du secret, mais pour qu'on puisse y dire quelque chose de vrai.",
+      "Il n'y a rien de plus ici. Pas un lieu où l'on va — un sentiment que l'on porte."
     ]
   },
   "philosophy": {
