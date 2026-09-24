@@ -10,13 +10,28 @@ import Button from './Button';
 
 // Bewusst dasselbe Kleidungsstück in derselben Farbe und Perspektive — nur das Zeichen
 // auf der Brust unterscheidet sich. Genau das ist die Aussage der Sektion.
-// Beide Mockups sind vom weissen Studio-Hintergrund freigestellt (Alpha), deshalb stehen
-// sie ohne Karte und ohne Rahmen direkt auf dem schwarzen Grund.
+//
+// Am 24.09.2026 von freigestellten Mockups auf getragene Stuecke gewechselt. Vorher
+// schwebten zwei leere Shirts auf dem schwarzen Grund; bei einer Marke ueber
+// Zugehoerigkeit war auf der ganzen Startseite kein einziger Mensch zu sehen.
+// Beide Fotos stammen aus dem Shop, es wurde nichts neu erzeugt:
+//   - Logo-Linie: das Modellfoto des OneFam Logo Shirt (freigestellt geliefert, hier
+//     auf denselben Studiohintergrund gesetzt wie das zweite Bild)
+//   - Laender-Linie: das Modellfoto des Albania Shirt
+// Albanien und nicht mehr Mexiko: /mexico/ ist im Shop pausiert und leitet mit 302 um,
+// die Startseite warb also fuer ein Stueck, das niemand kaufen kann. Albanien ist der
+// erste Drop und steht auch im Text der Laender-Linie an erster Stelle.
+//
+// Die beiden Fotos sind aneinander ausgemessen, nicht nach Augenmass beschnitten: das
+// Albanien-Modell stand 1,45x groesser im Bild. Beide jetzt auf Subjektbreite 66-67 %
+// der Bildbreite und Kopfoberkante bei 4 % der Hoehe. Wer die Bilder tauscht, misst
+// nach — ungleicher Massstab faellt nebeneinander sofort auf.
+//
 // Die Bildbeschreibungen stehen im Namensraum 'alt' der Uebersetzungsdateien,
 // damit sie wie jeder andere Text in allen vier Sprachen vorliegen.
 const LINE_IMAGES = [
-  { src: '/assets/shirt-logo.png', altKey: 'shirt_logo' },
-  { src: '/assets/shirt-mexico.png', altKey: 'shirt_mexico' },
+  { src: '/assets/traeger-logo.webp', altKey: 'traeger_logo' },
+  { src: '/assets/traeger-albanien.webp', altKey: 'traeger_albanien' },
 ] as const;
 
 /** Die Brücke von der Story zum Produkt: überträgt das Gefühl der Herkunfts-Geschichte
@@ -49,13 +64,21 @@ const ProductBridge = () => {
         <div className="mt-16 grid gap-14 md:grid-cols-2 md:gap-10">
           {lines.map((l, i) => (
             <Reveal as="div" key={l.name} delay={0.1 + i * 0.08}>
-              <div className="relative mx-auto aspect-square w-full max-w-[420px]">
+              {/* Rahmen wie im Foto-Abschnitt WhyWeDoThis: aspect-[4/5], weiche Ecke,
+                  duenne Linie, und unten ein dunkler Verlauf, damit das helle Studiobild
+                  im dunklen Abschnitt nicht als leuchtender Kasten steht. Bewusst dasselbe
+                  Muster und kein zweites erfunden — die Seite zeigt Fotos nur so. */}
+              <div className="relative mx-auto aspect-[4/5] w-full max-w-[420px] overflow-hidden rounded-[8px] border border-line">
                 <Image
                   src={LINE_IMAGES[i].src}
                   alt={tAlt(LINE_IMAGES[i].altKey)}
                   fill
                   sizes="(min-width: 768px) 420px, 90vw"
-                  className="object-contain"
+                  className="object-cover"
+                />
+                <div
+                  className="pointer-events-none absolute inset-0"
+                  style={{ background: 'linear-gradient(180deg, rgba(10,10,10,0) 55%, rgba(10,10,10,0.45) 100%)' }}
                 />
               </div>
               <h3 className="mt-6 font-display text-2xl font-semibold text-primary">{l.name}</h3>
