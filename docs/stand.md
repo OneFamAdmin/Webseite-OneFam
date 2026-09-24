@@ -141,6 +141,52 @@ sondern die falsche Adresse. `/warenkorb/` antwortet mit 200.
 
 ---
 
+## ⛔ NICHT DEPLOYEN — offene Lücken im Family Code (24.09.2026)
+
+Der Code of Conduct ist von elf Punkten auf **vier Regeln plus lange Fassung**
+umgebaut, in allen vier Sprachen, Bauteil ebenfalls. **Committed, aber bewusst
+nicht gepusht.**
+
+**Grund:** die lange Fassung enthält **vier markierte Lücken**, die nur Labi
+füllen kann. Sie stehen in `messages/{de,en,fr,es}.json` unter `values.long`,
+eingefasst in die Klammern ⟦ … ⟧ — bewusst unverwechselbar, damit sie
+niemandem durchrutschen.
+
+| Lücke | Was hineingehört |
+|---|---|
+| 1 — unter „Wir nehmen einander ernst" | Ein Satz über eine der ersten handverlesenen Runden: wer sass da, worüber wurde geredet, was war anders |
+| 2 — unter „Wir sagen es dir ins Gesicht" | Ein Moment, in dem jemand Labi etwas Unangenehmes direkt gesagt hat, und was das verändert hat |
+| 3 — unter „Wir machen uns nützlich" | Ein Beispiel, wo jemand aus der Runde einem anderen eine Tür geöffnet hat — Empfehlung, Kontakt, Rat |
+| 4 — unter „Wir schützen den Raum" | Warum Diskretion Labi wichtig ist — gab es einen Moment, nach dem der Raum ein anderer war? |
+
+**Wer die Lücken füllt, füllt sie in allen vier Sprachen** (`LÜCKE` / `GAP` /
+`LACUNE` / `HUECO`) und löscht die Klammern mit.
+
+Der Rest der Arbeit ist fertig und geprüft: `npx tsc --noEmit` sauber,
+`npm run lint` ohne Befund in `Values.tsx`, alle vier Sprachen liefern 4 Punkte
+und 4 Lücken, Akkordeon öffnet (`aria-expanded`), kein Querscroll bei 375 px
+(Rand 16 px) und bei 1440 px, Titel 24 px mobil / 36 px Desktop, Textbreite
+664 px ≈ 54 Zeichen, Gold `rgb(201,168,76)`.
+
+### Eine Entscheidung steht noch aus
+
+Die Selbstauswahl-Formel steht danach **dreimal** auf der Seite: in
+`seo.description`, in `what_is_onefam.cards[0]` („Nicht für alle. Und genau das
+ist der Punkt.") und neu im Code-Intro. **Einmal ist Haltung, dreimal ist Pose.**
+Vorschlag: die Kachel in `what_is_onefam` streichen und durch etwas Konkretes
+ersetzen — die SEO-Zeile bleibt, das ist eine andere Fläche. **Nicht ohne Labis
+Wort gemacht.**
+
+### Sprachregel eingehalten
+
+Die Exklusivität ist durchgehend **Selbstauswahl** formuliert — „du merkst
+selbst, ob du hier richtig bist". Nirgends steht, dass *wir* jemanden auswählen.
+Das ist Absicht: „Auswahl" und „ausgewählt werden" sind für die geparkte
+Reise-Mechanik reserviert, und diese Grenze darf der Code of Conduct nicht
+verwischen. **Wer die Lücken füllt, hält sie mit.**
+
+---
+
 ## Stand am Ende des 22.09.2026
 
 **Vier Nachrichten sind draussen und warten auf Antwort.** Labi liest seine Mails
