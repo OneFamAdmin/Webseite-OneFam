@@ -8,7 +8,7 @@ import { Menu, X } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import MaxWidth from './MaxWidth';
 import Button from './Button';
-import { BRAND_GRADIENT } from '@/lib/brand';
+import { BRAND_GRADIENT_CTA } from '@/lib/brand';
 import LocaleSwitcher from './LocaleSwitcher';
 import { homePath, istOhneSprache, joinPath, shopUrl, type Locale } from '@/i18n/routing';
 
@@ -181,7 +181,7 @@ const Nav = ({ ueberHero = false }: { ueberHero?: boolean }) => {
                   ist "Join the / Fam" seine Mindestbreite — knapp über 800 px
                   nimmt sich das Raster genau diese und der Knopf steht plötzlich
                   zweizeilig in einer einzeiligen Kopfzeile. */}
-              <Button as="a" href={joinPath(locale)} variant="primary" className="whitespace-nowrap px-5 py-2.5 text-[15px]" style={{ background: BRAND_GRADIENT }}>
+              <Button as="a" href={joinPath(locale)} variant="primary" className="whitespace-nowrap px-5 py-2.5 text-[15px]" style={{ background: BRAND_GRADIENT_CTA }}>
                 {t('join')}
               </Button>
             </div>
@@ -239,7 +239,7 @@ const Nav = ({ ueberHero = false }: { ueberHero?: boolean }) => {
               </Link>
             ),
           )}
-          <Button as="a" href={joinPath(locale)} variant="primary" className="mt-2" style={{ background: BRAND_GRADIENT }} onClick={() => setOpen(false)}>
+          <Button as="a" href={joinPath(locale)} variant="primary" className="mt-2" style={{ background: BRAND_GRADIENT_CTA }} onClick={() => setOpen(false)}>
             {t('join')}
           </Button>
           {!ohneSprache && <LocaleSwitcher variant="mobile" onNavigate={() => setOpen(false)} />}

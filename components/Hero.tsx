@@ -5,7 +5,7 @@ import MaxWidth from './MaxWidth';
 import Reveal from './Reveal';
 import Button from './Button';
 import HeroVideo from './HeroVideo';
-import { BRAND_GRADIENT } from '@/lib/brand';
+import { BRAND_GRADIENT_CTA } from '@/lib/brand';
 
 const Hero = () => {
   const t = useTranslations('hero');
@@ -47,7 +47,7 @@ const Hero = () => {
         </Reveal>
 
         <Reveal delay={0.18} className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-          <Button as="a" href={joinPath(locale)} variant="primary" className="w-full sm:w-auto" style={{ background: BRAND_GRADIENT }}>
+          <Button as="a" href={joinPath(locale)} variant="primary" className="w-full sm:w-auto" style={{ background: BRAND_GRADIENT_CTA }}>
             {t('cta_primary')}
           </Button>
           <Button

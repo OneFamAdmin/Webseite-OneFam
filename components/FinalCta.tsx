@@ -3,7 +3,7 @@ import MaxWidth from './MaxWidth';
 import Reveal from './Reveal';
 import Button from './Button';
 import MarbleBg from './MarbleBg';
-import { BRAND_GRADIENT } from '@/lib/brand';
+import { BRAND_GRADIENT_CTA } from '@/lib/brand';
 import { joinPath, type Locale } from '@/i18n/routing';
 
 const FinalCta = () => {
@@ -29,7 +29,7 @@ const FinalCta = () => {
         </Reveal>
 
         <Reveal delay={0.18} className="mt-10 flex justify-center">
-          <Button as="a" href={joinPath(locale)} variant="primary" className="w-full px-10 py-4 sm:w-auto" style={{ background: BRAND_GRADIENT }}>
+          <Button as="a" href={joinPath(locale)} variant="primary" className="w-full px-10 py-4 sm:w-auto" style={{ background: BRAND_GRADIENT_CTA }}>
             {t('cta_primary')}
           </Button>
         </Reveal>
