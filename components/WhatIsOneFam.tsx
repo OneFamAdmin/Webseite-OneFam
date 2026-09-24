@@ -21,7 +21,15 @@ const WhatIsOneFam = () => {
           </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        {/* Am 24.09.2026 von drei auf zwei Spalten: die Kachel „Fam statt Masse"
+            wurde gestrichen, weil ihr Text („Nicht fuer alle. Und genau das ist
+            der Punkt.") die Selbstauswahl-Formel ein drittes Mal brachte — sie
+            steht schon in seo.description und seit dem Umbau des Family Code
+            auch in dessen Intro. Einmal ist Haltung, dreimal ist Pose. Die
+            Spaltenzahl muss mitziehen, sonst bleibt auf dem Desktop eine leere
+            dritte Spalte stehen. Wer eine dritte Kachel zurueckholt, setzt hier
+            wieder md:grid-cols-3. */}
+        <div className="mt-14 grid gap-6 md:grid-cols-2">
           {cards.map((card, i) => (
             <Reveal
               as="div"
