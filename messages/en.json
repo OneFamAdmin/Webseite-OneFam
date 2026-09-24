@@ -94,52 +94,33 @@
   "values": {
     "label": "Code of Conduct",
     "title": "The Family Code",
-    "intro": "Not a rulebook. More like a door. Anyone who recognises themselves in these eleven points already belongs – anyone who finds them odd is in the wrong place. Both are fine.",
+    "intro": "Not a rulebook. A door. Four things — if you nod at all four, you already belong. If one of them bothers you, this isn't your room. Both are fine.",
     "items": [
       {
-        "title": "Love & Respect",
-        "text": "Love and respect are our foundation. We meet each other with kindness, attention and real interest."
+        "title": "We take each other seriously",
+        "text": "Not the small-talk version. We ask what you're working on — and we wait for the answer. Anyone who only wants to be seen is in the wrong room."
       },
       {
-        "title": "Open Communication",
-        "text": "We speak openly and really listen – honestly, respectfully and without a mask."
+        "title": "We say it to your face",
+        "text": "Honestly, even when it's uncomfortable. Talking about someone instead of to them is the one thing that doesn't work here."
       },
       {
-        "title": "Support & Unity",
-        "text": "We are a team. We hold each other up and encourage everyone to chase their own dreams."
+        "title": "We make ourselves useful",
+        "text": "Someone here can open the door you're standing in front of. Ask. And when it's the other way round, open it."
       },
       {
-        "title": "Shared Moments",
-        "text": "Time together is sacred to us. Real experiences and moments connect us – and they stay."
-      },
-      {
-        "title": "Responsibility",
-        "text": "Each of us carries responsibility for the Fam. Together we build a place where people feel safe."
-      },
-      {
-        "title": "Diversity & Acceptance",
-        "text": "We celebrate diversity and accept each other as we are. Everyone is unique – and that is exactly what makes us strong."
-      },
-      {
-        "title": "Growth",
-        "text": "We grow together. We encourage each other to learn, to develop and to become the best version of ourselves."
-      },
-      {
-        "title": "Gratitude",
-        "text": "We value what we have – and are grateful for the small joys of life as much as the big ones."
-      },
-      {
-        "title": "Conflict Resolution",
-        "text": "Conflict is part of it. We resolve it fairly and respectfully – and find solutions everyone can live with."
-      },
-      {
-        "title": "Safety & Good Energy",
-        "text": "We keep our distance from drama and negative influences – and give each other support when it's needed."
-      },
-      {
-        "title": "Community Service",
-        "text": "We give back. We take responsibility – for the Fam and for the world around us."
+        "title": "We protect the room",
+        "text": "No drama, no audience, no screenshots. What is said here stays here — that's why people actually talk."
       }
+    ],
+    "long_label": "The long version",
+    "long": [
+      "The four sentences above are the result, not the beginning. Here is where they come from.",
+      "We take each other seriously — OneFam was born in a quiet time, when closeness happened through screens for a while. It started softly: small, hand-picked gatherings for people who wanted to meet for real again. ⟦GAP 1 — one sentence about one of those early evenings: who was there, what was talked about, what was different.⟧ Ever since, “what are you working on” has not been small talk here.",
+      "We say it to your face — ⟦GAP 2 — a moment when someone told you something uncomfortable straight out, and what it changed. Two or three sentences are enough; it doesn't have to be dramatic.⟧ Since then it holds: if you have a problem with someone, you have it with them — not with everyone else.",
+      "We make ourselves useful — ⟦GAP 3 — an example of someone here opening a door for someone else: an introduction, a contact, a piece of advice that set something in motion. No names, if you prefer.⟧ We keep no ledger on this. Anyone who only takes will notice that less comes back.",
+      "We protect the room — ⟦GAP 4 — why this matters to you. Was there a moment when something was carried outside, and the room was never the same?⟧ It is the most uncomfortable of the four, and the one the other three depend on: people only speak honestly when they know where it stays.",
+      "There is nothing more here. Anyone who has read this far already knows whether this is meant for them."
     ]
   },
   "philosophy": {
@@ -197,16 +178,40 @@
     "legal_title": "Legal",
     "social_title": "Social",
     "pages": [
-      { "label": "Home", "href": "#hero" },
-      { "label": "About", "href": "#about" },
-      { "label": "Code", "href": "#werte" },
-      { "label": "Philosophy", "href": "#philosophie" },
-      { "label": "FAQ", "href": "#faq" }
+      {
+        "label": "Home",
+        "href": "#hero"
+      },
+      {
+        "label": "About",
+        "href": "#about"
+      },
+      {
+        "label": "Code",
+        "href": "#werte"
+      },
+      {
+        "label": "Philosophy",
+        "href": "#philosophie"
+      },
+      {
+        "label": "FAQ",
+        "href": "#faq"
+      }
     ],
     "legal": [
-      { "label": "Terms", "href": "/agb" },
-      { "label": "Privacy", "href": "/datenschutz" },
-      { "label": "Archive / Transparency", "href": "/archiv" }
+      {
+        "label": "Terms",
+        "href": "/agb"
+      },
+      {
+        "label": "Privacy",
+        "href": "/datenschutz"
+      },
+      {
+        "label": "Archive / Transparency",
+        "href": "/archiv"
+      }
     ],
     "imprint": "Imprint",
     "imprint_company": "OneFam — sole proprietorship, Switzerland",
@@ -216,7 +221,11 @@
     "imprint_phone": "+41 76 225 80 58",
     "copyright": "© 2026 OneFam"
   },
-  "alt": { "why": "A late night at home: someone is playing records in the background while two people laugh mid-conversation", "shirt_logo": "Charcoal OneFam shirt with the white OneFam mark on the chest", "shirt_mexico": "Charcoal OneFam shirt with the OneFam mark in Mexican motifs" },
+  "alt": {
+    "why": "A late night at home: someone is playing records in the background while two people laugh mid-conversation",
+    "shirt_logo": "Charcoal OneFam shirt with the white OneFam mark on the chest",
+    "shirt_mexico": "Charcoal OneFam shirt with the OneFam mark in Mexican motifs"
+  },
   "join": {
     "meta_titel": "Join the Fam — OneFam",
     "meta_beschreibung": "Sign up and be there from the start. No purchase necessary, no obligation to buy, unsubscribe any time.",
