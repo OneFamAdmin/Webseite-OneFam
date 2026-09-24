@@ -94,52 +94,33 @@
   "values": {
     "label": "Code of Conduct",
     "title": "The Family Code",
-    "intro": "No es un reglamento. Más bien una puerta. Quien se reconozca en estos once puntos ya forma parte – quien los encuentre raros está en el sitio equivocado. Ambas cosas están bien.",
+    "intro": "No es un reglamento. Es una puerta. Cuatro cosas — si asientes a las cuatro, ya eres de los nuestros. Si alguna te incomoda, este no es tu sitio. Ambas cosas están bien.",
     "items": [
       {
-        "title": "Love & Respect",
-        "text": "El amor y el respeto son nuestra base. Nos tratamos con bondad, atención e interés de verdad."
+        "title": "Nos tomamos en serio",
+        "text": "No en la versión de charla ligera. Preguntamos en qué estás trabajando — y esperamos la respuesta. Quien solo quiere que lo vean se ha equivocado de sala."
       },
       {
-        "title": "Open Communication",
-        "text": "Hablamos con franqueza y escuchamos de verdad – con honestidad, respeto y sin máscara."
+        "title": "Te lo decimos a la cara",
+        "text": "Con honestidad, aunque incomode. Hablar de alguien en lugar de hablar con él: es lo único que aquí no funciona."
       },
       {
-        "title": "Support & Unity",
-        "text": "Somos un equipo. Nos sostenemos y animamos a cada uno a perseguir sus propios sueños."
+        "title": "Nos hacemos útiles",
+        "text": "Alguien de aquí puede abrir la puerta ante la que estás. Pregúntalo. Y cuando sea al revés, ábrela tú."
       },
       {
-        "title": "Shared Moments",
-        "text": "El tiempo compartido es sagrado para nosotros. Las experiencias y los momentos reales nos unen – y se quedan."
-      },
-      {
-        "title": "Responsibility",
-        "text": "Cada uno de nosotros tiene una responsabilidad con la Fam. Juntos creamos un lugar donde uno se siente a salvo."
-      },
-      {
-        "title": "Diversity & Acceptance",
-        "text": "Celebramos la diversidad y nos aceptamos como somos. Cada persona es única – y eso es justo lo que nos hace fuertes."
-      },
-      {
-        "title": "Growth",
-        "text": "Crecemos juntos. Nos animamos a aprender, a evolucionar y a ser la mejor versión de nosotros mismos."
-      },
-      {
-        "title": "Gratitude",
-        "text": "Valoramos lo que tenemos – y agradecemos tanto las pequeñas como las grandes alegrías de la vida."
-      },
-      {
-        "title": "Conflict Resolution",
-        "text": "Los conflictos forman parte. Los resolvemos de forma justa y respetuosa – y buscamos soluciones con las que todos puedan vivir."
-      },
-      {
-        "title": "Safety & Good Energy",
-        "text": "Nos mantenemos lejos del drama y de las influencias negativas – y nos damos apoyo cuando hace falta."
-      },
-      {
-        "title": "Community Service",
-        "text": "Devolvemos lo recibido. Asumimos responsabilidad – con la Fam y con el mundo que nos rodea."
+        "title": "Protegemos la sala",
+        "text": "Sin dramas, sin público, sin capturas de pantalla. Lo que se dice aquí se queda aquí — por eso aquí se habla de verdad."
       }
+    ],
+    "long_label": "La versión larga",
+    "long": [
+      "Las cuatro frases de arriba son el resultado, no el principio. Aquí está de dónde vienen.",
+      "Nos tomamos en serio — OneFam nació en una época silenciosa, cuando la cercanía pasó un tiempo por las pantallas. Empezó en voz baja: encuentros pequeños y escogidos a mano, para gente que quería volver a verse de verdad. ⟦HUECO 1 — una frase sobre una de aquellas primeras noches: quién estaba, de qué se habló, qué fue distinto.⟧ Desde entonces, «en qué estás trabajando» no es una fórmula entre nosotros.",
+      "Te lo decimos a la cara — ⟦HUECO 2 — un momento en que alguien te dijo algo incómodo sin rodeos, y qué cambió eso. Con dos o tres frases basta; no hace falta nada dramático.⟧ Desde entonces vale: quien tiene un problema con alguien, lo tiene con él — no con los demás.",
+      "Nos hacemos útiles — ⟦HUECO 3 — un ejemplo en que alguien de aquí abrió una puerta a otro: una recomendación, un contacto, un consejo que puso algo en marcha. Sin nombres, si lo prefieres.⟧ No llevamos ninguna lista de esto. Quien solo toma acaba notando que vuelve menos.",
+      "Protegemos la sala — ⟦HUECO 4 — por qué te importa. ¿Hubo un momento en que algo salió de aquí y la sala ya no fue la misma?⟧ Es la más incómoda de las cuatro, y aquella de la que dependen las otras tres: solo se habla con franqueza cuando se sabe dónde se queda.",
+      "Aquí no hay más. Quien ha leído hasta aquí ya sabe si va por él."
     ]
   },
   "philosophy": {
@@ -197,15 +178,36 @@
     "legal_title": "Legal",
     "social_title": "Social",
     "pages": [
-      { "label": "Inicio", "href": "#hero" },
-      { "label": "About", "href": "#about" },
-      { "label": "Code", "href": "#werte" },
-      { "label": "Filosofía", "href": "#philosophie" },
-      { "label": "FAQ", "href": "#faq" }
+      {
+        "label": "Inicio",
+        "href": "#hero"
+      },
+      {
+        "label": "About",
+        "href": "#about"
+      },
+      {
+        "label": "Code",
+        "href": "#werte"
+      },
+      {
+        "label": "Filosofía",
+        "href": "#philosophie"
+      },
+      {
+        "label": "FAQ",
+        "href": "#faq"
+      }
     ],
     "legal": [
-      { "label": "Condiciones", "href": "/agb" },
-      { "label": "Privacidad", "href": "/datenschutz" }
+      {
+        "label": "Condiciones",
+        "href": "/agb"
+      },
+      {
+        "label": "Privacidad",
+        "href": "/datenschutz"
+      }
     ],
     "imprint": "Aviso legal",
     "imprint_company": "OneFam — empresa individual, Suiza",
@@ -215,7 +217,11 @@
     "imprint_phone": "+41 76 225 80 58",
     "copyright": "© 2026 OneFam"
   },
-  "alt": { "why": "Reunión nocturna en casa: al fondo alguien pincha música y, delante, dos personas ríen en plena conversación", "shirt_logo": "Camiseta OneFam antracita con el símbolo OneFam en blanco en el pecho", "shirt_mexico": "Camiseta OneFam antracita con el símbolo OneFam en motivos mexicanos" },
+  "alt": {
+    "why": "Reunión nocturna en casa: al fondo alguien pincha música y, delante, dos personas ríen en plena conversación",
+    "shirt_logo": "Camiseta OneFam antracita con el símbolo OneFam en blanco en el pecho",
+    "shirt_mexico": "Camiseta OneFam antracita con el símbolo OneFam en motivos mexicanos"
+  },
   "join": {
     "meta_titel": "Join the Fam — OneFam",
     "meta_beschreibung": "Apúntate y forma parte desde el principio. No hace falta comprar nada, sin obligación de compra, puedes darte de baja cuando quieras.",
