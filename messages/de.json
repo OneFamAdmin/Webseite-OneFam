@@ -94,52 +94,33 @@
   "values": {
     "label": "Code of Conduct",
     "title": "The Family Code",
-    "intro": "Kein Regelwerk. Eher eine Tür. Wer sich in diesen elf Punkten wiedererkennt, gehört längst dazu – wer sie merkwürdig findet, ist bei uns falsch. Beides ist in Ordnung.",
+    "intro": "Kein Regelwerk. Eine Tür. Vier Dinge – wer bei allen vier nickt, gehört längst dazu. Wen eines davon stört, der ist hier falsch. Beides ist in Ordnung.",
     "items": [
       {
-        "title": "Love & Respect",
-        "text": "Liebe und Respekt sind unser Fundament. Wir begegnen einander mit Güte, Achtsamkeit und echtem Interesse."
+        "title": "Wir nehmen einander ernst",
+        "text": "Nicht die Small-Talk-Variante. Wir fragen, woran du arbeitest – und warten die Antwort ab. Wer nur gesehen werden will, ist im falschen Raum."
       },
       {
-        "title": "Open Communication",
-        "text": "Wir reden offen und hören wirklich zu – ehrlich, respektvoll und ohne Maske."
+        "title": "Wir sagen es dir ins Gesicht",
+        "text": "Ehrlich, auch wenn es unangenehm ist. Über jemanden reden statt mit ihm – das ist das Einzige, was hier wirklich nicht geht."
       },
       {
-        "title": "Support & Unity",
-        "text": "Wir sind ein Team. Wir stützen einander und bestärken jeden darin, seine eigenen Träume zu verfolgen."
+        "title": "Wir machen uns nützlich",
+        "text": "Irgendwer hier kann die Tür öffnen, vor der du gerade stehst. Frag. Und wenn es umgekehrt ist, öffne sie."
       },
       {
-        "title": "Shared Moments",
-        "text": "Gemeinsame Zeit ist uns heilig. Echte Erlebnisse und Momente verbinden uns – und bleiben."
-      },
-      {
-        "title": "Responsibility",
-        "text": "Jeder von uns trägt Verantwortung für die Fam. Gemeinsam schaffen wir einen Ort, an dem man sich geborgen fühlt."
-      },
-      {
-        "title": "Diversity & Acceptance",
-        "text": "Wir feiern Vielfalt und nehmen einander an, wie wir sind. Jeder ist einzigartig – und genau das macht uns stark."
-      },
-      {
-        "title": "Growth",
-        "text": "Wir wachsen miteinander. Wir bestärken uns, zu lernen, uns zu entwickeln und die beste Version von uns zu werden."
-      },
-      {
-        "title": "Gratitude",
-        "text": "Wir schätzen, was wir haben – und sind dankbar für die kleinen wie die großen Freuden des Lebens."
-      },
-      {
-        "title": "Conflict Resolution",
-        "text": "Konflikte gehören dazu. Wir lösen sie fair und respektvoll – und finden Lösungen, mit denen alle leben können."
-      },
-      {
-        "title": "Safety & Good Energy",
-        "text": "Wir halten Abstand von Drama und negativen Einflüssen – und geben einander Halt, wenn er gebraucht wird."
-      },
-      {
-        "title": "Community Service",
-        "text": "Wir geben zurück. Wir übernehmen Verantwortung – für die Fam und für die Welt um uns herum."
+        "title": "Wir schützen den Raum",
+        "text": "Kein Drama, kein Publikum, keine Screenshots. Was hier gesagt wird, bleibt hier – deshalb wird hier auch wirklich geredet."
       }
+    ],
+    "long_label": "Die lange Fassung",
+    "long": [
+      "Die vier Sätze oben sind das Ergebnis, nicht der Anfang. Hier steht, woher sie kommen.",
+      "Wir nehmen einander ernst — OneFam ist in einer stillen Zeit entstanden, als Nähe eine Weile über Bildschirme lief. Angefangen hat es leise: kleine, handverlesene Runden für Leute, die sich wieder wirklich begegnen wollten. ⟦LÜCKE 1 — ein Satz über eine dieser ersten Runden: wer sass da, worüber wurde geredet, was war anders als sonst.⟧ Seitdem ist „woran arbeitest du gerade“ bei uns keine Floskel.",
+      "Wir sagen es dir ins Gesicht — ⟦LÜCKE 2 — ein Moment, in dem jemand dir etwas Unangenehmes direkt gesagt hat, und was das verändert hat. Zwei, drei Sätze reichen, es muss nichts Dramatisches sein.⟧ Seitdem gilt: wer ein Problem mit jemandem hat, hat es mit ihm – nicht mit den anderen.",
+      "Wir machen uns nützlich — ⟦LÜCKE 3 — ein Beispiel, bei dem jemand aus der Runde einem anderen eine Tür geöffnet hat: eine Empfehlung, ein Kontakt, ein Rat, der etwas ausgelöst hat. Ohne Namen, wenn dir das lieber ist.⟧ Wir führen darüber keine Liste. Wer nur nimmt, merkt irgendwann, dass weniger zurückkommt.",
+      "Wir schützen den Raum — ⟦LÜCKE 4 — warum dir das wichtig ist. Gab es einen Moment, in dem etwas nach aussen getragen wurde und der Raum danach ein anderer war?⟧ Es ist die unbequemste der vier Regeln und die, ohne die die anderen drei nicht funktionieren: ehrlich redet nur, wer weiss, wo es bleibt.",
+      "Mehr steht hier nicht. Wer bis hierhin gelesen hat, weiss ohnehin, ob er gemeint ist."
     ]
   },
   "philosophy": {
@@ -197,15 +178,36 @@
     "legal_title": "Legal",
     "social_title": "Social",
     "pages": [
-      { "label": "Home", "href": "#hero" },
-      { "label": "About", "href": "#about" },
-      { "label": "Code", "href": "#werte" },
-      { "label": "Philosophie", "href": "#philosophie" },
-      { "label": "FAQ", "href": "#faq" }
+      {
+        "label": "Home",
+        "href": "#hero"
+      },
+      {
+        "label": "About",
+        "href": "#about"
+      },
+      {
+        "label": "Code",
+        "href": "#werte"
+      },
+      {
+        "label": "Philosophie",
+        "href": "#philosophie"
+      },
+      {
+        "label": "FAQ",
+        "href": "#faq"
+      }
     ],
     "legal": [
-      { "label": "AGB", "href": "/agb" },
-      { "label": "Datenschutz", "href": "/datenschutz" }
+      {
+        "label": "AGB",
+        "href": "/agb"
+      },
+      {
+        "label": "Datenschutz",
+        "href": "/datenschutz"
+      }
     ],
     "imprint": "Impressum",
     "imprint_company": "OneFam — Einzelfirma, Schweiz",
@@ -215,7 +217,11 @@
     "imprint_phone": "+41 76 225 80 58",
     "copyright": "© 2026 OneFam"
   },
-  "alt": { "why": "Spätabendliche Runde zu Hause: im Hintergrund legt jemand auf, davor lachen zwei Menschen im Gespräch miteinander", "shirt_logo": "Anthrazitfarbenes OneFam-Shirt mit dem weissen OneFam-Zeichen auf der Brust", "shirt_mexico": "Anthrazitfarbenes OneFam-Shirt mit dem OneFam-Zeichen in mexikanischen Motiven" },
+  "alt": {
+    "why": "Spätabendliche Runde zu Hause: im Hintergrund legt jemand auf, davor lachen zwei Menschen im Gespräch miteinander",
+    "shirt_logo": "Anthrazitfarbenes OneFam-Shirt mit dem weissen OneFam-Zeichen auf der Brust",
+    "shirt_mexico": "Anthrazitfarbenes OneFam-Shirt mit dem OneFam-Zeichen in mexikanischen Motiven"
+  },
   "join": {
     "meta_titel": "Join the Fam — OneFam",
     "meta_beschreibung": "Trag dich ein und sei von Anfang an dabei. Kein Kauf nötig, keine Kaufpflicht, jederzeit abmeldbar.",
