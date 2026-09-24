@@ -94,52 +94,33 @@
   "values": {
     "label": "Code of Conduct",
     "title": "The Family Code",
-    "intro": "Pas un règlement. Plutôt une porte. Qui se reconnaît dans ces onze points en fait déjà partie – qui les trouve étranges n'est pas au bon endroit. Les deux sont très bien.",
+    "intro": "Pas un règlement. Une porte. Quatre choses — si tu acquiesces aux quatre, tu en fais déjà partie. Si l'une d'elles te dérange, ce n'est pas ta place. Les deux se valent.",
     "items": [
       {
-        "title": "Love & Respect",
-        "text": "L'amour et le respect sont notre fondation. Nous nous rencontrons avec bienveillance, attention et un intérêt sincère."
+        "title": "Nous nous prenons au sérieux",
+        "text": "Pas la version bavardage. Nous demandons sur quoi tu travailles — et nous attendons la réponse. Celui qui veut seulement être vu s'est trompé de pièce."
       },
       {
-        "title": "Open Communication",
-        "text": "Nous parlons ouvertement et écoutons vraiment – honnêtement, avec respect et sans masque."
+        "title": "Nous te le disons en face",
+        "text": "Honnêtement, même quand c'est désagréable. Parler de quelqu'un plutôt qu'avec lui : c'est la seule chose qui ne passe pas ici."
       },
       {
-        "title": "Support & Unity",
-        "text": "Nous sommes une équipe. Nous nous soutenons et encourageons chacun à poursuivre ses propres rêves."
+        "title": "Nous nous rendons utiles",
+        "text": "Quelqu'un ici peut ouvrir la porte devant laquelle tu te tiens. Demande. Et quand c'est l'inverse, ouvre-la."
       },
       {
-        "title": "Shared Moments",
-        "text": "Le temps passé ensemble nous est sacré. Les expériences et les moments vrais nous relient – et ils restent."
-      },
-      {
-        "title": "Responsibility",
-        "text": "Chacun de nous porte une responsabilité envers la Fam. Ensemble, nous créons un endroit où l'on se sent en sécurité."
-      },
-      {
-        "title": "Diversity & Acceptance",
-        "text": "Nous célébrons la diversité et nous acceptons tels que nous sommes. Chacun est unique – et c'est exactement ce qui nous rend forts."
-      },
-      {
-        "title": "Growth",
-        "text": "Nous grandissons ensemble. Nous nous encourageons à apprendre, à évoluer et à devenir la meilleure version de nous-mêmes."
-      },
-      {
-        "title": "Gratitude",
-        "text": "Nous apprécions ce que nous avons – et sommes reconnaissants pour les petites comme les grandes joies de la vie."
-      },
-      {
-        "title": "Conflict Resolution",
-        "text": "Les conflits font partie du jeu. Nous les réglons équitablement et avec respect – et trouvons des solutions vivables pour tous."
-      },
-      {
-        "title": "Safety & Good Energy",
-        "text": "Nous gardons nos distances avec le drame et les influences négatives – et nous nous soutenons quand c'est nécessaire."
-      },
-      {
-        "title": "Community Service",
-        "text": "Nous rendons ce que nous recevons. Nous prenons nos responsabilités – envers la Fam et envers le monde autour de nous."
+        "title": "Nous protégeons la pièce",
+        "text": "Pas de drame, pas de public, pas de captures d'écran. Ce qui se dit ici reste ici — c'est pour cela qu'on y parle vraiment."
       }
+    ],
+    "long_label": "La version longue",
+    "long": [
+      "Les quatre phrases ci-dessus sont le résultat, pas le début. Voici d'où elles viennent.",
+      "Nous nous prenons au sérieux — OneFam est né dans une période silencieuse, quand la proximité passait un temps par les écrans. Cela a commencé doucement : de petites réunions triées sur le volet, pour des gens qui voulaient se retrouver pour de vrai. ⟦LACUNE 1 — une phrase sur l'une de ces premières soirées : qui était là, de quoi on a parlé, ce qui était différent.⟧ Depuis, « sur quoi travailles-tu » n'est pas une formule chez nous.",
+      "Nous te le disons en face — ⟦LACUNE 2 — un moment où quelqu'un t'a dit quelque chose de désagréable sans détour, et ce que cela a changé. Deux ou trois phrases suffisent, rien de dramatique.⟧ Depuis, la règle tient : qui a un problème avec quelqu'un l'a avec lui — pas avec les autres.",
+      "Nous nous rendons utiles — ⟦LACUNE 3 — un exemple où quelqu'un d'ici a ouvert une porte à un autre : une recommandation, un contact, un conseil qui a déclenché quelque chose. Sans noms, si tu préfères.⟧ Nous n'en tenons aucun registre. Celui qui ne fait que prendre s'aperçoit un jour qu'il revient moins.",
+      "Nous protégeons la pièce — ⟦LACUNE 4 — pourquoi cela compte pour toi. Y a-t-il eu un moment où quelque chose est sorti d'ici, et où la pièce n'a plus été la même ?⟧ C'est la plus inconfortable des quatre, et celle dont les trois autres dépendent : on ne parle franchement que si l'on sait où cela reste.",
+      "Il n'y a rien de plus ici. Qui a lu jusque-là sait déjà si c'est pour lui."
     ]
   },
   "philosophy": {
@@ -197,15 +178,36 @@
     "legal_title": "Legal",
     "social_title": "Social",
     "pages": [
-      { "label": "Accueil", "href": "#hero" },
-      { "label": "About", "href": "#about" },
-      { "label": "Code", "href": "#werte" },
-      { "label": "Philosophie", "href": "#philosophie" },
-      { "label": "FAQ", "href": "#faq" }
+      {
+        "label": "Accueil",
+        "href": "#hero"
+      },
+      {
+        "label": "About",
+        "href": "#about"
+      },
+      {
+        "label": "Code",
+        "href": "#werte"
+      },
+      {
+        "label": "Philosophie",
+        "href": "#philosophie"
+      },
+      {
+        "label": "FAQ",
+        "href": "#faq"
+      }
     ],
     "legal": [
-      { "label": "CGV", "href": "/agb" },
-      { "label": "Confidentialité", "href": "/datenschutz" }
+      {
+        "label": "CGV",
+        "href": "/agb"
+      },
+      {
+        "label": "Confidentialité",
+        "href": "/datenschutz"
+      }
     ],
     "imprint": "Mentions légales",
     "imprint_company": "OneFam — entreprise individuelle, Suisse",
@@ -215,7 +217,11 @@
     "imprint_phone": "+41 76 225 80 58",
     "copyright": "© 2026 OneFam"
   },
-  "alt": { "why": "Fin de soirée à la maison : quelqu'un passe des disques en arrière-plan, devant, deux personnes rient en pleine conversation", "shirt_logo": "T-shirt OneFam anthracite avec le signe OneFam blanc sur la poitrine", "shirt_mexico": "T-shirt OneFam anthracite avec le signe OneFam en motifs mexicains" },
+  "alt": {
+    "why": "Fin de soirée à la maison : quelqu'un passe des disques en arrière-plan, devant, deux personnes rient en pleine conversation",
+    "shirt_logo": "T-shirt OneFam anthracite avec le signe OneFam blanc sur la poitrine",
+    "shirt_mexico": "T-shirt OneFam anthracite avec le signe OneFam en motifs mexicains"
+  },
   "join": {
     "meta_titel": "Join the Fam — OneFam",
     "meta_beschreibung": "Inscris-toi et fais partie de l'aventure dès le début. Aucun achat nécessaire, aucune obligation d'achat, désinscription à tout moment.",
