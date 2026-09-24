@@ -25,10 +25,6 @@
     "intro": "OneFam no es una marca de ropa al uso. OneFam es un espacio para personas que se toman en serio – también los sueños que no le cuentas a nadie más.",
     "cards": [
       {
-        "title": "Fam, no multitud.",
-        "text": "No es para todo el mundo. Y ese es justamente el punto."
-      },
-      {
         "title": "Valores, no fachada.",
         "text": "La ropa expresa una actitud, no es lo esencial."
       },
@@ -116,11 +112,11 @@
     "long_label": "La versión larga",
     "long": [
       "Las cuatro frases de arriba son el resultado, no el principio. Aquí está de dónde vienen.",
-      "Nos tomamos en serio — OneFam nació en una época silenciosa, cuando la cercanía pasó un tiempo por las pantallas. Empezó en voz baja: encuentros pequeños y escogidos a mano, para gente que quería volver a verse de verdad. ⟦HUECO 1 — una frase sobre una de aquellas primeras noches: quién estaba, de qué se habló, qué fue distinto.⟧ Desde entonces, «en qué estás trabajando» no es una fórmula entre nosotros.",
-      "Te lo decimos a la cara — ⟦HUECO 2 — un momento en que alguien te dijo algo incómodo sin rodeos, y qué cambió eso. Con dos o tres frases basta; no hace falta nada dramático.⟧ Desde entonces vale: quien tiene un problema con alguien, lo tiene con él — no con los demás.",
-      "Nos hacemos útiles — ⟦HUECO 3 — un ejemplo en que alguien de aquí abrió una puerta a otro: una recomendación, un contacto, un consejo que puso algo en marcha. Sin nombres, si lo prefieres.⟧ No llevamos ninguna lista de esto. Quien solo toma acaba notando que vuelve menos.",
-      "Protegemos la sala — ⟦HUECO 4 — por qué te importa. ¿Hubo un momento en que algo salió de aquí y la sala ya no fue la misma?⟧ Es la más incómoda de las cuatro, y aquella de la que dependen las otras tres: solo se habla con franqueza cuando se sabe dónde se queda.",
-      "Aquí no hay más. Quien ha leído hasta aquí ya sabe si va por él."
+      "Nos tomamos en serio — OneFam no empezó como una marca de moda, sino con una sensación: estar en la sala correcta, con la gente correcta, donde no había que explicarse. Quien tiene una respuesta con coma conoce de sobra la otra versión — la repregunta, la pausa breve, la explicación. Aquí eso desaparece. Queda la única pregunta que cuenta: en qué estás trabajando. Y esperamos la respuesta.",
+      "Te lo decimos a la cara — En una sala donde nadie tiene que explicarse, también se puede decir lo incómodo. No alcanza a quién eres, solo a lo que estás haciendo ahora. Eso es justo lo que hace posible la honestidad aquí. Y por eso hablar de alguien en lugar de hablar con él es lo único que no encaja: le quita la posibilidad de responder.",
+      "Nos hacemos útiles — No es una declaración de intenciones, ya está en marcha. Qué país se hace a continuación lo decide la fam — fabricamos aquello para lo que se apunta suficiente gente. En pequeño es lo mismo: ves la señal en alguien y empieza una conversación que si no no habría ocurrido. No llevamos ninguna lista de esto. Quien solo toma acaba notando que vuelve menos.",
+      "Protegemos la sala — Es la más incómoda de las cuatro, y aquella de la que dependen las otras tres. «No hay que explicarse» solo se sostiene mientras nada salga de aquí. Una sala de la que se sacan cosas se convierte enseguida en una sala donde ya nadie dice nada. Sin dramas, sin público, sin capturas de pantalla — no por secretismo, sino para que aquí pueda decirse algo de verdad.",
+      "Aquí no hay más. No es un lugar al que se va — es una sensación que se lleva."
     ]
   },
   "philosophy": {
