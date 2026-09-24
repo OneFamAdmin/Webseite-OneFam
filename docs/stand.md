@@ -141,6 +141,71 @@ sondern die falsche Adresse. `/warenkorb/` antwortet mit 200.
 
 ---
 
+## ✅ Menschen statt Mockups — fertig, nicht gepusht (24.09.2026)
+
+Der Abschnitt „Die Stücke" zeigt jetzt **getragene Teile statt schwebender
+Mockups**. Vorher war auf der ganzen Startseite kein einziger Mensch zu sehen —
+bei einer Marke über Zugehörigkeit.
+
+**Es wurde nichts neu erzeugt.** Beide Fotos stammen aus dem Shop. Wer hier
+weiterarbeitet, soll das wissen: **der Bestand ist gross.** Je Land, Teil und
+Farbe liegen Modellfotos mit Frau und Mann in den Ansichten frontal, Hüfte und
+Taschen bereit — allein das Albanien-Shirt hat 191 Bilddateien. Higgsfield
+anzuwerfen ist für die vier Live-Länder **nicht nötig**.
+
+### Albanien statt Mexiko — ein echter Fehler weniger
+
+Die Startseite warb mit einem **Mexiko**-Shirt. `/mexico/` ist im Shop
+**pausiert und leitet mit 302 um** (gemessen am 24.09.2026). Die Seite bewarb
+also ein Stück, das niemand kaufen kann. Jetzt Albanien — erster Drop, und im
+Text der Länder-Linie steht es ohnehin an erster Stelle.
+
+### Die zwei Fallen dabei
+
+1. **Die Länderfotos haben keinen Alphakanal, die Logo-Fotos schon.** Geprüft an
+   Original *und* Zuschnitten: `OneFam_*`-Modellfotos sind auf hellem Studiograu
+   flachgerechnet, die `hf_*`-Fotos der Logo-Linie tragen `ALPH`. Wer ein
+   Länderfoto freigestellt auf Schwarz stellen will, muss es erst freistellen.
+   **Gelöst ohne Freistellen:** das Logo-Foto wurde auf denselben
+   Studiohintergrund gesetzt (radialer Verlauf nach den am Albanien-Foto
+   abgetasteten Eckwerten, rgb 240/239/241 → 210/203/208).
+2. **Das Albanien-Modell stand 1,45× grösser im Bild als das Logo-Modell.**
+   Nebeneinander fällt das sofort auf. Beide Silhouetten wurden ausgemessen und
+   auf **Subjektbreite 66,4 gegen 67,3 %** und **Kopfoberkante 4,1 gegen 3,9 %**
+   gebracht. **Wer die Bilder tauscht, misst nach** — nicht nach Augenmass
+   beschneiden.
+
+### Darstellung — kein zweites Muster erfunden
+
+Rahmen wie im Foto-Abschnitt `WhyWeDoThis`: `aspect-[4/5]`, weiche Ecke, dünne
+Linie, dunkler Verlauf unten, damit das helle Studiobild im dunklen Abschnitt
+nicht als leuchtender Kasten steht. Die Seite zeigt Fotos **nur so**.
+
+### Nebenbei aufgefallen, nicht geändert
+
+Das Modellfoto von **Logo Black** (schwarzes Zeichen auf weissem Shirt) zeigt
+eine **Standbein-Pose mit leicht gedrehtem Oberkörper** — beides verbietet die
+eigene Bildregel. Deshalb wurde für die Logo-Linie das Foto mit dem
+Verlaufs-Zeichen auf Schwarz genommen: es steht gerade **und** passt farblich
+zum Albanien-Shirt. Das Logo-Black-Foto steht weiterhin im Shop.
+
+### Geprüft
+
+`npx tsc --noEmit` sauber · `npm run lint` ohne Befund · keine Verweise mehr auf
+`shirt-logo` / `shirt-mexico` · Auslieferung über `/_next/image` **200, 1080×1350,
+69 und 48 KB** · **1440 px:** zwei Rahmen je 420×525, gleich gross, kein
+Querscroll, beide Verläufe vorhanden · **375 px:** 343×429, 16 px Rand, kein
+Querscroll · Bildbeschreibungen in allen vier Sprachen gesetzt.
+
+**Gewicht: 1531 KB PNG → 157 KB WebP.**
+
+⚠️ **Ein Commit statt vier.** Die Schlüssel heissen nicht mehr `shirt_logo` /
+`shirt_mexico`, sondern `traeger_logo` / `traeger_albanien`. Je Sprache einzeln
+committet wäre jeder Zwischenstand ein fehlender Schlüssel und damit ein Fehler
+zur Laufzeit. Alle vier Sprachen sind in dem einen Commit fertig.
+
+---
+
 ## ✅ Family Code umgebaut — fertig, nicht gepusht (24.09.2026)
 
 Von elf Punkten auf **vier Regeln plus lange Fassung**, in allen vier Sprachen,
