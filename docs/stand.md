@@ -2351,6 +2351,22 @@ rund 3 000 EUR Jahresumsatz gegen die 2 % rechnet.
 der Pruefung nicht mehr aendern. Der BIC steht deshalb im Antworttext an das
 Compliance-Team. Fuer SEPA genuegt die IBAN, es duerfte also folgenlos bleiben.
 
+### Zahlungsgebühren abgelesen — 24.09.2026
+
+Die verbindliche Gebührentabelle steht im Konto unter *Payrexx Pay →
+Transaktionsgebühren*, nicht auf der Preisseite. **`cost_config.fee_pct = 2.90`
+plus `fee_fixed_chf = 0.30` ist bestätigt** — die Referenzrechnung (Hoodie mit
+Versand, Gebühr 2.68) trifft die echten Konditionen auf den Rappen.
+
+Zwei Sätze weichen ab und fehlen im Modell: **Karten von ausserhalb des EWR
+kosten 4,10 %** statt 2,90 % (beim Hoodie 3.66 statt 2.68 — für einen
+Diaspora-Shop keine Randnotiz), und **Pay by Bank kostet nur 0,50 %** (0.41 statt
+2.68). Die volle Tabelle mit allen Zahlungsmitteln und die Begründung, warum das
+bewusst nicht im Code steht: `shop-und-pool-details.md`.
+
+Keine Monatsgebühr (EINSTEIGER Plan), und die 2 % Umrechnung entfallen seit dem
+EUR-Auszahlungskonto.
+
 ### zahls.ch: EUR-Konto freigeschaltet — 24.09.2026
 
 **Am 24.09.2026 im Konto nachgemessen — die Pruefung ist abgeschlossen:**

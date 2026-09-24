@@ -70,6 +70,47 @@ Shirt-King, 07.08.2026). Ändert sich dort etwas, gehört es in eine neue Migrat
   wirft `creditPoolForOrder` bei einer EUR-Bestellung, statt Euro als Franken zu
   verbuchen (~8 % zu viel).
 
+### Die Zahlungsgebühren — am 24.09.2026 im zahls-Konto abgelesen
+
+`cost_config.fee_pct = 2.90` und `fee_fixed_chf = 0.30` (Migration `0010`) sind
+**richtig für den Regelfall**. Die verbindliche Tabelle steht im Konto unter
+*Zahlungsanbieter → Payrexx Pay → Transaktionsgebühren* — nicht auf der
+Preisseite von zahls.ch:
+
+| Zahlungsmittel | Kategorie | Gebühr |
+|---|---|---|
+| Visa · Mastercard | **DOMESTIC** (Schweizer Karte) | 2,90 % + CHF 0.30 |
+| Visa · Mastercard | **INTRA** (EWR-Karte) | 2,90 % + CHF 0.30 |
+| Visa · Mastercard | **INTER** (ausserhalb EWR) | **4,10 % + CHF 0.30** |
+| TWINT | | 2,90 % + CHF 0.30 |
+| TWINT BNPL (später zahlen) | | 3,90 % + CHF 0.30 |
+| PostFinance Pay | | 2,90 % + CHF 0.30 |
+| Kauf auf Rechnung | | 2,90 % (mind. CHF 1.50) |
+| Reka | PAY · LUNCH · RAIL | 4,80 % · 2,90 % · 4,30 % + 0.30 |
+| **Pay by Bank** | | **0,50 % (mind. CHF 0.50)** |
+| Apple · Google · Samsung Pay | | wie Kreditkarte |
+
+Dazu: **keine Monatsgebühr** (EINSTEIGER Plan, vormals FREE) und **keine
+Umrechnungsgebühr mehr**, seit am 22.09.2026 ein EUR-Auszahlungskonto hinterlegt
+ist. Ohne ein solches wären es 2 % auf jeden EUR-Umsatz gewesen.
+
+**Zwei Abweichungen kennt die Kalkulation nicht:**
+
+1. **INTER liegt 1,2 Prozentpunkte höher.** Eine Karte von ausserhalb des EWR —
+   für einen Diaspora-Shop keine Randnotiz, etwa Albanien, Serbien, Türkei oder
+   USA — kostet 4,10 % statt 2,90 %. Beim Hoodie mit Versand (CHF 82) sind das
+   **3.66 statt 2.68**, also rund einen Franken mehr, den `computeContribution`
+   heute nicht abzieht. Der Pool bekommt in diesem Fall etwas zu viel
+   gutgeschrieben.
+2. **Pay by Bank ist mit 0,50 % um ein Sechstel billiger.** Beim selben Hoodie
+   **0.41 statt 2.68**. Hier rechnet das Modell zu vorsichtig.
+
+**Bewusst nicht im Code abgebildet:** Der WooCommerce-Webhook liefert die
+Kartenherkunft nicht mit; eine Unterscheidung bräuchte ein eigenes Feld und einen
+zweiten Satz in `cost_config`. Solange der Anteil an Drittland-Karten unbekannt
+ist, bleibt der eine Satz von 2,90 % die ehrlichere Näherung — **aber wer die
+Marge prüft, muss diese Spanne kennen.**
+
 ### Die Versandstaffel läuft nicht über Gewichtsklassen
 
 Shirt-King führt je Land genau zwei Tarife, wörtlich `"<Land> 1 T-Shirt"` und
@@ -108,6 +149,11 @@ zu hohe Kosten annimmt und dem Pool eher zu wenig gutschreibt. Siehe
 Live nachgerechnet am 01.09.2026, deckungsgleich mit `accounting.test.ts`:
 Hoodie CHF 75 + 7 Versand nach DE → Kosten 35.23, Gebühr 2.68, Marge 44.09,
 **Pool 4.41** (10 % der Marge).
+
+**Die Gebühr von 2.68 ist am 24.09.2026 gegen das zahls-Konto bestätigt worden:**
+2,90 % von 82.00 sind 2.378, plus 0.30 fix ergibt 2.68. Die Kalkulation rechnet
+also mit den tatsächlich vereinbarten Konditionen — für Karten aus der Schweiz und
+dem EWR.
 
 Vor Migration `0010` wären es 15.86 gewesen — das war aber der Anteil vom **Umsatz**,
 nicht vom Gewinn; die beiden Zahlen sind nicht vergleichbar.
