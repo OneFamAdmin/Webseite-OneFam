@@ -64,21 +64,28 @@ const ProductBridge = () => {
         <div className="mt-16 grid gap-14 md:grid-cols-2 md:gap-10">
           {lines.map((l, i) => (
             <Reveal as="div" key={l.name} delay={0.1 + i * 0.08}>
-              {/* Rahmen wie im Foto-Abschnitt WhyWeDoThis: aspect-[4/5], weiche Ecke,
-                  duenne Linie, und unten ein dunkler Verlauf, damit das helle Studiobild
-                  im dunklen Abschnitt nicht als leuchtender Kasten steht. Bewusst dasselbe
-                  Muster und kein zweites erfunden — die Seite zeigt Fotos nur so. */}
-              <div className="relative mx-auto aspect-[4/5] w-full max-w-[420px] overflow-hidden rounded-[8px] border border-line">
+              {/* Freigestellt, ohne Rahmen, direkt auf dem schwarzen Grund — so wie es
+                  vor den Modellfotos schon war. Der Rahmen aus WhyWeDoThis war hier
+                  falsch: dort steht eine dunkle Nachtaufnahme, hier standen zwei helle
+                  Studioflaechen und rissen zwei leuchtende Kaesten in die Seite. */}
+              <div className="relative mx-auto aspect-[4/5] w-full max-w-[420px]">
+                {/* unoptimized ist hier Absicht und kein Versehen — am 24.09.2026 gemessen:
+                    `/_next/image` liefert diese Dateien als image/jpeg aus. Das hatte zwei
+                    Folgen, beide sichtbar. Erstens verliert JPEG den Alphakanal: unter dem
+                    Freisteller kam der alte Studiogrund wieder zum Vorschein, ein heller
+                    Kasten. Deshalb sind die Dateien jetzt fest auf #0A0A0A gerechnet statt
+                    durchsichtig. Zweitens drueckt die JPEG-Umwandlung das Fast-Schwarz von
+                    rgb(10,10,10) auf rgb(0,0,0) — ein leicht dunklerer Kasten im Abschnitt.
+                    Ohne Optimierung kommt die Datei zeichengenau an. Sie ist mit 1200 px
+                    bereits die richtige Groesse fuer den 420-px-Platz auf 2x-Bildschirmen
+                    und wiegt nur rund 60 KB. */}
                 <Image
                   src={LINE_IMAGES[i].src}
                   alt={tAlt(LINE_IMAGES[i].altKey)}
                   fill
+                  unoptimized
                   sizes="(min-width: 768px) 420px, 90vw"
-                  className="object-cover"
-                />
-                <div
-                  className="pointer-events-none absolute inset-0"
-                  style={{ background: 'linear-gradient(180deg, rgba(10,10,10,0) 55%, rgba(10,10,10,0.45) 100%)' }}
+                  className="object-contain"
                 />
               </div>
               <h3 className="mt-6 font-display text-2xl font-semibold text-primary">{l.name}</h3>
