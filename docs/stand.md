@@ -141,49 +141,82 @@ sondern die falsche Adresse. `/warenkorb/` antwortet mit 200.
 
 ---
 
-## ⛔ NICHT DEPLOYEN — offene Lücken im Family Code (24.09.2026)
+## ✅ Family Code umgebaut — fertig, nicht gepusht (24.09.2026)
 
-Der Code of Conduct ist von elf Punkten auf **vier Regeln plus lange Fassung**
-umgebaut, in allen vier Sprachen, Bauteil ebenfalls. **Committed, aber bewusst
-nicht gepusht.**
+Von elf Punkten auf **vier Regeln plus lange Fassung**, in allen vier Sprachen,
+Bauteil mit umgebaut. **Keine offenen Lücken mehr.** Committed, wartet auf Labis
+Wort zum Push.
 
-**Grund:** die lange Fassung enthält **vier markierte Lücken**, die nur Labi
-füllen kann. Sie stehen in `messages/{de,en,fr,es}.json` unter `values.long`,
-eingefasst in die Klammern ⟦ … ⟧ — bewusst unverwechselbar, damit sie
-niemandem durchrutschen.
+### Warum überhaupt
 
-| Lücke | Was hineingehört |
+Die elf Punkte waren **Tugenden, keine Regeln** — „Love & Respect", „Gratitude",
+„Growth". Eine Tugend kostet nichts und schliesst niemanden aus; genau das soll
+dieser Abschnitt aber tun. Sie waren ausserdem die einzige Stelle der Seite, die
+in Allgemeinplätzen sprach, während der Rest scharf formuliert ist. **Die Länge
+war nicht das Problem, der Inhalt war es.**
+
+Die vier decken die elf vollständig ab: Love&Respect + Diversity → 01, Open
+Communication + Conflict Resolution → 02, Support/Growth/Responsibility → 03,
+Shared Moments/Gratitude/Safety/Community Service → 04.
+
+```
+01  Wir nehmen einander ernst
+02  Wir sagen es dir ins Gesicht
+03  Wir machen uns nützlich
+04  Wir schützen den Raum
+```
+
+### Woher die lange Fassung kommt — wichtig für jeden, der sie anfasst
+
+**Sie ist nicht erfunden.** Labi hat am 24.09.2026 auf die Seite
+`shop.onefam.ch/about-us/` verwiesen, wo die Geschichte schon steht. Die lange
+Fassung ist daraus **abgeleitet**, nicht dazuerfunden:
+
+| Quelle auf /about-us/ | wohin es geflossen ist |
 |---|---|
-| 1 — unter „Wir nehmen einander ernst" | Ein Satz über eine der ersten handverlesenen Runden: wer sass da, worüber wurde geredet, was war anders |
-| 2 — unter „Wir sagen es dir ins Gesicht" | Ein Moment, in dem jemand Labi etwas Unangenehmes direkt gesagt hat, und was das verändert hat |
-| 3 — unter „Wir machen uns nützlich" | Ein Beispiel, wo jemand aus der Runde einem anderen eine Tür geöffnet hat — Empfehlung, Kontakt, Rat |
-| 4 — unter „Wir schützen den Raum" | Warum Diskretion Labi wichtig ist — gab es einen Moment, nach dem der Raum ein anderer war? |
+| „Es begann mit einem einfachen Gefühl — im richtigen Raum zu sein, … wo du dich nicht erklären musstest" | trägt **alle vier** Absätze; 01 direkt, 02 und 04 als Folgerung daraus |
+| „Wir reden nicht übers Wetter. Wir fragen, woran du arbeitest" | 01 — stand dort schon wörtlich |
+| „Welches Land als Nächstes kommt, entscheidest du mit" | 03 — belegt, dass Nützlichkeit schon läuft |
+| „Du siehst es sofort, wenn es jemand anderes trägt" | 03 — das Zeichen eröffnet das Gespräch |
+| „Kein Ort, zu dem man geht. Ein Gefühl, das man trägt." | Schlusssatz der langen Fassung |
 
-**Wer die Lücken füllt, füllt sie in allen vier Sprachen** (`LÜCKE` / `GAP` /
-`LACUNE` / `HUECO`) und löscht die Klammern mit.
+**Zwei Stellen sind Herleitung, nicht Erlebnis:** Absatz 02 und 04. Sie stimmen
+und tragen, aber je ein persönlicher Satz würde sie stärker machen — ein Moment,
+in dem jemand Labi etwas Unangenehmes direkt gesagt hat (02), und einer, nach dem
+der Raum ein anderer war, weil etwas nach draussen ging (04). **Kein Hindernis,
+nur die beste Stelle für später.**
 
-Der Rest der Arbeit ist fertig und geprüft: `npx tsc --noEmit` sauber,
-`npm run lint` ohne Befund in `Values.tsx`, alle vier Sprachen liefern 4 Punkte
-und 4 Lücken, Akkordeon öffnet (`aria-expanded`), kein Querscroll bei 375 px
-(Rand 16 px) und bei 1440 px, Titel 24 px mobil / 36 px Desktop, Textbreite
-664 px ≈ 54 Zeichen, Gold `rgb(201,168,76)`.
+### Die dritte Wiederholung ist weg
 
-### Eine Entscheidung steht noch aus
+Die Kachel „Fam statt Masse" in `what_is_onefam` ist **gestrichen** — ihr Text
+(„Nicht für alle. Und genau das ist der Punkt.") brachte die Selbstauswahl-Formel
+ein drittes Mal. Gemessen auf der gerenderten Seite: **sichtbar jetzt 0×.** Die
+zehn Treffer im Rohtext sind Meta-Beschreibung, og- und twitter-Tag und die
+RSC-Nutzlast — unsichtbar, und die Meta-Zeile bleibt bewusst.
+`WhatIsOneFam.tsx` ging dabei von `md:grid-cols-3` auf `md:grid-cols-2`, sonst
+stünde auf dem Desktop eine leere dritte Spalte.
 
-Die Selbstauswahl-Formel steht danach **dreimal** auf der Seite: in
-`seo.description`, in `what_is_onefam.cards[0]` („Nicht für alle. Und genau das
-ist der Punkt.") und neu im Code-Intro. **Einmal ist Haltung, dreimal ist Pose.**
-Vorschlag: die Kachel in `what_is_onefam` streichen und durch etwas Konkretes
-ersetzen — die SEO-Zeile bleibt, das ist eine andere Fläche. **Nicht ohne Labis
-Wort gemacht.**
+### Geprüft
 
-### Sprachregel eingehalten
+`npx tsc --noEmit` sauber · `npm run lint` ohne Befund in den beiden geänderten
+Bauteilen · alle vier Sprachen liefern **4 Regeln, 2 Kacheln, 0 Lücken** ·
+Akkordeon öffnet (`aria-expanded` wechselt, 6 Absätze) · **375 px:** kein
+Querscroll, 16 px Rand, Titel 24 px, Kachel 343 px, Knopf 72 px hoch ·
+**1440 px:** kein Querscroll, Titel 36 px, Textbreite 664 px ≈ 54 Zeichen, zwei
+Kacheln je 661 px gleich hoch · Gold `rgb(201,168,76)`, also der Token.
 
-Die Exklusivität ist durchgehend **Selbstauswahl** formuliert — „du merkst
-selbst, ob du hier richtig bist". Nirgends steht, dass *wir* jemanden auswählen.
-Das ist Absicht: „Auswahl" und „ausgewählt werden" sind für die geparkte
+### Sprachregel eingehalten — beim Ändern mithalten
+
+Die Exklusivität ist durchgehend **Selbstauswahl** formuliert: „du merkst selbst,
+ob du hier richtig bist". Nirgends steht, dass *wir* jemanden auswählen. Das ist
+Absicht — „Auswahl" und „ausgewählt werden" sind für die geparkte
 Reise-Mechanik reserviert, und diese Grenze darf der Code of Conduct nicht
-verwischen. **Wer die Lücken füllt, hält sie mit.**
+verwischen.
+
+**Kein Layout mit Icons zurückholen.** Elf Karten mit lucide-Icons im Zweispalter
+war das Layout jeder SaaS-Funktionsliste — das hat mehr Prestige gekostet als
+die Textlänge. Und **nicht die vier Regeln einklappen**: ein Manifest, das man
+aufklappen muss, ist keines. Nur die lange Fassung klappt.
 
 ---
 
