@@ -1,4 +1,4 @@
-# Stand — 08.09.2026
+# Stand — 24.09.2026
 
 Übergabe an die nächste Sitzung. Vor grösseren Aufgaben hier hineinsehen, vor
 `/clear` oder `/compact` hier fortschreiben.
@@ -7,7 +7,92 @@
 
 ---
 
-## 🟢 Stand am Ende des 22.09.2026 — hier anfangen
+## 🟢 Stand am 24.09.2026 — hier anfangen
+
+**Eine fremde Kritik an Landingpage und Shop wurde geprueft. Ergebnis: an den
+Preisen ist nichts kaputt, und der staerkste Vorwurf beruhte auf einem Lesefehler.**
+Offen bleibt genau ein echter Defekt: zwei tote Fusszeilen-Links.
+
+### Was gemessen wurde — 24.09.2026, ausgeloggt, von aussen
+
+**Laenderadressen.** `/mexico/`, `/brazil/`, `/peru/` antworten mit **302** auf
+`/shop-by-country/`; `/albania/` mit **200**. Das ist **Absicht** — der Grund steht
+als Kommentar im Quelltext der Shop-Startseite: „/brazil/ ist pausiert und leitet
+mit 302 um." Die Slug-Falle aus `shop-preisanzeige.md` greift hier nicht, weil
+hinter den pausierten Laendern kein erreichbares Produkt haengt.
+
+**Laenderbestand.** Die Liste `GRID` auf `/shop-by-country/` hat **253 Eintraege,
+davon 4 mit `"a":1`**: Afghanistan, Albania, Andorra, Argentina. Das `feat`-Objekt
+der Shop-Startseite enthaelt **dieselben vier**. Mexico, Brazil und Peru stehen nur
+in der unsichtbaren Slug-Tabelle `OF_PLINK` und im Uebersetzungswoerterbuch.
+
+**Produkte.** 42 verlinkte Adressen einzeln abgerufen: **18 mit 200, 24 mit 404.**
+Deckt sich mit 18 `publish` / 24 `private`. Kein pausiertes Land ist ueber einen
+Direktlink kaufbar. Die drei `onefam-white-logo-*` sind unter den 404ern — das
+passt zu den 94 verlorenen Variationen am White Logo Sweater (ID 365).
+
+**Preise — 315 Abfragen, 0 Abweichungen.** Je Produkt jede Groesse und jede Farbe
+ueber `?wc-ajax=get_variation`. 313 Antworten mit Preis, 2 Kombinationen gibt es
+nicht (Andorra Hoodie).
+
+| Produkt | Abfragen | gemessen (EUR) |
+|---|---|---|
+| Afghanistan Hoodie / Sweater / Shirt | 18 / 18 / 18 | 69.99 / 59.99 / 34.95 |
+| Albania Hoodie / Sweater / Shirt | 18 / 19 / 18 | 69.99 / 59.99 / 34.95 |
+| Andorra Hoodie / Sweater / Shirt | 15 (+2 gibt es nicht) / 16 / 18 | 69.99 / 59.99 / 34.95 |
+| Argentina Hoodie / Sweater / Shirt | 15 / 16 / 16 | 69.99 / 59.99 / 34.95 |
+| Logo Black Hoodie / Sweater / Shirt | 19 / 17 / 16 | 69.99 / 59.99 / 34.95 |
+| OneFam Logo Hoodie / Sweater / Shirt | 19 / 19 / 18 | 69.99 / 59.99 / 34.95 |
+
+**Kein 82,50, kein 71,50, kein 44,00.** Der Hauptpreis oben auf allen 18 Seiten
+steht als *einzelner* Wert — bei einer kaputten Variation stuende dort eine Spanne.
+
+**CHF war von aussen nicht messbar.** Der Shop setzt `wmc_current_currency=EUR`
+nach IP und **ueberschreibt dabei sowohl ein mitgeschicktes Cookie als auch den
+Query-Parameter** — die Umschalter sind ja bewusst aus. Letzter gueltiger CHF-Wert
+bleibt der vom 01.09.2026: **75 / 65 / 40**. Fuer eine neue Gegenprobe braucht es
+eine Schweizer Leitung oder das eingeloggte wp-admin.
+
+### Der eine echte Defekt — noch offen
+
+In der Fusszeile der **Shop-Startseite** (nur dort) stehen zwei tote Links:
+
+| Text | href |
+|---|---|
+| Home | `#` |
+| Shop By Country | `#` |
+
+`/shop-by-country/`, `/about-us/` und die Produktseiten haben eine andere
+Fusszeile und sind sauber. Gegengeprueft und **in Ordnung**: „Discover the OneFam
+story" zeigt auf `/about-us/`, „Follow on Instagram" auf das echte Profil.
+
+**Der zweite Link ist der schlimmere** — „Shop By Country" ist der Haupteinstieg
+in den Laden.
+
+**Warum noch nicht behoben:** der Eingriff sitzt in Snippet 11 (2,4 MB) und
+braucht eine angemeldete wp-admin-Sitzung. Am 24.09.2026 war keine offen, der
+Aufruf von `admin.php?page=edit-snippet&id=11` landete auf `wp-login.php`.
+Anmelden macht Labi selbst. Danach: Fusszeile im Snippet suchen, beide `href="#"`
+auf `/` und `/shop-by-country/` setzen, **nach dem Schreiben Zeichenlaenge neu
+laden und die Live-Seite messen** (Falle 1).
+
+### Was an der fremden Kritik dranhaengt — nicht noch einmal aufrollen
+
+- „Landing nennt 4 Laender, Shop wirbt mit 14" — **falsch.** Die „14" im Shop ist
+  die **14-taegige Rueckgabefrist** und „up to 14 business days" US-Versand.
+- „Shop hebt Mexico, Brazil, Peru hervor" — **falsch**, siehe Laenderbestand.
+- „Shop startet mit Germany/EUR" — **kein Fehler**, die Waehrung folgt dem Geraet.
+- „Auf der Landing fehlen Preise" — **Absicht**, begruendet als Kommentar in
+  `components/ProductBridge.tsx:67`.
+- **Berechtigt bleiben:** Code of Conduct (11 Punkte, `values.items[0..10]`) kuerzen,
+  Menschen statt Mockups zeigen, Shop und Landing optisch angleichen, deutsche
+  Tooltips bei englischer Shop-Oberflaeche.
+- **Der eigentliche Engpass**, den die Kritik nicht benennt: **4 von 253 Laendern
+  sind live.** Daran haengt jede Conversion-Idee.
+
+---
+
+## Stand am Ende des 22.09.2026
 
 **Vier Nachrichten sind draussen und warten auf Antwort.** Labi liest seine Mails
 selbst, ein Waechter ist nicht noetig (`tools/postfach-waechter.sh` gibt es
@@ -134,6 +219,16 @@ Sollwerte aus fünf Referenzshops in `REFERENZ-shopdesign.md`.
 ---
 
 ## Was zuletzt gemacht wurde — neueste zuerst
+
+### Shop nachgemessen gegen eine fremde Kritik — 24.09.2026
+
+Landingpage und Shop wurden von aussen kritisiert. Geprueft wurde jede
+nachpruefbare Behauptung: 42 Produktadressen, 315 Variantenpreise, die
+Laenderliste, die Umleitungen und vier beanstandete Links. **Kein Preisfehler,
+keine verwaiste Kaufseite, die Mexico-Umleitung ist gewollt.** Uebrig blieben zwei
+tote Fusszeilen-Links auf der Shop-Startseite. Alle Zahlen stehen oben im Abschnitt
+vom 24.09.2026.
+
 
 ### Shirt-King: Antwort und Rueckmail — 15.09.2026
 
@@ -4177,6 +4272,29 @@ Web-FTP-Editor: `shop-https.md`.
    auch geschrieben wurde.
 
 ---
+
+10. **Variantenpreise stehen nicht im Quelltext der Produktseite.** Die Seiten
+    liefern `data-product_variations="false"` — WooCommerce laedt die Varianten
+    per AJAX nach, weil es zu viele sind (10 Groessen x bis zu 10 Farben). Wer im
+    HTML nach Preisen greift, sieht nur den Hauptpreis und haelt das Produkt
+    faelschlich fuer ungeprueft. **Richtig geht es ueber**
+    `POST /?wc-ajax=get_variation` mit `product_id`, `attribute_size`,
+    `attribute_colour` — Antwort enthaelt `display_price`. Am 24.09.2026 so 315×
+    gemessen. Zweites Anzeichen, das man gratis mitbekommt: steht oben ein
+    *einzelner* Preis statt einer Spanne, sind alle Varianten gleich teuer.
+
+11. **Die Waehrung laesst sich von aussen nicht umschalten — auch nicht zum
+    Messen.** Weder `-b "wmc_current_currency=CHF"` noch ein Query-Parameter
+    wirken; der Shop setzt die Waehrung nach IP und ueberschreibt beides. Die
+    Gegenprobe mit dem Cookie, die am 01.09.2026 noch funktionierte, geht so nicht
+    mehr. **CHF misst man im eingeloggten wp-admin oder von einer Schweizer
+    Leitung.** Ein EUR-Wert von aussen ist trotzdem belastbar: waere der
+    EUR-Festpreis weg, stuende dort 82,50 statt 69,99.
+
+12. **Nicht jede Zahl auf einer Seite ist die, nach der sie aussieht.** Eine
+    fremde Kritik las die „14" im Shop als Laenderzahl — es ist die 14-taegige
+    Rueckgabefrist. Vor dem Uebernehmen einer fremden Beobachtung dieselbe Regel
+    wie bei eigenen: erst pruefen, ob das Suchmuster das Richtige trifft.
 
 ## Der Vorbehalt über allen Zahlen
 
