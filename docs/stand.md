@@ -11,7 +11,8 @@
 
 **Eine fremde Kritik an Landingpage und Shop wurde geprueft. Ergebnis: an den
 Preisen ist nichts kaputt, und der staerkste Vorwurf beruhte auf einem Lesefehler.**
-Offen bleibt genau ein echter Defekt: zwei tote Fusszeilen-Links.
+Der einzige echte Defekt — zwei tote Fusszeilen-Links — ist **noch am selben Tag
+behoben und live nachgemessen**.
 
 ### Was gemessen wurde — 24.09.2026, ausgeloggt, von aussen
 
@@ -53,7 +54,7 @@ Query-Parameter** — die Umschalter sind ja bewusst aus. Letzter gueltiger CHF-
 bleibt der vom 01.09.2026: **75 / 65 / 40**. Fuer eine neue Gegenprobe braucht es
 eine Schweizer Leitung oder das eingeloggte wp-admin.
 
-### Der eine echte Defekt — noch offen
+### Der eine echte Defekt — am 24.09.2026 behoben
 
 In der Fusszeile der **Shop-Startseite** (nur dort) stehen zwei tote Links:
 
@@ -69,12 +70,38 @@ story" zeigt auf `/about-us/`, „Follow on Instagram" auf das echte Profil.
 **Der zweite Link ist der schlimmere** — „Shop By Country" ist der Haupteinstieg
 in den Laden.
 
-**Warum noch nicht behoben:** der Eingriff sitzt in Snippet 11 (2,4 MB) und
-braucht eine angemeldete wp-admin-Sitzung. Am 24.09.2026 war keine offen, der
-Aufruf von `admin.php?page=edit-snippet&id=11` landete auf `wp-login.php`.
-Anmelden macht Labi selbst. Danach: Fusszeile im Snippet suchen, beide `href="#"`
-auf `/` und `/shop-by-country/` setzen, **nach dem Schreiben Zeichenlaenge neu
-laden und die Live-Seite messen** (Falle 1).
+**Behoben am 24.09.2026** in Snippet 11 ueber die REST-Schnittstelle, mit
+`X-WP-Nonce` aus `CODE_SNIPPETS.restAPI.nonce`, vollstaendiges Objekt inklusive
+`active: true`.
+
+Die Fusszeile steht **26× im Snippet**; 23 davon waren bereits richtig verlinkt.
+Tot waren genau zwei Stellen:
+
+| Offset im Snippet | gehoert zu |
+|---|---|
+| 44 243 | **Shop-Startseite** (h1 „For the ones who belong to more than one place") — live sichtbar |
+| 259 327 | alter Vorlagenblock, erstes h1 „Argentina Shirt" — **auf keiner erreichbaren Seite** gefunden, also toter Code |
+
+Beide auf `/` und `/shop-by-country/` gesetzt, genau wie die 23 gesunden.
+
+**Nachgemessen, wie es die Speicher-Falle verlangt:**
+
+- Antwort auf das Schreiben: **HTTP 200 mit leerem Rumpf** — sagt wie immer nichts.
+- Nach dem Neuladen der Bearbeitungsseite: **2 496 742 Zeichen** (vorher
+  2 496 710, erwartet +32). `active: true`, `scope: front-end`, `priority: 1`,
+  Tags `onefam`/`router` unveraendert, `modified 2026-09-24 17:17:06`.
+- Im Code: **0 tote Fusszeilen, 25 korrekte** (vorher 2 und 23).
+- **Live und ausgeloggt gemessen:** auf der Shop-Startseite **kein einziges**
+  `href="#"` mehr; die Fusszeile zeigt `/` und `/shop-by-country/`, beide
+  antworten mit 200.
+- Router unversehrt: `/`, `/shop-by-country/`, `/albania/`, `/about-us/`, `/de/`,
+  `/fr/`, `/es/`, `/refund-policy/` alle **HTTP 200 mit `x-onefam-router: 1` und
+  ohne PHP-Fehler**; `/produkt/albania-hoodie/` 200 (ohne Router-Kopf, das ist
+  WooCommerce' eigene Vorlage und richtig so).
+
+⚠️ **Der Warenkorb liegt auf `/warenkorb/`, nicht auf `/cart/`.** `/cart/`
+antwortet mit 404 — vorher wie nachher, das ist keine Folge der Aenderung,
+sondern die falsche Adresse. `/warenkorb/` antwortet mit 200.
 
 ### Was an der fremden Kritik dranhaengt — nicht noch einmal aufrollen
 
@@ -226,8 +253,9 @@ Landingpage und Shop wurden von aussen kritisiert. Geprueft wurde jede
 nachpruefbare Behauptung: 42 Produktadressen, 315 Variantenpreise, die
 Laenderliste, die Umleitungen und vier beanstandete Links. **Kein Preisfehler,
 keine verwaiste Kaufseite, die Mexico-Umleitung ist gewollt.** Uebrig blieben zwei
-tote Fusszeilen-Links auf der Shop-Startseite. Alle Zahlen stehen oben im Abschnitt
-vom 24.09.2026.
+tote Fusszeilen-Links auf der Shop-Startseite — **noch am selben Tag in Snippet 11
+behoben** (2 496 710 → 2 496 742 Zeichen, live gegengemessen). Alle Zahlen stehen
+oben im Abschnitt vom 24.09.2026.
 
 
 ### Shirt-King: Antwort und Rueckmail — 15.09.2026
