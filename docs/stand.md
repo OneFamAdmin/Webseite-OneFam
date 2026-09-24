@@ -141,6 +141,68 @@ sondern die falsche Adresse. `/warenkorb/` antwortet mit 200.
 
 ---
 
+## ✅ Shop: Tooltips uebersetzt und Kicker eingebaut — live (24.09.2026)
+
+Beides **nur im Shop** (Snippet 11), im Repo aendert sich dadurch nichts.
+Stand nach allen Schreibvorgaengen des Tages: **2 533 425 Zeichen**,
+`active: true`, Router auf neun Seiten 200 ohne PHP-Fehler.
+
+### Die drei Tooltips
+
+Bei englischer Oberflaeche blieben `title="Land suchen"`, `"Mein Konto"` und
+`"Warenkorb"` deutsch, waehrend `aria-label` uebersetzt wurde. **Ursache:** der
+Laufzeit-Uebersetzer greift über `querySelectorAll('[aria-label]')` und setzte
+nur `aria-label` — `title` wurde **nirgends** gesetzt (0 Treffer für
+`setAttribute('title'`).
+
+**Behoben an der Wurzel**, nicht an den 75 einzelnen Attributen: die
+Uebersetzerzeile zieht `title` jetzt mit, aber nur wenn das Element eines hat.
+25 Kopien, alle mit identischem Kontext geprüft (gewoehnliche Anweisung, kein
+`return`, kein Pfeilrumpf). **Die Zahlungs-Symbole bleiben unberuehrt** — sie
+tragen `title` ohne `aria-label` und werden vom Selektor gar nicht erfasst;
+live nachgeprüft: Visa, Mastercard, TWINT, PostFinance Pay, Apple Pay,
+Google Pay unveraendert.
+
+Live auf Englisch gemessen: `Search countries` / `My account` / `Cart` in
+**beiden** Attributen, keine deutschen Reste.
+
+### Der Kicker
+
+„Where are you from?" steht jetzt über der Shop-Hero — der Komma-Gedanke kam
+im Shop vorher **kein einziges Mal** vor. Werte eins zu eins von der Landing:
+Satoshi 15 px, Gewicht 500, versal, 0,22 em gesperrt, Gold `#C9A84C`.
+Uebersetzt über `OF_I18N` wie jeder andere Text, alle vier Sprachen im
+Woerterbuch (25 Kopien):
+
+| Sprache | Text |
+|---|---|
+| en | Where are you from? |
+| de | Woher kommst du? |
+| fr | D'où viens-tu ? |
+| es | ¿De dónde eres? |
+
+Der Hero steht **einmal** im Snippet, die Markup-Einfuegung daher 1× — der
+Kicker erscheint nur auf `/`, `/de/`, `/fr/`, `/es/` und auf keiner Unterseite.
+
+### ⚠️ Die Falle, in die ich dabei getappt bin
+
+Der Einfuegepunkt `.markbox{` stand im Code als **`.hero .markbox{`**. Meine
+Einfuegung landete damit **zwischen** `.hero ` und dem Rest — Ergebnis: die
+Kicker-Regel hiess `.hero .kicker` (harmlos), aber **`.markbox` verlor seinen
+`.hero`-Vorsatz** und hätte fuer jedes `.markbox` irgendwo gegolten. Sichtbar
+kaputt war nichts, die Medienabfrage `.kicker` verlor aber gegen die
+spezifischere Basisregel und blieb wirkungslos.
+
+**Korrigiert:** beide Selektoren tragen jetzt `.hero`. Nachgemessen —
+375 px: Kicker 13 px / 2,34 px gesperrt, `.hero .markbox` 203×203, kein
+Querscroll. 1440 px: 15 px / 3,3 px, Gold, 225×225, Video laeuft.
+
+**Lehre:** vor einer Einfuegung an einem CSS-Anker pruefen, **was unmittelbar
+davor steht**. Ein Selektor-Vorsatz ist unsichtbar, wenn man nur nach dem
+Ankerwort sucht.
+
+---
+
 ## ✅ Knopfverlauf auf beiden Seiten gleich — Shop live, Landing nicht gepusht (24.09.2026)
 
 Landing und Shop tragen jetzt **zeichengleich denselben Knopfverlauf**:
