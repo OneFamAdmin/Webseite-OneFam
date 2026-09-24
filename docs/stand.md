@@ -12,7 +12,8 @@
 **Eine fremde Kritik an Landingpage und Shop wurde geprueft. Ergebnis: an den
 Preisen ist nichts kaputt, und der staerkste Vorwurf beruhte auf einem Lesefehler.**
 Der einzige echte Defekt — zwei tote Fusszeilen-Links — ist **noch am selben Tag
-behoben und live nachgemessen**.
+behoben und live nachgemessen**. **Beide Waehrungen sind jetzt vollstaendig
+belegt**, CHF wie EUR, je 315 Abfragen ohne Abweichung.
 
 ### Was gemessen wurde — 24.09.2026, ausgeloggt, von aussen
 
@@ -48,11 +49,32 @@ nicht (Andorra Hoodie).
 **Kein 82,50, kein 71,50, kein 44,00.** Der Hauptpreis oben auf allen 18 Seiten
 steht als *einzelner* Wert — bei einer kaputten Variation stuende dort eine Spanne.
 
-**CHF war von aussen nicht messbar.** Der Shop setzt `wmc_current_currency=EUR`
-nach IP und **ueberschreibt dabei sowohl ein mitgeschicktes Cookie als auch den
-Query-Parameter** — die Umschalter sind ja bewusst aus. Letzter gueltiger CHF-Wert
-bleibt der vom 01.09.2026: **75 / 65 / 40**. Fuer eine neue Gegenprobe braucht es
-eine Schweizer Leitung oder das eingeloggte wp-admin.
+**CHF am selben Tag nachgemessen — ebenfalls 315 Abfragen, 0 Abweichungen.**
+
+Aus der Sandheraus-Messung mit `curl` kam EUR, weil dort weder Zeitzone noch
+Schweizer IP vorliegen. **Ein VPN braucht es dafuer aber nicht:** die Waehrung
+folgt zuerst der **Zeitzone**, und der eingebaute Browser laeuft auf Labis Mac —
+`Europe/Zurich`, Schweizer Leitung, frisches Profil ohne Cookies. Das ist genau
+ein Schweizer Erstbesucher. Der Shop setzt das Cookie dort von selbst auf CHF.
+
+| Produkt | Hauptpreis | alle Varianten |
+|---|---|---|
+| alle 6 Hoodies (4 Laender + 2 Logo-Linien) | CHF 75.00 | 75 durchgehend |
+| alle 6 Sweater | CHF 65.00 | 65 durchgehend |
+| alle 6 Shirts | CHF 40.00 | 40 durchgehend |
+
+315 Abfragen, **0 Abweichungen**, dieselben 2 nicht existierenden Kombinationen
+wie in EUR (**Andorra Hoodie 5XL und 4XL in Bright Blue**). Damit sind beide
+Waehrungen vollstaendig belegt: CHF **75/65/40**, EUR **69.99/59.99/34.95**.
+
+**Auch die Stelle, die am 01.09.2026 kaputt war, ist gesund** — und das war von
+aussen nie pruefbar: Kopfzeile CHF **und** Karten CHF, auf der Shop-Startseite
+(4 Karten) wie auf der Laenderseite `/albania/` (3 Kacheln). **Kein einziger
+Euro-Betrag** auf beiden Seiten. Das alte Fehlerbild — CHF im Kopf, `€69,99` in
+den Karten — tritt nicht mehr auf.
+
+Nebenbei im echten Browser bestaetigt: die heute reparierte Fusszeile zeigt
+„Startseite → `/`" und „Nach Land shoppen → `/shop-by-country/`".
 
 ### Der eine echte Defekt — am 24.09.2026 behoben
 
@@ -4311,13 +4333,18 @@ Web-FTP-Editor: `shop-https.md`.
     gemessen. Zweites Anzeichen, das man gratis mitbekommt: steht oben ein
     *einzelner* Preis statt einer Spanne, sind alle Varianten gleich teuer.
 
-11. **Die Waehrung laesst sich von aussen nicht umschalten — auch nicht zum
-    Messen.** Weder `-b "wmc_current_currency=CHF"` noch ein Query-Parameter
-    wirken; der Shop setzt die Waehrung nach IP und ueberschreibt beides. Die
-    Gegenprobe mit dem Cookie, die am 01.09.2026 noch funktionierte, geht so nicht
-    mehr. **CHF misst man im eingeloggten wp-admin oder von einer Schweizer
-    Leitung.** Ein EUR-Wert von aussen ist trotzdem belastbar: waere der
-    EUR-Festpreis weg, stuende dort 82,50 statt 69,99.
+11. **Die Waehrung laesst sich von aussen nicht umschalten — aber CHF zu messen
+    ist trotzdem einfach.** Weder `-b "wmc_current_currency=CHF"` noch ein
+    Query-Parameter wirken; der Shop ueberschreibt beides. Die Cookie-Gegenprobe
+    vom 01.09.2026 geht so nicht mehr.
+    **Der richtige Weg ist der eingebaute Browser auf Labis Mac** — die Waehrung
+    folgt zuerst der **Zeitzone**, und die steht dort auf `Europe/Zurich`. Frisches
+    Profil, keine Cookies, Schweizer Leitung: der Shop setzt CHF von selbst.
+    **Ein VPN ist dafuer nicht noetig** — am 24.09.2026 erwogen und als
+    ueberfluessig verworfen, bevor es eingeschaltet wurde. `curl` aus der Sandbox
+    hat dagegen weder Zeitzone noch Schweizer IP und bekommt darum immer EUR.
+    Ein EUR-Wert von aussen bleibt trotzdem belastbar: waere der EUR-Festpreis
+    weg, stuende dort 82,50 statt 69,99.
 
 12. **Nicht jede Zahl auf einer Seite ist die, nach der sie aussieht.** Eine
     fremde Kritik las die „14" im Shop als Laenderzahl — es ist die 14-taegige
