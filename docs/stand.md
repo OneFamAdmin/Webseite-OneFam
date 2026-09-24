@@ -141,6 +141,92 @@ sondern die falsche Adresse. `/warenkorb/` antwortet mit 200.
 
 ---
 
+## ✅ Stücke-Abschnitt neu bebildert — live (24.09.2026)
+
+Der Abschnitt „Die Stücke" zeigt jetzt **zwei freigestellte Menschen auf
+Schwarz**, ruhiger Blick, gleiches Teil, gleicher Massstab — nur das Zeichen
+unterscheidet sich. Deploy `dpl_3n77M5`, live gemessen.
+
+### Warum umgebaut wurde — zwei Beanstandungen von Labi
+
+1. **Der helle Kasten.** Die Modellfotos standen im Rahmen aus `WhyWeDoThis`.
+   Dort trägt er, weil dort eine dunkle Nachtaufnahme hängt; hier rissen zwei
+   helle Studioflächen zwei leuchtende Kästen in die Seite.
+2. **Die Gesichter.** Der Abschnitt sagt „kein Katalogstück, kein Logo zum
+   Vorzeigen", der Family Code sagt „wer nur gesehen werden will, ist im
+   falschen Raum" — und darunter stand ein breites Katalog-Lachen.
+
+### Der Bildbestand — und was darin fehlt
+
+**Der Shop kennt nur drei Ansichten: `frontal`, `Huefte`, `Taschen`.** Das sind
+Bildausschnitte, **keine Ausdrücke**; alle Shopfotos tragen dasselbe Lächeln.
+Neutrale Aufnahmen gibt es nur lokal und nur für **Argentinien** (je 16 Dateien
+`_neutral` und `_lachend` in `~/Downloads`). Die Kombination aus **hellem Teil**
+und **ruhigem Ausdruck** existierte nirgends — deshalb wurde generiert.
+
+### Was generiert wurde
+
+`nano_banana_pro`, `4:5`, `resolution: "4k"` → 3712×4608 bestätigt. Je **4 Credits**,
+zusammen 8. Als Referenz jeweils das **bestehende Shop-Foto derselben Person**
+(`media_import_url` auf die öffentliche Shop-Adresse), geändert nur Ausdruck und
+Shirtfarbe. Danach `remove_background`; der zweite Auftrag stand rund vier Minuten
+in der Warteschlange — nicht neu einreichen, er kam durch.
+
+**Helles Teil ist Bedingung, nicht Geschmack:** ein schwarzes Shirt verschwindet
+freigestellt auf `#0A0A0A`. Die Silhouetten kamen wieder 1,45× verschieden aus
+dem Modell und wurden erneut aneinander ausgemessen — 66,3 gegen 67,3 Prozent
+Subjektbreite, Kopfoberkante je 4,0.
+
+### ⚠️ Drei Fallen, alle vom selben Typ: ein Kasten in falscher Helligkeit
+
+1. **`/_next/image` liefert diese Dateien als `image/jpeg` aus.** JPEG kann kein
+   Alpha — unter dem Freisteller kam der alte Studiogrund wieder zum Vorschein.
+   **Das ist keine neue Falle:** die alten PNG-Mockups hatten dasselbe Risiko, es
+   war nur nie aufgefallen. Gelöst mit `unoptimized` **und** Dateien fest auf
+   `#0A0A0A` gerechnet.
+2. **Dieselbe JPEG-Umwandlung drückt Fast-Schwarz von `rgb(10,10,10)` auf
+   `rgb(0,0,0)`** — also ein leicht *dunklerer* Kasten statt eines hellen.
+3. **Beim Ausblenden gegen die Seitenfarbe blenden, nicht gegen Schwarz.** Der
+   erste Anlauf ergab unten `rgb(7,7,7)` und `rgb(6,5,8)` — ein feiner dunkler
+   Schleier. Richtig ist `person*v + 10*(1-v)`.
+
+**Prüfmethode, die alle drei gefunden hat:** das Bild im Browser auf eine Leinwand
+zeichnen und die **vier Ecken und die untere Mitte** auslesen. Sie müssen exakt
+`rgb(10,10,10)` sein. Am Entwurfsstand **und** über die Auslieferung messen — das
+sind verschiedene Wege, und genau dort lag der Unterschied.
+
+### ⚠️ Weisser Stoff trägt hier, aber nicht überall
+
+Der Freisteller auf Schwarz **setzt ein helles Teil voraus**. Für Albanien geht
+das auf, weil die Flagge rot-schwarz ist. **Bei einem Land mit Weiss in der Flagge
+verschwindet die halbe Information** — eure eigene Bildregel. Dann trägt dieser
+Weg nicht mehr, und es braucht ein anderes Teil oder einen anderen Hintergrund.
+
+### Warum die Posen gleich bleiben
+
+Nicht aus Bequemlichkeit: die Sektion lebt davon, dass **nur das Zeichen**
+verschieden ist. Dazu nehmen die eigenen Regeln die üblichen Mittel ohnehin
+heraus (kein Standbein, keine Oberkörperdrehung), und der flach gestempelte Druck
+verlangt den Brustkorb frontal.
+
+### Warum nachträglich abgestimmt statt neu generiert
+
+Die Seite hat drei andere Bildmomente: Hero-Video dunkel, `philosophy.png` auf
+Graustufen bei 55 Prozent, `why-nacht.jpg` körnige Nachtaufnahme. Die Modellfotos
+waren die **einzigen hell ausgeleuchteten, voll gesättigten** Bilder — der Bruch
+lag im Licht, nicht in der Haltung. Deshalb radialer Lichtabfall, Sättigung auf
+84 Prozent, Abfall nach unten ab 58 Prozent der Höhe. **Licht lässt sich
+nachträglich abstimmen, ein Gesicht nicht** — eine neue Generierung wäre ein
+neuer Wurf gewesen. Die ungetonten Fassungen liegen daneben.
+
+### Eine Lehre über das Messen selbst
+
+Der harte untere Bildrand des Mannes maß sich als `rgb(19,22,32)` — dunkle Jeans
+auf dunklem Grund, also scheinbar unauffällig. **Sichtbar war die Kante
+trotzdem.** Ein Einzelpunkt ersetzt das Hinsehen nicht.
+
+---
+
 ## ✅ Shop: Tooltips uebersetzt und Kicker eingebaut — live (24.09.2026)
 
 Beides **nur im Shop** (Snippet 11), im Repo aendert sich dadurch nichts.
