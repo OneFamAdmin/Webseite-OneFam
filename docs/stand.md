@@ -141,6 +141,72 @@ sondern die falsche Adresse. `/warenkorb/` antwortet mit 200.
 
 ---
 
+## ✅ Knopfverlauf auf beiden Seiten gleich — Shop live, Landing nicht gepusht (24.09.2026)
+
+Landing und Shop tragen jetzt **zeichengleich denselben Knopfverlauf**:
+`#FAD649 0% · #EF8031 50% · #EB356A 88% · #C131BF 96% · #6B46F1 100%`.
+Alle fünf Markenfarben, Magenta und Violett in der Ecke.
+
+**Der Shop ist bereits umgestellt** (Snippet 11, 2 519 491 Zeichen, `active:true`,
+Router auf neun Seiten weiter 200 ohne PHP-Fehler). Die Landing ist committet,
+aber **nicht gepusht**.
+
+### Was daran wichtig ist — drei Irrtümer hintereinander
+
+1. **Der Shop war nie „Drift".** Ich hielt den dort verkürzten Verlauf für eine
+   schlampige Kopie und wollte ihn „auf die Quelle setzen". Im Code stand ein
+   Kommentar mit nachgerechneten Kontrastwerten — eine **bewusste Entscheidung**.
+   Hätte ich sie überschrieben, wäre aus 4,95 : 1 ein Kontrastfehler geworden.
+   **In diesem Snippet erst nach einem Kommentar suchen, dann urteilen.**
+
+2. **Das Verlaufsende zu messen ist zu streng.** Bei 135 Grad sitzt die letzte
+   Farbe in der unteren rechten Ecke, wo **gar keine Schrift steht**. Am Ende
+   wären es 3,56 : 1; hinter der Schrift sind es mit den Originalstufen
+   **4,31 : 1**. Mit dieser zu strengen Zahl war der volle Verlauf ursprünglich
+   verworfen worden. **Massgeblich ist der schlechteste Punkt hinter der Schrift.**
+
+3. **Welcher Knopf der schlechteste Fall ist, hängt von der Seite ab.**
+
+   | | schlechtester Knopf | Schrift reicht bis |
+   |---|---|---|
+   | Landing | der **kleinste** (Kopfzeile, 149×52) | t = 0,776 |
+   | Shop | der **breiteste mit dem längsten Text** (`btn-terra`, 336×51) | t = 0,874 |
+
+   Eine Zwischenfassung mit 35/70/85 ergab auf der Landing 4,484 — durchgefallen.
+   Eine mit 40/78/90 bestand auf der Landing und fiel im Shop mit **4,308** durch;
+   sie war kurz live. **Wer die Stufen verschiebt, misst beide Seiten nach.**
+
+### Messwerte der jetzigen Fassung
+
+| | schlechtester Kontrast |
+|---|---|
+| Landing, drei Knöpfe bei 375 und 1440 px | **5,36 : 1** |
+| Shop, vier Verlaufsflächen bei 1440 px | **4,97 : 1** |
+
+Zum Vergleich: dreistufige Fassung 5,73 : 1, sah aber **sichtbar flacher aus**
+und wurde deshalb verworfen — Farben wegzulassen war der falsche Weg.
+
+### Was der Vergleich sonst ergab
+
+Die Prämisse der fremden Kritik („zwei verschiedene Marken") stimmt **heute nicht
+mehr**. Gemessen bei 1440 px: **Hintergrund `rgb(10,10,10)` auf beiden Seiten,
+dieselben Schriften (Cabinet Grotesk + Satoshi), der Claim im Hero wortgleich.**
+Offen bleiben:
+
+| | Landing | Shop |
+|---|---|---|
+| Eckenrundung | 4 px | 40 px (`.pill`) — **bewusst so gelassen** |
+| Überschrift | 76 px / 800 | 32 px / 700 |
+| Fliesstext | `rgb(255,255,255)` | `rgba(237,231,214,.82)` — **besser, nicht angleichen** |
+| Kicker „Woher kommst du?" | vorhanden | **fehlt** |
+
+**Noch offen und schon abgesprochen:** die drei `title`-Attribute, die bei
+englischer Oberfläche deutsch bleiben (`Land suchen`, `Mein Konto`, `Warenkorb`
+— je 25× fest im Snippet, während `aria-label` über `[aria-label]` zur Laufzeit
+übersetzt wird), und der Kicker über der Shop-Hero.
+
+---
+
 ## ✅ Menschen statt Mockups — fertig, nicht gepusht (24.09.2026)
 
 Der Abschnitt „Die Stücke" zeigt jetzt **getragene Teile statt schwebender
