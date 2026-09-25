@@ -141,6 +141,30 @@ sondern die falsche Adresse. `/warenkorb/` antwortet mit 200.
 
 ---
 
+## ✅ Instagram: Bio und Rasterregel festgelegt (25.09.2026)
+
+Neue Datei **`docs/REGEL-instagram.md`** — dort steht alles. Kurz:
+
+- **Bio neu**, Englisch, 125 von 150 Zeichen. Raus sind „good energy, real
+  connections, real journeys" (drei Abstrakta, dasselbe Register wie die
+  gestrichenen Family-Code-Tugenden), **„free"** (stärkstes Preissignal, zeigt
+  ausserdem Richtung Gewinnspiel-Sprache) und **👇**.
+- **Nur eine Sprache ins Profil.** Instagram hat ein Bio-Feld. Unnötig ist es
+  ohnehin: `i18n/geo.ts` schaltet die Seite selbst um, wer aus Spanien tippt
+  landet auf `/es`. Die drei anderen Fassungen sind für Beitragstexte und
+  Story, nicht für die Bio — alle gemessen und unter 150 Zeichen.
+- **Namensfeld** `OneFam — Clothing & Community` (29 von 30). Vorher stand dort
+  „Global Community", während die Kategorie schon „Community" heisst.
+- **Das grössere Problem ist das Raster, nicht der Text.** Drei Reels aus
+  Nachtleben und Clublicht, kein einziges Stück zu sehen. Wer von der Seite
+  kommt, erlebt denselben Sprung wie zwischen Seite und Shop.
+
+**Noch nicht umgesetzt** — Bio und Namensfeld muss Labi im Profil selbst
+eintragen, Zugangsdaten macht er. Beim Eintragen die richtigen Umlaute und
+Akzente setzen, die Tabelle in der Regel-Datei ist ASCII.
+
+---
+
 ## ✅ Stücke-Abschnitt neu bebildert — live (24.09.2026)
 
 Der Abschnitt „Die Stücke" zeigt jetzt **zwei freigestellte Menschen auf

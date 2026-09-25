@@ -397,4 +397,5 @@ fortschreiben.
 | `docs/REGEL-preise.md` | Preise, Fehlerbild 82,50, richtige Messmethode |
 | `docs/RUNBOOK-laenderlauf.md` | Ein Land komplett — Bild bis Länderseite |
 | `docs/REGEL-gesichter.md` | Warum jedes Land eigene Gesichter braucht |
+| `docs/REGEL-instagram.md` | Bio in vier Sprachen, was ins Raster gehört und was nicht |
 | `docs/REFERENZ-shopdesign.md` | Gemessene Sollwerte aus fünf Referenzshops (Hero, Typo, Bildformat) |
