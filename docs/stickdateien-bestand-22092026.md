@@ -21,6 +21,27 @@ Kalkulation und keinen Drop-Termin.
 | | |
 |---|---|
 | **Das ZIP `OneFam_Stickfassung_1-5mm_alle-252.zip`** | **nirgends auf dem Mac.** Downloads, Dokumente und Schreibtisch durchsucht. Es existierte nur im Chat vom 17.09. |
+
+> ## ✅ Teilweise gefunden am 25.09.2026
+>
+> **`~/Downloads/OneFam_Stickfassung_1-5mm_Uebersicht.pdf`** (3,8 MB) liegt vor:
+> **9 Blätter, alle 252 Motive der 1,5-mm-Fassung**, auf Misty Grey, einheitlicher
+> Massstab, Motivbreite 8 cm, je Motiv Farbzahl und Restanteil.
+>
+> **Was das löst und was nicht.** Als Ansicht und als Beleg gegenüber dem
+> Lieferanten reicht sie. **Als Druckvorlage nicht** — es sind Rasterbilder in
+> einer Übersicht, keine Einzeldateien. Für ein Angebot genügt sie, für eine
+> Produktion nicht.
+>
+> Ebenfalls auf dem Mac, aus demselben Durchgang:
+> `OneFam_stickbar_ohne_aenderung_16092026.csv`,
+> `OneFam_stickbar_korrigiert_16092026.csv` und die zugehörige `.md`
+> (97 direkt stickbar · 39 grenzwertig · 116 vereinfachen).
+>
+> **`cv2` und `skimage` sind am 25.09.2026 lauffähig gemacht worden** — nicht
+> systemweit (das verfügbare opencv ist gegen numpy 1.x gebaut, das System trägt
+> numpy 2.0.2), sondern in einer eigenen Umgebung mit `numpy<2`. Die Pipeline
+> kann also wieder laufen.
 | `cv2` (opencv-python) | **nicht installiert** — `v2.py` braucht es |
 | `skimage` (scikit-image) | **nicht installiert** — `v2.py` braucht es für `skeletonize` |
 | `pdftoppm` (poppler) | **nicht installiert** — `lauf_alle.py` ruft es zum Rendern auf |
