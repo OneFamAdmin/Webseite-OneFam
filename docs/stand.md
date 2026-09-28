@@ -1,4 +1,54 @@
-# Stand — 24.09.2026
+# Stand — 29.09.2026
+
+## 🎬 Werbevideo Albanien — erster Laenderclip steht (28./29.09.2026)
+
+**Gueltige Fassung: `~/Downloads/onefam-werbung/albanien/REALLY_FROM_albanien_v15.mp4`**
+(20,1 s, 1080 x 1920, mit Ton). Vollstaendiges Rezept mit allen Messwerten und
+allen Sackgassen: **`docs/REGEL-werbevideo.md`**.
+
+> ⚠️ **Die Videodateien liegen NICHT im Repo.** `~/Downloads/onefam-werbung/albanien/`
+> (46 Dateien) ist nicht in Git gesichert — jeder Push nach `main` deployt, und
+> Videodateien gehoeren nicht in ein Vercel-Projekt. **Wer den Rechner wechselt
+> oder aufraeumt, verliert sie.** In Git steht nur das Rezept.
+
+### Der Film
+
+| Zeit | Bild | Text |
+|---|---|---|
+| 0–1,8 | Mann, traegt den Albanien-Sweater | „Where are you from?" |
+| 1,8–3,0 | derselbe | „Zurich." |
+| 3,0–5,2 | derselbe | „No — where are you **really** from?" (really in Gold) |
+| 5,2–8,7 | Tirana, warm | In Albania, I'm the Swiss one. |
+| 8,7–12,2 | Zuerich, kalt | In Switzerland, I'm the Albanian one. |
+| 12,2–15,4 | Frau, traegt den Sweater | — |
+| 15,4–18,8 | Mockup frontal, blendet aus Schwarz auf | So we made our own place. |
+| 18,8–20,1 | Wortmarke, harter Schnitt | Clothing for people who belong… |
+
+### Die drei Befunde, die am meisten Zeit gekostet haben
+
+1. **Das Mockup als `image_references` geben, nicht als `start_image`.** Dann
+   **traegt** der Mensch im Clip das Teil, statt dass ein Produktclip entsteht.
+2. **Referenzbilder nie retuschieren.** Jede Reparatur am Stoff ist im Video
+   sichtbar (ein anthrazitfarbener Kasten hinter dem Druck). Stimmt die
+   Druckgroesse nicht, ein **anderes echtes Bild** nehmen.
+3. **Bildmaterial aus dem Shop holen, nicht aus `~/Downloads/OneFam Mockups/_neu/`**
+   — das ist ein alter Stand. Die Store-API liefert die aktuellen:
+   `https://shop.onefam.ch/wp-json/wc/store/v1/products?search=albania`
+
+### Offen
+
+- **Labi sieht sich v15 an.** Danach weitere Clips (Ideen in `REGEL-werbevideo.md`:
+  „The Name", „Three Days in a Car", „The Switch").
+- **Musiklizenz vor dem Schalten klaeren.** Instagrams Bibliothek deckt nur
+  organische Reels, **nicht** bezahlte Anzeigen.
+- ⛔ **`~/Downloads/One Fam Fonts/newyork/NewYork PERSONAL USE.otf` darf nicht
+  kommerziell verwendet werden.** Wo die Schrift im Einsatz ist, gehoert sie
+  geprueft und ersetzt. Gueltig fuer Werbetexte ist **Outfit**.
+- Higgsfield-Guthaben: **3 937 Credits** (Stand 29.09.2026, Start war 6 072).
+
+---
+
+# Stand — 25.09.2026
 
 Übergabe an die nächste Sitzung. Vor grösseren Aufgaben hier hineinsehen, vor
 `/clear` oder `/compact` hier fortschreiben.
@@ -7,7 +57,230 @@
 
 ---
 
-## 🟢 Stand am 24.09.2026 — hier anfangen
+## 🟢 Stand am 25.09.2026 — hier anfangen
+
+**Am Foto eines bereits gedruckten Sweaters nachgemessen, welche Motivgroesse
+Labi haben will — und was diese Groesse fuer die Verfahrenswahl bedeutet.**
+
+### Die Messung am Foto (25.09.2026)
+
+Vorlage: Foto eines **Changer-2.0-Sweaters in Schwarz mit dem Hauptlogo im
+Markenverlauf**, DTG gedruckt, mit angelegtem Bandmass. Labi: „Groesse und
+Position passt genau und so will ich es von der Groesse haben."
+
+Bild 2000 x 1125 px. Massstab am Band abgelesen: **rund 31,5 px je cm**.
+
+| | gemessen |
+|---|---|
+| Logobreite | **5,5–6,0 cm** |
+| Logohoehe | **ca. 6,3 cm** |
+| Strichstaerke der Gesichtslinie | **2,0–2,4 mm** |
+
+Unsicherheit **±0,5 cm**: der Stoff woelbt sich, das Band liegt leicht schraeg.
+
+**Gegenprobe, und sie stimmt:** Die Gesichtslinie ist auf allen 252 Motiven
+2,9–3,1 mm breit **bei 8 cm Motivbreite** (`UEBERGABE-neuer-chat-21092026.md`).
+Auf 5,6 cm herunterskaliert sind das 2,0–2,2 mm — genau der Messwert am Foto.
+Die beiden Messungen kommen aus verschiedenen Quellen und treffen sich.
+
+> ⚠️ **Die Zahl weicht von der hinterlegten Druckbreite ab.** Kanonisch stehen
+> fuer den Sweater **6,9 cm** Breite und Motivmitte 15,1 cm unter dem Hals
+> (`RUNBOOK-laenderlauf.md`, Tabelle „Druckmasse Modellbilder"). Gemessen sind
+> 5,5–6,0 cm. Moegliche Gruende: Perspektive, oder die Signature-Linie ist
+> kleiner angelegt als die Laenderlinie. **Nicht geklaert.** Fuer die
+> Verfahrensfrage ist es gleichgueltig — die Strichstaerke bleibt in beiden
+> Faellen ueber 2 mm —, fuer die Druckdatei nicht. **Einmal flach mit dem
+> Lineal nachmessen.**
+
+### Was diese Groesse fuer das Verfahren heisst
+
+Roberts Grenzwerte vom 22.09.2026, je Verfahren:
+
+| Verfahren | Mindeststrichstaerke | 2,0–2,4 mm gemessen |
+|---|---|---|
+| Digitaldruck (DTG/DTF) | 1,0–1,5 mm | klar darueber |
+| Stick | 1,0–1,5 mm | klar darueber |
+| Siebdruck | 0,5–1,0 mm | klar darueber |
+
+**Die Groesse ist beim Hauptlogo bei keinem Verfahren der Engpass. Den Ausschlag
+gibt der Verlauf.**
+
+| Verfahren | Urteil fuer das Hauptlogo im Verlauf |
+|---|---|
+| **DTG** | **Bewiesen** — das Teil auf dem Foto ist DTG. Und das Schadensbild, das den ganzen Verfahrenswechsel ausgeloest hat, trifft es nicht: flaues Weiss gab es bei Motiven **mit viel Weiss** (`SKO25223869`, #4145). Das Verlaufslogo hat kein Weiss. |
+| **DTF** | Geht, und der Lieferant empfiehlt es fuer genau diesen Fall („da deine Motive eher klein sind", 16.09.). Gleicher Preis, 5,50 € je Seite. Roberts DTF-Grenze („keine weichen transparenten Uebergaenge") greift nicht: der Markenverlauf ist deckend und laeuft nicht ins Transparente aus. |
+| **Siebdruck** | Technisch machbar, praktisch nein. Der Verlauf wird zu Raster oder Farbstufen, jede Farbe ein eigenes Sieb, die Weissunterlage zaehlt mit. Dazu 100 Stueck Mindestmenge. Roberts Fazit: „eher unrentabel". |
+| **Stick** | **Faellt aus.** `stick-und-druck-je-land.md`: „Das bunte Logo mit Farbverlauf laesst sich nicht sticken." Stick kennt Garnfarben, keinen fliessenden Uebergang — fuenf Markenfarben in einer 2 mm schmalen Linie sind kein Stickbild. Einfarbig ginge (das ist die White-Logo-Fassung). |
+
+**Damit steht ein Widerspruch zur Entscheidung vom 16.09.2026 („ausschliesslich
+Stick") im Raum.** Solange dieses Logo den Verlauf behaelt, ist Stick raus.
+Entweder Verlauf und Druck, oder Stick und einfarbig — das ist eine
+Markenentscheidung, keine technische.
+
+**Und der naechste Schritt bleibt derselbe wie seit dem 15.09.:** Wenn DTF die
+Antwort ist, muss die Umstellung im PodOS-Backend gefunden werden. Robert am
+22.09.: „Wo genau diese Einstellung in deinem Backend vorzunehmen ist, weiss ich
+aktuell leider nicht." Am 21.09. an fuenf Stellen vergeblich gesucht. Und sie
+gilt fuer **alle** Farbvarianten, nicht nur die dunklen.
+
+---
+
+### Alle 252 Motive gegen die kleine Motivgroesse nachgemessen (25.09.2026)
+
+**Anlass:** Traegt die Laenderlinie diese Groesse auch — und mit welchem
+Verfahren? Vollstaendige Zahlen je Land:
+`docs/sicherungen/kleinformat-messwerte-252.csv`.
+
+**Methode.** `tools/sieb-messen.py`, Grenzen auf die Zielgroessen umgerechnet.
+Die Kennzahl ist massstabsfrei: der Anteil unter `g` mm bei Motivbreite `B` cm
+ist derselbe wie der Anteil unter `g × 8 / B` mm bei 8 cm.
+
+| reale Verfahrensgrenze | bei 6,9 cm liest man Spalte | bei 5,6 cm liest man Spalte |
+|---|---|---|
+| Siebdruck 0,5 mm | 0,58 mm | 0,71 mm |
+| Digitaldruck 1,0 mm | 1,16 mm | 1,43 mm |
+| Digitaldruck 1,5 mm | 1,74 mm | 2,14 mm |
+
+**Gegenprobe:** 1,0 mm und 1,5 mm wurden mitgemessen, obwohl sie schon vom
+21.09.2026 vorliegen. **252 von 252 Werten stimmen auf die zweite
+Nachkommastelle ueberein, groesste Abweichung 0,000.** Das Messverfahren trifft
+also dasselbe wie damals.
+
+| Fall | median | mittel | schlechtestes | unter 0,5 % | 2–5 % | **ueber 5 %** |
+|---|---|---|---|---|---|---|
+| 6,9 cm · Siebdruck 0,5 mm | 0,00 % | 0,85 % | 11,9 % | 198 | 21 | **15** |
+| 5,6 cm · Siebdruck 0,5 mm | 0,00 % | 1,18 % | 17,7 % | 190 | 26 | **21** |
+| 6,9 cm · Digitaldruck 1,0 mm | 0,08 % | 2,20 % | 28,1 % | 170 | 18 | **39** |
+| **5,6 cm · Digitaldruck 1,0 mm** | 0,18 % | 2,75 % | 34,5 % | **158** | 22 | **43** |
+| 6,9 cm · Digitaldruck 1,5 mm | 0,36 % | 3,48 % | 39,3 % | 136 | 23 | **54** |
+| 5,6 cm · Digitaldruck 1,5 mm | 0,68 % | 4,61 % | 46,0 % | 110 | 33 | **64** |
+
+Zum Vergleich die Bezugsgroesse 8 cm (`siebdruck-statt-stick.md`): bei 1,0 mm
+**36** ueber 5 %, bei 1,5 mm **45**.
+
+**Schlechteste bei 5,6 cm / 1,0 mm:** San Marino 34,5 · Nicaragua 30,9 ·
+Mexiko 23,1 · Portugal 20,8 · Haiti 20,7 · Kambodscha 19,1 · Montenegro 18,6 ·
+Serbien 18,3 · Ecuador 17,2 · Spanien 17,0. **21 Motive ueber 12 %.**
+
+Es sind wieder die Wappenflaggen — dieselben wie beim Stick.
+
+### Was das fuer die vereinfachten Fassungen heisst
+
+**Die Vereinfachung ist auf 8 cm gerechnet und schrumpft mit.**
+
+| Fassung | bei 8 cm | bei 6,9 cm | bei 5,6 cm |
+|---|---|---|---|
+| 1,5-mm-Fassung (die gueltige) | 1,50 mm | 1,29 mm | **1,05 mm** |
+| 1,0-mm-Fassung | 1,00 mm | 0,86 mm | **0,70 mm** |
+
+**Damit steht die 1,5-mm-Fassung bei 5,6 cm genau auf der Untergrenze des
+Digitaldrucks** („1mm geht eben auch - 1,5mm ist halt besser"). Sie passt, aber
+ohne Reserve. Die 1,0-mm-Fassung faellt bei beiden Groessen unter die Grenze —
+sie waere nur noch Siebdruck.
+
+**Wer Reserve will, braucht eine neu gerechnete Fassung:** 1,5 mm real bei
+5,6 cm heisst **2,14 mm im 8-cm-Bezug**, bei 6,9 cm **1,74 mm**. Eine solche
+Fassung ist nie gerechnet worden. Bekannt ist nur die Richtung: 1,0 mm → 238 von
+252 bestehen, 1,5 mm → 251 von 252. Mehr Vereinfachung besteht besser, kostet
+aber Detail.
+
+> ⚠️ **Die beiden Kennzahlen sind nicht gegeneinander lesbar.** Die Messung oben
+> zaehlt nach der **dicksten Stelle** eines Farbflecks, die Stickfassungs-
+> Pipeline (`v2.messe()`) nach dem **Median der Skelett-Distanz** — sie urteilt
+> strenger. Die 10 Motive ueber 5 % der 1,5-mm-Fassung und die 43 oben sind
+> verschiedene Masse, keine Differenz.
+
+### Wo die vereinfachten Fassungen liegen — und wo nicht
+
+| | |
+|---|---|
+| Messwerte aller 252 | ✅ `docs/sicherungen/stickfassung-messwerte-252.csv` |
+| Erzeugungscode | ✅ `tools/stickfassung/` |
+| **Die Einzeldateien** | ❌ kein ZIP, keine SVG, keine PNG |
+| **Die Uebersicht** | ✅ **am 25.09.2026 doch gefunden:** `~/Downloads/OneFam_Stickfassung_1-5mm_Uebersicht.pdf`, 9 Blaetter, alle 252 Motive der 1,5-mm-Fassung auf Misty Grey, je Motiv Farbzahl und Restanteil |
+
+> **Korrektur zur ersten Suche desselben Tages.** Dort stand „nicht auf dem Mac".
+> Das galt fuer das ZIP mit den Einzeldateien und gilt dafuer weiter — die
+> **Uebersichts-PDF** war aber da. Gesucht worden war nach „stick", „1-5mm" und
+> ZIP-Endungen; der Dateiname traegt „Stickfassung" mit Bindestrich-Variante und
+> ist eine PDF. **Ein Suchmuster ist erst ein Befund, wenn geprueft ist, dass es
+> das Richtige trifft.**
+>
+> **Was die Uebersicht kann und was nicht:** als Ansicht und als Beleg fuer ein
+> Angebot reicht sie. **Als Druckvorlage nicht** — es sind Rasterbilder in einer
+> Sammelseite, keine Einzeldateien.
+
+**Die Neuerzeugung ist jetzt moeglich.** `cv2` und `skimage` fehlten; sie lassen
+sich unter diesem Python 3.9 **nicht** systemweit nachruesten — das verfuegbare
+`opencv-python-headless 4.9.0.80` ist gegen numpy 1.x gebaut, das System traegt
+numpy 2.0.2, und der Import scheitert mit `numpy.core.multiarray failed to
+import`. **Der Weg ist eine eigene Umgebung mit `numpy<2`**; die
+System-Installation wurde wieder zurueckgenommen.
+
+---
+
+### Siebdruck mit Vorbestellung — was die kleine Motivbreite daran aendert (25.09.2026)
+
+**Labi bringt den Siebdruck zurueck ins Spiel:** wenn er bei der neuen Breite
+traegt, ist eine Vorbestellung als Drop kein Nachteil, sondern passt zum Stil der
+Marke. Preis erst nach den Produktionskosten. Das aendert die Bewertung an drei
+Stellen.
+
+**1. Bei der kleinen Breite ist der Siebdruck das einzige Verfahren mit Reserve.**
+Die vereinfachte Fassung haelt per Konstruktion 1,5 mm bei 8 cm — und schrumpft mit:
+
+| Verfahren | Grenze (Robert, 22.09.) | bei 6,9 cm = 1,29 mm | bei 5,6 cm = 1,05 mm |
+|---|---|---|---|
+| **Siebdruck** | 0,5–1,0 mm | **traegt mit Reserve** | **traegt** |
+| Digitaldruck DTG/DTF | 1,0–1,5 mm | im Band | **an der Untergrenze** |
+| Stick | 1,0–1,5 mm | im Band | an der Untergrenze; unter 1 mm kein Satinstich |
+
+**2. Die einheitliche Breite macht die 100 Stueck ueberhaupt erst erreichbar.**
+Robert: Shirt, Sweater und Hoodie zaehlen zusammen auf die 100 — **aber nur bei
+gleicher Druckgroesse**. Heute sind es zwei (6,9 und 16,6 cm), und damit zaehlten
+sie **nicht** zusammen. Eine einheitliche Breite ueber alle drei Teile macht daraus
+eine Druckgroesse; Roberts eigenes Rechenbeispiel ist 40 + 35 + 25 = 100.
+
+> ⚠️ **Der Preis dafuer ist das grosse Hoodie-Motiv.** 16,6 cm auf rund 6 cm
+> herunterzunehmen ist keine technische, sondern eine Produktentscheidung.
+
+**3. Die Vereinfachung loest genau den Engpass, an dem der Siebdruck bisher
+scheiterte — die Farbzahl.** Am Original waren es median 3, **hoechstens 26**
+(Ecuador) — ein Ausschluss. Nach der Vereinfachung:
+
+| Farben | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|---|---|---|---|---|---|---|---|
+| Motive | 54 | 105 | 58 | 21 | 7 | 4 | 3 |
+
+Auf dunklem Stoff zaehlt die Weissunterlage als zusaetzliches Sieb. Damit:
+**3 Siebe 54 Motive · 4 Siebe 105 · 5 Siebe 58** — **217 von 252 mit hoechstens
+fuenf Sieben**, hoechstens neun bei drei Motiven (Suedgeorgien, Guam, San Marino).
+
+Der Restanteil unter 1,5 mm nach der Vereinfachung: median 2,3 %, **10 Motive ueber
+5 %**, eines ueber 12 % (Kirgisistan 16,8 %, bekannter Sonderfall).
+
+### Zwei Dinge, die vor einer Siebdruck-Zusage geklaert sein muessen
+
+1. **Der Passer — unbeantwortet seit dem 21.09.** Die Flagge liegt *in* den
+   Strichen, die Farben stossen direkt aneinander, jede ist ein eigener
+   Siebdurchgang. Passgenauigkeit auf Textil erfahrungsgemaess 0,3–0,5 mm. Bei
+   8 cm mit Ueberfuellung loesbar, bei 4 cm nicht mehr selbstverstaendlich —
+   **5,6 bis 6,9 cm liegt dazwischen, und niemand hat es bestaetigt.**
+2. **Die vereinfachte Fassung ist aus Pixeln vektorisiert** (`cv2.findContours`),
+   also treppige Konturen. Fuer den Stick egal, der Puncher digitalisiert ohnehin
+   neu. **Fuer einen Siebfilm nicht egal.** Entweder die Vereinfachung wird sauber
+   im Illustrator-Master nachgezogen, oder die Treppen stehen im Sieb.
+
+**Und der Drop kostet ausserhalb des Stueckpreises:** Lieferzeit 10–12 Werktage
+statt der live zugesagten 3–7 (Produktseiten und Versandrichtlinie in vier
+Sprachen neu), **Widerrufsausschluss faellt** (Vorratsware statt Print-on-Demand),
+Vorkasse fuer noch nicht produzierte Ware, kein pauschaler Ueberschuss — ein
+Ersatzstueck bei Mangel heisst neue Auflage. **Die verbraucherrechtliche Seite
+gehoert zum Anwalt, nicht in diese Datei.**
+
+---
+
+## Stand am 24.09.2026
 
 **Eine fremde Kritik an Landingpage und Shop wurde geprueft. Ergebnis: an den
 Preisen ist nichts kaputt, und der staerkste Vorwurf beruhte auf einem Lesefehler.**
