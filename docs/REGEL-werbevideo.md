@@ -1083,3 +1083,245 @@ Gemessener Verlauf im fertigen Film:
 ### Datei
 
 `~/Downloads/onefam-werbung/albanien/REALLY_FROM_albanien_v15.mp4` — 20,1 s.
+
+---
+
+## Fassung v16, 29.09.2026 — Nahaufnahme, Licht auf dem Mockup, Takt
+
+### ⚠ Zuerst: das Kratzverzeichnis ueberlebt die Sitzung nicht
+
+Am naechsten Morgen war `/private/tmp/claude-501/.../scratchpad` leer. Die
+Videodateien lagen in `~/Downloads/onefam-werbung/albanien/` und waren da, aber
+**Textauflagen, Schriften und Schnittskripte mussten neu gebaut werden.**
+
+Seitdem liegen sie in **`~/Downloads/onefam-werbung/_werkzeug/`**:
+`n1`–`n7`, `karte_schluss.png`, `Outfit.ttf`, `Satoshi.ttf`, `mockup_hell.png`,
+`schnitt_v16.sh`. Wer weiterarbeitet, kopiert sie von dort ins Kratzverzeichnis.
+
+### Schnittlaengen auf den Musiktakt
+
+Der Higgsfield-Ton hat einen messbaren Takt. Gemessen ueber die Tiefenanteile
+(Tiefpass 200 Hz, Huellkurve, Spitzen): **Abstand 1,02 s = 59 je Minute.**
+
+Alle Schnitte sind jetzt Vielfache davon:
+
+| Abschnitt | Takte | Dauer |
+|---|---|---|
+| Mann, Frage | 2 | 2,04 s |
+| Mann, „Zurich." | 1 | 1,02 s |
+| Mann, Nachfrage | 2 | 2,04 s |
+| **Nahaufnahme Gesicht** | **3** | **3,06 s** |
+| Tirana | 3 | 3,06 s |
+| Zuerich | 3 | 3,06 s |
+| Frau | 2 | 2,04 s |
+| Mockup | 2 | 2,04 s |
+| Wortmarke | 2 | 2,04 s |
+
+Summe 20,4 s; der Ton wird mit `apad` auf dieselbe Laenge gebracht.
+
+### Die Nahaufnahme
+
+Referenz ist **ein Standbild aus dem vorhandenen Traegerclip** — so bleibt es
+dieselbe Person. Im Prompt: „The frame is filled by his face from the top of his
+head to just below the chin, no shoulders, no garment visible."
+
+### Ein schwarzes Teil auf Schwarz braucht Licht, keine Nachbearbeitung
+
+Das Aufhellen in v15 (Gamma mit Schwarzpunkt) reichte nicht — der Pullover war
+weiter kaum als Kleidungsstueck zu erkennen. **Das Licht gehoert in den Prompt**,
+nicht in die Bildbearbeitung:
+
+```
+IT IS BRIGHTLY AND CLEARLY LIT like a studio product shot: a strong soft key
+light from the front left models the whole garment, a bright rim light runs along
+both shoulders and both sleeves so the silhouette reads clearly, and a soft fill
+light on the chest makes the fabric texture and the seams plainly visible. The
+sweatshirt reads as a dark charcoal grey garment, clearly lighter than the
+background, never merging into it, never a black silhouette.
+```
+
+| | v15 (nachbearbeitet) | **v16 (beleuchtet)** |
+|---|---|---|
+| Stoff Mittel | 55,9 | 51,8 |
+| Bildfuellung | 18,3 % | **33,5 %** |
+| Hintergrund | 15,0 | **4,7** |
+
+Der Stoffwert ist aehnlich — aber das Teil **liest** als Pullover, weil Kantenlicht
+die Silhouette zeichnet, und der Hintergrund ist tiefer schwarz statt angehoben.
+
+### Lidschlaege messen, nicht schaetzen
+
+Die Frau blinzelte unnatuerlich. Gemessen ueber den Kontrast im Augenband
+(`g[380:560, 380:720].std()` an 50 Zeitpunkten), Schwelle `Mittel − 0,8·Streuung`:
+
+| | Lidschlaege | Dauern |
+|---|---|---|
+| v15 | 4 | 0,33 / 0,25 / 0,50 / 0,08 s |
+| v16 roh | 2 | 0,42 / **0,83 s** |
+
+**0,83 s ist Zeitlupe** — ein menschlicher Lidschlag dauert 0,1 bis 0,4 s. Der
+Prompt („two completely natural, relaxed, ordinary blinks … never in slow motion")
+hat die Zahl gesenkt, aber die Dauer nicht.
+
+**Geloest ueber den Schnitt:** Der ruhige Abschnitt ohne Lidschlag liegt bei
+**0,42 bis 2,60 s** — genau die 2,04 s, die der Takt vorgibt. Bei zwei Sekunden
+faellt ein fehlender Lidschlag nicht auf; Menschen blinzeln etwa alle vier
+Sekunden.
+
+> **Merksatz:** Wenn ein Modell eine Bewegung falsch taktet, hilft oft kein neuer
+> Prompt, sondern die Wahl des Ausschnitts.
+
+### Datei
+
+`~/Downloads/onefam-werbung/albanien/REALLY_FROM_albanien_v16.mp4` — 20,2 s.
+Kosten: **180 Credits** (3 937 → 3 757).
+
+---
+
+## Fassung v17, 29.09.2026 — die Nahaufnahme lebt
+
+Labi: am Anfang starr, das Blinzeln unnatuerlich.
+
+### Gemessen, nicht geschaetzt
+
+Messskript `lidschlag.py` (liegt im Werkzeugordner): tastet 60 Zeitpunkte ab,
+misst die Streuung im Augenband (`g[0,28h:0,42h, 0,28w:0,72w].std()`), Schwelle
+`Mittel − 0,75·Streuung`. Dazu die bewegte Bildflaeche in der ersten Sekunde.
+
+| | Lidschlaege | Bewegung 1. Sekunde |
+|---|---|---|
+| v16 (verworfen) | 3 → **0,42** / 0,17 / 0,33 s | **0,15 %** |
+| Variante A | 4 → 0,33 / **0,17** / **0,25** / **0,25** s | 0,23 % |
+| Variante B | 4 → viermal **0,25** s | 0,31 % |
+
+**0,15 % bewegte Flaeche ist ein Standbild.** Ein menschlicher Lidschlag dauert
+0,1 bis 0,4 s — die 0,42 s aus v16 lagen darueber.
+
+### Was im Prompt hilft
+
+```
+FROM THE VERY FIRST FRAME HE IS ALREADY ALIVE AND BREATHING — nothing is frozen,
+there is no still moment at the start. Throughout the shot there is continuous
+subtle life: the faintest movement of the nostrils as he breathes, a barely
+visible shift of the jaw, and small natural eye movements as his gaze settles.
+His blinks are quick and ordinary, the eyelids closing and reopening in a
+fraction of a second exactly like a real person, never slow, never held shut,
+never fluttering, never in slow motion.
+```
+
+Die **Mikrobewegungen einzeln zu benennen** (Nasenfluegel, Kiefer, Augen-Saccaden)
+wirkt besser als „he is alive". Und die Lidschlagdauer muss als **Bruchteil einer
+Sekunde** beschrieben werden, nicht als „natural".
+
+### Und trotzdem: den Ausschnitt waehlen
+
+Auch mit gutem Prompt bleibt das **erste Bild** am ruhigsten. Gewaehlt wurde
+Variante A **ab Sekunde 1,0** — damit ist der starre Auftakt weg und es liegen
+nur zwei Lidschlaege im 3,06-s-Fenster statt drei.
+
+Bewegung an derselben Stelle im fertigen Film: **2,51 %** gegen vorher 0,15 %.
+
+> **Regel: zwei Varianten je Portraet generieren.** Lidschlagtakt und Startruhe
+> lassen sich nicht zuverlaessig erzwingen — man waehlt sie aus.
+
+### Datei
+
+`~/Downloads/onefam-werbung/albanien/REALLY_FROM_albanien_v17.mp4` — 20,2 s.
+Beide Varianten liegen als `nahaufnahme_mann_A.mp4` und `_B.mp4` daneben.
+Kosten: **120 Credits**.
+
+---
+
+## Fassung v18, 29.09.2026 — der Schlusssatz gehoert zum Menschen
+
+**Keine neuen Credits** — nur Schnitt.
+
+„So we made our own place." steht jetzt **unter der Frau**, der Sweater blendet
+**ohne Text** auf.
+
+**Warum das besser ist:** Der Satz ist ein *Wir*. Ueber dem Mockup behauptet ein
+Produkt, es sei ein Ort; ueber ihrem Gesicht sagt es die Person, die dazugehoert.
+Und der Sweater gewinnt dadurch eine Begruendung — die Abfolge ist jetzt
+**Mensch sagt es → das Ding, das daraus entstand → Marke**, statt dass ein
+Kleidungsstueck den Satz fuer sich beansprucht.
+
+### Die Einschraenkung, und wie sie geloest ist
+
+Die Frau hat nur 2,04 s (2 Takte). Fuenf Woerter in zwei Zeilen sind darin knapp.
+Deshalb:
+
+* Schriftgrad **64 statt 78**
+* **kein Einblenden** — der Text steht von der ersten Bildzeile an
+* Lage **y 1396**, also dieselbe Hoehe wie der Dialog beim Mann; der Blick springt
+  beim Schnitt nicht
+
+Ihr Abschnitt bleibt bei 0,45–2,49 s, dem gemessenen Fenster ohne den
+Zeitlupen-Lidschlag.
+
+### Ablauf, Stand v18
+
+| Takte | Dauer | Bild | Text |
+|---|---|---|---|
+| 2 | 2,04 | Mann | „Where are you from?" |
+| 1 | 1,02 | Mann | „Zurich." |
+| 2 | 2,04 | Mann | „No — where are you **really** from?" |
+| 3 | 3,06 | **Nahaufnahme** | — |
+| 3 | 3,06 | Tirana, warm | In Albania, I'm the Swiss one. |
+| 3 | 3,06 | Zuerich, kalt | In Switzerland, I'm the Albanian one. |
+| 2 | 2,04 | **Frau** | **So we made our own place.** |
+| 2 | 2,04 | Mockup, blendet auf | — |
+| 2 | 2,04 | Wortmarke | Clothing for people who belong… |
+
+### Datei
+
+`~/Downloads/onefam-werbung/albanien/REALLY_FROM_albanien_v18.mp4` — 20,2 s.
+
+---
+
+## Fassung v19, 29.09.2026 — der Moment, der nachhallt
+
+Labis Vorschlag: die Frau laenger zeigen, den Satz einblenden, damit ihr Gesicht
+nach dem Lesen noch einmal wirkt.
+
+**Warum das richtig ist.** Bis dahin ist der Film reine Funktion — Text, Schnitt,
+Text, Schnitt. Jedes Bild arbeitet. Der letzte Moment vor dem Produkt darf nicht
+arbeiten, er muss **nachhallen**. Blendet der Satz ein und bleibt danach Zeit,
+liest der Zuschauer ihr Gesicht ein zweites Mal, diesmal mit dem Satz im Kopf.
+Das macht sie zum **Gesicht der Aussage** statt zur Traegerin einer Bildunterschrift.
+
+> ⚠ **Drei Takte, nicht mehr.** Bei vier faellt der Film auseinander. Ein
+> Nachhall-Moment ist kein Standbild.
+
+### Aufbau des Abschnitts (3,06 s)
+
+| | |
+|---|---|
+| 0,0–0,9 s | nur ihr Gesicht, Ankunft nach dem Schnitt |
+| 0,9–1,6 s | der Satz blendet ein (`fade=t=in:st=0.9:d=0.7:alpha=1`) |
+| 1,6–3,06 s | Satz steht, das Gesicht wirkt nach |
+
+### Zwei Varianten, gemessen
+
+| | Lidschlaege | Bewegung 1. Sek |
+|---|---|---|
+| A | 0,42 / 0,08 / 0,17 / 0,25 s | 0,02 % |
+| **B (gewaehlt)** | 0,42 / 0,33 / **0,08 s** | 0,04 % |
+
+B ist heller, der Blick offener. Gewaehlt ab **0,95 s** — damit liegen die beiden
+langen Lidschlaege am Clipanfang ausserhalb, und im Fenster bleibt **genau einer
+von 0,08 s**. Er faellt bei 2,22 s, also kurz nach dem Texteinblenden: es wirkt,
+als lese sie mit.
+
+> **Der Glücksfall ist kein Zufall, sondern Auswahl.** Zwei Varianten erzeugen,
+> die Lidschlaege messen, das Fenster danach legen.
+
+### Film jetzt 21,2 s
+
+Ein Takt mehr als vorher. Der Ton wurde mit `apad=pad_dur=1.6` auf 21,42 s
+gebracht, das Ausblenden auf `st=18.9:d=2.5` verschoben.
+
+### Datei
+
+`~/Downloads/onefam-werbung/albanien/REALLY_FROM_albanien_v19.mp4` — 21,2 s.
+Beide Varianten liegen als `frau_lang_A.mp4` und `_B.mp4` daneben.
+Kosten: **120 Credits**.
