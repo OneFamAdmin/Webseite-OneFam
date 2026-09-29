@@ -88,6 +88,52 @@ Alle gemessen, alle unter 150 Zeichen:
 
 ---
 
+## Von aussen nachpruefen — was geht und was nicht
+
+Das Profil laesst sich **ohne Anmeldung** teilweise messen. Ein einfacher Abruf
+von `https://www.instagram.com/onefam_official/` reicht.
+
+**Lesbar ist:**
+
+- **Die Bio im Wortlaut.** Sie steht in der Meta-Angabe `name="description"`,
+  hinter „auf Instagram: " in Anfuehrungszeichen, mit `\n` als Zeilentrenner.
+- **Namensfeld, Follower, Gefolgt, Beitragszahl** — ebenfalls dort.
+
+**NICHT lesbar ist das Linkfeld.** Am 29.09.2026 stand `onefam.ch` an keiner
+Stelle im Quelltext, obwohl der Link im Profil **vorhanden und anklickbar** ist
+(von Labi im Profil geprueft). **Aus „steht nicht im Quelltext" folgt also
+nicht „fehlt".** Wer das Linkfeld pruefen will, sieht im Profil nach oder meldet
+gar nichts.
+
+### Stand der Umsetzung, 29.09.2026
+
+| | |
+|---|---|
+| Namensfeld | `OneFam • Clothing & Community` — gesetzt |
+| „good energy, real connections, real journeys" | entfernt |
+| „Join the Fam — free", 👇, 🌍 | entfernt |
+| Link auf `onefam.ch` | vorhanden, fuehrt auf die Landingpage, von dort in den Shop |
+| Beitraege | **0** — die drei Reels aus dem Nachtleben sind weg |
+
+**Offen: ein Tippfehler in Zeile 2.** Live steht „If your answer has **an**
+comma" — richtig ist **„a comma"**. „an" steht nur vor Vokallauten. Der Satz ist
+der Haken der Marke und auf Englisch; zwei Buchstaben, die bei jedem
+Muttersprachler auffallen. Ausserdem ein ueberzaehliges Leerzeichen am
+Zeilenende.
+
+Richtige Fassung, 119 von 150 Zeichen:
+
+```
+Where are you from?
+If your answer has a comma, this is for you.
+Clothing for people who belong to more than one place.
+```
+
+> Labis Kuerzung „has a comma" statt „has a comma in it" ist knapper als der
+> urspruengliche Entwurf und wird uebernommen.
+
+---
+
 ## Das Raster
 
 ### Die eine Regel, aus der alles folgt
