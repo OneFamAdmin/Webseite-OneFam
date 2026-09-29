@@ -1325,3 +1325,82 @@ gebracht, das Ausblenden auf `st=18.9:d=2.5` verschoben.
 `~/Downloads/onefam-werbung/albanien/REALLY_FROM_albanien_v19.mp4` — 21,2 s.
 Beide Varianten liegen als `frau_lang_A.mp4` und `_B.mp4` daneben.
 Kosten: **120 Credits**.
+
+---
+
+## Fassung v20, 29.09.2026 — der Schriftzug im Abbinder traegt den Verlauf
+
+Vorschlag kam von einem Kumpel von Labi: die Wortmarke am Schluss in den
+Markenfarben statt in Creme.
+
+### Warum es genau dort Sinn macht — und nur dort
+
+Der Film erzaehlt in **zwei Farbwelten**: Tirana warm, Zuerich kalt. Danach das
+Mockup mit dem **rot-schwarzen** Albanien-Zeichen. **Die Markenfarben kommen bis
+dahin kein einziges Mal vor.** Der Abbinder ist der einzige Block, in dem nicht
+die Person und nicht das Land spricht, sondern die Marke selbst.
+
+Dazu loest die Farbe den Satz ein, den der Film gerade gemacht hat: „In Albania,
+I'm the Swiss one. In Switzerland, I'm the Albanian one." Zwei Welten, in keine
+passt er ganz — und darauf ein Schriftzug, der **nicht eine Farbe ist, sondern
+eine ganze Reihe**. Das ist „mehr als ein Ort" als Bild. In Creme sagt der
+Schriftzug nichts; im Verlauf sagt er dasselbe noch einmal, ohne ein Wort.
+
+**Deshalb bleibt er anderswo Creme.** Nicht nur, weil er im Nav technisch
+scheitert, sondern weil er hier etwas einloest. Beim vierten Mal bedeutet er
+nichts mehr.
+
+### Gemessen
+
+- **Harter Schnitt bei 19,200 s**, bildgenau: die Bildecke springt in einem
+  einzigen Bild von Grauwert 0,77 auf 10,00. **Keine Blende.**
+- Danach **2,03 s stillstehend** — jeder Messwert ueber alle Bilder identisch.
+  Das passt auf den 2-Takt-Block (2,04 s) aus der Tabelle oben.
+- Wortmarke im Bild: **x 271–808, y 750–862**, also 538 x 112 px, Verhaeltnis
+  4,80. Deckt sich mit `karte_schluss.png`.
+- Hintergrund der Tafel: **rgb(10,10,10)**, die Markenfarbe.
+
+### Waagrecht, nicht diagonal
+
+Bei einem 4,81:1 breiten Wort schneidet ein diagonaler Verlauf den **goldenen
+Anfang weg** — das „o" faengt dann schon orange an. Waagrecht laeuft die ganze
+Rampe durchs Wort: Gold beim „o", Violett beim „m", dieselbe Spanne wie in der
+Gesichtsmarke.
+
+### Nur gross
+
+| | Strichstaerke | Kontrast gegen #0A0A0A am violetten Ende |
+|---|---|---|
+| Abbinder, 112 px hoch | **14,4 px** | traegt |
+| Nav, 20 px hoch | 2,6 px | 3,56:1 statt 16,03:1 bei Creme |
+
+Unter etwa 90 px Hoehe zerfaellt der Verlauf in **bunte Buchstaben**: er laeuft
+ueber die Breite, und in einem 2,6 px schmalen Strich gibt es gar keine
+Farbverschiebung mehr.
+
+### Dateien
+
+- `public/assets/onefam-wortmarke-verlauf.svg` — im Repo, mit der Begruendung drin
+- `_werkzeug/karte_schluss_verlauf.png` — Abbinder-Tafel mit Verlauf, **neben**
+  der bestehenden `karte_schluss.png`, die unangetastet bleibt
+- `_werkzeug/wortmarke_verlauf_auflage_538.png` — die Auflage-Kachel
+- `~/Downloads/onefam-werbung/albanien/REALLY_FROM_albanien_v20.mp4` — 21,2 s
+
+Geaendert wurde **nur die Wortmarke**, ueber eine Auflage auf die fertige v19.
+Gegengemessen altes gegen neues Bild: vor 19,2 s **0,00 %** veraenderte Pixel,
+danach 0,82 % — genau die Wortmarkenflaeche. Ton unveraendert kopiert.
+
+### ⚠ Drei Fallen, die dabei Zeit gekostet haben
+
+1. **`stats()` in sharp rechnet auf dem Eingangsbild** und ignoriert `extract()`.
+   Jeder Ausschnitt liefert denselben Wert, auch eine Ecke und das ganze Bild.
+   Wer einen Ausschnitt messen will, schreibt ihn **erst in einen Puffer**.
+2. **Ein Standbild als zweite ffmpeg-Quelle endet nach einem Einzelbild.** Mit
+   `enable='gte(t,19.2)'` ist es dann laengst zu Ende und die Auflage greift
+   **stillschweigend nicht** — kein Fehler, nur ein unveraendertes Video. Es
+   braucht **`-loop 1`** vor dem `-i` des Bildes.
+3. **Ein langer Kommentar vor `<svg>` macht die Datei fuer sharp unlesbar**
+   („Input file contains unsupported image format"): das Tag rutscht aus dem
+   Erkennungsfenster. Abhilfe ist die XML-Zeile ganz oben, wie sie
+   `logo-face-gradient.svg` schon hat. `onefam-wortmarke.svg` geht nur durch,
+   weil sein Kommentar kurz genug ist.
