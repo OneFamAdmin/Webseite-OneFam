@@ -280,6 +280,10 @@ muss selbst prüfen.
   Gesichtsmarke.
 - **SVG-Data-URIs ohne `width`/`height` versagen in iOS Safari** — echte Bilddatei
   nehmen.
+- Die Wortmarke gibt es auch **im Markenverlauf**: `public/assets/onefam-wortmarke-verlauf.svg`. Nur für **grosse, stehende**
+  Flächen wie Video-Abbinder — **nie im Nav, in der Fusszeile oder im Lockup**. Dort ist
+  sie 16–24 px hoch, das sind 2,1–3,1 px Strich; der Verlauf zerfällt in bunte Buchstaben
+  und der Kontrast fällt am violetten Ende von 16,03:1 auf 3,56:1. Begründung in der Datei.
 - Bausteine: `MaxWidth` (1680 px), `Nav` (`ueberHero` nur auf der Startseite),
   `SectionBg`, `Reveal`.
 

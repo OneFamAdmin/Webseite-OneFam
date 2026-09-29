@@ -414,6 +414,40 @@ sondern die falsche Adresse. `/warenkorb/` antwortet mit 200.
 
 ---
 
+## ✅ Wortmarke im Verlauf für Video-Abbinder (29.09.2026)
+
+Neue Datei **`public/assets/onefam-wortmarke-verlauf.svg`**, Begründung steht
+ausführlich darin. Kurz:
+
+- **Waagrechter Verlauf, nicht diagonal.** Bei einem 4,81:1 breiten Wort schneidet
+  eine Diagonale den goldenen Anfang weg — das „o" fängt dann schon orange an.
+  Waagrecht läuft die ganze Rampe: Gold beim „o", Violett beim „m".
+- **Nur gross benutzen.** Im Abbinder ist die Wortmarke 112 px hoch, das sind
+  **14,4 px Strich**. Im Nav sind es bei 20 px Höhe nur **2,6 px** — dort zerfällt
+  der Verlauf in bunte Buchstaben, und der Kontrast gegen `#0A0A0A` fällt am
+  violetten Ende von **16,03:1** (Creme) auf **3,56:1**.
+- **Das Albanien-Reel ist umgebaut:**
+  `~/Downloads/REALLY_FROM_albanien_v20_wortmarke-verlauf.mp4`. Der Abbinder
+  schneidet hart bei **19,200 s** (bildgenau gemessen, keine Blende) und steht
+  dann still. Ersetzt wurde nur die Wortmarke über eine Auflage-Kachel; die
+  Zeile darunter bleibt Creme. Gegengemessen: vor 19,2 s **0,00 %** veränderte
+  Pixel, danach 0,82 % — genau die Wortmarkenfläche. Ton unverändert kopiert.
+
+### Zwei Fallen dabei
+
+1. **`stats()` in sharp rechnet auf dem Eingangsbild** und ignoriert `extract()`.
+   Wer einen Ausschnitt messen will, muss ihn erst in einen Puffer schreiben.
+   Sonst kommt für jeden Ausschnitt derselbe Wert heraus.
+2. **Ein Standbild als zweite ffmpeg-Quelle endet nach einem Einzelbild.** Mit
+   `enable='gte(t,19.2)'` ist es dann längst zu Ende und die Auflage greift nicht
+   — ohne Fehlermeldung. Es braucht **`-loop 1`** vor dem `-i` des Bildes.
+3. **Ein langer Kommentar vor `<svg>` macht die Datei unlesbar** für sharp und
+   libvips: das Tag rutscht aus dem Erkennungsfenster, Meldung „Input file
+   contains unsupported image format". Abhilfe ist die XML-Zeile ganz oben, wie
+   sie `logo-face-gradient.svg` schon hat.
+
+---
+
 ## ✅ Instagram: Bio und Rasterregel festgelegt (25.09.2026)
 
 Neue Datei **`docs/REGEL-instagram.md`** — dort steht alles. Kurz:
