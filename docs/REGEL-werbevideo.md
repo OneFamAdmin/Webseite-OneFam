@@ -1383,6 +1383,12 @@ Farbverschiebung mehr.
 - `public/assets/onefam-wortmarke-verlauf.svg` — im Repo, mit der Begruendung drin
 - `_werkzeug/karte_schluss_verlauf.png` — Abbinder-Tafel mit Verlauf, **neben**
   der bestehenden `karte_schluss.png`, die unangetastet bleibt
+
+> **Entscheid Labi, 29.09.2026: die Verlaufstafel ist kein neuer Standard.** Sie
+> gehoert zu diesem einen Clip. Die Standardtafel bleibt `karte_schluss.png` in
+> Creme. Wiederverwenden ist denkbar, aber das ist **je Clip zu entscheiden** und
+> passiert nicht von selbst — wer eine neue Fassung baut, nimmt die Creme-Tafel,
+> solange niemand etwas anderes sagt.
 - `_werkzeug/wortmarke_verlauf_auflage_538.png` — die Auflage-Kachel
 - `~/Downloads/onefam-werbung/albanien/REALLY_FROM_albanien_v20.mp4` — 21,2 s
 
