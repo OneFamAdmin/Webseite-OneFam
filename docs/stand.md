@@ -1,3 +1,49 @@
+# Stand — 08.10.2026
+
+## ⏰ Faellig am 12.10.2026: Antwort von Shirt-King pruefen
+
+**Am 08.10.2026 im Postfach nachgemessen — seit dem 22.09., 16:48 ist von
+Heldenwerbung, Shirt-King und PodOS nichts eingegangen**, in keinem der vier
+Konten. Christian hat im PodOS-Chat ebenfalls nicht geantwortet (von Labi
+geprueft), vermutlich noch im Urlaub.
+
+| Gesendet | Betreff | Antwort |
+|---|---|---|
+| 21.09., 17:52 | `Re: nfrage Siebdruck…` | ✅ 22.09., 16:48 |
+| 21.09., 20:18 | **Ausfuehrer** (eigener Betreff) | ❌ 17 Tage |
+| 22.09., 18:40 | **Preisanfrage Albanien** (eigener Betreff) | ❌ 16 Tage |
+| **08.10., 08:39** | **Nachfassen, im alten Faden** | offen |
+
+### ⚠️ Der Befund, der das kuenftige Vorgehen bestimmt
+
+**Robert antwortet nur im laufenden Faden.** Die Ausfuehrer-Mail lag beim
+Antworten am 22.09. schon 20 Stunden in seinem Postfach und wurde uebergangen,
+ebenso danach die Preisanfrage. Beide hatten einen **eigenen Betreff**.
+
+**Damit ist die Empfehlung vom 21.09. widerlegt.** Ein eigener Betreff war im
+PodOS-Chat richtig (dort ging eine Frage unter, weil sie neben einem anderen
+Thema stand) — **bei Robert bewirkt er das Gegenteil.** Kuenftig bei ihm im Faden
+`Re: nfrage Siebdruck — Auflage aus Vorbestellungen…` bleiben.
+
+### Wenn am 12.10. immer noch nichts da ist
+
+**Kanal wechseln statt dritte Mail.** Robert hat eine WhatsApp-Nummer in der
+Signatur: **+49 1579 2377639**, und er schreibt „#GernePerDu". Nach drei Wochen
+ist ein Zweizeiler dort angemessen. **Das macht Labi selbst.**
+
+### Was dadurch blockiert ist
+
+| | |
+|---|---|
+| **Albanien-Drop** | kein Stueckpreis → keine Kalkulation, kein Termin |
+| **Erstes Paket in ein Drittland** | Ausfuehrer-Rolle nicht schriftlich festgelegt |
+| **Der Shop laeuft weiter auf DTG** | die DTF-Einstellung im PodOS-Backend ist seit dem 15.09. nicht gefunden |
+| **94 Variationen** am White Logo Sweater (365, privat) | seit 21.09. weg, Christian gefragt, nicht repariert. Sollwert Gesamtbestand **3 218** ueber 42 Produkte |
+
+→ `docs/entwuerfe/nachfassen-robert-08102026.md`
+
+---
+
 # Stand — 29.09.2026
 
 ## 🎬 Werbevideo Albanien — erster Laenderclip steht (28./29.09.2026)
