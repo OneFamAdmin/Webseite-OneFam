@@ -403,3 +403,16 @@ fortschreiben.
 | `docs/REGEL-gesichter.md` | Warum jedes Land eigene Gesichter braucht |
 | `docs/REGEL-instagram.md` | Bio in vier Sprachen, was ins Raster gehört und was nicht |
 | `docs/REFERENZ-shopdesign.md` | Gemessene Sollwerte aus fünf Referenzshops (Hero, Typo, Bildformat) |
+
+---
+
+## Was hier nicht hergehört
+
+Dieses Verzeichnis ist **nur** die OneFam-Brand-Site. Nicht hierher gehören:
+Erfolgskurse (`~/Projekte/erfolgskurse`), Sofia (`~/Projekte/sofia`),
+Bewerbungen (`~/Dossiers/bewerbungen`) und die Rechtsfälle (`~/Dossiers/…`).
+Das Nicht-Code-Material zu OneFam liegt daneben in `~/Projekte/onefam-material`.
+
+Wechselt das Gespräch das Thema: hier **nicht** weitermachen, sondern den
+passenden Ordner nennen — sonst landen Verlauf und Memories wieder im falschen
+Projekt. *(ergänzt beim Aufräumen am 11.10.2026)*
