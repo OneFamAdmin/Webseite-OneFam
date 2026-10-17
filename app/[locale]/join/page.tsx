@@ -7,6 +7,7 @@ import WaitlistForm from '@/components/WaitlistForm';
 import Nav from '@/components/Nav';
 import { pageMetadata, sprachAlternativen } from '@/lib/seo';
 import { LOCALES, isLocale, joinPath } from '@/i18n/routing';
+import { laenderOptionen } from '@/lib/laenderwunsch';
 
 // Bis zum 09.08.2026 lag diese Seite als app/join/page.tsx ausserhalb der
 // Sprachstruktur. Sie war nur auf Deutsch zu haben, /fr/join und /es/join
@@ -61,7 +62,7 @@ export default async function JoinPage({ params }: Props) {
         <p className="mt-5 font-body text-lg leading-[1.7] text-secondary">{t('text')}</p>
 
         <div className="mt-10">
-          <WaitlistForm />
+          <WaitlistForm laender={laenderOptionen(locale)} />
         </div>
 
         <ul className="mt-8 space-y-2.5">

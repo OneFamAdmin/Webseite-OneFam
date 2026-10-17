@@ -1,5 +1,36 @@
 # Stand — 08.10.2026
 
+## 🆕 17.10.2026: Länderwunsch auf `/join` — gebaut, nicht live
+
+**Anlass:** Der Family Code sagt „das läuft schon … gebaut wird, wofür sich genug
+Leute eintragen" (`messages/de.json`, „Wir machen uns nützlich"). Die Warteliste
+speicherte aber nur E-Mail und Name — das Versprechen war ungedeckt. Herausgearbeitet
+im Chat `docs/entwuerfe/chat-polenta7000-onefam.md`.
+
+**Gebaut:** freiwilliges Auswahlfeld „Für welches Land soll es als Nächstes Kleidung
+geben?" (243 Länder inkl. Kosovo, Namen je Sprache über `Intl.DisplayNames`), nur auf
+`/join`, nicht im kompakten Formular der Startseite. Gespeichert als ISO-Code in
+`waitlist.country_wish`. Zählung **nur im Admin** (`/admin`, Abschnitt „Länderwünsche"),
+bewusst kein öffentlicher Zähler, solange die Zahlen klein sind.
+
+**Gemessen am Dev-Server:** `/join`, `/de/join`, `/fr/join`, `/es/join` liefern je
+244 Optionen (243 + „kein Wunsch") mit übersetzter Frage; Startseite ohne Feld.
+`tsc` sauber, Lint ohne neue Warnungen. **Optik des Auswahlfelds nicht im Browser
+angesehen** (Erweiterung nicht verbunden) — vor dem Push auf Handy und Desktop ansehen.
+
+**Vor dem Push, in dieser Reihenfolge:**
+1. ⚠️ **Datenschutzerklärung anpassen** (`messages/legal/<sprache>.json`, Abschnitt
+   „Warteliste (Newsletter)") — sie zählt heute abschliessend E-Mail, Name und Zeitpunkt
+   auf, Zweck „ausschliesslich, dich über OneFam zu informieren". Der Länderwunsch
+   fehlt dort, ebenso der zweite Zweck. **Rechtlich heikel — von Labi zu entscheiden.**
+2. **Migration `0016_laenderwunsch.sql` anwenden.** Ohne sie scheitert jede Eintragung
+   *mit* gewähltem Land; Eintragungen ohne Land laufen weiter (die Action schickt die
+   Spalte nur mit, wenn ein Land gewählt ist).
+3. Push (Labi).
+
+**Bekannte Grenze:** Wer schon auf der Liste steht und sich erneut einträgt, dessen
+Wunsch geht verloren — nachtragen bräuchte eine Update-Policy für anon.
+
 ## ⏰ Faellig am 12.10.2026: Antwort von Shirt-King pruefen
 
 **Am 08.10.2026 im Postfach nachgemessen — seit dem 22.09., 16:48 ist von

@@ -3,10 +3,11 @@
 import React from 'react';
 import { useActionState } from 'react';
 import { useFormStatus } from 'react-dom';
-import { Mail, Check, Loader2, User } from 'lucide-react';
+import { Mail, Check, Loader2, User, Globe, ChevronDown } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Button from './Button';
 import { joinWaitlist, type WaitlistState } from '@/app/actions/join';
+import type { LandOption } from '@/lib/laenderwunsch';
 
 const INITIAL: WaitlistState = { status: 'idle', message: '' };
 
@@ -33,8 +34,18 @@ function SubmitButton() {
 
 /** Warteliste — bewusst ein reines E-Mail-Signup: kein Konto, keine Teilnahme,
  *  kein Gewinnversprechen. Der Draw-Funnel (JoinForm) ist bis zur rechtlichen
- *  Prüfung geparkt, siehe docs/handover-shop-pool.md §3. */
-export default function WaitlistForm({ compact = false }: { compact?: boolean }) {
+ *  Prüfung geparkt, siehe docs/handover-shop-pool.md §3.
+ *
+ *  `laender` schaltet das freiwillige Feld „Länderwunsch" ein (seit 17.10.2026,
+ *  Migration 0016). Nur /join reicht die Liste herein; die kompakte Fassung im
+ *  Travel-Pool-Abschnitt bleibt bei der E-Mail allein. */
+export default function WaitlistForm({
+  compact = false,
+  laender,
+}: {
+  compact?: boolean;
+  laender?: LandOption[];
+}) {
   const [state, formAction] = useActionState(joinWaitlist, INITIAL);
   const t = useTranslations('waitlist');
 
@@ -75,6 +86,46 @@ export default function WaitlistForm({ compact = false }: { compact?: boolean })
               className="w-full rounded-[4px] border border-line bg-surface py-3.5 pl-11 pr-4 font-body text-base text-primary outline-none transition-colors duration-[180ms] placeholder:text-faint focus:border-gold/60"
             />
           </div>
+        </div>
+      )}
+
+      {!compact && laender && laender.length > 0 && (
+        <div>
+          <label htmlFor="wl-land" className="mb-2 block font-body text-sm text-secondary">
+            {t('land_label')} <span className="text-faint">{t('name_optional')}</span>
+          </label>
+          <div className="relative">
+            <Globe
+              size={18}
+              strokeWidth={1.6}
+              className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-faint"
+            />
+            <select
+              id="wl-land"
+              name="land"
+              defaultValue=""
+              aria-describedby="wl-land-hinweis"
+              // [color-scheme:dark]: die Seite meldet kein dunkles Farbschema, und
+              // ohne den Hinweis zeichnet der Browser die aufgeklappte Liste hell —
+              // weisse Schrift auf weissem Grund.
+              className="w-full appearance-none rounded-[4px] [color-scheme:dark] border border-line bg-surface py-3.5 pl-11 pr-11 font-body text-base text-primary outline-none transition-colors duration-[180ms] focus:border-gold/60"
+            >
+              <option value="">{t('land_leer')}</option>
+              {laender.map((land) => (
+                <option key={land.code} value={land.code}>
+                  {land.name}
+                </option>
+              ))}
+            </select>
+            <ChevronDown
+              size={18}
+              strokeWidth={1.6}
+              className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-faint"
+            />
+          </div>
+          <p id="wl-land-hinweis" className="mt-2 font-body text-xs text-faint">
+            {t('land_hinweis')}
+          </p>
         </div>
       )}
 
