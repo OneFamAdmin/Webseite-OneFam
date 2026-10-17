@@ -110,6 +110,20 @@ Singapour), **EN 32** („the"), ES keiner. **Kosovo bewusst ohne Artikel** im D
   Abmeldelink. Nach seiner Abmeldung gemessen: Export 0 Einträge, Zähler Australia
   `{"ok":true,"confirmed":0}` (ausgeloggt). Ob der Abmeldesatz in Gmail jetzt **sichtbar**
   war, ist nur durch ihn zu sagen — er hat den Link gefunden und benutzt.
+- **Mail-Protokoll (FluentSMTP) hielt Kopien trotz Abmeldung.** Gemessen 17.10.2026:
+  Protokoll an, Aufbewahrung 14 Tage, Versand über `mail.infomaniak.com`; im Protokoll 3
+  Mails, darunter beide Testmails. Labis Vorgabe: „gelöscht soll gelöscht überall sein".
+  Snippet 18 → **29 339** Zeichen (Sicherung im Browser: `of_sicherung_snippet18_17102026_maillog`):
+  neue `onefam_wl_maillog_loeschen()` löscht in `{prefix}fsmpt_email_logs` alle Zeilen an
+  die Adresse (Spalte `to`, gesucht als `"adresse"`); aufgerufen bei der Abmeldung und bei
+  `of_waitlist_del` (mit `mail=` auch, wenn die Adresse nicht mehr auf der Liste steht).
+  Die Antwort zeigt jetzt `| Mail-Protokoll N`. Gemessen: aktiv, Shop-Seiten 200 ohne
+  Fehler, Leerlauf mit `niemand@example.invalid` → „Mail-Protokoll 0". **Das echte Löschen
+  einer Protokollzeile ist noch nicht geprüft** — nächster Test durch Labi: eintragen,
+  abmelden, dann muss das Protokoll keine Mail mehr an seine Adresse zeigen.
+  Ausserhalb der Reichweite: Postfach des Empfängers, Server-Protokolle von Infomaniak.
+- **Gefunden nebenbei:** Betreff „Bestätige deine Anmeldung für Australia" — Australien fehlt
+  in der Übersetzungsliste `kern` (112 Länder), der englische Name rutscht durch.
 
 ### ⚠️ Vor der ersten Mail an die Länder-Warteliste
 
