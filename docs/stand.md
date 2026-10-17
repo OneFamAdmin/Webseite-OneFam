@@ -21,8 +21,12 @@ Dateien: `app/actions/join.ts`, `lib/warteliste.ts`, `lib/email/send.ts`
 **Migrationen:** `0017` (Spalten `status/lang/confirm_token/token_sent_at/confirmed_at/
 unsub_token`) **am 18.10.2026 per Supabase-MCP angewendet** — gemessen: alle 12 Spalten da,
 die 2 Altzeilen (03.08. und 07.09.2026) stehen auf `alt` (nie bestätigt → nicht anschreiben).
-`0018` (öffentliche Einfüge-Policy weg) **erst NACH dem Deploy anwenden**, sonst bricht das
-alte Formular; bis dahin ist `waitlist_public_insert` noch aktiv.
+`0018` (öffentliche Einfüge-Policy weg) **nach dem Deploy am 18.10.2026 angewendet** —
+gemessen: 0 Policies, RLS an; ein anonymer POST auf `/rest/v1/waitlist` mit
+`status: confirmed` antwortet **401**. Deploy live nach 45 s (Push `7b9afdd..6af7b57`):
+`/join` DE/EN/FR/ES mit neuen Texten, `/de/join/bestaetigt` und `/join/abmelden` 200.
+`EMAIL_FROM` in Vercel von Labi neu gesetzt (Anzeige „Updated just now", Production;
+Wert geschützt, nicht lesbar) — **ob er stimmt, zeigt erst der echte Mailtest.**
 
 **Lokal getestet** (Produktionsbau, synthetische Zeile `@example.invalid`, danach über die
 Abmeldeseite gelöscht, 0 Reste): falscher Token → „funktioniert nicht"; richtiger →
