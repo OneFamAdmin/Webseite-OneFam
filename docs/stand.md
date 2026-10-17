@@ -1,6 +1,6 @@
 # Stand — 08.10.2026
 
-## 🆕 17.10.2026: Länderwunsch auf `/join` — gebaut, nicht live
+## 🆕 17.10.2026: Länderwunsch auf `/join` — Datenbank bereit, Code noch nicht gepusht
 
 **Anlass:** Der Family Code sagt „das läuft schon … gebaut wird, wofür sich genug
 Leute eintragen" (`messages/de.json`, „Wir machen uns nützlich"). Die Warteliste
@@ -15,22 +15,33 @@ bewusst kein öffentlicher Zähler, solange die Zahlen klein sind.
 
 **Gemessen am Dev-Server:** `/join`, `/de/join`, `/fr/join`, `/es/join` liefern je
 244 Optionen (243 + „kein Wunsch") mit übersetzter Frage; Startseite ohne Feld.
-`tsc` sauber, Lint ohne neue Warnungen. **Optik des Auswahlfelds nicht im Browser
-angesehen** (Erweiterung nicht verbunden) — vor dem Push auf Handy und Desktop ansehen.
+`tsc` sauber, Lint ohne neue Warnungen. **Im Browser angesehen** (17.10.2026, Chrome):
+Desktop 1512 px und Handy 390 px (eingebetteter Rahmen — das Fenster liess sich nicht
+verkleinern), kein seitlicher Bildlauf, Feld 342 px breit bei 24 px Rand, dunkles
+Farbschema greift (`color-scheme: dark`, Schrift weiss auf `rgb(20,20,20)`), Auswahl per
+Tastatur („Alb" → Albanien) geht. Die aufgeklappte Systemliste selbst lässt sich nicht
+fotografieren. **Formular nicht abgeschickt** — der Dev-Server schreibt in die
+Produktionsdatenbank.
+
+**Offen, für Labi:** Die Liste unter dem Formular (`join.punkte`) sagt „Eine E-Mail,
+sonst nichts". Mit Name und Länderwunsch, beide freiwillig, stimmt das nur noch halb.
 
 **Vor dem Push, in dieser Reihenfolge:**
 1. ✅ **Datenschutzerklärung angepasst** (17.10.2026, von Labi freigegeben, alle vier
    Sprachen, Stand „Oktober 2026"): Länderwunsch aufgeführt, Auswertung nur
    zusammengezählt. Die Nutzungsbedingungen (`agb`, „Warteliste (Newsletter)") ebenso
    nachgezogen, Stand dort ebenfalls „Oktober 2026".
-2. ❌ **Migration `0016_laenderwunsch.sql` anwenden.** Über den Supabase-MCP am
-   17.10.2026 dreimal gescheitert („Connection terminated due to connection timeout"),
-   obwohl das Projekt `ACTIVE_HEALTHY` meldete — also im SQL-Editor einfügen.
-   **Kein Anmeldeproblem:** Projektabfragen über denselben Zugang gingen durch, und die
-   öffentliche REST-Schnittstelle antwortete (200, aber **7,0 s**; Spalte
-   `country_wish` existiert dort noch nicht — 42703). Nur der direkte SQL-Weg brach ab. Ohne sie scheitert jede Eintragung
-   *mit* gewähltem Land; Eintragungen ohne Land laufen weiter (die Action schickt die
-   Spalte nur mit, wenn ein Land gewählt ist).
+2. ✅ **Migration `0016_laenderwunsch.sql` angewendet** (17.10.2026, im SQL-Editor des
+   Dashboards über Chrome — Labi hat sich selbst angemeldet). Danach gemessen:
+   `country_wish` text, nullbar; Prüfregel
+   `CHECK (country_wish IS NULL OR country_wish ~ '^[A-Z]{2}$')` aktiv. Test in einem
+   DO-Block, der mit Absicht scheitert und so alles zurückrollt: „AL angenommen (AL);
+   albanien abgewiesen". Danach 0 Testzeilen. Keine Trigger auf `waitlist`. REST von
+   aussen: 200 in 0,48 s, kein 42703 mehr.
+   Vorher war der Supabase-MCP dreimal am direkten SQL-Weg gescheitert („Connection
+   terminated due to connection timeout") — **kein Anmeldeproblem**: Projektabfragen
+   gingen durch, REST antwortete (200, aber **7,0 s**). Beim vierten Versuch ebenso.
+   Steht nicht in der Migrationshistorie von Supabase, weil über den Editor eingefügt.
 3. Push (Labi).
 
 **Bekannte Grenze:** Wer schon auf der Liste steht und sich erneut einträgt, dessen
