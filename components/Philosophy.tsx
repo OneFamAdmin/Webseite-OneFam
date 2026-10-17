@@ -39,8 +39,10 @@ const Philosophy = () => {
           <span aria-hidden className="mt-6 block font-display text-7xl leading-none text-gold">&ldquo;</span>
         </Reveal>
 
+        {/* text-balance seit 17.10.2026: Der Schlusssatz endet auf "Familie." — ohne
+            Ausgleich stand das Wort je nach Breite zufaellig allein in der letzten Zeile. */}
         <Reveal delay={0.16}>
-          <blockquote className="mx-auto max-w-[720px] font-display text-2xl font-semibold leading-snug tracking-[0.01em] text-primary md:text-3xl">
+          <blockquote className="mx-auto max-w-[720px] text-balance font-display text-2xl font-semibold leading-snug tracking-[0.01em] text-primary md:text-3xl">
             {t('quote')}
           </blockquote>
         </Reveal>
