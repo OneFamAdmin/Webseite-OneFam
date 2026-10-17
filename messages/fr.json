@@ -16,21 +16,21 @@
   "hero": {
     "kicker": "D'où viens-tu ?",
     "claim": "Pour celles et ceux qui appartiennent à plus d'un endroit",
-    "subline": "Des vêtements et une communauté pour celles et ceux dont la réponse contient une virgule.",
+    "subline": "Des vêtements et une communauté pour les personnes dont la réponse contient une virgule.",
     "cta_primary": "Join the Fam",
     "cta_secondary": "Vers la boutique"
   },
   "what_is_onefam": {
     "title": "Qu'est-ce que OneFam ?",
-    "intro": "OneFam n'est pas une marque de vêtements comme les autres. OneFam est un espace pour celles et ceux qui se prennent mutuellement au sérieux – y compris les rêves qu'on ne raconte à personne d'autre.",
+    "intro": "OneFam est un espace pour celles et ceux qui se prennent mutuellement au sérieux – y compris les rêves qu'on ne raconte à personne d'autre.",
     "cards": [
       {
-        "title": "Des valeurs, pas une façade.",
-        "text": "Le vêtement exprime une posture, il n'est pas l'essentiel."
+        "title": "Une posture, pas une façade.",
+        "text": "Tes vêtements montrent ce que tu défends. L'essentiel, tu ne le portes pas sur toi."
       },
       {
-        "title": "Des moments, pas des banalités.",
-        "text": "On ne parle pas de la météo. On demande sur quoi tu travailles – et on le pense vraiment."
+        "title": "De la profondeur, pas des banalités.",
+        "text": "Ici, personne ne parle de la météo – on parle de ce qui te touche vraiment."
       }
     ]
   },
@@ -129,8 +129,7 @@
       "OneFam est né dans une période silencieuse – quand la proximité ne passait plus, pour un temps, que par des écrans.",
       "Cela a commencé doucement : de petites rencontres choisies avec soin, pour des gens qui voulaient à nouveau se croiser pour de vrai. Le bon endroit, les bonnes personnes – et des conversations dont on repartait avec plus de courage qu'on n'en avait apporté.",
       "Un jour la question est venue : et si ce sentiment pouvait t'accompagner partout – peu importe le nombre d'endroits où tu te sens chez toi ? OneFam est né de là.",
-      "Parce que les gens se souviennent des sentiments – pas des pourcentages.",
-      "Faire partie de OneFam ne doit pas donner le sentiment d'acheter quelque chose – mais celui d'appartenir.",
+      "On oublie ce qu'on a acheté. Jamais l'endroit où l'on avait sa place.",
       "Pas plus fort. Plus vrai."
     ]
   },
