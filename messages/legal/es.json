@@ -133,7 +133,7 @@
     "meta_beschreibung": "Cómo trata OneFam tus datos – política de privacidad conforme a la Ley Federal suiza de Protección de Datos (LPD).",
     "eyebrow": "Aviso legal",
     "titel": "Política de privacidad",
-    "stand": "Agosto de 2026",
+    "stand": "Octubre de 2026",
     "einleitung": "La protección de tus datos nos importa. Esta declaración te informa de qué datos personales tratamos cuando visitas este sitio y de qué derechos te asisten. Se rige por la Ley Federal suiza revisada de Protección de Datos (LPD).",
     "abschnitte": [
       {
@@ -189,7 +189,7 @@
         "nr": "6",
         "titel": "Lista de espera (boletín)",
         "bloecke": [
-          { "art": "absatz", "text": "Si te inscribes en nuestra lista de espera, tratamos tu dirección de correo electrónico, un nombre si decides indicarlo y el momento de la inscripción. La única finalidad es informarte sobre OneFam. La base es tu consentimiento." },
+          { "art": "absatz", "text": "Si te inscribes en nuestra lista de espera, tratamos tu dirección de correo electrónico, un nombre si decides indicarlo, un país deseado si decides indicarlo y el momento de la inscripción. La finalidad es informarte sobre OneFam. Los países deseados solo los evaluamos como totales, para decidir para qué país haremos ropa a continuación. La base es tu consentimiento." },
           { "art": "absatz", "text": "Puedes darte de baja en cualquier momento – mediante el enlace de baja de cada correo o simplemente escribiendo a info@onefam.ch. Después eliminamos tu inscripción. No cedemos estos datos a terceros ni los usamos para publicidad de otras empresas." }
         ]
       },
