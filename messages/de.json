@@ -169,16 +169,16 @@
   },
   "footer": {
     "claim": "Für alle, die zu mehr als einem Ort gehören",
-    "pages_title": "Navigation",
-    "legal_title": "Legal",
-    "social_title": "Social",
+    "pages_title": "Seiten",
+    "legal_title": "Rechtliches",
+    "social_title": "Folge uns",
     "pages": [
       {
-        "label": "Home",
+        "label": "Start",
         "href": "#hero"
       },
       {
-        "label": "About",
+        "label": "Über uns",
         "href": "#about"
       },
       {
@@ -190,7 +190,7 @@
         "href": "#philosophie"
       },
       {
-        "label": "FAQ",
+        "label": "Häufige Fragen",
         "href": "#faq"
       }
     ],
