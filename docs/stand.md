@@ -208,9 +208,10 @@ Singapour), **EN 32** („the"), ES keiner. **Kosovo bewusst ohne Artikel** im D
   `window.OF_NACHTRAG` 552 Schlüssel; von 250 Knöpfen der Wunschwand haben nur noch „Logo
   White" und „Logo Pink" keinen Eintrag (keine Länder). Live FR: „Je veux le Ghana", „Je veux
   le Libéria". Die Mail nimmt dieselbe Liste (Snippet 18 lädt `'laender'` mit).
-  **Bewusst offen:** Die Artikelliste kennt für Vanuatu, Samoa, Tonga, Kiribati und Tuvalu
-  keinen FR-Artikel; üblich wären „le Vanuatu", „les Samoa", „les Tonga". Änderung müsste in
-  Snippet 11 (`LA`) und Snippet 18 (`OFLA`) gleich erfolgen.
+  **FR-Artikel ergänzt (17.10.2026):** „les Samoa", „les Tonga", „le Vanuatu" — in beiden
+  Kopien der Liste, Snippet 11 (`LA`, 2 545 601 → **2 545 647**, nach Neuladen gemessen) und
+  Snippet 18 (`OFLA`, 29 868 → **29 914**). Kiribati und Tuvalu bewusst ohne Artikel (so
+  schreibt das französische Aussenministerium). Live: „Je veux le Vanuatu"; Shop-Seiten 200.
 
 ### ⚠️ Vor der ersten Mail an die Länder-Warteliste
 
