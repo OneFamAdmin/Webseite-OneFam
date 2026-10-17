@@ -116,11 +116,26 @@ angemeldet, bestaetigt). **Wer daraus Mails verschickt, muss in JEDE Mail einen 
 persönlichen Abmeldelink setzen** — Schweiz UWG Art. 3 Abs. 1 lit. o („einfache und
 kostenlose Ablehnungsmöglichkeit" in jeder Werbemail), EU/DE DSGVO Art. 7 Abs. 3 (Widerruf so
 einfach wie die Einwilligung). Nicht hinter `-- ` und nicht im Kleingedruckten.
-- Der persönliche Link existiert schon: `https://shop.onefam.ch/?ofwlx=<utok>` — `utok` steht
-  je Eintrag in der Option `onefam_waitlist`, **fehlt aber im CSV-Export**. Vor dem ersten
-  Versand also den Export um `utok` erweitern (oder die Mails aus WordPress heraus schicken).
+- ✅ Der persönliche Link steht seit 17.10.2026 **im CSV-Export als 7. Spalte `abmeldelink`**
+  (`https://shop.onefam.ch/?ofwlx=<utok>`). Gemessen: Export 200, 7 Spalten. Der einzige
+  Eintrag zurzeit ist ein alter Test („Testland", 24.07.2026, @onefam.ch, Status „alt" aus
+  der Zeit vor dem Double-Opt-in) — **ohne** Abmeldelink, weil er nie einen `utok` bekam.
+  Löschen durch Labi: `/wp-admin/?of_waitlist_del=GO2607&land=Testland`.
 - Nur an `status = confirmed` schicken; `pending` hat nie bestätigt.
 - Ob die Formulierung juristisch reicht, gehört zur offenen Anwaltsprüfung.
+
+**Vierte Runde 17.10.2026 — Liste launchfest (Snippet 18 → 27 218, 11 → 2 545 601, 42 → 193 239):**
+- **Datenverlust ab 5000 Einträgen behoben.** `array_slice($list, -5000)` warf beim
+  Überlauf die ÄLTESTEN Einträge weg, auch bestätigte. Ersetzt durch
+  `onefam_wl_aufraeumen()`: löscht nur `pending`, die älter als 30 Tage sind (Link
+  abgelaufen); `confirmed` und Altbestand ohne Status nie. Läuft bei jeder Eintragung.
+- **Täglicher Aufräum-Lauf (WP-Cron) NICHT eingerichtet** — von der Sicherheitsprüfung
+  gesperrt, braucht Labis ausdrückliches Ja (dauerhaft geplanter Auftrag). Ohne ihn werden
+  abgelaufene `pending` erst bei der nächsten Eintragung gelöscht.
+- **Speicherdauer in der Datenschutzerklärung ergänzt** (DSGVO Art. 13 Abs. 2 lit. a), alle
+  vier Sprachen, live gemessen: „…unbestätigte Eintragungen löschen wir nach seinem Ablauf.
+  Bestätigte Eintragungen bleiben gespeichert, bis du dich abmeldest oder wir die Liste
+  für dieses Land nicht mehr brauchen."
 
 ## ⏰ Faellig am 12.10.2026: Antwort von Shirt-King pruefen
 
