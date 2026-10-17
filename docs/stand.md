@@ -76,9 +76,24 @@ englischen Namen zurück.
 fehl (Speicher voll) — die Änderungen dort sind reine Ergänzungen und lassen sich
 gezielt herausnehmen.
 
-**Noch offen, klein:** „Ich will Türkei" / „dass du Türkei willst" — Länder mit Artikel
-(die Türkei, die Schweiz, die USA) klingen im deutschen Satz holprig. Die Satzschablone
-setzt nur den Namen ein.
+**Dritte Runde 17.10.2026 — Artikel vor Ländernamen** („Ich will Türkei" → „Ich will die
+Türkei", „Je veux Bosnie" → „Je veux la Bosnie", „I want Netherlands" → „I want the
+Netherlands"). Liste `LA`, Schlüssel = englischer Name aus `GRID`: **DE 49** ganze
+Akkusativformen (gebeugt: „die Vereinigten Staaten", „das Vereinigte Königreich"), **FR 199**
+Artikel (le/la/l’/les; ohne Artikel bleiben 49 Inseln und Kleinstaaten wie Cuba, Malte,
+Singapour), **EN 32** („the"), ES keiner. **Kosovo bewusst ohne Artikel** im Deutschen
+(„der/das Kosovo" ist uneinheitlich, amtlich artikellos).
+- Snippet 11 → **2 545 449** Zeichen: `LA` + `LNS(c)` für alle Sätze im Fenster (Titel bleibt
+  ohne Artikel). Teilen-Überschrift umgestellt, sonst hiesse es „dass es die Türkei gibt":
+  „Hilf mit, dass es OneFam für CC gibt" (EN/FR/ES entsprechend).
+- Snippet 18 → **25 403** Zeichen: dieselbe Liste als Nowdoc in `onefam_wl_land()`, für
+  Mail-Betreff, Mail-Text und Bestätigungsseite. FR-Artikel nur, wenn der Name aus der
+  Ländertabelle übersetzt ist (sonst stünde „le Greenland"). Die Liste wurde beim Einbau
+  **aus der live ausgelieferten Seite** gelesen — beide Kopien sind gleich. **Wer eine
+  ändert, ändert die andere mit** (steht in beiden Kommentaren).
+- Live gemessen: DE „Ich will die Türkei", „Ich will die Vereinigten Staaten", „Ich will
+  Kosovo"; FR „Je veux l’Allemagne"; EN „I want the Netherlands". Alle Shop-Seiten 200,
+  Zähler antwortet, falscher Token 410, kein `code_error`.
 
 ## ⏰ Faellig am 12.10.2026: Antwort von Shirt-King pruefen
 
