@@ -1,5 +1,41 @@
 # Stand — 17.10.2026
 
+## ✉️ 18.10.2026: Warteliste onefam.ch mit doppelter Bestätigung
+
+**Vorher:** `/join` trug jede Adresse sofort ein — auch fremde. Die Datenschutzerklärung
+versprach einen Abmeldelink „in jeder E-Mail", den es nicht gab. Labis Vorgabe: „es braucht
+überall die doppelte Bestätigung". (Der Shop hat sie seit Juli, Snippet 18.)
+
+**Jetzt:** Eintragen → Zeile `status='pending'` + Mail (Resend, Sprache der Seite) → Klick →
+`/[locale]/join/bestaetigt` setzt `confirmed`. Abmelden über `/[locale]/join/abmelden` mit
+**Knopf** (nicht beim Aufruf — Virenscanner öffnen Links vorab), löscht die Zeile ganz.
+Link gilt 30 Tage, unbestätigte Zeilen werden bei jeder Eintragung aufgeräumt, gleiche Adresse
+frühestens alle 10 Minuten eine neue Mail. Antwort ist immer „schau in dein Postfach", auch
+für schon Bestätigte (keine Auskunft, wer drin ist). Versandfehler wird gemeldet.
+Dateien: `app/actions/join.ts`, `lib/warteliste.ts`, `lib/email/send.ts`
+(`sendWaitlistConfirmEmail`), `app/[locale]/join/{bestaetigt,abmelden}/page.tsx`,
+`components/WaitlistForm.tsx` (Sprache als verstecktes Feld), Texte `waitlist`,
+`waitlist_mail`, `waitlist_seiten` in allen vier Sprachen, Datenschutz §6 ergänzt (Stand
+„Oktober 2026").
+
+**Migrationen:** `0017` (Spalten `status/lang/confirm_token/token_sent_at/confirmed_at/
+unsub_token`) **am 18.10.2026 per Supabase-MCP angewendet** — gemessen: alle 12 Spalten da,
+die 2 Altzeilen (03.08. und 07.09.2026) stehen auf `alt` (nie bestätigt → nicht anschreiben).
+`0018` (öffentliche Einfüge-Policy weg) **erst NACH dem Deploy anwenden**, sonst bricht das
+alte Formular; bis dahin ist `waitlist_public_insert` noch aktiv.
+
+**Lokal getestet** (Produktionsbau, synthetische Zeile `@example.invalid`, danach über die
+Abmeldeseite gelöscht, 0 Reste): falscher Token → „funktioniert nicht"; richtiger →
+„Willkommen in der Fam.", Zeile `confirmed`; zweiter Klick → „schon dabei"; EN-Pfad ohne
+Präfix geht; 31 Tage alt → „abgelaufen"; Abmelden FR ungültig / DE Frage + Knopf → gelöscht →
+ES „Te has dado de baja". **Nicht lokal getestet: der Mailversand selbst** (bräuchte eine
+echte Adresse).
+
+**⚠️ Vor dem Push prüfen:** In Vercel muss `EMAIL_FROM` eine Adresse auf `onefam.ch` sein
+(DNS hat die Resend-Einträge: `resend._domainkey`, `send.onefam.ch`). Steht dort noch
+`onboarding@resend.dev`, liefert Resend nur an den Kontoinhaber — alle anderen bekämen
+„Wir konnten dir gerade keine Mail schicken". Claude kann die Variablen nicht lesen (403).
+
 ## 🗂 17.10.2026: Nachträge aus der Auswertung aller 26 Chats
 
 Alle Chats vom 14.06. bis 17.10.2026 wurden vollständig ausgewertet und mit `docs/`
