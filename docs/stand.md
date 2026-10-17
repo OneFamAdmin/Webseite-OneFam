@@ -1,6 +1,13 @@
 # Stand — 08.10.2026
 
-## 🆕 17.10.2026: Länderwunsch auf `/join` — Datenbank bereit, Code noch nicht gepusht
+## 🆕 17.10.2026: Länderwunsch auf `/join` — LIVE
+
+**Gepusht 17.10.2026 (`63a7830..86763e6`), nach ca. 60 s live, ausgeloggt gemessen auf onefam.ch:**
+`/de/join`, `/fr/join`, `/es/join` je 244 Optionen und der neue Punkt „Nur deine E-Mail ist
+Pflicht" (statt „Eine E-Mail, sonst nichts"); `/join` antwortet aus der Schweiz mit 307 →
+`/de/join` (Absicht), mit Cookie `NEXT_LOCALE=en` 244 Optionen und englischer Frage;
+Startseite ohne Feld; `/de/datenschutz` nennt den Länderwunsch. Admin-Abschnitt nicht
+angesehen (braucht Anmeldung).
 
 **Anlass:** Der Family Code sagt „das läuft schon … gebaut wird, wofür sich genug
 Leute eintragen" (`messages/de.json`, „Wir machen uns nützlich"). Die Warteliste
