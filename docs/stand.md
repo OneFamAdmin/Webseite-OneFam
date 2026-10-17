@@ -104,8 +104,12 @@ Singapour), **EN 32** („the"), ES keiner. **Kosovo bewusst ohne Artikel** im D
   `-- ` (Signatur-Trenner), Gmail klappt das unter „•••" weg. Behoben 17.10.2026: der
   Abmeldesatz steht jetzt **über dem Gruss**, ohne Trenner (Snippet 18 → **26 038** Zeichen;
   die Texte in `onefam_wl_texts()` unverändert, der Gruss wird als letzter Absatz
-  abgetrennt). Simuliert mit den echten Texten (DE/FR), Shop-Seiten 200. **Noch nicht mit
-  einer echten Mail nachgesehen.**
+  abgetrennt). Simuliert mit den echten Texten (DE/FR), Shop-Seiten 200.
+- **Zweiter echter Test 17.10.2026, Gmail-Adresse eines Bekannten, Australia, DE:**
+  eingetragen 17:59:05, bestätigt 17:59:33 (Serverzeit), Export zeigte `confirmed` mit
+  Abmeldelink. Nach seiner Abmeldung gemessen: Export 0 Einträge, Zähler Australia
+  `{"ok":true,"confirmed":0}` (ausgeloggt). Ob der Abmeldesatz in Gmail jetzt **sichtbar**
+  war, ist nur durch ihn zu sagen — er hat den Link gefunden und benutzt.
 
 ### ⚠️ Vor der ersten Mail an die Länder-Warteliste
 
