@@ -122,8 +122,21 @@ Singapour), **EN 32** („the"), ES keiner. **Kosovo bewusst ohne Artikel** im D
   einer Protokollzeile ist noch nicht geprüft** — nächster Test durch Labi: eintragen,
   abmelden, dann muss das Protokoll keine Mail mehr an seine Adresse zeigen.
   Ausserhalb der Reichweite: Postfach des Empfängers, Server-Protokolle von Infomaniak.
-- **Gefunden nebenbei:** Betreff „Bestätige deine Anmeldung für Australia" — Australien fehlt
-  in der Übersetzungsliste `kern` (112 Länder), der englische Name rutscht durch.
+- **Englische Ländernamen in Mails — behoben 17.10.2026.** Betreff war „…für Australia".
+  Ursache: `onefam_wl_land()` lud nur `of_nachtrag_teil('kern')` (112 Einträge), darin aber nur
+  **28 der 250** Länder der Wunschwand. Der Rest steht in `'laender'` (372 Einträge, keine
+  Überschneidung mit `kern`); das Wunschfenster bekam schon immer beide (`window.OF_NACHTRAG`,
+  484 Schlüssel). Gemessen vorher: **186** Länder hätten in der Mail den englischen Namen
+  gezeigt, obwohl eine Übersetzung da ist. Snippet 18 → **29 868** Zeichen, lädt jetzt beide
+  Teile (Sicherung: `of_sicherung_snippet18_17102026_laender`). Shop-Seiten 200, Export 200.
+  Die Mail selbst ist erst beim nächsten echten Test zu sehen.
+- **In keiner Liste (34):** Angola, Aruba, Bahamas, Burkina Faso, Burundi, Costa Rica, Ghana,
+  Gibraltar, Guam, Guatemala, Guyana, Honduras, Jersey, Kiribati, Kosovo, Laos, Liberia, Mali,
+  Mayotte, Montserrat, Nauru, Nicaragua, Nigeria, Niue, Paraguay, Samoa, Sri Lanka, Togo,
+  Tokelau, Tonga, Tuvalu, Uruguay, Vanuatu, Venezuela. Die Namen sind in DE/FR/ES fast alle
+  gleich wie EN (Ausnahme FR „Libéria"). Folge: im Französischen fehlt der Artikel („pour
+  Ghana" statt „pour le Ghana"), weil der Artikel nur bei übersetztem Namen gesetzt wird.
+  Nicht behoben.
 
 ### ⚠️ Vor der ersten Mail an die Länder-Warteliste
 
