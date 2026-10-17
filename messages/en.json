@@ -245,8 +245,43 @@
     "senden": "Join the waitlist",
     "sendet": "Signing you up …",
     "hinweis": "No purchase necessary. Unsubscribe any time.",
-    "ok_titel": "You are on the list.",
-    "ok_vor": "We will be in touch at",
-    "ok_nach": " when the time comes. No spam, no purchase necessary."
+    "ok_titel": "Almost there.",
+    "ok_vor": "We sent an email to",
+    "ok_nach": ". Click the link inside and you are in. Nothing arrived? Check your spam folder.",
+    "fehler_adresse": "Please enter a valid email address.",
+    "fehler_versand": "We couldn't send you an email just now. Please try again in a few minutes.",
+    "fehler_allgemein": "Oops – that didn't work. Please try again."
+  },
+  "waitlist_mail": {
+    "betreff": "Confirm your OneFam sign-up",
+    "titel": "Almost there.",
+    "gruss": "Hey,",
+    "gruss_name": "Hey {name},",
+    "text": "you signed up with OneFam. Click the button and you are in.",
+    "knopf": "Yes, I'm in",
+    "gueltig": "The link is valid for {tage} days.",
+    "nicht_du": "Didn't sign up? Just ignore this email. Without a click we won't add you, and we delete the address again.",
+    "abmelden": "Unsubscribe",
+    "fuss": "You are receiving this email because this address was entered on onefam.ch."
+  },
+  "waitlist_seiten": {
+    "bestaetigt_meta": "Sign-up confirmed — OneFam",
+    "abmelden_meta": "Unsubscribe — OneFam",
+    "ok_titel": "Welcome to the Fam.",
+    "ok_text": "You're on the list now. When we take the next step, you'll be the first to know.",
+    "schon_titel": "You're already in.",
+    "schon_text": "This address is already confirmed. There is nothing else to do.",
+    "ungueltig_titel": "This link doesn't work.",
+    "ungueltig_text": "Maybe you signed up again in the meantime – then only the link in the newest email works. Or simply sign up again.",
+    "abgelaufen_titel": "This link has expired.",
+    "abgelaufen_text": "Confirmation links are valid for {tage} days. Just sign up again and we'll send you a new one.",
+    "zur_startseite": "Back to the homepage",
+    "neu_eintragen": "Sign up again",
+    "abmelden_titel": "Unsubscribe",
+    "abmelden_frage": "Do you want to leave the OneFam waitlist? We will then delete your address completely.",
+    "abmelden_knopf": "Yes, unsubscribe",
+    "abmelden_ungueltig": "This unsubscribe link is invalid – or you've already unsubscribed.",
+    "abgemeldet_titel": "You're unsubscribed.",
+    "abgemeldet_text": "We've deleted your address and won't write to you again."
   }
 }
