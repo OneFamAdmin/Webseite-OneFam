@@ -11,7 +11,7 @@
     "meta_beschreibung": "Conditions d'utilisation du site OneFam, de la liste d'attente et du compte membre.",
     "eyebrow": "Mentions légales",
     "titel": "Conditions d'utilisation",
-    "stand": "Octobre 2026",
+    "stand": "Août 2026",
     "einleitung": "Ces conditions régissent l'utilisation de ce site, l'inscription à notre liste d'attente et le compte membre OneFam. Il n'y a actuellement <b>ni concours, ni tirage au sort, ni programme de cagnotte voyage</b>. Merci de les lire attentivement.",
     "abschnitte": [
       {
@@ -39,7 +39,7 @@
             "art": "liste",
             "punkte": [
               "L'inscription est gratuite et ne suppose aucun achat.",
-              "Nous collectons ton adresse e-mail ; indiquer un nom et un souhait de pays est facultatif.",
+              "Nous collectons ton adresse e-mail ; indiquer un nom est facultatif.",
               "En t'inscrivant, tu consens à recevoir de notre part des e-mails au sujet de OneFam.",
               "Tu peux retirer ce consentement à tout moment et sans motif – via le lien de désinscription présent dans chaque e-mail ou simplement à info@onefam.ch.",
               "L'inscription ne crée ni adhésion, ni participation à une sélection, ni droit à une prestation."
@@ -133,7 +133,7 @@
     "meta_beschreibung": "Comment OneFam traite tes données – politique de confidentialité selon la loi fédérale suisse sur la protection des données (LPD).",
     "eyebrow": "Mentions légales",
     "titel": "Politique de confidentialité",
-    "stand": "Octobre 2026",
+    "stand": "Août 2026",
     "einleitung": "La protection de tes données nous tient à cœur. Cette déclaration t'informe des données personnelles que nous traitons lorsque tu visites ce site et des droits dont tu disposes. Elle suit la loi fédérale suisse révisée sur la protection des données (LPD).",
     "abschnitte": [
       {
@@ -189,7 +189,7 @@
         "nr": "6",
         "titel": "Liste d'attente (newsletter)",
         "bloecke": [
-          { "art": "absatz", "text": "Si tu t'inscris sur notre liste d'attente, nous traitons ton adresse e-mail, un nom si tu choisis d'en indiquer un, un souhait de pays si tu choisis d'en indiquer un, ainsi que la date de l'inscription. La finalité est de t'informer au sujet de OneFam. Les souhaits de pays ne sont évalués que sous forme de totaux, pour décider pour quel pays nous créerons des vêtements ensuite. La base est ton consentement." },
+          { "art": "absatz", "text": "Si tu t'inscris sur notre liste d'attente, nous traitons ton adresse e-mail, un nom si tu choisis d'en indiquer un, ainsi que la date de l'inscription. La finalité est uniquement de t'informer au sujet de OneFam. La base est ton consentement." },
           { "art": "absatz", "text": "Tu peux te désinscrire à tout moment – via le lien de désinscription dans chaque e-mail ou simplement à info@onefam.ch. Nous supprimons ensuite ton inscription. Nous ne transmettons pas ces données à des tiers et ne les utilisons pas pour la publicité d'autres entreprises." }
         ]
       },

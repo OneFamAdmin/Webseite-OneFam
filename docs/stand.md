@@ -1,58 +1,39 @@
 # Stand — 08.10.2026
 
-## 🆕 17.10.2026: Länderwunsch auf `/join` — LIVE
+## 🆕 17.10.2026: Länderwunsch — EIN System, und zwar das im Shop
 
-**Gepusht 17.10.2026 (`63a7830..86763e6`), nach ca. 60 s live, ausgeloggt gemessen auf onefam.ch:**
-`/de/join`, `/fr/join`, `/es/join` je 244 Optionen und der neue Punkt „Nur deine E-Mail ist
-Pflicht" (statt „Eine E-Mail, sonst nichts"); `/join` antwortet aus der Schweiz mit 307 →
-`/de/join` (Absicht), mit Cookie `NEXT_LOCALE=en` 244 Optionen und englischer Frage;
-Startseite ohne Feld; `/de/datenschutz` nennt den Länderwunsch. Admin-Abschnitt nicht
-angesehen (braucht Anmeldung).
+**Was passiert ist:** Am 17.10. wurde auf `onefam.ch/join` ein Länderwunsch-Feld gebaut
+(Supabase `waitlist.country_wish`, Migration `0016`), gepusht und live gemessen. **Erst
+danach** fiel auf, dass `shop.onefam.ch/shop-by-country/` dasselbe längst kann — Verstoss
+gegen Arbeitsregel 1. Noch am selben Tag auf Labis Entscheidung wieder zurückgebaut:
+Feld, Admin-Zählung, `lib/laenderwunsch.ts` und die Ergänzungen in Datenschutz und
+Nutzungsbedingungen (alle vier Sprachen, Stand wieder „August 2026"). **Geblieben:**
+„Nur deine E-Mail ist Pflicht" unter dem Formular (statt „Eine E-Mail, sonst nichts").
 
-**Anlass:** Der Family Code sagt „das läuft schon … gebaut wird, wofür sich genug
-Leute eintragen" (`messages/de.json`, „Wir machen uns nützlich"). Die Warteliste
-speicherte aber nur E-Mail und Name — das Versprechen war ungedeckt. Herausgearbeitet
-im Chat `docs/entwuerfe/chat-polenta7000-onefam.md`.
+**Die Spalte `waitlist.country_wish` bleibt in der Datenbank** — angewendete Migrationen
+werden nie geändert. Sie ist leer und ungenutzt; wer sie loswerden will, schreibt eine
+neue Migration. `0016` lief über den SQL-Editor des Dashboards (der Supabase-MCP brach
+am direkten SQL-Weg viermal mit „Connection terminated due to connection timeout" ab,
+obwohl Projektabfragen gingen und REST antwortete — 200 in 7,0 s, später 0,48 s).
 
-**Gebaut:** freiwilliges Auswahlfeld „Für welches Land soll es als Nächstes Kleidung
-geben?" (243 Länder inkl. Kosovo, Namen je Sprache über `Intl.DisplayNames`), nur auf
-`/join`, nicht im kompakten Formular der Startseite. Gespeichert als ISO-Code in
-`waitlist.country_wish`. Zählung **nur im Admin** (`/admin`, Abschnitt „Länderwünsche"),
-bewusst kein öffentlicher Zähler, solange die Zahlen klein sind.
+**Das Shop-System (gemessen 17.10.2026, nirgends sonst dokumentiert):**
+- Jede nicht kaufbare Kachel ist ein `<button class="cotile soon">` und öffnet das
+  Fenster `#csm`: Titel „<Land> – Bald verfügbar", E-Mail, Knopf „Ich will <Land>".
+- `POST /wp-json/onefam/v1/waitlist` mit `{email, country, lang}` → **Bestätigungsmail
+  (Double-Opt-in)**. Zähler: `GET /wp-json/onefam/v1/waitlist/count?country=<Name>` →
+  `{ok, confirmed}`; angezeigt erst ab 10 Bestätigten. Ziel `WZIEL=50`, Text
+  „Kommt, sobald sich 50 Leute eingetragen haben" — ein festes Versprechen.
+- Danach Teilen-Knöpfe (WhatsApp, Telegram, Facebook, Link kopieren).
+- Stand 17.10.: Kosovo, Albania, Germany, Switzerland, Turkey, Italy, Portugal je **0**.
 
-**Gemessen am Dev-Server:** `/join`, `/de/join`, `/fr/join`, `/es/join` liefern je
-244 Optionen (243 + „kein Wunsch") mit übersetzter Frage; Startseite ohne Feld.
-`tsc` sauber, Lint ohne neue Warnungen. **Im Browser angesehen** (17.10.2026, Chrome):
-Desktop 1512 px und Handy 390 px (eingebetteter Rahmen — das Fenster liess sich nicht
-verkleinern), kein seitlicher Bildlauf, Feld 342 px breit bei 24 px Rand, dunkles
-Farbschema greift (`color-scheme: dark`, Schrift weiss auf `rgb(20,20,20)`), Auswahl per
-Tastatur („Alb" → Albanien) geht. Die aufgeklappte Systemliste selbst lässt sich nicht
-fotografieren. **Formular nicht abgeschickt** — der Dev-Server schreibt in die
-Produktionsdatenbank.
-
-**Offen, für Labi:** Die Liste unter dem Formular (`join.punkte`) sagt „Eine E-Mail,
-sonst nichts". Mit Name und Länderwunsch, beide freiwillig, stimmt das nur noch halb.
-
-**Vor dem Push, in dieser Reihenfolge:**
-1. ✅ **Datenschutzerklärung angepasst** (17.10.2026, von Labi freigegeben, alle vier
-   Sprachen, Stand „Oktober 2026"): Länderwunsch aufgeführt, Auswertung nur
-   zusammengezählt. Die Nutzungsbedingungen (`agb`, „Warteliste (Newsletter)") ebenso
-   nachgezogen, Stand dort ebenfalls „Oktober 2026".
-2. ✅ **Migration `0016_laenderwunsch.sql` angewendet** (17.10.2026, im SQL-Editor des
-   Dashboards über Chrome — Labi hat sich selbst angemeldet). Danach gemessen:
-   `country_wish` text, nullbar; Prüfregel
-   `CHECK (country_wish IS NULL OR country_wish ~ '^[A-Z]{2}$')` aktiv. Test in einem
-   DO-Block, der mit Absicht scheitert und so alles zurückrollt: „AL angenommen (AL);
-   albanien abgewiesen". Danach 0 Testzeilen. Keine Trigger auf `waitlist`. REST von
-   aussen: 200 in 0,48 s, kein 42703 mehr.
-   Vorher war der Supabase-MCP dreimal am direkten SQL-Weg gescheitert („Connection
-   terminated due to connection timeout") — **kein Anmeldeproblem**: Projektabfragen
-   gingen durch, REST antwortete (200, aber **7,0 s**). Beim vierten Versuch ebenso.
-   Steht nicht in der Migrationshistorie von Supabase, weil über den Editor eingefügt.
-3. Push (Labi).
-
-**Bekannte Grenze:** Wer schon auf der Liste steht und sich erneut einträgt, dessen
-Wunsch geht verloren — nachtragen bräuchte eine Update-Policy für anon.
+**Beschlossen (Labi, 17.10.2026), noch nicht umgesetzt — braucht wp-admin:**
+1. Kachel-Abzeichen „Coming soon/Bald verfügbar" → **„Mitentscheiden"** (EN „Have a say",
+   FR „Participe", ES „Participa"). Nur auf den Länderkacheln — die Signature-Kacheln
+   der Startseite sind echte angekündigte Produkte und behalten „Bald verfügbar".
+2. Ziel **100 statt 50** — Grund: Siebdruck bei Shirt-King erst ab 100 Stück je Motiv
+   (`docs/druck-und-lieferant.md`). Formulierung ohne Lieferversprechen, weil Einträge
+   keine Bestellungen sind: „Ab 100 Einträgen planen wir die Auflage."
+3. Tiefenlink, der das Fenster eines Landes direkt öffnet — für Reels und Stories.
 
 ## ⏰ Faellig am 12.10.2026: Antwort von Shirt-King pruefen
 

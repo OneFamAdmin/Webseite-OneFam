@@ -11,7 +11,7 @@
     "meta_beschreibung": "Nutzungsbedingungen für die OneFam-Website, die Warteliste und das Mitgliederkonto.",
     "eyebrow": "Rechtliches",
     "titel": "AGB & Nutzungsbedingungen",
-    "stand": "Oktober 2026",
+    "stand": "August 2026",
     "einleitung": "Diese Bedingungen regeln die Nutzung dieser Website, die Eintragung in unsere Warteliste und das OneFam-Mitgliederkonto. Es findet derzeit <b>kein Gewinnspiel, keine Verlosung und kein Travel-Pool-Programm</b> statt. Bitte lies sie aufmerksam.",
     "abschnitte": [
       {
@@ -39,7 +39,7 @@
             "art": "liste",
             "punkte": [
               "Die Eintragung ist kostenlos und setzt keinen Kauf voraus.",
-              "Erhoben wird deine E-Mail-Adresse; die Angabe eines Namens und eines Länderwunsches ist freiwillig.",
+              "Erhoben wird deine E-Mail-Adresse; die Angabe eines Namens ist freiwillig.",
               "Mit der Eintragung willigst du ein, von uns E-Mails über OneFam zu erhalten.",
               "Du kannst die Einwilligung jederzeit und ohne Angabe von Gründen widerrufen – über den Abmeldelink in jeder E-Mail oder formlos an info@onefam.ch.",
               "Die Eintragung begründet keine Mitgliedschaft, keine Teilnahme an einer Auswahl und keinen Anspruch auf eine Leistung."
@@ -133,7 +133,7 @@
     "meta_beschreibung": "Wie OneFam mit deinen Daten umgeht – Datenschutzerklärung nach dem Schweizer Datenschutzgesetz (DSG).",
     "eyebrow": "Rechtliches",
     "titel": "Datenschutzerklärung",
-    "stand": "Oktober 2026",
+    "stand": "August 2026",
     "einleitung": "Der Schutz deiner Daten ist uns wichtig. Diese Erklärung informiert dich darüber, welche Personendaten wir beim Besuch dieser Website bearbeiten und welche Rechte dir zustehen. Sie richtet sich nach dem revidierten Schweizer Datenschutzgesetz (DSG).",
     "abschnitte": [
       {
@@ -189,7 +189,7 @@
         "nr": "6",
         "titel": "Warteliste (Newsletter)",
         "bloecke": [
-          { "art": "absatz", "text": "Trägst du dich in unsere Warteliste ein, bearbeiten wir deine E-Mail-Adresse, einen freiwillig angegebenen Namen, einen freiwillig angegebenen Länderwunsch sowie den Zeitpunkt der Eintragung. Zweck ist, dich über OneFam zu informieren. Den Länderwunsch werten wir nur zusammengezählt aus, um zu entscheiden, für welches Land wir als Nächstes Kleidung machen. Grundlage ist deine Einwilligung." },
+          { "art": "absatz", "text": "Trägst du dich in unsere Warteliste ein, bearbeiten wir deine E-Mail-Adresse, einen freiwillig angegebenen Namen sowie den Zeitpunkt der Eintragung. Zweck ist ausschliesslich, dich über OneFam zu informieren. Grundlage ist deine Einwilligung." },
           { "art": "absatz", "text": "Du kannst dich jederzeit abmelden – über den Abmeldelink in jeder E-Mail oder formlos an info@onefam.ch. Danach löschen wir deinen Eintrag. Wir geben diese Daten nicht an Dritte weiter und nutzen sie nicht für Werbung anderer Unternehmen." }
         ]
       },

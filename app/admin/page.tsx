@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
-import { ArrowLeft, Users, Wallet, Dices, Vote, ChevronRight, Receipt, Globe } from 'lucide-react';
-import { landName } from '@/lib/laenderwunsch';
+import { ArrowLeft, Users, Wallet, Dices, Vote, ChevronRight, Receipt } from 'lucide-react';
 import { createClient } from '@/lib/supabase/server';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { setPool, runDrawAction } from './actions';
@@ -33,21 +32,6 @@ export default async function AdminPage() {
       .limit(1)
       .maybeSingle(),
   ]);
-
-  // Länderwünsche der Warteliste (Migration 0016, seit 17.10.2026). Bewusst nur
-  // hier im Admin und nicht öffentlich: ein sichtbarer Zähler mit drei Stimmen
-  // wirkt schlechter als gar keiner. Öffentlich erst ab einer Schwelle.
-  // Gezählt wird in TypeScript — bei der Grösse der Liste reicht das; die
-  // Standardgrenze von 1000 Zeilen ist mit .range() angehoben.
-  const [{ count: wartelisteCount }, { data: wunschZeilen }] = await Promise.all([
-    admin.from('waitlist').select('*', { count: 'exact', head: true }),
-    admin.from('waitlist').select('country_wish').not('country_wish', 'is', null).range(0, 49999),
-  ]);
-  const wuensche = new Map<string, number>();
-  for (const z of wunschZeilen ?? []) {
-    wuensche.set(z.country_wish, (wuensche.get(z.country_wish) ?? 0) + 1);
-  }
-  const wunschListe = [...wuensche.entries()].sort((a, b) => b[1] - a[1]);
 
   return (
     <div className="flex min-h-screen flex-col bg-bg">
@@ -121,29 +105,6 @@ export default async function AdminPage() {
           </div>
           <ChevronRight size={20} strokeWidth={1.6} className="text-faint" />
         </Link>
-
-        {/* country wishes */}
-        <section className="mt-8 rounded-[10px] border border-line bg-surface p-6">
-          <div className="flex items-center gap-2">
-            <Globe size={18} strokeWidth={1.6} className="text-gold" />
-            <h2 className="font-display text-xl font-semibold text-primary">Länderwünsche</h2>
-          </div>
-          <p className="mt-1 font-body text-sm text-faint">
-            Warteliste: {wartelisteCount ?? 0} Einträge, davon {wunschZeilen?.length ?? 0} mit Länderwunsch
-          </p>
-          {wunschListe.length === 0 ? (
-            <p className="mt-4 font-body text-sm text-secondary">Noch keine Wünsche.</p>
-          ) : (
-            <ul className="mt-4 divide-y divide-line">
-              {wunschListe.map(([code, anzahl]) => (
-                <li key={code} className="flex items-center justify-between py-2 font-body text-sm">
-                  <span className="text-primary">{landName(code)}</span>
-                  <span className="text-gold">{anzahl}</span>
-                </li>
-              ))}
-            </ul>
-          )}
-        </section>
 
         {/* set pool */}
         <section className="mt-8 rounded-[10px] border border-line bg-surface p-6">
