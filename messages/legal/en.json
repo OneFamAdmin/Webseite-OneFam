@@ -133,7 +133,7 @@
     "meta_beschreibung": "How OneFam handles your data – privacy policy under the Swiss Federal Act on Data Protection (FADP).",
     "eyebrow": "Legal",
     "titel": "Privacy policy",
-    "stand": "August 2026",
+    "stand": "October 2026",
     "einleitung": "Protecting your data matters to us. This policy tells you which personal data we process when you visit this website and which rights you have. It follows the revised Swiss Federal Act on Data Protection (FADP).",
     "abschnitte": [
       {
@@ -189,7 +189,7 @@
         "nr": "6",
         "titel": "Waiting list (newsletter)",
         "bloecke": [
-          { "art": "absatz", "text": "If you join our waiting list, we process your email address, a name if you choose to give one, and the time you signed up. The sole purpose is to keep you informed about OneFam. The basis is your consent." },
+          { "art": "absatz", "text": "If you join our waiting list, we process your email address, a name if you choose to give one, a country wish if you choose to give one, and the time you signed up. The purpose is to keep you informed about OneFam. We only evaluate country wishes as totals, to decide which country we make clothing for next. The basis is your consent." },
           { "art": "absatz", "text": "You can unsubscribe at any time – via the unsubscribe link in every email or informally to info@onefam.ch. We then delete your entry. We do not pass this data on to third parties and do not use it to advertise other companies." }
         ]
       },
