@@ -36,6 +36,23 @@ echte Adresse).
 `onboarding@resend.dev`, liefert Resend nur an den Kontoinhaber — alle anderen bekämen
 „Wir konnten dir gerade keine Mail schicken". Claude kann die Variablen nicht lesen (403).
 
+**Shop-Fusszeile (18.10.2026):** Das Feld „Subscribe To Our Emails / Newsletter abonnieren"
+war tot — kein `<form>`, kein Skript; wer eine Adresse eintrug, dem passierte nichts. In
+Snippet 11 in allen **25** Seitenvorlagen ersetzt durch einen Knopf `<a class="pill"
+href="https://onefam.ch/join">Join the Fam →</a>` unter der Überschrift „Be part of it"
+(neuer OF_I18N-Schlüssel in allen 25 Kopien: DE „Sei dabei", FR „Fais-en partie", ES „Forma
+parte"). Snippet 11: 2 545 647 → **2 555 787**, nach Neuladen gemessen, aktiv. **Keine
+Sicherung im Browser** (localStorage voll) — rückgängig über die drei festen Ersetzungen.
+Live ausgeloggt: 10 Seiten (`/`, `/de/`, `/fr/`, `/es/`, `/shop-by-country/`, `/albania/`,
+`/about-us/`, `/privacy-policy/`, `/contact-us/`, `/onefam-logo/`) alle 200, Knopf da, Feld weg.
+
+**Join-Texte (18.10.2026), alle vier Sprachen:** „Hier fängt es an. …" statt „OneFam wächst
+gerade erst."; Knopf „Ich bin dabei" / „I'm in" / „J'en suis" / „Me apunto" statt
+„Auf die Warteliste"; „Kein Kauf nötig" auf /join nur noch einmal (Liste: „Kostenlos und
+ohne Kaufpflicht"; der Hinweis unter dem Knopf nur noch in der kurzen Fassung auf der
+Startseite); Meta-Beschreibung ohne Doppelung. Login-Hinweis bleibt (Labi: Mitbestimmung
+soll von Anfang an dabei sein).
+
 ## 🗂 17.10.2026: Nachträge aus der Auswertung aller 26 Chats
 
 Alle Chats vom 14.06. bis 17.10.2026 wurden vollständig ausgewertet und mit `docs/`
