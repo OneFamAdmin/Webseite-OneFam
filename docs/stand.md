@@ -53,16 +53,32 @@ DE Curaçao öffnen sich über den Link mit richtigem Abzeichen und Zieltext. **
 Messen:** Chrome übersetzt fremdsprachige Seiten selbst (`<html class="translated-ltr">`)
 — dann stehen deutsche Texte auf `/es/`, ohne dass die Seite falsch ist.
 
-**Offen, für Labi:**
-- Der Satz über der Kachelwand verspricht noch: „Trag dich für dein Land ein, **dann
-  machen wir es**." — dieselbe Art Versprechen wie die alten 50.
-- Knopf und Einleitung im Fenster nennen das Land **englisch** („Je veux Bosnia",
-  „tu veux Bosnia"), weil sie `data-c` nehmen; der Titel wird übersetzt („Bosnie").
-  Bestand schon vorher.
-- ⚠️ **Die Datenschutzerklärung des Shops erwähnt die Warteliste nicht** (DE und EN
-  durchsucht: kein „Warteliste/waitlist", kein „Newsletter", keine Anmeldung) — obwohl
-  der Shop E-Mail, Land und Sprache speichert und Bestätigungsmails verschickt.
-  Rechtlich → Labi entscheidet.
+**Zweite Runde 17.10.2026 — alle drei offenen Punkte erledigt (von Labi freigegeben):**
+
+| Snippet | Länge danach | Was |
+|---|---|---|
+| 11 | 2 538 051 → **2 538 511** | Satz über der Wand ohne Versprechen („… je mehr ihr seid, desto eher kommt es"; EN/FR/ES auch in der ersten Hälfte auf „du entscheidest mit" angeglichen — vorher „is up to you"). Fenster: Landesname über `LN(c)` in der Sprache der Seite. Tiefenlink öffnet erst nach `DOMContentLoaded`. Datenschutz: neuer Abschnitt **„Country Waitlist"** vor „How We Disclose…", Datum **October 17, 2026** |
+| 42 | 187 622 → 192 155 → **192 360** | Übersetzungen des neuen Abschnitts (FR siezt wie der übrige Rechtstext, ES duzt), neues Datum; dazu `window.OF_NACHTRAG=M` — die Ländertabelle war in der IIFE gekapselt, `T()` kannte darum keine Ländernamen |
+| 18 | 17 426 → **18 401** | Teilen-Text der Bestätigungsseite ohne „dann kommt die Kollektion"; Mail-Betreff, Mail-Text und Bestätigungsseite nennen das Land übersetzt über `onefam_wl_land()` (liest `of_nachtrag_teil('kern')` aus Snippet 42, sonst englischer Name). Gespeichert und gezählt wird weiter der englische Name |
+
+Gemessen: alle Längen nach Neuladen gleich Soll, alle aktiv, kein `code_error`. Live:
+`/de/privacy-policy/` zeigt „Länder-Warteliste" an vierter Stelle mit drei Absätzen und
+„Zuletzt aktualisiert: 17. Oktober 2026"; FR und ES ebenso übersetzt; EN-Quelltext
+enthält den Abschnitt. Fenster: FR „Je veux Bosnie", DE „Ich will Türkei". Zähler
+`confirmed: 0`, falscher Bestätigungs-Token → 410. Alle geprüften Shop-Seiten 200.
+**Nicht getestet:** eine echte Anmeldung mit Mail — das hätte eine Mail an eine fremde
+Adresse geschickt. Die Ländertabelle wurde stattdessen im Browser geparst (112 Länder,
+Bosnia → Bosnie/Bosnien), und `onefam_wl_land()` fällt bei jedem Fehler auf den
+englischen Namen zurück.
+
+**Sicherungen** (Browser von Labi, `shop.onefam.ch`): `of_sicherung_snippet11_17102026`
+(Stand vor allem) und `…_b` (vor der zweiten Runde). Für Snippet 42 schlug die Sicherung
+fehl (Speicher voll) — die Änderungen dort sind reine Ergänzungen und lassen sich
+gezielt herausnehmen.
+
+**Noch offen, klein:** „Ich will Türkei" / „dass du Türkei willst" — Länder mit Artikel
+(die Türkei, die Schweiz, die USA) klingen im deutschen Satz holprig. Die Satzschablone
+setzt nur den Namen ein.
 
 ## ⏰ Faellig am 12.10.2026: Antwort von Shirt-King pruefen
 
