@@ -129,9 +129,12 @@ einfach wie die Einwilligung). Nicht hinter `-- ` und nicht im Kleingedruckten.
   Überlauf die ÄLTESTEN Einträge weg, auch bestätigte. Ersetzt durch
   `onefam_wl_aufraeumen()`: löscht nur `pending`, die älter als 30 Tage sind (Link
   abgelaufen); `confirmed` und Altbestand ohne Status nie. Läuft bei jeder Eintragung.
-- **Täglicher Aufräum-Lauf (WP-Cron) NICHT eingerichtet** — von der Sicherheitsprüfung
-  gesperrt, braucht Labis ausdrückliches Ja (dauerhaft geplanter Auftrag). Ohne ihn werden
-  abgelaufene `pending` erst bei der nächsten Eintragung gelöscht.
+- **Täglicher Aufräum-Lauf (WP-Cron): bewusst weggelassen** — Labis Entscheid vom
+  17.10.2026. Er hätte nur den Zeitpunkt geändert, nicht was gelöscht wird: abgelaufene
+  `pending` verschwinden ohne ihn erst bei der nächsten Eintragung statt am Folgetag.
+  Kein Risiko für Interessenten: gelöscht wird erst, wenn der 30-Tage-Link ohnehin tot
+  ist; wer danach noch will, trägt sich neu ein. Nachrüsten wäre jederzeit möglich, falls
+  die Liste lange ohne neue Eintragungen bleibt.
 - **Speicherdauer in der Datenschutzerklärung ergänzt** (DSGVO Art. 13 Abs. 2 lit. a), alle
   vier Sprachen, live gemessen: „…unbestätigte Eintragungen löschen wir nach seinem Ablauf.
   Bestätigte Eintragungen bleiben gespeichert, bis du dich abmeldest oder wir die Liste
