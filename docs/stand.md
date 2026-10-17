@@ -94,6 +94,12 @@ Singapour), **EN 32** („the"), ES keiner. **Kosovo bewusst ohne Artikel** im D
 - Live gemessen: DE „Ich will die Türkei", „Ich will die Vereinigten Staaten", „Ich will
   Kosovo"; FR „Je veux l’Allemagne"; EN „I want the Netherlands". Alle Shop-Seiten 200,
   Zähler antwortet, falscher Token 410, kein `code_error`.
+- **Echter Mailtest 17.10.2026, 18:05 (Labi, iPhone, Gmail):** Fenster nach dem Eintragen
+  „Hilf mit, dass es OneFam für die Türkei gibt"; Mail kommt an, Absender „OneFam",
+  Betreff **„Bestätige deine Anmeldung für die Türkei"**, Text „…die OneFam-Kollektion für
+  die Türkei kommt"; nach dem Klick Bestätigungsseite „Danke — du stehst jetzt auf der
+  Liste für die Türkei". Zähler danach `{"confirmed":1}` für Turkey. **Abmeldelink noch
+  nicht getestet.**
 
 ## ⏰ Faellig am 12.10.2026: Antwort von Shirt-King pruefen
 
