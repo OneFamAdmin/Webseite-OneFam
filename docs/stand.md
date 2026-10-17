@@ -98,8 +98,29 @@ Singapour), **EN 32** („the"), ES keiner. **Kosovo bewusst ohne Artikel** im D
   „Hilf mit, dass es OneFam für die Türkei gibt"; Mail kommt an, Absender „OneFam",
   Betreff **„Bestätige deine Anmeldung für die Türkei"**, Text „…die OneFam-Kollektion für
   die Türkei kommt"; nach dem Klick Bestätigungsseite „Danke — du stehst jetzt auf der
-  Liste für die Türkei". Zähler danach `{"confirmed":1}` für Turkey. **Abmeldelink noch
-  nicht getestet.**
+  Liste für die Türkei". Zähler danach `{"confirmed":1}` für Turkey. 18:17 Abmeldelink
+  angetippt → Seite „Abgemeldet", Zähler wieder **0**. Ganzer Ablauf getestet.
+- **Abmeldelink war in Gmail unsichtbar** — unsere Schuld: Snippet 18 setzte ihn hinter
+  `-- ` (Signatur-Trenner), Gmail klappt das unter „•••" weg. Behoben 17.10.2026: der
+  Abmeldesatz steht jetzt **über dem Gruss**, ohne Trenner (Snippet 18 → **26 038** Zeichen;
+  die Texte in `onefam_wl_texts()` unverändert, der Gruss wird als letzter Absatz
+  abgetrennt). Simuliert mit den echten Texten (DE/FR), Shop-Seiten 200. **Noch nicht mit
+  einer echten Mail nachgesehen.**
+
+### ⚠️ Vor der ersten Mail an die Länder-Warteliste
+
+Bisher verschickt das System nur die **Bestätigungsmail**. Mails an die Liste („Die
+Kollektion für Albanien ist da") gibt es noch nicht — Snippet 18 kann die Liste nur als CSV
+ausgeben (`/wp-admin/?of_waitlist_export=GO2607`, Spalten email, country, lang, status,
+angemeldet, bestaetigt). **Wer daraus Mails verschickt, muss in JEDE Mail einen sichtbaren,
+persönlichen Abmeldelink setzen** — Schweiz UWG Art. 3 Abs. 1 lit. o („einfache und
+kostenlose Ablehnungsmöglichkeit" in jeder Werbemail), EU/DE DSGVO Art. 7 Abs. 3 (Widerruf so
+einfach wie die Einwilligung). Nicht hinter `-- ` und nicht im Kleingedruckten.
+- Der persönliche Link existiert schon: `https://shop.onefam.ch/?ofwlx=<utok>` — `utok` steht
+  je Eintrag in der Option `onefam_waitlist`, **fehlt aber im CSV-Export**. Vor dem ersten
+  Versand also den Export um `utok` erweitern (oder die Mails aus WordPress heraus schicken).
+- Nur an `status = confirmed` schicken; `pending` hat nie bestätigt.
+- Ob die Formulierung juristisch reicht, gehört zur offenen Anwaltsprüfung.
 
 ## ⏰ Faellig am 12.10.2026: Antwort von Shirt-King pruefen
 
