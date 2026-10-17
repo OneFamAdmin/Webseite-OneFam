@@ -26,7 +26,13 @@ gemessen: 0 Policies, RLS an; ein anonymer POST auf `/rest/v1/waitlist` mit
 `status: confirmed` antwortet **401**. Deploy live nach 45 s (Push `7b9afdd..6af7b57`):
 `/join` DE/EN/FR/ES mit neuen Texten, `/de/join/bestaetigt` und `/join/abmelden` 200.
 `EMAIL_FROM` in Vercel von Labi neu gesetzt (Anzeige „Updated just now", Production;
-Wert geschützt, nicht lesbar) — **ob er stimmt, zeigt erst der echte Mailtest.**
+Wert geschützt, nicht lesbar).
+**Echter Test durch Labi, 18.10.2026 (Gmail, DE, mit Name):** Mail verschickt 22:55:12 UTC,
+Absender „OneFam", im **Posteingang** (nicht Spam); bestätigt 22:55:49 (37 s) → Zeile
+`confirmed`, Abmeldetoken da; danach über den Mail-Link abgemeldet → Zeile **vollständig
+gelöscht**, in der Tabelle nur noch die 2 Altzeilen (`alt`). Damit ist auch `EMAIL_FROM`
+belegt. Offen: Resend bewahrt verschickte Mails in seinem eigenen Protokoll auf — dort
+liegt die Testmail noch (Dauer bei Resend nicht nachgeprüft).
 
 **Lokal getestet** (Produktionsbau, synthetische Zeile `@example.invalid`, danach über die
 Abmeldeseite gelöscht, 0 Reste): falscher Token → „funktioniert nicht"; richtiger →
