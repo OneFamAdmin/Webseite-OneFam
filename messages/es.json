@@ -171,14 +171,14 @@
     "claim": "Para quienes pertenecen a más de un lugar",
     "pages_title": "Navegación",
     "legal_title": "Legal",
-    "social_title": "Social",
+    "social_title": "Redes",
     "pages": [
       {
         "label": "Inicio",
         "href": "#hero"
       },
       {
-        "label": "About",
+        "label": "Sobre nosotros",
         "href": "#about"
       },
       {
