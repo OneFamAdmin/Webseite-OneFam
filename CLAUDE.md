@@ -386,6 +386,7 @@ fortschreiben.
 |---|---|
 | `docs/UEBERGABE-neuer-chat-21092026.md` | **Beim Start eines neuen Chats zuerst.** Stick-Entscheidung, alle 252 Motive, Shop- und Lieferantenstand, naechste Schritte |
 | `docs/stand.md` | Offene Punkte, letzter Stand, bekannte Fallen |
+| `docs/privat/GESAMT-alle-chats.md` | **Nur lokal, nicht im Repo.** Alle 26 Chats bis 17.10.2026 vollständig ausgewertet; Teil A = was in keinem anderen Dokument steht |
 | `docs/shop-und-pool-details.md` | WooCommerce-Bestand, Währungsmechanik, Kostenmodell, Versandstaffel |
 | `docs/behoerden-mwst-zoll.md` | ESTV, BAZG, deutscher Zoll — was beantwortet ist, was fehlt |
 | `docs/shop-preisanzeige.md` | Preis-Skript der Startseite, Slug-Falle, Speicher-Falle |

@@ -36,3 +36,7 @@ yarn-error.log*
 
 # project: large raw logo asset dump (44 MB) — kept out of the repo
 /Transparent PNG Logo/
+
+# Nur lokal: Auswertungen aller Chats mit Bank-, Rechnungs- und Privatdetails.
+# Das Repo ist oeffentlich (GitHub-API 200 ohne Anmeldung).
+/docs/privat/
