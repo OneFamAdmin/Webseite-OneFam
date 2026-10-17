@@ -223,12 +223,12 @@
   },
   "join": {
     "meta_titel": "Join the Fam — OneFam",
-    "meta_beschreibung": "Sign up and be there from the start. No purchase necessary, no obligation to buy, unsubscribe any time.",
+    "meta_beschreibung": "Sign up and be there from the start. Free, no obligation to buy, unsubscribe any time.",
     "kicker": "Join the Fam",
     "titel": "Be there from the start.",
-    "text": "OneFam is only just growing. Sign up and you will be the first to know when we take the next step — new pieces, the fam, and one day the journey we take together.",
+    "text": "This is where it starts. Sign up and you will be the first to know when we take the next step — new pieces, news from the fam, and one day the journey we take together.",
     "punkte": [
-      "No purchase necessary — and no obligation to buy",
+      "Free and no obligation to buy",
       "Only your email is required",
       "You hear from us when there is something to say",
       "Unsubscribe any time"
@@ -242,7 +242,7 @@
     "name_platzhalter": "e.g. Maria",
     "email_label": "Email address",
     "email_platzhalter": "you@email.com",
-    "senden": "Join the waitlist",
+    "senden": "I'm in",
     "sendet": "Signing you up …",
     "hinweis": "No purchase necessary. Unsubscribe any time.",
     "ok_titel": "Almost there.",
