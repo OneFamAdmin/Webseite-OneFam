@@ -133,7 +133,7 @@
     "meta_beschreibung": "Wie OneFam mit deinen Daten umgeht – Datenschutzerklärung nach dem Schweizer Datenschutzgesetz (DSG).",
     "eyebrow": "Rechtliches",
     "titel": "Datenschutzerklärung",
-    "stand": "August 2026",
+    "stand": "Oktober 2026",
     "einleitung": "Der Schutz deiner Daten ist uns wichtig. Diese Erklärung informiert dich darüber, welche Personendaten wir beim Besuch dieser Website bearbeiten und welche Rechte dir zustehen. Sie richtet sich nach dem revidierten Schweizer Datenschutzgesetz (DSG).",
     "abschnitte": [
       {
@@ -190,6 +190,7 @@
         "titel": "Warteliste (Newsletter)",
         "bloecke": [
           { "art": "absatz", "text": "Trägst du dich in unsere Warteliste ein, bearbeiten wir deine E-Mail-Adresse, einen freiwillig angegebenen Namen sowie den Zeitpunkt der Eintragung. Zweck ist ausschliesslich, dich über OneFam zu informieren. Grundlage ist deine Einwilligung." },
+          { "art": "absatz", "text": "Nach der Eintragung schicken wir dir eine E-Mail mit einem Bestätigungslink. Erst wenn du darauf klickst, stehst du auf der Liste (doppelte Bestätigung) – so kann niemand eine fremde Adresse eintragen. Dafür speichern wir zusätzlich die Sprache der Seite sowie die Zeitpunkte von Versand und Bestätigung. Der Link gilt 30 Tage; unbestätigte Eintragungen löschen wir danach. Bestätigte Eintragungen bleiben gespeichert, bis du dich abmeldest." },
           { "art": "absatz", "text": "Du kannst dich jederzeit abmelden – über den Abmeldelink in jeder E-Mail oder formlos an info@onefam.ch. Danach löschen wir deinen Eintrag. Wir geben diese Daten nicht an Dritte weiter und nutzen sie nicht für Werbung anderer Unternehmen." }
         ]
       },

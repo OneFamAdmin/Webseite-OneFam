@@ -20,7 +20,9 @@ import { DEFAULT_LOCALE, homePath, type Locale } from '@/i18n/routing';
 // sich nicht je nach Sprache unterscheiden — im Impressum steht der Ort übersetzt
 // (Basel, Bäle, Basilea), und genau das darf hier nicht passieren. Wer das
 // Impressum ändert, ändert diese Werte mit.
-const FIRMA = {
+// Exportiert seit 18.10.2026: die Bestätigungsmail der Warteliste nennt den
+// Absender mit Anschrift (Pflicht für geschäftliche Mails) und nimmt ihn von hier.
+export const FIRMA = {
   rechtsform: 'OneFam — Einzelfirma, Schweiz',
   inhaber: 'Labinot Bajrami',
   strasse: 'Riehenstrasse 236',

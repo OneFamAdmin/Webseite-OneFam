@@ -4,7 +4,7 @@ import React from 'react';
 import { useActionState } from 'react';
 import { useFormStatus } from 'react-dom';
 import { Mail, Check, Loader2, User } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import Button from './Button';
 import { joinWaitlist, type WaitlistState } from '@/app/actions/join';
 
@@ -33,10 +33,16 @@ function SubmitButton() {
 
 /** Warteliste — bewusst ein reines E-Mail-Signup: kein Konto, keine Teilnahme,
  *  kein Gewinnversprechen. Der Draw-Funnel (JoinForm) ist bis zur rechtlichen
- *  Prüfung geparkt, siehe docs/handover-shop-pool.md §3. */
+ *  Prüfung geparkt, siehe docs/handover-shop-pool.md §3.
+ *
+ *  Seit 18.10.2026 mit doppelter Bestätigung: Nach dem Absenden ist man noch
+ *  NICHT auf der Liste, sondern bekommt eine Mail mit Link. Die Erfolgsmeldung
+ *  sagt deshalb "schau in dein Postfach", nicht "du bist drin". Die Sprache geht
+ *  als verstecktes Feld mit, damit die Mail in derselben Sprache kommt. */
 export default function WaitlistForm({ compact = false }: { compact?: boolean }) {
   const [state, formAction] = useActionState(joinWaitlist, INITIAL);
   const t = useTranslations('waitlist');
+  const locale = useLocale();
 
   if (state.status === 'ok') {
     return (
@@ -55,6 +61,7 @@ export default function WaitlistForm({ compact = false }: { compact?: boolean })
 
   return (
     <form action={formAction} noValidate className="space-y-4">
+      <input type="hidden" name="sprache" value={locale} />
       {!compact && (
         <div>
           <label htmlFor="wl-name" className="mb-2 block font-body text-sm text-secondary">

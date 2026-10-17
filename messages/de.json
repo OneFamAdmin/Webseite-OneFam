@@ -241,8 +241,43 @@
     "senden": "Auf die Warteliste",
     "sendet": "Wird eingetragen …",
     "hinweis": "Kein Kauf nötig. Jederzeit abmeldbar.",
-    "ok_titel": "Du bist auf der Liste.",
-    "ok_vor": "Wir melden uns bei",
-    "ok_nach": ", wenn es so weit ist. Kein Spam, kein Kauf nötig."
+    "ok_titel": "Fast geschafft.",
+    "ok_vor": "Wir haben dir eine Mail an",
+    "ok_nach": " geschickt. Klick auf den Link darin, dann bist du dabei. Nichts angekommen? Schau im Spam-Ordner nach.",
+    "fehler_adresse": "Bitte gib eine gültige E-Mail-Adresse ein.",
+    "fehler_versand": "Wir konnten dir gerade keine Mail schicken. Versuch es in ein paar Minuten noch einmal.",
+    "fehler_allgemein": "Hoppla – das hat nicht geklappt. Versuch es gleich noch einmal."
+  },
+  "waitlist_mail": {
+    "betreff": "Bestätige deine Anmeldung bei OneFam",
+    "titel": "Fast geschafft.",
+    "gruss": "Hey,",
+    "gruss_name": "Hey {name},",
+    "text": "du hast dich bei OneFam eingetragen. Klick auf den Knopf, dann bist du dabei.",
+    "knopf": "Ja, ich bin dabei",
+    "gueltig": "Der Link gilt {tage} Tage.",
+    "nicht_du": "Du hast dich nicht eingetragen? Dann ignorier diese Mail einfach. Ohne Klick tragen wir dich nicht ein und löschen die Adresse wieder.",
+    "abmelden": "Abmelden",
+    "fuss": "Du bekommst diese Mail, weil diese Adresse auf onefam.ch eingetragen wurde."
+  },
+  "waitlist_seiten": {
+    "bestaetigt_meta": "Anmeldung bestätigt — OneFam",
+    "abmelden_meta": "Abmelden — OneFam",
+    "ok_titel": "Willkommen in der Fam.",
+    "ok_text": "Du bist jetzt auf der Liste. Wenn wir den nächsten Schritt gehen, hörst du es als Erste:r.",
+    "schon_titel": "Du bist schon dabei.",
+    "schon_text": "Diese Adresse ist bereits bestätigt. Du musst nichts weiter tun.",
+    "ungueltig_titel": "Dieser Link funktioniert nicht.",
+    "ungueltig_text": "Vielleicht hast du dich inzwischen noch einmal eingetragen – dann gilt nur der Link aus der neuesten Mail. Oder trag dich einfach neu ein.",
+    "abgelaufen_titel": "Dieser Link ist abgelaufen.",
+    "abgelaufen_text": "Bestätigungslinks gelten {tage} Tage. Trag dich einfach noch einmal ein, dann schicken wir dir einen neuen.",
+    "zur_startseite": "Zur Startseite",
+    "neu_eintragen": "Neu eintragen",
+    "abmelden_titel": "Abmelden",
+    "abmelden_frage": "Willst du dich von der OneFam-Warteliste abmelden? Wir löschen deine Adresse dann vollständig.",
+    "abmelden_knopf": "Ja, abmelden",
+    "abmelden_ungueltig": "Dieser Abmeldelink ist ungültig – oder du bist schon abgemeldet.",
+    "abgemeldet_titel": "Du bist abgemeldet.",
+    "abgemeldet_text": "Wir haben deine Adresse gelöscht und schreiben dir nicht mehr."
   }
 }

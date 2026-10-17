@@ -1,0 +1,11 @@
+-- OneFam — Warteliste: öffentliches Einfügen abschalten (18.10.2026).
+--
+-- Gehört zu 0017, wird aber erst angewendet, wenn der Code mit doppelter
+-- Bestätigung live ist (app/actions/join.ts schreibt seitdem mit dem
+-- Service-Schlüssel). Vorher angewendet, schlüge das alte Formular fehl.
+--
+-- Das öffentliche Einfügen fällt weg. Die Server-Action schreibt jetzt mit dem
+-- Service-Schlüssel, weil sie Tokens setzt und den Status kennt. Bliebe die
+-- Policy, könnte jeder über die offene REST-Schnittstelle eine Zeile mit
+-- status 'confirmed' anlegen und die Bestätigung umgehen.
+drop policy if exists "waitlist_public_insert" on public.waitlist;
