@@ -19,11 +19,14 @@ bewusst kein öffentlicher Zähler, solange die Zahlen klein sind.
 angesehen** (Erweiterung nicht verbunden) — vor dem Push auf Handy und Desktop ansehen.
 
 **Vor dem Push, in dieser Reihenfolge:**
-1. ⚠️ **Datenschutzerklärung anpassen** (`messages/legal/<sprache>.json`, Abschnitt
-   „Warteliste (Newsletter)") — sie zählt heute abschliessend E-Mail, Name und Zeitpunkt
-   auf, Zweck „ausschliesslich, dich über OneFam zu informieren". Der Länderwunsch
-   fehlt dort, ebenso der zweite Zweck. **Rechtlich heikel — von Labi zu entscheiden.**
-2. **Migration `0016_laenderwunsch.sql` anwenden.** Ohne sie scheitert jede Eintragung
+1. ✅ **Datenschutzerklärung angepasst** (17.10.2026, von Labi freigegeben, alle vier
+   Sprachen, Stand „Oktober 2026"): Länderwunsch aufgeführt, Auswertung nur
+   zusammengezählt. **Offen:** die Nutzungsbedingungen (`agb`, Abschnitt „Warteliste
+   (Newsletter)") sagen weiterhin „Erhoben wird deine E-Mail-Adresse; die Angabe eines
+   Namens ist freiwillig." — nicht ohne Labi ändern.
+2. ❌ **Migration `0016_laenderwunsch.sql` anwenden.** Über den Supabase-MCP am
+   17.10.2026 dreimal gescheitert („Connection terminated due to connection timeout"),
+   obwohl das Projekt `ACTIVE_HEALTHY` meldete — also im SQL-Editor einfügen. Ohne sie scheitert jede Eintragung
    *mit* gewähltem Land; Eintragungen ohne Land laufen weiter (die Action schickt die
    Spalte nur mit, wenn ein Land gewählt ist).
 3. Push (Labi).
