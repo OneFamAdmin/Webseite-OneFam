@@ -241,8 +241,43 @@
     "senden": "Rejoindre la liste d'attente",
     "sendet": "Inscription en cours …",
     "hinweis": "Aucun achat nécessaire. Désinscription à tout moment.",
-    "ok_titel": "Tu es sur la liste.",
-    "ok_vor": "Nous te contacterons à",
-    "ok_nach": " le moment venu. Pas de spam, aucun achat nécessaire."
+    "ok_titel": "Presque fini.",
+    "ok_vor": "Nous avons envoyé un e-mail à",
+    "ok_nach": ". Clique sur le lien qu’il contient, et tu en fais partie. Rien reçu ? Regarde dans tes spams.",
+    "fehler_adresse": "Merci d’indiquer une adresse e-mail valide.",
+    "fehler_versand": "Nous n’avons pas pu t’envoyer d’e-mail pour le moment. Réessaie dans quelques minutes.",
+    "fehler_allgemein": "Oups – ça n’a pas marché. Réessaie tout de suite."
+  },
+  "waitlist_mail": {
+    "betreff": "Confirme ton inscription à OneFam",
+    "titel": "Presque fini.",
+    "gruss": "Salut,",
+    "gruss_name": "Salut {name},",
+    "text": "tu t’es inscrit·e chez OneFam. Clique sur le bouton, et tu en fais partie.",
+    "knopf": "Oui, j’en suis",
+    "gueltig": "Le lien est valable {tage} jours.",
+    "nicht_du": "Ce n’est pas toi ? Ignore simplement cet e-mail. Sans clic, nous ne t’inscrivons pas et nous supprimons l’adresse.",
+    "abmelden": "Se désinscrire",
+    "fuss": "Tu reçois cet e-mail parce que cette adresse a été saisie sur onefam.ch."
+  },
+  "waitlist_seiten": {
+    "bestaetigt_meta": "Inscription confirmée — OneFam",
+    "abmelden_meta": "Désinscription — OneFam",
+    "ok_titel": "Bienvenue dans la Fam.",
+    "ok_text": "Tu es maintenant sur la liste. Quand nous passerons à l’étape suivante, tu le sauras avant tout le monde.",
+    "schon_titel": "Tu en fais déjà partie.",
+    "schon_text": "Cette adresse est déjà confirmée. Tu n’as rien d’autre à faire.",
+    "ungueltig_titel": "Ce lien ne fonctionne pas.",
+    "ungueltig_text": "Tu t’es peut-être réinscrit·e entre-temps – seul le lien du dernier e-mail est alors valable. Ou inscris-toi simplement à nouveau.",
+    "abgelaufen_titel": "Ce lien a expiré.",
+    "abgelaufen_text": "Les liens de confirmation sont valables {tage} jours. Inscris-toi à nouveau, et nous t’en enverrons un nouveau.",
+    "zur_startseite": "Retour à l’accueil",
+    "neu_eintragen": "S’inscrire à nouveau",
+    "abmelden_titel": "Se désinscrire",
+    "abmelden_frage": "Veux-tu quitter la liste d’attente OneFam ? Nous supprimerons alors entièrement ton adresse.",
+    "abmelden_knopf": "Oui, me désinscrire",
+    "abmelden_ungueltig": "Ce lien de désinscription n’est pas valable – ou tu es déjà désinscrit·e.",
+    "abgemeldet_titel": "Tu es désinscrit·e.",
+    "abgemeldet_text": "Nous avons supprimé ton adresse et ne t’écrirons plus."
   }
 }
