@@ -125,9 +125,10 @@ Umschalter sind bewusst abgeschaltet. Mechanik und Testhinweise:
     getestet, nicht auf Zuruf übernommen.
 14. **Claude Code kommt nicht überall hin.** `~/Documents`, `~/Desktop` und
     **externe Datenträger** sind durch TCC gesperrt — `ls` antwortet mit
-    „Operation not permitted". Lesbar sind `~/Downloads` und das Projekt.
-    **Was gelesen werden soll, gehört nach `~/Downloads`.** Die EPS-Druckdaten
-    liegen deshalb in `~/Downloads/onefam-eps` (253 Dateien, 215 MB).
+    „Operation not permitted". Lesbar sind `~/Downloads` und `~/Projekte`.
+    Die EPS-Druckdaten liegen seit dem Aufräumen am 11.10.2026 in
+    `~/Projekte/onefam-material/designs/onefam-eps` (253 Dateien, 215 MB) —
+    **nicht mehr** in `~/Downloads/onefam-eps` (geprüft 17.10.2026).
     Mail.app ist dagegen per `osascript` erreichbar — nie über `~/Library/Mail`.
 
 ---

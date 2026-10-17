@@ -34,7 +34,7 @@ import numpy as np
 from PIL import Image
 from scipy import ndimage as nd
 
-PDF = os.environ.get('PDF', '/Users/labinotbajrami/Downloads/loco-motive_Logo_rgb_flags_final 2.pdf')
+PDF = os.environ.get('PDF', '/Users/labinotbajrami/Projekte/onefam-material/docs/loco-motive_Logo_rgb_flags_final 2.pdf')
 GRENZEN = [0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 1.0, 1.5, 2.0]   # mm, bei 8 cm Motivbreite
 FARBSCHWELLE = 0.001      # 0,1 % der Motivflaeche — Wappen und Schrift ueberleben
 BEZUG_MM = 80.0

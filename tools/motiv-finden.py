@@ -16,19 +16,20 @@ Flagge. Ein Treffer ist erst ein Befund, wenn diese Kachel stimmt.
 
 Aufruf:
     python3 tools/motiv-finden.py --seite 6
-    python3 tools/motiv-finden.py --seite 144 --eps ~/Downloads/onefam-eps
+    python3 tools/motiv-finden.py --seite 144 --eps ~/Projekte/onefam-material/designs/onefam-eps
 
 Danach die Flaggenkachel ansehen (das Skript schreibt sie mit heraus) und erst
 dann die gefundene Datei benutzen.
 
 **Zugriffsfalle:** `~/Documents`, `~/Desktop` und externe Datentraeger sind fuer
-Claude Code durch TCC gesperrt. Die EPS muessen unter `~/Downloads` liegen.
+Claude Code durch TCC gesperrt. Die EPS liegen seit 11.10.2026 unter
+`~/Projekte/onefam-material/designs/onefam-eps` (vorher `~/Downloads/onefam-eps`).
 """
 import argparse, glob, os, subprocess, tempfile
 import numpy as np
 from PIL import Image
 
-PDF = os.path.expanduser('~/Downloads/loco-motive_Logo_rgb_flags_final 2.pdf')
+PDF = os.path.expanduser('~/Projekte/onefam-material/docs/loco-motive_Logo_rgb_flags_final 2.pdf')
 
 
 def freistellen(arr):
@@ -60,7 +61,7 @@ def abstand(a, b):
 def main():
     p = argparse.ArgumentParser()
     p.add_argument('--seite', type=int, required=True, help='PDF-Seite des gesuchten Motivs')
-    p.add_argument('--eps', default=os.path.expanduser('~/Downloads/onefam-eps'))
+    p.add_argument('--eps', default=os.path.expanduser('~/Projekte/onefam-material/designs/onefam-eps'))
     p.add_argument('--pdf', default=PDF)
     p.add_argument('--treffer', type=int, default=5)
     p.add_argument('--ziel', default='.', help='wohin Referenzbild und Flaggenkachel geschrieben werden')

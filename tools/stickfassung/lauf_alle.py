@@ -3,7 +3,7 @@ from multiprocessing import Pool
 from produktion import eins, slug
 from mapping import M
 from namen import N
-PDF=os.environ.get('PDF','/Users/labinotbajrami/Downloads/loco-motive_Logo_rgb_flags_final 2.pdf')
+PDF=os.environ.get('PDF','/Users/labinotbajrami/Projekte/onefam-material/docs/loco-motive_Logo_rgb_flags_final 2.pdf')
 OUT='stick15'; os.makedirs(OUT,exist_ok=True); os.makedirs('work',exist_ok=True)
 
 def job(p):
