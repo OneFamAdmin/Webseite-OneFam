@@ -120,7 +120,9 @@ einfach wie die Einwilligung). Nicht hinter `-- ` und nicht im Kleingedruckten.
   (`https://shop.onefam.ch/?ofwlx=<utok>`). Gemessen: Export 200, 7 Spalten. Der einzige
   Eintrag zurzeit ist ein alter Test („Testland", 24.07.2026, @onefam.ch, Status „alt" aus
   der Zeit vor dem Double-Opt-in) — **ohne** Abmeldelink, weil er nie einen `utok` bekam.
-  Löschen durch Labi: `/wp-admin/?of_waitlist_del=GO2607&land=Testland`.
+  **Am 17.10.2026 um 19:56 von Labi gelöscht** (Antwort „vorher 1 | entfernt 1 | nachher 0").
+  Nachgemessen: Export 200, nur noch die Kopfzeile mit 7 Spalten, kein „Testland". Die
+  Liste ist damit leer.
 - Nur an `status = confirmed` schicken; `pending` hat nie bestätigt.
 - Ob die Formulierung juristisch reicht, gehört zur offenen Anwaltsprüfung.
 
