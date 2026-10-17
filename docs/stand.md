@@ -82,8 +82,9 @@ ohne „keine klassische Clothing-Brand"; Karten „Haltung statt Fassade." / �
 Small Talk."; „Warum wir das machen" mit „Menschen vergessen, was sie gekauft haben. Aber
 nie, wo sie dazugehört haben." statt zwei Sätzen; Hero-Unterzeile ohne doppeltes „für
 alle"; Fusszeile DE „Seiten / Rechtliches / Folge uns", „Start", „Über uns", „Häufige
-Fragen" (FR/ES „À propos", „Sobre nosotros", „Réseaux"/„Redes"). Die Kopfnavigation
-(„About", „Code", „FAQ", „Shop") ist unverändert englisch.
+Fragen" (FR/ES „À propos", „Sobre nosotros", „Réseaux"/„Redes"). Kopfzeile ebenso:
+DE „Über uns", „Code", „Häufige Fragen", „Shop"; FR „À propos", ES „Sobre nosotros". Bei 800 px
+(Umbruch zum Menü) gemessen: keine Überlappung, kein Zeilenumbruch, keine Querscrollbalken.
 
 ## 🆕 17.10.2026: Länderwunsch — EIN System, und zwar das im Shop
 
