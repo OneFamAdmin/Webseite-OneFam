@@ -64,6 +64,22 @@ Sicherung im Browser** (localStorage voll) — rückgängig über die drei feste
 Live ausgeloggt: 10 Seiten (`/`, `/de/`, `/fr/`, `/es/`, `/shop-by-country/`, `/albania/`,
 `/about-us/`, `/privacy-policy/`, `/contact-us/`, `/onefam-logo/`) alle 200, Knopf da, Feld weg.
 
+**Shop-Startseite (18.10.2026), Snippet 11 → 2 548 484** (nach Neuladen gemessen, aktiv):
+„Four countries are ready — more will follow." entfernt (Labi: „man sieht ja, was da ist");
+FAQ Währung jetzt nur CHF/EUR (vorher „EUR, PLN, CZK, DKK und NOK" — gibt es nicht); FAQ
+Support „wir antworten innerhalb von 48 Stunden" (je 25 OF_I18N-Kopien + FAQ-Daten);
+Kartentitel der Startseite übersetzt über `ofFeatName()` + `window.OF_NACHTRAG` (DE
+„Albanien Hoodie", FR „Albanie/Argentine/Andorre", ES „Afganistán") — die Daten in `feat`
+bleiben englisch, weil `ofLink()` und die Preise darüber laufen. Live gemessen DE/EN/FR/ES:
+Links und Preise unverändert (CHF 75/65/40/75), keine Fehler.
+**Offen — Liefergebiet:** Labi sagt „weltweit", WooCommerce verkauft aber nur an **21
+Länder** (`woocommerce_allowed_countries = specific`; Zonen DE 7 · Kern/West-EU+LI 12 ·
+Ost-EU/Baltikum 16 · CH/UK 18 · FI/NO/PT 26; Restwelt-Zone ohne Methode). FAQ „Wohin liefert
+ihr?" (nennt 21 Länder, aber „ganz Europa") und „Lieferzeit" (nennt USA) widersprechen sich —
+**nicht geändert**, bis entschieden ist, ob der Shop wirklich weltweit öffnet.
+**Verträge** abgelegt in `~/Projekte/onefam-material/vertraege/` (Resend-DPA signiert,
+Supabase-DPA + TIA, LIESMICH.md).
+
 **Join-Texte (18.10.2026), alle vier Sprachen:** „Hier fängt es an. …" statt „OneFam wächst
 gerade erst."; Knopf „Ich bin dabei" / „I'm in" / „J'en suis" / „Me apunto" statt
 „Auf die Warteliste"; „Kein Kauf nötig" auf /join nur noch einmal (Liste: „Kostenlos und
