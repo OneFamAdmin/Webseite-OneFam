@@ -219,12 +219,12 @@
   },
   "join": {
     "meta_titel": "Join the Fam — OneFam",
-    "meta_beschreibung": "Trag dich ein und sei von Anfang an dabei. Kein Kauf nötig, keine Kaufpflicht, jederzeit abmeldbar.",
+    "meta_beschreibung": "Trag dich ein und sei von Anfang an dabei. Kostenlos, ohne Kaufpflicht, jederzeit abmeldbar.",
     "kicker": "Join the Fam",
     "titel": "Sei von Anfang an dabei.",
-    "text": "OneFam wächst gerade erst. Trag dich ein, und du erfährst als Erste:r, wenn wir den nächsten Schritt gehen – neue Stücke, die Fam, und irgendwann die gemeinsame Reise.",
+    "text": "Hier fängt es an. Trag dich ein, und du erfährst als Erste:r, wenn wir den nächsten Schritt gehen – neue Stücke, Neues aus der Fam und irgendwann die gemeinsame Reise.",
     "punkte": [
-      "Kein Kauf nötig – und keine Kaufpflicht",
+      "Kostenlos und ohne Kaufpflicht",
       "Nur deine E-Mail ist Pflicht",
       "Du hörst von uns, wenn es etwas zu sagen gibt",
       "Jederzeit abmeldbar"
@@ -238,7 +238,7 @@
     "name_platzhalter": "z. B. Maria",
     "email_label": "E-Mail-Adresse",
     "email_platzhalter": "deine@email.ch",
-    "senden": "Auf die Warteliste",
+    "senden": "Ich bin dabei",
     "sendet": "Wird eingetragen …",
     "hinweis": "Kein Kauf nötig. Jederzeit abmeldbar.",
     "ok_titel": "Fast geschafft.",

@@ -108,7 +108,10 @@ export default function WaitlistForm({ compact = false }: { compact?: boolean })
         </div>
         {state.status === 'error' && <p className="font-body text-sm text-red-400">{state.message}</p>}
         <SubmitButton />
-        <p className="text-center font-body text-xs text-faint">{t('hinweis')}</p>
+        {/* Nur in der kurzen Fassung (Startseite, "Unsere Vision"): Auf /join steht
+            dasselbe direkt darunter in der Liste. Vorher las man dort "Kein Kauf
+            nötig" zweimal untereinander — das wirkt misstrauisch statt beruhigend. */}
+        {compact && <p className="text-center font-body text-xs text-faint">{t('hinweis')}</p>}
       </div>
     </form>
   );
