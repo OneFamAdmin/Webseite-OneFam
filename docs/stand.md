@@ -1,4 +1,69 @@
-# Stand — 08.10.2026
+# Stand — 17.10.2026
+
+## 🗂 17.10.2026: Nachträge aus der Auswertung aller 26 Chats
+
+Alle Chats vom 14.06. bis 17.10.2026 wurden vollständig ausgewertet und mit `docs/`
+abgeglichen. Das Ergebnis liegt **nur lokal** in `docs/privat/GESAMT-alle-chats.md`
+(Ordner in `.gitignore`, weil das Repo öffentlich ist und die Auswertung Bank-, Rechnungs-
+und Privatdetails enthält). Teil A dort listet je Chat, was in keinem Dokument stand.
+Hier das, was für die Arbeit zählt:
+
+**Korrigiert (an Ort und Stelle, mit Vermerk):**
+- „Die Schweiz ist der Heimatmarkt“ (Abschnitt Basiswährung) — Labi hat das am 08.09.
+  zurückgewiesen; durchgestrichen und richtiggestellt.
+- Werbevideo: gültig ist **v20**, nicht v15; Higgsfield-Endstand **3 517 Credits** nach v19,
+  nicht 3 937.
+- Diese Hauptüberschrift stand noch auf 08.10.2026.
+- `docs/deploy-vercel.md`: Adresse ist `webseite-one-fam.vercel.app` (mit Bindestrich), 3×.
+- `docs/handover-shop-pool.md` verwies auf zwei gelöschte Shopify-Dokumente.
+
+**⚠️ Material liegt nicht mehr in `~/Downloads`** (Aufräumen 11.10.2026, geprüft 17.10.):
+
+| alt | neu |
+|---|---|
+| `~/Downloads/onefam-eps` | `~/Projekte/onefam-material/designs/onefam-eps` (253 × .eps, 215 MB) |
+| `~/Downloads/loco-motive_Logo_rgb_flags_final 2.pdf` | `~/Projekte/onefam-material/docs/…` |
+| `~/Downloads/onefam-werbung` | `~/Projekte/onefam-material/werbung/onefam-werbung` |
+| `~/Downloads/Designs`, `One Fam Fonts` | `~/Projekte/onefam-material/designs/…` |
+| `~/Downloads/OneFam Mockups` | `~/Projekte/onefam-material/mockups/…` |
+| `~/Downloads/OneFam_Margenrechner_20260807_1.xlsx` | `~/Projekte/onefam-material/kalkulation/…` |
+| `~/Downloads/OneFam_Stickfassung_1-5mm_Uebersicht.pdf` | `~/Projekte/onefam-material/stickerei-druck/…` |
+
+Nachgezogen: `CLAUDE.md` (Regel 14) und die Standardpfade in `tools/motiv-finden.py`,
+`tools/sieb-messen.py`, `tools/stickfassung/lauf_alle.py`. Die **älteren Abschnitte dieser
+Datei nennen weiter die alten Pfade** (22× `onefam-werbung` allein) — beim Lesen umdenken.
+Nicht gefunden: `~/Downloads/REALLY_FROM_albanien_v20_wortmarke-verlauf.mp4`.
+Die frühere Zählung „254 Dateien“ (22.09.) enthielt eine Nicht-EPS-Datei; heute 253 EPS.
+
+**Bisher nirgends festgehalten:**
+- **Liechtenstein** (08.09.): Versandpauschale 12 CHF (Schweiz 18), Hoodie im Warenkorb
+  87 CHF (Schweiz 93), Shirt 52 CHF (58). Shirt-King rechnet Liechtenstein wie Österreich,
+  5,70 / 7,72 EUR. **Offen:** ob Liechtenstein einfuhrseitig wie die Schweiz behandelt wird.
+- **Geldspielrecht** (22.06., ausdrücklich keine Rechtsberatung): Geldspiel nach Art. 3 BGS
+  = Einsatz + Gewinn + Zufall. Ist eine Auslosung an einen Kauf gekoppelt, gilt der Kaufpreis
+  als Einsatz — **ein Opt-in ändert daran nichts**, auch nicht, wenn der Preis aus eigenem
+  Gewinn oder über einen Verein kommt. Wege: Gratisteilnahme gleichwertig ohne Kauf (das ist
+  `/join`), oder Kleinlotterie über Verein mit kantonaler Bewilligung (Art. 33 ff. BGS, nur
+  gemeinnützig). Empfehlung damals: Shop und Verein trennen, **vor Launch
+  Unterstellungsanfrage bei der Gespa**, Anwalt für Geldspielrecht. → gehört zur
+  Anwaltsprüfung, bevor Auswahl oder Voting zurückkommen.
+- **Supabase pausiert im Gratis-Tarif von selbst** (20.07.2026: `INACTIVE`, Neustart über
+  `restore_project` ~5 Min.). Kann wieder passieren, wenn die Seite länger ohne Zugriffe ist.
+- **`components/Countdown.tsx`** stammt aus der Voting-Zeit (15.06.), wird nirgends
+  eingebunden. CLAUDE.md lehnt Countdown-Timer ab — liegt geparkt wie `HowItWorks` & Co.
+- **Git, 24.09.2026:** Gegenstelle `kaito` entfernt (Repo „not found"), seine Zweige als Tags
+  `archiv/kaito-fix-width-overflowing` (`1bb9a19`) und `archiv/kaito-overflow-fix` (`c7c45fe`);
+  `claude/brave-ritchie-fwnlgw` und fünf alte Zweige gelöscht. **Tags lösen bei Vercel keinen
+  Bau aus, Zweig-Pushes eine Vorschau.**
+- **Druck, aus der Printful-Recherche (08.09.):** DTF-Aufpreis bei Printful ~1,25 $;
+  US-Alternativen Lane Seven, Los Angeles Apparel. Öffentlicher Siebdruck-Richtwert
+  (21.09.): ab 50 Stück 3,10 € für eine Farbe.
+- **Kirgisistan:** Übergabe nennt 18,6 %, die CSV 16,8 % — ungeklärt.
+- **Python-Umgebung für die Bildmessung** (25.09.: numpy 1.26.4, cv2 4.11.0, skimage 0.24.0)
+  lag im flüchtigen Sitzungsordner; ein fester Ort ist nie festgelegt worden.
+- **Länder-Warteliste, offen:** Mehrfachwahl (2–3 Länder pro Person) nie entschieden. Ob die
+  Datenschutzerklärung das 14-tägige FluentSMTP-Mailprotokoll nennen muss → Anwaltsprüfung.
+- Zwei private Vorgänge aus OneFam-Chats gehören in `~/Dossiers`, nicht hierher.
 
 ## 🆕 17.10.2026: Länderwunsch — EIN System, und zwar das im Shop
 
@@ -221,7 +286,10 @@ ist ein Zweizeiler dort angemessen. **Das macht Labi selbst.**
 
 ## 🎬 Werbevideo Albanien — erster Laenderclip steht (28./29.09.2026)
 
-**Gueltige Fassung: `~/Downloads/onefam-werbung/albanien/REALLY_FROM_albanien_v15.mp4`**
+**Gueltige Fassung: `~/Projekte/onefam-material/werbung/onefam-werbung/albanien/REALLY_FROM_albanien_v20.mp4`**
+(Nachgetragen 17.10.2026 — hier stand v15; v16 bis v20 sind in `docs/REGEL-werbevideo.md`
+beschrieben, v20 ist die letzte: 21,2 s, Wortmarke im Abbinder mit Verlauf.)
+Urspruenglich:
 (20,1 s, 1080 x 1920, mit Ton). Vollstaendiges Rezept mit allen Messwerten und
 allen Sackgassen: **`docs/REGEL-werbevideo.md`**.
 
@@ -263,7 +331,8 @@ allen Sackgassen: **`docs/REGEL-werbevideo.md`**.
 - ⛔ **`~/Downloads/One Fam Fonts/newyork/NewYork PERSONAL USE.otf` darf nicht
   kommerziell verwendet werden.** Wo die Schrift im Einsatz ist, gehoert sie
   geprueft und ersetzt. Gueltig fuer Werbetexte ist **Outfit**.
-- Higgsfield-Guthaben: **3 937 Credits** (Stand 29.09.2026, Start war 6 072).
+- Higgsfield-Guthaben: ~~3 937~~ **3 517 Credits** nach v19 (Stand 29.09.2026, Start war 6 072;
+  3 937 war ein Zwischenstand, nachgetragen 17.10.2026).
 
 ---
 
@@ -2727,8 +2796,13 @@ Rappen**. **Es scheitert daran, dass unsere Basiswaehrung CHF ist** und der Wert
 **Und die Annahme „Shirt-King versendet nur in EU-Laender" stimmt nicht.** Die
 Versandliste des eigenen Shops nennt **Schweiz, Norwegen, Liechtenstein und UK &
 Nordirland** — vier Drittlaender; die Tarifliste von Shirt-King fuehrt sie einzeln
-(44 Tarife, 22 Laender). Fuer PodOS mag der typische Kunde deutsch sein, fuer OneFam
-ist die Schweiz der Heimatmarkt — deshalb ist CHF ueberhaupt die Basiswaehrung.
+(44 Tarife, 22 Laender). ~~Fuer PodOS mag der typische Kunde deutsch sein, fuer OneFam
+ist die Schweiz der Heimatmarkt — deshalb ist CHF ueberhaupt die Basiswaehrung.~~
+**Korrigiert (nachgetragen 17.10.2026):** Labi hat das noch im selben Chat (08.09.2026)
+zurueckgewiesen: „ich hab meinen hauptmarkt nicht in der schweiz und das habe ich auch
+nie behauptet … die gibt es in deutschland und oesterreich genauso". Claude hatte den
+Heimatmarkt aus der Basiswaehrung abgeleitet und es zurueckgenommen. CHF ist Basiswaehrung,
+**nicht** weil die Schweiz der Hauptmarkt waere.
 
 **Die Basiswaehrung auf EUR umstellen** waere die einzige Variante, in der PodOS'
 Werte passen. Sie kostet: alle 3 218 Variationen umhaengen, die CURCY-Festpreise

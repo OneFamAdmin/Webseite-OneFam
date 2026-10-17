@@ -22,7 +22,7 @@ Production + Preview** ankreuzen, **Save**.
 | `ADMIN_EMAIL` | aus `.env.local` (`josefgnther@gmail.com`) |
 | `RESEND_API_KEY` | aus `.env.local` |
 | `EMAIL_FROM` | aus `.env.local` (Resend-Test-Sender; später `info@onefam.ch`) |
-| `NEXT_PUBLIC_SITE_URL` | ⚠️ **NICHT** localhost — die **Vercel-Prod-Adresse** (z.B. `https://webseite-onefam.vercel.app` oder später `https://onefam.ch`) |
+| `NEXT_PUBLIC_SITE_URL` | ⚠️ **NICHT** localhost — die **Vercel-Prod-Adresse** (z.B. `https://webseite-one-fam.vercel.app` oder später `https://onefam.ch`) |
 
 ⚠️ `NEXT_PUBLIC_*` werden **beim Build eingebacken** → nach dem Setzen/Ändern **neu deployen**.
 
@@ -39,8 +39,8 @@ Vercel → **Deployments** → das neueste → **⋯** → **Redeploy**. (Nach j
 
 Sonst funktionieren die Login-/Magic-Links nicht.
 Supabase → **Authentication** → **URL Configuration**:
-- **Site URL** = deine Prod-Adresse (z.B. `https://webseite-onefam.vercel.app`)
-- **Redirect URLs** = dieselbe Adresse + `/**` (z.B. `https://webseite-onefam.vercel.app/**`)
+- **Site URL** = deine Prod-Adresse (z.B. `https://webseite-one-fam.vercel.app`)
+- **Redirect URLs** = dieselbe Adresse + `/**` (z.B. `https://webseite-one-fam.vercel.app/**`)
 
 ---
 

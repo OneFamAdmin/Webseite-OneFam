@@ -236,5 +236,6 @@ Vorlage: `.env.local.example` (im Repo, mit Kommentaren).
 - `5ba60f7` — Shopify P2 (Pool-Buchhaltung, Kern)
 - `6db71e5` — Shopify P2 (Admin `/admin/pool` + PodOS-Client)
 
-Weiterführende Docs im Repo: `docs/shopify-setup.md`, `docs/shopify-pool-automation.md`,
-`docs/deploy-vercel.md`.
+Weiterführende Docs im Repo: `docs/deploy-vercel.md`. (`docs/shopify-setup.md` und
+`docs/shopify-pool-automation.md` gibt es nicht mehr — Shopify ist seit 01.09.2026 hinfällig;
+vermerkt 17.10.2026.)
