@@ -26,14 +26,43 @@ obwohl Projektabfragen gingen und REST antwortete — 200 in 7,0 s, später 0,48
 - Danach Teilen-Knöpfe (WhatsApp, Telegram, Facebook, Link kopieren).
 - Stand 17.10.: Kosovo, Albania, Germany, Switzerland, Turkey, Italy, Portugal je **0**.
 
-**Beschlossen (Labi, 17.10.2026), noch nicht umgesetzt — braucht wp-admin:**
-1. Kachel-Abzeichen „Coming soon/Bald verfügbar" → **„Mitentscheiden"** (EN „Have a say",
-   FR „Participe", ES „Participa"). Nur auf den Länderkacheln — die Signature-Kacheln
-   der Startseite sind echte angekündigte Produkte und behalten „Bald verfügbar".
-2. Ziel **100 statt 50** — Grund: Siebdruck bei Shirt-King erst ab 100 Stück je Motiv
-   (`docs/druck-und-lieferant.md`). Formulierung ohne Lieferversprechen, weil Einträge
-   keine Bestellungen sind: „Ab 100 Einträgen planen wir die Auflage."
-3. Tiefenlink, der das Fenster eines Landes direkt öffnet — für Reels und Stories.
+**Umgesetzt 17.10.2026 in Snippet 11** („OneFam Seiten (Router v4 – final)", per REST mit
+Nonce, zwei Speicherungen; Länge 2 533 425 → 2 536 665 → **2 536 796** Zeichen, nach jedem
+Neuladen nachgemessen, aktiv). Sicherung des alten Codes im Browser von Labi:
+`localStorage['of_sicherung_snippet11_17102026']` auf `shop.onefam.ch` (wp-admin).
+1. Kachel-Abzeichen auf den Länderkacheln → **„Mitentscheiden"** / „Have a say" /
+   „Participe" / „Participa". Neuer Schlüssel `"Have a say"` in allen **25** Kopien des
+   Wörterbuchs `OF_I18N` (hängt hinter dem letzten Eintrag „Dinos el tuyo…"). Die
+   Signature-Kacheln (`bald()`) behalten „Bald verfügbar" — dort sind es echte Produkte.
+2. Fenster: Abzeichen ebenfalls „Mitentscheiden", Titel nur noch der Landesname (vorher
+   „Kosovo – Bald verfügbar").
+3. `WZIEL` **50 → 100** (Siebdruck ab 100 Stück je Motiv). Ziel- und Zählertext ohne
+   Lieferversprechen: „Ab 100 Einträgen planen wir die Auflage." / „NN von 100 — ab 100
+   planen wir die Auflage." (EN/FR/ES entsprechend). Auch der Teilen-Text versprach
+   „dann kommt die Kollektion" → „je mehr wir sind, desto eher kommt es".
+4. **Tiefenlink fürs Wunschfenster:** `https://shop.onefam.ch/shop-by-country/#wunsch-<name>`
+   — `<name>` = englischer Name aus `data-n`, ohne Akzente, alles ausser a-z/0-9 → `-`.
+   Beispiele: `#wunsch-kosovo`, `#wunsch-bosnia` (**nicht** bosnia-and-herzegovina),
+   `#wunsch-turkey`, `#wunsch-curacao`, `#wunsch-antigua-barbuda`. Mit Sprachpräfix
+   (`/de/shop-by-country/#wunsch-kosovo`) kommt das Fenster in der Sprache.
+
+**Live gemessen** (ausgeloggt per curl + Chrome): `/shop-by-country/` 200, alle neuen
+Stellen je 1×, ein „Coming soon"-Abzeichen übrig (Signature, gewollt); `/`, `/albania/`,
+`/about-us/`, `/onefam-logo/` 200. Im Browser: DE Kosovo, FR Bosnien, EN Portugal,
+DE Curaçao öffnen sich über den Link mit richtigem Abzeichen und Zieltext. **Falle beim
+Messen:** Chrome übersetzt fremdsprachige Seiten selbst (`<html class="translated-ltr">`)
+— dann stehen deutsche Texte auf `/es/`, ohne dass die Seite falsch ist.
+
+**Offen, für Labi:**
+- Der Satz über der Kachelwand verspricht noch: „Trag dich für dein Land ein, **dann
+  machen wir es**." — dieselbe Art Versprechen wie die alten 50.
+- Knopf und Einleitung im Fenster nennen das Land **englisch** („Je veux Bosnia",
+  „tu veux Bosnia"), weil sie `data-c` nehmen; der Titel wird übersetzt („Bosnie").
+  Bestand schon vorher.
+- ⚠️ **Die Datenschutzerklärung des Shops erwähnt die Warteliste nicht** (DE und EN
+  durchsucht: kein „Warteliste/waitlist", kein „Newsletter", keine Anmeldung) — obwohl
+  der Shop E-Mail, Land und Sprache speichert und Bestätigungsmails verschickt.
+  Rechtlich → Labi entscheidet.
 
 ## ⏰ Faellig am 12.10.2026: Antwort von Shirt-King pruefen
 
