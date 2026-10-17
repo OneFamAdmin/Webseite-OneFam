@@ -65,6 +65,26 @@ Die frühere Zählung „254 Dateien“ (22.09.) enthielt eine Nicht-EPS-Datei; 
   Datenschutzerklärung das 14-tägige FluentSMTP-Mailprotokoll nennen muss → Anwaltsprüfung.
 - Zwei private Vorgänge aus OneFam-Chats gehören in `~/Dossiers`, nicht hierher.
 
+**Labis Linie zu Käufern und Auswahl (17.10.2026, für die Anwaltsprüfung):** An der
+späteren Auswahl für die gemeinsame Reise können **auch Nichtkäufer** teilnehmen und
+gleichberechtigt zufällig ausgewählt werden. Käufer bekommen nur weiche Vorteile —
+**Mitbestimmung beim Reiseziel**, aber **kein Geld und keine Bevorzugung**. Damit wäre der
+Weg „Gratisteilnahme gleichwertig ohne Kauf" (Art. 3 BGS, siehe oben) gemeint. Die FAQ
+„Bringt mir ein Kauf irgendeinen Vorteil?" widerspricht sich heute selbst („Nein" + Vorteil);
+Vorschlag liegt bereit, **bewusst nicht eingebaut** bis zur Freigabe:
+„Kein Geld, keinen Preis und keine Bevorzugung. Wer bei uns kauft, soll später mitbestimmen
+dürfen, wohin die gemeinsame Reise geht – mehr nicht." Öffentlich bleibt es bis dahin bei
+„keine Auswahl, keine Verlosung" (trust-first).
+
+**Startseite überarbeitet (17.10.2026), alle vier Sprachen:** Philosophie neu („…Wer an dich
+glaubt, bevor du es selbst tust, ist Familie.", Zeilen per `text-balance`); „Was ist OneFam?"
+ohne „keine klassische Clothing-Brand"; Karten „Haltung statt Fassade." / „Tiefe statt
+Small Talk."; „Warum wir das machen" mit „Menschen vergessen, was sie gekauft haben. Aber
+nie, wo sie dazugehört haben." statt zwei Sätzen; Hero-Unterzeile ohne doppeltes „für
+alle"; Fusszeile DE „Seiten / Rechtliches / Folge uns", „Start", „Über uns", „Häufige
+Fragen" (FR/ES „À propos", „Sobre nosotros", „Réseaux"/„Redes"). Die Kopfnavigation
+(„About", „Code", „FAQ", „Shop") ist unverändert englisch.
+
 ## 🆕 17.10.2026: Länderwunsch — EIN System, und zwar das im Shop
 
 **Was passiert ist:** Am 17.10. wurde auf `onefam.ch/join` ein Länderwunsch-Feld gebaut
