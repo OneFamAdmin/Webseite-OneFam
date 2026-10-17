@@ -31,8 +31,16 @@ Wert geschützt, nicht lesbar).
 Absender „OneFam", im **Posteingang** (nicht Spam); bestätigt 22:55:49 (37 s) → Zeile
 `confirmed`, Abmeldetoken da; danach über den Mail-Link abgemeldet → Zeile **vollständig
 gelöscht**, in der Tabelle nur noch die 2 Altzeilen (`alt`). Damit ist auch `EMAIL_FROM`
-belegt. Offen: Resend bewahrt verschickte Mails in seinem eigenen Protokoll auf — dort
-liegt die Testmail noch (Dauer bei Resend nicht nachgeprüft).
+belegt.
+**Resend-Protokoll (nachgeprüft 18.10.2026):** Preisseite resend.com/pricing, Zeile „Data
+retention": **30 Tage** auf Free, Pro und Scale (Enterprise „Flexible"). Die API hat **keinen
+Endpunkt zum Löschen** einer verschickten Mail (nur abrufen, auflisten, geplante ändern oder
+abbrechen). Inhalte gar nicht speichern geht nur als Zusatz für **50 $/Monat**, und erst ab
+einem Monat Pro/Scale und mehr als 3 000 Mails. Folge: Bestätigungsmails — auch die von
+Abgemeldeten — liegen 30 Tage bei Resend. Für die Anwaltsprüfung: Datenschutzerklärung nennt
+nur „ein Dienstleister"; AV-Vertrag (DPA) von Resend herunterladen (Doku
+`knowledge-base/downloading-documents`). Eine Vergleichsseite (nuntly.com) nennt 3 Tage —
+widerspricht der offiziellen Preisseite, nicht übernommen.
 
 **Lokal getestet** (Produktionsbau, synthetische Zeile `@example.invalid`, danach über die
 Abmeldeseite gelöscht, 0 Reste): falscher Token → „funktioniert nicht"; richtiger →
