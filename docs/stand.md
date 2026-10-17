@@ -201,7 +201,16 @@ Singapour), **EN 32** („the"), ES keiner. **Kosovo bewusst ohne Artikel** im D
   Tokelau, Tonga, Tuvalu, Uruguay, Vanuatu, Venezuela. Die Namen sind in DE/FR/ES fast alle
   gleich wie EN (Ausnahme FR „Libéria"). Folge: im Französischen fehlt der Artikel („pour
   Ghana" statt „pour le Ghana"), weil der Artikel nur bei übersetztem Namen gesetzt wird.
-  Nicht behoben.
+  **Nachgetragen am 17.10.2026** in Snippet 42, Teil `'laender'` (je Land ein Eintrag und eine
+  „/ Land"-Fassung wie bei den übrigen): 372 → 440 Einträge, Snippet 193 239 → **199 639**
+  Zeichen (Sicherung im Tab: `sessionStorage` `of_sicherung_snippet42_17102026`). Namen in
+  allen vier Sprachen gleich, ausser FR „Libéria". Gemessen ausgeloggt: alle Shop-Seiten 200;
+  `window.OF_NACHTRAG` 552 Schlüssel; von 250 Knöpfen der Wunschwand haben nur noch „Logo
+  White" und „Logo Pink" keinen Eintrag (keine Länder). Live FR: „Je veux le Ghana", „Je veux
+  le Libéria". Die Mail nimmt dieselbe Liste (Snippet 18 lädt `'laender'` mit).
+  **Bewusst offen:** Die Artikelliste kennt für Vanuatu, Samoa, Tonga, Kiribati und Tuvalu
+  keinen FR-Artikel; üblich wären „le Vanuatu", „les Samoa", „les Tonga". Änderung müsste in
+  Snippet 11 (`LA`) und Snippet 18 (`OFLA`) gleich erfolgen.
 
 ### ⚠️ Vor der ersten Mail an die Länder-Warteliste
 
