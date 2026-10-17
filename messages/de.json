@@ -16,21 +16,21 @@
   "hero": {
     "kicker": "Woher kommst du?",
     "claim": "Für alle, die zu mehr als einem Ort gehören",
-    "subline": "Kleidung und eine Community für alle, deren Antwort ein Komma hat.",
+    "subline": "Kleidung und eine Community für Menschen, deren Antwort ein Komma hat.",
     "cta_primary": "Join the Fam",
     "cta_secondary": "Zum Shop"
   },
   "what_is_onefam": {
     "title": "Was ist OneFam?",
-    "intro": "OneFam ist keine klassische Clothing-Brand. OneFam ist ein Raum für Menschen, die einander ernst nehmen – auch die Träume, die man sonst niemandem erzählt.",
+    "intro": "OneFam ist ein Raum für Menschen, die einander ernst nehmen – auch die Träume, die man sonst niemandem erzählt.",
     "cards": [
       {
-        "title": "Werte statt Fassade.",
-        "text": "Kleidung ist Ausdruck von Haltung, nicht Kern."
+        "title": "Haltung statt Fassade.",
+        "text": "Die Kleidung zeigt, wofür du stehst. Das Wichtigste trägst du nicht am Körper."
       },
       {
-        "title": "Momente statt Oberflächlichkeit.",
-        "text": "Wir reden nicht übers Wetter. Wir fragen, woran du arbeitest – und meinen es ernst."
+        "title": "Tiefe statt Small Talk.",
+        "text": "Hier redet niemand übers Wetter, sondern über das, was dich wirklich bewegt."
       }
     ]
   },
@@ -126,11 +126,10 @@
   "why_we_do_this": {
     "title": "Warum wir das machen",
     "paragraphs": [
-      "OneFam ist in einer stillen Zeit entstanden – als Nähe für eine Weile nur noch durch Bildschirme passierte.",
+      "OneFam ist in einer stillen Zeit entstanden – als Nähe für eine Weile nur noch durch Bildschirme stattfand.",
       "Es begann leise: kleine, handverlesene Treffen für Menschen, die sich wieder echt begegnen wollten. Der richtige Ort, die richtigen Leute – und Gespräche, aus denen man mit mehr Mut herausging, als man hineingebracht hatte.",
       "Irgendwann kam die Frage: Was, wenn dieses Gefühl dich überallhin begleiten könnte – egal, an wie vielen Orten du zuhause bist? Daraus wurde OneFam.",
-      "Denn Menschen erinnern sich an Gefühle – nicht an Prozentzeichen.",
-      "Wer Teil von OneFam ist, soll nicht das Gefühl haben, etwas zu kaufen – sondern das Gefühl, dazuzugehören.",
+      "Menschen vergessen, was sie gekauft haben. Aber nie, wo sie dazugehört haben.",
       "Nicht lauter. Echter."
     ]
   },
