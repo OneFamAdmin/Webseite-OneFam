@@ -219,12 +219,12 @@
   },
   "join": {
     "meta_titel": "Join the Fam — OneFam",
-    "meta_beschreibung": "Inscris-toi et fais partie de l'aventure dès le début. Aucun achat nécessaire, aucune obligation d'achat, désinscription à tout moment.",
+    "meta_beschreibung": "Inscris-toi et fais partie de l'aventure dès le début. Gratuit, sans obligation d'achat, désinscription à tout moment.",
     "kicker": "Join the Fam",
     "titel": "Fais partie de l'aventure dès le début.",
-    "text": "OneFam ne fait que commencer. Inscris-toi et tu seras la première personne informée quand nous franchirons la prochaine étape — de nouvelles pièces, la fam, et un jour le voyage que nous ferons ensemble.",
+    "text": "Tout commence ici. Inscris-toi et tu seras la première personne informée quand nous franchirons la prochaine étape — de nouvelles pièces, des nouvelles de la fam, et un jour le voyage que nous ferons ensemble.",
     "punkte": [
-      "Aucun achat nécessaire — et aucune obligation d'achat",
+      "Gratuit et sans obligation d'achat",
       "Seul ton e-mail est obligatoire",
       "Tu auras de nos nouvelles quand il y aura quelque chose à dire",
       "Désinscription à tout moment"
@@ -238,7 +238,7 @@
     "name_platzhalter": "p. ex. Maria",
     "email_label": "Adresse e-mail",
     "email_platzhalter": "toi@email.ch",
-    "senden": "Rejoindre la liste d'attente",
+    "senden": "J'en suis",
     "sendet": "Inscription en cours …",
     "hinweis": "Aucun achat nécessaire. Désinscription à tout moment.",
     "ok_titel": "Presque fini.",
