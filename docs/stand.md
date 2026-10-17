@@ -72,7 +72,21 @@ Kartentitel der Startseite übersetzt über `ofFeatName()` + `window.OF_NACHTRAG
 „Albanien Hoodie", FR „Albanie/Argentine/Andorre", ES „Afganistán") — die Daten in `feat`
 bleiben englisch, weil `ofLink()` und die Preise darüber laufen. Live gemessen DE/EN/FR/ES:
 Links und Preise unverändert (CHF 75/65/40/75), keine Fehler.
-**Offen — Liefergebiet:** Labi sagt „weltweit", WooCommerce verkauft aber nur an **21
+**Zweite Runde Shop-Startseite (18.10.2026), Snippet 11 → 2 565 557** (nach Neuladen, aktiv),
+Labi hat Weg **B** gewählt (bei 21 Ländern bleiben): FAQ „Wohin" nennt „derzeit 21 Länder"
+statt „ganz Europa"; „Lieferzeit" ohne USA und „weitere internationale Ziele"; „Versand"
+mit den echten Pauschalen aus den WooCommerce-Zonen (DE CHF 7 · AT/BE/CZ/DK/FR/IT/LI/LU/NL/
+PL/ES 12 · HR/EE/LV/LT 16 · CH/GB 18 · FI/NO/PT 26, „in deiner Währung im Warenkorb");
+„Zahlungsarten" = zahls.ch mit Visa, Mastercard, TWINT, Apple Pay, Google Pay, PostFinance
+(so im einzigen aktiven Gateway `zahls` beschrieben); info@onefam.ch in „Ändern", „Defekt",
+„Support"; „weiß" → „weiss" (2×); „Nur ein Zeichen. Trag deins." (EN „Wear yours.", FR
+„Porte le tien.", ES „Lleva el tuyo."). Live DE/EN/FR/ES gemessen: 10 FAQ, keine USA, 3×
+info@, keine Fehler.
+**⚠️ Bei der Umstellung auf Siebdruck/Stick** (Labi 18.10.: „kein POD, nur Vorbestellung und
+limitierte Anzahl") ist die FAQ „Lieferzeit" („Jedes Teil wird auf Bestellung gefertigt,
+2–5 Werktage") falsch und muss neu geschrieben werden — ebenso AGB/Widerruf für
+Vorbestellungen. Heute noch nicht geändert, weil der Shop derzeit noch über PodOS liefert.
+~~**Offen — Liefergebiet:**~~ (erledigt mit Weg B) Labi sagte „weltweit", WooCommerce verkauft aber nur an **21
 Länder** (`woocommerce_allowed_countries = specific`; Zonen DE 7 · Kern/West-EU+LI 12 ·
 Ost-EU/Baltikum 16 · CH/UK 18 · FI/NO/PT 26; Restwelt-Zone ohne Methode). FAQ „Wohin liefert
 ihr?" (nennt 21 Länder, aber „ganz Europa") und „Lieferzeit" (nennt USA) widersprechen sich —
