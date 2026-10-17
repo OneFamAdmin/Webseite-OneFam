@@ -16,21 +16,21 @@
   "hero": {
     "kicker": "¿De dónde eres?",
     "claim": "Para quienes pertenecen a más de un lugar",
-    "subline": "Ropa y una comunidad para quienes responden con una coma.",
+    "subline": "Ropa y una comunidad para personas cuya respuesta lleva una coma.",
     "cta_primary": "Join the Fam",
     "cta_secondary": "Ir a la tienda"
   },
   "what_is_onefam": {
     "title": "¿Qué es OneFam?",
-    "intro": "OneFam no es una marca de ropa al uso. OneFam es un espacio para personas que se toman en serio – también los sueños que no le cuentas a nadie más.",
+    "intro": "OneFam es un espacio para personas que se toman en serio – también los sueños que no le cuentas a nadie más.",
     "cards": [
       {
-        "title": "Valores, no fachada.",
-        "text": "La ropa expresa una actitud, no es lo esencial."
+        "title": "Actitud, no fachada.",
+        "text": "Tu ropa muestra lo que defiendes. Lo más importante no lo llevas puesto."
       },
       {
-        "title": "Momentos, no superficialidad.",
-        "text": "No hablamos del tiempo. Preguntamos en qué estás trabajando – y lo decimos en serio."
+        "title": "Profundidad, no charla vacía.",
+        "text": "Aquí nadie habla del tiempo – hablamos de lo que de verdad te mueve."
       }
     ]
   },
@@ -129,8 +129,7 @@
       "OneFam nació en una época silenciosa – cuando la cercanía pasó durante un tiempo solo por las pantallas.",
       "Empezó en voz baja: encuentros pequeños y escogidos, para personas que querían volver a verse de verdad. El lugar adecuado, la gente adecuada – y conversaciones de las que salías con más valor del que habías traído.",
       "En algún momento llegó la pregunta: ¿y si ese sentimiento pudiera acompañarte a todas partes – da igual en cuántos lugares te sientas en casa? De ahí nació OneFam.",
-      "Porque las personas recuerdan sentimientos – no porcentajes.",
-      "Formar parte de OneFam no debería sentirse como comprar algo – sino como pertenecer.",
+      "La gente olvida lo que compró. Pero nunca dónde se sintió parte.",
       "No más alto. Más de verdad."
     ]
   },
