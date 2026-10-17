@@ -170,15 +170,15 @@
   "footer": {
     "claim": "Pour celles et ceux qui appartiennent à plus d'un endroit",
     "pages_title": "Navigation",
-    "legal_title": "Legal",
-    "social_title": "Social",
+    "legal_title": "Juridique",
+    "social_title": "Réseaux",
     "pages": [
       {
         "label": "Accueil",
         "href": "#hero"
       },
       {
-        "label": "About",
+        "label": "À propos",
         "href": "#about"
       },
       {
