@@ -71,7 +71,29 @@ Hinweise zu den Zahlen:
 - **Patek Philippe:** Bildschirmhohe Bildabschnitte nacheinander. Die Überschriften sind
   dünn (Gewicht 300) und in Versalien, der Fliesstext steht in einer Serife.
 
-## Was daraus folgt (Vorschläge, nichts davon umgesetzt)
+## Umgesetzt am 18.10.2026
+
+Labi hat sich die Vorschläge in einer Vorschau angesehen (Zweig `vorschau-edel`, Umschalter
+auf der echten Startseite: heute / leiser / Serife, drei Serifen, Abschnitte ausblenden)
+und **„Serife mit EB Garamond"** gewählt. Umgesetzt auf `main` sind damit die Punkte 1, 3
+und 4:
+
+- Hero-Überschrift: EB Garamond, Gewicht 400, normal geschrieben, `clamp(2.288rem,
+  4.784vw, 4.16rem)` (bei 1440 px 66,6 px statt 76 px fett in Versalien), zwei Zeilen;
+  Goldstrich 1 px statt 3 px.
+- Alle h2 der Startseite EB Garamond 400, einheitlich `clamp(2.08rem, 4.16vw, 3.12rem)`;
+  h3 EB Garamond 400 in der bisherigen Grösse.
+- Philosophie-Zitat und Pointe „Nicht lauter. Echter.": EB Garamond kursiv, 1,95rem
+  (Handy 1,625rem — die Vorschau hatte dort fest 31 px, zu gross).
+- Textspalten: Fliesstext höchstens 31rem, kleinerer Text 28rem.
+
+Nachgemessen gegen die Vorschau, 60 Elemente bei 1440 und 390 px: gleich bis auf die
+beabsichtigte Handy-Grösse von Zitat und Pointe. Bei 390 px keine seitliche Scrollleiste.
+**Nicht umgesetzt:** Punkt 2 (Abschnitte kürzen) — Labi hat keinen Abschnitt
+ausgewählt. Die Unterseiten (`/join`, Rechtstexte, Login) tragen ihre Überschriften
+weiter in Cabinet.
+
+## Was daraus folgt (Vorschläge vom 18.10.2026)
 
 1. **Die Hero-Überschrift ist die lauteste von allen.** OneFam hat 76 px mit Gewicht 800 in
    Versalien. Edel wirken die Referenzen mit **weniger Gewicht**: Soho House 48 px in einer

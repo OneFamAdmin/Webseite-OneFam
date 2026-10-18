@@ -1,5 +1,16 @@
 # Stand — 17.10.2026
 
+## 🔤 18.10.2026: Startseite in EB Garamond — „edel" nach Messung
+
+Fünf Referenzen (Aimé Leon Dore, Casablanca, Bode, Soho House, Patek Philippe) gegen
+onefam.ch vermessen → `docs/REFERENZ-brandsite.md`, Skript `tools/referenz-messen.js`.
+Labi hat in einer Vorschau (Zweig `vorschau-edel`, **nur lokal, nicht gepusht**) die
+Variante „Serife mit EB Garamond" gewählt. Auf `main`: Schrift `app/fonts/EBGaramond-*.woff2`
+(Fontsource 5.3.0, Latin, OFL), Token `font-serif`; Hero, alle h2/h3 der Startseite,
+Zitat und Pointe in EB Garamond 400; Textspalten 31rem/28rem. Gegen die Vorschau
+nachgemessen (60 Elemente, 1440 und 390 px). Offen: Unterseiten (`/join`, Rechtstexte)
+noch in Cabinet; Abschnitte kürzen nicht entschieden; Shop folgt später.
+
 ## ✉️ 18.10.2026: Warteliste onefam.ch mit doppelter Bestätigung
 
 **Vorher:** `/join` trug jede Adresse sofort ein — auch fremde. Die Datenschutzerklärung

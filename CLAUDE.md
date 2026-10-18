@@ -270,9 +270,13 @@ muss selbst prüfen.
   Pool-Zahl und jeden „Join the Fam"-Knopf. Die Stufen nicht einbetten.
 - `app/globals.css` definiert Palette und Schriften als CSS-Variablen, für Tailwind
   über `@theme inline` (`bg-bg`, `text-secondary`, `text-gold`, `font-display`,
-  `font-body`). **Tokens benutzen, keine rohen Hex-Werte.**
-- Hintergrund `#0A0A0A`, Gold `#C9A84C`. Cabinet Grotesk (Überschriften) + Satoshi
-  (Fliesstext), lokal als woff2 über `next/font/local`. Mobile-first.
+  `font-body`, `font-serif`). **Tokens benutzen, keine rohen Hex-Werte.**
+- Hintergrund `#0A0A0A`, Gold `#C9A84C`. Schriften lokal als woff2 über
+  `next/font/local`: **EB Garamond** (`font-serif`, Gewicht 400) für Überschriften und
+  Zitate der Startseite — seit 18.10.2026, von Labi in der Vorschau gewählt, Begründung
+  in `docs/REFERENZ-brandsite.md`; Cabinet Grotesk (`font-display`) für Wortmarke-nahe
+  Elemente und die übrigen Seiten; Satoshi (`font-body`) für Fliesstext. Textspalten
+  höchstens 31rem (≈ 50–55 Zeichen). Mobile-first.
 - **Nicht erwünscht:** Countdown-Timer, dekorative Verläufe, Glow, Orbs, Stockfotos.
   Der eine Marken-Verlauf ist die Ausnahme — Hintergrund in
   `docs/shop-und-pool-details.md`.
