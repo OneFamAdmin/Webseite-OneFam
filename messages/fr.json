@@ -21,7 +21,8 @@
     "cta_secondary": "Vers la boutique"
   },
   "what_is_onefam": {
-    "title": "Qu'est-ce que OneFam ?",
+    "label": "Qu'est-ce que OneFam ?",
+    "title": "Un espace où l'on n'a pas à s'expliquer.",
     "intro": "OneFam est un espace pour celles et ceux qui se prennent mutuellement au sérieux – y compris les rêves qu'on ne raconte à personne d'autre. Ici, personne ne parle de la météo – on parle de ce qui te touche vraiment."
   },
   "how_it_works": {
@@ -115,7 +116,8 @@
     "quote": "Entoure-toi de personnes qui voient en toi plus que tu n'y vois toi-même. Garde tes distances avec ceux qui ont besoin de te rabaisser pour se sentir grands. Ceux qui croient en toi avant toi sont ta famille."
   },
   "why_we_do_this": {
-    "title": "Pourquoi nous faisons cela",
+    "label": "Pourquoi nous faisons cela",
+    "title": "Un sentiment qui t'accompagne partout.",
     "paragraphs": [
       "OneFam est né dans une période silencieuse – quand la proximité ne passait plus, pour un temps, que par des écrans.",
       "Cela a commencé doucement : de petites rencontres choisies avec soin, pour des gens qui voulaient à nouveau se croiser pour de vrai. Le bon endroit, les bonnes personnes – et des conversations dont on repartait avec plus de courage qu'on n'en avait apporté.",
@@ -125,7 +127,8 @@
     ]
   },
   "faq": {
-    "title": "Questions fréquentes",
+    "label": "Questions fréquentes",
+    "title": "Ce qu'il faut savoir.",
     "items": [
       {
         "question": "Le voyage commun existe-t-il déjà ?",
