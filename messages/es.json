@@ -21,7 +21,8 @@
     "cta_secondary": "Ir a la tienda"
   },
   "what_is_onefam": {
-    "title": "¿Qué es OneFam?",
+    "label": "¿Qué es OneFam?",
+    "title": "Un espacio donde no tienes que explicarte.",
     "intro": "OneFam es un espacio para personas que se toman en serio – también los sueños que no le cuentas a nadie más. Aquí nadie habla del tiempo – hablamos de lo que de verdad te mueve."
   },
   "how_it_works": {
@@ -115,7 +116,8 @@
     "quote": "Rodéate de personas que ven en ti más de lo que tú ves en ti. Mantén la distancia de quienes necesitan empequeñecerte para sentirse grandes. Quien cree en ti antes que tú es familia."
   },
   "why_we_do_this": {
-    "title": "Por qué hacemos esto",
+    "label": "Por qué hacemos esto",
+    "title": "Un sentimiento que te acompaña a todas partes.",
     "paragraphs": [
       "OneFam nació en una época silenciosa – cuando la cercanía pasó durante un tiempo solo por las pantallas.",
       "Empezó en voz baja: encuentros pequeños y escogidos, para personas que querían volver a verse de verdad. El lugar adecuado, la gente adecuada – y conversaciones de las que salías con más valor del que habías traído.",
@@ -125,7 +127,8 @@
     ]
   },
   "faq": {
-    "title": "Preguntas frecuentes",
+    "label": "Preguntas frecuentes",
+    "title": "Lo que deberías saber.",
     "items": [
       {
         "question": "¿Ya existe el viaje conjunto?",
