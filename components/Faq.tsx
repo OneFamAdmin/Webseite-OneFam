@@ -15,7 +15,7 @@ const Faq = () => {
     <section id="faq" className="bg-bg py-24 md:py-32">
       <MaxWidth>
         <Reveal>
-          <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-semibold tracking-[0.02em] text-primary">
+          <h2 className="font-serif text-[clamp(2.08rem,4.16vw,3.12rem)] font-normal text-primary">
             {t('title')}
           </h2>
         </Reveal>
@@ -51,7 +51,7 @@ const Faq = () => {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="max-w-[640px] pb-6 font-body text-base leading-relaxed text-secondary">
+                    <p className="max-w-[28rem] pb-6 font-body text-base leading-relaxed text-secondary">
                       {it.answer}
                     </p>
                   </div>

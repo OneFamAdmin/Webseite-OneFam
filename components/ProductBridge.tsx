@@ -53,12 +53,12 @@ const ProductBridge = () => {
           <p className="font-body text-sm uppercase tracking-[0.1em] text-faint">{t('label')}</p>
         </Reveal>
         <Reveal delay={0.06}>
-          <h2 className="mt-4 max-w-[18ch] font-display text-[clamp(2rem,4.5vw,3.25rem)] font-semibold leading-[1.1] tracking-[0.02em] text-primary">
+          <h2 className="mt-4 max-w-[18ch] font-serif text-[clamp(2.08rem,4.16vw,3.12rem)] font-normal leading-[1.1] text-primary">
             {t('title')}
           </h2>
         </Reveal>
         <Reveal delay={0.12}>
-          <p className="mt-6 max-w-[600px] font-body text-lg leading-relaxed text-secondary">{t('intro')}</p>
+          <p className="mt-6 max-w-[31rem] font-body text-lg leading-relaxed text-secondary">{t('intro')}</p>
         </Reveal>
 
         <div className="mt-16 grid gap-14 md:grid-cols-2 md:gap-10">
@@ -88,8 +88,8 @@ const ProductBridge = () => {
                   className="object-contain"
                 />
               </div>
-              <h3 className="mt-6 font-display text-2xl font-semibold text-primary">{l.name}</h3>
-              <p className="mt-3 max-w-[440px] font-body text-base leading-relaxed text-secondary">{l.text}</p>
+              <h3 className="mt-6 font-serif text-2xl font-normal text-primary">{l.name}</h3>
+              <p className="mt-3 max-w-[28rem] font-body text-base leading-relaxed text-secondary">{l.text}</p>
             </Reveal>
           ))}
         </div>

@@ -15,7 +15,7 @@ const WhyWeDoThis = () => {
           {/* Text — 60% */}
           <div className="order-2 md:order-1 md:col-span-3">
             <Reveal>
-              <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-semibold tracking-[0.02em] text-primary">
+              <h2 className="font-serif text-[clamp(2.08rem,4.16vw,3.12rem)] font-normal text-primary">
                 {t('title')}
               </h2>
             </Reveal>
@@ -26,11 +26,11 @@ const WhyWeDoThis = () => {
                 return (
                   <Reveal key={i} delay={0.08 + i * 0.06}>
                     {isPointe ? (
-                      <p className="pt-2 font-display text-2xl font-semibold tracking-[0.02em] text-gold md:text-3xl">
+                      <p className="pt-2 font-serif text-[1.625rem] font-normal italic leading-[1.3] text-gold md:text-[1.95rem]">
                         {p}
                       </p>
                     ) : (
-                      <p className="font-body text-lg leading-[1.8] text-secondary">{p}</p>
+                      <p className="max-w-[31rem] font-body text-lg leading-[1.8] text-secondary">{p}</p>
                     )}
                   </Reveal>
                 );

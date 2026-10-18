@@ -40,9 +40,12 @@ const Philosophy = () => {
         </Reveal>
 
         {/* text-balance seit 17.10.2026: Der Schlusssatz endet auf "Familie." — ohne
-            Ausgleich stand das Wort je nach Breite zufaellig allein in der letzten Zeile. */}
+            Ausgleich stand das Wort je nach Breite zufaellig allein in der letzten Zeile.
+            EB Garamond kursiv seit 18.10.2026 (vorher Cabinet halbfett): hier entsteht
+            am ehesten das "old fashion", das Labi wollte. Auf dem Handy 26 px statt der
+            31 px vom Desktop — die Vorschau hatte dort fest 31 px, das war zu gross. */}
         <Reveal delay={0.16}>
-          <blockquote className="mx-auto max-w-[720px] text-balance font-display text-2xl font-semibold leading-snug tracking-[0.01em] text-primary md:text-3xl">
+          <blockquote className="mx-auto max-w-[720px] text-balance font-serif text-[1.625rem] font-normal italic leading-[1.3] text-primary md:text-[1.95rem]">
             {t('quote')}
           </blockquote>
         </Reveal>

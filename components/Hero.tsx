@@ -31,17 +31,23 @@ const Hero = () => {
           <p className="font-body text-sm font-medium uppercase tracking-[0.22em] text-gold sm:text-[15px]">
             {t('kicker')}
           </p>
+          {/* Seit 18.10.2026 EB Garamond, normal geschrieben, Gewicht 400 — vorher
+              Cabinet, 76 px, Gewicht 800, Versalien. Gemessen war das die lauteste
+              Überschrift von sechs Seiten; keine der edlen Referenzen setzt fett
+              (Soho House: Serife 48 px, Gewicht 400). Labi hat die Fassung in der
+              Vorschau ausgewählt. max-w-[24ch] hält den Satz auf zwei Zeilen. */}
           <h1
-            className="mx-auto mt-3 max-w-[22ch] font-display text-[clamp(2.1rem,5.4vw,4.75rem)] font-extrabold uppercase leading-[1.06] tracking-[0.01em] text-balance"
+            className="mx-auto mt-3 max-w-[24ch] font-serif text-[clamp(2.288rem,4.784vw,4.16rem)] font-normal leading-[1.08] text-balance"
             style={{ color: '#EBD9A6' }}
           >
             {t('claim')}
           </h1>
-          <div className="mx-auto mt-6 h-[3px] w-28 bg-gold" />
+          {/* 1 px statt 3 px: neben der Serife wirkte der dicke Balken grob (18.10.2026) */}
+          <div className="mx-auto mt-6 h-px w-20 bg-gold" />
         </Reveal>
 
         <Reveal delay={0.1}>
-          <p className="mx-auto mt-8 max-w-[600px] font-body text-lg text-secondary md:text-xl">
+          <p className="mx-auto mt-8 max-w-[31rem] font-body text-lg text-secondary md:text-xl">
             {t('subline')}
           </p>
         </Reveal>

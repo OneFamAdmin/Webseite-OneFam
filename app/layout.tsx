@@ -22,6 +22,24 @@ const cabinet = localFont({
   fallback: ['system-ui', 'sans-serif'],
 });
 
+// EB Garamond seit 18.10.2026: Überschriften und Zitate. Labi hat sie in der
+// Vorschau (Zweig vorschau-edel) gegen Cormorant Garamond und Libre Caslon
+// gewählt. Grund ist die Messung in docs/REFERENZ-brandsite.md: drei von fünf
+// edlen Referenzen setzen eine Serife ein, onefam.ch hatte keine, und die fette
+// Cabinet-Überschrift war die lauteste aller sechs gemessenen Seiten.
+// Nur der Latin-Ausschnitt (Fontsource 5.3.0): deckt DE/EN/FR/ES samt „ “ – — ab.
+// Lizenz OFL 1.1, liegt daneben in fonts/EBGaramond-OFL.txt.
+const garamond = localFont({
+  src: [
+    { path: './fonts/EBGaramond-Variable.woff2', style: 'normal' },
+    { path: './fonts/EBGaramond-Italic-Variable.woff2', style: 'italic' },
+  ],
+  variable: '--font-garamond',
+  display: 'swap',
+  weight: '400 800',
+  fallback: ['Georgia', 'serif'],
+});
+
 const satoshi = localFont({
   src: './fonts/Satoshi-Variable.woff2',
   variable: '--font-satoshi',
@@ -94,7 +112,7 @@ export default async function RootLayout({
   // wählen und an der Google die Sprache der Seite abliest.
   return (
     <html lang={htmlSprache}>
-      <body className={`${cabinet.variable} ${satoshi.variable} antialiased`}>
+      <body className={`${cabinet.variable} ${satoshi.variable} ${garamond.variable} antialiased`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <MainLayout>{children}</MainLayout>
         </NextIntlClientProvider>

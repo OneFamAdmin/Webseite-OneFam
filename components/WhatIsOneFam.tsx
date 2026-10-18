@@ -10,13 +10,13 @@ const WhatIsOneFam = () => {
     <section id="about" className="bg-bg py-24 md:py-32">
       <MaxWidth>
         <Reveal>
-          <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-semibold tracking-[0.02em] text-primary">
+          <h2 className="font-serif text-[clamp(2.08rem,4.16vw,3.12rem)] font-normal text-primary">
             {t('title')}
           </h2>
         </Reveal>
 
         <Reveal delay={0.08}>
-          <p className="mt-6 max-w-[680px] font-body text-lg leading-relaxed text-secondary">
+          <p className="mt-6 max-w-[31rem] font-body text-lg leading-relaxed text-secondary">
             {t('intro')}
           </p>
         </Reveal>
@@ -37,11 +37,11 @@ const WhatIsOneFam = () => {
               delay={0.1 + i * 0.08}
               className="rounded-[8px] border border-line bg-surface p-7"
             >
-              <h3 className="flex items-center gap-2.5 font-display text-xl font-semibold text-primary">
+              <h3 className="flex items-center gap-2.5 font-serif text-xl font-normal text-primary">
                 <span className="inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
                 {card.title}
               </h3>
-              <p className="mt-3 font-body text-base leading-relaxed text-secondary">{card.text}</p>
+              <p className="mt-3 max-w-[28rem] font-body text-base leading-relaxed text-secondary">{card.text}</p>
             </Reveal>
           ))}
         </div>

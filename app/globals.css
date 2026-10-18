@@ -27,6 +27,7 @@
   /* font family vars are provided by next/font (see app/layout.tsx) */
   --font-cabinet: var(--font-cabinet);
   --font-satoshi: var(--font-satoshi);
+  --font-garamond: var(--font-garamond);
 }
 
 @theme inline {
@@ -41,9 +42,12 @@
   --color-gold: var(--gold);
   --color-gold-hover: var(--gold-hover);
 
-  /* font utilities: font-display (Cabinet Grotesk) / font-body (Satoshi) */
+  /* font utilities: font-display (Cabinet Grotesk) / font-body (Satoshi) /
+     font-serif (EB Garamond, seit 18.10.2026 für Überschriften und Zitate der
+     Startseite — siehe app/layout.tsx) */
   --font-display: var(--font-cabinet);
   --font-body: var(--font-satoshi);
+  --font-serif: var(--font-garamond);
 }
 
 @theme {

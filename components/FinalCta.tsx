@@ -17,13 +17,13 @@ const FinalCta = () => {
 
       <MaxWidth className="relative z-10 flex flex-col items-center text-center">
         <Reveal>
-          <h2 className="font-display text-[clamp(2.5rem,6vw,4.5rem)] font-extrabold leading-[1.05] tracking-[0.02em] text-primary">
+          <h2 className="font-serif text-[clamp(2.08rem,4.16vw,3.12rem)] font-normal leading-[1.05] text-primary">
             {t('title')}
           </h2>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <p className="mx-auto mt-6 max-w-[560px] font-body text-lg leading-relaxed text-secondary">
+          <p className="mx-auto mt-6 max-w-[31rem] font-body text-lg leading-relaxed text-secondary">
             {t('text')}
           </p>
         </Reveal>

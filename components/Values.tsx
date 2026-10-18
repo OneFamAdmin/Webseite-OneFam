@@ -44,13 +44,13 @@ const Values = () => {
           <p className="font-body text-sm font-medium uppercase tracking-[0.22em] text-gold">
             {t('label')}
           </p>
-          <h2 className="mt-3 font-display text-[clamp(2rem,4vw,3rem)] font-semibold tracking-[0.02em] text-primary">
+          <h2 className="mt-3 font-serif text-[clamp(2.08rem,4.16vw,3.12rem)] font-normal text-primary">
             {t('title')}
           </h2>
         </Reveal>
 
         <Reveal delay={0.08}>
-          <p className="mt-6 max-w-[640px] font-body text-lg leading-relaxed text-secondary">
+          <p className="mt-6 max-w-[31rem] font-body text-lg leading-relaxed text-secondary">
             {t('intro')}
           </p>
         </Reveal>
@@ -66,10 +66,10 @@ const Values = () => {
               <p className="font-body text-sm font-medium tracking-[0.22em] text-gold">
                 {String(i + 1).padStart(2, '0')}
               </p>
-              <h3 className="mt-4 max-w-[20ch] font-display text-[clamp(1.5rem,3vw,2.25rem)] font-semibold leading-[1.15] tracking-[0.01em] text-primary">
+              <h3 className="mt-4 max-w-[20ch] font-serif text-[clamp(1.5rem,3vw,2.25rem)] font-normal leading-[1.15] text-primary">
                 {item.title}
               </h3>
-              <p className="mt-4 max-w-[54ch] font-body text-lg leading-relaxed text-secondary">
+              <p className="mt-4 max-w-[31rem] font-body text-lg leading-relaxed text-secondary">
                 {item.text}
               </p>
             </Reveal>
@@ -108,7 +108,7 @@ const Values = () => {
             <div className="overflow-hidden">
               <div className="max-w-[640px] space-y-5 pb-8">
                 {lang.map((absatz, i) => (
-                  <p key={i} className="font-body text-base leading-relaxed text-secondary">
+                  <p key={i} className="max-w-[28rem] font-body text-base leading-relaxed text-secondary">
                     {absatz}
                   </p>
                 ))}

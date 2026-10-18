@@ -34,13 +34,13 @@ const TravelPool = () => {
         </Reveal>
 
         <Reveal delay={0.08}>
-          <h2 className="mt-4 max-w-[16ch] font-display text-[clamp(2.25rem,6vw,4rem)] font-semibold leading-[1.08] tracking-[0.01em] text-primary">
+          <h2 className="mt-4 max-w-[16ch] font-serif text-[clamp(2.08rem,4.16vw,3.12rem)] font-normal leading-[1.08] text-primary">
             {t('title')}
           </h2>
         </Reveal>
 
         <Reveal delay={0.14}>
-          <p className="mt-6 max-w-[560px] font-body text-lg leading-relaxed text-secondary">{t('description')}</p>
+          <p className="mt-6 max-w-[31rem] font-body text-lg leading-relaxed text-secondary">{t('description')}</p>
         </Reveal>
 
         <Reveal delay={0.2}>
