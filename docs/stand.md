@@ -2,6 +2,14 @@
 
 ## 🧵 18.10.2026: Startseite „Roter Faden" — neu geordnet statt gekürzt
 
+**Etiketten einheitlich Gold (am selben Tag):** Die kleinen Etiketten über den Überschriften
+waren uneinheitlich (Family Code Gold, Philosophie 12 px hellgrau, die übrigen grau). Labi
+befürchtete, dass man sie übersieht; in der Vorschau (Zweig `vorschau-etiketten`, nur lokal)
+gegen „alle Grau" gewählt. Jetzt alle sieben: Gold, 14 px, halbfett, Laufweite 0.22em —
+wie vorher nur „Code of Conduct". Grau wäre auf der hellen Büste der Philosophie fast
+verschwunden. Hero-Kicker „Woher kommst du?" unverändert Gold. Bei 390 px in DE/EN/FR/ES
+jedes Etikett einzeilig, keine seitliche Scrollleiste.
+
 **Überschriften als Aussagen (am selben Tag):** Die drei Etiketten-Überschriften sind jetzt
 Aussagen, das Etikett steht klein darüber (`label`). Wer nur Überschriften liest, liest die
 Geschichte: Raum → Gefühl → Zeichen.
