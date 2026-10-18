@@ -59,6 +59,9 @@ const ProductBridge = () => {
         </Reveal>
         <Reveal delay={0.12}>
           <p className="mt-6 max-w-[31rem] font-body text-lg leading-relaxed text-secondary">{t('intro')}</p>
+          {/* Seit 18.10.2026 hier statt als Kachel unter „Was ist OneFam?“ — der Satz
+              erklärt, warum das Zeichen still ist. */}
+          <p className="mt-4 max-w-[31rem] font-body text-lg leading-relaxed text-secondary">{t('haltung')}</p>
         </Reveal>
 
         <div className="mt-16 grid gap-14 md:grid-cols-2 md:gap-10">

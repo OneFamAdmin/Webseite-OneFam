@@ -4,10 +4,12 @@ import Reveal from './Reveal';
 
 const WhatIsOneFam = () => {
   const t = useTranslations('what_is_onefam');
-  const cards = t.raw('cards') as { title: string; text: string }[];
 
+  // Unten ohne Polster (18.10.2026): ohne die Kacheln ist der Abschnitt nur noch
+  // Überschrift und ein Absatz. Mit py-24/32 hier UND oben bei „Warum" standen
+  // 256 px Schwarz dazwischen; jetzt trägt allein das Polster von „Warum".
   return (
-    <section id="about" className="bg-bg py-24 md:py-32">
+    <section id="about" className="bg-bg pt-24 md:pt-32">
       <MaxWidth>
         <Reveal>
           <h2 className="font-serif text-[clamp(2.08rem,4.16vw,3.12rem)] font-normal text-primary">
@@ -21,30 +23,12 @@ const WhatIsOneFam = () => {
           </p>
         </Reveal>
 
-        {/* Am 24.09.2026 von drei auf zwei Spalten: die Kachel „Fam statt Masse"
-            wurde gestrichen, weil ihr Text („Nicht fuer alle. Und genau das ist
-            der Punkt.") die Selbstauswahl-Formel ein drittes Mal brachte — sie
-            steht schon in seo.description und seit dem Umbau des Family Code
-            auch in dessen Intro. Einmal ist Haltung, dreimal ist Pose. Die
-            Spaltenzahl muss mitziehen, sonst bleibt auf dem Desktop eine leere
-            dritte Spalte stehen. Wer eine dritte Kachel zurueckholt, setzt hier
-            wieder md:grid-cols-3. */}
-        <div className="mt-14 grid gap-6 md:grid-cols-2">
-          {cards.map((card, i) => (
-            <Reveal
-              as="div"
-              key={card.title}
-              delay={0.1 + i * 0.08}
-              className="rounded-[8px] border border-line bg-surface p-7"
-            >
-              <h3 className="flex items-center gap-2.5 font-serif text-xl font-normal text-primary">
-                <span className="inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
-                {card.title}
-              </h3>
-              <p className="mt-3 max-w-[28rem] font-body text-base leading-relaxed text-secondary">{card.text}</p>
-            </Reveal>
-          ))}
-        </div>
+        {/* Die Kacheln sind seit 18.10.2026 ganz weg (vorher zwei, davor drei).
+            „Tiefe statt Small Talk" wiederholte fast wörtlich den Family Code („Nicht
+            die Small-Talk-Variante"); sein Satz hängt jetzt am Intro. „Haltung statt
+            Fassade" erklärt, warum das Zeichen still ist, und steht deshalb bei den
+            Stücken (product_bridge.haltung). Labis Vorschlag, in der Vorschau
+            „Roter Faden" angesehen. Nichts gestrichen, nur umgezogen. */}
       </MaxWidth>
     </section>
   );

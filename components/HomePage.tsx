@@ -20,22 +20,32 @@ export default function HomePage() {
     <>
       <Nav ueberHero />
       <main>
+        {/* Reihenfolge seit 18.10.2026 "Roter Faden" — jeder Abschnitt beantwortet die
+            Frage, die der Besucher genau dann im Kopf hat (von Labi in der Vorschau
+            gewählt):
+              bin ich gemeint → was ist das → warum berührt mich das → will ich das
+              haben → will ich dazugehören → gehöre ich dazu → wohin geht das →
+              gibt es einen Haken → ich bin dabei.
+            Vorher stand die Vision an zweiter Stelle: noch bevor Vertrauen da war,
+            und beginnend mit Einschränkungen („noch kein Angebot", „nichts wird
+            verlost"). Weiter hinten lesen sich dieselben Sätze als Ehrlichkeit.
+            Die Geschichte stand an fünfter, die Stücke an sechster Stelle. */}
         <Hero />
         <WhatIsOneFam />
         {/* "So funktioniert OneFam" (HowItWorks) ist raus: seit der Umstellung auf
             Vision + Warteliste gab es keine Mechanik mehr zu erklären, und alle fünf
             Schritte standen bereits in WhatIsOneFam, TravelPool oder im FAQ.
             Komponente + i18n-Keys bleiben geparkt. */}
-        <TravelPool />
-        {/* <DestinationVote /> ist am 10.08.2026 raus. Der Block blendete sich zwar nur ein,
-            wenn eine Abstimmungsrunde offen war, sein Knopf führte aber auf /reiseziel —
-            und diese Seite gibt es nicht mehr. Komponente bleibt im Repo geparkt. */}
-        <Values />
-        <Philosophy />
         <WhyWeDoThis />
         {/* Story → Produkt: die Brücke steht direkt nach der Herkunfts-Geschichte,
             solange das Gefühl noch trägt — dann erst der Shop-Link. */}
         <ProductBridge />
+        <Philosophy />
+        <Values />
+        <TravelPool />
+        {/* <DestinationVote /> ist am 10.08.2026 raus. Der Block blendete sich zwar nur ein,
+            wenn eine Abstimmungsrunde offen war, sein Knopf führte aber auf /reiseziel —
+            und diese Seite gibt es nicht mehr. Komponente bleibt im Repo geparkt. */}
         <Faq />
         <FinalCta />
       </main>
