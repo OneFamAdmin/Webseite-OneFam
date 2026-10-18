@@ -92,6 +92,16 @@ Lachen liegt die Flagge deines Landes" (Labi: gilt für jedes Land); „der Pers
 Live DE/EN/FR/ES gemessen, keine Fehler. Die Albanien-Seite behält ihren eigenen Satz „Der
 Doppeladler liegt mitten im Lachen" — dort ist er richtig.
 
+**Kontaktseite Shop (18.10.2026), Snippet 11 → 2 576 954** (nach Neuladen, aktiv): Einleitung
+nennt info@onefam.ch und „Wir antworten innerhalb von 48 Stunden" (25 OF_I18N-Kopien + Quelle);
+Meldung nach dem Absenden ebenfalls 48 Stunden statt „ein bis zwei Werktage" (MSG.ok im
+Formularskript); Feld „Nachricht *" mit Sternchen (neuer Schlüssel „Message *", 25 Kopien);
+Datenschutz-Hinweis unter dem Formular per Skript mit Link je Sprache (`/privacy-policy/`,
+`/de|fr|es/privacy-policy/`, alle 200). Live DE/FR/ES gemessen. Nicht abgeschickt (wäre eine
+echte Nachricht). **Für die Anwaltsprüfung:** Die Datenschutzerklärung des Shops ist eine
+allgemeine Vorlage — sie nennt „Contact details" und „Contact Us", aber das Kontaktformular
+nicht eigens.
+
 **⚠️ Bei der Umstellung auf Siebdruck/Stick** (Labi 18.10.: „kein POD, nur Vorbestellung und
 limitierte Anzahl") ist die FAQ „Lieferzeit" („Jedes Teil wird auf Bestellung gefertigt,
 2–5 Werktage") falsch und muss neu geschrieben werden — ebenso AGB/Widerruf für
