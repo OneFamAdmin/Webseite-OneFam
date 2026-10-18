@@ -42,25 +42,24 @@ const WhyWeDoThis = () => {
           {/* Image — 40%, slightly offset */}
           <div className="order-1 md:order-2 md:col-span-2 md:-translate-y-6">
             <Reveal>
-              {/* Bild: mit Higgsfield Soul 2 auf Basis des trainierten Charakters des Inhabers
-                  erzeugt. Bewusst als körnige Nachtaufnahme im Handy-Look — kein Hochglanz.
-                  Auswahlkriterium war der Ton: Varianten, in denen die Szene ins Flirt-Register
-                  kippte, wurden verworfen; neben einem Text über "einander ernst nehmen" hätte
-                  das die Botschaft untergraben. */}
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[8px] border border-line">
-                <Image
-                  src="/assets/why-nacht.jpg"
-                  alt={tAlt('why')}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 40vw"
-                  className="object-cover"
-                />
-                {/* subtle dark edge so the bright photo sits in the dark section */}
-                <div
-                  className="pointer-events-none absolute inset-0"
-                  style={{ background: 'linear-gradient(180deg, rgba(10,10,10,0) 55%, rgba(10,10,10,0.45) 100%)' }}
-                />
-              </div>
+              {/* Seit 19.10.2026 ein echtes Sofortbild von einem der Abende (zwei Freunde, Arm
+                  in Arm; einer ist der Inhaber, der andere ist einverstanden). Vorher stand hier
+                  ein mit Higgsfield Soul 2 erzeugtes Bild im Handy-Look — neben der Geschichte
+                  „kleine, handverlesene Treffen" las es sich wie ein Beleg von damals und war
+                  doch gestellt; für eine trust-first-Seite das falsche Signal. Das Handyfoto
+                  des Sofortbilds hatte den Rahmen oben/rechts abgeschnitten: das Foto selbst ist
+                  unverändert, der weisse Rahmen neu gesetzt (Seitenverhältnis Instax mini),
+                  leicht gedreht, dunkler Schatten — dieselbe Bildsprache wie die Ansichtskarte
+                  bei der Vision: Dinge, die man aufhebt. Kein Rahmen-Kasten mehr drumherum.
+                  Herkunft: ~/Projekte/onefam-material/designs/sofortbild-warum/ */}
+              <Image
+                src="/assets/why-sofortbild.webp"
+                alt={tAlt('why')}
+                width={1000}
+                height={1457}
+                sizes="(max-width: 768px) 80vw, 34vw"
+                className="mx-auto h-auto w-full max-w-[420px]"
+              />
             </Reveal>
           </div>
         </div>
