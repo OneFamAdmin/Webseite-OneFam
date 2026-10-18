@@ -82,6 +82,16 @@ PL/ES 12 · HR/EE/LV/LT 16 · CH/GB 18 · FI/NO/PT 26, „in deiner Währung im 
 „Support"; „weiß" → „weiss" (2×); „Nur ein Zeichen. Trag deins." (EN „Wear yours.", FR
 „Porte le tien.", ES „Lleva el tuyo."). Live DE/EN/FR/ES gemessen: 10 FAQ, keine USA, 3×
 info@, keine Fehler.
+**Über-uns-Seite Shop (18.10.2026), Snippet 11 → 2 562 682** (nach Neuladen, aktiv), alle vier
+Sprachen (je 25 OF_I18N-Kopien + englische Quelle): Versprechen „gemacht wird, wofür sich genug
+Leute eintragen" → „je mehr sich für ein Land eintragen, desto eher kommt es" (wie die
+Wunschwand); unter „Worauf wir gebaut sind" erst das Fundament, dann die Mitbestimmung;
+„in Albanien liegt der Doppeladler mitten im Lachen" → „ein Gesicht, das lacht — und in seinem
+Lachen liegt die Flagge deines Landes" (Labi: gilt für jedes Land); „der Person, die es teilt"
+→ „jemandem mit derselben Herkunft"; „One Family." → „One Fam."; kurzer Strich → langer.
+Live DE/EN/FR/ES gemessen, keine Fehler. Die Albanien-Seite behält ihren eigenen Satz „Der
+Doppeladler liegt mitten im Lachen" — dort ist er richtig.
+
 **⚠️ Bei der Umstellung auf Siebdruck/Stick** (Labi 18.10.: „kein POD, nur Vorbestellung und
 limitierte Anzahl") ist die FAQ „Lieferzeit" („Jedes Teil wird auf Bestellung gefertigt,
 2–5 Werktage") falsch und muss neu geschrieben werden — ebenso AGB/Widerruf für
