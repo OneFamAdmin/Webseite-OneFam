@@ -1,5 +1,18 @@
 # Stand — 17.10.2026
 
+## 🧵 18.10.2026: Startseite „Roter Faden" — neu geordnet statt gekürzt
+
+Labis Einwand: Kürzen ist nicht das Ziel, der Besucher soll den roten Faden verstehen. Die
+Kürzungs-Zahl war ohnehin falsch gemessen (sichtbar 578 statt 1'029 Wörter, eingeklappte
+Texte mitgezählt — korrigiert in `docs/REFERENZ-brandsite.md`). Neue Reihenfolge, in der
+Vorschau (Zweig `vorschau-kuerzen`, nur lokal) gewählt: Hero → Was ist OneFam → Warum →
+Stücke → Philosophie → Family Code → Vision/Reise → FAQ → Join. Die beiden Kacheln unter
+„Was ist OneFam?" sind aufgelöst, nichts gestrichen: „Tiefe statt Small Talk" (doppelt
+mit dem Family Code) hängt als Satz am Intro, „Haltung statt Fassade" steht als
+`product_bridge.haltung` bei den Stücken — alle vier Sprachen. Abstand „Was ist OneFam?" →
+„Warum" von 256 auf 128 px (gemessen 128–140 px). Lokal geprüft: Reihenfolge und Texte
+DE/EN/FR/ES, 390 px ohne seitliche Scrollleiste.
+
 ## 🔤 18.10.2026: Startseite in EB Garamond — „edel" nach Messung
 
 Fünf Referenzen (Aimé Leon Dore, Casablanca, Bode, Soho House, Patek Philippe) gegen

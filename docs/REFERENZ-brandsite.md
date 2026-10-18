@@ -43,9 +43,16 @@ also das, was ein Besucher aus der Schweiz sieht.
 | Hauptknopf | Verlauf, Ecke 4 px, 15–16 px | – | – | – | schwarz/hell, **rund (40 px)**, 14 px | weiss, rund, „DISCOVER MORE" |
 | Kopfzeile | 64 px | 61 px | 80 px | 88 px | 68 px | 99 px |
 | Wörter 1. Bildschirm | 28 | 6 | 30 | 14 | 35 | 43 |
-| **Wörter gesamt** | **1'067** | 40 | 645 | 728 | 323 | 558 |
+| **Wörter gesamt** | **1'067** ⚠️ siehe unten | 40 | 645 | 728 | 323 | 558 |
 
 Hinweise zu den Zahlen:
+- **⚠️ Korrektur 18.10.2026: Die 1'067 Wörter von OneFam waren zu hoch.** Das Skript zählt
+  `innerText`, und darin stecken auch eingeklappte Texte: die „lange Fassung" des Family
+  Codes und die FAQ-Antworten. Nur das Sichtbare gezählt: **578 Wörter** (Family Code 137
+  statt 432, FAQ 43 statt 198). Damit liegt OneFam mitten im Feld (Patek 558, Casablanca
+  645, Bode 728). Punkt 2 unten („OneFam sagt am meisten") war deshalb falsch. Die Werte
+  der Referenzen sind auf dieselbe Weise gezählt und können ebenfalls Verborgenes
+  enthalten.
 - Bei Casablanca meldet das Skript dunkelgrün als Hintergrund mit 100 %. Das ist nur die
   Fusszeile mit gesetzter Farbe. Auf dem Bildschirmfoto ist die Seite weiss.
 - Bei Bode und Casablanca bestehen die Wörter fast nur aus Produktnamen, Preisen und der
@@ -99,7 +106,7 @@ Rechtstexte, Impressum) wurden am selben Tag auf Labis Wunsch nachgezogen.
    Versalien. Edel wirken die Referenzen mit **weniger Gewicht**: Soho House 48 px in einer
    Serife mit Gewicht 400, Patek 40 px in Versalien, aber dünn (300). Keine Referenz setzt
    eine fette Überschrift. Das ist der stärkste einzelne Hebel.
-2. **OneFam sagt am meisten.** 1'067 Wörter gegen 40 bis 728, Soho House kommt mit 323 aus.
+2. ~~**OneFam sagt am meisten.**~~ *(falsch gemessen, siehe Korrektur oben — sichtbar sind es 578 Wörter. Statt zu kürzen wurde die Reihenfolge geändert, siehe „Roter Faden" in `docs/stand.md`.)* 1'067 Wörter gegen 40 bis 728, Soho House kommt mit 323 aus.
    Exklusiv heisst hier: weniger erklären. Die Philosophie bleibt (Labis Wunsch), aber nicht
    jeder Abschnitt muss auf der Startseite stehen.
 3. **Die Textspalte ist zu breit.** 640 px, etwa 81 Zeichen pro Zeile, gegen 400–423 px und
