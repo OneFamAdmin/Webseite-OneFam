@@ -110,6 +110,23 @@ FR ohne männliche Form: „tu le sauras en premier"). Live DE gemessen inkl. Ar
 Türkei"); FR/ES im Code geprüft (die Seite wählt die Sprache über das Cookie `ofl`, das im
 Browser auf DE steht). Unbewohnte Gebiete (Antarktis u. a.) bleiben auf Labis Wunsch drin.
 
+**Albanien / Produktseiten (18.10.2026):**
+- **Snippet 26** „Kopf-/Fusszeile auf Shop-Seiten" (von Labi freigegeben): auch dort war das
+  Newsletter-Feld tot (Produkt, Warenkorb, Konto). Die Fusszeile steckt base64-kodiert im
+  Code (Block 2 von 11); entschlüsselt, Feld durch „Sei dabei" + Knopf „Join the Fam →" auf
+  onefam.ch/join ersetzt, wieder kodiert (Rundweg geprüft). Übersetzungen „Sei dabei" in den
+  Wortlisten en/fr/es ergänzt. 48 885 → **49 524**, aktiv. Live: Produktseite DE/FR/ES
+  („Sei dabei" / „Fais-en partie" / „Forma parte"), `/warenkorb/`, `/mein-konto/` — Knopf da,
+  Feld weg. (`/cart/`, `/my-account/` sind 404 — die Seiten heissen deutsch.)
+- **Snippet 68** „Produkttexte je Motiv (T8)": „Bangladesch - GOTS" → „Bangladesch — GOTS"
+  (3×, Shirt/Sweater/Hoodie, nur DE), Länge unverändert 71 053, aktiv. Die Texte stehen
+  bewusst im Snippet und nicht im Produkt — PodOS überschreibt Produktbeschreibungen.
+- **FAQ Lieferzeit** an Versandrichtlinie und Produktseite angeglichen: „2–4 Werktage
+  Produktion, danach 1–3 Werktage Versand; CH/GB/NO Zollabfertigung kann Zeit dazugeben"
+  (vorher 2–5 + bis 8). Snippet 11 → **2 566 238**, nach Neuladen, aktiv.
+- Länderseite Albanien unverändert gut. Farbnamen (Heather Grey usw.) bleiben englisch —
+  Herstellernamen Stanley/Stella. Rückgabe-Ausschluss in „Versand und Rückgabe" → Anwalt.
+
 **⚠️ Bei der Umstellung auf Siebdruck/Stick** (Labi 18.10.: „kein POD, nur Vorbestellung und
 limitierte Anzahl") ist die FAQ „Lieferzeit" („Jedes Teil wird auf Bestellung gefertigt,
 2–5 Werktage") falsch und muss neu geschrieben werden — ebenso AGB/Widerruf für
