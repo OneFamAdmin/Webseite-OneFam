@@ -46,7 +46,7 @@ export default function LegalLayout({ eyebrow = 'Rechtliches', title, updated, l
       {/* content */}
       <main className="mx-auto w-full max-w-[720px] flex-1 px-6 py-16 md:py-24">
         <p className="font-body text-sm font-medium uppercase tracking-[0.22em] text-gold">{eyebrow}</p>
-        <h1 className="mt-3 font-display text-[clamp(2rem,5vw,3rem)] font-semibold tracking-[0.02em] text-primary">
+        <h1 className="mt-3 font-serif text-[clamp(2.08rem,5.2vw,3.12rem)] font-normal text-primary">
           {title}
         </h1>
         {updated && (
@@ -86,7 +86,7 @@ export default function LegalLayout({ eyebrow = 'Rechtliches', title, updated, l
 export function Section({ n, title, children }: { n: string; title: string; children: React.ReactNode }) {
   return (
     <section className="space-y-4">
-      <h2 className="font-display text-xl font-semibold tracking-[0.01em] text-primary md:text-2xl">
+      <h2 className="font-serif text-xl font-normal text-primary md:text-2xl">
         <span className="text-gold">{n}.</span> {title}
       </h2>
       <div className="space-y-4 font-body text-[15px] leading-[1.8] text-secondary md:text-base">{children}</div>

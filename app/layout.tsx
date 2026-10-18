@@ -27,6 +27,8 @@ const cabinet = localFont({
 // gewählt. Grund ist die Messung in docs/REFERENZ-brandsite.md: drei von fünf
 // edlen Referenzen setzen eine Serife ein, onefam.ch hatte keine, und die fette
 // Cabinet-Überschrift war die lauteste aller sechs gemessenen Seiten.
+// Am selben Tag auf Labis Wunsch auch die Überschriften der Unterseiten (/join,
+// Login, Mein Bereich, Rechtstexte, Impressum) und die Erfolgsmeldungen der Formulare.
 // Nur der Latin-Ausschnitt (Fontsource 5.3.0): deckt DE/EN/FR/ES samt „ “ – — ab.
 // Lizenz OFL 1.1, liegt daneben in fonts/EBGaramond-OFL.txt.
 const garamond = localFont({

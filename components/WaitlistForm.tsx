@@ -50,7 +50,7 @@ export default function WaitlistForm({ compact = false }: { compact?: boolean })
         <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-gold/40">
           <Check size={24} strokeWidth={2} className="text-gold" />
         </div>
-        <p className="mt-4 font-display text-xl font-semibold text-primary">{t('ok_titel')}</p>
+        <p className="mt-4 font-serif text-2xl font-normal text-primary">{t('ok_titel')}</p>
         <p className="mt-2 font-body text-sm leading-relaxed text-secondary">
           {t('ok_vor')} <span className="text-primary">{state.message}</span>
           {t('ok_nach')}

@@ -55,7 +55,7 @@ export default async function JoinPage({ params }: Props) {
 
       <main className="mx-auto flex w-full max-w-[560px] flex-1 flex-col justify-center px-6 py-16 md:py-24">
         <p className="font-body text-sm font-medium uppercase tracking-[0.22em] text-gold">{t('kicker')}</p>
-        <h1 className="mt-3 font-display text-[clamp(2rem,5vw,3rem)] font-semibold tracking-[0.02em] text-primary">
+        <h1 className="mt-3 font-serif text-[clamp(2.08rem,5.2vw,3.12rem)] font-normal text-primary">
           {t('titel')}
         </h1>
         <p className="mt-5 font-body text-lg leading-[1.7] text-secondary">{t('text')}</p>

@@ -105,7 +105,7 @@ export default async function BestaetigenPage({
         <div className="flex h-16 w-16 items-center justify-center rounded-full border border-gold/40">
           <Check size={30} strokeWidth={2} className="text-gold" />
         </div>
-        <h1 className="mt-6 font-display text-[clamp(2rem,5vw,3rem)] font-semibold tracking-[0.02em] text-primary">
+        <h1 className="mt-6 font-serif text-[clamp(2.08rem,5.2vw,3.12rem)] font-normal text-primary">
           {firstTime ? 'Du bist dabei!' : 'Du bist schon dabei.'}
         </h1>
         <p className="mt-4 font-body text-lg leading-[1.7] text-secondary">

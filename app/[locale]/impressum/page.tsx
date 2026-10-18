@@ -81,7 +81,7 @@ export default async function ImpressumPage({ params }: Props) {
       </dl>
 
       <div className="mt-12 border-t border-line pt-8">
-        <h2 className="font-display text-xl font-semibold text-primary">{t('hinweis_titel')}</h2>
+        <h2 className="font-serif text-xl font-normal text-primary">{t('hinweis_titel')}</h2>
         <p className="mt-3 font-body text-[17px] leading-relaxed text-secondary">{t('hinweis_text')}</p>
       </div>
     </LegalLayout>

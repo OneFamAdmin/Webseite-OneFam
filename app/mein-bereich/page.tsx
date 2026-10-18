@@ -54,7 +54,7 @@ export default async function MeinBereichPage({
 
       <main className="mx-auto w-full max-w-5xl flex-1 px-6 py-12 md:py-16">
         <p className="font-body text-sm font-medium uppercase tracking-[0.22em] text-gold">Mein Bereich</p>
-        <h1 className="mt-2 font-display text-[clamp(2rem,5vw,3rem)] font-semibold tracking-[0.02em] text-primary">
+        <h1 className="mt-2 font-serif text-[clamp(2.08rem,5.2vw,3.12rem)] font-normal text-primary">
           {state === 'guest' ? 'Willkommen bei der Fam' : `Hey ${name || 'du'} 👋`}
         </h1>
 
@@ -195,7 +195,7 @@ function Card({
     >
       <div className="flex items-center gap-2.5">
         {icon}
-        <h3 className="font-display text-lg font-semibold text-primary">{title}</h3>
+        <h3 className="font-serif text-lg font-normal text-primary">{title}</h3>
       </div>
       <p className="mt-2.5 flex-1 font-body text-[15px] leading-relaxed text-secondary">{body}</p>
       {cta && <div className="mt-4">{cta}</div>}

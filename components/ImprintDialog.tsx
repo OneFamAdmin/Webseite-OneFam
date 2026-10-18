@@ -29,7 +29,7 @@ const ImprintDialog: React.FC<ImprintDialogProps> = ({ onClose }) => {
         </button>
 
         <p className="font-body text-xs uppercase tracking-[0.1em] text-faint">{t('imprint')}</p>
-        <h2 className="mt-3 font-display text-2xl font-semibold tracking-[0.02em] text-primary md:text-3xl">
+        <h2 className="mt-3 font-serif text-2xl font-normal text-primary md:text-3xl">
           {t('imprint_company')}
         </h2>
         <p className="mt-2 font-body text-base text-secondary">

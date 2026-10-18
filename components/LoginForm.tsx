@@ -45,7 +45,7 @@ export default function LoginForm() {
         <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-gold/40">
           <Check size={24} strokeWidth={2} className="text-gold" />
         </div>
-        <p className="mt-4 font-display text-xl font-semibold text-primary">Link unterwegs.</p>
+        <p className="mt-4 font-serif text-2xl font-normal text-primary">Link unterwegs.</p>
         <p className="mt-2 font-body text-sm leading-relaxed text-secondary">
           Wir haben dir einen Anmelde-Link an <span className="text-primary">{email}</span> geschickt. Öffne ihn – und du
           bist drin.

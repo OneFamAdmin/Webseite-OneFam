@@ -81,7 +81,7 @@ export default async function BestaetigtPage({ params, searchParams }: Props) {
             <X size={26} strokeWidth={2} className="text-secondary" />
           )}
         </div>
-        <h1 className="mt-6 font-display text-[clamp(2rem,5vw,3rem)] font-semibold tracking-[0.02em] text-primary">
+        <h1 className="mt-6 font-serif text-[clamp(2.08rem,5.2vw,3.12rem)] font-normal text-primary">
           {t(`${ergebnis}_titel`)}
         </h1>
         <p className="mt-5 font-body text-lg leading-[1.7] text-secondary">
