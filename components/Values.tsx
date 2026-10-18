@@ -50,7 +50,7 @@ const Values = () => {
         </Reveal>
 
         <Reveal delay={0.08}>
-          <p className="mt-6 max-w-[31rem] font-body text-lg leading-relaxed text-secondary">
+          <p className="mt-6 max-w-[31rem] font-body text-lg leading-[1.75] tracking-[0.012em] text-secondary">
             {t('intro')}
           </p>
         </Reveal>
@@ -69,7 +69,7 @@ const Values = () => {
               <h3 className="mt-4 max-w-[20ch] font-serif text-[clamp(1.5rem,3vw,2.25rem)] font-normal leading-[1.15] text-primary">
                 {item.title}
               </h3>
-              <p className="mt-4 max-w-[31rem] font-body text-lg leading-relaxed text-secondary">
+              <p className="mt-4 max-w-[31rem] font-body text-lg leading-[1.75] tracking-[0.012em] text-secondary">
                 {item.text}
               </p>
             </Reveal>
@@ -108,7 +108,7 @@ const Values = () => {
             <div className="overflow-hidden">
               <div className="max-w-[640px] space-y-5 pb-8">
                 {lang.map((absatz, i) => (
-                  <p key={i} className="max-w-[28rem] font-body text-base leading-relaxed text-secondary">
+                  <p key={i} className="max-w-[28rem] font-body text-base leading-[1.75] tracking-[0.012em] text-secondary">
                     {absatz}
                   </p>
                 ))}

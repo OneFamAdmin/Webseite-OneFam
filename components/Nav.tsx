@@ -224,7 +224,7 @@ const Nav = ({ ueberHero = false }: { ueberHero?: boolean }) => {
                 key={l.label}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="font-display text-2xl font-semibold text-primary transition-colors duration-[180ms] hover:text-gold"
+                className="font-serif text-[2rem] font-normal text-primary transition-colors duration-[180ms] hover:text-gold"
               >
                 {l.label}
               </a>
@@ -233,7 +233,7 @@ const Nav = ({ ueberHero = false }: { ueberHero?: boolean }) => {
                 key={l.label}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="font-display text-2xl font-semibold text-primary transition-colors duration-[180ms] hover:text-gold"
+                className="font-serif text-[2rem] font-normal text-primary transition-colors duration-[180ms] hover:text-gold"
               >
                 {l.label}
               </Link>

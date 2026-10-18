@@ -22,16 +22,21 @@ const WhyWeDoThis = () => {
             </Reveal>
             <div className="mt-6 max-w-[580px] space-y-6">
               {paragraphs.map((p, i) => {
-                // the final line is the distilled pointe → gold, display font, larger
+                // the final line is the distilled pointe → gold, display font, larger.
+                // Seit 19.10.2026: die Erzählung davor in EB Garamond (wie ein Brief / eine
+                // Notiz auf der Rückseite des Sofortbilds), alles Sachliche der Seite bleibt
+                // Satoshi. Der Satz „Menschen vergessen, was sie gekauft haben. Aber nie, wo sie
+                // dazugehört haben.“ ist gestrichen (Labi: „wirkt so komisch generiert“) — die
+                // Pointe folgt jetzt direkt auf „Daraus wurde OneFam.“, ohne Extra-Abstand.
                 const isPointe = i === paragraphs.length - 1;
                 return (
                   <Reveal key={i} delay={0.08 + i * 0.06}>
                     {isPointe ? (
-                      <p className="pt-2 font-serif text-[1.625rem] font-normal italic leading-[1.3] text-gold md:text-[1.95rem]">
+                      <p className="font-serif text-[1.625rem] font-normal italic leading-[1.3] text-gold md:text-[1.95rem]">
                         {p}
                       </p>
                     ) : (
-                      <p className="max-w-[31rem] font-body text-lg leading-[1.8] text-secondary">{p}</p>
+                      <p className="max-w-[31rem] font-serif text-[1.3125rem] leading-[1.6] text-primary/85">{p}</p>
                     )}
                   </Reveal>
                 );

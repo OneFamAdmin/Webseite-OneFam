@@ -58,7 +58,7 @@ const TravelPool = () => {
         </Reveal>
 
         <Reveal delay={0.14}>
-          <p className="mt-6 max-w-[31rem] font-body text-lg leading-relaxed text-secondary">{t('description')}</p>
+          <p className="mt-6 max-w-[31rem] font-body text-lg leading-[1.75] tracking-[0.012em] text-secondary">{t('description')}</p>
         </Reveal>
 
         <Reveal delay={0.2}>

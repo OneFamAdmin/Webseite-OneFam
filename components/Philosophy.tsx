@@ -36,7 +36,9 @@ const Philosophy = () => {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <span aria-hidden className="mt-6 block font-display text-7xl leading-none text-gold">&ldquo;</span>
+          {/* EB Garamond statt Cabinet (19.10.2026): das geschwungene Garamond-„ ist ein kleines
+              Ornament, das Cabinet-Zeichen wirkte daneben klobig. Zwei Schriften statt drei. */}
+          <span aria-hidden className="mt-9 block font-serif text-[6.5rem] font-normal leading-[0.6] text-gold">&ldquo;</span>
         </Reveal>
 
         {/* text-balance seit 17.10.2026: Der Schlusssatz endet auf "Familie." — ohne

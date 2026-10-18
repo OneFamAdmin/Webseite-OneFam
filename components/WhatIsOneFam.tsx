@@ -26,7 +26,7 @@ const WhatIsOneFam = () => {
         </Reveal>
 
         <Reveal delay={0.08}>
-          <p className="mt-6 max-w-[31rem] font-body text-lg leading-relaxed text-secondary">
+          <p className="mt-6 max-w-[31rem] font-body text-lg leading-[1.75] tracking-[0.012em] text-secondary">
             {t('intro')}
           </p>
         </Reveal>

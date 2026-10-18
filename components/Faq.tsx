@@ -31,8 +31,10 @@ const Faq = () => {
                   aria-expanded={isOpen}
                   className="flex w-full items-center justify-between gap-6 py-6 text-left"
                 >
+                  {/* Satoshi halbfett statt Cabinet (19.10.2026): Fragen sind sachlich — die
+                      Serife bleibt der Stimme vorbehalten, und Cabinet war die dritte Schrift. */}
                   <span
-                    className={`font-display text-lg font-semibold transition-colors duration-[180ms] ${
+                    className={`font-body text-lg font-medium tracking-[0.005em] transition-colors duration-[180ms] ${
                       isOpen ? 'text-gold' : 'text-primary'
                     }`}
                   >
@@ -52,7 +54,7 @@ const Faq = () => {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="max-w-[28rem] pb-6 font-body text-base leading-relaxed text-secondary">
+                    <p className="max-w-[28rem] pb-6 font-body text-base leading-[1.75] tracking-[0.012em] text-secondary">
                       {it.answer}
                     </p>
                   </div>

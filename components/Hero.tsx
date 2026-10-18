@@ -47,7 +47,7 @@ const Hero = () => {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <p className="mx-auto mt-8 max-w-[31rem] font-body text-lg text-secondary md:text-xl">
+          <p className="mx-auto mt-8 max-w-[31rem] font-body text-lg tracking-[0.012em] text-secondary md:text-xl">
             {t('subline')}
           </p>
         </Reveal>

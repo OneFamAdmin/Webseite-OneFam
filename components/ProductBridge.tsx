@@ -58,10 +58,10 @@ const ProductBridge = () => {
           </h2>
         </Reveal>
         <Reveal delay={0.12}>
-          <p className="mt-6 max-w-[31rem] font-body text-lg leading-relaxed text-secondary">{t('intro')}</p>
+          <p className="mt-6 max-w-[31rem] font-body text-lg leading-[1.75] tracking-[0.012em] text-secondary">{t('intro')}</p>
           {/* Seit 18.10.2026 hier statt als Kachel unter „Was ist OneFam?“ — der Satz
               erklärt, warum das Zeichen still ist. */}
-          <p className="mt-4 max-w-[31rem] font-body text-lg leading-relaxed text-secondary">{t('haltung')}</p>
+          <p className="mt-4 max-w-[31rem] font-body text-lg leading-[1.75] tracking-[0.012em] text-secondary">{t('haltung')}</p>
         </Reveal>
 
         <div className="mt-16 grid gap-14 md:grid-cols-2 md:gap-10">
@@ -92,7 +92,7 @@ const ProductBridge = () => {
                 />
               </div>
               <h3 className="mt-6 font-serif text-2xl font-normal text-primary">{l.name}</h3>
-              <p className="mt-3 max-w-[28rem] font-body text-base leading-relaxed text-secondary">{l.text}</p>
+              <p className="mt-3 max-w-[28rem] font-body text-base leading-[1.75] tracking-[0.012em] text-secondary">{l.text}</p>
             </Reveal>
           ))}
         </div>

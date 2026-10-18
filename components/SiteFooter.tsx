@@ -42,7 +42,9 @@ const SiteFooter = () => {
                   darunter. 24 px sind wieder rund 115 px breit und damit nie
                   groesser als die Wortmarke im Kopf. */}
               <Image src="/assets/logo-white.png" alt="OneFam" width={656} height={137} className="h-6 w-auto" />
-              <p className="mt-4 font-display text-base font-semibold uppercase tracking-[0.1em] text-gold">
+              {/* Claim seit 19.10.2026 in EB Garamond, normal geschrieben — er wiederholt den Hero
+                  und sieht jetzt auch so aus. Vorher Cabinet in Versalien (dritte Schrift). */}
+              <p className="mt-4 text-balance font-serif text-xl font-normal leading-[1.3] text-gold">
                 {t('claim')}
               </p>
             </div>
