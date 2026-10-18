@@ -1,5 +1,21 @@
 # Stand — 17.10.2026
 
+## 📷 19.10.2026: Echtes Sofortbild statt erzeugtem Bild bei „Warum"
+
+Das Bild bei „Warum wir das machen" war mit Higgsfield Soul 2 erzeugt (Juli 2026) — neben der
+Geschichte „kleine, handverlesene Treffen" las es sich wie ein Beleg von damals. Ersetzt durch
+ein echtes Sofortbild von einem der Abende: zwei Freunde, Arm in Arm (einer ist Labi, der
+andere ist einverstanden; das Original-Sofortbild hat er). Quelle: Handyfoto 999 × 1775
+(WhatsApp-verkleinert), Rahmen oben/rechts abgeschnitten → Foto unverändert ausgeschnitten,
+Rahmen neu gesetzt (Instax mini 46:62), 3,2° gedreht, dunkler Schatten — dieselbe Bildsprache
+wie die Ansichtskarte. `public/assets/why-sofortbild.webp` (1000 px, 90 KB); `why-nacht.jpg`
+entfernt (in Git-Historie). Alt-Text neu in allen vier Sprachen. Bei 1440 px 420 px breit,
+bei 390 px 343 px, keine seitliche Scrollleiste.
+Verworfen, mit Grund in `~/Projekte/onefam-material/designs/sofortbild-warum/LIESMICH.md`:
+Kuss-Foto (07.05.2020), IMG_4438 (28.02.2021, Fluchtwegplan eines Lokals im Lockdown) und das
+Gruppen-Sofortbild (Zigaretten, Aschenbecher, Spiegelung). Weiter gesucht: Bilder von Abenden
+mit Frauen, ohne Zigaretten — für „Ein Raum…" und den Family Code.
+
 ## 🏞 18.10.2026: Ansichtskarte über der Vision
 
 Über „Irgendwann reisen wir gemeinsam." steht jetzt eine Ansichtskarte: gedeckter langer Tisch
