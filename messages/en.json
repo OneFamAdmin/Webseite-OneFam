@@ -21,7 +21,8 @@
     "cta_secondary": "To the shop"
   },
   "what_is_onefam": {
-    "title": "What is OneFam?",
+    "label": "What is OneFam?",
+    "title": "A space where you don't have to explain yourself.",
     "intro": "OneFam is a space for people who take each other seriously – including the dreams you don't tell anyone else. Nobody here talks about the weather – we talk about what really moves you."
   },
   "how_it_works": {
@@ -115,7 +116,8 @@
     "quote": "Surround yourself with people who see more in you than you see in yourself. Keep your distance from those who need to keep you small to feel big themselves. Whoever believes in you before you do is family."
   },
   "why_we_do_this": {
-    "title": "Why we do this",
+    "label": "Why we do this",
+    "title": "A feeling that goes everywhere with you.",
     "paragraphs": [
       "OneFam was born in a quiet time – when closeness only took place through screens for a while.",
       "It started softly: small, hand-picked gatherings for people who wanted to meet for real again. The right place, the right people – and conversations you left with more courage than you brought.",
@@ -125,7 +127,8 @@
     ]
   },
   "faq": {
-    "title": "Frequently asked questions",
+    "label": "Frequently asked questions",
+    "title": "What you should know.",
     "items": [
       {
         "question": "Does the shared trip already exist?",
