@@ -22,17 +22,7 @@
   },
   "what_is_onefam": {
     "title": "Was ist OneFam?",
-    "intro": "OneFam ist ein Raum für Menschen, die einander ernst nehmen – auch die Träume, die man sonst niemandem erzählt.",
-    "cards": [
-      {
-        "title": "Haltung statt Fassade.",
-        "text": "Die Kleidung zeigt, wofür du stehst. Das Wichtigste trägst du nicht am Körper."
-      },
-      {
-        "title": "Tiefe statt Small Talk.",
-        "text": "Hier redet niemand übers Wetter, sondern über das, was dich wirklich bewegt."
-      }
-    ]
+    "intro": "OneFam ist ein Raum für Menschen, die einander ernst nehmen – auch die Träume, die man sonst niemandem erzählt. Hier redet niemand übers Wetter, sondern über das, was dich wirklich bewegt."
   },
   "how_it_works": {
     "title": "So funktioniert OneFam",
@@ -75,6 +65,7 @@
     "label": "Die Stücke",
     "title": "Ein stilles Erkennungszeichen.",
     "intro": "Kein Katalogartikel, kein Logo zum Angeben. Ein Zeichen, das die richtigen Menschen erkennen – und der Rest übersieht. Genau so soll es sein.",
+    "haltung": "Die Kleidung zeigt, wofür du stehst. Das Wichtigste trägst du nicht am Körper.",
     "lines": [
       {
         "name": "Die Logo-Linie",
