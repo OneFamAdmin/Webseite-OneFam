@@ -102,6 +102,14 @@ echte Nachricht). **Für die Anwaltsprüfung:** Die Datenschutzerklärung des Sh
 allgemeine Vorlage — sie nennt „Contact details" und „Contact Us", aber das Kontaktformular
 nicht eigens.
 
+**Seite „Nach Land shoppen" (18.10.2026), Snippet 11 → 2 576 969** (nach Neuladen, aktiv):
+Satz über der Wunschwand ohne „NN Länder sind fertig" (KT, alle vier Sprachen, einheitlich
+langer Strich); Fenstertext kürzer und gleich wie die Wand: „Trag dich ein und sag uns, dass
+du CC willst. Je mehr ihr seid, desto eher kommt es — und du erfährst es zuerst." (WTXT.i,
+FR ohne männliche Form: „tu le sauras en premier"). Live DE gemessen inkl. Artikel („die
+Türkei"); FR/ES im Code geprüft (die Seite wählt die Sprache über das Cookie `ofl`, das im
+Browser auf DE steht). Unbewohnte Gebiete (Antarktis u. a.) bleiben auf Labis Wunsch drin.
+
 **⚠️ Bei der Umstellung auf Siebdruck/Stick** (Labi 18.10.: „kein POD, nur Vorbestellung und
 limitierte Anzahl") ist die FAQ „Lieferzeit" („Jedes Teil wird auf Bestellung gefertigt,
 2–5 Werktage") falsch und muss neu geschrieben werden — ebenso AGB/Widerruf für
