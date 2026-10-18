@@ -1,5 +1,20 @@
 # Stand — 17.10.2026
 
+## ✒️ 19.10.2026: Zwei Schriften statt drei, Geschichte in EB Garamond
+
+In der Vorschau (Zweig `vorschau-schrift`, nur lokal) gegen „heute" und „zwei Schriften" gewählt:
+- Erzählung bei „Warum" in EB Garamond, 21 px, Zeile 1,6, Weiss 85 % — wie ein Brief neben dem
+  Sofortbild. Alles Sachliche bleibt Satoshi.
+- Satz „Menschen vergessen, was sie gekauft haben. Aber nie, wo sie dazugehört haben." in allen
+  vier Sprachen gestrichen (Labi: „wirkt so komisch generiert" — er stammte von Claude, 17.10.).
+  „Nicht lauter. Echter." folgt direkt auf „Daraus wurde OneFam." (24 px statt Satz + 32 px).
+- Cabinet ganz raus aus allen öffentlichen Seiten: Zitatzeichen der Philosophie (Garamond-„,
+  104 px), Handymenü (Garamond 32 px), Fusszeilen-Claim (Garamond 20 px, normal geschrieben wie
+  im Hero, ausgeglichen), FAQ-Fragen (Satoshi 500 — in der Vorschau übersehen, nachgezogen).
+  Gemessen: auf der Startseite nur noch zwei Schriften (Garamond 21 Elemente, Satoshi 74).
+- Fliesstext: Zeilenabstand 1,75 statt 1,625, Laufweite 0.012em (hell auf Schwarz wirkt
+  Text fetter und enger).
+
 ## 📷 19.10.2026: Echtes Sofortbild statt erzeugtem Bild bei „Warum"
 
 Das Bild bei „Warum wir das machen" war mit Higgsfield Soul 2 erzeugt (Juli 2026) — neben der
