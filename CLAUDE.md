@@ -405,6 +405,7 @@ fortschreiben.
 | `docs/REGEL-gesichter.md` | Warum jedes Land eigene Gesichter braucht |
 | `docs/REGEL-instagram.md` | Bio in vier Sprachen, was ins Raster gehört und was nicht |
 | `docs/REFERENZ-shopdesign.md` | Gemessene Sollwerte aus fünf Referenzshops (Hero, Typo, Bildformat) |
+| `docs/REFERENZ-brandsite.md` | „Edel/exklusiv" gemessen: fünf Referenzen gegen onefam.ch (Skript `tools/referenz-messen.js`) |
 
 ---
 
