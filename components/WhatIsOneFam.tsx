@@ -11,8 +11,13 @@ const WhatIsOneFam = () => {
   return (
     <section id="about" className="bg-bg pt-24 md:pt-32">
       <MaxWidth>
+        {/* Seit 18.10.2026 ist die grosse Zeile eine Aussage, das alte Etikett steht klein
+            darüber (wie bei „Die Stücke“). Wer nur Überschriften liest, liest so die ganze
+            Geschichte: Raum → Gefühl → Zeichen. Siehe docs/stand.md „Roter Faden“.
+            22ch + text-balance: mit 18ch stand „muss.“ allein in der dritten Zeile. */}
         <Reveal>
-          <h2 className="font-serif text-[clamp(2.08rem,4.16vw,3.12rem)] font-normal text-primary">
+          <p className="font-body text-sm uppercase tracking-[0.1em] text-faint">{t('label')}</p>
+          <h2 className="mt-4 max-w-[22ch] text-balance font-serif text-[clamp(2.08rem,4.16vw,3.12rem)] font-normal leading-[1.1] text-primary">
             {t('title')}
           </h2>
         </Reveal>
