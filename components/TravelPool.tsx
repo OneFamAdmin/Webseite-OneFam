@@ -1,6 +1,7 @@
 import { useTranslations } from 'next-intl';
 import MaxWidth from './MaxWidth';
 import Reveal from './Reveal';
+import Image from 'next/image';
 import MarbleBg from './MarbleBg';
 import WaitlistForm from './WaitlistForm';
 
@@ -29,6 +30,23 @@ const TravelPool = () => {
     >
       <MarbleBg opacity={0.5} />
       <MaxWidth className="relative z-10 flex flex-col items-center text-center">
+        {/* Ansichtskarte seit 18.10.2026: ein gedeckter Tisch am Hafen, die Stühle warten
+            auf Gäste — das Bild zum Satz „für den Tag, an dem wir uns nicht mehr nur online
+            begegnen“. Labi hat sie gegen drei Karten (mehrere Orte) gewählt: OneFam handelt
+            von Menschen, nicht von Orten. Keine Schrift, kein Ortsname, weil die Vision kein
+            Reiseziel verspricht. Rein schmückend, daher alt="". Gedämpft auf Sättigung 0,35
+            wie das Foto „Warum“ — das Original war das bunteste Bild der Seite. Herkunft und
+            Fassungen: ~/Projekte/onefam-material/designs/ansichtskarten-vision/ */}
+        <Reveal className="mb-10 w-full">
+          <Image
+            src="/assets/vision-karte.webp"
+            alt=""
+            width={1600}
+            height={1063}
+            sizes="(min-width: 768px) 560px, 92vw"
+            className="mx-auto h-auto w-full max-w-[560px]"
+          />
+        </Reveal>
         <Reveal>
           <p className="font-body text-sm font-medium uppercase tracking-[0.22em] text-gold">{t('label')}</p>
         </Reveal>
