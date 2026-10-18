@@ -22,17 +22,7 @@
   },
   "what_is_onefam": {
     "title": "¿Qué es OneFam?",
-    "intro": "OneFam es un espacio para personas que se toman en serio – también los sueños que no le cuentas a nadie más.",
-    "cards": [
-      {
-        "title": "Actitud, no fachada.",
-        "text": "Tu ropa muestra lo que defiendes. Lo más importante no lo llevas puesto."
-      },
-      {
-        "title": "Profundidad, no charla vacía.",
-        "text": "Aquí nadie habla del tiempo – hablamos de lo que de verdad te mueve."
-      }
-    ]
+    "intro": "OneFam es un espacio para personas que se toman en serio – también los sueños que no le cuentas a nadie más. Aquí nadie habla del tiempo – hablamos de lo que de verdad te mueve."
   },
   "how_it_works": {
     "title": "Así funciona OneFam",
@@ -75,6 +65,7 @@
     "label": "Las piezas",
     "title": "Una señal discreta de reconocimiento.",
     "intro": "No es un artículo de catálogo ni un logotipo para presumir. Una señal que las personas adecuadas reconocen – y el resto pasa por alto. Así debe ser.",
+    "haltung": "Tu ropa muestra lo que defiendes. Lo más importante no lo llevas puesto.",
     "lines": [
       {
         "name": "La línea del logotipo",
