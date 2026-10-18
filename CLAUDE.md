@@ -273,9 +273,10 @@ muss selbst prüfen.
   `font-body`, `font-serif`). **Tokens benutzen, keine rohen Hex-Werte.**
 - Hintergrund `#0A0A0A`, Gold `#C9A84C`. Schriften lokal als woff2 über
   `next/font/local`: **EB Garamond** (`font-serif`, Gewicht 400) für Überschriften und
-  Zitate der Startseite — seit 18.10.2026, von Labi in der Vorschau gewählt, Begründung
-  in `docs/REFERENZ-brandsite.md`; Cabinet Grotesk (`font-display`) für Wortmarke-nahe
-  Elemente und die übrigen Seiten; Satoshi (`font-body`) für Fliesstext. Textspalten
+  Zitate aller öffentlichen Seiten — seit 18.10.2026, von Labi in der Vorschau gewählt,
+  Begründung in `docs/REFERENZ-brandsite.md`; Cabinet Grotesk (`font-display`) nur noch
+  für Menü, Fusszeilen-Beschriftung und die geparkten Voting-Bausteine; Satoshi
+  (`font-body`) für Fliesstext. Textspalten
   höchstens 31rem (≈ 50–55 Zeichen). Mobile-first.
 - **Nicht erwünscht:** Countdown-Timer, dekorative Verläufe, Glow, Orbs, Stockfotos.
   Der eine Marken-Verlauf ist die Ausnahme — Hintergrund in

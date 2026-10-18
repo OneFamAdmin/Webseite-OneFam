@@ -90,8 +90,8 @@ und 4:
 Nachgemessen gegen die Vorschau, 60 Elemente bei 1440 und 390 px: gleich bis auf die
 beabsichtigte Handy-Grösse von Zitat und Pointe. Bei 390 px keine seitliche Scrollleiste.
 **Nicht umgesetzt:** Punkt 2 (Abschnitte kürzen) — Labi hat keinen Abschnitt
-ausgewählt. Die Unterseiten (`/join`, Rechtstexte, Login) tragen ihre Überschriften
-weiter in Cabinet.
+ausgewählt. Die Unterseiten (`/join`, Bestätigen/Abmelden, Login, Mein Bereich,
+Rechtstexte, Impressum) wurden am selben Tag auf Labis Wunsch nachgezogen.
 
 ## Was daraus folgt (Vorschläge vom 18.10.2026)
 

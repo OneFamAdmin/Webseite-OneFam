@@ -8,8 +8,11 @@ Labi hat in einer Vorschau (Zweig `vorschau-edel`, **nur lokal, nicht gepusht**)
 Variante „Serife mit EB Garamond" gewählt. Auf `main`: Schrift `app/fonts/EBGaramond-*.woff2`
 (Fontsource 5.3.0, Latin, OFL), Token `font-serif`; Hero, alle h2/h3 der Startseite,
 Zitat und Pointe in EB Garamond 400; Textspalten 31rem/28rem. Gegen die Vorschau
-nachgemessen (60 Elemente, 1440 und 390 px). Offen: Unterseiten (`/join`, Rechtstexte)
-noch in Cabinet; Abschnitte kürzen nicht entschieden; Shop folgt später.
+nachgemessen (60 Elemente, 1440 und 390 px). Am selben Tag auch die Unterseiten: h1 von `/join`,
+Bestätigen/Abmelden, Login, Mein Bereich, AGB/Datenschutz/Impressum (dort auch die
+Abschnittstitel) und die Erfolgsmeldungen der Formulare — alle 200, angesehen. Cabinet nur
+noch in Menü, Fusszeilen-Beschriftung, geparkten Voting-Bausteinen. Offen: Abschnitte
+kürzen nicht entschieden; Shop folgt später.
 
 ## ✉️ 18.10.2026: Warteliste onefam.ch mit doppelter Bestätigung
 
