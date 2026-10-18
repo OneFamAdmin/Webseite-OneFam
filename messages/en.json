@@ -22,17 +22,7 @@
   },
   "what_is_onefam": {
     "title": "What is OneFam?",
-    "intro": "OneFam is a space for people who take each other seriously – including the dreams you don't tell anyone else.",
-    "cards": [
-      {
-        "title": "Attitude, not facade.",
-        "text": "Your clothes show what you stand for. The most important thing isn't something you wear."
-      },
-      {
-        "title": "Depth, not small talk.",
-        "text": "Nobody here talks about the weather – we talk about what really moves you."
-      }
-    ]
+    "intro": "OneFam is a space for people who take each other seriously – including the dreams you don't tell anyone else. Nobody here talks about the weather – we talk about what really moves you."
   },
   "how_it_works": {
     "title": "How OneFam works",
@@ -75,6 +65,7 @@
     "label": "The pieces",
     "title": "A quiet sign of recognition.",
     "intro": "No catalogue item, no logo to show off. A sign the right people notice – and everyone else walks past. Exactly as it should be.",
+    "haltung": "Your clothes show what you stand for. The most important thing isn't something you wear.",
     "lines": [
       {
         "name": "The logo line",
