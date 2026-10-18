@@ -1,5 +1,20 @@
 # Stand — 17.10.2026
 
+## 🏞 18.10.2026: Ansichtskarte über der Vision
+
+Über „Irgendwann reisen wir gemeinsam." steht jetzt eine Ansichtskarte: gedeckter langer Tisch
+am Hafen, Stühle warten auf Gäste. Higgsfield, GPT Image 2.5, high, 2k, transparent — 2,75 Credits
+für zwei Entwürfe (Guthaben danach **≈ 93 Credits**). Labi hat sie gegen „drei Karten" (Hafen,
+Bergpass, Altstadt) gewählt. Keine Schrift, kein Ortsname (die Vision verspricht kein Ziel).
+Nachbearbeitet: (1) Schatten des Modells war hellbraun → auf #0A0A0A ein Leuchten (Glow ist
+unerwünscht) → Schattenpixel schwarz; (2) Original war das bunteste Bild der Seite (Sättigung
+0,46 / Helligkeit 0,65) → Fassung „Mitte" 0,35 / 0,55, wie das Foto „Warum" (0,35).
+`public/assets/vision-karte.webp` (1600 px, 306 KB), `alt=""` (schmückend). Ausgeliefertes Bild
+gegen beide Fassungen gemessen: es ist die neue. Quellen und Vergleich:
+`~/Projekte/onefam-material/designs/ansichtskarten-vision/`. **Echte Fotos** (Treffen aus der
+Corona-Zeit) sucht Labi noch heraus → `~/Downloads/onefam-fotos`; Einwilligung erkennbarer
+Personen beachten.
+
 ## 🧵 18.10.2026: Startseite „Roter Faden" — neu geordnet statt gekürzt
 
 **Etiketten einheitlich Gold (am selben Tag):** Die kleinen Etiketten über den Überschriften
