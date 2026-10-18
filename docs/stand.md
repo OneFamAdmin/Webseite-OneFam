@@ -2,6 +2,21 @@
 
 ## 🧵 18.10.2026: Startseite „Roter Faden" — neu geordnet statt gekürzt
 
+**Überschriften als Aussagen (am selben Tag):** Die drei Etiketten-Überschriften sind jetzt
+Aussagen, das Etikett steht klein darüber (`label`). Wer nur Überschriften liest, liest die
+Geschichte: Raum → Gefühl → Zeichen.
+- „Was ist OneFam?" → **„Ein Raum, in dem man sich nicht erklären muss."** (EN „A space where
+  you don't have to explain yourself.", FR „Un espace où l'on n'a pas à s'expliquer.", ES „Un
+  espacio donde no tienes que explicarte.")
+- „Warum wir das machen" → **„Ein Gefühl, das überallhin mitkommt."** (EN „A feeling that goes
+  everywhere with you.", FR „Un sentiment qui t'accompagne partout.", ES „Un sentimiento que
+  te acompaña a todas partes.")
+- „Häufige Fragen" → **„Was du wissen solltest."** (EN „What you should know.", FR „Ce qu'il
+  faut savoir.", ES „Lo que deberías saber.") — bewusst nicht „Kein Kleingedrucktes" (Regel 7).
+- Herkunft: „nicht erklären müssen" aus dem Family Code (lange Fassung), „überallhin" aus der
+  Geschichte. `max-w-[22ch] text-balance`: alle drei in allen Sprachen 1–2 Zeilen bei 1440
+  und 390 px (mit 18ch stand „muss." allein in Zeile 3).
+
 Labis Einwand: Kürzen ist nicht das Ziel, der Besucher soll den roten Faden verstehen. Die
 Kürzungs-Zahl war ohnehin falsch gemessen (sichtbar 578 statt 1'029 Wörter, eingeklappte
 Texte mitgezählt — korrigiert in `docs/REFERENZ-brandsite.md`). Neue Reihenfolge, in der
