@@ -30,7 +30,7 @@ const Philosophy = () => {
 
       <MaxWidth className="relative z-10 flex flex-col items-center text-center">
         <Reveal>
-          <p className="font-body text-xs uppercase tracking-[0.1em] text-secondary [text-shadow:0_2px_10px_rgba(0,0,0,0.85)]">
+          <p className="font-body text-sm font-medium uppercase tracking-[0.22em] text-gold [text-shadow:0_2px_10px_rgba(0,0,0,0.85)]">
             {t('label')}
           </p>
         </Reveal>

@@ -30,7 +30,7 @@ const TravelPool = () => {
       <MarbleBg opacity={0.5} />
       <MaxWidth className="relative z-10 flex flex-col items-center text-center">
         <Reveal>
-          <p className="font-body text-sm uppercase tracking-[0.1em] text-faint">{t('label')}</p>
+          <p className="font-body text-sm font-medium uppercase tracking-[0.22em] text-gold">{t('label')}</p>
         </Reveal>
 
         <Reveal delay={0.08}>

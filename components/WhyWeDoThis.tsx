@@ -15,7 +15,7 @@ const WhyWeDoThis = () => {
           {/* Text — 60% */}
           <div className="order-2 md:order-1 md:col-span-3">
             <Reveal>
-              <p className="font-body text-sm uppercase tracking-[0.1em] text-faint">{t('label')}</p>
+              <p className="font-body text-sm font-medium uppercase tracking-[0.22em] text-gold">{t('label')}</p>
               <h2 className="mt-4 max-w-[22ch] text-balance font-serif text-[clamp(2.08rem,4.16vw,3.12rem)] font-normal leading-[1.1] text-primary">
                 {t('title')}
               </h2>

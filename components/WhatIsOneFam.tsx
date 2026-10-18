@@ -14,9 +14,12 @@ const WhatIsOneFam = () => {
         {/* Seit 18.10.2026 ist die grosse Zeile eine Aussage, das alte Etikett steht klein
             darüber (wie bei „Die Stücke“). Wer nur Überschriften liest, liest so die ganze
             Geschichte: Raum → Gefühl → Zeichen. Siehe docs/stand.md „Roter Faden“.
-            22ch + text-balance: mit 18ch stand „muss.“ allein in der dritten Zeile. */}
+            22ch + text-balance: mit 18ch stand „muss.“ allein in der dritten Zeile.
+            Alle Etiketten der Startseite seit 18.10.2026 einheitlich Gold, 0.22em, halbfett
+            (wie zuvor nur „Code of Conduct“) — vorher grau und teils kleiner; Labi fürchtete,
+            dass man sie übersieht. In der Vorschau gegen „alle Grau“ gewählt. */}
         <Reveal>
-          <p className="font-body text-sm uppercase tracking-[0.1em] text-faint">{t('label')}</p>
+          <p className="font-body text-sm font-medium uppercase tracking-[0.22em] text-gold">{t('label')}</p>
           <h2 className="mt-4 max-w-[22ch] text-balance font-serif text-[clamp(2.08rem,4.16vw,3.12rem)] font-normal leading-[1.1] text-primary">
             {t('title')}
           </h2>
