@@ -1,5 +1,29 @@
 # Stand — 17.10.2026
 
+## 🏢 20.10.2026: Infomaniak geprüft — Verträge, DMARC, loco-motive.ch
+
+**Verträge zur Auftragsverarbeitung jetzt vollständig** (Infomaniak, Resend, Supabase) in
+`~/Projekte/onefam-material/vertraege/` mit `LIESMICH.md`. Infomaniak-DPA im Manager unter
+Einstellungen → Legal certificates → „Generate the DPA“ auf Labinot Bajrami erzeugt (8 S., FADP
+Art. 9 / DSGVO Art. 28, gültig ohne Unterschrift, 2026-10-20); dazu Nutzungsbedingungen und die
+Bedingungen für Webhosting, My WordPress Site, Mail und Domains. Kontoadresse bei Infomaniak war
+„4058 **Baser**“ → auf „Basel“ korrigiert (Labi hat dabei der Nutzungsbedingungs-Klausel des
+Formulars zugestimmt), DPA neu erzeugt.
+
+**DMARC-Berichte** (8, von Infomaniak, 26.07.–19.09.2026, an info@onefam.ch): `@onefam.ch` 9 Mails,
+alle DKIM **und** SPF bestanden, nur Infomaniak-Server (u. a. 45.157.188.23 = INFOMANIAK-NETWORK) —
+**kein Missbrauch**. `@shop.onefam.ch` 26.–27.07.: 5 Mails abgewiesen (ohne Signatur, Shop-Anfang,
+vier Tage nach Einrichtung) — seither keine mehr. DNS heute: `onefam.ch` SPF nur
+`include:spf.infomaniak.ch`, DMARC `p=none`; `send.onefam.ch` SPF `amazonses.com` (Resend);
+`_dmarc.shop.onefam.ch` gibt es nicht mehr. Später erwägen: `p=quarantine`.
+
+**loco-motive.ch** wird gebraucht: Der QR-Code auf den alten Visitenkarten zeigt auf
+`loco-motive.ch/connect`. Gemessen: `http://loco-motive.ch/connect` → 308 https → 307 (Vercel-
+Domain-Weiterleitung) `onefam.ch/connect` → 308 (`vercel.json`) `onefam.ch/` → 307 `/de` → 200.
+Bezahlt bis **08.11.2028** (CHF 32.05 für 3 Jahre, 25.10.2025). Hosting bezahlt 17.08.2026 (TWINT)
+bis 19.08.2027, onefam.ch registriert 03.06.2023, verlängert jeweils Anfang Juni. Neue IBAN von
+Infomaniak (altes Konto zu seit 15.10.2026) betrifft nur manuelle Überweisungen.
+
 ## ✒️ 19.10.2026: Zwei Schriften statt drei, Geschichte in EB Garamond
 
 In der Vorschau (Zweig `vorschau-schrift`, nur lokal) gegen „heute" und „zwei Schriften" gewählt:
