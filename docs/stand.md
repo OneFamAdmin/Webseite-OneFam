@@ -8,8 +8,8 @@
 - iPhone (iOS 18.7): mit einer Messroute (`?diag=1`, wieder entfernt) gemessen — iOS lädt das
   Video **gar nicht** (src leer, networkState 0) und lehnt jedes play() mit `NotAllowedError` ab,
   bis der Bildschirm berührt wird. Auf aimeleondore.com genauso → **Sperre des Geräts**, nicht
-  der Seite. „Bewegung reduzieren" aus: keine Änderung. Offen: Datenmodus im Mobilfunk („Wenig
-  Daten") bei Labi prüfen. Das 1-px-Scrollen als Gegenmittel hat nichts gebracht, ist raus.
+  der Seite. „Bewegung reduzieren" aus: keine Änderung. **Bestätigt:** Auf einem anderen
+  iPhone 13 startet das Video sofort — es liegt nur an Labis Gerät (Update auf iOS 27.2 läuft). Das 1-px-Scrollen als Gegenmittel hat nichts gebracht, ist raus.
 
 **Ladezeit im Mobilfunk** (gemessen: Handy 393 px, 5 Mbit/s, 150 ms, 25 s):
 - `philosophy-bg.svg` wog 3,3 MB (PNG 4096 px darin) und lud sofort als CSS-Hintergrund
