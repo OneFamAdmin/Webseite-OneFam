@@ -1,5 +1,23 @@
 # Stand — 17.10.2026
 
+## 🎬 26.10.2026: Hero-Video und Ladezeit im Mobilfunk
+
+**Video steht bis zum Scrollen** (Labi, Safari privat am Mac und iPhone):
+- Mac/Safari: behoben mit mehrfachem play()-Anstoss + Videos ohne Tonspur (Originale mit Ton
+  in `onefam-material/videos/hero-original-mit-ton`). webm 10,6 → 9,5 MB, mp4 18,8 → 17,7 MB.
+- iPhone (iOS 18.7): mit einer Messroute (`?diag=1`, wieder entfernt) gemessen — iOS lädt das
+  Video **gar nicht** (src leer, networkState 0) und lehnt jedes play() mit `NotAllowedError` ab,
+  bis der Bildschirm berührt wird. Auf aimeleondore.com genauso → **Sperre des Geräts**, nicht
+  der Seite. „Bewegung reduzieren" aus: keine Änderung. Offen: Datenmodus im Mobilfunk („Wenig
+  Daten") bei Labi prüfen. Das 1-px-Scrollen als Gegenmittel hat nichts gebracht, ist raus.
+
+**Ladezeit im Mobilfunk** (gemessen: Handy 393 px, 5 Mbit/s, 150 ms, 25 s):
+- `philosophy-bg.svg` wog 3,3 MB (PNG 4096 px darin) und lud sofort als CSS-Hintergrund
+  (fertig nach 9,4 s). Jetzt `marmor-bg.webp`, 60 KB, fertig nach 1,4 s; Vergleich PSNR 53 dB.
+  Original in `onefam-material/designs/marmor-hintergrund`.
+- Handy bekommt `hero-mobil.mp4` (960 × 540, H.264 CRF 28, 4,4 MB) über `<source media>`.
+- Bilder gesamt am Handy: 2'611 KB → 225 KB.
+
 ## 🏢 20.10.2026: Infomaniak geprüft — Verträge, DMARC, loco-motive.ch
 
 **Verträge zur Auftragsverarbeitung jetzt vollständig** (Infomaniak, Resend, Supabase) in
