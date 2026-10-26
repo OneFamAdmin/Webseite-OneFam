@@ -25,11 +25,36 @@ const HeroVideo = () => {
     v.defaultMuted = true;
     v.setAttribute('muted', '');
 
-    const tryPlay = () => {
+    // Zweiter Fund am 26.10.2026, nur auf dem iPhone (Stromsparmodus aus): auch die
+    // wiederholten play()-Aufrufe halfen dort nicht, das Video stand bis zum Scrollen. iOS
+    // lässt ein stummes Video nur spielen, wenn es als „im Bild" vermerkt ist — und diesen
+    // Vermerk setzt WebKit hier erst bei einer Scrollbewegung. Bis dahin lehnt es jedes
+    // play() ab. Deshalb scrollen wir einmal um 1 px und sofort zurück: Das löst dieselbe
+    // Prüfung aus wie der Finger, ist aber nicht zu sehen. „instant", weil html sonst
+    // smooth scrollt. Höchstens dreimal, damit nichts in einer Schleife zuckt.
+    let anstoesse = 0;
+    const sichtbarkeitAnstossen = () => {
+      if (!v.paused || anstoesse >= 3) return;
+      anstoesse += 1;
+      const x = window.scrollX;
+      const y = window.scrollY;
+      window.scrollTo({ left: x, top: y + 1, behavior: 'instant' });
+      requestAnimationFrame(() => {
+        window.scrollTo({ left: x, top: y, behavior: 'instant' });
+        requestAnimationFrame(() => abspielen(false));
+      });
+    };
+
+    const abspielen = (anstossen: boolean) => {
       if (!v.paused || document.hidden) return;
       const p = v.play();
-      if (p && typeof p.catch === 'function') p.catch(() => {});
+      if (p && typeof p.catch === 'function') {
+        p.catch(() => {
+          if (anstossen) sichtbarkeitAnstossen();
+        });
+      }
     };
+    const tryPlay = () => abspielen(true);
     tryPlay();
 
     const mediaEvents = ['loadedmetadata', 'loadeddata', 'canplay'] as const;
