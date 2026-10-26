@@ -25,6 +25,49 @@ const HeroVideo = () => {
     v.defaultMuted = true;
     v.setAttribute('muted', '');
 
+    // VORÜBERGEHENDE MESSUNG (26.10.2026), nur mit ?diag=1 in der Adresse: schreibt den
+    // Ablauf mit und schickt ihn nach 6 s an /api/video-diagnose (landet im Vercel-
+    // Protokoll). Mit &quelle=mp4 wird die MP4-Datei erzwungen, um zu prüfen, ob das
+    // iPhone an der WebM-Datei hängt. Nach der Fehlersuche wieder entfernen.
+    const params = new URLSearchParams(window.location.search);
+    const diag = params.has('diag');
+    const t0 = performance.now();
+    const ablauf: string[] = [];
+    const log = (was: string) => {
+      if (diag) ablauf.push(`${Math.round(performance.now() - t0)} ${was}`);
+    };
+    if (params.get('quelle') === 'mp4') {
+      v.querySelector('source[type="video/webm"]')?.remove();
+      v.load();
+      log('webm entfernt, load()');
+    }
+    const diagEvents = ['loadstart', 'loadedmetadata', 'loadeddata', 'canplay', 'canplaythrough', 'play', 'playing', 'pause', 'waiting', 'stalled', 'suspend', 'error'] as const;
+    const onDiag = (e: Event) => log(`${e.type} ready=${v.readyState} net=${v.networkState} paused=${v.paused}`);
+    if (diag) diagEvents.forEach((e) => v.addEventListener(e, onDiag));
+    const onScrollDiag = () => log(`scroll y=${Math.round(window.scrollY)}`);
+    if (diag) window.addEventListener('scroll', onScrollDiag, { passive: true });
+    const diagTimer = diag
+      ? setTimeout(() => {
+          const r = v.getBoundingClientRect();
+          const bericht = {
+            ua: navigator.userAgent,
+            src: v.currentSrc,
+            paused: v.paused,
+            zeit: v.currentTime,
+            ready: v.readyState,
+            net: v.networkState,
+            fehler: v.error?.code ?? null,
+            muted: v.muted,
+            sichtbar: document.visibilityState,
+            rect: [Math.round(r.top), Math.round(r.width), Math.round(r.height)],
+            fenster: [window.innerWidth, window.innerHeight],
+            anstoesse,
+            ablauf,
+          };
+          fetch('/api/video-diagnose', { method: 'POST', body: JSON.stringify(bericht), keepalive: true }).catch(() => {});
+        }, 6000)
+      : undefined;
+
     // Zweiter Fund am 26.10.2026, nur auf dem iPhone (Stromsparmodus aus): auch die
     // wiederholten play()-Aufrufe halfen dort nicht, das Video stand bis zum Scrollen. iOS
     // lässt ein stummes Video nur spielen, wenn es als „im Bild" vermerkt ist — und diesen
@@ -36,6 +79,7 @@ const HeroVideo = () => {
     const sichtbarkeitAnstossen = () => {
       if (!v.paused || anstoesse >= 3) return;
       anstoesse += 1;
+      log(`anstoss ${anstoesse}`);
       const x = window.scrollX;
       const y = window.scrollY;
       window.scrollTo({ left: x, top: y + 1, behavior: 'instant' });
@@ -48,8 +92,10 @@ const HeroVideo = () => {
     const abspielen = (anstossen: boolean) => {
       if (!v.paused || document.hidden) return;
       const p = v.play();
+      log('play()');
       if (p && typeof p.catch === 'function') {
-        p.catch(() => {
+        p.catch((err: unknown) => {
+          log(`abgelehnt ${err instanceof Error ? `${err.name}: ${err.message}` : String(err)}`);
           if (anstossen) sichtbarkeitAnstossen();
         });
       }
@@ -68,6 +114,7 @@ const HeroVideo = () => {
     document.addEventListener('visibilitychange', tryPlay);
 
     const io = new IntersectionObserver((entries) => {
+      log(`im Bild=${entries.some((en) => en.isIntersecting)}`);
       if (entries.some((en) => en.isIntersecting)) tryPlay();
     });
     io.observe(v);
@@ -86,6 +133,9 @@ const HeroVideo = () => {
       v.removeEventListener('playing', onPlaying);
       io.disconnect();
       timers.forEach(clearTimeout);
+      diagEvents.forEach((e) => v.removeEventListener(e, onDiag));
+      window.removeEventListener('scroll', onScrollDiag);
+      if (diagTimer) clearTimeout(diagTimer);
     };
   }, []);
 
