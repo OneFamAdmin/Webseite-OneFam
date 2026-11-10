@@ -8,8 +8,10 @@ Sweater Changer 2.0 und Shirt Sparker 2.0 (je ca. 6 cm), alles Black; **nicht ü
 PodOS**, Versand selbst — CH aus Basel, DE/EU von einer Adresse in Deutschland.
 Umsetzungsplan liegt im Chat vom 08.11.2026, **noch nichts gebaut**.
 
-**Wartet auf:** das neue Angebot von Heldenwerbung (für **spätestens Montag, 09.11.2026**
-zugesagt). Danach entscheidet Labi Lieferant und Zählweise (siehe unten).
+**Heldenwerbung hat am 09.11.2026, 12:37 geantwortet** (Angebot AN2026-100690 mit Sparker,
+Changer und Slammer; Auswertung in `~/Projekte/onefam-material/kalkulation/angebote-heldenwerbung/`).
+Alle drei Angebote liegen damit vor. **Jetzt entscheidet Labi Lieferant und Zählweise**
+(siehe unten).
 
 > 🔒 **Preise, Verhandlungsstand und Ansprechpartner** der Lieferanten stehen seit
 > 10.11.2026 **nur lokal** in `docs/privat/lieferanten-angebote-albanien.md` (nicht im
@@ -24,15 +26,22 @@ weiter unten ist damit **überholt**.
 
 | Anbieter | Siebdruck-Mindestmenge | Zwei Druckgrössen (6 / 16 cm) | Sweater Changer 2.0 | Lager + Einzelversand | Andruck | Produktion |
 |---|---|---|---|---|---|---|
-| **Heldenwerbung / Shirt-King** | 100 | **zwei Aufträge, je 100** („es geht nur eine Druckgröße über alle Größen der Artikel", 14.10.) | ja | mit PodOS-Team abzustimmen | — | 10–12 Arbeitstage, Vorkasse |
+| **Heldenwerbung / Shirt-King** | 100 | **zwei Aufträge, je 100**: „es geht nur eine Druckgröße über alle Größen der Artikel" (Robert, 14.10.), am 09.11. bestätigt: „ab einer Stückzahl von 100 … dasselbe und gleich groß" (Heldenwerbung). Angeboten wurde 25/25/50 trotzdem, mit diesem Vorbehalt | ja | mit PodOS-Team abzustimmen | — | **5–7 Arbeitstage** nach Zahlungseingang (AN2026-100690), Vorkasse, Versand an DE-Adresse frei |
 | **Prinovia** | 50 je Motiv und Druckgrösse | zwei Aufträge | **nein, nur DTG/DTF** — Ersatz Radder 2.0 (Oversize, XS–3XL) | **nein**, nur Lieferung an eine Adresse | **keiner** unter ca. 500 Stück | 12–15 Werktage, Vorkasse |
 | **X-Print** | **30** | zwei Sieb-Sätze = zwei Aufträge; Sparker + Changer (6 cm) teilen sich **einen** Satz | ja | ja (Shirtee.Cloud) — **nicht gewollt**, siehe unten | ja | 10–15 Werktage nach Freigabe |
 
 Weitere Punkte: Shirtigo Cockpit lagert keine vorproduzierte Ware (nur POD). X-Print
 druckt sauber ab 0,8–1,0 mm Strich bei 6 cm, bis 8 Farben; CH-Sendungen verschickt X-Print
 **unverzollt** (Empfänger zahlt Einfuhr) und fakturiert sie als steuerfreie Ausfuhr.
-Bei Prinovia ist der Versand an eine DE-Adresse im Preis, bei X-Print nicht. Das neue
-Angebot von Heldenwerbung (Sparker/Changer 6 cm, Slammer 16 cm) steht aus.
+Bei Prinovia ist der Versand an eine DE-Adresse im Preis, bei X-Print nicht.
+
+**Heldenwerbung AN2026-100690, Haken:** (1) Grössen nur **XS–3XL**, der Shop führt heute
+XXS–5XL. Das muss in die Grössenwahl der Vorbestellprodukte. (2) Im PDF steht beim Siebdruck
+**„Brust links"**, angefragt war mittig mit 6 bzw. 16 cm; vor einem Auftrag korrigieren
+lassen. (3) Offen: Führen sie 25/25/50 tatsächlich aus, oder gilt hart 100 je Druckgrösse?
+Und zählen Sparker und Changer bei gleicher Motivgrösse zusammen auf die 100?
+**Rückfrage dazu am 10.11.2026 um 15:15 gesendet** (Punkte 1–3 plus XXS/4XL/5XL), im laufenden
+Faden, ausdrücklich **keine Bestellung**. Antwort steht aus.
 
 ### Was daraus für die Vorbestellung folgt
 
