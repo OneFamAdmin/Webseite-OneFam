@@ -1,6 +1,10 @@
 # Behördenstand MWST und Zoll — was beantwortet ist, was fehlt
 
-**Stand 02.09.2026.** Zusammenfassung der Recherche aus dem Projektordner (Übergabe-
+**Stand 10.11.2026** — Finanzamt Konstanz hat geantwortet, neues Modell (Siebdruck,
+Vorbestellung, eigener Versand aus Deutschland) geprüft: Abschnitte „Antwort des
+Finanzamts Konstanz" und „Neues Modell ab Ende Oktober 2026" weiter unten.
+
+**Ursprünglich Stand 02.09.2026.** Zusammenfassung der Recherche aus dem Projektordner (Übergabe-
 protokolle, Behördenmails, Rechnungen). Hier im Repo, weil die Antworten die
 Pool-Buchhaltung betreffen — siehe Abschnitt „Was das für die Zahlen bedeutet".
 
@@ -128,6 +132,9 @@ deutsche Verbraucher neben dem Preis stehen — das ist Prüfpunkt A3.
 
 Der volle Wortlaut liegt als `Anfrage_Finanzamt_Konstanz.txt` in Downloads.
 
+> **Nachtrag 10.11.2026:** Die Antwort kam nach einem Telefonat **doch per Mail** —
+> siehe „Antwort des Finanzamts Konstanz" unten.
+
 **Die Antwort kommt per Post oder telefonisch**, nicht per E-Mail — das Formular
 sagt das ausdrücklich („Aus Gründen des Datenschutzes erhalten Sie eine Antwort
 grundsätzlich nur telefonisch oder per Brief"). Also den Briefkasten in Basel im
@@ -141,6 +148,202 @@ scheitern** mit „Beim Versenden des Formulars ist ein unerwarteter Fehler
 aufgetreten" — zweimal probiert, zweimal gescheitert, mit unterschiedlichem Text.
 Von Hand ausgefüllt ging es auf Anhieb durch. Wer hier wieder etwas einreicht:
 selbst tippen oder einfügen, nicht automatisieren.
+
+## Antwort des Finanzamts Konstanz — 10.11.2026
+
+**Eingang:** Mail vom **10.11.2026, 13:23**, von `Poststelle-09@finanzamt.bwl.de` an
+`info@onefam.ch`, Betreff „Labinot Bajrami - umsatzsteuerliche Registrierung // SG 5/5".
+Bearbeiterin **Frau Günzler**, Finanzamt Konstanz, SG 5/5, Byk-Gulden-Str. 2a,
+78467 Konstanz, Tel. +49 7531 289-120 (Teilzeit, Di–Fr vormittags). Gefunden in Mail.app,
+Konto „Onefam", INBOX. Sonst ist vom Finanzamt nur die Eingangsbestätigung des
+Kontaktformulars vom 03.09.2026, 15:11 da (`Kontaktformular@fv-bwl.de`).
+
+Die Mail beginnt mit **„wie tel. besprochen"** — es gab also vorher ein Telefonat.
+**Was am Telefon gesagt wurde, steht nirgends** → Labi fragen und hier nachtragen.
+
+**Anhänge** (gespeichert im Sitzungsordner, Original bleibt in Mail.app):
+`Fragebogen _ 2026.pdf` (10 S., Scan, Vordruck **FsEAusUN** „Fragebogen zur
+umsatzsteuerlichen Erfassung von im Ausland ansässigen Unternehmern", Stand Juli 2026),
+`Vordruck Empfangsvollmacht.pdf`, `Einverständniserklärung zur Kommunikation per E-Mail`.
+
+**Kernaussagen, nah am Wortlaut.** Die Auskunft ist ausdrücklich **unverbindlich**
+(verbindlich nur nach § 89 Abs. 2 AO). Sie beschreibt das **heutige** Modell: „Die Ware
+wird von einem Dienstleister in Teltow im Print-on-Demand-Verfahren hergestellt und
+unmittelbar an private Abnehmer versandt."
+
+1. **Registrierung:** Sie schickt die Vordrucke „zur umsatzsteuerlichen Registrierung".
+   Umsätze an deutsche Kunden sind in Deutschland steuerpflichtig, **in der Rechnung ist
+   Umsatzsteuer auszuweisen**. **Keine Kleinunternehmerregelung**, weil in der Schweiz
+   ansässig. → Beantwortet die Fragen 1 und 2 der Anfrage vom 03.09.
+2. **Empfangsbevollmächtigter in Deutschland ist Pflicht** (§ 123 AO; im Fragebogen
+   § 22f Abs. 1 Satz 2 UStG). Er muss **kein** Steuerberater sein. Das Finanzamt
+   empfiehlt niemanden.
+3. **Rechnungen:** Pflichtangaben nach § 14 UStG, bis 250 € brutto genügt die
+   Kleinbetragsrechnung nach § 33 UStDV.
+4. **Ware in die Schweiz = steuerfreie Ausfuhrlieferung** (Kz. 43 der Voranmeldung).
+5. **EU-Kunden über OSS**, und zwar **zusätzlich** zu den Voranmeldungen (Inland Kz. 81,
+   Ausfuhren Kz. 43). → Beantwortet Frage 3.
+6. ⚠️ **Die Rechnungen des Dienstleisters dürfen keine Umsatzsteuer enthalten.**
+   Begründung des Amts: Er verkauft keine Ware an OneFam, sondern erbringt eine
+   **sonstige Leistung**; Leistungsort nach § 3a Abs. 2 UStG ist der Sitz des Empfängers,
+   also die Schweiz. **Ein Vorsteuerabzug der falsch ausgewiesenen USt ist
+   ausgeschlossen.** → Beantwortet Frage 4/5, aber anders als erwartet.
+
+**Nicht beantwortet:** Frage 6 (welche Angabe bei deutschen Verbrauchern neben dem Preis
+stehen muss). Das ist Preisangabenrecht, nicht Sache des Finanzamts — die Antwort sagt
+nur, was auf die **Rechnung** gehört.
+
+### ⚠️ Punkt 6 widerspricht der eigenen Herleitung
+
+`docs/druck-und-lieferant.md` sagt: „Weil die Rohware von ihnen kommt, ist es eine
+**Warenlieferung, keine Veredelungsleistung**. Die 19 % auf ihrer Rechnung sind bei
+deutschen Lieferungen strukturell richtig." Das Finanzamt sieht es umgekehrt. Ob
+Frau Günzler wusste, dass Shirt-King **auch das Textil** liefert, geht aus der Mail nicht
+hervor — sie schreibt nur „im Print-on-Demand-Verfahren hergestellt". **Nicht selbst
+entscheiden, nachfragen** (siehe unten). Folgen, falls das Amt recht hat:
+- Die 19 % auf den Shirt-King-Rechnungen (z. B. `inv-skc-26-30031`: 3,24 €) sind zu Unrecht
+  berechnet. Zurück kommen sie nur über **korrigierte Rechnungen von Shirt-King**, nicht
+  über das Finanzamt.
+- `cost_config.supplier_vat_pct = 19` (Migration `0011`) bildet dann einen Fehler des
+  Lieferanten als echte Kosten ab — richtig, solange er so fakturiert, aber nicht der
+  Sollzustand.
+
+### Was der Fragebogen verlangt — und was das neue Modell dort berührt
+
+- **1.6 Empfangsbevollmächtigter** in Deutschland (Pflicht, siehe oben).
+- **1.8 Einrichtungen** — feste Geschäftseinrichtungen in Deutschland, ausdrücklich auch
+  **„Warenlager"**. Die Versandadresse in Deutschland gehört hier vermutlich hinein.
+- **1.11 Ansässigkeitsbescheinigung** der ausländischen Steuerbehörde ist beizufügen. Für
+  eine nicht MWST-pflichtige Einzelfirma vermutlich von der Steuerverwaltung Basel-Stadt
+  — dort fragen.
+- **2.1 „detaillierte Erläuterungen der Waren- und Leistungswege auf einem gesonderten
+  Blatt"** — hier gehört das neue Modell hin (siehe unten).
+- **2.3** Gründe der Steuerbarkeit: inländische Warenbewegung, Ausfuhrlieferungen,
+  **Fernverkauf nach § 3c**.
+- **3.1** geschätzte Inlandsumsätze im Eröffnungs- und im Folgejahr; **3.6** Soll- oder
+  Istversteuerung; **3.10** EORI, soweit erteilt (keine vorhanden).
+
+## Neues Modell ab Ende Oktober 2026 — geprüft am 10.11.2026
+
+**Das Modell:** Die Länderlinie (zuerst Albanien) wird im **Siebdruck bzw. Stick** als
+Auflage produziert, nicht mehr nur über Print-on-Demand. Verkauft wird als
+**Vorbestellung**; produziert wird ab einer Mindestmenge, sonst volle Erstattung. Der
+Lieferant teilt die Lieferung auf: **Ware für Schweizer Kunden direkt nach Basel**
+(Einfuhr durch OneFam, 8,1 % Einfuhrsteuer), **Ware für DE/EU an eine Adresse in
+Deutschland**, von dort verschickt Labi selbst. In der Schweiz keine MWST-Pflicht
+(Umsatz unter CHF 100'000). Lieferantenstand: `docs/stand.md`, 08.11.2026.
+
+> **Was hier Behördenauskunft ist und was nicht:** Belegt ist nur, was oben unter
+> „Antwort des Finanzamts Konstanz" steht — und das betrifft das **POD-Modell**. Alles
+> in diesem Abschnitt, was darüber hinausgeht, ist **eigene Herleitung aus dem Gesetz**
+> und muss von Konstanz oder einem Steuerberater bestätigt werden.
+
+### 1. Registrierung beim Finanzamt Konstanz — ja, und vor dem ersten Verkauf
+
+**Ja.** Das sagt Konstanz schon für das POD-Modell; das neue Modell verstärkt es, weil die
+Ware jetzt **in Deutschland liegt und von dort an deutsche Kunden geht** — eine
+Lieferung im Inland, ohne jeden Zweifel am Leistungsort. Keine Kleinunternehmerregelung,
+keine Bagatellgrenze: steuerpflichtig ab dem ersten Euro.
+
+**Ab wann — vor dem Start der Vorbestellung.** Eigene Herleitung: Bei einer
+Vorbestellung zahlt der Kunde, bevor geliefert wird. Das ist umsatzsteuerlich eine
+**Anzahlung**, und die Steuer entsteht schon mit Ablauf des Voranmeldungszeitraums, in
+dem das Geld eingeht (§ 13 Abs. 1 Nr. 1 Buchst. a Satz 4 UStG, UStAE 13.5). Die erste
+bezahlte Vorbestellung aus Deutschland löst also bereits Umsatzsteuer aus. Wird
+erstattet, weil die Mindestmenge nicht erreicht ist, wird **im Zeitraum der Rückzahlung**
+berichtigt (§ 17 Abs. 2 Nr. 2 UStG; BFH V R 34/09) — nicht rückwirkend.
+
+**Daneben, ebenfalls vor dem ersten EU-Verkauf:** die **OSS-Registrierung beim BZSt**
+(eigener Antrag, nicht Teil des Fragebogens). EU-Kunden zahlen die Steuer ihres
+Ziellands. Bei festen EUR-Preisen schwankt die Marge deshalb von Land zu Land.
+
+**Was sich im Modell gegenüber POD verschiebt** (Herleitung, zu bestätigen):
+
+| Teil | heute (POD, laut Konstanz) | neu (Auflage) |
+|---|---|---|
+| Leistung des Lieferanten an OneFam | sonstige Leistung, Ort Schweiz, **keine USt** | **Lieferung fertiger Ware**. An die DE-Adresse: Inlandslieferung **mit 19 %**, nach Registrierung als **Vorsteuer abziehbar**. Nach Basel: steuerfreie Ausfuhr des Lieferanten (X-Print hat das am 05.11. so angekündigt) |
+| Verkauf an DE-Kunden | Ausfuhr beginnt in Teltow, in DE steuerpflichtig | aus dem eigenen Bestand in DE, in DE steuerpflichtig (Kz. 81) |
+| Verkauf an EU-Kunden | OSS | OSS (Fernverkauf § 3c) |
+| Verkauf an CH-Kunden | Ausfuhr aus DE (Kz. 43) | **Schweizer Inlandsverkauf** aus Basel — taucht in der deutschen Voranmeldung **nicht** auf |
+| Einfuhr Schweiz | Kunde zahlt an der Tür | **OneFam zahlt** 8,1 % auf die Sammeleinfuhr; ohne Schweizer MWST-Eintrag nicht als Vorsteuer abziehbar |
+
+Der Schweizer Teil wird also einfacher: keine Türrechnung mehr für den Kunden, dafür
+trägt OneFam die Einfuhrsteuer. Zwei Dinge sind dabei nicht belegt: der Satz von 8,1 %
+und ob auf Textil aus der EU Zoll anfällt (nach allgemeiner Kenntnis seit 01.01.2024
+nicht mehr — Industriezollabbau). → BAZG bei der ersten Einfuhr fragen.
+
+**Rechenbeispiel DE, Hoodie EUR 69,99 brutto:** 58,82 netto, **11,17 USt-Schuld**. Dagegen
+kommen **19 % des Netto-Einkaufspreises** als Vorsteuer zurück (Einkaufspreise:
+`docs/privat/lieferanten-angebote-albanien.md`, nur lokal).
+
+**Folgen im Code und im Shop** (nicht umgesetzt):
+- `creditPoolForOrder` rechnet mit dem **Bruttoumsatz** als Ertrag (siehe „Was das für die
+  Zahlen bedeutet"). Nach der Registrierung muss er bei DE/EU-Bestellungen netto rechnen.
+- Der Shop muss für DE/EU-Kunden die Umsatzsteuer ausweisen (Preisangabe und Rechnung),
+  für CH-Kunden weiterhin **keine** Schweizer MWST (ESTV, Snippet 64). Heute ist der
+  Shop nur auf Letzteres eingestellt.
+
+### 2. Verpackungsregister LUCID — ja, vor dem ersten Paket aus Deutschland
+
+Eigene Herleitung aus dem Verpackungsgesetz und den Unterlagen der Zentralen Stelle
+(ZSVR), **keine Behördenauskunft**:
+
+- Wer **Versandverpackungen** mit Ware befüllt und an **private Endverbraucher in
+  Deutschland** schickt, ist im Sinne des VerpackG **Hersteller**. Dazu zählen Karton,
+  Füllmaterial, Klebeband und Beilagen. Der Sitz im Ausland spielt keine Rolle;
+  ausländische Onlinehändler sind ausdrücklich erfasst.
+- Pflichten: **Registrierung in LUCID** (kostenlos, online) **vor** dem ersten Paket,
+  dazu ein **Vertrag mit einem dualen System** (Systembeteiligung) und die
+  Mengenmeldung. Ohne Registrierung drohen Bussgeld und Vertriebsverbot.
+- Im neuen Modell packt Labi selbst in Deutschland → **eindeutig Pflicht**.
+- **Wahrscheinlich besteht die Pflicht schon heute.** Auch beim POD-Versand durch
+  Shirt-King gilt in der Regel der Onlinehändler als Hersteller, nicht der Dienstleister.
+  Bei Shirt-King nachfragen, ob sie die Verpackung für OneFam mitlizenzieren.
+- **Die Beutel um die einzelnen Teile** (falls der Lieferant so liefert) gehören mit in
+  die Mengenmeldung, oder schriftlich klären, dass der Lieferant sie lizenziert.
+- **Pakete aus Basel an Schweizer Kunden** fallen nicht unter das deutsche VerpackG.
+- **Neu und noch nicht geprüft:** Pakete aus Deutschland in andere EU-Länder fallen unter
+  deren eigene Verpackungsregeln. Frankreich hat zusätzlich eine eigene Pflicht für
+  **Textilien** (Hersteller-Verantwortung). Vor dem ersten EU-Paket je Land klären.
+
+### 3. Was sich gegenüber dem bisherigen Stand ändert — und was an Konstanz geht
+
+**Geändert:**
+- Die Anfrage vom 03.09. ist **beantwortet** (10.11.2026). Registrierung ist nötig,
+  Empfangsbevollmächtigter Pflicht, OSS für EU.
+- „Die 19 % beim Lieferanten sind richtig" gilt laut Konstanz für das **POD-Modell nicht**
+  (sonstige Leistung, keine USt). Für die Auflage spricht dagegen viel für eine
+  Lieferung mit 19 %, die dann abziehbar wäre.
+- Der Schweizer Teil wechselt von „Ausfuhr aus Deutschland, Kunde zahlt an der Tür" zu
+  „Sammeleinfuhr durch OneFam, Verkauf in der Schweiz".
+- **Neu dazu:** Anzahlungsbesteuerung bei Vorbestellungen, Warenlager in Deutschland,
+  Verpackungsregister.
+
+**Die alte Anfrage wird nicht ergänzt** — sie ist erledigt. Das neue Modell gehört in den
+**Fragebogen**, auf das gesonderte Blatt „Waren- und Leistungswege" (Ziffer 2.1), und
+zusätzlich in eine kurze **Rückfrage an Frau Günzler**, bevor der Fragebogen abgeht.
+**Diese Punkte sollte sie bestätigen:**
+
+1. Das Modell hat sich geändert: Auflage statt POD, der Lieferant liefert **fertige Ware
+   samt Textil**. Ist das eine Lieferung an OneFam (bei Lieferung an die DE-Adresse mit
+   19 %, nach Registrierung abziehbar)?
+2. Gilt ihre Aussage zu den POD-Rechnungen (keine USt) auch dann, wenn Shirt-King das
+   Textil selbst liefert? Wenn ja: Korrektur der bisherigen Rechnungen bei Shirt-King
+   verlangen.
+3. **Vorbestellung:** Steuer bei Zahlungseingang, Berichtigung bei Erstattung — richtig
+   so? Muss die Registrierung vor der ersten Vorbestellung stehen?
+4. **Versandadresse in Deutschland:** Ist das ein „Warenlager" nach Ziffer 1.8, und hat
+   das Folgen über die Umsatzsteuer hinaus (Betriebsstätte)?
+5. **Ware direkt vom Lieferanten nach Basel:** Bestätigen, dass dieser Teil in der
+   deutschen Voranmeldung von OneFam nicht vorkommt.
+6. **Soll- oder Istversteuerung** (Ziffer 3.6): Was empfiehlt sie bei Vorbestellungen?
+
+**Was Labi selbst tun muss** (Anmeldungen und Unterschriften, nicht Claude):
+Empfangsbevollmächtigten in Deutschland finden, Ansässigkeitsbescheinigung besorgen,
+Fragebogen ausfüllen und unterschreiben, OSS beim BZSt beantragen, in LUCID registrieren
+und einen Vertrag mit einem dualen System schliessen. Für die Fragebogen-Felder 3.1/3.2
+(Umsatzschätzung, Zahllast) und die Entscheidung Soll/Ist ist ein **Steuerberater**
+sinnvoll.
 
 ## Die deutsche Rechtslage, soweit ohne Behördenauskunft absehbar
 
@@ -344,7 +547,25 @@ jeden fremden oder leeren Preis sofort zurueck (siehe `stand.md`).
 
 ## Offen
 
-1. ~~Anfrage ans Finanzamt Konstanz.~~ **Am 03.09.2026 gestellt**, sechs Fragen,
+**Stand 10.11.2026, vor den älteren Punkten unten:**
+
+0a. **Rückfrage an Frau Günzler (Konstanz)** mit den sechs Punkten aus „Neues Modell …
+    3." — vor dem Fragebogen. Dazu: Was wurde am Telefon besprochen? (Labi)
+    ✅ **Gesendet am 10.11.2026, 13:59** als Antwort auf ihre Mail (Wortlaut:
+    `docs/entwuerfe/rueckfrage-finanzamt-konstanz-10112026.md`). Ohne
+    Einverständniserklärung zur E-Mail, also Antwort vermutlich per Post. **Antwort abwarten.**
+0b. **Fragebogen FsEAusUN, Empfangsvollmacht, E-Mail-Einverständnis** ausfüllen und
+    zurück, mit Blatt „Waren- und Leistungswege" für das neue Modell. Vor dem Start der
+    Vorbestellung.
+0c. **OSS beim BZSt** beantragen, vor dem ersten EU-Verkauf.
+0d. **LUCID-Registrierung und duales System**, vor dem ersten Paket aus Deutschland.
+    Bei Shirt-King fragen, ob die POD-Verpackung schon lizenziert ist.
+0e. **Shirt-King-Rechnungen mit 19 %** — erst nach Konstanz' Antwort auf Punkt 2 der
+    Rückfrage eine Korrektur verlangen.
+0f. **Verpackungs- und Textilpflichten in EU-Zielländern** (z. B. Frankreich) prüfen.
+
+1. ✅ ~~Anfrage ans Finanzamt Konstanz.~~ **Beantwortet am 10.11.2026** (siehe oben).
+   Ursprünglicher Stand: **am 03.09.2026 gestellt**, sechs Fragen,
    Bestätigung eingegangen. Antwort kommt per Post oder Telefon. Es ist eine
    **formlose** Auskunft: kostenlos, aber **unverbindlich**. Reicht sie für die
    Investitionsentscheidung nicht, wäre die verbindliche Auskunft nach

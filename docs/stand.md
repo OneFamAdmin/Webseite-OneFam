@@ -1,4 +1,115 @@
-# Stand — 17.10.2026
+# Stand — 08.11.2026
+
+## 🏭 08.11.2026: Vorbestellung Albanien — Lieferanten und Shop-Befund
+
+**Anlass:** Labi will Albanien als bezahlte Vorbestellung im Shop: Siebdruck erst ab 100
+bezahlten Stück, sonst volle Erstattung; Hoodie Slammer 2.0 (Motiv ca. 16 × 19,5 cm),
+Sweater Changer 2.0 und Shirt Sparker 2.0 (je ca. 6 cm), alles Black; **nicht über
+PodOS**, Versand selbst — CH aus Basel, DE/EU von einer Adresse in Deutschland.
+Umsetzungsplan liegt im Chat vom 08.11.2026, **noch nichts gebaut**.
+
+**Wartet auf:** das neue Angebot von Heldenwerbung (für **spätestens Montag, 09.11.2026**
+zugesagt). Danach entscheidet Labi Lieferant und Zählweise (siehe unten).
+
+> 🔒 **Preise, Verhandlungsstand und Ansprechpartner** der Lieferanten stehen seit
+> 10.11.2026 **nur lokal** in `docs/privat/lieferanten-angebote-albanien.md` (nicht im
+> Repo — das Repo ist öffentlich, und die Anbieter sollen die Angebote der anderen nicht
+> lesen können). Originale: `~/Projekte/onefam-material/kalkulation/angebote-*/`.
+
+### Lieferantenstand — was für den Plan zählt (ohne Preise)
+
+Quellen: `~/Projekte/onefam-material/kalkulation/angebote-{heldenwerbung,prinovia,xprint}/`
+und `docs/Nachfassen-Anbieter-20102026.md` dort. Der Abschnitt „Faellig am 12.10.2026"
+weiter unten ist damit **überholt**.
+
+| Anbieter | Siebdruck-Mindestmenge | Zwei Druckgrössen (6 / 16 cm) | Sweater Changer 2.0 | Lager + Einzelversand | Andruck | Produktion |
+|---|---|---|---|---|---|---|
+| **Heldenwerbung / Shirt-King** | 100 | **zwei Aufträge, je 100** („es geht nur eine Druckgröße über alle Größen der Artikel", 14.10.) | ja | mit PodOS-Team abzustimmen | — | 10–12 Arbeitstage, Vorkasse |
+| **Prinovia** | 50 je Motiv und Druckgrösse | zwei Aufträge | **nein, nur DTG/DTF** — Ersatz Radder 2.0 (Oversize, XS–3XL) | **nein**, nur Lieferung an eine Adresse | **keiner** unter ca. 500 Stück | 12–15 Werktage, Vorkasse |
+| **X-Print** | **30** | zwei Sieb-Sätze = zwei Aufträge; Sparker + Changer (6 cm) teilen sich **einen** Satz | ja | ja (Shirtee.Cloud) — **nicht gewollt**, siehe unten | ja | 10–15 Werktage nach Freigabe |
+
+Weitere Punkte: Shirtigo Cockpit lagert keine vorproduzierte Ware (nur POD). X-Print
+druckt sauber ab 0,8–1,0 mm Strich bei 6 cm, bis 8 Farben; CH-Sendungen verschickt X-Print
+**unverzollt** (Empfänger zahlt Einfuhr) und fakturiert sie als steuerfreie Ausfuhr.
+Bei Prinovia ist der Versand an eine DE-Adresse im Preis, bei X-Print nicht. Das neue
+Angebot von Heldenwerbung (Sparker/Changer 6 cm, Slammer 16 cm) steht aus.
+
+### Was daraus für die Vorbestellung folgt
+
+1. **Die 100 sind Labis Schwelle, keine Lieferantengrenze.** Produziert wird je
+   Druckgrösse — Hoodie 16 cm und Shirt/Sweater 6 cm sind zwei Aufträge. Mindestmenge je
+   Gruppe: X-Print 30, Prinovia 50, Heldenwerbung 100. Ein Balken „100" trägt das Risiko,
+   dass eine Gruppe unter dem Minimum bleibt (Beispiel 80 Hoodies + 20 Shirts/Sweater).
+   **Offen, Labis Entscheid:** A) ein Balken 100, Restrisiko trägt OneFam, oder B) zwei
+   Balken (z. B. Hoodie x/50, Shirt & Sweater x/50).
+2. **Prinovia hat keinen Changer im Siebdruck.** Mit Prinovia gäbe es den Sweater nur als
+   Radder 2.0 oder gar nicht.
+3. **Lieferzeit:** 10–15 Werktage Produktion + Sammellieferung + Packen + Versand (+ CH:
+   nach Basel mit Einfuhr). „Ca. 4 Wochen nach Ende" ist knapp; Vorschlag: verbindlich
+   „spätestens 6 Wochen nach Ende". EU verlangt einen Termin, bis zu dem geliefert wird.
+4. **Shirtee.Cloud nicht anbinden** — wäre ein zweites Sync-System neben PodOS. Mit
+   Sammelversand und Eigenversand nicht nötig.
+5. **Steuer:** Sammellieferung an eine DE-Adresse = Lieferung in Deutschland mit 19 % USt.
+   (nach der Registrierung in Konstanz als Vorsteuer abziehbar — Herleitung vom 10.11.2026). Der CH-Teil müsste direkt als Ausfuhr nach Basel gehen. → Treuhänder,
+   `docs/behoerden-mwst-zoll.md`.
+6. **Andruck vor dem Start der Vorbestellung**, sonst wird nur mit Mockups verkauft.
+
+### zahls.ch für die Vorbestellung — im Konto nachgesehen am 10.11.2026
+
+Labi angemeldet, Claude hat nur gelesen und nichts gespeichert.
+
+- **Zahlungsanbieter:** Payrexx Pay aktiv (Modus Live, Zahlungen und Auszahlungen grün).
+  Payrexx Pay Plus ist nicht aktiviert. Währungen CHF und EUR.
+- **Aktive Zahlungsarten:** Mastercard, Visa (beide mit C2P), Apple Pay, Google Pay,
+  Samsung Pay, TWINT, PostFinance Pay. **Kauf auf Rechnung („Invoice") ist NICHT
+  aktiv.** **TWINT „später zahlen"** muss bei Payrexx eigens beantragt werden
+  (Formular, 3–7 Werktage). Beantragt ist es nicht, also vermutlich aus. Im Konto
+  ist es nicht direkt ablesbar.
+- **Gebühren** wie am 24.09. (`shop-und-pool-details.md`): Karten DOMESTIC/INTRA 2,90 % +
+  0.30, INTER 4,10 % + 0.30, TWINT 2,90 % + 0.30 (BNPL 3,90 %), Rechnung 2,90 % (min. 1.50),
+  PostFinance 2,90 % + 0.30, Pay by Bank 0,50 % (min. 0.50).
+- **Erstattung** (Payrexx-Doku „Rückerstattung und Teilrückerstattung", zahls.ch ist
+  Payrexx Pay):
+  - **Die Gebühr der ursprünglichen Zahlung bleibt beim Händler.** Die Erstattung selbst
+    kostet nichts. Bei 100 Hoodies sind das je rund CHF 2.68.
+  - Eine **Frist nennt die Doku nicht**. Bis die Erstattung ankommt, dauert es je nach
+    Kartenaussteller bis zu 10 Tage.
+  - Erstatten lässt sich alles aus Payrexx Pay ausser Rechnung und Krypto. TWINT geht
+    auf das Bankkonto hinter der App. Hat der Kunde die App oder die Bank gewechselt,
+    schlägt es fehl. Beträge auf 5 Rappen runden.
+  - ⚠️ **Erstattet werden kann nur, wenn genug Guthaben im zahls-Konto liegt.**
+    Aufladen geht nur per Banküberweisung über ein Support-Ticket, **mindestens 200**
+    CHF/EUR. Eine einmal durchgeführte Erstattung lässt sich nicht stornieren.
+- **Auszahlung:** **monatlich am 31. Tag**, enthalten sind E-Commerce-Zahlungen älter
+  als 8 Tage. In der Einstellung steht die Häufigkeit nur als Text, eine Auswahl wird
+  nicht angeboten. Auszahlungskonten: CHF auf ein Schweizer Konto, EUR auf ein
+  deutsches Konto. Guthaben heute überall 0.00, noch nie eine Auszahlung.
+
+**Folge für die Vorbestellung:** Läuft die Vorbestellung über ein Monatsende, ist das
+Geld bei Fristende schon ausgezahlt. Für eine Sammelerstattung müsste es dann erst
+wieder eingezahlt werden. Möglichkeiten: die Frist so legen, dass sie **vor** dem
+nächsten 31. endet und die Erstattung vor der Auszahlung läuft; **zahls fragen**, ob sich
+die Auszahlung für die Zeit der Vorbestellung aussetzen lässt; oder die Einzahlung
+vorher einplanen. Quelle:
+docs.payrexx.com/merchant/zahlungen/funktionalitaeten/rueckerstattung.
+
+### Shop-Befund 08.11.2026 (nur lesend gemessen)
+
+- WooCommerce 10.9.4, WordPress 7.1.4, **13 aktive Plugins** (CLAUDE.md nennt 9 — veraltet):
+  classic-widgets, code-snippets 3.9.6, duplicate-post, fluent-smtp, honeypot, https-redirection,
+  instant-images, polylang, woo-multi-currency (CURCY) 2.2.15, woocommerce, wordpress-importer,
+  wp-super-cache, zahls-ch-payment-gateway 2.0.7. Inaktiv: akismet, divi-builder, vod-infomaniak,
+  woocommerce-gateway-stripe. **Kein Vorbestell-Plugin.**
+- Zahlwege: nur `zahls` aktiv („Kreditkarte, TWINT und Mobile Pay"); bacs, cheque, cod aus.
+- Webhooks: id 2 `order.updated` → `connector.api.podos.io/v1/woocommerce/orderUpdated`,
+  id 4 `order.updated` → `onefam.ch/api/woo/webhook`, beide aktiv. **PodOS bekommt jede
+  Bestellung**, auch künftige Vorbestellungen. Kein PodOS-Plugin im Shop.
+- Albanien POD: Shirt 3168 (82 Variationen), Sweater 2722 (94), Hoodie 2681 (84), alle
+  `publish`, XXS–5XL, 9–10 Farben. Keine PodOS-Kennung in den Produkt-Metadaten sichtbar.
+- Wartelisten: Shop-Länderliste `Albania` **confirmed 0**; onefam.ch `waitlist` confirmed 0,
+  pending 0, `alt` 2. **Beide Listen sind leer.**
+- Pool-Webhook: unbekannte `product_id` → Kosten über `defaultCogsPct` bzw. 0 → zu hohe
+  Pool-Gutschrift. Für Vorbestellprodukte vorher `product_costs` per neuer Migration füllen.
 
 ## 🎬 26.10.2026: Hero-Video und Ladezeit im Mobilfunk
 
@@ -554,6 +665,10 @@ einfach wie die Einwilligung). Nicht hinter `-- ` und nicht im Kleingedruckten.
   für dieses Land nicht mehr brauchen."
 
 ## ⏰ Faellig am 12.10.2026: Antwort von Shirt-King pruefen
+
+> ⚠️ **Überholt am 08.11.2026:** Robert hat am 14.10. mit einem Angebot geantwortet,
+> dazu liegen Angebote von Prinovia und X-Print vor. Aktueller Stand ganz oben unter
+> „Vorbestellung Albanien — Lieferanten und Shop-Befund".
 
 **Am 08.10.2026 im Postfach nachgemessen — seit dem 22.09., 16:48 ist von
 Heldenwerbung, Shirt-King und PodOS nichts eingegangen**, in keinem der vier
@@ -1493,7 +1608,7 @@ vereinfachte Fassung.**
 | 3 | **Ausführer-Vereinbarung mit Shirt-King** | Der deutsche Zoll gibt schriftliche Festlegung vor. Vor dem ersten echten Paket in ein Drittland klären, nicht danach. Dazu: fakturieren sie Drittlandsendungen mit oder ohne deutsche USt.? |
 | 3b | 🇨🇭 **Unterstellungserklärung Ausland — Entwurf liegt bereit, bewusst nicht abgeschickt** | **Nicht zu verwechseln mit der Anfrage ans Finanzamt Konstanz** (die ist am 03.09.2026 raus und wartet auf Antwort). Das hier ist die **Schweizer** Seite: ein **freiwilliger Antrag** an die ESTV Bern, kein Fragebogen — Anknüpfungspunkt wäre das bestehende Aktenzeichen ESTV-ID `052.0428.7495`, Geschäftsfall `65zq0017`. **Der Entwurf liegt in `docs/entwuerfe/anfrage-estv-unterstellungserklaerung.md`; abgeschickt wird er, sobald echte Bestellungen in die Schweiz laufen.** Am 08.09.2026 gerechnet: ein Schweizer Kunde zahlt für einen Hoodie **93 CHF im Shop plus 7.53 Einfuhrsteuer und Zustellgebühr — all-in rund 112 bis 120**. Mit eigener Einfuhr zahlt er **93 und fertig**, und es kostet **7 CHF Marge** statt 30, die eine Preissenkung unter die Zollfreigrenze kosten würde. Preise senken löst es **nicht**. Drei Annahmen darin sind unbelegt (Satz 8,1 %, Versand im Steuerwert, Höhe der Zustellgebühr). → `behoerden-mwst-zoll.md` |
 | 4 | Widerrufsrecht anwaltlich prüfen | Pauschaler Ausschluss ist nach deutschem Verbraucherrecht vermutlich angreifbar. Vor Launch. **Das geplante Siebdruck-Modell gehört mit auf den Tisch** — bei vorproduzierter Auflage fällt das Argument ganz. → `druck-und-lieferant.md` |
-| 5 | **PayPal-Altkonto bereinigen** | Der Zahlungsweg läuft bereits über Payrexx Pay (am 04.09.2026 nachgemessen), es fliesst nichts mehr über PayPal. Übrig bleibt das alte Händlerkonto mit 38,23 EUR Guthaben, das für den Shop nicht taugt. Einzelheiten beim Inhaber. |
+| 5 | **PayPal-Altkonto bereinigen** | Der Zahlungsweg läuft bereits über Payrexx Pay (am 04.09.2026 nachgemessen), es fliesst nichts mehr über PayPal. Übrig bleibt das alte Händlerkonto mit 38,23 EUR Guthaben, das für den Shop nicht taugt. Einzelheiten beim Inhaber. **Nachtrag 10.11.2026 (Labi):** Das Konto wurde von PayPal **gesperrt**, weil ein verlangter Nachweis nicht erbracht werden konnte. Am 10.11.2026 nach Labis Anmeldung nachgesehen, nur gelesen: Das Konto ist **dauerhaft deaktiviert**. Verfügbar sind −0,01 EUR, **38,24 EUR sind einbehalten**. Der einzige Eingang ist die Zahlung vom 23.07. über +38,23 €, einen Abgang gibt es nicht. PayPal hält Restbeträge laut Hinweis „bis zu 180 Tage“ zurück, danach lassen sie sich abbuchen. Ab welchem Tag die 180 Tage zählen, steht dort nicht. **Das Geld ist also nicht weg, sondern gesperrt.** Abholen kann es nur Labi, mit einem hinterlegten Bankkonto. Begründung und Referenznummer der Sperre sind bewusst nicht hier, weil das Repo öffentlich ist. **Wiedervorlage 15.01.2027** (Erinnerung in der Erinnerungen-App von Labi angelegt). |
 | 6 | **Shirt-King: Antwort auf die Rueckmail abwarten** | Robert hat am **15.09.2026** geantwortet: **DTF ist im Print-on-Demand umstellbar.** Die Umstellung der drei Artikel ist **am 15.09.2026 um 18:01 per Rueckmail beauftragt**, dazu Fragen zur einheitlichen Druckgroesse, zum Stick und dazu, ob Siebdruck und Stick die feinen Motive tragen oder DTG/DTF besser ist. **Nach der Umstellung: Testbestellung und Waschtest — macht Labi.** → „Shirt-King: Antwort und Rueckmail — 15.09.2026" unten, `druck-und-lieferant.md` |
 | 7 | ⚠️ **Preise gesetzt — Ursache gefunden, aber nicht behoben** | Am 07.09.2026 standen **364 Variationen** wieder auf der alten Reihe (Logo-Shirt 35 statt 40, Logo-Sweater 60 statt 65; zwei der vier Produkte **oeffentlich verkauft**). Gesetzt und vollstaendig nachgemessen: 42 Produkte, 3 210 Variationen, **0 Abweichungen**. **Die Ursache liegt bei Shirt-King:** deren Schluessel „heldenwerbung-409340" (Lesen/Schreiben) schrieb heute zweimal die alten Preise zurueck. **Es kommt wieder, solange PodOS die alten Werte fuehrt.** → siehe „Preise: die Ursache" unten und Punkt 11 |
 | 8 | ✅ **zahls.ch: EUR-Konto freigeschaltet — 24.09.2026** | Die Pruefung ist durch: im Assistenten steht „Sie haben Ihr Konto bereits eingerichtet", unter Payrexx Pay **Zahlungen gruen · Auszahlungen gruen**, der Sperrhinweis in den Auszahlungseinstellungen ist weg, aktivierte Waehrungen **CHF und EUR**. Die Erklaerung zum deutschen Konto wurde akzeptiert. **Ungetestet bleibt der erste echte Geldfluss** — es ist nie eine Auszahlung gelaufen, und beide Konten lauten auf eine Privatperson. → „zahls.ch nachgesehen" unten |

@@ -76,7 +76,7 @@ Umschalter sind bewusst abgeschaltet. Mechanik und Testhinweise:
 ## Arbeitsregeln
 
 1. **Vor dem Bauen nachsehen, ob es das schon gibt.** Der Shop hat 89 Snippets **und
-   9 Plugins**. Für Währung, Preis-Festwerte, Kollektionspreise und HTTPS gibt es
+   13 aktive Plugins** (gezählt am 08.11.2026, Liste in `docs/stand.md`). Für Währung, Preis-Festwerte, Kollektionspreise und HTTPS gibt es
    fertige Mechanismen. Doppelt gebaute Lösungen arbeiten gegeneinander. Am
    02.09.2026 wurde eine HTTPS-Umleitung von Hand in die `.htaccess` geschrieben —
    während „Easy HTTPS & SSL" installiert war und nur ein Speichern brauchte.
@@ -257,12 +257,18 @@ muss selbst prüfen.
      beantwortet werden — sonst wird der Webhook nie aktiv.
 - **PodOS** (`lib/podos/client.ts`) — nur lesender COGS-Abgleich.
 
-> **⚠️ Vorbehalt über der ganzen Kalkulation** (02.09.2026): Die Ware startet in
-> Teltow, umsatzsteuerlich findet der Verkauf in **Deutschland** statt. Ob dort
-> Registrierungspflicht besteht, ist **nicht geklärt**. Käme sie, wäre es nicht mit
-> `supplier_vat_pct` getan — dann müsste auch der **Umsatz netto** gerechnet werden,
-> und `creditPoolForOrder` bekommt heute die Bruttosumme als Ertrag. Für einen Hoodie
-> nach DE: Marge 44.09 → 36.62, Pool 4.41 → 3.66. → `docs/behoerden-mwst-zoll.md`
+> **⚠️ Vorbehalt über der ganzen Kalkulation** (02.09.2026, aktualisiert 10.11.2026):
+> **Die Registrierungspflicht in Deutschland ist bestätigt.** Finanzamt Konstanz,
+> 10.11.2026 (unverbindlich): Verkäufe an deutsche Kunden sind in DE steuerpflichtig,
+> keine Kleinunternehmerregelung, Empfangsbevollmächtigter in DE ist Pflicht, EU über
+> OSS. Registriert ist OneFam **noch nicht**. Danach reicht es nicht, `supplier_vat_pct`
+> umzustellen: Der **Umsatz** muss für DE/EU netto gerechnet werden, und heute bekommt
+> `creditPoolForOrder` die Bruttosumme als Ertrag. Für einen Hoodie nach DE:
+> Marge 44.09 → 36.62, Pool 4.41 → 3.66. Diese Rechnung zieht die 19 % von Shirt-King
+> noch als Vorsteuer ab; laut Konstanz dürfen bei POD aber gar keine 19 % berechnet
+> werden. Das ist mit einer Rückfrage offen.
+> **Bei Vorbestellungen** entsteht die Steuer schon mit dem Zahlungseingang (Anzahlung).
+> Deshalb muss die Registrierung vor dem Start stehen. → `docs/behoerden-mwst-zoll.md`
 
 ### Design und Marke
 
@@ -360,8 +366,13 @@ in `middleware.ts` ein — sonst antworten sie mit 404.
 
 ## Offene Baustellen
 
-- ~~**Anfrage ans Finanzamt Konstanz**~~ — **ist am 03.09.2026 raus**, Antwort
-  kommt per Post oder telefonisch. → `docs/behoerden-mwst-zoll.md`
+- **Finanzamt Konstanz** — hat am **10.11.2026** per Mail geantwortet (Frau Günzler,
+  SG 5/5, nach einem Telefonat) und dabei die Vordrucke zur Registrierung geschickt.
+  Die Rückfrage zum neuen Modell ist **am 10.11.2026 um 13:59 raus**
+  (`docs/entwuerfe/rueckfrage-finanzamt-konstanz-10112026.md`), Antwort steht aus,
+  vermutlich per Post. Danach Fragebogen,
+  Empfangsvollmacht, OSS, **LUCID** — alles vor dem Start der Vorbestellung.
+  → `docs/behoerden-mwst-zoll.md`
 - **Ausführer-Vereinbarung mit Shirt-King** — **am 21.09.2026 um 20:18 gefragt**,
   eigener Betreff, Antwort steht aus. Vorher war sie im PodOS-Chat schon einmal
   gestellt worden und **untergegangen**, weil sie neben einem anderen Thema
