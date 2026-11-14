@@ -1,4 +1,29 @@
-# Stand — 08.11.2026
+# Stand — 14.11.2026
+
+## 📞 13.11.2026: Finanzamt Konstanz hat die Rückfrage telefonisch beantwortet
+
+Frau Günzler hat am 13.11. angerufen, schriftlich kommt nichts. Labi hat aufgezeichnet,
+die Abschrift (am 14.11. lokal mit whisper.cpp erstellt) liegt nur in
+`docs/privat/telefonat-finanzamt-konstanz-13112026.md`. Kurzfassung:
+- **Drucker stellt Textil → Lieferung mit USt.** Die 19 % von Shirt-King sind richtig,
+  nichts zu reklamieren (die Mail vom 10.11. hatte das Gegenteil gesagt).
+- **Vorbestellung:** Kz. 81 im Monat der Zahlung, bei Erstattung im Monat der Rückzahlung
+  als Minus.
+- **Adresse in Deutschland** als Warenlager im Fragebogen angeben, ertragsteuerlich ohne
+  Folgen.
+- **Ware nach Basel:** nicht in der deutschen Voranmeldung, **wenn der Lieferant Ausführer
+  und Zollanmelder ist**, sonst Kz. 43 und Lieferant mit USt. → Mit dem Lieferanten klären.
+- **Soll/Ist:** darf sie nicht beraten → Steuerberater.
+
+Werkzeug neu: Whisper-Modell `ggml-large-v3-turbo.bin` (1,62 GB) in
+`~/Projekte/_werkzeuge/whisper-modelle/`, Aufruf
+`whisper-cli -m <modell> -l de -f <wav 16 kHz mono> -otxt`. 9 Minuten Gespräch in 15 s.
+Details: `docs/behoerden-mwst-zoll.md`.
+
+**Für das Projekt onefam-material** (Stickerei, Hersteller) liegt am 14.11.2026 eine
+Übergabe mit allem aus diesem Strang bereit:
+`~/Projekte/onefam-material/uebergaben/protokolle/OneFam_Uebergabe_Vorbestellung-Lieferanten-Steuer_14112026.md`.
+Aufnahme und Abschrift des Telefonats liegen in `~/Projekte/onefam-material/behoerden/finanzamt-konstanz/`.
 
 ## 🏭 08.11.2026: Vorbestellung Albanien — Lieferanten und Shop-Befund
 

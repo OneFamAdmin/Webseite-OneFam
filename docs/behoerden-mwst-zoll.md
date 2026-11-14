@@ -1,5 +1,8 @@
 # Behördenstand MWST und Zoll — was beantwortet ist, was fehlt
 
+**Stand 14.11.2026** — Konstanz hat am 13.11.2026 telefonisch auch die Rückfrage zum
+neuen Modell beantwortet: Abschnitt „Telefonische Antwort 13.11.2026“.
+
 **Stand 10.11.2026** — Finanzamt Konstanz hat geantwortet, neues Modell (Siebdruck,
 Vorbestellung, eigener Versand aus Deutschland) geprüft: Abschnitte „Antwort des
 Finanzamts Konstanz" und „Neues Modell ab Ende Oktober 2026" weiter unten.
@@ -193,7 +196,13 @@ unmittelbar an private Abnehmer versandt."
 stehen muss). Das ist Preisangabenrecht, nicht Sache des Finanzamts — die Antwort sagt
 nur, was auf die **Rechnung** gehört.
 
-### ⚠️ Punkt 6 widerspricht der eigenen Herleitung
+### ✅ ~~Punkt 6 widerspricht der eigenen Herleitung~~ — am 13.11.2026 aufgelöst
+
+> **Nachtrag 13.11.2026:** Frau Günzler hat telefonisch korrigiert. **Stellt der Drucker
+> auch das Textil, ist es eine Lieferung, und er muss Umsatzsteuer ausweisen.** Die
+> 19 % von Shirt-King sind damit **richtig**, `druck-und-lieferant.md` hatte recht. Es gibt
+> **nichts** zu reklamieren; nach der Registrierung ist die USt als Vorsteuer abziehbar.
+> Der Rest dieses Abschnitts ist der Stand vom 10.11. und bleibt als Beleg stehen.
 
 `docs/druck-und-lieferant.md` sagt: „Weil die Rohware von ihnen kommt, ist es eine
 **Warenlieferung, keine Veredelungsleistung**. Die 19 % auf ihrer Rechnung sind bei
@@ -207,6 +216,35 @@ entscheiden, nachfragen** (siehe unten). Folgen, falls das Amt recht hat:
 - `cost_config.supplier_vat_pct = 19` (Migration `0011`) bildet dann einen Fehler des
   Lieferanten als echte Kosten ab — richtig, solange er so fakturiert, aber nicht der
   Sollzustand.
+
+## Telefonische Antwort 13.11.2026 — Rückfrage zum neuen Modell
+
+**Frau Günzler hat am 13.11.2026 angerufen** und die sechs Fragen der Rückfrage vom 10.11.
+beantwortet. **Schriftlich kommt nichts**, sie schreibt dazu keine Mail. Labi hat das
+Gespräch aufgezeichnet; die Abschrift liegt **nur lokal** in
+`docs/privat/telefonat-finanzamt-konstanz-13112026.md`. Wie jede Auskunft von ihr:
+unverbindlich.
+
+| # | Frage | Antwort Konstanz, 13.11.2026 |
+|---|---|---|
+| 1 + 2 | Lieferant liefert fertige Ware samt Textil — Lieferung? Und die bisherigen POD-Rechnungen? | Für sie **eine** Frage: **Stellt der Drucker das Textil, ist es eine Lieferung, und er muss Umsatzsteuer ausweisen.** Gilt für Siebdruck-Auflage **und** POD. → Shirt-King-Rechnungen mit 19 % sind richtig, keine Korrektur. |
+| 3 | Vorbestellung: Steuer bei Zahlung, Berichtigung bei Erstattung? | **Ja.** Beispiel von ihr: Anzahlung im November über 200 € → Voranmeldung November, Kz. 81. Kommt es im Dezember nicht zustande → Voranmeldung Dezember **minus 200** in Kz. 81; mit anderem Umsatz verrechnet (300 − 200 = 100). |
+| 4 | Adresse in Deutschland (Privatadresse von Angehörigen in Baden-Württemberg, dort wird verpackt) als Warenlager? | **Ja, unter „Warenlager“ (Fragebogen 1.8) angeben**, gern mit dem Zusatz, dass es die Adresse der Angehörigen ist. **Ertragsteuerlich ohne Auswirkung**; umsatzsteuerlich zählt nur, wo die Warenbewegung beginnt. |
+| 5 | Ware direkt vom Lieferanten nach Basel — kommt das in der deutschen Voranmeldung vor? | Lieferung geht an Labis Wohnadresse in Basel, dort wird an Schweizer Kunden verpackt. **Ist der Lieferant der Ausführer** (er beauftragt den Transport, er ist Zollanmelder), ist es **seine echte Ausfuhrlieferung**: keine USt auf seiner Rechnung, und der Vorgang gehört **nicht** in OneFams deutsche Voranmeldung. **Tritt dagegen OneFam als Ausführer / Zollanmelder auf**, hat der Lieferant eine steuerpflichtige Inlandslieferung **mit** USt, und OneFam meldet die Ausfuhr in **Kz. 43**. → **Mit dem Lieferanten klären, wer Ausführer und Zollanmelder ist.** Die Schweizer Einfuhrsteuer zahlt der Importeur — nach Labis Verständnis OneFam. |
+| 6 | Soll- oder Istversteuerung? | **Darf sie nicht beraten** („ich bin kein Steuerberater“). → Steuerberater. |
+
+**Zum Ablauf:** Für sie ist die Sache erledigt. Den Fragebogen bearbeitet dann jemand aus
+ihrem Team, OneFam bekommt dabei eine Steuernummer zugeteilt. Bei Fragen darf Labi sie
+jederzeit anrufen.
+
+**Was sich dadurch ändert:**
+- Die Herleitungen in „Neues Modell …“ zu Anzahlung (1.), Lieferung des Lieferanten und
+  Ausfuhr nach Basel sind **bestätigt** — mit der einen Bedingung zur Ausführerrolle.
+- Die **Ausführer-Frage** ist damit nicht mehr nur eine Zollfrage (offener Punkt 2 unten),
+  sondern entscheidet auch, ob der Lieferant mit oder ohne USt fakturiert. Bei X-Print ist
+  sie schon beantwortet (versendet unverzollt, Empfänger zahlt Einfuhr, Rechnung als
+  steuerfreie Ausfuhr); bei Heldenwerbung und Prinovia fehlt sie.
+- Die Auskunft vom 10.11. „bei POD keine USt“ ist **überholt**.
 
 ### Was der Fragebogen verlangt — und was das neue Modell dort berührt
 
@@ -261,7 +299,7 @@ Ziellands. Bei festen EUR-Preisen schwankt die Marge deshalb von Land zu Land.
 
 | Teil | heute (POD, laut Konstanz) | neu (Auflage) |
 |---|---|---|
-| Leistung des Lieferanten an OneFam | sonstige Leistung, Ort Schweiz, **keine USt** | **Lieferung fertiger Ware**. An die DE-Adresse: Inlandslieferung **mit 19 %**, nach Registrierung als **Vorsteuer abziehbar**. Nach Basel: steuerfreie Ausfuhr des Lieferanten (X-Print hat das am 05.11. so angekündigt) |
+| Leistung des Lieferanten an OneFam | ~~sonstige Leistung, Ort Schweiz, keine USt~~ (Mail 10.11.) → **Lieferung mit 19 %**, weil er das Textil stellt (Telefon 13.11.) | **Lieferung fertiger Ware**. An die DE-Adresse: Inlandslieferung **mit 19 %**, nach Registrierung als **Vorsteuer abziehbar**. Nach Basel: steuerfreie Ausfuhr des Lieferanten (X-Print hat das am 05.11. so angekündigt) |
 | Verkauf an DE-Kunden | Ausfuhr beginnt in Teltow, in DE steuerpflichtig | aus dem eigenen Bestand in DE, in DE steuerpflichtig (Kz. 81) |
 | Verkauf an EU-Kunden | OSS | OSS (Fernverkauf § 3c) |
 | Verkauf an CH-Kunden | Ausfuhr aus DE (Kz. 43) | **Schweizer Inlandsverkauf** aus Basel — taucht in der deutschen Voranmeldung **nicht** auf |
@@ -311,7 +349,8 @@ Eigene Herleitung aus dem Verpackungsgesetz und den Unterlagen der Zentralen Ste
 **Geändert:**
 - Die Anfrage vom 03.09. ist **beantwortet** (10.11.2026). Registrierung ist nötig,
   Empfangsbevollmächtigter Pflicht, OSS für EU.
-- „Die 19 % beim Lieferanten sind richtig" gilt laut Konstanz für das **POD-Modell nicht**
+- *(Am 13.11.2026 überholt: Konstanz hat telefonisch bestätigt, dass die 19 % richtig sind.)*
+  „Die 19 % beim Lieferanten sind richtig" gilt laut Konstanz für das **POD-Modell nicht**
   (sonstige Leistung, keine USt). Für die Auflage spricht dagegen viel für eine
   Lieferung mit 19 %, die dann abziehbar wäre.
 - Der Schweizer Teil wechselt von „Ausfuhr aus Deutschland, Kunde zahlt an der Tür" zu
@@ -553,15 +592,22 @@ jeden fremden oder leeren Preis sofort zurueck (siehe `stand.md`).
     3." — vor dem Fragebogen. Dazu: Was wurde am Telefon besprochen? (Labi)
     ✅ **Gesendet am 10.11.2026, 13:59** als Antwort auf ihre Mail (Wortlaut:
     `docs/entwuerfe/rueckfrage-finanzamt-konstanz-10112026.md`). Ohne
-    Einverständniserklärung zur E-Mail, also Antwort vermutlich per Post. **Antwort abwarten.**
+    Einverständniserklärung zur E-Mail. ✅ **Telefonisch beantwortet am 13.11.2026**
+    (siehe „Telefonische Antwort 13.11.2026“).
 0b. **Fragebogen FsEAusUN, Empfangsvollmacht, E-Mail-Einverständnis** ausfüllen und
     zurück, mit Blatt „Waren- und Leistungswege" für das neue Modell. Vor dem Start der
     Vorbestellung.
 0c. **OSS beim BZSt** beantragen, vor dem ersten EU-Verkauf.
 0d. **LUCID-Registrierung und duales System**, vor dem ersten Paket aus Deutschland.
     Bei Shirt-King fragen, ob die POD-Verpackung schon lizenziert ist.
-0e. **Shirt-King-Rechnungen mit 19 %** — erst nach Konstanz' Antwort auf Punkt 2 der
-    Rückfrage eine Korrektur verlangen.
+0e. ~~**Shirt-King-Rechnungen mit 19 %**~~ — ✅ **erledigt 13.11.2026:** die 19 % sind
+    richtig (Lieferung, weil Shirt-King das Textil stellt). Nichts zu reklamieren.
+0g. **Ausführer und Zollanmelder für die Ware nach Basel** mit dem gewählten Lieferanten
+    schriftlich klären. Davon hängt ab, ob seine Rechnung mit oder ohne USt kommt und ob
+    die Ausfuhr in OneFams Voranmeldung (Kz. 43) gehört. X-Print: geklärt; Heldenwerbung,
+    Prinovia: offen.
+0h. **Steuerberater** für Soll-/Istversteuerung und die Umsatzschätzung im Fragebogen —
+    Konstanz darf dazu nicht beraten.
 0f. **Verpackungs- und Textilpflichten in EU-Zielländern** (z. B. Frankreich) prüfen.
 
 1. ✅ ~~Anfrage ans Finanzamt Konstanz.~~ **Beantwortet am 10.11.2026** (siehe oben).

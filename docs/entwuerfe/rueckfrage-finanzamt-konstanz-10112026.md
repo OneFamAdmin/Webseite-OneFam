@@ -7,6 +7,9 @@ Anweisung gesendet, **ohne** die Einverständniserklärung zur E-Mail und ohne E
 zum Telefonat oder zur Adresse in Deutschland. Die Antwort kommt deshalb vermutlich per
 Post nach Basel.
 
+**Beantwortet am 13.11.2026 telefonisch** — Auswertung in `docs/behoerden-mwst-zoll.md`,
+Abschnitt „Telefonische Antwort 13.11.2026“.
+
 Die Punkte unten waren als Prüfliste vor dem Senden gedacht.
 
 - **Als Antwort auf** die Mail von Frau Günzler vom 10.11.2026, 13:23

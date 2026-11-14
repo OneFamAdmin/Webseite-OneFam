@@ -257,7 +257,7 @@ muss selbst prüfen.
      beantwortet werden — sonst wird der Webhook nie aktiv.
 - **PodOS** (`lib/podos/client.ts`) — nur lesender COGS-Abgleich.
 
-> **⚠️ Vorbehalt über der ganzen Kalkulation** (02.09.2026, aktualisiert 10.11.2026):
+> **⚠️ Vorbehalt über der ganzen Kalkulation** (02.09.2026, aktualisiert 13.11.2026):
 > **Die Registrierungspflicht in Deutschland ist bestätigt.** Finanzamt Konstanz,
 > 10.11.2026 (unverbindlich): Verkäufe an deutsche Kunden sind in DE steuerpflichtig,
 > keine Kleinunternehmerregelung, Empfangsbevollmächtigter in DE ist Pflicht, EU über
@@ -265,10 +265,13 @@ muss selbst prüfen.
 > umzustellen: Der **Umsatz** muss für DE/EU netto gerechnet werden, und heute bekommt
 > `creditPoolForOrder` die Bruttosumme als Ertrag. Für einen Hoodie nach DE:
 > Marge 44.09 → 36.62, Pool 4.41 → 3.66. Diese Rechnung zieht die 19 % von Shirt-King
-> noch als Vorsteuer ab; laut Konstanz dürfen bei POD aber gar keine 19 % berechnet
-> werden. Das ist mit einer Rückfrage offen.
-> **Bei Vorbestellungen** entsteht die Steuer schon mit dem Zahlungseingang (Anzahlung).
-> Deshalb muss die Registrierung vor dem Start stehen. → `docs/behoerden-mwst-zoll.md`
+> als Vorsteuer ab — **zu Recht**: Konstanz hat am 13.11.2026 telefonisch bestätigt, dass
+> ein Drucker, der das Textil stellt, eine Lieferung mit USt erbringt.
+> **Bei Vorbestellungen** entsteht die Steuer mit dem Zahlungseingang (Kz. 81 im Monat der
+> Zahlung, bei Erstattung im Monat der Rückzahlung als Minus) — von Konstanz am 13.11.
+> bestätigt. Deshalb muss die Registrierung vor dem Start stehen.
+> **Ware direkt nach Basel** gehört nur dann nicht in die deutsche Voranmeldung, wenn der
+> **Lieferant** Ausführer und Zollanmelder ist. → `docs/behoerden-mwst-zoll.md`
 
 ### Design und Marke
 
@@ -368,9 +371,10 @@ in `middleware.ts` ein — sonst antworten sie mit 404.
 
 - **Finanzamt Konstanz** — hat am **10.11.2026** per Mail geantwortet (Frau Günzler,
   SG 5/5, nach einem Telefonat) und dabei die Vordrucke zur Registrierung geschickt.
-  Die Rückfrage zum neuen Modell ist **am 10.11.2026 um 13:59 raus**
-  (`docs/entwuerfe/rueckfrage-finanzamt-konstanz-10112026.md`), Antwort steht aus,
-  vermutlich per Post. Danach Fragebogen,
+  Die Rückfrage zum neuen Modell (10.11.2026) hat sie **am 13.11.2026 telefonisch**
+  beantwortet, schriftlich kommt nichts (Abschrift nur lokal in `docs/privat/`).
+  Offen: Ausführer/Zollanmelder für die Ware nach Basel mit dem Lieferanten klären,
+  Steuerberater für Soll/Ist. Danach Fragebogen,
   Empfangsvollmacht, OSS, **LUCID** — alles vor dem Start der Vorbestellung.
   → `docs/behoerden-mwst-zoll.md`
 - **Ausführer-Vereinbarung mit Shirt-King** — **am 21.09.2026 um 20:18 gefragt**,
