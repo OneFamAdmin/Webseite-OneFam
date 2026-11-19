@@ -1,4 +1,59 @@
-# Stand — 19.11.2026
+# Stand — 20.11.2026
+
+## 🚀 20.11.2026: Shop-Zwischenspeicher (WP Super Cache) eingeschaltet — „Weg 1“
+
+**Warum:** Gemessen per vorübergehender Server-Timing-Kopfzeile (Snippets 110–112, danach in den
+Papierkorb): PHP/WordPress-Kern + Plugins **240–315 ms**, alle 55 Snippets zusammen **8 ms**
+(Router 4 ms — meine Vermutung „der Router ist schuld“ war **falsch**), bis „WordPress bereit“
+**155–187 ms**. Ursache: **OPcache ist aus** (`opcache_geladen=nein`, PHP 8.4.27). Im Infomaniak
+Manager gibt es auf diesem Webhosting **keinen Schalter** dafür (nicht unter „PHP | Apache“, nicht
+unter den 64 PHP-Erweiterungen); laut Infomaniak-Hilfe braucht OPcache einen **Cloud-Server**.
+Labi hat „Weg 1“ gewählt: Seiten-Zwischenspeicher mit Schutzregeln.
+
+**Umgesetzt:**
+- **Snippet 113 „OneFam Zwischenspeicher-Regeln (WP Super Cache)“** (neu, global, Priorität 5):
+  eigene gespeicherte Fassung je Cookie `wmc_current_currency`, `of_geo`, `ofl`, `pll_language`,
+  `of_consent`, `woocommerce_items_in_cart` (über `wpsc_add_cookie`, in der WPSC-Konfiguration
+  bestätigt). **Nie gespeichert:** ohne Währungs-Cookie (erster Besuch, Google), wenn das Cookie
+  nicht zur Server-Entscheidung passt, mit Warenkorb, mit Parametern — Kopfzeile
+  `X-OF-Zwischenspeicher: nein (Grund)`. Produktänderung → `wp_cache_post_change`.
+  Ausserdem entfernt es auf `wp_loaded` das künstliche `$_POST['wmc-currency']` aus Snippet 25 —
+  sonst „Not caching POST request“ auf jeder Seite.
+- **WP Super Cache**: „Cache aktivieren“ an, „Einfach“, „nicht für angemeldete Besucher“, „keine
+  Seiten mit GET-Parametern“. Lebensdauer 30 min (Vorgabe). Komprimierung bleibt beim Server (zlib).
+- **Snippet 11 (Router)** 2 566 238 → **2 567 702** Zeichen (nach jedem Speichern neu geladen und
+  gemessen): `define('DONOTCACHEPAGE', true)` („never cache router pages“) durch Kommentar ersetzt;
+  in `$of_serve` zusätzlich `$wp_query->is_404 = false`, `$wp_cache_404 = false`,
+  `unset($wp_super_cache_query['is_404'])` (WPSC prüft nur `isset`, Zeile ~2370 in
+  wp-cache-phase2.php) und `$wp_super_cache_query['is_page'] = 1` (sonst „unknown page type“).
+  `nocache_headers()` bleibt (Browser speichern weiterhin nichts selbst).
+- WPSC-Fehlersuche war vorübergehend an; Protokoll gelöscht, Protokollierung aus.
+
+**Gemessen (curl, Cookies CHF/ch/de, 2. und 3. Aufruf):**
+
+| Seite | vorher | gespeichert |
+|---|---|---|
+| Startseite /de/ | 0,60–0,75 s | **0,12–0,19 s** |
+| /de/albania/, /albania/, /fr/albania/, /de/afghanistan/ | 0,63–0,77 s | **0,12–0,20 s** |
+| Über uns, Shop by country, Kontakt (de/es) | 0,59–0,81 s | **0,11–0,18 s** |
+| Kollektion /de/onefam-logo/ | 0,79 s | **0,12–0,19 s** |
+| Produkt Albanien-Hoodie | 1,17–1,46 s | **0,10–0,21 s**, Preise CHF 75/65/40 |
+
+Gegenproben: ohne Cookies nie gespeichert; EUR-Cookie bei Schweizer IP → „Währung weicht ab“,
+nicht gespeichert; mit Warenkorb nicht gespeichert; /warenkorb/ nie gespeichert; Fantasie-Adresse
+404 und nicht gespeichert; pausierte Länder weiter 302. Jede Sprache eigene Fassung (`lang` geprüft).
+Produkt- und Startseite frisch bauen leert den Speicher nicht (Zeitstempel blieb gleich).
+
+**Offen / zu wissen:**
+- **EUR-Seite von Deutschland aus prüfen** (Labi bzw. jemand in DE): erscheinen und bleiben
+  Euro-Preise? Aus der Schweiz lässt sich das nicht erzeugen.
+- **Erster Aufruf** jedes Besuchers und **Google** bleiben bei ~0,7 s (absichtlich ungespeichert).
+  Jede neue Cookie-Kombination (z. B. nach dem Setzen von `pll_language`) wird einmal frisch gebaut.
+- **Snippet 101 Besucherzählung** zählt in PHP: Besuche bleiben richtig (erster Aufruf läuft immer
+  durch PHP), **Seitenaufrufe je Bereich werden ab jetzt zu niedrig gezählt**. Abhilfe später:
+  Zählung per kleinem Rückruf aus der Seite.
+- Preisänderungen ausserhalb einer Produktspeicherung erscheinen bis zu 30 min verzögert.
+- Mess-Snippets 110–112 liegen im Papierkorb von Code Snippets (deaktiviert).
 
 ## ⚡ 19.11.2026: Ladezeit gemessen — Shop lud jede Seite beim ersten Besuch doppelt
 
