@@ -1,5 +1,40 @@
 # Stand — 19.11.2026
 
+## ⚡ 19.11.2026: Ladezeit gemessen — Shop lud jede Seite beim ersten Besuch doppelt
+
+**Werkzeug neu:** `tools/ladezeit-messen.mjs` (Chrome ohne Fenster, Handy 412 × 823,
+150 ms / 1,6 Mbit/s, CPU × 4, ohne Zwischenspeicher). Nötig, weil die PageSpeed-API den ganzen
+Tag über dem Tageslimit war. Chrome wird über `arch -arm64` gestartet — das Node unter
+`~/.local/node` ist eine Intel-Fassung, ein daraus gestartetes Chrome stürzt ab.
+
+**Vorher (Handy, gedrosselt):**
+
+| Seite | Server | erste Anzeige | grösster Inhalt | Anfragen | Menge | Verschiebung |
+|---|---|---|---|---|---|---|
+| onefam.ch/de | 0,36 s | 1,0 s | **4,4 s** (H1 Claim) | 27 | 3,3 MB (Video 4,2 MB beim ersten Lauf) | 0 |
+| Shop / (de) | 0,59 s | 1,3 s | 1,3 s (Video) | 33 | 0,9 MB | 0 |
+| Shop /de/albania/ | 1,07 s | 1,3 s | 2,2 s | 19 | 0,2 MB | 0 |
+| Shop Produkt Albanien-Hoodie | 1,55 s | 2,6 s | **11,4 s** | **187** | 2,0 MB | **0,22** |
+
+**Ursache 1 — doppeltes Laden:** Das Zeitzonen-Skript (Snippet 11 und Snippet 26, base64) lädt
+neu, wenn das Cookie `of_geo` nicht zur Zeitzone passt, und ein fehlendes Cookie passt nie.
+Jeder erste Besuch lud HTML, 23 Skripte und 11 Stildateien zweimal. **Behoben in Snippet 25**
+(1 718 → 2 864 Zeichen): der Server setzt `of_geo` beim ersten Besuch nach seiner eigenen
+Entscheidung ('ch' bei CHF, sonst 'x'). Gemessen danach: Document **1×** (vorher 2×), Stildateien
+12 (22), Skripte 34 (46); Set-Cookie `of_geo=ch` kommt mit; Preise unverändert CHF 75/65/40.
+Snippet 11 und 26 sind **nicht** angefasst.
+
+**Ursache 2 — 63 Galeriebilder sofort:** Snippet 76 (15.08.2026) hatte verzögertes Laden
+abgeschaltet, weil sonst beim Farbwechsel das Bildfeld kurz leer blieb. **Geändert**
+(602 → 2 016 Zeichen): erstes Bild sofort mit Vorrang, die übrigen 62 `loading="lazy"`, und ein
+wp_footer-Hook schaltet sie 300 ms nach dem Laden der Seite alle auf eager — Farbwechsel bleibt
+danach sofort. **Produktseite danach: grösster Inhalt 11,4 → 7,1 s.**
+
+**Was bleibt (nicht angefasst):** Server-Antwort des Shops 1–1,9 s (kein Seiten-Zwischenspeicher;
+heikel, weil die Währung am Cookie hängt), 63 Vorschaubildchen 100 × 100, die flexslider beim Start
+alle erzeugt, Verschiebung 0,22 auf der Produktseite, Schriften von api.fontshare.com, Divi-Skripte.
+onefam.ch: Claim erscheint erst nach 4,4 s (vermutlich Einblend-Animation `Reveal`) — noch offen.
+
 ## 🔎 19.11.2026 (zweite Runde): SEO komplett durchgesehen — Technik und KI
 
 Auftrag Labi: „alles nötige umsetzen, dass SEO komplett auf dem neusten Stand ist, KI und
