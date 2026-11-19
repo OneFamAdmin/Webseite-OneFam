@@ -10,15 +10,23 @@ Der Shop hatte auf Produktseiten Titel, Beschreibung (Snippet 65), Canonical,
 7 hreflang und WooCommerce-Produktdaten (Preis, Verfügbarkeit, Bild), aber **0 og:image**,
 kein og:title, kein og:url und keine **Marke** im JSON-LD.
 
-**onefam.ch (Commit `1330eb8`):** `/llms.txt` (1,6 KB) und `/llms-full.txt` (27 KB, alle vier
+**onefam.ch (Commit `1330eb8`, live seit 19.11.2026: `/llms.txt` 200, 1 603 B; `/llms-full.txt` 200, 27 317 B):** `/llms.txt` (1,6 KB) und `/llms-full.txt` (27 KB, alle vier
 Sprachen). Beide entstehen beim Bauen aus `messages/<sprache>.json` (`lib/llms.ts`), also
 nur aus Abschnitten, die die Startseite zeigt. Zur Reise steht dort wörtlich die
 FAQ-Antwort, keine eigene Formulierung (Sprachregeln). Die Pfade sind in
 `DATEIEN_OHNE_SPRACHE` eingetragen. Lokal im Produktionsbau gemessen: beide 200 text/plain.
 **Alternativtext des Vorschaubilds bewusst nicht übersetzt:** Er gibt den englischen
-Claim wieder, der auf dem Bild steht. Offen: Auf `og-image.jpg` steht unter dem Claim ein
-**deutscher** Satz — Teilen auf EN/FR/ES zeigt eine halb deutsche Vorschau. Lösung wäre ein
-Bild je Sprache; Gestaltungsfrage an Labi.
+Claim wieder, der auf dem Bild steht. Auf `og-image.jpg` stand unter dem Claim aber ein
+**deutscher** Satz — Teilen auf EN/FR/ES zeigte eine halb deutsche Vorschau.
+**Gelöst am selben Tag (Labi: „mach ein Vorschaubild je Sprache“):** `public/og/onefam-og-{en,de,fr,es}.jpg`,
+1200 × 630, 48–53 KB, erzeugt mit `tools/og-bilder.py` (HTML-Vorlage mit den echten Schriften
+und Marken, Chrome ohne Fenster, JPEG). Aufbau wie das Hero: Standbild des Hero-Videos,
+Gesichtsmarke, Wortmarke als Bild, Claim in EB Garamond `#EBD9A6`, goldene Linie, erster Satz
+von seo.description in Satoshi, ONEFAM.CH. Kein Verlaufsbalken oben mehr (dekorativ).
+`lib/seo.ts` → `ogBild(locale)`, Alternativtext je Sprache. Lokal im Produktionsbau gemessen:
+`/`, `/de`, `/fr`, `/es`, `/join`, `/de/join`, `/fr/agb`, `/es/impressum` tragen je ihr Bild,
+`/login` das deutsche; alle vier Bilder 200 image/jpeg. Das alte `og-image.jpg` bleibt für
+schon geteilte Links liegen. Wer Claim oder Beschreibung ändert, lässt das Skript neu laufen.
 
 **Shop, Snippet 65 „OneFam SEO-Meta fuer Produktseiten“ ergänzt** (per REST, 1 891 →
 **8 424** Zeichen, aktiv, kein code_error; der alte Teil ist unverändert, der neue Block

@@ -1,5 +1,9 @@
 import type { Metadata } from 'next';
 import { DEFAULT_LOCALE, LOCALES, OG_LOCALE, homePath, type Locale } from '@/i18n/routing';
+import de from '@/messages/de.json';
+import en from '@/messages/en.json';
+import es from '@/messages/es.json';
+import fr from '@/messages/fr.json';
 
 // Die kanonische Adresse ist bewusst fest verdrahtet und kommt NICHT aus
 // NEXT_PUBLIC_SITE_URL. Grund: Jede Vercel-Preview und jede *.vercel.app-Adresse
@@ -20,12 +24,31 @@ export const DEFAULT_DESCRIPTION =
 // 1200 × 630 ist das Format, das Facebook, WhatsApp, LinkedIn, X und iMessage
 // gleichermassen ohne Beschnitt anzeigen. Als JPEG, weil WhatsApp WebP-Vorschauen
 // unzuverlässig rendert.
-export const OG_IMAGE = {
-  url: '/og-image.jpg',
-  width: 1200,
-  height: 630,
-  alt: 'OneFam — For souls who belong to more than one place',
+//
+// Seit 19.11.2026 eines je Sprache, erzeugt mit tools/og-bilder.py aus den Texten in
+// messages/<sprache>.json. Vorher gab es nur public/og-image.jpg: englischer Claim und
+// darunter ein DEUTSCHER Satz — auf Englisch, Französisch und Spanisch geteilt eine
+// halb deutsche Vorschau. Das alte Bild bleibt liegen, weil geteilte Links und
+// Zwischenspeicher von Facebook & Co. noch darauf zeigen können.
+//
+// Der Alternativtext beschreibt, was auf dem jeweiligen Bild steht — deshalb hier je
+// Sprache und aus derselben Quelle wie das Bild. Wer den Claim ändert, lässt das
+// Skript neu laufen, sonst sagen Bild und Alternativtext Verschiedenes.
+const CLAIM: Record<Locale, string> = {
+  en: en.hero.claim,
+  de: de.hero.claim,
+  fr: fr.hero.claim,
+  es: es.hero.claim,
 };
+
+export function ogBild(locale: Locale) {
+  return {
+    url: `/og/onefam-og-${locale}.jpg`,
+    width: 1200,
+    height: 630,
+    alt: `OneFam — ${CLAIM[locale]}`,
+  };
+}
 
 type PageMetaInput = {
   title: string;
@@ -74,6 +97,7 @@ export function pageMetadata({
   languages,
 }: PageMetaInput): Metadata {
   const url = path === '/' ? SITE_URL : `${SITE_URL}${path}`;
+  const bild = ogBild(locale ?? 'de');
 
   return {
     title,
@@ -87,13 +111,13 @@ export function pageMetadata({
       url,
       title,
       description,
-      images: [OG_IMAGE],
+      images: [bild],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      images: [OG_IMAGE.url],
+      images: [bild.url],
     },
   };
 }
@@ -130,6 +154,7 @@ export function homeMetadata({
     languages[l] = l === DEFAULT_LOCALE ? SITE_URL : `${SITE_URL}${homePath(l)}`;
   }
   languages['x-default'] = SITE_URL;
+  const bild = ogBild(locale);
 
   return {
     title,
@@ -142,13 +167,13 @@ export function homeMetadata({
       url,
       title,
       description,
-      images: [OG_IMAGE],
+      images: [bild],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      images: [OG_IMAGE.url],
+      images: [bild.url],
     },
   };
 }
