@@ -124,6 +124,12 @@ export const routing = defineRouting({
   defaultLocale: DEFAULT_LOCALE,
   localePrefix: 'as-needed',
   localeDetection: false,
+  // Keine hreflang-Angaben im HTTP-Kopf (19.11.2026). next-intl schrieb dort für
+  // Englisch https://onefam.ch/ MIT Schrägstrich, das HTML (lib/seo.ts) und der
+  // Canonical nennen https://onefam.ch OHNE. Zwei Quellen mit verschiedenen Adressen
+  // für dieselbe Aussage — Google muss raten, welche gilt. Die hreflang-Angaben
+  // stehen vollständig im HTML und in der Sitemap; das reicht.
+  alternateLinks: false,
 });
 
 /**
@@ -183,7 +189,15 @@ export const OHNE_SPRACHE = [
  * Seit 19.11.2026 auch /llms.txt und /llms-full.txt (app/llms*.txt/route.ts).
  * Vorher leitete die Middleware /llms.txt nach /de/llms.txt um — 404.
  */
-export const DATEIEN_OHNE_SPRACHE = ['/sitemap.xml', '/robots.txt', '/llms.txt', '/llms-full.txt'];
+export const DATEIEN_OHNE_SPRACHE = [
+  '/sitemap.xml',
+  '/robots.txt',
+  '/llms.txt',
+  '/llms-full.txt',
+  // Seit 19.11.2026 (app/manifest.ts). Vorher leitete /manifest.webmanifest auf
+  // /de/manifest.webmanifest um und endete mit 404.
+  '/manifest.webmanifest',
+];
 
 /** Liegt dieser Pfad ausserhalb der Sprachstruktur? */
 export function istOhneSprache(pfad: string): boolean {

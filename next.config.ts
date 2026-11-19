@@ -28,6 +28,25 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        // Grundschutz für alle Antworten, seit 19.11.2026. Vorher setzte die Seite nur
+        // HSTS (von Vercel). Diese vier ändern am Aussehen nichts:
+        //   nosniff        Browser raten keinen anderen Dateityp als angegeben.
+        //   Referrer       Fremde Seiten sehen nur die Domain, nicht den ganzen Pfad
+        //                  (Bestätigungs- und Abmeldelinks tragen Tokens im Pfad).
+        //   SAMEORIGIN     Niemand kann die Seite unsichtbar in einen Rahmen legen.
+        //   Permissions    Kamera, Mikrofon, Standort und Werbe-Kohorten aus — die
+        //                  Seite braucht nichts davon.
+        // Bewusst KEIN includeSubDomains für HSTS: das träfe shop.onefam.ch auf einem
+        // anderen Server, und ein Fehler dort wäre ein Jahr lang nicht zurückzunehmen.
+        source: '/:path*',
+        headers: [
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()' },
+        ],
+      },
+      {
         // Jede *.vercel.app-Adresse liefert exakt dieselbe Website aus wie onefam.ch.
         // onefam.vercel.app ist deshalb bereits als doppelter Inhalt im Google-Index
         // gelandet. Der Canonical in den Seiten zeigt zwar immer auf onefam.ch, aber

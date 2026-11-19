@@ -36,6 +36,8 @@ export const FIRMA = {
 const SOCIAL = [
   'https://www.instagram.com/onefam_official/',
   'https://www.facebook.com/profile.php?id=61568690728641',
+  // Der Shop gehört zur selben Marke (seit 19.11.2026 hier, damit beide verbunden sind).
+  'https://shop.onefam.ch/',
 ];
 
 export type FaqEintrag = { question: string; answer: string };
@@ -55,6 +57,16 @@ export function organisationSchema() {
     email: FIRMA.email,
     telephone: FIRMA.telefon,
     founder: { '@type': 'Person', name: FIRMA.inhaber },
+    // Seit 19.11.2026: Sprachen, Kontaktweg und der Shop als Teil derselben Marke.
+    // Hilft Suchmaschinen und KI-Diensten, onefam.ch und shop.onefam.ch als EIN
+    // Unternehmen zu lesen statt als zwei fremde Seiten.
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'customer service',
+      email: FIRMA.email,
+      availableLanguage: ['de', 'en', 'fr', 'es'],
+    },
+    brand: { '@type': 'Brand', name: SITE_NAME, logo: `${SITE_URL}/assets/logo-white.png` },
     address: {
       '@type': 'PostalAddress',
       streetAddress: FIRMA.strasse,

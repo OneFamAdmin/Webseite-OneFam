@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
 import { NextIntlClientProvider } from 'next-intl';
@@ -69,6 +69,12 @@ export const metadata: Metadata = {
     description: DEFAULT_DESCRIPTION,
     path: '/',
   }),
+};
+
+// Farbe der Browserleiste auf dem Handy (seit 19.11.2026). Ohne Angabe färbt
+// Safari/Chrome die Leiste hell ein, über einer Seite mit #0a0a0a als Grund.
+export const viewport: Viewport = {
+  themeColor: '#0a0a0a',
 };
 
 export default async function RootLayout({
