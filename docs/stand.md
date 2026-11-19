@@ -1,4 +1,46 @@
-# Stand — 14.11.2026
+# Stand — 19.11.2026
+
+## 🔎 19.11.2026: Technisches SEO — llms.txt, Vorschaubilder und Marke im Shop
+
+**Bestand gemessen (live, ausgeloggt):** onefam.ch hatte schon Titel, Beschreibung,
+Canonical, Open Graph, Twitter-Card, hreflang (EN/DE/FR/ES + x-default), JSON-LD
+(Organization, WebSite, FAQPage), robots.txt, sitemap.xml (20 Adressen) und Icons.
+Gefehlt hat `/llms.txt`: Die Middleware leitete auf `/de/llms.txt` um, Ergebnis **404**.
+Der Shop hatte auf Produktseiten Titel, Beschreibung (Snippet 65), Canonical,
+7 hreflang und WooCommerce-Produktdaten (Preis, Verfügbarkeit, Bild), aber **0 og:image**,
+kein og:title, kein og:url und keine **Marke** im JSON-LD.
+
+**onefam.ch (Commit `1330eb8`):** `/llms.txt` (1,6 KB) und `/llms-full.txt` (27 KB, alle vier
+Sprachen). Beide entstehen beim Bauen aus `messages/<sprache>.json` (`lib/llms.ts`), also
+nur aus Abschnitten, die die Startseite zeigt. Zur Reise steht dort wörtlich die
+FAQ-Antwort, keine eigene Formulierung (Sprachregeln). Die Pfade sind in
+`DATEIEN_OHNE_SPRACHE` eingetragen. Lokal im Produktionsbau gemessen: beide 200 text/plain.
+**Alternativtext des Vorschaubilds bewusst nicht übersetzt:** Er gibt den englischen
+Claim wieder, der auf dem Bild steht. Offen: Auf `og-image.jpg` steht unter dem Claim ein
+**deutscher** Satz — Teilen auf EN/FR/ES zeigt eine halb deutsche Vorschau. Lösung wäre ein
+Bild je Sprache; Gestaltungsfrage an Labi.
+
+**Shop, Snippet 65 „OneFam SEO-Meta fuer Produktseiten“ ergänzt** (per REST, 1 891 →
+**8 424** Zeichen, aktiv, kein code_error; der alte Teil ist unverändert, der neue Block
+hängt unten an):
+- og:type product, og:site_name, og:locale, og:title (= Dokumenttitel), og:url (= aufgerufene
+  Adresse, also /de/… auf Deutsch), og:image mit Breite/Höhe/Alt, twitter:card
+  summary_large_image, twitter:title, twitter:image.
+- **Marke** über den Filter `woocommerce_structured_data_product`: `"brand":{"@type":"Brand","name":"OneFam"}`.
+- **Vorschaubild als JPEG**, weil alle 18 Produktbilder WebP sind (WhatsApp, siehe `lib/seo.ts`).
+  Einmalig je Bild nach `wp-content/uploads/og-jpg/<id>-825-f1.jpg`, Quelle ist die Grösse
+  „large“ (825 × 1024), nicht das 4K-Original (Speicher).
+- **Zwei Fallen beim Bauen, beide behoben:**
+  1. Snippet 35 (WebP) biegt über `image_editor_output_format` jedes JPEG auf WebP um. Erster
+     Versuch: WordPress schrieb still .webp, die Seiten verwiesen auf .jpg → **alle 18 Bilder 404**.
+  2. Fünf Bilder der Logo-Linie (4172–4175, 4270) sind freigestellt (rund 60 % durchsichtig).
+     Im JPEG wurde das **schwarz** mit hellem Rand. Jetzt liegt #F1F1F1 dahinter, die
+     neutrale Bühne der Produktseite. Alte Dateien räumt das Snippet selbst weg (404 nachgeprüft).
+- **Gemessen nach dem Speichern, ausgeloggt:** alle **18 Produkte × EN/DE = 36 Seiten**: je genau
+  1 og:image, 1 og:title, og:url = Seitenadresse, Marke OneFam → **0 Fehler**. Alle **18 Bilder**
+  200 image/jpeg, auch mit Kennung `facebookexternalhit` und `WhatsApp`, 33–61 KB, 825 × 1024.
+  Zwei angesehen (Albanien-Hoodie, Logo-Shirt freigestellt): korrekt.
+- Zurücknehmen: den Block ab „Ergaenzt am 19.11.2026“ in Snippet 65 löschen.
 
 ## 📞 13.11.2026: Finanzamt Konstanz hat die Rückfrage telefonisch beantwortet
 
