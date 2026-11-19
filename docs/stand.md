@@ -1,5 +1,50 @@
 # Stand — 19.11.2026
 
+## 🔎 19.11.2026 (zweite Runde): SEO komplett durchgesehen — Technik und KI
+
+Auftrag Labi: „alles nötige umsetzen, dass SEO komplett auf dem neusten Stand ist, KI und
+technisches SEO“. Erst gemessen, dann umgesetzt; alles nachgemessen.
+
+**onefam.ch (Commit `e9b33d6`, lokal im Produktionsbau gemessen):**
+- **Sitemap mit hreflang:** jede der 20 Adressen nennt ihre Sprachfassungen (100 Einträge).
+- **hreflang-Kopfzeile von next-intl abgeschaltet** (`alternateLinks: false`): sie nannte
+  `https://onefam.ch/` mit Schrägstrich, HTML und Canonical ohne.
+- **`/manifest.webmanifest`** (`app/manifest.ts`, vorher 307 → 404) und `theme-color #0a0a0a`.
+- **Eigene 404-Seite** je Sprache (`app/not-found.tsx`): vorher englische Next-Vorgabe mit
+  ZWEI `<title>`. Jetzt Status 404, ein Titel, ein `noindex`.
+- **Sicherheits-Kopfzeilen** für alle Antworten: nosniff, Referrer-Policy
+  strict-origin-when-cross-origin, X-Frame-Options SAMEORIGIN, Permissions-Policy.
+  HSTS bewusst ohne includeSubDomains (träfe den Shop auf anderem Server).
+- **Organisation (JSON-LD):** contactPoint (4 Sprachen), Marke, Shop in `sameAs`.
+
+**Shop (live, per REST, alles nach dem Neuladen nachgelesen, aktiv, kein code_error):**
+- **Snippet 39 „SEO-Technik“** 4 492 → **11 384** Zeichen:
+  - `/llms.txt` (vorher 404): Preise, Lieferzeit, 21 Lieferländer, Zahlungsarten, 7 Kollektionen,
+    alle 18 Produkte live aus WooCommerce, Infoseiten. Alle 33 Links 200. `X-Robots-Tag: noindex`.
+  - **Startseite /, /de/, /fr/, /es/: Organization + WebSite** (vorher 0 JSON-LD). Gleiche
+    `@id` wie onefam.ch (`https://onefam.ch/#organisation`). Per Ausgabepuffer vor `</head>`,
+    weil der Router die Startseite samt `<head>` selbst ausgibt — `wp_head` läuft dort nie
+    (erster Versuch über wp_head: 0 gemessen).
+  - **Sitemap `/onefam-sitemap.xml`: 32 Weiterleitungen entfernt** (anguilla, antigua-barbuda,
+    bosnia, brazil, brunei, mexico, peru, onefam-white × 4 Sprachen, alle 302 → shop-by-country).
+    96 → **64** Adressen, alle 200. `wp-sitemap.xml`: 240 Adressen, alle 200.
+- **Snippet 38 „SEO-Meta für Router-Seiten“** 12 093 → **12 724**: Vorschaubild war für alle
+  Router-Seiten ein WebP (`onefam-og-1200x630-1.webp`). Jetzt `https://onefam.ch/og/onefam-og-<sprache>.jpg`
+  über `of_seo_bild($lang)`. Gemessen: alle **64** Router-Seiten tragen das JPEG ihrer Sprache
+  in og:image und twitter:image, 0 Fehler.
+
+**Offen — braucht Labi:**
+- **KI-Crawler in robots.txt:** heute auf beiden Seiten alles erlaubt, auch Trainings-Crawler
+  (GPTBot, Google-Extended, CCBot, ClaudeBot). Entscheid: so lassen oder Training sperren und
+  nur KI-Suche erlauben.
+- **Produktdaten für Google-Shopping:** `shippingDetails` und `hasMerchantReturnPolicy`
+  fehlen. Die Rückgaberegel hängt am offenen Widerrufsthema (Anwalt) — nicht selbst eintragen.
+- **Bing Webmaster Tools** (ChatGPT-Suche stützt sich auf Bing) und Google Search Console:
+  beide Domains anmelden bzw. Sitemaps neu einreichen, inkl. `shop.onefam.ch/onefam-sitemap.xml`.
+  Danach wäre IndexNow möglich.
+- **Ladezeit:** PageSpeed-API am 19.11. über dem Tageslimit, nicht gemessen. Bekannt: Hero-Video
+  17,7 MB am Rechner (Handy 4,4 MB). Nachmessen.
+
 ## 🔎 19.11.2026: Technisches SEO — llms.txt, Vorschaubilder und Marke im Shop
 
 **Bestand gemessen (live, ausgeloggt):** onefam.ch hatte schon Titel, Beschreibung,
