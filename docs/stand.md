@@ -39,6 +39,17 @@ technisches SEO“. Erst gemessen, dann umgesetzt; alles nachgemessen.
   nur KI-Suche erlauben.
 - **Produktdaten für Google-Shopping:** `shippingDetails` und `hasMerchantReturnPolicy`
   fehlen. Die Rückgaberegel hängt am offenen Widerrufsthema (Anwalt) — nicht selbst eintragen.
+- **Google Search Console, nachgesehen 19.11.2026 (Labi angemeldet):** Domain-Eigenschaft
+  `sc-domain:onefam.ch`, umfasst auch shop.onefam.ch. Drei Sitemaps eingereicht, alle
+  „Erfolgreich“; `shop.onefam.ch/onefam-sitemap.xml` und `onefam.ch/sitemap.xml` am 19.11.
+  **neu eingereicht** (Shop zeigt danach 64 statt 96). Seitenindexierung: **152 indexiert,
+  206 nicht** — 75 gecrawlt/nicht indexiert (Schriftdateien, Favicon, WordPress-Feeds und
+  Sprachfassungen von Produktseiten, die sich zu ähnlich sind), 42 gefunden/nicht indexiert,
+  38 × 404 (alte Produktadressen pausierter Länder: Bosnien, Anguilla, Brunei, Brasilien … —
+  richtig so, Google lässt sie fallen), 29 Weiterleitungen (die 32 aus der Shop-Sitemap, jetzt
+  entfernt), 15 noindex, 5 + 2 Kanonisch/Duplikat. **Händlereinträge: 21 gültig, 0 ungültig**;
+  Hinweise auf allen 21: hasMerchantReturnPolicy, shippingDetails, validFrom, „keine globale
+  Kennzeichnung (GTIN oder Marke)“ — die Marke ist seit 19.11. drin, wirkt nach dem nächsten Lesen.
 - **Bing Webmaster Tools** (ChatGPT-Suche stützt sich auf Bing) und Google Search Console:
   beide Domains anmelden bzw. Sitemaps neu einreichen, inkl. `shop.onefam.ch/onefam-sitemap.xml`.
   Danach wäre IndexNow möglich.
