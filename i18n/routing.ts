@@ -179,8 +179,11 @@ export const OHNE_SPRACHE = [
  * Sitemap, die gerade erst in der Search Console eingereicht wurde, antwortete
  * mit 404. Genau die Art Fehler, die niemandem auffaellt, weil man Seiten
  * prueft und Metadaten-Routen vergisst.
+ *
+ * Seit 19.11.2026 auch /llms.txt und /llms-full.txt (app/llms*.txt/route.ts).
+ * Vorher leitete die Middleware /llms.txt nach /de/llms.txt um — 404.
  */
-export const DATEIEN_OHNE_SPRACHE = ['/sitemap.xml', '/robots.txt'];
+export const DATEIEN_OHNE_SPRACHE = ['/sitemap.xml', '/robots.txt', '/llms.txt', '/llms-full.txt'];
 
 /** Liegt dieser Pfad ausserhalb der Sprachstruktur? */
 export function istOhneSprache(pfad: string): boolean {
