@@ -338,5 +338,34 @@
       "motiv": "Todos los colores en un rostro.",
       "fuer": "El comienzo del que nació OneFam."
     }
+  },
+  "shop_laender": {
+    "titel": "Comprar por país",
+    "intro": "Encuentra el país que sientes como tu hogar.",
+    "suche": "Busca tu país…",
+    "jetzt": "Disponible ahora",
+    "signature_titel": "Signature — el signo en sí",
+    "signature_text": "Un signo, no un país. Quien lo lleva sabe por qué — quien lo reconoce pertenece.",
+    "alle": "Todos los países",
+    "alle_text": "Tú ayudas a decidir qué país llega después. Apúntate al tuyo — cuantos más seáis, antes llegará.",
+    "mehr": "Ver los {n} países",
+    "kein_treffer": "Aún no hay ningún país que coincida con tu búsqueda.",
+    "mitentscheiden": "Participa",
+    "bald": "Próximamente",
+    "email": "Correo electrónico",
+    "dialog_intro": "Apúntate y dinos que quieres {land}. Cuantos más seáis, antes llegará — y tú te enterarás primero.",
+    "ziel": "A partir de {ziel} inscripciones, planificamos la producción.",
+    "stand": "{n} de {ziel} — a partir de {ziel}, planificamos la producción.",
+    "knopf": "Quiero {land}",
+    "ok": "Casi listo — mira tu bandeja de entrada y confirma tu registro con un clic.",
+    "fehler": "No ha funcionado. Inténtalo de nuevo más tarde.",
+    "teilen_titel": "Ayuda a que OneFam para {land} se haga realidad:",
+    "whatsapp": "Compartir por WhatsApp",
+    "kopieren": "Copiar enlace",
+    "kopiert": "Copiado",
+    "teilen": "Compartir",
+    "teilen_text": "Quiero una camiseta OneFam de {land}. Apúntate tú también: cuantos más seamos, antes llegará:",
+    "schliessen": "Cerrar",
+    "bis_dahin": "Mientras tanto: el signo OneFam está para todos"
   }
 }
