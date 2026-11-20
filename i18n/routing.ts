@@ -157,6 +157,18 @@ export function joinPath(locale: Locale): string {
 }
 
 /**
+ * Shop-Seiten auf onefam.ch (Probeaufbau seit 20.11.2026, Plan:
+ * docs/plan-zusammenfuehrung-onefam.md). Englisch ohne Präfix wie überall.
+ */
+export function produktPfad(locale: Locale, slug: string): string {
+  return locale === DEFAULT_LOCALE ? `/produkt/${slug}` : `/${locale}/produkt/${slug}`;
+}
+
+export function warenkorbPfad(locale: Locale): string {
+  return locale === DEFAULT_LOCALE ? '/warenkorb' : `/${locale}/warenkorb`;
+}
+
+/**
  * Pfade, die NICHT unter app/[locale]/ liegen und deshalb kein Sprachpraefix
  * tragen. Sie sind bewusst nur auf Deutsch zu haben.
  *
