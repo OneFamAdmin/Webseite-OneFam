@@ -296,6 +296,34 @@
     "zur_kasse": "Ir a pagar",
     "probe_hinweis": "Prototipo: la caja en onefam.ch está por llegar. Aquí todavía no se cobra nada.",
     "fehler": "No ha funcionado. Inténtalo de nuevo.",
-    "bild": "Imagen {n} de {gesamt}"
+    "bild": "Imagen {n} de {gesamt}",
+    "start": "Inicio",
+    "ab_preis": "desde {preis}"
+  },
+  "shop_kategorien": {
+    "albania": {
+      "name": "Albania",
+      "intro": "El águila bicéfala en medio de la sonrisa. Para quienes no necesitan explicar la besa."
+    },
+    "afghanistan": {
+      "name": "Afganistán",
+      "intro": "Una sonrisa en blanco y negro, la bandera detrás. Para quienes reciben al invitado como un regalo."
+    },
+    "andorra": {
+      "name": "Andorra",
+      "intro": "Azul, amarillo y rojo en un rostro. Para quienes vienen de las montañas entre dos países."
+    },
+    "argentina": {
+      "name": "Argentina",
+      "intro": "El sol de Mayo, justo donde lo pone la bandera. Para quienes hacen circular el mate."
+    },
+    "logo-black": {
+      "name": "Logo negro",
+      "intro": "La versión discreta. Para quienes no necesitan deletrearlo."
+    },
+    "onefam-logo": {
+      "name": "OneFam Logo",
+      "intro": "Todos los colores en un rostro. El comienzo del que nació OneFam."
+    }
   }
 }
