@@ -298,32 +298,45 @@
     "fehler": "Ça n'a pas marché. Réessaie, s'il te plaît.",
     "bild": "Image {n} sur {gesamt}",
     "start": "Accueil",
-    "ab_preis": "dès {preis}"
+    "ab_preis": "dès {preis}",
+    "kollektion_entdecken": "Découvrir la collection",
+    "teile_titel_drei": "Trois pièces. Un rire.",
+    "teile_titel": "Les pièces.",
+    "farben": "{n} couleurs",
+    "auswaehlen": "Choisir",
+    "teil_waehlen": "Choisis ta pièce",
+    "warenkorb_oeffnen": "Ouvrir le panier"
   },
   "shop_kategorien": {
     "albania": {
       "name": "Albanie",
-      "intro": "L’aigle bicéphale au cœur du sourire. Pour celles et ceux qui n’ont pas besoin d’expliquer la besa."
+      "motiv": "L’aigle bicéphale au cœur du sourire.",
+      "fuer": "Pour celles et ceux qui n’ont pas besoin d’expliquer la besa."
     },
     "afghanistan": {
       "name": "Afghanistan",
-      "intro": "Un sourire en noir et blanc, le drapeau derrière. Pour celles et ceux dont l’invité est un cadeau."
+      "motiv": "Un sourire en noir et blanc, le drapeau derrière.",
+      "fuer": "Pour celles et ceux dont l’invité est un cadeau."
     },
     "andorra": {
       "name": "Andorre",
-      "intro": "Bleu, jaune et rouge dans un visage. Pour celles et ceux des montagnes entre deux pays."
+      "motiv": "Bleu, jaune et rouge dans un visage.",
+      "fuer": "Pour celles et ceux des montagnes entre deux pays."
     },
     "argentina": {
       "name": "Argentine",
-      "intro": "Le soleil de Mai, exactement là où le drapeau le place. Pour celles et ceux qui font tourner le maté."
+      "motiv": "Le soleil de Mai, exactement là où le drapeau le place.",
+      "fuer": "Pour celles et ceux qui font tourner le maté."
     },
     "logo-black": {
       "name": "Logo noir",
-      "intro": "La version discrète. Pour celles et ceux qui n’ont pas besoin de l’épeler."
+      "motiv": "La version discrète.",
+      "fuer": "Pour celles et ceux qui n’ont pas besoin de l’épeler."
     },
     "onefam-logo": {
       "name": "OneFam Logo",
-      "intro": "Toutes les couleurs dans un visage. Le commencement dont OneFam est né."
+      "motiv": "Toutes les couleurs dans un visage.",
+      "fuer": "Le commencement dont OneFam est né."
     }
   }
 }
