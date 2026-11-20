@@ -272,5 +272,30 @@
     "abmelden_ungueltig": "Dieser Abmeldelink ist ungültig – oder du bist schon abgemeldet.",
     "abgemeldet_titel": "Du bist abgemeldet.",
     "abgemeldet_text": "Wir haben deine Adresse gelöscht und schreiben dir nicht mehr."
+  },
+  "shop_seiten": {
+    "shop": "Shop",
+    "farbe": "Farbe",
+    "groesse": "Grösse",
+    "groesse_waehlen": "Bitte zuerst eine Grösse wählen.",
+    "in_warenkorb": "In den Warenkorb",
+    "wird_gelegt": "Wird hinzugefügt …",
+    "hinzugefuegt": "Im Warenkorb.",
+    "zum_warenkorb": "Zum Warenkorb",
+    "nicht_lieferbar": "Nicht lieferbar",
+    "preis_fehlt": "Preis in dieser Währung fehlt — bitte melde dich bei info@onefam.ch.",
+    "warenkorb": "Warenkorb",
+    "leer": "Dein Warenkorb ist leer.",
+    "weiter": "Weiter stöbern",
+    "menge": "Menge",
+    "entfernen": "Entfernen",
+    "versand_nach": "Versand nach",
+    "zwischensumme": "Zwischensumme",
+    "versand": "Versand",
+    "total": "Total",
+    "zur_kasse": "Zur Kasse",
+    "probe_hinweis": "Probeaufbau: Die Kasse auf onefam.ch folgt. Bezahlt wird hier noch nicht.",
+    "fehler": "Das hat nicht geklappt. Bitte versuch es noch einmal.",
+    "bild": "Bild {n} von {gesamt}"
   }
 }
