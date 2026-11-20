@@ -302,32 +302,45 @@
     "fehler": "That didn't work. Please try again.",
     "bild": "Image {n} of {gesamt}",
     "start": "Home",
-    "ab_preis": "from {preis}"
+    "ab_preis": "from {preis}",
+    "kollektion_entdecken": "Explore the collection",
+    "teile_titel_drei": "Three pieces. One laugh.",
+    "teile_titel": "The pieces.",
+    "farben": "{n} colours",
+    "auswaehlen": "Select",
+    "teil_waehlen": "Choose your piece",
+    "warenkorb_oeffnen": "Open cart"
   },
   "shop_kategorien": {
     "albania": {
       "name": "Albania",
-      "intro": "The double eagle sits inside the smile. For everyone who never has to explain besa."
+      "motiv": "The double eagle sits inside the smile.",
+      "fuer": "For everyone who never has to explain besa."
     },
     "afghanistan": {
       "name": "Afghanistan",
-      "intro": "A smile in black and white, the flag behind it. For everyone who treats a guest as a gift."
+      "motiv": "A smile in black and white, the flag behind it.",
+      "fuer": "For everyone who treats a guest as a gift."
     },
     "andorra": {
       "name": "Andorra",
-      "intro": "Blue, yellow and red in one face. For everyone from the mountains between two countries."
+      "motiv": "Blue, yellow and red in one face.",
+      "fuer": "For everyone from the mountains between two countries."
     },
     "argentina": {
       "name": "Argentina",
-      "intro": "The sun of May, exactly where the flag puts it. For everyone who passes the mate around."
+      "motiv": "The sun of May, exactly where the flag puts it.",
+      "fuer": "For everyone who passes the mate around."
     },
     "logo-black": {
       "name": "Black Logo",
-      "intro": "The quiet version. For everyone who does not need to spell it out."
+      "motiv": "The quiet version.",
+      "fuer": "For everyone who does not need to spell it out."
     },
     "onefam-logo": {
       "name": "OneFam Logo",
-      "intro": "Every colour in one face. The beginning OneFam grew out of."
+      "motiv": "Every colour in one face.",
+      "fuer": "The beginning OneFam grew out of."
     }
   }
 }
