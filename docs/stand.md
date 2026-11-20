@@ -14,6 +14,12 @@ räumt sie nach 48 Stunden selbst ab. **Nichts gepusht.**
 
 **Labi hat den Probeaufbau angesehen (20.11.2026):** „fürs erste so ok, wir können sie vom Design ja im Anschluss noch anpassen“. Design-Feinschliff kommt nach dem Katalog (Plan Schritt 1).
 
+**Nachgezogen am selben Abend:** Texte in EN/FR/ES, Lieferzeit, Lieferländer und Galerie der
+Logo-Produkte — alle 18 Produkte in vier Sprachen lokal gebaut und geprüft (72 Seiten, 0
+Abweichungen). Im Shop geändert: Snippet 114 (neu gefasst), Snippet 102 und 71 (je eine Funktion
+herausgezogen, Ausgabe unverändert, nachgemessen). Versandregel geklärt (Pauschale je Land in
+CHF, in EUR umgerechnet). Einzelheiten und Messwerte: Plan, Abschnitt „Stand Probeaufbau“.
+
 ## 🧭 20.11.2026: Richtung gewechselt — der Shop kommt in die Landing Page
 
 Labi: „geht es nicht, dass der Shop in die Landing Page kommt?" → „ja plane so". onefam.ch

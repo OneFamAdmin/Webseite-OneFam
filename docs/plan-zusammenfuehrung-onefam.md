@@ -89,16 +89,45 @@ onefam.ch“ (Quelle: `docs/shop-snippets/onefam-headless-katalog.php`).
   1,98 s gegen 6,68 s, Ladeende 2,9 s gegen 10,5 s, 41 gegen 188 Anfragen, 533 gegen 2014 KB,
   Verschiebung 0 gegen 0,22.
 
-**Offen, bevor Schritt 1 beginnt:**
-1. **Texte in EN/FR/ES.** Snippet 68 liefert den Motivtext nur deutsch, der Titel bleibt
-   „Albania Hoodie“ (Shop: „Albanien Hoodie“ / „Albanie Hoodie“), im deutschen Inhalt steht die
-   Überschrift „Size guide“. Die Übersetzung passiert erst beim Ausgeben der Seite, vermutlich im
-   Router-Snippet 11. Den Code der Snippets 11, 25, 68, 69 kann Claude über die
-   Chrome-Erweiterung nicht lesen — sie sperrt jede Ausgabe mit Cookie- oder Adressdaten.
-   Weg: **Labi exportiert diese Snippets** (Code Snippets → Exportieren) nach `~/Downloads`.
-2. Lieferzeit-Zeile (Snippet 102) fehlt noch auf der Produktseite.
-3. Lieferländer laufen noch über den Lese-Schlüssel → in den Katalog-Endpunkt.
-4. Kategorienamen kommen englisch („Albania“).
+**Nachgezogen am 20.11.2026 (Abend) — die vier offenen Punkte sind erledigt:**
+
+- **Texte in allen vier Sprachen.** Ursache: Der Shop legt die Sprache EINMAL je Anfrage fest
+  (Snippet 28 `of_visitor_lang()`: Adresspräfix → Cookie `ofl` → Browsersprache → IP-Land).
+  Daran hängen WordPress-Sprache, Produktnamen (Snippet 57), Motivtext (Snippet 68, gibt bei
+  abweichender Sprache absichtlich nichts aus), Grössentabelle/Details (61, 62, 69). Eine
+  REST-Adresse hat kein Präfix → alles fiel auf Deutsch (Schweizer IP). Lösung: onefam.ch schickt
+  **Cookie `ofl=<sprache>`** mit; passt es nicht zu `?lang`, antwortet der Endpunkt mit 409.
+- **Gemessen, alle 18 Produkte:** Text des Endpunkts = Text der Shop-Seite (erste 1500 Zeichen
+  je Produkt, Albanien-Hoodie in allen vier Sprachen), 0 Abweichungen. Lokal gebaut 72 Seiten
+  (18 × 4): alle 200, richtige Sprache, Namen wie im Shop („Albanien Hoodie“, „Albanie Hoodie“,
+  „Afganistán Hoodie“), Preise je Produkt genau CHF 75/65/40 und EUR 69,99/59,99/34,95,
+  kein fehlender Festpreis, Lieferzeit und Grössentabelle überall da.
+- **Zwei Shop-Snippets haben dafür je eine Funktion bekommen, Ausgabe unverändert:**
+  102 `onefam_lieferzeit_texte()` (1623 → 1910 Zeichen; Lieferzeit im Shop in vier Sprachen
+  nachgemessen, frisch und normal) und 71 `onefam_podos_rest_entfernen()` (3458 → 3770; der
+  Rest der alten PodOS-Beschreibung fehlt weiterhin auf allen 18 Shop-Seiten). So gibt es für
+  Lieferzeit und Aufräum-Regel weiter nur eine Quelle.
+- **Snippet 114** jetzt 10 562 Zeichen, per Prüfsumme gleich wie
+  `docs/shop-snippets/onefam-headless-katalog.php`. Neu: `GET /onefam/v1/katalog` (18 Produkte,
+  21 Lieferländer) — **onefam.ch braucht für den Shop-Teil keinen WooCommerce-Schlüssel mehr**;
+  Produktname im Warenkorb in der Seitensprache (die Store API nimmt `get_title()`, daran hängt
+  Snippet 57 nicht), nur für Anfragen mit der Kopfzeile von onefam.ch.
+- **Galerie:** Nur nach Dateinamen zuzuordnen liess die sechs Logo-Produkte ohne Bilder
+  (Dateien heissen `logo-black-hoodie-red.webp` bzw. `hf_…`). Jetzt: Variantenbild der Farbe
+  zuerst (jede Farbe hat genau eines), dann Bilder mit der Farbe im Dateinamen, dann Bilder ohne
+  Farbe. Alle 18 Produkte: keine Farbe ohne Bild. Im Bestand haben einzelne Farben nur ein Bild
+  (z. B. Afghanistan-Hoodie, Andorra-Shirt).
+- **Versandregel** (aus den WooCommerce-Zonen gelesen, deckt sich mit der Versandseite des
+  Shops): eine Pauschale je Bestellung, festgelegt in CHF — Deutschland 7 · Kern- und West-EU
+  samt Liechtenstein 12 · Ost-EU und Baltikum 16 · Schweiz und UK 18 · Nordeuropa 26. In EUR
+  wird sie umgerechnet (× 1,1), es gibt keine festen Euro-Beträge und keine Versandklassen. Der
+  Warenkorb auf onefam.ch übernimmt die Summe unverändert von WooCommerce.
+- **Snippet-Export** (nur lokal, `docs/privat/shop-snippets/`): 11, 25, 28, 42, 57, 61, 62, 68,
+  69, 70, 71, 102, 114. Chrome erlaubt je Tab einen Download ohne Klick — für weitere Exporte
+  einen neuen Tab öffnen.
+
+**Beiläufig gefunden, nicht behoben:** Die deutsche Versandseite des Shops
+(`/de/shipping-policy/`) zeigt englischen Fliesstext.
 
 ### 1. Katalog auf onefam.ch
 Alle 18 öffentlichen Produktseiten, Länderseiten (Albanien, Afghanistan, Andorra, Argentinien),
