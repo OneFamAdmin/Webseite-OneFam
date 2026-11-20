@@ -25,10 +25,12 @@ export default function ProduktAnsicht({
   produkt,
   warenkorbPfad,
   kategoriePfad,
+  kategorieName,
 }: {
   produkt: Produkt;
   warenkorbPfad: string;
   kategoriePfad: string | null;
+  kategorieName: string | null;
 }) {
   const t = useTranslations('shop_seiten');
   const locale = useLocale();
@@ -111,14 +113,14 @@ export default function ProduktAnsicht({
 
       {/* Auswahl */}
       <div className="max-w-[31rem]">
-        {produkt.kategorie && (
+        {kategorieName && (
           <p className="font-body text-sm uppercase tracking-[0.22em] text-gold">
             {kategoriePfad ? (
               <Link href={kategoriePfad} className="hover:underline underline-offset-4">
-                {produkt.kategorie.name}
+                {kategorieName}
               </Link>
             ) : (
-              produkt.kategorie.name
+              kategorieName
             )}
           </p>
         )}

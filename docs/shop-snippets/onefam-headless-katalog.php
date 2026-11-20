@@ -54,6 +54,14 @@ add_action( 'rest_api_init', function () {
 			'lang' => array( 'default' => 'en', 'sanitize_callback' => 'sanitize_key' ),
 		),
 	) );
+	register_rest_route( 'onefam/v1', '/katalog/kategorie/(?P<slug>[a-z0-9-]+)', array(
+		'methods'             => 'GET',
+		'permission_callback' => '__return_true',
+		'callback'            => 'onefam_hl_kategorie_antwort',
+		'args'                => array(
+			'lang' => array( 'default' => 'en', 'sanitize_callback' => 'sanitize_key' ),
+		),
+	) );
 } );
 
 function onefam_hl_bild( $id ) {
@@ -237,6 +245,128 @@ function onefam_hl_produkt_daten( $slug, $lang ) {
 		'lieferzeit' => $lieferzeit,
 		'sprache'    => $lang,
 		'stand'      => gmdate( 'c' ),
+	);
+}
+
+// Kategorie (Land oder Logo-Linie) fuer die Laenderseiten auf onefam.ch:
+// GET /wp-json/onefam/v1/katalog/kategorie/<slug>?lang=de (mit Cookie ofl=de).
+// Name, Kategorietext aus Snippet 70 (im Shop seit der Umleitung der
+// Kategorie-Adressen nirgends mehr sichtbar) und die Produkte mit Preis und Bild.
+// Preise roh aus der Datenbank gelesen, damit CURCY sie nicht umrechnet.
+function onefam_hl_kategorie_antwort( WP_REST_Request $anfrage ) {
+	$slug = $anfrage['slug'];
+	$lang = in_array( $anfrage['lang'], array( 'en', 'de', 'fr', 'es' ), true ) ? $anfrage['lang'] : 'en';
+
+	$besucher = function_exists( 'of_visitor_lang' ) ? of_visitor_lang() : '';
+	if ( $besucher !== $lang ) {
+		return new WP_Error(
+			'onefam_sprache',
+			'Sprache passt nicht: Cookie ofl=' . $lang . ' mitschicken.',
+			array( 'status' => 409 )
+		);
+	}
+
+	$schluessel = 'onefam_hl_v5_kat_' . md5( $slug . '|' . $lang );
+	$fertig     = get_transient( $schluessel );
+	if ( false === $fertig ) {
+		$fertig = onefam_hl_kategorie_daten( $slug, $lang );
+		if ( $fertig ) {
+			set_transient( $schluessel, $fertig, 10 * MINUTE_IN_SECONDS );
+		}
+	}
+	if ( ! $fertig ) {
+		return new WP_Error( 'onefam_nicht_gefunden', 'Kategorie nicht gefunden.', array( 'status' => 404 ) );
+	}
+	$antwort = rest_ensure_response( $fertig );
+	$antwort->header( 'Cache-Control', 'public, max-age=300' );
+	return $antwort;
+}
+
+function onefam_hl_kategorie_daten( $slug, $lang ) {
+	$term = get_term_by( 'slug', $slug, 'product_cat' );
+	if ( ! $term || is_wp_error( $term ) ) {
+		return null;
+	}
+	$ids = get_posts( array(
+		'post_type'   => 'product',
+		'post_status' => 'publish',
+		'numberposts' => 100,
+		'fields'      => 'ids',
+		'lang'        => '',
+		'tax_query'   => array(
+			array( 'taxonomy' => 'product_cat', 'field' => 'term_id', 'terms' => (int) $term->term_id ),
+		),
+	) );
+	// Reihenfolge wie auf den heutigen Laenderseiten: Hoodie, Sweater, Shirt.
+	$reihenfolge = array( 'hoodie' => 0, 'sweater' => 1, 'shirt' => 2 );
+	$produkte    = array();
+	foreach ( $ids as $id ) {
+		$p = wc_get_product( $id );
+		if ( ! $p || ! $p->is_type( 'variable' ) || 'hidden' === $p->get_catalog_visibility() ) {
+			continue;
+		}
+		$chf       = array();
+		$eur       = array();
+		$eur_fehlt = false;
+		$farben    = array();
+		foreach ( $p->get_children() as $vid ) {
+			if ( 'publish' !== get_post_status( $vid ) ) {
+				continue;
+			}
+			$chf[] = (float) get_post_meta( $vid, '_regular_price', true );
+			$meta  = get_post_meta( $vid, '_regular_price_wmcp', true );
+			if ( is_string( $meta ) ) {
+				$meta = json_decode( $meta, true );
+			}
+			if ( is_array( $meta ) && isset( $meta['EUR'] ) && is_numeric( $meta['EUR'] ) && (float) $meta['EUR'] > 0 ) {
+				$eur[] = (float) $meta['EUR'];
+			} else {
+				$eur_fehlt = true;
+			}
+			$farben[ (string) get_post_meta( $vid, 'attribute_colour', true ) ] = true;
+		}
+		if ( ! $chf ) {
+			continue;
+		}
+		$platz = 9;
+		foreach ( $reihenfolge as $wort => $nr ) {
+			if ( false !== strpos( $p->get_slug(), $wort ) ) {
+				$platz = $nr;
+				break;
+			}
+		}
+		$eur_ok     = ( ! $eur_fehlt && count( $eur ) > 0 );
+		$produkte[] = array(
+			'slug'        => $p->get_slug(),
+			'name'        => $p->get_name(),
+			'chf'         => min( $chf ),
+			'eur'         => $eur_ok ? min( $eur ) : null,
+			'einheitlich' => ( min( $chf ) === max( $chf ) && $eur_ok && min( $eur ) === max( $eur ) ),
+			'farben'      => count( $farben ),
+			'bild'        => onefam_hl_bild( $p->get_image_id() ),
+			'platz'       => $platz,
+		);
+	}
+	usort( $produkte, function ( $a, $b ) {
+		return $a['platz'] <=> $b['platz'];
+	} );
+
+	$text = null;
+	if ( function_exists( 'onefam_kat_key' ) && function_exists( 'onefam_kat_texte' ) ) {
+		$key  = onefam_kat_key( $slug );
+		$alle = onefam_kat_texte();
+		if ( '' !== $key && isset( $alle[ $lang ][ $key ] ) ) {
+			$text = (string) $alle[ $lang ][ $key ];
+		}
+	}
+
+	return array(
+		'slug'     => $term->slug,
+		'name'     => function_exists( 'onefam_produktname' ) ? rtrim( onefam_produktname( $term->name . ' ' ) ) : $term->name,
+		'text'     => $text,
+		'produkte' => $produkte,
+		'sprache'  => $lang,
+		'stand'    => gmdate( 'c' ),
 	);
 }
 

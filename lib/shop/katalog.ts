@@ -1,4 +1,5 @@
-import type { Farbe, Produkt, Variante } from './typen';
+import { KACHELBILD } from './kachelbilder';
+import type { Farbe, Kategorie, Produkt, Variante } from './typen';
 import type { Locale } from '@/i18n/routing';
 
 // lib/shop/katalog.ts — NUR serverseitig benutzen.
@@ -159,6 +160,54 @@ async function holeUebersicht(): Promise<KatalogUebersicht> {
 /** Alle öffentlichen Produkte (am 20.11.2026: 18) — für die Liste der vorzubauenden Seiten. */
 export async function holeProduktSlugs(): Promise<string[]> {
   return (await holeUebersicht()).produkte.map((p) => p.slug);
+}
+
+/** Alle Kategorien mit mindestens einem öffentlichen Produkt (am 20.11.2026: vier Länder, zwei Logo-Linien). */
+export async function holeKategorieSlugs(): Promise<string[]> {
+  const kategorien = (await holeUebersicht()).produkte.map((p) => p.kategorie);
+  return [...new Set(kategorien.filter((k): k is string => !!k))];
+}
+
+type KategorieAntwort = {
+  slug: string;
+  name: string;
+  text: string | null;
+  produkte: {
+    slug: string;
+    name: string;
+    chf: number;
+    eur: number | null;
+    einheitlich: boolean;
+    bild: KatalogBild | null;
+  }[];
+};
+
+/**
+ * Eine Länderseite oder Kollektion: Name, Kategorietext, Produkte mit Preis.
+ * Die Sprache geht wie bei holeProdukt als Cookie mit.
+ */
+export async function holeKategorie(slug: string, locale: Locale): Promise<Kategorie | null> {
+  if (!/^[a-z0-9-]+$/.test(slug)) return null;
+  const antwort = await fetch(`${SHOP}/wp-json/onefam/v1/katalog/kategorie/${slug}?lang=${locale}`, {
+    headers: { Cookie: `ofl=${locale}` },
+    next: { revalidate: 300 },
+  });
+  if (antwort.status === 404) return null;
+  if (!antwort.ok) throw new Error(`Kategorie ${slug}: ${antwort.status}`);
+  const k = (await antwort.json()) as KategorieAntwort;
+  return {
+    slug: k.slug,
+    name: k.name,
+    text: k.text,
+    produkte: k.produkte.map((p) => ({
+      slug: p.slug,
+      name: p.name,
+      chf: p.chf,
+      eur: p.eur,
+      einheitlich: p.einheitlich,
+      bild: KACHELBILD[p.slug] ? `${SHOP}${KACHELBILD[p.slug]}` : (p.bild?.gross ?? ''),
+    })),
+  };
 }
 
 /** Lieferländer des Shops (am 20.11.2026: 21 Länder). */

@@ -63,6 +63,28 @@ export type Produkt = {
   startFarbe: string;
 };
 
+/** Ein Produkt als Kachel auf einer Länder- oder Kollektionsseite. */
+export type KachelProdukt = {
+  slug: string;
+  name: string;
+  chf: number;
+  /** EUR-Festpreis; null, wenn er auf einer Variante fehlt — dann wird in EUR kein Preis gezeigt. */
+  eur: number | null;
+  /** false, wenn die Varianten verschieden viel kosten — dann steht "ab" vor dem Preis. */
+  einheitlich: boolean;
+  bild: string;
+};
+
+/** Eine Länderseite (Albanien …) oder Kollektion (Logo-Linien). */
+export type Kategorie = {
+  slug: string;
+  /** Name aus WooCommerce in der Sprache der Seite (Shop-Snippet 57). */
+  name: string;
+  /** Kategorietext aus Shop-Snippet 70, in der Sprache der Seite. */
+  text: string | null;
+  produkte: KachelProdukt[];
+};
+
 /** Der Warenkorb, so wie onefam.ch ihn anzeigt. Beträge in Rappen bzw. Cent. */
 export type Warenkorb = {
   waehrung: Waehrung | string;

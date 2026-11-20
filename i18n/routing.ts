@@ -164,6 +164,15 @@ export function produktPfad(locale: Locale, slug: string): string {
   return locale === DEFAULT_LOCALE ? `/produkt/${slug}` : `/${locale}/produkt/${slug}`;
 }
 
+/**
+ * Länderseiten und Kollektionen liegen direkt unter der Sprache — /de/albania,
+ * /logo-black — genau wie heute im Shop. So lassen sich die alten Shop-Adressen
+ * später eins zu eins umleiten.
+ */
+export function kategoriePfad(locale: Locale, slug: string): string {
+  return locale === DEFAULT_LOCALE ? `/${slug}` : `/${locale}/${slug}`;
+}
+
 export function warenkorbPfad(locale: Locale): string {
   return locale === DEFAULT_LOCALE ? '/warenkorb' : `/${locale}/warenkorb`;
 }

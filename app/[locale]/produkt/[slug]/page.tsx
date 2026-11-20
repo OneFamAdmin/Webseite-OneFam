@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import Nav from '@/components/Nav';
 import MaxWidth from '@/components/MaxWidth';
 import SiteFooter from '@/components/SiteFooter';
 import ProduktAnsicht from '@/components/shop/ProduktAnsicht';
 import { holeProdukt, holeProduktSlugs } from '@/lib/shop/katalog';
-import { LOCALES, isLocale, warenkorbPfad } from '@/i18n/routing';
+import { LOCALES, isLocale, kategoriePfad, warenkorbPfad } from '@/i18n/routing';
 
 // Produktseite auf onefam.ch — Probeaufbau vom 20.11.2026, nur lokal.
 //
@@ -52,12 +52,24 @@ export default async function ProduktSeite({ params }: Props) {
   const produkt = await holeProdukt(slug, locale);
   if (!produkt) notFound();
 
+  // Die Zeile über dem Produktnamen führt zur Länderseite und heisst wie sie
+  // ("Schwarzes Logo", nicht der WooCommerce-Name "Logo Black").
+  const tKat = await getTranslations({ locale, namespace: 'shop_kategorien' });
+  const katSlug = produkt.kategorie?.slug;
+  const kategorieName =
+    katSlug && tKat.has(`${katSlug}.name`) ? tKat(`${katSlug}.name`) : (produkt.kategorie?.name ?? null);
+
   return (
     <div className="flex min-h-screen flex-col bg-bg pt-14 md:pt-16">
       <Nav />
       <main className="flex-1 py-10 md:py-16">
         <MaxWidth>
-          <ProduktAnsicht produkt={produkt} warenkorbPfad={warenkorbPfad(locale)} kategoriePfad={null} />
+          <ProduktAnsicht
+            produkt={produkt}
+            warenkorbPfad={warenkorbPfad(locale)}
+            kategoriePfad={katSlug ? kategoriePfad(locale, katSlug) : null}
+            kategorieName={kategorieName}
+          />
         </MaxWidth>
       </main>
       <SiteFooter />
