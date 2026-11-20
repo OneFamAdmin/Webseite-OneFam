@@ -47,6 +47,12 @@ alle sechs Linien in vier Sprachen, nur mit vorhandenen Texten; lokal, nicht gep
 übernommen ist und was mit welchem Grund nicht, steht im Plan („Länderseite nach dem Entwurf“)
 und im Kopf von `app/[locale]/[kategorie]/page.tsx`.
 
+**21.11.2026 — „Nach Land shoppen“ und Navigation:** Übersicht mit Suche, den kaufbaren Ländern
+und Linien und der Wunschwand (253 Länder, Warteliste weiter über Snippet 18) gebaut, in vier
+Sprachen geprüft. „Shop“ in der Navigation führt nur mit `NEXT_PUBLIC_SHOP_AUF_ONEFAM=1` auf
+onefam.ch (lokal gesetzt); live bleibt es bei shop.onefam.ch, bis die Kasse steht. Ein echter
+Wartelisten-Eintrag ist nicht getestet — das macht Labi. Einzelheiten im Plan.
+
 ## 🧭 20.11.2026: Richtung gewechselt — der Shop kommt in die Landing Page
 
 Labi: „geht es nicht, dass der Shop in die Landing Page kommt?" → „ja plane so". onefam.ch

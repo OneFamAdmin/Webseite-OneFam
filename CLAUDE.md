@@ -202,6 +202,9 @@ Zwei Fallen:
 `next-intl`, Sprachen `en` (Standard, **ohne Präfix**) · `de` · `fr` · `es`. Die
 Konfiguration steht vollständig in `i18n/routing.ts` — auch die Helfer `homePath`,
 `joinPath`, `legalPath`, `shopUrl`; die benutzen statt Adressen zu tippen.
+Für Links auf „den Shop“ gilt seit 21.11.2026 `shopEinstieg(locale)`: Er führt auf
+shop.onefam.ch, solange `NEXT_PUBLIC_SHOP_AUF_ONEFAM` nicht `1` ist, sonst auf die
+Übersicht `/shop-by-country` auf onefam.ch (Shop-Aufbau: `docs/plan-zusammenfuehrung-onefam.md`).
 
 Es gibt **kein `app/page.tsx`**. Die präfixlose englische Seite kommt aus
 `app/[locale]/page.tsx` über die interne Umschreibung `/` → `/en`.

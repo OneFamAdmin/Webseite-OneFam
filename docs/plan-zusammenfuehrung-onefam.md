@@ -172,6 +172,40 @@ sie wirklich verkaufspsychologisch Sinn macht“; Kaufknopf „wie im Entwurf“
   Seiten erneuern sich erst beim ersten Aufruf. Nach einer Änderung am Endpunkt deshalb die
   Seiten zweimal abrufen, bevor man prüft.
 
+**„Nach Land shoppen“ und Navigation (21.11.2026).** Labi: „mach weiter mit shop by country und
+der navigation“.
+- **Seite** `/[locale]/shop-by-country` (Adresse wie im Shop): Suche → „Jetzt verfügbar“ (vier
+  Länder als Karten mit Produktbild und „ab“-Preis) → „Signature — das Zeichen selbst“ (zwei
+  Logo-Linien, dazu „Logo White“ und „Logo Pink“ als „Bald verfügbar“) → „Alle Länder“
+  (Wunschwand, eingeklappt 24, Knopf „Alle 249 Länder anzeigen“).
+- **Was kaufbar ist, entscheidet der Katalog** (Kategorie mit Produkten), nicht mehr ein Schalter
+  in der Länderliste. Ein neues Land wandert von selbst nach oben.
+- **Länderliste** `lib/shop/laender.ts`: 253 Länder, Namen de/fr/es aus Snippet 42, Artikelformen
+  („Ich will die Schweiz“) aus der Tabelle LA — maschinell übernommen, kein Land ohne Namen.
+  Alle 253 Kachelbilder mit 200 gemessen (176 × 176, 6–10 KB).
+- **Texte** der Seite und des Fensters aus den Tabellen des Router-Snippets (OF_I18N, WTXT, KT,
+  MT, LT, WM) nach `messages/*`, `shop_laender` — nichts neu geschrieben ausser „Schliessen“.
+- **Warteliste bleibt Snippet 18 und wird vom Browser direkt angesprochen**, nicht über den
+  Server von onefam.ch: Sie bremst je IP (8 je Stunde), über Vercel kämen alle von derselben
+  Adresse. Gemessen: Vorabfrage (CORS) von onefam.ch 200, Zähler antwortet, ungültige Adresse →
+  400 `invalid_email`, auch aus dem echten Browser. **Ein echter Eintrag wurde nicht getestet**
+  (er schreibt in die Liste und verschickt eine Mail) — das macht Labi mit der eigenen Adresse.
+  Die Bestätigungs- und Abmeldelinks der Mail führen weiter auf shop.onefam.ch.
+- **Suche** wie im Shop: trifft den übersetzten und den englischen Namen, ohne Akzente
+  („turkei“) und mit ausgeschriebenen Umlauten („tuerkei“) — im Browser getestet.
+- **Navigation hinter einem Schalter:** `NEXT_PUBLIC_SHOP_AUF_ONEFAM=1` (lokal in `.env.local`).
+  Mit Schalter führen die fünf „Shop“-Links der Startseite auf `/shop-by-country`, ohne ihn
+  weiter auf shop.onefam.ch — beides gebaut und gemessen (5/0 und 0/5). Grund: Ohne Kasse darf
+  die Live-Navigation niemanden in einen Shop schicken, in dem man nicht bezahlen kann. Zum
+  Livegang trägt Labi die Variable in Vercel ein (`docs/deploy-vercel.md`).
+- **Geprüft:** vier Sprachen je elf Punkte, 0 Abweichungen; Handy 412 px ohne Überstand;
+  Fenster im Browser geöffnet („Ich will die Türkei“).
+- **Anders als im Shop, bewusst:** kaufbare Länder zuerst und als grosse Karten; ein Suchfeld
+  statt zwei; kein „Mitentscheiden“-Schildchen auf jeder Kachel; kein Zähl-Signal an Snippet 101;
+  kein Facebook-Teilen-Knopf (WhatsApp, Teilen, Link kopieren bleiben).
+- **Noch offen:** Kasse (Plan Schritt 3); Seiten „Über uns“ und „Kontakt“ des Shops; die
+  Rechtsseiten des Shops (Versand, Rückgabe) — die Links dorthin zeigen vorerst auf den Shop.
+
 ### 1. Katalog auf onefam.ch
 Alle 18 öffentlichen Produktseiten, Länderseiten (Albanien, Afghanistan, Andorra, Argentinien),
 Kollektionen (Logo-Linien), „Shop by country" mit der Länder-Warteliste (Snippet 18 bleibt,
