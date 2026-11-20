@@ -300,6 +300,34 @@
     "zur_kasse": "Checkout",
     "probe_hinweis": "Prototype: checkout on onefam.ch is coming. No payment is taken here yet.",
     "fehler": "That didn't work. Please try again.",
-    "bild": "Image {n} of {gesamt}"
+    "bild": "Image {n} of {gesamt}",
+    "start": "Home",
+    "ab_preis": "from {preis}"
+  },
+  "shop_kategorien": {
+    "albania": {
+      "name": "Albania",
+      "intro": "The double eagle sits inside the smile. For everyone who never has to explain besa."
+    },
+    "afghanistan": {
+      "name": "Afghanistan",
+      "intro": "A smile in black and white, the flag behind it. For everyone who treats a guest as a gift."
+    },
+    "andorra": {
+      "name": "Andorra",
+      "intro": "Blue, yellow and red in one face. For everyone from the mountains between two countries."
+    },
+    "argentina": {
+      "name": "Argentina",
+      "intro": "The sun of May, exactly where the flag puts it. For everyone who passes the mate around."
+    },
+    "logo-black": {
+      "name": "Black Logo",
+      "intro": "The quiet version. For everyone who does not need to spell it out."
+    },
+    "onefam-logo": {
+      "name": "OneFam Logo",
+      "intro": "Every colour in one face. The beginning OneFam grew out of."
+    }
   }
 }
