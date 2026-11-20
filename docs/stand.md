@@ -1,4 +1,4 @@
-# Stand — 20.11.2026
+# Stand — 21.11.2026
 
 ## 🧪 20.11.2026: Probeaufbau Produktseite und Warenkorb auf onefam.ch (nur lokal)
 
@@ -39,7 +39,13 @@ zwei Logo-Linien in vier Sprachen, lokal, 24 Seiten geprüft. Einzelheiten im Pl
 und Ton passen zur Hauptseite; fünf Abweichungen von den Designregeln (dritte Schrift DM Sans,
 dekorative Farbschimmer, Markenverlauf auf jedem Kaufknopf, mitlaufende Kaufleiste, schwere
 Schatten und Creme-Bildbühne). Ausführlich nur lokal in
-`docs/privat/design-vorschlag-albanien-one-page-20112026.md`. Entscheid von Labi steht aus.
+`docs/privat/design-vorschlag-albanien-one-page-20112026.md`.
+
+**21.11.2026 — Entscheid und Umbau:** Labi will die Länderseite nach dem Entwurf, soweit sie zur
+Landing Page passt und beim Verkaufen hilft, und den Kaufknopf mit Markenverlauf. Umgebaut für
+alle sechs Linien in vier Sprachen, nur mit vorhandenen Texten; lokal, nicht gepusht. Was
+übernommen ist und was mit welchem Grund nicht, steht im Plan („Länderseite nach dem Entwurf“)
+und im Kopf von `app/[locale]/[kategorie]/page.tsx`.
 
 ## 🧭 20.11.2026: Richtung gewechselt — der Shop kommt in die Landing Page
 

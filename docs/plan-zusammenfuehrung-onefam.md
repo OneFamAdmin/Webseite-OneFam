@@ -142,6 +142,36 @@ Repo). Die Produktseite verlinkt jetzt auf ihre Länderseite.
 **Noch nicht gebaut:** Übersicht „Shop by Country“ mit Länder-Warteliste, Shop-Einträge in der
 Navigation, Kasse.
 
+**Länderseite nach dem Entwurf „Premium One-Page“ umgebaut (21.11.2026).** Labi: „bau die
+Länderseite nach dem Entwurf um, aber nur wenn sie zur Landing Page und dem Edlen passt und ob
+sie wirklich verkaufspsychologisch Sinn macht“; Kaufknopf „wie im Entwurf“ (Markenverlauf).
+- **Aufbau:** Einstieg (Land als goldene Zeile, „Für alle, …“ gross im Ton des Hero-Claims,
+  Motivsatz, Verlaufsknopf zu den Teilen, Preis direkt daneben) → „Drei Teile. Ein Lachen.“ mit
+  Kacheln, darunter Sachangaben und aufklappbar Versand/Rückgabe → Erzählung → „Das Zeichen.“ /
+  „Für wen.“ → Schlusszeile mit Verlaufsknopf.
+- **Kein Wort neu geschrieben ausser sieben kurzen Bedientexten** (vier Sprachen). Erzählung,
+  „Das Zeichen“, „Für wen“ und Schlusszeile kommen aus Snippet 68 (dort für alle 14 Motive und
+  vier Sprachen gleich aufgebaut: letzter Absatz „Für wen“, vorletzter „Das Zeichen“), Versand
+  und Rückgabe aus Snippet 69, Sachangaben aus Snippet 70. Snippet 114 liefert sie über die
+  Kategorie-Abfrage (16 544 Zeichen, Prüfsumme gleich wie im Repo).
+- **Nicht übernommen, mit Grund:** Farbschimmer, blasse Riesen-Gesichter, schwere Schatten
+  (Designregel); DM Sans (dritte Schrift); mitlaufende Kaufleiste (drängt, verdeckt Inhalt);
+  Laufzeile mit Küstenorten, Lookbook, „Was drin steckt“ (keine Texte/Bilder für sechs Linien in
+  vier Sprachen — nichts erfunden); Kundenstimme (es gibt keine echte); Zahlarten (an der Kasse
+  nicht geprüft); Kaufbereich auf der Länderseite (wäre bei zehn Farben die Produktseite ein
+  zweites Mal — sinnvoll erst für die Vorbestellung mit einer Farbe).
+- **Kopfzeile auf Shop-Seiten** (`<Nav shop />`): Warenkorb-Symbol mit Ziffer (aus dem
+  Gedächtnis des Browsers, keine Anfrage an den Shop), „Join the Fam“ dort als Umrissknopf,
+  damit der Verlauf die eine Hauptaktion bleibt. Startseite unverändert.
+- **Behoben:** Links in den Shop-Texten (`/shipping-policy/`, `/refund-policy/`) liefen auf
+  onefam.ch ins Leere, auch auf den Produktseiten — sie zeigen jetzt auf den Shop, mit Sprache.
+- **Geprüft:** 24 Seiten, je 15 Punkte, 0 Abweichungen (h1, alle Absätze, Preise 75/65/40 und
+  69,99/59,99/34,95, genau zwei Verlaufsknöpfe, keine losen Links, kein Verlosungswort);
+  Handy 412 px ohne Überstand; Kaufknopf und Zähler im Browser getestet, Test-Warenkorb geleert.
+- **Gelernt:** Der Bau nimmt Shop-Antworten aus dem Zwischenspeicher des vorigen Baus; die
+  Seiten erneuern sich erst beim ersten Aufruf. Nach einer Änderung am Endpunkt deshalb die
+  Seiten zweimal abrufen, bevor man prüft.
+
 ### 1. Katalog auf onefam.ch
 Alle 18 öffentlichen Produktseiten, Länderseiten (Albanien, Afghanistan, Andorra, Argentinien),
 Kollektionen (Logo-Linien), „Shop by country" mit der Länder-Warteliste (Snippet 18 bleibt,
