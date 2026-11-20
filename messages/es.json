@@ -272,5 +272,30 @@
     "abmelden_ungueltig": "Este enlace de baja no es válido, o ya te has dado de baja.",
     "abgemeldet_titel": "Te has dado de baja.",
     "abgemeldet_text": "Hemos borrado tu dirección y no volveremos a escribirte."
+  },
+  "shop_seiten": {
+    "shop": "Tienda",
+    "farbe": "Color",
+    "groesse": "Talla",
+    "groesse_waehlen": "Elige primero una talla.",
+    "in_warenkorb": "Añadir al carrito",
+    "wird_gelegt": "Añadiendo …",
+    "hinzugefuegt": "En tu carrito.",
+    "zum_warenkorb": "Ver carrito",
+    "nicht_lieferbar": "No disponible",
+    "preis_fehlt": "Falta el precio en esta moneda — escríbenos a info@onefam.ch.",
+    "warenkorb": "Carrito",
+    "leer": "Tu carrito está vacío.",
+    "weiter": "Seguir mirando",
+    "menge": "Cantidad",
+    "entfernen": "Quitar",
+    "versand_nach": "Envío a",
+    "zwischensumme": "Subtotal",
+    "versand": "Envío",
+    "total": "Total",
+    "zur_kasse": "Ir a pagar",
+    "probe_hinweis": "Prototipo: la caja en onefam.ch está por llegar. Aquí todavía no se cobra nada.",
+    "fehler": "No ha funcionado. Inténtalo de nuevo.",
+    "bild": "Imagen {n} de {gesamt}"
   }
 }
