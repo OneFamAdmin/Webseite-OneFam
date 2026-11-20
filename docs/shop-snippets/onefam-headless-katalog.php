@@ -1,33 +1,51 @@
 <?php
 /*
- * Shop-Snippet "OneFam Headless: Katalog und Waehrung fuer onefam.ch"
+ * Shop-Snippet 114 "OneFam Headless: Katalog und Waehrung fuer onefam.ch"
  * Angelegt am 20.11.2026 (Probeaufbau, Plan: docs/plan-zusammenfuehrung-onefam.md).
  * Diese Datei ist die Quelle; im Shop steht derselbe Code ohne die erste Zeile.
  *
  * Zwei Aufgaben, beide nur fuer onefam.ch, beide aendern an den heutigen
  * Shop-Seiten nichts:
  *
- * 1) GET /wp-json/onefam/v1/katalog/<slug>?lang=de
+ * 1) GET /wp-json/onefam/v1/katalog/<slug>?lang=de   (mit Cookie ofl=de)
  *    Oeffentlich und nur lesend. Liefert ein veroeffentlichtes Produkt mit allen
  *    Varianten, CHF-Preis UND EUR-Festpreis (CURCY-Meta _regular_price_wmcp),
- *    Lagerstatus und Bildern in den Groessen, die WordPress schon erzeugt hat.
- *    Damit braucht onefam.ch keinen WooCommerce-Schluessel (der liegt bewusst
- *    nicht in Vercel). Fehlt ein EUR-Festpreis, steht null — es wird nie
- *    umgerechnet (82,50 ist ein Fehlerbild, kein Preis).
+ *    Lagerstatus, Bildern in den Groessen, die WordPress schon erzeugt hat, den
+ *    Texten der Produktseite und der Lieferzeit (Texte aus Snippet 102,
+ *    onefam_lieferzeit_texte()).
+ *    GET /wp-json/onefam/v1/katalog liefert die Liste der oeffentlichen Produkte
+ *    und die Lieferlaender.
+ *    Damit braucht onefam.ch keinen WooCommerce-Schluessel. Fehlt ein
+ *    EUR-Festpreis, steht null — es wird nie umgerechnet.
+ *
+ *    SPRACHE: Im Shop bestimmt of_visitor_lang() (Snippet 28) die Sprache, und
+ *    zwar EINMAL je Anfrage: Adresspraefix, dann Cookie ofl, dann Browsersprache,
+ *    dann IP-Land. Daran haengen die WordPress-Sprache (Filter determine_locale),
+ *    die Produktnamen (Snippet 57), der Motivtext (Snippet 68 — gibt bei
+ *    abweichender WordPress-Sprache absichtlich NICHTS aus) und die Kacheln
+ *    (Snippet 69). Eine REST-Adresse hat kein Praefix; ohne Cookie fiel am
+ *    20.11.2026 alles auf Deutsch zurueck (Schweizer IP), und EN/FR/ES bekamen
+ *    keinen Motivtext. Deshalb schickt onefam.ch das Cookie ofl=<sprache> mit.
+ *    Passt es nicht zu ?lang, bricht der Endpunkt mit 409 ab, statt falsche Texte
+ *    zu liefern und zwischenzuspeichern.
  *
  * 2) Kopfzeile X-OneFam-Waehrung: CHF|EUR bei Anfragen an die Store API.
  *    Gemessen am 20.11.2026: CURCY waehlt in der Store API die Waehrung allein
- *    nach der IP-Adresse; Cookie und Parameter wirken nicht. onefam.ch fragt vom
- *    Vercel-Server aus — ohne diese Kopfzeile entschiede also das Rechenzentrum.
- *    onefam.ch schickt die Entscheidung nach derselben Regel wie Snippet 25
- *    (Zeitzone des Geraets, dann IP-Land, dann Browsersprache).
- *    Die Kopfzeile kann jeder setzen. Das ist nicht mehr als heute: auch das
- *    Cookie of_geo, nach dem Snippet 25 entscheidet, setzt der Browser selbst.
+ *    nach der IP-Adresse. onefam.ch fragt vom Vercel-Server aus — ohne diese
+ *    Kopfzeile entschiede das Rechenzentrum. onefam.ch schickt die Entscheidung
+ *    nach derselben Regel wie Snippet 25. Die Kopfzeile kann jeder setzen; das
+ *    ist nicht mehr als heute, auch das Cookie of_geo setzt der Browser selbst.
  *
- * Kein JavaScript in diesem Snippet (CLAUDE.md, Regel 9).
+ * Kein JavaScript in diesem Snippet.
  */
 
 add_action( 'rest_api_init', function () {
+	// Uebersicht: welche Produkte es gibt und wohin geliefert wird. Sprachunabhaengig.
+	register_rest_route( 'onefam/v1', '/katalog', array(
+		'methods'             => 'GET',
+		'permission_callback' => '__return_true',
+		'callback'            => 'onefam_hl_uebersicht_antwort',
+	) );
 	register_rest_route( 'onefam/v1', '/katalog/(?P<slug>[a-z0-9-]+)', array(
 		'methods'             => 'GET',
 		'permission_callback' => '__return_true',
@@ -58,12 +76,56 @@ function onefam_hl_bild( $id ) {
 	);
 }
 
+function onefam_hl_uebersicht_antwort() {
+	$fertig = get_transient( 'onefam_hl_v3_uebersicht' );
+	if ( false === $fertig ) {
+		$ids = get_posts( array(
+			'post_type'   => 'product',
+			'post_status' => 'publish',
+			'numberposts' => 500,
+			'fields'      => 'ids',
+			'orderby'     => 'name',
+			'order'       => 'ASC',
+			'lang'        => '',
+		) );
+		$produkte = array();
+		foreach ( $ids as $id ) {
+			$p = wc_get_product( $id );
+			if ( ! $p || ! $p->is_type( 'variable' ) || 'hidden' === $p->get_catalog_visibility() ) {
+				continue;
+			}
+			$kat        = wp_get_post_terms( $id, 'product_cat', array( 'fields' => 'slugs' ) );
+			$produkte[] = array(
+				'slug'      => $p->get_slug(),
+				'kategorie' => ( $kat && ! is_wp_error( $kat ) ) ? $kat[0] : null,
+			);
+		}
+		$fertig = array(
+			'produkte' => $produkte,
+			'laender'  => array_keys( WC()->countries->get_shipping_countries() ),
+			'stand'    => gmdate( 'c' ),
+		);
+		set_transient( 'onefam_hl_v3_uebersicht', $fertig, 10 * MINUTE_IN_SECONDS );
+	}
+	$antwort = rest_ensure_response( $fertig );
+	$antwort->header( 'Cache-Control', 'public, max-age=300' );
+	return $antwort;
+}
+
 function onefam_hl_produkt_antwort( WP_REST_Request $anfrage ) {
 	$slug = $anfrage['slug'];
 	$lang = in_array( $anfrage['lang'], array( 'en', 'de', 'fr', 'es' ), true ) ? $anfrage['lang'] : 'en';
 
-	// "v2": neue Fassung der Texte, alte Zwischenspeicher-Eintraege nicht weiterverwenden.
-	$schluessel = 'onefam_hl_v2_' . md5( $slug . '|' . $lang );
+	$besucher = function_exists( 'of_visitor_lang' ) ? of_visitor_lang() : '';
+	if ( $besucher !== $lang ) {
+		return new WP_Error(
+			'onefam_sprache',
+			'Sprache passt nicht: Cookie ofl=' . $lang . ' mitschicken.',
+			array( 'status' => 409 )
+		);
+	}
+
+	$schluessel = 'onefam_hl_v4_' . md5( $slug . '|' . $lang );
 	$fertig     = get_transient( $schluessel );
 	if ( false === $fertig ) {
 		$fertig = onefam_hl_produkt_daten( $slug, $lang );
@@ -131,62 +193,50 @@ function onefam_hl_produkt_daten( $slug, $lang ) {
 	$kategorie = null;
 	$terms     = get_the_terms( $produkt->get_id(), 'product_cat' );
 	if ( $terms && ! is_wp_error( $terms ) ) {
-		$kategorie = array( 'slug' => $terms[0]->slug, 'name' => $terms[0]->name );
+		$name      = function_exists( 'onefam_produktname' ) ? rtrim( onefam_produktname( $terms[0]->name . ' ' ) ) : $terms[0]->name;
+		$kategorie = array( 'slug' => $terms[0]->slug, 'name' => $name );
 	}
 
-	// Texte: die vorhandenen Funktionen der Snippets 68 (Produkttexte je Motiv)
-	// und 70 (Kategorietexte) — nicht nachgebaut, damit es nur EINE Quelle gibt.
-	// Welche Sprache sie liefern, wird nach dem Anlegen von aussen nachgemessen.
-	if ( function_exists( 'PLL' ) && PLL() && isset( PLL()->model ) ) {
-		$sprache = PLL()->model->get_language( $lang );
-		if ( $sprache ) {
-			PLL()->curlang = $sprache;
-		}
-	}
-	// Gemessen am 20.11.2026: Polylang umzustellen reicht nicht, der Motivtext kam
-	// in allen vier Sprachen deutsch. Die Textfunktionen lesen die Sprache aus dem
-	// Umfeld einer Shop-Seite. Deshalb wird fuer die Dauer des Aufrufs genau dieses
-	// Umfeld hergestellt — Pfad wie /fr/produkt/<slug>/ und Sprach-Cookie ofl —
-	// und danach unveraendert zurueckgesetzt.
-	$alt_uri  = isset( $_SERVER['REQUEST_URI'] ) ? $_SERVER['REQUEST_URI'] : '';
-	$alt_ofl  = isset( $_COOKIE['ofl'] ) ? $_COOKIE['ofl'] : null;
-	$alt_post = isset( $GLOBALS['post'] ) ? $GLOBALS['post'] : null;
-	$_SERVER['REQUEST_URI'] = ( 'en' === $lang ? '' : '/' . $lang ) . '/produkt/' . $slug . '/';
-	$_COOKIE['ofl']         = $lang;
-	$GLOBALS['post']        = get_post( $produkt->get_id() );
-
-	$texte = array( 'motiv' => null, 'titel' => null, 'inhalt' => null );
+	// Texte ueber dieselben Filter wie auf der Produktseite des Shops — nicht
+	// nachgebaut, damit es nur EINE Quelle gibt. Snippet 68 liest den Beitrag
+	// ueber get_post(), deshalb wird er fuer die Dauer des Aufrufs gesetzt.
+	$alt_post        = isset( $GLOBALS['post'] ) ? $GLOBALS['post'] : null;
+	$GLOBALS['post'] = get_post( $produkt->get_id() );
+	$inhalt          = null;
 	try {
-		if ( function_exists( 'onefam_motiv_html' ) ) {
-			$texte['motiv'] = (string) onefam_motiv_html( $slug, $produkt->get_name() );
-		}
-		$texte['titel']  = (string) apply_filters( 'the_title', $produkt->get_name(), $produkt->get_id() );
-		$texte['inhalt'] = (string) apply_filters( 'the_content', $produkt->get_description() );
+		$inhalt = (string) apply_filters( 'the_content', $produkt->get_description() );
 	} catch ( Throwable $e ) {
-		$texte['fehler'] = $e->getMessage();
-	}
-
-	$_SERVER['REQUEST_URI'] = $alt_uri;
-	if ( null === $alt_ofl ) {
-		unset( $_COOKIE['ofl'] );
-	} else {
-		$_COOKIE['ofl'] = $alt_ofl;
+		$inhalt = null;
 	}
 	$GLOBALS['post'] = $alt_post;
 
+	// Snippet 71 entfernt auf der Shop-Seite den Rest der alten PodOS-Beschreibung
+	// vor dem Erzaehltext — aber nur, wenn is_product() gilt, hier also nicht.
+	// Dieselbe Regel ueber dieselbe Funktion.
+	if ( null !== $inhalt && function_exists( 'onefam_podos_rest_entfernen' ) ) {
+		$inhalt = onefam_podos_rest_entfernen( $inhalt );
+	}
+
+	$lieferzeit = null;
+	if ( function_exists( 'onefam_lieferzeit_texte' ) ) {
+		$alle       = onefam_lieferzeit_texte();
+		$lieferzeit = isset( $alle[ $lang ] ) ? $alle[ $lang ] : null;
+	}
+
 	return array(
-		'id'           => $produkt->get_id(),
-		'slug'         => $produkt->get_slug(),
-		'name'         => $produkt->get_name(),
-		'beschreibung' => $produkt->get_description(),
-		'kategorie'    => $kategorie,
-		'farben'       => array_values( array_unique( array_filter( wp_list_pluck( $varianten, 'farbe' ) ) ) ),
-		'groessen'     => array_values( array_unique( array_filter( wp_list_pluck( $varianten, 'groesse' ) ) ) ),
-		'bilder'       => array_values( $bilder ),
-		'varianten'    => $varianten,
-		'texte'        => $texte,
-		'sprache'      => $lang,
-		'stand'        => gmdate( 'c' ),
+		'id'         => $produkt->get_id(),
+		'slug'       => $produkt->get_slug(),
+		// get_name() laeuft durch Snippet 57: "Albanien Hoodie", "Albanie Hoodie" …
+		'name'       => $produkt->get_name(),
+		'kategorie'  => $kategorie,
+		'farben'     => array_values( array_unique( array_filter( wp_list_pluck( $varianten, 'farbe' ) ) ) ),
+		'groessen'   => array_values( array_unique( array_filter( wp_list_pluck( $varianten, 'groesse' ) ) ) ),
+		'bilder'     => array_values( $bilder ),
+		'varianten'  => $varianten,
+		'inhalt'     => $inhalt,
+		'lieferzeit' => $lieferzeit,
+		'sprache'    => $lang,
+		'stand'      => gmdate( 'c' ),
 	);
 }
 
@@ -209,6 +259,12 @@ add_filter( 'rest_pre_dispatch', function ( $ergebnis, $server, $anfrage ) {
 		if ( method_exists( $daten, 'set_current_currency' ) ) {
 			$daten->set_current_currency( $waehrung );
 		}
+	}
+	// Produktnamen im Warenkorb von onefam.ch: Die Store API nimmt get_title(),
+	// und daran haengt Snippet 57 nicht (nur an get_name()). Gemessen 20.11.2026:
+	// "Albania Hoodie" auch im deutschen Warenkorb. Nur fuer diese Anfragen.
+	if ( function_exists( 'onefam_produktname' ) ) {
+		add_filter( 'woocommerce_product_title', 'onefam_produktname', 999 );
 	}
 	return $ergebnis;
 }, 5, 3 );

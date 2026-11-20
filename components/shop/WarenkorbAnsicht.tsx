@@ -30,7 +30,9 @@ export default function WarenkorbAnsicht({ weiterPfad }: { weiterPfad: string })
     try {
       const antwort = await fetch('/api/shop/warenkorb', {
         method: koerper ? 'POST' : 'GET',
-        headers: koerper ? { 'Content-Type': 'application/json' } : undefined,
+        headers: koerper
+          ? { 'Content-Type': 'application/json', 'x-onefam-sprache': locale }
+          : { 'x-onefam-sprache': locale },
         body: koerper ? JSON.stringify(koerper) : undefined,
       });
       if (!antwort.ok) throw new Error(String(antwort.status));
@@ -41,7 +43,7 @@ export default function WarenkorbAnsicht({ weiterPfad }: { weiterPfad: string })
     } finally {
       setBeschaeftigt(false);
     }
-  }, []);
+  }, [locale]);
 
   useEffect(() => {
     if (waehrung) void senden();

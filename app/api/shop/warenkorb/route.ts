@@ -1,5 +1,6 @@
 import { type NextRequest, NextResponse } from 'next/server';
 import { COUNTRY_HEADER } from '@/i18n/geo';
+import { isLocale } from '@/i18n/routing';
 import { holeLieferlaender } from '@/lib/shop/katalog';
 import {
   WARENKORB_COOKIE,
@@ -27,6 +28,9 @@ import { GEO_COOKIE, waehrungFuer } from '@/lib/shop/waehrung';
 
 export const dynamic = 'force-dynamic';
 
+/** Kopfzeile, in der die Seite ihre Sprache mitschickt (components/shop). */
+const SPRACHE_KOPF = 'x-onefam-sprache';
+
 function absenderAus(request: NextRequest): Absender {
   const ip = (request.headers.get('x-forwarded-for') ?? '').split(',')[0].trim() || null;
   return {
@@ -38,6 +42,7 @@ function absenderAus(request: NextRequest): Absender {
     }),
     ip,
     sprache: request.headers.get('accept-language'),
+    seitenSprache: isLocale(request.headers.get(SPRACHE_KOPF)) ? request.headers.get(SPRACHE_KOPF) : null,
   };
 }
 

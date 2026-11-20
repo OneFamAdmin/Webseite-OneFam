@@ -38,6 +38,13 @@ export type Absender = {
   waehrung: string;
   ip: string | null;
   sprache: string | null;
+  /**
+   * Sprache der Seite, auf der der Besucher gerade ist. Geht als Cookie `ofl` an
+   * den Shop — danach richtet er Produktnamen und Merkmalsnamen (Snippets 28 und
+   * 57). Ohne sie hiess das Teil im deutschen Warenkorb "Albania Hoodie" statt
+   * "Albanien Hoodie" (gemessen 20.11.2026).
+   */
+  seitenSprache: string | null;
 };
 
 type StoreAntwort = { status: number; daten: unknown; token: string | null };
@@ -54,6 +61,7 @@ export async function store(
   if (absender.token) kopf['Cart-Token'] = absender.token;
   if (absender.ip) kopf['X-Forwarded-For'] = absender.ip;
   if (absender.sprache) kopf['Accept-Language'] = absender.sprache;
+  if (absender.seitenSprache) kopf['Cookie'] = `ofl=${absender.seitenSprache}`;
 
   const antwort = await fetch(`${STORE}${pfad}`, {
     method: koerper ? 'POST' : 'GET',

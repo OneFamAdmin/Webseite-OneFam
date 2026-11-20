@@ -5,7 +5,7 @@ import Nav from '@/components/Nav';
 import MaxWidth from '@/components/MaxWidth';
 import SiteFooter from '@/components/SiteFooter';
 import ProduktAnsicht from '@/components/shop/ProduktAnsicht';
-import { holeProdukt } from '@/lib/shop/katalog';
+import { holeProdukt, holeProduktSlugs } from '@/lib/shop/katalog';
 import { LOCALES, isLocale, warenkorbPfad } from '@/i18n/routing';
 
 // Produktseite auf onefam.ch — Probeaufbau vom 20.11.2026, nur lokal.
@@ -23,13 +23,15 @@ type Props = { params: Promise<{ locale: string; slug: string }> };
 // ohne dass jeder Aufruf WordPress lädt.
 export const revalidate = 300;
 
-// Welche Produktseiten beim Bauen vorbereitet werden. Ohne diese Liste markierte
-// der Bau die Seite als dynamisch (gemessen 20.11.2026) — dann rechnet Vercel sie
-// bei jedem Aufruf neu, statt sie aus dem Zwischenspeicher zu liefern.
-// Im Probeaufbau ein Produkt; später alle Slugs aus dem Katalog-Endpunkt.
-// Andere Slugs werden beim ersten Aufruf gebaut und danach ebenfalls gespeichert.
-export function generateStaticParams() {
-  return LOCALES.map((locale) => ({ locale, slug: 'albania-hoodie' }));
+// Welche Produktseiten beim Bauen vorbereitet werden: alle öffentlichen Produkte
+// aus dem Katalog-Endpunkt, je Sprache. Ohne diese Liste markierte der Bau die
+// Seite als dynamisch (gemessen 20.11.2026) — dann rechnet Vercel sie bei jedem
+// Aufruf neu, statt sie aus dem Zwischenspeicher zu liefern.
+// Ein Produkt, das später dazukommt, wird beim ersten Aufruf gebaut und danach
+// ebenfalls gespeichert.
+export async function generateStaticParams() {
+  const slugs = await holeProduktSlugs();
+  return LOCALES.flatMap((locale) => slugs.map((slug) => ({ locale, slug })));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

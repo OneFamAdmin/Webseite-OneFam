@@ -48,11 +48,13 @@ export type Produkt = {
   name: string;
   /**
    * Beschreibung samt Grössentabelle, Material und Versand — dasselbe HTML, das
-   * der Shop über den Filter the_content erzeugt (Snippets 68 und 69), in der
-   * Sprache der Seite. Stand 20.11.2026: Der Motivtext fehlt darin auf EN/FR/ES,
-   * siehe docs/plan-zusammenfuehrung-onefam.md.
+   * der Shop über den Filter the_content erzeugt (Snippets 61, 62, 68, 69, 71),
+   * in der Sprache der Seite. Am 20.11.2026 für alle 18 Produkte gegen die
+   * Shop-Seite verglichen: gleicher Text.
    */
   beschreibungHtml: string;
+  /** Lieferzeit-Zeile in der Sprache der Seite (Shop-Snippet 102). */
+  lieferzeit: string | null;
   kategorie: { slug: string; name: string } | null;
   farben: Farbe[];
   groessen: string[];

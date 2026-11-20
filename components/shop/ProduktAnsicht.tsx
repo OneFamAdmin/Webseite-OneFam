@@ -60,7 +60,7 @@ export default function ProduktAnsicht({
     try {
       const antwort = await fetch('/api/shop/warenkorb', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'x-onefam-sprache': locale },
         body: JSON.stringify({ aktion: 'hinzu', id: variante.id, menge: 1 }),
       });
       setZustand(antwort.ok ? 'drin' : 'fehler');
@@ -132,6 +132,7 @@ export default function ProduktAnsicht({
         {waehrung === 'EUR' && preisVariante && preisVariante.eur == null && (
           <p className="mt-2 font-body text-sm text-secondary">{t('preis_fehlt')}</p>
         )}
+        {produkt.lieferzeit && <p className="mt-3 font-body text-sm text-secondary">{produkt.lieferzeit}</p>}
 
         <div className="mt-8">
           <p className="font-body text-sm text-secondary">
