@@ -12,6 +12,8 @@ Punkte stehen in `docs/plan-zusammenfuehrung-onefam.md` unter „Stand Probeaufb
 Bei den Tests sind im Shop einige leere bzw. einzelne Gast-Warenkörbe entstanden; WooCommerce
 räumt sie nach 48 Stunden selbst ab. **Nichts gepusht.**
 
+**Labi hat den Probeaufbau angesehen (20.11.2026):** „fürs erste so ok, wir können sie vom Design ja im Anschluss noch anpassen“. Design-Feinschliff kommt nach dem Katalog (Plan Schritt 1).
+
 ## 🧭 20.11.2026: Richtung gewechselt — der Shop kommt in die Landing Page
 
 Labi: „geht es nicht, dass der Shop in die Landing Page kommt?" → „ja plane so". onefam.ch
