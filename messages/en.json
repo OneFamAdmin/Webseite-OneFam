@@ -342,5 +342,34 @@
       "motiv": "Every colour in one face.",
       "fuer": "The beginning OneFam grew out of."
     }
+  },
+  "shop_laender": {
+    "titel": "Shop by Country",
+    "intro": "Find the country that feels like home.",
+    "suche": "Search for your country…",
+    "jetzt": "Available now",
+    "signature_titel": "Signature — the mark itself",
+    "signature_text": "A mark, not a country. Those who wear it know why — those who recognise it belong.",
+    "alle": "All countries",
+    "alle_text": "You help decide which country comes next. Sign up for yours — the more of you, the sooner it comes.",
+    "mehr": "Show all {n} countries",
+    "kein_treffer": "No country matches your search yet.",
+    "mitentscheiden": "Have a say",
+    "bald": "Coming soon",
+    "email": "Email",
+    "dialog_intro": "Sign up and tell us you want {land}. The more of you, the sooner it comes — and you will hear it first.",
+    "ziel": "From {ziel} sign-ups, we plan the print run.",
+    "stand": "{n} of {ziel} — from {ziel}, we plan the print run.",
+    "knopf": "I want {land}",
+    "ok": "Almost there — check your inbox and confirm your sign-up with one click.",
+    "fehler": "That did not work. Please try again later.",
+    "teilen_titel": "Help make OneFam for {land} happen:",
+    "whatsapp": "Share on WhatsApp",
+    "kopieren": "Copy link",
+    "kopiert": "Copied",
+    "teilen": "Share",
+    "teilen_text": "I want a OneFam shirt for {land}. Sign up too – the more of us, the sooner it comes:",
+    "schliessen": "Close",
+    "bis_dahin": "In the meantime: the OneFam mark is there for everyone"
   }
 }
