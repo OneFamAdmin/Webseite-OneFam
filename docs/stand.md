@@ -31,6 +31,16 @@ Portugal liegt wegen des Shirt-King-Tarifs absichtlich in „Nordeuropa“.
 (4) Auftragsverarbeitungsverträge fehlen noch für zahls.ch, PodOS/Shirt-King und Vercel.
 (5) Ein PodOS-Abgleich vergibt neue Varianten-IDs — onefam.ch holt sie deshalb immer frisch.
 
+**Länderseiten gebaut (Labi: „bau die länderseiten für die heutigen produkte“):** vier Länder und
+zwei Logo-Linien in vier Sprachen, lokal, 24 Seiten geprüft. Einzelheiten im Plan.
+
+**Design-Vorschlag „OneFam – Premium One-Page: Albanien“** (Claude-Design, per Einladung vom
+13.11.2026 im Google-Postfach): gelesen, nichts geändert. Urteil: Farben, Überschriftenschrift
+und Ton passen zur Hauptseite; fünf Abweichungen von den Designregeln (dritte Schrift DM Sans,
+dekorative Farbschimmer, Markenverlauf auf jedem Kaufknopf, mitlaufende Kaufleiste, schwere
+Schatten und Creme-Bildbühne). Ausführlich nur lokal in
+`docs/privat/design-vorschlag-albanien-one-page-20112026.md`. Entscheid von Labi steht aus.
+
 ## 🧭 20.11.2026: Richtung gewechselt — der Shop kommt in die Landing Page
 
 Labi: „geht es nicht, dass der Shop in die Landing Page kommt?" → „ja plane so". onefam.ch

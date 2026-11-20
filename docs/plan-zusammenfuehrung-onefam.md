@@ -129,6 +129,19 @@ onefam.ch“ (Quelle: `docs/shop-snippets/onefam-headless-katalog.php`).
 **Beiläufig gefunden, nicht behoben:** Die deutsche Versandseite des Shops
 (`/de/shipping-policy/`) zeigt englischen Fliesstext.
 
+**Länderseiten und Kollektionen (20.11.2026, spät):** `/[locale]/[kategorie]` für die vier Länder
+und die zwei Logo-Linien, 24 Seiten, lokal gebaut und alle geprüft (0 Abweichungen): Name und
+Einleitungssatz wie im Router-Snippet (maschinell übernommen nach `messages/*`,
+`shop_kategorien`), drei Kacheln in der Reihenfolge Hoodie, Sweater, Shirt mit denselben Bildern
+wie heute (`lib/shop/kachelbilder.ts`), Preise CHF 75/65/40 und EUR 69,99/59,99/34,95, dazu der
+Kategorietext aus Snippet 70. Adressen wie im Shop (`/de/albania`, `/logo-black`), damit die
+alten Adressen später eins zu eins umgeleitet werden können. Unbekannte Adressen bleiben 404,
+ohne den Shop zu fragen. Snippet 114 dafür um
+`GET /onefam/v1/katalog/kategorie/<slug>` erweitert (15 046 Zeichen, Prüfsumme gleich wie im
+Repo). Die Produktseite verlinkt jetzt auf ihre Länderseite.
+**Noch nicht gebaut:** Übersicht „Shop by Country“ mit Länder-Warteliste, Shop-Einträge in der
+Navigation, Kasse.
+
 ### 1. Katalog auf onefam.ch
 Alle 18 öffentlichen Produktseiten, Länderseiten (Albanien, Afghanistan, Andorra, Argentinien),
 Kollektionen (Logo-Linien), „Shop by country" mit der Länder-Warteliste (Snippet 18 bleibt,
