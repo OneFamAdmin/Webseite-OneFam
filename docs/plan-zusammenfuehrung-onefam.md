@@ -1,9 +1,14 @@
 # Plan: Der Shop kommt in die Landing Page — onefam.ch als einzige Seite zum Stöbern
 
-**Entschieden von Labi am 20.11.2026** („ja plane so"): **onefam.ch (Next.js auf Vercel) bleibt
-die Hauptseite**, der Shop wird dort hineingebaut. WooCommerce läuft im Hintergrund weiter
-(„headless"): Produkte, Preise, Bestellungen, Zahlung (zahls.ch), PodOS. **Warenkorb und Kasse
-bleiben in WooCommerce.**
+**Entschieden von Labi am 20.11.2026** („ja plane so", präzisiert: „halt stop. onefam.ch soll ja
+die Hauptseite sein und der Shop muss nach onefam.ch, also auf die Domain"): **onefam.ch
+(Next.js auf Vercel) ist die einzige Seite, die Kunden sehen — auch Warenkorb und Kasse.**
+WooCommerce läuft nur noch unsichtbar im Hintergrund („headless"): Produkte, Preise,
+Bestellungen, Zahlung (zahls.ch), PodOS. Kein Kunde soll shop.onefam.ch mehr sehen.
+
+**Machbarkeit gemessen am 20.11.2026:** Die WooCommerce-Warenkorb-Schnittstelle (Store API,
+`/wp-json/wc/store/v1/cart`) antwortet und führt **`zahls` als Zahlart** — zahls.ch unterstützt
+also die moderne Kasse, über die onefam.ch bezahlen lassen kann.
 
 > **Überholt:** Die erste Fassung dieses Plans (19.11.2026) wollte umgekehrt WordPress auf
 > onefam.ch ziehen und die Landing Page in den Shop bauen. Verworfen, weil WordPress auf dem
@@ -20,7 +25,8 @@ bleiben in WooCommerce.**
 |---|---|---|
 | Startseite, Geschichte, Family Code, Warteliste | onefam.ch | onefam.ch (bleibt) |
 | Länderseiten, Kollektionen, „Shop by country", Produktseiten | shop.onefam.ch (Router-Snippet 11, WooCommerce) | **onefam.ch**, Next.js, Daten aus WooCommerce |
-| Warenkorb, Kasse, Kundenkonto | shop.onefam.ch | WooCommerce, vorerst **weiter auf shop.onefam.ch** (später ggf. `kasse.onefam.ch`) |
+| Warenkorb, Kasse | shop.onefam.ch | **onefam.ch** (`/warenkorb`, `/kasse`, `/danke`), über die Store API von WooCommerce; Zahlung weiter zahls.ch |
+| shop.onefam.ch selbst | Shop für Kunden | nur noch Technik im Hintergrund; alle Kundenseiten leiten per 301 auf onefam.ch |
 | Bestellungen, zahls.ch, PodOS, EUR-Festpreise, Warteliste je Land | WooCommerce / Snippets | **unverändert** in WooCommerce |
 | Pool-Buchhaltung, Admin, Webhook | onefam.ch | onefam.ch (bleibt) |
 
@@ -48,15 +54,15 @@ bleiben in WooCommerce.**
 
 ## Ablauf
 
-### 0. Probeaufbau — nur lokal, nichts geht live
+### 0. Probeaufbau — nur lokal, nichts geht live (inkl. Warenkorb, ohne Bezahlen)
 - **Katalog-Endpunkt im Shop** (neues Snippet, nur lesend, öffentlich, zwischengespeichert):
   `GET /wp-json/onefam/v1/katalog` liefert die **öffentlichen** Produkte mit Varianten,
   Bildern, CHF-Preis **und** EUR-Festpreis, Lagerstatus, Kategorie und den Texten aus den
   Snippets 68/69/70/102 je Sprache. Damit braucht Vercel keinen WooCommerce-Schlüssel.
 - **Eine Produktseite auf onefam.ch**: `/de/produkt/albania-hoodie` (und EN/FR/ES), Farben,
   Grössen, Galerie je Farbe, Preis CHF/EUR, Lieferzeit, Grössentabelle.
-- **Kaufen-Knopf** übergibt an den WooCommerce-Warenkorb (Variante, Grösse, Farbe) und
-  landet in der bestehenden Kasse. Prüfen, wie das mit `of_warenkorb_hinzu` zusammenspielt.
+- **In den Warenkorb** auf onefam.ch über die Store API (Variante, Grösse, Farbe), Warenkorb-Seite
+  auf onefam.ch mit Summe und Versand. **Noch kein Bezahlen** im Probeaufbau.
 - Messen: Ladezeit (`tools/ladezeit-messen.mjs`), Aussehen am Handy. **Labi schaut es an,
   bevor etwas weitergeht.**
 
@@ -73,10 +79,22 @@ Browsersprache, CHF für CH/LI, sonst EUR, EUR immer als Festpreis aus WooCommer
 entscheidet weiter selbst nach denselben Regeln — die beiden dürfen nie auseinanderlaufen.
 **Nachmessen in allen vier Sprachen und beiden Währungen**, EUR mit Hilfe aus Deutschland.
 
-### 3. Warenkorb und Kasse
-Übergabe Ende-zu-Ende: Produkt wählen auf onefam.ch → Warenkorb und Kasse im Shop → Bestellung
-→ PodOS, Pool-Webhook. **Testkauf macht Labi.** Vom Warenkorb aus führen Links zurück auf
-onefam.ch.
+### 3. Warenkorb und Kasse auf onefam.ch
+- onefam.ch spricht serverseitig mit der Store API (eigene Routen unter `/api/shop/…`). Der
+  Warenkorb hängt an einem **Cart-Token** in einem Cookie von onefam.ch — keine Cookies einer
+  fremden Domain, funktioniert auch in Safari.
+- **Währung:** Die Anfragen tragen die Entscheidung des Kunden mit (Cookies `of_geo`,
+  `wmc_current_currency`, echte IP als `X-Forwarded-For`). Sonst entschiede der Shop nach der IP
+  des Vercel-Servers (z. B. Frankfurt → EUR) — genau das darf nicht passieren.
+- **Kasse:** Adresse, Versand (die 21 Länder aus den WooCommerce-Zonen), AGB-Bestätigung,
+  Bestellung über `/wc/store/v1/checkout` mit `zahls` → Weiterleitung zur Zahlseite von zahls.ch
+  → zurück auf **onefam.ch/danke** (Rücksprung-Adresse per Snippet umbiegen).
+- **Bestellung entsteht ganz normal in WooCommerce** → PodOS und Pool-Webhook laufen wie bisher.
+  Zu prüfen: ob PodOS die Variante richtig erkennt (heute tragen Positionen `variation_id = 0`
+  wegen des eigenen Handlers `of_warenkorb_hinzu`; über die Store API kommt die echte Variante).
+- WooCommerce-Mails (Bestellbestätigung) verweisen danach auf onefam.ch.
+- Rechtstexte der Kasse (AGB-Haken, Widerrufsbelehrung, Preisangaben) → **Anwalt**.
+- **Testkauf macht Labi**, erst im Testmodus von zahls, dann echt.
 
 ### 4. Suchmaschinen und KI
 - Produktdaten (JSON-LD Product mit Marke, Preis, Verfügbarkeit, Bild) auf onefam.ch;
@@ -87,8 +105,9 @@ onefam.ch.
 - Search Console und Bing: neue Sitemap einreichen.
 
 ### 5. Shop verschlanken
-WooCommerce behält Warenkorb, Kasse, Konto und die Rechtstexte bzw. leitet auf die von onefam.ch
-um (Rechtstexte zusammenlegen → **Anwalt**). Router-Snippet 11 und die Seiten-Snippets werden
+Alle Kundenseiten von shop.onefam.ch (Startseite, Länder, Produkte, Warenkorb, Kasse, Rechtstexte)
+leiten per 301 auf onefam.ch um; wp-admin, Schnittstellen und PodOS-Anbindung bleiben
+(Rechtstexte zusammenlegen → **Anwalt**). Router-Snippet 11 und die Seiten-Snippets werden
 danach schrittweise abgeschaltet. Der Zwischenspeicher (Snippet 113, WP Super Cache) bleibt.
 
 ### Und die Vorbestellung Albanien?
