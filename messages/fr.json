@@ -272,5 +272,30 @@
     "abmelden_ungueltig": "Ce lien de désinscription n’est pas valable – ou tu es déjà désinscrit·e.",
     "abgemeldet_titel": "Tu es désinscrit·e.",
     "abgemeldet_text": "Nous avons supprimé ton adresse et ne t’écrirons plus."
+  },
+  "shop_seiten": {
+    "shop": "Boutique",
+    "farbe": "Couleur",
+    "groesse": "Taille",
+    "groesse_waehlen": "Choisis d'abord une taille.",
+    "in_warenkorb": "Ajouter au panier",
+    "wird_gelegt": "Ajout en cours …",
+    "hinzugefuegt": "Dans ton panier.",
+    "zum_warenkorb": "Voir le panier",
+    "nicht_lieferbar": "Indisponible",
+    "preis_fehlt": "Le prix dans cette devise manque — écris-nous à info@onefam.ch.",
+    "warenkorb": "Panier",
+    "leer": "Ton panier est vide.",
+    "weiter": "Continuer",
+    "menge": "Quantité",
+    "entfernen": "Retirer",
+    "versand_nach": "Livraison vers",
+    "zwischensumme": "Sous-total",
+    "versand": "Livraison",
+    "total": "Total",
+    "zur_kasse": "Passer commande",
+    "probe_hinweis": "Prototype : la caisse sur onefam.ch arrive. Aucun paiement ici pour l'instant.",
+    "fehler": "Ça n'a pas marché. Réessaie, s'il te plaît.",
+    "bild": "Image {n} sur {gesamt}"
   }
 }
