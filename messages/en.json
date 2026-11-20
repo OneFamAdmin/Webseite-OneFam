@@ -276,5 +276,30 @@
     "abmelden_ungueltig": "This unsubscribe link is invalid – or you've already unsubscribed.",
     "abgemeldet_titel": "You're unsubscribed.",
     "abgemeldet_text": "We've deleted your address and won't write to you again."
+  },
+  "shop_seiten": {
+    "shop": "Shop",
+    "farbe": "Colour",
+    "groesse": "Size",
+    "groesse_waehlen": "Please choose a size first.",
+    "in_warenkorb": "Add to cart",
+    "wird_gelegt": "Adding …",
+    "hinzugefuegt": "In your cart.",
+    "zum_warenkorb": "View cart",
+    "nicht_lieferbar": "Not available",
+    "preis_fehlt": "Price in this currency is missing — please contact info@onefam.ch.",
+    "warenkorb": "Cart",
+    "leer": "Your cart is empty.",
+    "weiter": "Keep browsing",
+    "menge": "Quantity",
+    "entfernen": "Remove",
+    "versand_nach": "Ship to",
+    "zwischensumme": "Subtotal",
+    "versand": "Shipping",
+    "total": "Total",
+    "zur_kasse": "Checkout",
+    "probe_hinweis": "Prototype: checkout on onefam.ch is coming. No payment is taken here yet.",
+    "fehler": "That didn't work. Please try again.",
+    "bild": "Image {n} of {gesamt}"
   }
 }
