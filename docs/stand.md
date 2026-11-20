@@ -1,5 +1,17 @@
 # Stand — 20.11.2026
 
+## 🧪 20.11.2026: Probeaufbau Produktseite und Warenkorb auf onefam.ch (nur lokal)
+
+Labi: „halt stop. onefam.ch soll ja die hauptseite sein und der shop muss nach onefam.ch“ →
+auch Warenkorb und Kasse auf onefam.ch; „ja, beginne mit dem Probeaufbau“. Gebaut und lokal
+geprüft: Albanien-Hoodie in vier Sprachen, Warenkorb mit Versandland, Kasse noch abgeschaltet.
+**Im Shop neu: Snippet 114** (Katalog-Endpunkt `onefam/v1/katalog/<slug>` und Kopfzeile
+`X-OneFam-Waehrung` für die Store API) — an den heutigen Shop-Seiten ändert es nichts
+(nachgemessen: /de/ 200, Store API ohne Kopfzeile wie vorher). Alle Messwerte und die offenen
+Punkte stehen in `docs/plan-zusammenfuehrung-onefam.md` unter „Stand Probeaufbau“.
+Bei den Tests sind im Shop einige leere bzw. einzelne Gast-Warenkörbe entstanden; WooCommerce
+räumt sie nach 48 Stunden selbst ab. **Nichts gepusht.**
+
 ## 🧭 20.11.2026: Richtung gewechselt — der Shop kommt in die Landing Page
 
 Labi: „geht es nicht, dass der Shop in die Landing Page kommt?" → „ja plane so". onefam.ch

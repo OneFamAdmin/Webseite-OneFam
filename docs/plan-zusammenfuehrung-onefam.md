@@ -66,6 +66,40 @@ also die moderne Kasse, über die onefam.ch bezahlen lassen kann.
 - Messen: Ladezeit (`tools/ladezeit-messen.mjs`), Aussehen am Handy. **Labi schaut es an,
   bevor etwas weitergeht.**
 
+### Stand Probeaufbau (20.11.2026, nur lokal, nichts gepusht)
+
+**Gebaut:** `/[locale]/produkt/[slug]` (vorgebaut, alle 5 Minuten aufgefrischt, `noindex`),
+`/[locale]/warenkorb`, Route `/api/shop/warenkorb`, `lib/shop/` (Typen, Währungsregel,
+Katalog, Store-API). Im Shop **Snippet 114** „OneFam Headless: Katalog und Waehrung fuer
+onefam.ch“ (Quelle: `docs/shop-snippets/onefam-headless-katalog.php`).
+
+**Gemessen:**
+- Katalog-Endpunkt: 84 Varianten, alle mit EUR-Festpreis 69,99 und CHF 75, 0,7 s, Bilder in
+  WordPress-Grössen (825×1024, 300×300) statt 2,3-MB-Original.
+- Store API: Warenkorb ohne Nonce, sobald ein Cart-Token da ist. **Ohne Token → 401** (beim
+  ersten Klick im frischen Browser) — die Route holt deshalb zuerst einen. Versandland nur mit
+  geleertem Bundesland (Vorgabe „BS“ ist für DE ungültig). Merkmalsnamen kommen übersetzt
+  („Farbe“) — gelesen wird `raw_attribute`.
+- **Währung:** CURCY entscheidet in der Store API allein nach IP (`X-Forwarded-For` wird
+  geglaubt). Mit Snippet 114 und `X-OneFam-Waehrung`: Schweizer Gerät → CHF 75, sonst →
+  69,99 € Festpreis. Ohne die Kopfzeile verhält sich der Shop unverändert.
+- **Versand in EUR ist umgerechnet** (CHF × 1,1: DE 7,70 €, CH 19,80 €) — genauso wie heute im
+  Shop (Bestellung #4145: 4,62 € = CHF 4.20 × 1,1). Ob das so gewollt ist, entscheidet Labi.
+- Ladezeit (gedrosselt wie Handy, lokaler Produktionsbau gegen heutigen Shop): grösster Inhalt
+  1,98 s gegen 6,68 s, Ladeende 2,9 s gegen 10,5 s, 41 gegen 188 Anfragen, 533 gegen 2014 KB,
+  Verschiebung 0 gegen 0,22.
+
+**Offen, bevor Schritt 1 beginnt:**
+1. **Texte in EN/FR/ES.** Snippet 68 liefert den Motivtext nur deutsch, der Titel bleibt
+   „Albania Hoodie“ (Shop: „Albanien Hoodie“ / „Albanie Hoodie“), im deutschen Inhalt steht die
+   Überschrift „Size guide“. Die Übersetzung passiert erst beim Ausgeben der Seite, vermutlich im
+   Router-Snippet 11. Den Code der Snippets 11, 25, 68, 69 kann Claude über die
+   Chrome-Erweiterung nicht lesen — sie sperrt jede Ausgabe mit Cookie- oder Adressdaten.
+   Weg: **Labi exportiert diese Snippets** (Code Snippets → Exportieren) nach `~/Downloads`.
+2. Lieferzeit-Zeile (Snippet 102) fehlt noch auf der Produktseite.
+3. Lieferländer laufen noch über den Lese-Schlüssel → in den Katalog-Endpunkt.
+4. Kategorienamen kommen englisch („Albania“).
+
 ### 1. Katalog auf onefam.ch
 Alle 18 öffentlichen Produktseiten, Länderseiten (Albanien, Afghanistan, Andorra, Argentinien),
 Kollektionen (Logo-Linien), „Shop by country" mit der Länder-Warteliste (Snippet 18 bleibt,
