@@ -296,6 +296,34 @@
     "zur_kasse": "Zur Kasse",
     "probe_hinweis": "Probeaufbau: Die Kasse auf onefam.ch folgt. Bezahlt wird hier noch nicht.",
     "fehler": "Das hat nicht geklappt. Bitte versuch es noch einmal.",
-    "bild": "Bild {n} von {gesamt}"
+    "bild": "Bild {n} von {gesamt}",
+    "start": "Start",
+    "ab_preis": "ab {preis}"
+  },
+  "shop_kategorien": {
+    "albania": {
+      "name": "Albanien",
+      "intro": "Der Doppeladler liegt mitten im Lachen. Für alle, die Besa nicht erklären müssen."
+    },
+    "afghanistan": {
+      "name": "Afghanistan",
+      "intro": "Ein Lachen in Schwarz und Weiss, die Flagge dahinter. Für alle, bei denen der Gast ein Geschenk ist."
+    },
+    "andorra": {
+      "name": "Andorra",
+      "intro": "Blau, Gelb und Rot in einem Gesicht. Für alle aus den Bergen zwischen zwei Ländern."
+    },
+    "argentina": {
+      "name": "Argentinien",
+      "intro": "Die Maisonne genau dort, wo sie auf der Flagge steht. Für alle, die den Mate herumgehen lassen."
+    },
+    "logo-black": {
+      "name": "Schwarzes Logo",
+      "intro": "Die leise Variante. Für alle, die es nicht buchstabieren müssen."
+    },
+    "onefam-logo": {
+      "name": "OneFam Logo",
+      "intro": "Alle Farben in einem Gesicht. Der Anfang, aus dem OneFam entstanden ist."
+    }
   }
 }
