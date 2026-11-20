@@ -20,6 +20,17 @@ Abweichungen). Im Shop geändert: Snippet 114 (neu gefasst), Snippet 102 und 71 
 herausgezogen, Ausgabe unverändert, nachgemessen). Versandregel geklärt (Pauschale je Land in
 CHF, in EUR umgerechnet). Einzelheiten und Messwerte: Plan, Abschnitt „Stand Probeaufbau“.
 
+**Suche über den ganzen Mac (Labis Auftrag, 20.11.2026):** Fundliste mit Pfaden nur lokal in
+`docs/privat/fundstellen-onefam-auf-dem-mac-20112026.md`. Für den Shop-Bau wichtig:
+(1) Rohteile wechseln laut Entscheid vom 20.10. auf Sparker 2.0 (Shirt) und Slammer 2.0 (Hoodie,
+nur bis 3XL) — Grössentabellen und Materialtexte der Snippets 61/62/68 beschreiben noch Creator
+und Cruiser. (2) Die Länderlinie soll in den Siebdruck, Albanien als Vorbestellung nur in Black —
+die heutigen PodOS-Länderprodukte mit bis zu zehn Farben sind also ein Übergangsstand.
+(3) Gültig ist die Versandtabelle vom 01.08. (7/12/16/18/26 CHF), die vom 23.07. ist überholt;
+Portugal liegt wegen des Shirt-King-Tarifs absichtlich in „Nordeuropa“.
+(4) Auftragsverarbeitungsverträge fehlen noch für zahls.ch, PodOS/Shirt-King und Vercel.
+(5) Ein PodOS-Abgleich vergibt neue Varianten-IDs — onefam.ch holt sie deshalb immer frisch.
+
 ## 🧭 20.11.2026: Richtung gewechselt — der Shop kommt in die Landing Page
 
 Labi: „geht es nicht, dass der Shop in die Landing Page kommt?" → „ja plane so". onefam.ch
