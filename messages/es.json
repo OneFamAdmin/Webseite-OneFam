@@ -298,32 +298,45 @@
     "fehler": "No ha funcionado. Inténtalo de nuevo.",
     "bild": "Imagen {n} de {gesamt}",
     "start": "Inicio",
-    "ab_preis": "desde {preis}"
+    "ab_preis": "desde {preis}",
+    "kollektion_entdecken": "Descubrir la colección",
+    "teile_titel_drei": "Tres prendas. Una risa.",
+    "teile_titel": "Las prendas.",
+    "farben": "{n} colores",
+    "auswaehlen": "Elegir",
+    "teil_waehlen": "Elige tu prenda",
+    "warenkorb_oeffnen": "Abrir el carrito"
   },
   "shop_kategorien": {
     "albania": {
       "name": "Albania",
-      "intro": "El águila bicéfala en medio de la sonrisa. Para quienes no necesitan explicar la besa."
+      "motiv": "El águila bicéfala en medio de la sonrisa.",
+      "fuer": "Para quienes no necesitan explicar la besa."
     },
     "afghanistan": {
       "name": "Afganistán",
-      "intro": "Una sonrisa en blanco y negro, la bandera detrás. Para quienes reciben al invitado como un regalo."
+      "motiv": "Una sonrisa en blanco y negro, la bandera detrás.",
+      "fuer": "Para quienes reciben al invitado como un regalo."
     },
     "andorra": {
       "name": "Andorra",
-      "intro": "Azul, amarillo y rojo en un rostro. Para quienes vienen de las montañas entre dos países."
+      "motiv": "Azul, amarillo y rojo en un rostro.",
+      "fuer": "Para quienes vienen de las montañas entre dos países."
     },
     "argentina": {
       "name": "Argentina",
-      "intro": "El sol de Mayo, justo donde lo pone la bandera. Para quienes hacen circular el mate."
+      "motiv": "El sol de Mayo, justo donde lo pone la bandera.",
+      "fuer": "Para quienes hacen circular el mate."
     },
     "logo-black": {
       "name": "Logo negro",
-      "intro": "La versión discreta. Para quienes no necesitan deletrearlo."
+      "motiv": "La versión discreta.",
+      "fuer": "Para quienes no necesitan deletrearlo."
     },
     "onefam-logo": {
       "name": "OneFam Logo",
-      "intro": "Todos los colores en un rostro. El comienzo del que nació OneFam."
+      "motiv": "Todos los colores en un rostro.",
+      "fuer": "El comienzo del que nació OneFam."
     }
   }
 }
