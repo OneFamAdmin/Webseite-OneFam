@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
-import { shopUrl, type Locale } from '@/i18n/routing';
+import { shopEinstieg, type Locale } from '@/i18n/routing';
 import MaxWidth from './MaxWidth';
 import Reveal from './Reveal';
 import Button from './Button';
@@ -100,7 +100,7 @@ const ProductBridge = () => {
         {/* Bewusst ohne Preisangabe: die Sektion baut ein Gefühl auf, eine Preiszeile würde es
             im letzten Moment in einen Katalog verwandeln. Preise stehen im Shop. */}
         <Reveal delay={0.2} className="mt-16">
-          <Button as="a" href={shopUrl(locale)} variant="primary">
+          <Button as="a" href={shopEinstieg(locale).href} variant="primary">
             {t('cta')}
             <ArrowRight size={18} strokeWidth={1.5} />
           </Button>

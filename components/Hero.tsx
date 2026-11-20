@@ -1,6 +1,6 @@
 import { ChevronDown } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
-import { joinPath, shopUrl, type Locale } from '@/i18n/routing';
+import { joinPath, shopEinstieg, type Locale } from '@/i18n/routing';
 import MaxWidth from './MaxWidth';
 import Reveal from './Reveal';
 import Button from './Button';
@@ -58,7 +58,7 @@ const Hero = () => {
           </Button>
           <Button
             as="a"
-            href={shopUrl(locale)}
+            href={shopEinstieg(locale).href}
             variant="secondary"
             className="w-full sm:w-auto"
           >

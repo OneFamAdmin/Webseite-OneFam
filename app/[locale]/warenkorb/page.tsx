@@ -5,7 +5,7 @@ import Nav from '@/components/Nav';
 import MaxWidth from '@/components/MaxWidth';
 import SiteFooter from '@/components/SiteFooter';
 import WarenkorbAnsicht from '@/components/shop/WarenkorbAnsicht';
-import { LOCALES, isLocale, kategoriePfad } from '@/i18n/routing';
+import { LOCALES, isLocale, shopByCountryPfad } from '@/i18n/routing';
 
 // Warenkorb auf onefam.ch — Probeaufbau vom 20.11.2026, nur lokal.
 // Die Seite selbst ist für alle gleich; den Inhalt holt WarenkorbAnsicht im
@@ -38,8 +38,7 @@ export default async function WarenkorbSeite({ params }: Props) {
           <h1 className="mb-10 font-serif text-[clamp(2rem,4.4vw,2.9rem)] font-normal text-primary">
             {t('warenkorb')}
           </h1>
-          {/* Bis es eine Übersicht ("Shop by Country") auf onefam.ch gibt, führt "Weiter stöbern" auf die erste Länderseite. */}
-          <WarenkorbAnsicht weiterPfad={kategoriePfad(locale, 'albania')} />
+          <WarenkorbAnsicht weiterPfad={shopByCountryPfad(locale)} />
         </MaxWidth>
       </main>
       <SiteFooter />

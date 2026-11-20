@@ -10,7 +10,7 @@ import MaxWidth from './MaxWidth';
 import Button from './Button';
 import { BRAND_GRADIENT_CTA } from '@/lib/brand';
 import LocaleSwitcher from './LocaleSwitcher';
-import { homePath, istOhneSprache, joinPath, shopUrl, warenkorbPfad, type Locale } from '@/i18n/routing';
+import { homePath, istOhneSprache, joinPath, shopEinstieg, warenkorbPfad, type Locale } from '@/i18n/routing';
 import { KORB_EREIGNIS, leseKorbAnzahl } from '@/lib/shop/korbZaehler';
 
 // Shop-Adresse pro Sprache — siehe i18n/routing.ts. Stand vorher fest auf /de/.
@@ -125,7 +125,8 @@ const Nav = ({ ueberHero = false, shop = false }: { ueberHero?: boolean; shop?: 
     { label: t('about'), href: `${home}#about`, external: false },
     { label: t('werte'), href: `${home}#werte`, external: false },
     { label: t('faq'), href: `${home}#faq`, external: false },
-    { label: t('shop'), href: shopUrl(locale), external: true },
+    // "Shop" führt auf shop.onefam.ch oder auf die Übersicht hier — Schalter in i18n/routing.ts.
+    { label: t('shop'), href: shopEinstieg(locale).href, external: shopEinstieg(locale).extern },
   ];
 
   const korbLink = (

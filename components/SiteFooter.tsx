@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
-import { legalPath, shopUrl, type Locale } from '@/i18n/routing';
+import { legalPath, shopEinstieg, type Locale } from '@/i18n/routing';
 import MaxWidth from './MaxWidth';
 
 // Shop-Adresse pro Sprache — siehe i18n/routing.ts. Stand vorher fest auf /de/.
@@ -21,6 +21,7 @@ const socials = [
 
 const SiteFooter = () => {
   const t = useTranslations('footer');
+  const tNav = useTranslations('nav');
   const locale = useLocale() as Locale;
   const pages = t.raw('pages') as { label: string; href: string }[];
   const legal = t.raw('legal') as { label: string; href?: string }[];
@@ -140,11 +141,13 @@ const SiteFooter = () => {
           {/* Bottom row */}
           <div className="mt-14 flex flex-col gap-4 border-t border-line pt-8 sm:flex-row sm:items-center sm:justify-between">
             <p className="font-body text-xs text-faint">{t('copyright')}</p>
+            {/* Solange der Shop auf shop.onefam.ch liegt, steht hier dessen Adresse;
+                danach das Wort "Shop" in der Sprache der Seite (Schalter in i18n/routing.ts). */}
             <a
-              href={shopUrl(locale)}
+              href={shopEinstieg(locale).href}
               className="font-body text-xs text-faint transition-colors duration-[180ms] hover:text-gold"
             >
-              shop.onefam.ch
+              {shopEinstieg(locale).extern ? 'shop.onefam.ch' : tNav('shop')}
             </a>
           </div>
         </MaxWidth>

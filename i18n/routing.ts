@@ -157,6 +157,33 @@ export function joinPath(locale: Locale): string {
 }
 
 /**
+ * SCHALTER: Führt "Shop" auf onefam.ch selbst oder noch auf shop.onefam.ch?
+ *
+ * Der Shop wird auf onefam.ch aufgebaut (docs/plan-zusammenfuehrung-onefam.md).
+ * Solange die Kasse dort fehlt, darf die Navigation der Live-Seite niemanden in
+ * einen Shop schicken, in dem man nicht bezahlen kann. Deshalb zeigt "Shop"
+ * (Kopfzeile, Fusszeile, die beiden Knöpfe der Startseite) nur dann auf
+ * /shop-by-country, wenn NEXT_PUBLIC_SHOP_AUF_ONEFAM=1 gesetzt ist — lokal in
+ * .env.local, auf Vercel erst zum Livegang (das trägt Labi ein). Ohne die
+ * Variable bleibt alles, wie es war: "Shop" führt auf shop.onefam.ch.
+ *
+ * NEXT_PUBLIC_* wird beim Bauen eingebacken: Umschalten heisst neu deployen.
+ */
+export const SHOP_AUF_ONEFAM = process.env.NEXT_PUBLIC_SHOP_AUF_ONEFAM === '1';
+
+/** Die Übersicht "Nach Land shoppen" — dieselbe Adresse wie im Shop. */
+export function shopByCountryPfad(locale: Locale): string {
+  return locale === DEFAULT_LOCALE ? '/shop-by-country' : `/${locale}/shop-by-country`;
+}
+
+/** Wohin "Shop" führt, und ob das eine fremde Adresse ist (siehe SHOP_AUF_ONEFAM). */
+export function shopEinstieg(locale: Locale): { href: string; extern: boolean } {
+  return SHOP_AUF_ONEFAM
+    ? { href: shopByCountryPfad(locale), extern: false }
+    : { href: shopUrl(locale), extern: true };
+}
+
+/**
  * Shop-Seiten auf onefam.ch (Probeaufbau seit 20.11.2026, Plan:
  * docs/plan-zusammenfuehrung-onefam.md). Englisch ohne Präfix wie überall.
  */
