@@ -1,5 +1,18 @@
 # Stand — 20.11.2026
 
+## 🧭 20.11.2026: Richtung gewechselt — der Shop kommt in die Landing Page
+
+Labi: „geht es nicht, dass der Shop in die Landing Page kommt?" → „ja plane so". onefam.ch
+(Next.js) bleibt die Hauptseite; Länder-, Kollektions- und Produktseiten werden dort gebaut,
+Daten aus WooCommerce („headless"); **Warenkorb und Kasse bleiben in WooCommerce**. Die
+Gegenrichtung (WordPress zieht auf onefam.ch) ist verworfen. Grund u. a. die Kosten: Infomaniak
+Managed Cloud Server (für OPcache) **CHF 42.90/Monat ohne MWST, CHF 46.35 mit** (Shop, Konto
+Labi, 20.11.2026; öffentliche Tarifseite: 29 €/Monat monatlich, 24,92 €/Monat jährlich, ohne MWST;
+4 vCPU, 12 GB RAM, 250 GB) gegen heute CHF 141.50/Jahr Webhosting. **Nichts bestellt**; im
+Infomaniak-Warenkorb liegt nur eine abgebrochene Konfiguration.
+Plan: `docs/plan-zusammenfuehrung-onefam.md` (neu geschrieben). Nächster Schritt: Probeaufbau
+einer Produktseite, nur lokal.
+
 ## 🚀 20.11.2026: Shop-Zwischenspeicher (WP Super Cache) eingeschaltet — „Weg 1“
 
 **Warum:** Gemessen per vorübergehender Server-Timing-Kopfzeile (Snippets 110–112, danach in den
