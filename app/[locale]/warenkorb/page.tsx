@@ -32,7 +32,7 @@ export default async function WarenkorbSeite({ params }: Props) {
 
   return (
     <div className="flex min-h-screen flex-col bg-bg pt-14 md:pt-16">
-      <Nav />
+      <Nav shop />
       <main className="flex-1 py-10 md:py-16">
         <MaxWidth>
           <h1 className="mb-10 font-serif text-[clamp(2rem,4.4vw,2.9rem)] font-normal text-primary">

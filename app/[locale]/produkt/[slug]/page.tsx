@@ -61,7 +61,7 @@ export default async function ProduktSeite({ params }: Props) {
 
   return (
     <div className="flex min-h-screen flex-col bg-bg pt-14 md:pt-16">
-      <Nav />
+      <Nav shop />
       <main className="flex-1 py-10 md:py-16">
         <MaxWidth>
           <ProduktAnsicht

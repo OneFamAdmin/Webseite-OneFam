@@ -6,7 +6,9 @@ import Link from 'next/link';
 import clsx from 'clsx';
 import { useLocale, useTranslations } from 'next-intl';
 import Button from '@/components/Button';
-import type { Produkt } from '@/lib/shop/typen';
+import { BRAND_GRADIENT_CTA } from '@/lib/brand';
+import { merkeKorbAnzahl } from '@/lib/shop/korbZaehler';
+import type { Produkt, Warenkorb } from '@/lib/shop/typen';
 import { preisText } from '@/lib/shop/waehrung';
 import { useWaehrung } from './useWaehrung';
 
@@ -65,6 +67,7 @@ export default function ProduktAnsicht({
         headers: { 'Content-Type': 'application/json', 'x-onefam-sprache': locale },
         body: JSON.stringify({ aktion: 'hinzu', id: variante.id, menge: 1 }),
       });
+      if (antwort.ok) merkeKorbAnzahl(((await antwort.json()) as Warenkorb).anzahl);
       setZustand(antwort.ok ? 'drin' : 'fehler');
     } catch {
       setZustand('fehler');
@@ -200,6 +203,12 @@ export default function ProduktAnsicht({
             onClick={hinzufuegen}
             disabled={zustand === 'laeuft' || (waehrung === 'EUR' && preisVariante?.eur == null)}
             className="w-full disabled:cursor-wait disabled:opacity-60"
+            // Der Markenverlauf auf dem Kaufknopf: Labis Entscheid vom 21.11.2026
+            // ("wie im Entwurf"). Auf den Shop-Seiten ist das die eine Hauptaktion;
+            // "Join the Fam" in der Kopfzeile tritt dort zurück (components/Nav.tsx).
+            // Die Schrift steht in der Mitte des breiten Knopfs, weit weg vom
+            // violetten Ende — Kontrastregel in lib/brand.ts.
+            style={{ background: BRAND_GRADIENT_CTA }}
           >
             {zustand === 'laeuft' ? t('wird_gelegt') : t('in_warenkorb')}
           </Button>

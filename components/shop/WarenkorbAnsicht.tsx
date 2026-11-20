@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import Button from '@/components/Button';
+import { merkeKorbAnzahl } from '@/lib/shop/korbZaehler';
 import type { Warenkorb } from '@/lib/shop/typen';
 import { preisText } from '@/lib/shop/waehrung';
 import { useWaehrung } from './useWaehrung';
@@ -36,7 +37,9 @@ export default function WarenkorbAnsicht({ weiterPfad }: { weiterPfad: string })
         body: koerper ? JSON.stringify(koerper) : undefined,
       });
       if (!antwort.ok) throw new Error(String(antwort.status));
-      setKorb((await antwort.json()) as Warenkorb);
+      const neu = (await antwort.json()) as Warenkorb;
+      setKorb(neu);
+      merkeKorbAnzahl(neu.anzahl);
       setFehler(false);
     } catch {
       setFehler(true);

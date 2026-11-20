@@ -72,7 +72,26 @@ export type KachelProdukt = {
   eur: number | null;
   /** false, wenn die Varianten verschieden viel kosten — dann steht "ab" vor dem Preis. */
   einheitlich: boolean;
+  /** Anzahl Farben, in denen es das Teil gibt. */
+  farben: number;
+  /** Von Hand gewähltes Kachelbild (lib/shop/kachelbilder.ts), sonst das Produktbild. */
   bild: string;
+  /** Produktbild aus WooCommerce (das freihängende Teil) — für den Einstieg der Länderseite. */
+  produktbild: string | null;
+};
+
+/**
+ * Der Erzähltext eines Motivs aus Shop-Snippet 68, in Abschnitte geteilt.
+ * Aufbau dort für alle Motive gleich: zuletzt "Für wen", davor "Das Zeichen",
+ * davor die Erzählung (ein oder zwei Absätze).
+ */
+export type MotivText = {
+  erzaehlung: string[];
+  zeichen: string;
+  fuer: string;
+  schluss: string;
+  /** Die beiden Überschriften aus Snippet 68 ("Das Zeichen.", "Für wen."). */
+  titel: { zeichen: string; fuer: string } | null;
 };
 
 /** Eine Länderseite (Albanien …) oder Kollektion (Logo-Linien). */
@@ -82,6 +101,9 @@ export type Kategorie = {
   name: string;
   /** Kategorietext aus Shop-Snippet 70, in der Sprache der Seite. */
   text: string | null;
+  motiv: MotivText | null;
+  /** Versand und Rückgabe: Titel und Text der dritten Klappe der Produktseite (Shop-Snippet 69). */
+  versand: { titel: string; html: string } | null;
   produkte: KachelProdukt[];
 };
 

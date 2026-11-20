@@ -266,7 +266,7 @@ function onefam_hl_kategorie_antwort( WP_REST_Request $anfrage ) {
 		);
 	}
 
-	$schluessel = 'onefam_hl_v5_kat_' . md5( $slug . '|' . $lang );
+	$schluessel = 'onefam_hl_v6_kat_' . md5( $slug . '|' . $lang );
 	$fertig     = get_transient( $schluessel );
 	if ( false === $fertig ) {
 		$fertig = onefam_hl_kategorie_daten( $slug, $lang );
@@ -360,10 +360,40 @@ function onefam_hl_kategorie_daten( $slug, $lang ) {
 		}
 	}
 
+	// Erzaehltext des Motivs aus Snippet 68 — dieselben Absaetze wie auf der
+	// Produktseite, hier einzeln, damit die Laenderseite sie als Abschnitte setzen
+	// kann. Aufbau dort (20.11.2026 fuer alle 14 Motive und vier Sprachen gezaehlt):
+	// der letzte Absatz ist "Fuer wen", der vorletzte "Das Zeichen", davor die
+	// Erzaehlung. Die beiden Ueberschriften stehen ebenfalls in Snippet 68.
+	$motiv = null;
+	if ( $produkte && function_exists( 'onefam_motiv_key' ) && function_exists( 'onefam_motiv_texte' ) ) {
+		$mkey  = onefam_motiv_key( $produkte[0]['slug'] );
+		$malle = onefam_motiv_texte();
+		if ( '' !== $mkey && isset( $malle[ $lang ][ $mkey ]['absaetze'], $malle[ $lang ][ $mkey ]['schluss'] ) ) {
+			$titel = function_exists( 'onefam_motiv_ueberschriften' ) ? onefam_motiv_ueberschriften() : array();
+			$motiv = array(
+				'absaetze' => array_values( (array) $malle[ $lang ][ $mkey ]['absaetze'] ),
+				'schluss'  => (string) $malle[ $lang ][ $mkey ]['schluss'],
+				'titel'    => isset( $titel[ $lang ] ) ? $titel[ $lang ] : null,
+			);
+		}
+	}
+
+	// Versand und Rueckgabe: der Text der dritten Klappe der Produktseite (Snippet 69).
+	$versand = null;
+	if ( function_exists( 'onefam_kachel_titel' ) ) {
+		$kachel = onefam_kachel_titel();
+		if ( is_array( $kachel ) && isset( $kachel['versand'], $kachel['versand_text'] ) ) {
+			$versand = array( 'titel' => (string) $kachel['versand'], 'html' => (string) $kachel['versand_text'] );
+		}
+	}
+
 	return array(
 		'slug'     => $term->slug,
 		'name'     => function_exists( 'onefam_produktname' ) ? rtrim( onefam_produktname( $term->name . ' ' ) ) : $term->name,
 		'text'     => $text,
+		'motiv'    => $motiv,
+		'versand'  => $versand,
 		'produkte' => $produkte,
 		'sprache'  => $lang,
 		'stand'    => gmdate( 'c' ),

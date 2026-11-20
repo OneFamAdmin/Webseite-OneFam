@@ -4,13 +4,14 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X } from 'lucide-react';
+import { Menu, ShoppingBag, X } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import MaxWidth from './MaxWidth';
 import Button from './Button';
 import { BRAND_GRADIENT_CTA } from '@/lib/brand';
 import LocaleSwitcher from './LocaleSwitcher';
-import { homePath, istOhneSprache, joinPath, shopUrl, type Locale } from '@/i18n/routing';
+import { homePath, istOhneSprache, joinPath, shopUrl, warenkorbPfad, type Locale } from '@/i18n/routing';
+import { KORB_EREIGNIS, leseKorbAnzahl } from '@/lib/shop/korbZaehler';
 
 // Shop-Adresse pro Sprache — siehe i18n/routing.ts. Stand vorher fest auf /de/.
 
@@ -39,8 +40,22 @@ const KOPF_VERLAUF =
  * Verlauf waere dort ein dunkles Band ueber dem Seitenanfang. Diese Seiten
  * behalten den Balken beim Scrollen — nur ohne die Linie darunter.
  */
-const Nav = ({ ueberHero = false }: { ueberHero?: boolean }) => {
+
+/**
+ * `shop` schaltet die Kopfzeile auf den Shop-Seiten um (Produkt, Länderseite,
+ * Warenkorb), seit 21.11.2026:
+ *
+ * 1. Ein Warenkorb-Symbol kommt dazu, am Desktop und am Telefon. Wer etwas
+ *    hineingelegt hat, muss es von jeder Shop-Seite aus wiederfinden.
+ * 2. "Join the Fam" verliert dort den Markenverlauf und wird zum Umrissknopf.
+ *    Der Verlauf markiert die EINE Hauptaktion einer Seite. Auf der Startseite
+ *    ist das "Join the Fam"; im Shop ist es der Knopf, der zum Kauf führt
+ *    (Labis Entscheid vom 21.11.2026, wie im Entwurf "Premium One-Page"). Zwei
+ *    Verlaufsknöpfe gleichzeitig nähmen beiden die Wirkung.
+ */
+const Nav = ({ ueberHero = false, shop = false }: { ueberHero?: boolean; shop?: boolean }) => {
   const t = useTranslations('nav');
+  const tShop = useTranslations('shop_seiten');
   const pfad = usePathname();
 
   // Auf Seiten ausserhalb von app/[locale]/ ist der Sprachumschalter falsch.
@@ -64,6 +79,21 @@ const Nav = ({ ueberHero = false }: { ueberHero?: boolean }) => {
   const locale = useLocale() as Locale;
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [korbAnzahl, setKorbAnzahl] = useState(0);
+
+  // Die Ziffer am Warenkorb kommt aus dem Gedächtnis des Browsers, nicht aus
+  // einer Anfrage an den Shop — Begründung in lib/shop/korbZaehler.ts.
+  useEffect(() => {
+    if (!shop) return;
+    const lesen = () => setKorbAnzahl(leseKorbAnzahl());
+    lesen();
+    window.addEventListener(KORB_EREIGNIS, lesen);
+    window.addEventListener('storage', lesen);
+    return () => {
+      window.removeEventListener(KORB_EREIGNIS, lesen);
+      window.removeEventListener('storage', lesen);
+    };
+  }, [shop]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -97,6 +127,21 @@ const Nav = ({ ueberHero = false }: { ueberHero?: boolean }) => {
     { label: t('faq'), href: `${home}#faq`, external: false },
     { label: t('shop'), href: shopUrl(locale), external: true },
   ];
+
+  const korbLink = (
+    <Link
+      href={warenkorbPfad(locale)}
+      aria-label={korbAnzahl > 0 ? `${tShop('warenkorb')} (${korbAnzahl})` : tShop('warenkorb_oeffnen')}
+      className="relative flex h-10 w-10 items-center justify-center text-primary transition-colors duration-[180ms] hover:text-gold"
+    >
+      <ShoppingBag size={22} strokeWidth={1.5} />
+      {korbAnzahl > 0 && (
+        <span className="absolute right-0 top-0 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-gold px-1 font-body text-[11px] font-medium leading-none text-bg">
+          {korbAnzahl}
+        </span>
+      )}
+    </Link>
+  );
 
   return (
     <>
@@ -181,10 +226,20 @@ const Nav = ({ ueberHero = false }: { ueberHero?: boolean }) => {
                   ist "Join the / Fam" seine Mindestbreite — knapp über 800 px
                   nimmt sich das Raster genau diese und der Knopf steht plötzlich
                   zweizeilig in einer einzeiligen Kopfzeile. */}
-              <Button as="a" href={joinPath(locale)} variant="primary" className="whitespace-nowrap px-5 py-2.5 text-[15px]" style={{ background: BRAND_GRADIENT_CTA }}>
+              {shop && korbLink}
+              <Button
+                as="a"
+                href={joinPath(locale)}
+                variant={shop ? 'secondary' : 'primary'}
+                className="whitespace-nowrap px-5 py-2.5 text-[15px]"
+                style={shop ? undefined : { background: BRAND_GRADIENT_CTA }}
+              >
                 {t('join')}
               </Button>
             </div>
+
+            {/* Telefon: Warenkorb neben dem Hamburger, nur auf Shop-Seiten */}
+            {shop && <div className="mr-2 md-1:hidden">{korbLink}</div>}
 
             {/* Mobile hamburger */}
             <button
@@ -239,7 +294,14 @@ const Nav = ({ ueberHero = false }: { ueberHero?: boolean }) => {
               </Link>
             ),
           )}
-          <Button as="a" href={joinPath(locale)} variant="primary" className="mt-2" style={{ background: BRAND_GRADIENT_CTA }} onClick={() => setOpen(false)}>
+          <Button
+            as="a"
+            href={joinPath(locale)}
+            variant={shop ? 'secondary' : 'primary'}
+            className="mt-2"
+            style={shop ? undefined : { background: BRAND_GRADIENT_CTA }}
+            onClick={() => setOpen(false)}
+          >
             {t('join')}
           </Button>
           {!ohneSprache && <LocaleSwitcher variant="mobile" onNavigate={() => setOpen(false)} />}

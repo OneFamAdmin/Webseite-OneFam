@@ -89,6 +89,19 @@ function ohneStil(html: string) {
   return html.replace(/<style[\s\S]*?<\/style>/gi, '').replace(/\sstyle="[^"]*"/gi, '');
 }
 
+/**
+ * HTML aus dem Shop für onefam.ch herrichten: ohne dessen Gestaltung, und Links
+ * ohne Domain auf den Shop gerichtet. In den Texten stehen Verweise wie
+ * href="/shipping-policy/" — auf onefam.ch gibt es diese Seiten (noch) nicht,
+ * der Link lief dort ins Leere (gemerkt am 21.11.2026, betraf auch die
+ * Produktseiten). Mit Sprachpräfix, sonst landet ein französischer Besucher
+ * auf der englischen Versandseite.
+ */
+function shopHtml(html: string, locale: Locale) {
+  const basis = `${SHOP}${locale === 'en' ? '' : `/${locale}`}`;
+  return ohneStil(html).replace(/href="\/(?!\/)/g, `href="${basis}/`);
+}
+
 export async function holeProdukt(slug: string, locale: Locale): Promise<Produkt | null> {
   if (!/^[a-z0-9-]+$/.test(slug)) return null;
   const antwort = await fetch(`${SHOP}/wp-json/onefam/v1/katalog/${slug}?lang=${locale}`, {
@@ -141,7 +154,7 @@ export async function holeProdukt(slug: string, locale: Locale): Promise<Produkt
     id: p.id,
     slug: p.slug,
     name: p.name,
-    beschreibungHtml: ohneStil(p.inhalt ?? ''),
+    beschreibungHtml: shopHtml(p.inhalt ?? '', locale),
     lieferzeit: p.lieferzeit,
     kategorie: p.kategorie,
     farben,
@@ -172,12 +185,15 @@ type KategorieAntwort = {
   slug: string;
   name: string;
   text: string | null;
+  motiv: { absaetze: string[]; schluss: string; titel: { zeichen: string; fuer: string } | null } | null;
+  versand: { titel: string; html: string } | null;
   produkte: {
     slug: string;
     name: string;
     chf: number;
     eur: number | null;
     einheitlich: boolean;
+    farben: number;
     bild: KatalogBild | null;
   }[];
 };
@@ -195,17 +211,36 @@ export async function holeKategorie(slug: string, locale: Locale): Promise<Kateg
   if (antwort.status === 404) return null;
   if (!antwort.ok) throw new Error(`Kategorie ${slug}: ${antwort.status}`);
   const k = (await antwort.json()) as KategorieAntwort;
+
+  // Mindestens drei Absätze, sonst lässt sich der Text nicht sicher in
+  // Erzählung, "Das Zeichen" und "Für wen" teilen — dann lieber keiner.
+  const a = k.motiv?.absaetze ?? [];
+  const motiv =
+    k.motiv && a.length >= 3
+      ? {
+          erzaehlung: a.slice(0, -2),
+          zeichen: a[a.length - 2],
+          fuer: a[a.length - 1],
+          schluss: k.motiv.schluss,
+          titel: k.motiv.titel,
+        }
+      : null;
+
   return {
     slug: k.slug,
     name: k.name,
     text: k.text,
+    motiv,
+    versand: k.versand ? { titel: k.versand.titel, html: shopHtml(k.versand.html, locale) } : null,
     produkte: k.produkte.map((p) => ({
       slug: p.slug,
       name: p.name,
       chf: p.chf,
       eur: p.eur,
       einheitlich: p.einheitlich,
+      farben: p.farben,
       bild: KACHELBILD[p.slug] ? `${SHOP}${KACHELBILD[p.slug]}` : (p.bild?.gross ?? ''),
+      produktbild: p.bild?.gross ?? null,
     })),
   };
 }
