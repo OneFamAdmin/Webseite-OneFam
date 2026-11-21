@@ -304,7 +304,16 @@
     "farben": "{n} couleurs",
     "auswaehlen": "Choisir",
     "teil_waehlen": "Choisis ta pièce",
-    "warenkorb_oeffnen": "Ouvrir le panier"
+    "warenkorb_oeffnen": "Ouvrir le panier",
+    "zzgl_versand": "hors livraison",
+    "groessentabelle": "Guide des tailles",
+    "auf_bestellung": "Imprimé à la commande, pour toi",
+    "reiter_geschichte": "Histoire",
+    "reiter_groessen": "Tailles",
+    "reiter_material": "Matière",
+    "reiter_versand": "Livraison & retours",
+    "groesse_kurz": "Choisir la taille",
+    "zahlarten": "Moyens de paiement"
   },
   "shop_kategorien": {
     "albania": {
