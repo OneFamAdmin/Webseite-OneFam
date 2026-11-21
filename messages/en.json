@@ -308,7 +308,16 @@
     "farben": "{n} colours",
     "auswaehlen": "Select",
     "teil_waehlen": "Choose your piece",
-    "warenkorb_oeffnen": "Open cart"
+    "warenkorb_oeffnen": "Open cart",
+    "zzgl_versand": "plus shipping",
+    "groessentabelle": "Size chart",
+    "auf_bestellung": "Printed to order, just for you",
+    "reiter_geschichte": "Story",
+    "reiter_groessen": "Sizes",
+    "reiter_material": "Material",
+    "reiter_versand": "Shipping & returns",
+    "groesse_kurz": "Choose size",
+    "zahlarten": "Payment methods"
   },
   "shop_kategorien": {
     "albania": {
