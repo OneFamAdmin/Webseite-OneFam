@@ -53,6 +53,13 @@ export type Produkt = {
    * Shop-Seite verglichen: gleicher Text.
    */
   beschreibungHtml: string;
+  /**
+   * Derselbe Inhalt, in seine Teile zerlegt (seit 21.11.2026, für die Reiter der
+   * Produktseite): die Zeile zum Stück ("Wie es sich trägt: …"), die Erzählung zum
+   * Motiv und die drei Klappen des Shops (Grössentabelle, Material, Versand).
+   * Lässt sich das HTML nicht zerlegen, steht alles in `erzaehlung`.
+   */
+  abschnitte: { stueck: string | null; erzaehlung: string | null; klappen: { titel: string; html: string }[] };
   /** Lieferzeit-Zeile in der Sprache der Seite (Shop-Snippet 102). */
   lieferzeit: string | null;
   kategorie: { slug: string; name: string } | null;

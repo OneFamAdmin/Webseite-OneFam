@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import Nav from '@/components/Nav';
 import MaxWidth from '@/components/MaxWidth';
 import SiteFooter from '@/components/SiteFooter';
 import KasseAnsicht from '@/components/shop/KasseAnsicht';
+import KassenKopf from '@/components/shop/KassenKopf';
 import { holeKassenDaten, rechtsAdressen } from '@/lib/shop/kasse';
-import { SHOP_AUF_ONEFAM, LOCALES, isLocale, shopByCountryPfad, warenkorbPfad } from '@/i18n/routing';
+import { SHOP_AUF_ONEFAM, LOCALES, isLocale, shopByCountryPfad, warenkorbPfad, homePath } from '@/i18n/routing';
 
 // Kasse auf onefam.ch — /kasse, /de/kasse … (21.11.2026, nur lokal).
 // Ablauf, Herkunft der Regeln und der Rechtstexte: lib/shop/kasse.ts.
@@ -42,7 +42,7 @@ export default async function KasseSeite({ params }: Props) {
 
   return (
     <div className="flex min-h-screen flex-col bg-bg pt-14 md:pt-16">
-      <Nav shop />
+      <KassenKopf startPfad={homePath(locale)} warenkorbPfad={warenkorbPfad(locale)} zurueck={t('zurueck')} />
       <main className="flex-1 py-10 md:py-16">
         <MaxWidth>
           <h1 className="mb-10 font-serif text-[clamp(2rem,4.4vw,2.9rem)] font-normal text-primary">{t('titel')}</h1>

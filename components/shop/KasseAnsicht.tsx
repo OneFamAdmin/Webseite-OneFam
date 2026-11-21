@@ -125,7 +125,11 @@ function AdressFelder({
       <Feld label={t('ort')} fehler={fehlt.has('ort')}>
         {(k) => <input className={k} autoComplete={`${vorsilbe} address-level2`} maxLength={100} {...feld('ort')} />}
       </Feld>
-      {regel && !regel.region.versteckt && (
+      {/* Kanton, Bundesland, Provinz nur dort, wo der Shop sie VERLANGT (z. B. Italien,
+          Spanien). Bis 21.11.2026 stand das Feld auch als freiwillige Auswahl da —
+          für Deutschland eine Liste von 16 Bundesländern, die niemand braucht: Die
+          Post stellt nach Postleitzahl zu. Jedes unnötige Feld kostet Abschlüsse. */}
+      {regel && !regel.region.versteckt && regel.region.pflicht && (
         <Feld
           label={regel.region.label ?? t('region')}
           optional={regel.region.pflicht ? undefined : t('optional')}

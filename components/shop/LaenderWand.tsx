@@ -177,7 +177,7 @@ export default function LaenderWand({
 
   return (
     <>
-      <label className="mt-8 block max-w-[31rem]">
+      <label className="mt-6 block max-w-[31rem]">
         <span className="sr-only">{t('suche')}</span>
         <input
           type="search"
@@ -191,9 +191,9 @@ export default function LaenderWand({
 
       {/* Jetzt verfügbar */}
       {trefferVerfuegbar.length > 0 && (
-        <section id="jetzt" className="scroll-mt-20 pt-14 md:pt-20">
-          <h2 className="font-serif text-[clamp(1.8rem,3.6vw,2.6rem)] font-normal text-primary">{t('jetzt')}</h2>
-          <ul className="mt-8 grid grid-cols-2 gap-x-5 gap-y-10 lg:grid-cols-4">
+        <section id="jetzt" className="scroll-mt-20 pt-10 md:pt-12">
+          <h2 className="font-serif text-[clamp(1.5rem,2.6vw,2.1rem)] font-normal text-primary">{t('jetzt')}</h2>
+          <ul className="mt-6 grid grid-cols-2 gap-x-5 gap-y-10 lg:grid-cols-4">
             {trefferVerfuegbar.map((l) => (
               <LinienKarte key={l.slug} linie={l} locale={locale} />
             ))}
@@ -204,13 +204,13 @@ export default function LaenderWand({
       {/* Signature — beim Suchen ausgeblendet: gesucht wird ein Land, und die Treffer sollen nicht darunter liegen. */}
       {!sucht && (linien.length > 0 || bald.length > 0) && (
         <section id="signature" className="scroll-mt-20 pt-14 md:pt-20">
-          <h2 className="font-serif text-[clamp(1.8rem,3.6vw,2.6rem)] font-normal text-primary">
+          <h2 className="font-serif text-[clamp(1.5rem,2.6vw,2.1rem)] font-normal text-primary">
             {t('signature_titel')}
           </h2>
           <p className="mt-3 max-w-[31rem] font-body leading-[1.75] tracking-[0.012em] text-secondary">
             {t('signature_text')}
           </p>
-          <ul className="mt-8 grid grid-cols-2 gap-x-5 gap-y-10 lg:grid-cols-4">
+          <ul className="mt-6 grid grid-cols-2 gap-x-5 gap-y-10 lg:grid-cols-4">
             {linien.map((l) => (
               <LinienKarte key={l.slug} linie={l} locale={locale} />
             ))}
@@ -240,7 +240,7 @@ export default function LaenderWand({
 
       {/* Alle Länder */}
       <section id="laender" className="scroll-mt-20 pt-14 md:pt-20">
-        <h2 className="font-serif text-[clamp(1.8rem,3.6vw,2.6rem)] font-normal text-primary">{t('alle')}</h2>
+        <h2 className="font-serif text-[clamp(1.5rem,2.6vw,2.1rem)] font-normal text-primary">{t('alle')}</h2>
         <p className="mt-3 max-w-[31rem] font-body leading-[1.75] tracking-[0.012em] text-secondary">
           {t('alle_text')}
         </p>

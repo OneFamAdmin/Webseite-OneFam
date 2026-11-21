@@ -103,6 +103,39 @@ function shopHtml(html: string, locale: Locale) {
   return ohneStil(html).replace(/href="\/(?!\/)/g, `href="${basis}/`);
 }
 
+/**
+ * Zerlegt den Inhalt einer Produktseite in seine Teile (21.11.2026).
+ *
+ * Der Shop liefert EIN Stück HTML: die Erzählung zum Motiv (Snippet 68), darin als
+ * letzte Zeile die Angaben zum Stück (<p class="onefam-stueck">), dann drei
+ * <details> — Grössentabelle, Material, Versand (Snippets 61, 62, 69). Im Shop
+ * stehen sie untereinander. Auf onefam.ch werden daraus Reiter direkt unter dem
+ * Kaufknopf, und die Grössentabelle ist von der Grössenwahl aus erreichbar —
+ * dafür braucht die Seite die Teile einzeln.
+ *
+ * Bewusst ohne HTML-Bibliothek: Das Format kommt aus den eigenen Snippets und
+ * ist flach (keine verschachtelten <details>). Passt es einmal nicht, bleibt
+ * alles in `erzaehlung` — die Seite zeigt dann den ganzen Text statt nichts.
+ */
+function teileInhalt(html: string): Produkt['abschnitte'] {
+  const klappen: { titel: string; html: string }[] = [];
+  let rest = html.replace(
+    /<details[^>]*>\s*<summary[^>]*>([\s\S]*?)<\/summary>([\s\S]*?)<\/details>/g,
+    (_ganz, titel: string, inhalt: string) => {
+      klappen.push({ titel: titel.replace(/<[^>]+>/g, '').trim(), html: inhalt.trim() });
+      return '';
+    },
+  );
+  let stueck = null as string | null;
+  rest = rest.replace(/<p class="onefam-stueck">([\s\S]*?)<\/p>/, (_ganz, inhalt: string) => {
+    stueck = inhalt.trim();
+    return '';
+  });
+  const erzaehlung = rest.trim();
+  const hatText = erzaehlung.replace(/<[^>]+>/g, '').trim().length > 0;
+  return { stueck, erzaehlung: hatText ? erzaehlung : null, klappen };
+}
+
 export async function holeProdukt(slug: string, locale: Locale): Promise<Produkt | null> {
   if (!/^[a-z0-9-]+$/.test(slug)) return null;
   const antwort = await fetch(`${SHOP}/wp-json/onefam/v1/katalog/${slug}?lang=${locale}`, {
@@ -156,6 +189,7 @@ export async function holeProdukt(slug: string, locale: Locale): Promise<Produkt
     slug: p.slug,
     name: p.name,
     beschreibungHtml: shopHtml(p.inhalt ?? '', locale),
+    abschnitte: teileInhalt(shopHtml(p.inhalt ?? '', locale)),
     lieferzeit: p.lieferzeit,
     kategorie: p.kategorie,
     farben,

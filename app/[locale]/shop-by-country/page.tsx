@@ -95,13 +95,16 @@ export default async function ShopByCountry({ params }: Props) {
   return (
     <div className="flex min-h-screen flex-col bg-bg pt-14 md:pt-16">
       <Nav shop />
-      <main className="flex-1 pb-20 pt-12 md:pb-28 md:pt-20">
+      <main className="flex-1 pb-20 pt-10 md:pb-28 md:pt-14">
         <MaxWidth>
           <header className="max-w-[40rem]">
-            <h1 className="font-serif text-[clamp(2.5rem,5.6vw,4.4rem)] font-normal leading-[1.06] text-primary">
+            {/* Bis 21.11.2026 bis 70 px gross; das erste Produktbild begann damit erst bei
+                526 px (0,65 Bildschirm). Fünf Referenzshops liegen bei 13,5–32 px
+                (docs/REFERENZ-shopdesign.md). Jetzt höchstens 48 px. */}
+            <h1 className="font-serif text-[clamp(2rem,3.4vw,3rem)] font-normal leading-[1.08] text-primary">
               {t('titel')}
             </h1>
-            <p className="mt-5 max-w-[31rem] font-body text-lg leading-[1.7] tracking-[0.012em] text-secondary">
+            <p className="mt-3 max-w-[31rem] font-body text-base leading-[1.7] tracking-[0.012em] text-secondary">
               {t('intro')}
             </p>
           </header>
