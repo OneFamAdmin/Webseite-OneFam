@@ -410,6 +410,31 @@
     "link_versand": "Envíos",
     "link_impressum": "Aviso legal",
     "lieferung_zahlung": "Solo enviamos a los países de la lista de arriba. Pago con Visa, Mastercard, TWINT, Apple Pay, Google Pay o PostFinance Pay.",
-    "kein_widerruf": "Como cada pieza se imprime individualmente para ti, no hay derecho de devolución por cambio de opinión o por haber elegido mal la talla."
+    "kein_widerruf": "Como cada pieza se imprime individualmente para ti, no hay derecho de devolución por cambio de opinión o por haber elegido mal la talla.",
+    "widerruf_eu": "Puedes desistir de esta compra en un plazo de 14 días desde la recepción, sin necesidad de justificación."
+  },
+  "shop_widerruf": {
+    "titel": "Desistir del contrato",
+    "link": "Desistir del contrato aquí",
+    "einleitung": "Con este formulario nos comunicas que desistes de una compra. Recibirás enseguida un acuse de recibo por correo electrónico.",
+    "hinweis_recht": "Qué pedidos admiten desistimiento y hasta cuándo se indica en nuestra <regel>política de devoluciones y desistimiento</regel>.",
+    "name": "Tu nombre",
+    "bestellung": "Número de pedido",
+    "bestellung_hilfe": "Está en la confirmación de tu pedido.",
+    "email": "Correo electrónico",
+    "email_hilfe": "Allí enviamos el acuse de recibo.",
+    "teile": "¿De qué quieres desistir?",
+    "teile_hilfe": "Déjalo vacío para todo el pedido.",
+    "optional": "(opcional)",
+    "bestaetigen": "Confirmar desistimiento",
+    "pflicht": "Rellena los campos marcados.",
+    "email_ungueltig": "Revisa el correo electrónico.",
+    "bremse": "El formulario no admite más envíos por ahora. Escríbenos a info@onefam.ch: un desistimiento por correo electrónico es igual de válido.",
+    "fehler": "No ha funcionado. Inténtalo de nuevo o escríbenos a info@onefam.ch: un desistimiento por correo electrónico es igual de válido.",
+    "eingegangen_titel": "Hemos recibido tu desistimiento.",
+    "eingegangen_text": "Recibido el {zeit}. El acuse de recibo va de camino a {email}.",
+    "eingegangen_ohne_mail": "Recibido el {zeit}. El correo de acuse de recibo no se ha podido enviar. Guarda este aviso (captura de pantalla) y, por seguridad, escríbenos a info@onefam.ch.",
+    "zurueck": "Volver al inicio",
+    "sendet": "Enviando tu declaración …"
   }
 }
