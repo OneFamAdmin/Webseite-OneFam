@@ -12,7 +12,8 @@ Testkäufe macht Labi (CLAUDE.md). Dieses Blatt sagt, was dabei zu prüfen ist.
   das du haben willst, oder die Bestellung direkt nach dem Test im wp-admin stornieren und bei
   Shirt-King Bescheid geben.
 - **Variante A (Abbruch) kostet nichts** und prüft schon das meiste. Damit anfangen.
-- Getestet wird lokal: Der Server muss laufen (`http://localhost:3001`). Läuft er nicht:
+- Getestet wird lokal: Auf der Live-Seite sind Warenkorb und Kasse gesperrt (404), bis in Vercel
+  `NEXT_PUBLIC_SHOP_AUF_ONEFAM=1` gesetzt ist. Der Server muss laufen (`http://localhost:3001`). Läuft er nicht:
   `export PATH="$HOME/.local/node/bin:$PATH" && npm run build && npx next start -p 3001`.
 - Die Rückkehr von zahls.ch funktioniert nur von `https://onefam.ch`, `http://localhost:3000`
   und `http://localhost:3001` (feste Liste in Shop-Snippet 114).
@@ -116,5 +117,7 @@ Spanien, Vereinigtes Königreich, Schweiz). Umgesetzt:
 
 Dieselben Knopftexte trägt seit 21.11.2026 auch die Kasse des Shops (Snippet 115).
 
-Offene Punkte (Widerrufsrecht für Kunden in der EU, Preisangabe „inkl. MwSt.“) stehen in
-`docs/stand.md`.
+Seit 21.11.2026 gilt für Lieferungen in EU und EWR das Widerrufsrecht: Die Kasse zeigt je
+Lieferland „14 Tage Widerruf“ (z. B. Deutschland) oder „kein Rückgaberecht“ (Schweiz) — beim
+Testkauf beide Länder einmal wählen und den Satz über dem Knopf lesen. Weitere offene Punkte
+stehen in `docs/stand.md`.

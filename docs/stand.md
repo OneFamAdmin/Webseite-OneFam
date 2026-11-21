@@ -101,35 +101,104 @@ Dort stehen auch Quellen, Wortlaute und Prüftiefe.
   Knopf las sich dort als „Bestellung mit Zahlungsverpflichtung“. Das ist die Übersetzung des
   Browsers, nicht der Text der Seite (`html`-Klasse `translated-ltr`). Sofort nach dem Rendern lesen.
 
-**Punkt 1 — Widerruf für Kunden in der EU: gebaut, noch nicht eingeschaltet.**
-Labi: Kunden in EU und EWR bekommen 14 Tage Widerruf, für die Schweiz bleibt es beim Ausschluss;
-die Rechtsfrage (CLAUDE.md, „Offene Baustellen“) geht vorher an einen Anwalt.
-- **Snippet 116 „OneFam Widerrufsfunktion (Empfang)“** (neu, global, 10 285 Zeichen, Prüfsumme
-  512125769, Quelle `docs/shop-snippets/onefam-widerruf.php`): `POST /wp-json/onefam/v1/widerruf`.
-  Nimmt jede vollständige Erklärung an, bestätigt den Eingang per Mail (Blindkopie an den Shop),
-  vermerkt ihn an der Bestellung, wenn Nummer **und** E-Mail passen, schreibt ins WooCommerce-Protokoll
-  (Quelle `onefam-widerruf`). Bremse 5 je IP und Stunde, 40 insgesamt. Prüft **nicht**, ob ein
-  Widerrufsrecht besteht.
-- **onefam.ch (nur lokal):** Seite `/widerruf` in vier Sprachen (`components/shop/WiderrufAnsicht.tsx`),
-  Beschriftungen im Wortlaut von Art. 11a RL 2011/83/EU. In der Kasse je Lieferland der Satz
-  „14 Tage Widerruf“ oder „kein Rückgaberecht“ — **hinter dem Schalter `WIDERRUF_EU_AKTIV`
-  (`lib/shop/kasse.ts`), der aus ist.** Solange er aus ist, sieht alles aus wie bisher.
-- **Gemessen:** falsche Eingaben 400, Roboter-Falle ohne Wirkung; zwei Probeläufe mit eigenen
-  Adressen — Bestätigung und Blindkopie angekommen (DKIM, SPF, DMARC bestanden), Antwort 1,3 s.
-- **Fallen, die das gekostet hat:** (1) Der Shop versendet über **PHP `mail()`** (FluentSMTP steht
-  auf „PHP mail()“) — eine **zweite Mail in derselben Anfrage kam nie an**, obwohl das Protokoll
-  „sent“ meldete; deshalb eine Mail mit Blindkopie. Das betrifft auch die Bestellbestätigungen.
-  (2) **WordPress läuft auf UTC** ohne Ort: `wp_date()` schrieb „01:00 GMT+0000“ statt 02:00 Uhr;
-  im Snippet steht die Schweizer Zeit jetzt fest.
-- **Nicht getestet:** eine Erklärung zu einer echten Bestellung (Notiz, Feld
-  `_onefam_widerruf_eingang`), die Bremse bis zum Anschlag.
-- **Vor dem Einschalten fehlt:** Antwort des Anwalts · **Rücksendeadresse** (Basel hiesse Paket
-  aus der EU in die Schweiz — besser eine Adresse in Deutschland, Shirt-King fragen) · Rechtstexte
-  des Shops umstellen (AGB Ziff. 5, Rückgaberichtlinie Ziff. 1, Produktseite) · Belehrung in die
-  Bestätigungsmail · Link „Vertrag widerrufen“. Reihenfolge, Anwaltsfrage und die ausgefüllten
-  Musterbelehrungen in vier Sprachen: nur lokal in `docs/privat/widerruf-eu-umsetzung-21112026.md`.
+**Punkt 1 — Widerruf für Kunden in EU und EWR: eingeschaltet am 21.11.2026 (live).**
+Labi: Kunden in EU und EWR bekommen 14 Tage Widerruf, für die Schweiz bleibt es beim Ausschluss.
+Zuerst sollte ein Anwalt gefragt werden; am selben Tag hat Labi entschieden, ohne diese Rücksprache
+durchzuschalten. Rücksendungen gehen an OneFam in Basel: Shirt-King nimmt keine an (Antwort vom
+15.09.2026, `docs/podos-chat-vollstaendig-21092026.md`).
+
+*Die Funktion „Vertrag widerrufen“ (Art. 11a RL 2011/83/EU):*
+- **Snippet 116 „OneFam Widerrufsfunktion (Empfang)“** (global, 10 285 Zeichen, Prüfsumme 512125769,
+  Quelle `docs/shop-snippets/onefam-widerruf.php`): `POST /wp-json/onefam/v1/widerruf`. Nimmt jede
+  vollständige Erklärung an, bestätigt den Eingang per Mail (Blindkopie an den Shop), vermerkt ihn an
+  der Bestellung, wenn Nummer **und** E-Mail passen, schreibt ins WooCommerce-Protokoll (Quelle
+  `onefam-widerruf`). Bremse 5 je IP und Stunde, 40 insgesamt. Prüft **nicht**, ob ein Widerrufsrecht
+  besteht — das macht ein Mensch.
+- **onefam.ch `/widerruf`** in vier Sprachen (`components/shop/WiderrufAnsicht.tsx`), **live seit dem
+  Push `f108165`**. Beschriftungen im Wortlaut der Richtlinie: Funktion „Vertrag widerrufen“ /
+  „Withdraw from contract here“ / „Renoncer au contrat ici“ / „Desistir del contrato aquí“; Knopf
+  ausschliesslich „Widerruf bestätigen“ / „Confirm withdrawal“ / „Confirmer la rétractation“ /
+  „Confirmar desistimiento“. Link in der Fusszeile von onefam.ch in allen vier Sprachen.
+
+*Die Rechtstexte des Shops (alle über REST gespeichert, Prüfsumme gegen die lokale Rechnung):*
+- **Snippet 11 (Router)** 2 554 195 → **2 560 016** Zeichen (Prüfsumme 830948958, nach dem Neuladen
+  gemessen): Rückgaberichtlinie Ziff. 1 neu (Widerrufsrecht EU/EWR, Schweiz ausgenommen, darunter die
+  Widerrufsbelehrung nach dem amtlichen Muster und das Muster-Formular), Ziff. 2 mit dem Zusatz „das
+  Widerrufsrecht bleibt unberührt“, AGB Ziff. 5 neu, beide „gültig ab 21. November 2026“; Link
+  „Withdraw from contract here“ in allen 25 Fusszeilen.
+- **Snippet 42 (Übersetzungen)** 199 638 → **227 351** Zeichen (Prüfsumme 249253785): 31 neue
+  Schlüssel im Teil RECHT, einer im Teil KERN. **Jeder** neue Textknoten hat de/fr/es (29 Knoten der
+  Rückgaberichtlinie, 3 der AGB — an den ausgelieferten Seiten nachgerechnet, 0 ohne Übersetzung).
+  Die alten Schlüssel zu Ziff. 1 und 5 stehen noch drin, werden aber von keinem Text mehr getroffen.
+- **Snippet 69 (Produktseite)** 10 566 → **11 081** Zeichen (Prüfsumme 823243526): der fette Satz der
+  dritten Klappe nennt jetzt beides — EU und Liechtenstein 14 Tage, Schweiz kein Rückgaberecht.
+- **Snippet 26 (Kopf-/Fusszeile der WooCommerce-Seiten)** 49 523 → **50 423** Zeichen (Prüfsumme
+  688474605): Link „Vertrag widerrufen“ im base64-Block der Fusszeile, Text **und Ziel** je Sprache im
+  Wörterbuch von `of_shell_uebersetzen` (de `/de/widerruf`, en `/widerruf`, fr, es).
+- **Snippet 117 „OneFam Widerrufsbelehrung in der Bestellbestaetigung“** (neu, global, 9 794 Zeichen,
+  Prüfsumme 428863662, Quelle `docs/shop-snippets/onefam-widerruf-mail.php`): hängt Belehrung und
+  Formular an die Mails „in Bearbeitung“ und „wartend“ für Lieferungen in EU/EWR (Art. 8 Abs. 7 RL —
+  ein Link genügt nicht). Übersetzungen aus derselben Tabelle wie die Seite (`of_nachtrag_teil('recht')`).
+  Merkt beim Anlegen der Bestellung die Sprache in `_onefam_sprache` — bisher wusste der Shop nicht,
+  in welcher Sprache bestellt wurde. Vorschau ohne Bestellung:
+  `GET /wp-json/onefam/v1/widerruf-mailvorschau?lang=de` (nur angemeldet).
+- **Die Texte kommen aus EINER Quelle:** `docs/privat/shop-snippets/widerruf_texte-21112026.py`
+  (vier Sprachen) und `widerruf_bauen-21112026.py` (erzeugt daraus Snippet 11, 42, 69 und die
+  Absatzliste für 117). Wer einen Absatz ändert, ändert ihn dort und baut neu — sonst laufen Seite,
+  Übersetzung und Mail auseinander.
+
+*onefam.ch:*
+- `WIDERRUF_EU_AKTIV = true` (`lib/shop/kasse.ts`): Kasse zeigt je Lieferland „14 Tage Widerruf“
+  oder „kein Rückgaberecht“.
+- **Die Shop-Seiten sind ohne Schalter gesperrt.** Für `/widerruf` musste der ganze Stand live; die
+  Kasse ist aber noch nicht mit einem echten Kauf geprüft. Ohne `NEXT_PUBLIC_SHOP_AUF_ONEFAM=1`
+  antworten Länderseiten, Produktseiten, `/shop-by-country`, `/warenkorb`, `/kasse`, `/danke` und
+  `/api/shop/*` mit 404. Lokal steht der Schalter in `.env.local`, dort ist alles da.
+
+*Gemessen:*
+- Empfang: falsche Eingaben 400, Roboter-Falle ohne Wirkung, GET 404.
+- Drei Probeläufe mit eigenen Adressen: lokal deutsch, per curl französisch (zweites eigenes
+  Postfach auf anderer Domain: Bestätigung dort, Blindkopie bei info@), **live von
+  `https://onefam.ch/de/widerruf`** (Antwort nach 2,1 s, „21.11.2026, 02:40:15 CET“, Mail 02:40:17).
+  DKIM, SPF, DMARC bestanden.
+- Live nach dem Push: onefam.ch `/de/widerruf`, `/fr/…`, `/es/…` 200, `/widerruf` 200 (englisch) bzw.
+  307 auf die Browsersprache; `/de/kasse`, `/de/albania`, `/de/irgendwas` 404.
+- Shop, ausgeloggt: Rückgaberichtlinie und AGB in vier Sprachen 200, neue Texte da, alte im
+  sichtbaren Teil weg; Produktseite vier Sprachen mit dem neuen Satz; Fusszeilen-Link auf Start-,
+  Länder-, Rechts-, Produktseite und in der Kasse, je Sprache.
+- Mail-Vorschau de/fr/es/en: 21 Absätze, 2 Überschriften, 0 englische Reste.
+
+*Fallen, die das gekostet hat:*
+1. **Leere Liste in `generateStaticParams` = 500 statt 404** (Next.js 15.3.6). Mit der Sperre gab es
+   für `[kategorie]` und `produkt/[slug]` keine einzige Seite mehr; darauf antwortete **jede**
+   unbekannte Adresse der Website mit 500 (`DYNAMIC_SERVER_USAGE`, `app/layout.tsx` liest die
+   Kopfzeilen). Ein Platzhalter je Sprache behebt es. `dynamicParams` lässt sich nicht an den Schalter
+   hängen („Unknown identifier“ — muss ein Literal sein). **Vor jedem Push den Bau OHNE Schalter
+   prüfen:** `NEXT_PUBLIC_SHOP_AUF_ONEFAM=0 npm run build`, dann `/de/irgendwas` → 404.
+2. **PHP `mail()`:** Der Shop versendet darüber (FluentSMTP steht auf „PHP mail()“). Eine **zweite
+   Mail in derselben Anfrage kam nie an**, obwohl das Protokoll „sent“ meldete; deshalb eine Mail
+   mit Blindkopie. Das betrifft auch die Bestellbestätigungen.
+3. **WordPress läuft auf UTC** ohne Ort: `wp_date()` schrieb „01:00 GMT+0000“ statt 02:00 Uhr. Im
+   Snippet steht die Schweizer Zeit fest.
+4. `strtoupper` liess Akzente klein („RéTRACTATION“) — `mb_strtoupper`.
+5. Die Fusszeile gibt es **zweimal**: 25-mal im Router (Snippet 11, Übersetzung im Browser) und als
+   base64-Block in Snippet 26 (Übersetzung im Server). Ein neuer Link muss an beide Stellen.
+
+*Nicht getestet:*
+- Eine Widerrufserklärung zu einer **echten** Bestellung (Notiz, Feld `_onefam_widerruf_eingang`).
+- Die Belehrung in einer **echten** Bestellbestätigung — geprüft ist der Block (Vorschau), nicht das
+  Einhängen in die Mail. Die nächste Bestellung in ein EU-Land zeigt es; die Mail ansehen.
+- Die Bremse bis zum Anschlag.
+
+*Offen:*
+- **Rückzahlung über zahls.ch** — wie sie ausgelöst wird, ist nicht nachgesehen. Frist: 14 Tage ab
+  Widerruf.
+- **Datenschutzerklärung:** Die Verarbeitung der Widerrufserklärung (Name, Bestellnummer, E-Mail)
+  steht dort noch nicht.
 - **Für Labi:** FluentSMTP auf den SMTP-Zugang von Infomaniak stellen (Passwort trägt er ein);
-  Zeitzone in WordPress auf „Zürich“. Im Posteingang liegen drei Testmails „Probelauf, bitte ignorieren“.
+  Zeitzone in WordPress auf „Zürich“. Im Posteingang liegen vier Testmails „Probelauf, bitte
+  ignorieren“.
+- Rückweg, falls nötig: `docs/privat/widerruf-eu-umsetzung-21112026.md`.
 
 ## 🧭 20.11.2026: Richtung gewechselt — der Shop kommt in die Landing Page
 

@@ -205,6 +205,10 @@ Konfiguration steht vollständig in `i18n/routing.ts` — auch die Helfer `homeP
 Für Links auf „den Shop“ gilt seit 21.11.2026 `shopEinstieg(locale)`: Er führt auf
 shop.onefam.ch, solange `NEXT_PUBLIC_SHOP_AUF_ONEFAM` nicht `1` ist, sonst auf die
 Übersicht `/shop-by-country` auf onefam.ch (Shop-Aufbau: `docs/plan-zusammenfuehrung-onefam.md`).
+**Derselbe Schalter sperrt die Shop-Seiten selbst:** Ohne ihn antworten Länderseiten, Produktseiten,
+Warenkorb, Kasse und `/api/shop/*` mit 404; nur `/widerruf` ist immer erreichbar. Vor einem Push den
+Bau ohne Schalter prüfen (`NEXT_PUBLIC_SHOP_AUF_ONEFAM=0 npm run build`, dann `/de/irgendwas` → 404):
+Am 21.11.2026 machte eine leere Liste in `generateStaticParams` aus jeder unbekannten Adresse einen 500.
 
 Es gibt **kein `app/page.tsx`**. Die präfixlose englische Seite kommt aus
 `app/[locale]/page.tsx` über die interne Umschreibung `/` → `/en`.
@@ -387,8 +391,10 @@ in `middleware.ts` ein — sonst antworten sie mit 404.
 - Footer-Branding-Zeile untergräbt die Premium-Wirkung
 - ~~Tote Links~~ — der einzige öffentlich erreichbare (`/mein-bereich` → `/reiseziel`,
   nur im Zustand `buyer` sichtbar) ist am 08.09.2026 behoben. → `docs/stand.md`
-- Pauschaler Ausschluss des Widerrufsrechts ist nach deutschem Verbraucherrecht
-  vermutlich angreifbar — vor Launch prüfen lassen
+- ~~Pauschaler Ausschluss des Widerrufsrechts~~ — **seit 21.11.2026 gilt für Lieferungen in EU und
+  EWR das 14-tägige Widerrufsrecht** (Schweiz weiter ausgenommen); Widerrufsbelehrung, Formular und
+  die Funktion „Vertrag widerrufen“ (`onefam.ch/widerruf`) sind live. Die Texte kommen aus einer
+  Quelle und stehen an drei Stellen im Shop — vor jeder Änderung `docs/stand.md` lesen.
 
 ---
 

@@ -194,6 +194,9 @@ der navigation“.
 - **Suche** wie im Shop: trifft den übersetzten und den englischen Namen, ohne Akzente
   („turkei“) und mit ausgeschriebenen Umlauten („tuerkei“) — im Browser getestet.
 - **Navigation hinter einem Schalter:** `NEXT_PUBLIC_SHOP_AUF_ONEFAM=1` (lokal in `.env.local`).
+  Seit 21.11.2026 sperrt er auch die Seiten selbst (ohne ihn 404) — der Stand ist seit dem Push
+  `f108165` auf der Live-Seite, weil `/widerruf` gebraucht wurde. Livegang des Shops heisst jetzt nur
+  noch: Variable in Vercel setzen und neu deployen (nach Labis Testkauf).
   Mit Schalter führen die fünf „Shop“-Links der Startseite auf `/shop-by-country`, ohne ihn
   weiter auf shop.onefam.ch — beides gebaut und gemessen (5/0 und 0/5). Grund: Ohne Kasse darf
   die Live-Navigation niemanden in einen Shop schicken, in dem man nicht bezahlen kann. Zum
