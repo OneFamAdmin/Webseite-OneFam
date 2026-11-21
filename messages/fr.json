@@ -410,6 +410,31 @@
     "link_versand": "Livraison",
     "link_impressum": "Mentions légales",
     "lieferung_zahlung": "Livraison uniquement dans les pays de la liste ci-dessus. Paiement par Visa, Mastercard, TWINT, Apple Pay, Google Pay ou PostFinance Pay.",
-    "kein_widerruf": "Comme chaque pièce est imprimée individuellement pour vous, il n’y a pas de droit de retour en cas de changement d’avis ou de mauvaise taille."
+    "kein_widerruf": "Comme chaque pièce est imprimée individuellement pour vous, il n’y a pas de droit de retour en cas de changement d’avis ou de mauvaise taille.",
+    "widerruf_eu": "Vous pouvez vous rétracter de cet achat dans un délai de 14 jours après réception, sans donner de motif."
+  },
+  "shop_widerruf": {
+    "titel": "Renoncer au contrat",
+    "link": "Renoncer au contrat ici",
+    "einleitung": "Ce formulaire vous permet de nous informer que vous vous rétractez d’un achat. Vous recevez aussitôt un accusé de réception par e-mail.",
+    "hinweis_recht": "Les commandes concernées et les délais figurent dans notre <regel>politique de retour et de rétractation</regel>.",
+    "name": "Votre nom",
+    "bestellung": "Numéro de commande",
+    "bestellung_hilfe": "Il figure dans votre confirmation de commande.",
+    "email": "Adresse e-mail",
+    "email_hilfe": "Nous y envoyons l’accusé de réception.",
+    "teile": "De quoi souhaitez-vous vous rétracter ?",
+    "teile_hilfe": "Laissez vide pour toute la commande.",
+    "optional": "(facultatif)",
+    "bestaetigen": "Confirmer la rétractation",
+    "pflicht": "Veuillez remplir les champs signalés.",
+    "email_ungueltig": "Veuillez vérifier l’adresse e-mail.",
+    "bremse": "Le formulaire n’accepte plus d’envoi pour le moment. Écrivez-nous à info@onefam.ch – une rétractation par e-mail est tout aussi valable.",
+    "fehler": "Cela n’a pas fonctionné. Réessayez ou écrivez-nous à info@onefam.ch – une rétractation par e-mail est tout aussi valable.",
+    "eingegangen_titel": "Nous avons bien reçu votre rétractation.",
+    "eingegangen_text": "Reçue le {zeit}. L’accusé de réception est en route vers {email}.",
+    "eingegangen_ohne_mail": "Reçue le {zeit}. L’e-mail d’accusé de réception n’a pas pu être envoyé. Conservez cet affichage (capture d’écran) et, par sécurité, écrivez-nous à info@onefam.ch.",
+    "zurueck": "Retour à l’accueil",
+    "sendet": "Envoi de votre déclaration …"
   }
 }
