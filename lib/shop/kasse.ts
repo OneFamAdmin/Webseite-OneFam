@@ -38,21 +38,45 @@ export async function holeKassenDaten(locale: Locale): Promise<LandRegel[]> {
 }
 
 /**
- * AGB des Shops je Sprache — die Adressen, auf die seine Kasse verlinkt
- * (am 21.11.2026 aus der Kasse gelesen). Eine Datenschutzseite ist in
- * WooCommerce nicht hinterlegt, die Kasse des Shops zeigt das Wort deshalb ohne
- * Link; hier führt es auf die Datenschutzerklärung des Shops.
+ * Die Rechtstexte des SHOPS je Sprache — Kaufbedingungen, Datenschutz, Rückgabe und
+ * Widerruf, Versand, Impressum. Am 21.11.2026 alle 20 Adressen mit 200 gemessen.
+ *
+ * Verlinkt wird direkt auf die Seiten. Die AGB-Adressen, die WooCommerce selbst
+ * führt (/de/agb/, /fr/conditions-generales-de-vente/, /es/terminos-y-condiciones/),
+ * leiten nur per 301 hierher weiter. Eine Datenschutzseite ist in WooCommerce nicht
+ * hinterlegt; die Kasse des Shops zeigt das Wort deshalb ohne Link — hier ist es einer.
+ *
+ * Es sind die Texte des Shops und nicht die von onefam.ch (/agb, /datenschutz):
+ * Jene regeln den Kauf, diese die Website und die Warteliste.
  */
-export const AGB_ADRESSE: Record<Locale, string> = {
-  en: `${SHOP}/terms-of-service/`,
-  de: `${SHOP}/de/agb/`,
-  fr: `${SHOP}/fr/conditions-generales-de-vente/`,
-  es: `${SHOP}/es/terminos-y-condiciones/`,
+export type RechtsSeite = 'agb' | 'datenschutz' | 'rueckgabe' | 'versand' | 'impressum';
+
+const RECHTS_PFAD: Record<RechtsSeite, string> = {
+  agb: 'terms-of-service',
+  datenschutz: 'privacy-policy',
+  rueckgabe: 'refund-policy',
+  versand: 'shipping-policy',
+  impressum: 'legal-notice',
 };
 
-export function datenschutzAdresse(locale: Locale): string {
-  return `${SHOP}${locale === 'en' ? '' : `/${locale}`}/privacy-policy/`;
+export function rechtsAdresse(locale: Locale, seite: RechtsSeite): string {
+  return `${SHOP}${locale === 'en' ? '' : `/${locale}`}/${RECHTS_PFAD[seite]}/`;
 }
+
+export function rechtsAdressen(locale: Locale): Record<RechtsSeite, string> {
+  return Object.fromEntries(
+    (Object.keys(RECHTS_PFAD) as RechtsSeite[]).map((s) => [s, rechtsAdresse(locale, s)]),
+  ) as Record<RechtsSeite, string>;
+}
+
+/**
+ * Lieferländer ausserhalb der EU-Zollunion: Dorthin kommen Einfuhrabgaben dazu,
+ * die der Kunde bei der Zustellung zahlt (AGB Ziff. 3 und 7, Rückgaberichtlinie
+ * Ziff. 6). Versendet wird aus Deutschland. Liechtenstein gehört zum Schweizer
+ * Zollgebiet. An der Kasse steht der Hinweis genau dann, wenn in eines dieser
+ * Länder geliefert wird — bei einem Kunden in Deutschland wäre er falsch.
+ */
+export const LAENDER_MIT_EINFUHR = ['CH', 'LI', 'GB', 'NO'];
 
 /** Zeichen der Zahlarten, wie die Kasse des Shops sie zeigt (Dateien des zahls-Plugins). */
 export const ZAHLARTEN_BILDER = ['twint', 'mastercard', 'visa', 'apple_pay', 'google_pay'].map((name) => ({

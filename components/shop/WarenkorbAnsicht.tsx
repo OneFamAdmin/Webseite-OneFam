@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import Button from '@/components/Button';
 import { BRAND_GRADIENT_CTA } from '@/lib/brand';
+import { LAENDER_MIT_EINFUHR, ZAHLARTEN_BILDER } from '@/lib/shop/kasse';
 import { merkeKorbAnzahl } from '@/lib/shop/korbZaehler';
 import type { Warenkorb } from '@/lib/shop/typen';
 import { preisText } from '@/lib/shop/waehrung';
@@ -180,10 +181,27 @@ export default function WarenkorbAnsicht({ weiterPfad, kassePfad }: { weiterPfad
             {tKasse('abbruch')}
           </p>
         )}
+        {/* Einfuhrabgaben gehören zum Endpreis — der Hinweis steht bei der Summe. */}
+        {LAENDER_MIT_EINFUHR.includes(korb.land) && (
+          <p className="mt-4 rounded-[4px] border border-white/15 p-3 font-body text-sm leading-[1.6] text-primary">
+            {tKasse('einfuhr')}
+          </p>
+        )}
         {/* Der Weg zum Kauf: Markenverlauf, wie auf Produktseite und Kasse. */}
         <Button as="a" href={kassePfad} className="mt-6 w-full" style={{ background: BRAND_GRADIENT_CTA }}>
           {t('zur_kasse')}
         </Button>
+        {/* Lieferbeschränkungen und Zahlungsmittel müssen "spätestens bei Beginn des
+            Bestellvorgangs" klar angegeben sein (Art. 8 Abs. 3 RL 2011/83/EU;
+            § 312j Abs. 1 BGB; L221-14 C. consom.; Art. 98.3 TRLGDCU; reg. 14(6) UK).
+            Der Warenkorb ist dieser Beginn. */}
+        <p className="mt-4 font-body text-xs leading-[1.6] text-faint">{tKasse('lieferung_zahlung')}</p>
+        <div className="mt-2 flex flex-wrap items-center gap-2">
+          {ZAHLARTEN_BILDER.map((z) => (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img key={z.name} src={z.src} alt={z.name.replace('_', ' ')} height={22} className="h-[22px] w-auto" loading="lazy" />
+          ))}
+        </div>
       </div>
     </div>
   );

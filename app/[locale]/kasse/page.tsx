@@ -5,7 +5,7 @@ import Nav from '@/components/Nav';
 import MaxWidth from '@/components/MaxWidth';
 import SiteFooter from '@/components/SiteFooter';
 import KasseAnsicht from '@/components/shop/KasseAnsicht';
-import { AGB_ADRESSE, datenschutzAdresse, holeKassenDaten } from '@/lib/shop/kasse';
+import { holeKassenDaten, rechtsAdressen } from '@/lib/shop/kasse';
 import { LOCALES, isLocale, shopByCountryPfad, warenkorbPfad } from '@/i18n/routing';
 
 // Kasse auf onefam.ch — /kasse, /de/kasse … (21.11.2026, nur lokal).
@@ -42,8 +42,7 @@ export default async function KasseSeite({ params }: Props) {
           <h1 className="mb-10 font-serif text-[clamp(2rem,4.4vw,2.9rem)] font-normal text-primary">{t('titel')}</h1>
           <KasseAnsicht
             regeln={regeln}
-            agbAdresse={AGB_ADRESSE[locale]}
-            datenschutzAdresse={datenschutzAdresse(locale)}
+            recht={rechtsAdressen(locale)}
             warenkorbPfad={warenkorbPfad(locale)}
             weiterPfad={shopByCountryPfad(locale)}
           />

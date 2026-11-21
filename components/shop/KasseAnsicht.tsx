@@ -6,11 +6,13 @@ import { useLocale, useTranslations } from 'next-intl';
 import Button from '@/components/Button';
 import { BRAND_GRADIENT_CTA } from '@/lib/brand';
 import {
+  LAENDER_MIT_EINFUHR,
   LEERE_ADRESSE,
   ZAHLARTEN_BILDER,
   fehlendeFelder,
   type Adresse,
   type LandRegel,
+  type RechtsSeite,
 } from '@/lib/shop/kasse';
 import { merkeKorbAnzahl } from '@/lib/shop/korbZaehler';
 import type { Warenkorb } from '@/lib/shop/typen';
@@ -153,14 +155,12 @@ function AdressFelder({
 
 export default function KasseAnsicht({
   regeln,
-  agbAdresse,
-  datenschutzAdresse,
+  recht,
   warenkorbPfad,
   weiterPfad,
 }: {
   regeln: LandRegel[];
-  agbAdresse: string;
-  datenschutzAdresse: string;
+  recht: Record<RechtsSeite, string>;
   warenkorbPfad: string;
   weiterPfad: string;
 }) {
@@ -403,21 +403,52 @@ export default function KasseAnsicht({
           </div>
         </dl>
 
+        {/* Einfuhrabgaben gehören zum Preis, den der Kunde am Ende zahlt, stehen
+            aber nicht in der Summe. Der Hinweis steht deshalb direkt unter ihr —
+            Wortlaut aus der Rückgaberichtlinie des Shops, Ziff. 6. */}
+        {LAENDER_MIT_EINFUHR.includes(lieferung.land) && (
+          <p className="mt-4 rounded-[4px] border border-white/15 p-3 font-body text-sm leading-[1.6] text-primary">
+            {t('einfuhr')}
+          </p>
+        )}
+
         <p className="mt-6 font-body text-sm leading-[1.7] text-secondary">
           {t.rich('agb_satz', {
             agb: (teile) => (
-              <a href={agbAdresse} target="_blank" rel="noopener" className="text-gold underline-offset-4 hover:underline">
+              <a href={recht.agb} target="_blank" rel="noopener" className="text-gold underline-offset-4 hover:underline">
                 {teile}
               </a>
             ),
             datenschutz: (teile) => (
-              <a href={datenschutzAdresse} target="_blank" rel="noopener" className="text-gold underline-offset-4 hover:underline">
+              <a href={recht.datenschutz} target="_blank" rel="noopener" className="text-gold underline-offset-4 hover:underline">
                 {teile}
               </a>
             ),
           })}
         </p>
 
+        {/* Die Rückgaberegel des Shops, bevor der Kunde sich bindet (Wortlaut aus
+            Snippet 69, dritte Klappe der Produktseite). Wer bestellt, soll sie
+            gesehen haben — nicht erst in den AGB suchen müssen. */}
+        <p className="mt-3 font-body text-sm leading-[1.7] text-secondary">
+          {t('kein_widerruf')}{' '}
+          <a href={recht.rueckgabe} target="_blank" rel="noopener" className="text-gold underline-offset-4 hover:underline">
+            {t('link_rueckgabe')}
+          </a>
+        </p>
+
+        {/* DER BESTELLKNOPF. Beschriftet NUR mit der Formel des Gesetzes, in jeder
+            Sprache — kein Pfeil, kein Zusatz:
+              de  "Zahlungspflichtig bestellen"            § 312j Abs. 3 BGB, § 8 Abs. 2 FAGG (AT)
+              fr  "Commande avec obligation de paiement"   Art. L221-14 Code de la consommation
+              es  "Pedido con obligación de pago"          Art. 98.2 TRLGDCU
+              en  "Order with obligation to pay"           reg. 14(4) Consumer Contracts Regulations 2013
+            alle nach Art. 8 Abs. 2 der Richtlinie 2011/83/EU. Steht dort etwas
+            anderes, ist der Kunde an die Bestellung nicht gebunden (in Deutschland
+            kommt gar kein Vertrag zustande, § 312j Abs. 4 BGB). Der EuGH (C-249/21)
+            lässt allein die Worte auf dem Knopf gelten, nicht das Umfeld. Die
+            WooCommerce-Texte "Commander", "Realizar el pedido", "Place Order"
+            nennen die Zahlung nicht — am 21.11.2026 ersetzt. Nicht kürzen. */}
         <Button
           type="submit"
           disabled={zustand !== 'frei'}
@@ -432,6 +463,17 @@ export default function KasseAnsicht({
         <Link href={warenkorbPfad} className="mt-2 inline-block font-body text-sm text-secondary underline-offset-4 hover:text-primary hover:underline">
           ← {t('zurueck')}
         </Link>
+
+        {/* Alle Rechtstexte des Shops in Reichweite, bevor bestellt wird. */}
+        <ul className="mt-6 flex flex-wrap gap-x-4 gap-y-1 border-t border-white/10 pt-4 font-body text-xs text-faint">
+          {(['agb', 'rueckgabe', 'versand', 'datenschutz', 'impressum'] as const).map((s) => (
+            <li key={s}>
+              <a href={recht[s]} target="_blank" rel="noopener" className="underline-offset-4 hover:text-gold hover:underline">
+                {t(`link_${s}`)}
+              </a>
+            </li>
+          ))}
+        </ul>
       </aside>
     </form>
   );
