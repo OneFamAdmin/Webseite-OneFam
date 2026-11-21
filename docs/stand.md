@@ -235,6 +235,22 @@ geändert — das ist die Befundliste, Labi entscheidet, was umgesetzt wird.
 12. Fusszeile der Shop-Seiten ohne Versand und Rückgabe.
 13. Leerer Warenkorb nur Satz und Link; beim Preis fehlt „zzgl. Versand“.
 
+**21.11.2026 — Vorbilder von awwwards.com** (Labi: vor jeder Design-Änderung dort die passendsten
+Seiten suchen und ihm öffnen). Rund 230 Seiten als Bildübersicht gesichtet (Kategorien Fashion
+Seiten 1–4, Luxury 1–2, E-Commerce-Preisträger 1–2, E-Commerce Seite 2), elf einzeln geöffnet.
+**Am Design ist nichts geändert.** Ausgewählt und geöffnet:
+- **Almada Label** (`almadalabel.com/de`, Produktseite `…/products/amel-trousers-black`) — Bild steht
+  Ton in Ton auf der Seite statt als weisser Kasten; Titel klein und kursiv in Serifen; „Leitfaden
+  zur Grösse“ direkt neben der Grössenwahl; ein ruhiger Kaufknopf über die ganze Spalte.
+- **Kindred of Ireland** (`kindredofireland.com`, Produktseite `…/products/raglan-tweed-coat`) —
+  Herkunft als Erzählung; Kennzeichen „Made to order“ bei der Grösse; Leiste „Produktionszeit 3–4
+  Wochen“; Reiter Beschreibung/Passform/Pflege/Lieferung direkt unter dem Kaufknopf.
+- **Banham** (`banham.co.uk`) — Schwarz, Serifen, viel Ruhe: am nächsten an der Startseite von OneFam.
+- **Maison des Elites** (`mdebeauty.com`) — Schwarz, Gold und Creme; Ware auf dunklem Grund inszeniert.
+- **Mason Garments** (`masongarments.com`) — Kleidungsshop, dunkler Einstieg, ruhiges Raster.
+Verworfen: Coutumes (laute Schrift), Killstar (Rabattbanner), Drop Edition (heller Laufsteg-Stil);
+hopaal.com liess sich nicht laden. Offen: Labi sagt, welche Richtung; erst dann wird umgebaut.
+
 ## 🧭 20.11.2026: Richtung gewechselt — der Shop kommt in die Landing Page
 
 Labi: „geht es nicht, dass der Shop in die Landing Page kommt?" → „ja plane so". onefam.ch
