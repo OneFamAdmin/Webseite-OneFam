@@ -4,7 +4,8 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
-import { legalPath, shopEinstieg, type Locale } from '@/i18n/routing';
+import { SHOP_AUF_ONEFAM, legalPath, shopEinstieg, widerrufPfad, type Locale } from '@/i18n/routing';
+import { WIDERRUF_EU_AKTIV } from '@/lib/shop/kasse';
 import MaxWidth from './MaxWidth';
 
 // Shop-Adresse pro Sprache — siehe i18n/routing.ts. Stand vorher fest auf /de/.
@@ -22,6 +23,7 @@ const socials = [
 const SiteFooter = () => {
   const t = useTranslations('footer');
   const tNav = useTranslations('nav');
+  const tWiderruf = useTranslations('shop_widerruf');
   const locale = useLocale() as Locale;
   const pages = t.raw('pages') as { label: string; href: string }[];
   const legal = t.raw('legal') as { label: string; href?: string }[];
@@ -102,6 +104,22 @@ const SiteFooter = () => {
                       )}
                     </li>
                   ))}
+                  {/* "Vertrag widerrufen" — die Widerrufsfunktion muss "hervorgehoben
+                      platziert" und "durchgehend verfügbar" sein (Art. 11a Abs. 1
+                      RL 2011/83/EU), deshalb auf jeder Seite. Der Linktext ist die
+                      Formel des Gesetzes je Sprache. Sichtbar erst, wenn der Shop auf
+                      onefam.ch läuft UND das Widerrufsrecht eingeschaltet ist
+                      (lib/shop/kasse.ts, WIDERRUF_EU_AKTIV). */}
+                  {SHOP_AUF_ONEFAM && WIDERRUF_EU_AKTIV && (
+                    <li>
+                      <Link
+                        href={widerrufPfad(locale)}
+                        className="font-body text-[15px] text-secondary transition-colors duration-[180ms] hover:text-primary"
+                      >
+                        {tWiderruf('link')}
+                      </Link>
+                    </li>
+                  )}
                 </ul>
               </div>
             </div>

@@ -7,6 +7,7 @@ import Button from '@/components/Button';
 import { BRAND_GRADIENT_CTA } from '@/lib/brand';
 import {
   LAENDER_MIT_EINFUHR,
+  hatWiderruf,
   LEERE_ADRESSE,
   ZAHLARTEN_BILDER,
   fehlendeFelder,
@@ -429,9 +430,12 @@ export default function KasseAnsicht({
 
         {/* Die Rückgaberegel des Shops, bevor der Kunde sich bindet (Wortlaut aus
             Snippet 69, dritte Klappe der Produktseite). Wer bestellt, soll sie
-            gesehen haben — nicht erst in den AGB suchen müssen. */}
+            gesehen haben — nicht erst in den AGB suchen müssen.
+            Für Lieferländer in EU und EWR steht hier das Widerrufsrecht, sobald
+            WIDERRUF_EU_AKTIV eingeschaltet ist (lib/shop/kasse.ts) — bis dahin
+            für alle derselbe Satz wie im Shop. */}
         <p className="mt-3 font-body text-sm leading-[1.7] text-secondary">
-          {t('kein_widerruf')}{' '}
+          {hatWiderruf(lieferung.land) ? t('widerruf_eu') : t('kein_widerruf')}{' '}
           <a href={recht.rueckgabe} target="_blank" rel="noopener" className="text-gold underline-offset-4 hover:underline">
             {t('link_rueckgabe')}
           </a>

@@ -13,10 +13,13 @@ import type { Locale } from '@/i18n/routing';
 // der Shop (GET /wp-json/onefam/v1/kasse, Snippet 114) aus denselben
 // WooCommerce-Einstellungen, nach denen er die Adresse am Ende selbst prüft.
 //
-// RECHTLICHES — bewusst nichts neu formuliert: Bestellknopf und AGB-Satz sind
-// der Wortlaut der WooCommerce-Kasse des Shops in der jeweiligen Sprache
-// (messages, "shop_kasse"). Die AGB sind die des SHOPS (Kaufbedingungen), nicht
-// die von onefam.ch. Zusammenlegen der Rechtstexte → Anwalt.
+// RECHTLICHES (Stand 21.11.2026, am Wortlaut der Gesetze geprüft): Der Bestellknopf
+// trägt in jeder Sprache die Formel des Gesetzes (Art. 8 Abs. 2 RL 2011/83/EU) —
+// bis zu diesem Tag stand hier der Wortlaut der WooCommerce-Kasse, der in drei
+// Sprachen die Zahlung nicht nannte. Dieselben Texte setzt seither Shop-Snippet 115
+// in der Kasse des Shops (docs/shop-snippets/onefam-kasse-bestellknopf.php).
+// Die AGB sind die des SHOPS (Kaufbedingungen), nicht die von onefam.ch.
+// Was offen ist, steht in docs/stand.md.
 
 const SHOP = 'https://shop.onefam.ch';
 
@@ -75,8 +78,50 @@ export function rechtsAdressen(locale: Locale): Record<RechtsSeite, string> {
  * Ziff. 6). Versendet wird aus Deutschland. Liechtenstein gehört zum Schweizer
  * Zollgebiet. An der Kasse steht der Hinweis genau dann, wenn in eines dieser
  * Länder geliefert wird — bei einem Kunden in Deutschland wäre er falsch.
+ *
+ * Grossbritannien und Norwegen standen bis 21.11.2026 mit in der Liste. Seit
+ * diesem Tag liefert der Shop dorthin nicht mehr (Labis Entscheid): Der Verkäufer
+ * müsste dort selbst Umsatzsteuer erheben und sich registrieren (Vereinigtes
+ * Königreich bis £135 Warenwert, Norwegen VOEC). Kommen sie zurück, gehören sie
+ * wieder hierher.
  */
-export const LAENDER_MIT_EINFUHR = ['CH', 'LI', 'GB', 'NO'];
+export const LAENDER_MIT_EINFUHR = ['CH', 'LI'];
+
+/** Empfang der Online-Widerrufserklärung im Shop (Snippet 116, docs/shop-snippets/onefam-widerruf.php). */
+export const WIDERRUF_EMPFANG = `${SHOP}/wp-json/onefam/v1/widerruf`;
+
+/**
+ * WIDERRUFSRECHT FÜR KUNDEN IN DER EU UND IM EWR — vorbereitet, NICHT eingeschaltet
+ * (21.11.2026).
+ *
+ * Die Rechtstexte des Shops schliessen die Rückgabe aus ("nach Kundenwunsch
+ * angefertigt"). Labi hat am 21.11.2026 entschieden, Kunden in EU und EWR
+ * 14 Tage Widerruf einzuräumen (für die Schweiz bleibt es beim Ausschluss) und
+ * die Rechtsfrage vorher einem Anwalt vorzulegen. Begründung, Quellen und die
+ * Entwürfe der Texte liegen nur lokal (docs/privat/, das Repo ist öffentlich).
+ *
+ * Solange dieser Schalter aus ist, zeigt die Kasse den Satz des Shops ("kein
+ * Rückgaberecht") und es gibt keinen Link "Vertrag widerrufen". Einschalten erst,
+ * wenn die Rechtstexte des Shops (AGB Ziff. 5, Rückgaberichtlinie Ziff. 1,
+ * Widerrufsbelehrung mit Rücksendeadresse) umgestellt sind — sonst verspricht
+ * die Kasse etwas, das die AGB verneinen (CLAUDE.md, Arbeitsregel 7).
+ *
+ * Die Seite /widerruf und der Empfang im Shop arbeiten unabhängig davon: Wer
+ * widerruft, dessen Erklärung kommt an.
+ */
+export const WIDERRUF_EU_AKTIV = false;
+
+/** EU-27 und die drei EWR-Staaten Island, Liechtenstein, Norwegen. Die Schweiz gehört nicht dazu. */
+export const LAENDER_MIT_WIDERRUF = [
+  'AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES', 'FI', 'FR', 'GR', 'HR', 'HU',
+  'IE', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK',
+  'IS', 'LI', 'NO',
+];
+
+/** Zeigt die Kasse für dieses Lieferland das Widerrufsrecht? Massgeblich ist das Land der Lieferung. */
+export function hatWiderruf(land: string): boolean {
+  return WIDERRUF_EU_AKTIV && LAENDER_MIT_WIDERRUF.includes(land);
+}
 
 /** Zeichen der Zahlarten, wie die Kasse des Shops sie zeigt (Dateien des zahls-Plugins). */
 export const ZAHLARTEN_BILDER = ['twint', 'mastercard', 'visa', 'apple_pay', 'google_pay'].map((name) => ({

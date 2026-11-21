@@ -11,7 +11,8 @@ import type { Locale } from '@/i18n/routing';
 //   GET https://shop.onefam.ch/wp-json/onefam/v1/katalog/<slug>?lang=<sprache>
 // Shop-Snippet 114, Quelle im Repo: docs/shop-snippets/onefam-headless-katalog.php.
 // Öffentlich, nur lesend, braucht KEINEN WooCommerce-Schlüssel — der liegt
-// bewusst nicht in Vercel. Am 20.11.2026 gemessen: 18 Produkte, 21 Lieferländer;
+// bewusst nicht in Vercel. Am 20.11.2026 gemessen: 18 Produkte, 21 Lieferländer
+// (seit 21.11.2026 sind es 19 — ohne Grossbritannien und Norwegen, lib/shop/kasse.ts);
 // Albanien-Hoodie 84 Varianten, alle mit EUR-Festpreis 69,99 und CHF 75,
 // Antwort 0,7 s, Bilder in den von WordPress erzeugten Grössen.
 //
@@ -245,7 +246,7 @@ export async function holeKategorie(slug: string, locale: Locale): Promise<Kateg
   };
 }
 
-/** Lieferländer des Shops (am 20.11.2026: 21 Länder). */
+/** Lieferländer des Shops (am 20.11.2026: 21 Länder, seit 21.11.2026: 19). */
 export async function holeLieferlaender(): Promise<string[]> {
   return (await holeUebersicht()).laender;
 }

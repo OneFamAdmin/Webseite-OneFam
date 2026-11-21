@@ -213,6 +213,11 @@ export function warenkorbPfad(locale: Locale): string {
   return locale === DEFAULT_LOCALE ? '/warenkorb' : `/${locale}/warenkorb`;
 }
 
+/** Die Widerrufsfunktion nach Art. 11a RL 2011/83/EU ("Vertrag widerrufen"), siehe lib/shop/kasse.ts. */
+export function widerrufPfad(locale: Locale): string {
+  return locale === DEFAULT_LOCALE ? '/widerruf' : `/${locale}/widerruf`;
+}
+
 /**
  * Pfade, die NICHT unter app/[locale]/ liegen und deshalb kein Sprachpraefix
  * tragen. Sie sind bewusst nur auf Deutsch zu haben.
