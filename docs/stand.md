@@ -200,6 +200,41 @@ durchzuschalten. Rücksendungen gehen an OneFam in Basel: Shirt-King nimmt keine
   ignorieren“.
 - Rückweg, falls nötig: `docs/privat/widerruf-eu-umsetzung-21112026.md`.
 
+**21.11.2026 — Kritische Durchsicht der Shop-Seiten auf onefam.ch** (Labi: „geh alle Seiten kritisch
+durch“). Lokal, Bau mit Schalter, deutsch; Bildschirm 1512×805 und Handy 412×800 (iframe). Nichts
+geändert — das ist die Befundliste, Labi entscheidet, was umgesetzt wird.
+
+*Gemessen:*
+- Schriften: nur EB Garamond und Satoshi. Kein Überlauf bei 412 px auf Übersicht, Länderseite,
+  Produktseite, Warenkorb, Kasse. 0 kaputte Bilder, alle mit `alt`.
+- **Produktseite Handy:** Titel ab 739 px, Preis ab 790 px, **Kaufknopf ab 1246 px (1,56 Bildschirme)**,
+  Grössentabelle ab 2427 px (3,0 Bildschirme), Seite 3355 px. Bildschirm: Titel 46 px, Kaufknopf ab
+  619 px (sichtbar), Bild 732×915 (4:5), Seite 2,8 Bildschirme.
+- **Übersicht:** Überschrift 70 px (Handy 40 px), erstes Produktbild ab 526 px = 0,65 Bildschirm
+  (Handy 410 px); Produktkachel auf dem Handy 180×225 px, Zeichen der Länderwand 72×72 px.
+- **Länderseite Handy:** 6,9 Bildschirme, die drei Teile untereinander je fast ein Bildschirm.
+- **Kasse Handy:** Reihenfolge Kontakt → Adresse → Zahlung → Übersicht, Bestellknopf ab 2061 px von
+  3021 px. Tippflächen unter 40 px: Menüknopf 26×26, Klappen 24–28 px hoch, „Entfernen“ 59×20,
+  Mengenwahl 49×30.
+
+*Befunde, nach Gewicht:*
+1. Produktseite Handy: Preis und Kaufknopf liegen unter dem ersten Bildschirm, keine Kaufleiste.
+2. Grössentabelle am Seitenende statt bei der Grössenwahl.
+3. Unter dem Kaufknopf fehlt die Zeile zu Versand, Lieferzeit, Widerruf und Zahlarten.
+4. Übersicht „Jetzt verfügbar“: sechs fast gleiche schwarze Hoodies, das Zeichen zu klein, um Länder
+   zu unterscheiden.
+5. Kasse mit voller Kopfzeile samt „Join the Fam“; Felder „Bundesland (optional)“ für Deutschland und
+   „Wohnung, Suite usw.“.
+6. Weisse Bildflächen (#F1F1F1) auf #0A0A0A — der stärkste Bruch zur Startseite.
+7. Vier Bildstile nebeneinander (Studio-Modelle, Produktfotos, andere KI-Modelle auf Creme, „Logo
+   Pink“ nur als Zeichen auf Mauve).
+8. Bild „Schwarzes Logo“ verletzt die eigene Bildregel (Standbein, gedrehter Oberkörper).
+9. Länderseite: Sweater und Shirt zeigen dieselbe Frau in derselben Haltung.
+10. Erzählung zweispaltig unausgewogen; auf der Produktseite links ~500 px Leere neben einer Textwand.
+11. Englisch im deutschen Shop: Farben „Black“, „Red“; „Logo Black Hoodie“ unter „Schwarzes Logo“.
+12. Fusszeile der Shop-Seiten ohne Versand und Rückgabe.
+13. Leerer Warenkorb nur Satz und Link; beim Preis fehlt „zzgl. Versand“.
+
 ## 🧭 20.11.2026: Richtung gewechselt — der Shop kommt in die Landing Page
 
 Labi: „geht es nicht, dass der Shop in die Landing Page kommt?" → „ja plane so". onefam.ch
