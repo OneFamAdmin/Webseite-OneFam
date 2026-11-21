@@ -381,8 +381,8 @@
     "zahlung_titel": "Card, TWINT and mobile pay",
     "zahlung_text": "You will be redirected to the secure payment window of zahls.ch and choose your payment method there: Visa, Mastercard, TWINT, Apple Pay, Google Pay or PostFinance Pay.",
     "uebersicht": "Order summary",
-    "bestellen": "Place Order",
-    "agb_satz": "By proceeding with your purchase you agree to our <agb>Terms and Conditions</agb> and <datenschutz>Privacy Policy</datenschutz>.",
+    "bestellen": "Order with obligation to pay",
+    "agb_satz": "By placing your order you accept our <agb>Terms of Service</agb>. How we process your data is explained in the <datenschutz>Privacy Policy</datenschutz>.",
     "zurueck": "Return to Cart",
     "email": "Email address",
     "land": "Country/Region",
@@ -406,6 +406,14 @@
     "danke_text": "Your order has been received. The confirmation is on its way by email.",
     "danke_weiter": "Back to the home page",
     "bitte_waehlen": "Please select",
-    "abweichend": "Billing address"
+    "abweichend": "Billing address",
+    "einfuhr": "For deliveries to Switzerland or other non-EU countries, import taxes, customs duties, and handling fees may apply. These are not collected by us and must be paid separately by the customer upon or after delivery.",
+    "link_agb": "Terms of service",
+    "link_datenschutz": "Privacy policy",
+    "link_rueckgabe": "Returns and withdrawal",
+    "link_versand": "Shipping",
+    "link_impressum": "Legal notice",
+    "lieferung_zahlung": "We deliver only to the countries in the list above. Payment by Visa, Mastercard, TWINT, Apple Pay, Google Pay or PostFinance Pay.",
+    "kein_widerruf": "Because every piece is printed individually for you, there is no right of return for a change of mind or the wrong size."
   }
 }
