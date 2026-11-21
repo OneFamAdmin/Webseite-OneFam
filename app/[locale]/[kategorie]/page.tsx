@@ -10,7 +10,7 @@ import KategorieKacheln from '@/components/shop/KategorieKacheln';
 import PreisZeile from '@/components/shop/PreisZeile';
 import { BRAND_GRADIENT_CTA } from '@/lib/brand';
 import { holeKategorie, holeKategorieSlugs } from '@/lib/shop/katalog';
-import { LOCALES, isLocale, type Locale } from '@/i18n/routing';
+import { SHOP_AUF_ONEFAM, LOCALES, isLocale, type Locale } from '@/i18n/routing';
 
 // Länderseiten und Kollektionen auf onefam.ch — /de/albania, /logo-black …
 // Probeaufbau, nur lokal. Plan: docs/plan-zusammenfuehrung-onefam.md.
@@ -66,6 +66,16 @@ type Props = { params: Promise<{ locale: string; kategorie: string }> };
 export const revalidate = 300;
 
 export async function generateStaticParams() {
+  // Ohne den Schalter gibt es diese Seiten nicht — dann auch nichts beim Shop holen.
+  // Zurück kommt trotzdem EIN Platzhalter je Sprache statt einer leeren Liste. Am
+  // 21.11.2026 gemessen (Next.js 15.3.6): Bei leerer Liste antwortete JEDE Adresse
+  // dieser Route mit 500 statt 404 (DYNAMIC_SERVER_USAGE; app/layout.tsx liest die
+  // Kopfzeilen der Anfrage, und ohne eine einzige beim Bauen erzeugte Seite gilt die
+  // Route als rein statisch). Mit einem Platzhalter: 404, kein Fehler im Protokoll.
+  // Diese Route liegt direkt unter der Sprache: Es hätte jede unbekannte Adresse der
+  // ganzen Website getroffen.
+  // Der Platzhalter selbst antwortet mit 404 (Sperre in der Seite). Nicht entfernen.
+  if (!SHOP_AUF_ONEFAM) return LOCALES.map((locale) => ({ locale, kategorie: 'gesperrt' }));
   const slugs = await holeKategorieSlugs();
   return LOCALES.flatMap((locale) => slugs.map((kategorie) => ({ locale, kategorie })));
 }
@@ -112,6 +122,12 @@ export default async function KategorieSeite({ params }: Props) {
   const { locale, kategorie } = await params;
   if (!isLocale(locale)) notFound();
   setRequestLocale(locale);
+  // Gesperrt, solange der Shop nicht auf onefam.ch läuft: ohne den Schalter antwortet
+  // die Seite mit 404 (i18n/routing.ts, SHOP_AUF_ONEFAM). Die Sperre steht NACH
+  // setRequestLocale: Die 404-Seite ist übersetzt, und ohne gesetzte Sprache liest
+  // next-intl die Kopfzeilen der Anfrage — auf einer statisch erneuerten Seite ist
+  // das ein Serverfehler (gemessen am 21.11.2026: 500 statt 404, DYNAMIC_SERVER_USAGE).
+  if (!SHOP_AUF_ONEFAM) notFound();
 
   const seite = await lade(locale, kategorie);
   if (!seite) notFound();

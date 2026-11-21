@@ -6,7 +6,7 @@ import MaxWidth from '@/components/MaxWidth';
 import SiteFooter from '@/components/SiteFooter';
 import ProduktAnsicht from '@/components/shop/ProduktAnsicht';
 import { holeProdukt, holeProduktSlugs } from '@/lib/shop/katalog';
-import { LOCALES, isLocale, kategoriePfad, warenkorbPfad } from '@/i18n/routing';
+import { SHOP_AUF_ONEFAM, LOCALES, isLocale, kategoriePfad, warenkorbPfad } from '@/i18n/routing';
 
 // Produktseite auf onefam.ch — Probeaufbau vom 20.11.2026, nur lokal.
 //
@@ -30,6 +30,15 @@ export const revalidate = 300;
 // Ein Produkt, das später dazukommt, wird beim ersten Aufruf gebaut und danach
 // ebenfalls gespeichert.
 export async function generateStaticParams() {
+  // Ohne den Schalter gibt es diese Seiten nicht — dann auch nichts beim Shop holen.
+  // Zurück kommt trotzdem EIN Platzhalter je Sprache statt einer leeren Liste. Am
+  // 21.11.2026 gemessen (Next.js 15.3.6): Bei leerer Liste antwortete JEDE Adresse
+  // dieser Route mit 500 statt 404 (DYNAMIC_SERVER_USAGE; app/layout.tsx liest die
+  // Kopfzeilen der Anfrage, und ohne eine einzige beim Bauen erzeugte Seite gilt die
+  // Route als rein statisch). Mit einem Platzhalter: 404, kein Fehler im Protokoll.
+  // Dasselbe gilt für jede Adresse unter /produkt/.
+  // Der Platzhalter selbst antwortet mit 404 (Sperre in der Seite). Nicht entfernen.
+  if (!SHOP_AUF_ONEFAM) return LOCALES.map((locale) => ({ locale, slug: 'gesperrt' }));
   const slugs = await holeProduktSlugs();
   return LOCALES.flatMap((locale) => slugs.map((slug) => ({ locale, slug })));
 }
@@ -48,6 +57,12 @@ export default async function ProduktSeite({ params }: Props) {
   const { locale, slug } = await params;
   if (!isLocale(locale)) notFound();
   setRequestLocale(locale);
+  // Gesperrt, solange der Shop nicht auf onefam.ch läuft: ohne den Schalter antwortet
+  // die Seite mit 404 (i18n/routing.ts, SHOP_AUF_ONEFAM). Die Sperre steht NACH
+  // setRequestLocale: Die 404-Seite ist übersetzt, und ohne gesetzte Sprache liest
+  // next-intl die Kopfzeilen der Anfrage — auf einer statisch erneuerten Seite ist
+  // das ein Serverfehler (gemessen am 21.11.2026: 500 statt 404, DYNAMIC_SERVER_USAGE).
+  if (!SHOP_AUF_ONEFAM) notFound();
 
   const produkt = await holeProdukt(slug, locale);
   if (!produkt) notFound();

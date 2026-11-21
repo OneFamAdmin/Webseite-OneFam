@@ -91,8 +91,7 @@ export const LAENDER_MIT_EINFUHR = ['CH', 'LI'];
 export const WIDERRUF_EMPFANG = `${SHOP}/wp-json/onefam/v1/widerruf`;
 
 /**
- * WIDERRUFSRECHT FÜR KUNDEN IN DER EU UND IM EWR — vorbereitet, NICHT eingeschaltet
- * (21.11.2026).
+ * WIDERRUFSRECHT FÜR KUNDEN IN DER EU UND IM EWR — eingeschaltet am 21.11.2026.
  *
  * Die Rechtstexte des Shops schliessen die Rückgabe aus ("nach Kundenwunsch
  * angefertigt"). Labi hat am 21.11.2026 entschieden, Kunden in EU und EWR
@@ -100,16 +99,22 @@ export const WIDERRUF_EMPFANG = `${SHOP}/wp-json/onefam/v1/widerruf`;
  * die Rechtsfrage vorher einem Anwalt vorzulegen. Begründung, Quellen und die
  * Entwürfe der Texte liegen nur lokal (docs/privat/, das Repo ist öffentlich).
  *
- * Solange dieser Schalter aus ist, zeigt die Kasse den Satz des Shops ("kein
- * Rückgaberecht") und es gibt keinen Link "Vertrag widerrufen". Einschalten erst,
- * wenn die Rechtstexte des Shops (AGB Ziff. 5, Rückgaberichtlinie Ziff. 1,
- * Widerrufsbelehrung mit Rücksendeadresse) umgestellt sind — sonst verspricht
- * die Kasse etwas, das die AGB verneinen (CLAUDE.md, Arbeitsregel 7).
+ * Labi am 21.11.2026: ohne Rücksprache mit einem Anwalt durchschalten. Seither
+ * stehen in den Rechtstexten des Shops die Widerrufsbelehrung (amtliches Muster,
+ * Anhang I Teil A RL 2011/83/EU) und das Muster-Formular; Rücksendungen gehen an
+ * OneFam in Basel (Shirt-King nimmt keine an, Antwort vom 15.09.2026 im
+ * PodOS-Chat, docs/podos-chat-vollstaendig-21092026.md).
+ *
+ * Der Schalter hält drei Dinge zusammen: den Satz an der Kasse je Lieferland,
+ * den Link "Vertrag widerrufen" in der Fusszeile und — nur als Merker — die
+ * Rechtstexte des Shops. Wer ihn ausschaltet, muss die Rechtstexte des Shops
+ * zurückstellen; sonst verspricht der Shop etwas, das die Kasse verneint
+ * (CLAUDE.md, Arbeitsregel 7).
  *
  * Die Seite /widerruf und der Empfang im Shop arbeiten unabhängig davon: Wer
  * widerruft, dessen Erklärung kommt an.
  */
-export const WIDERRUF_EU_AKTIV = false;
+export const WIDERRUF_EU_AKTIV = true;
 
 /** EU-27 und die drei EWR-Staaten Island, Liechtenstein, Norwegen. Die Schweiz gehört nicht dazu. */
 export const LAENDER_MIT_WIDERRUF = [

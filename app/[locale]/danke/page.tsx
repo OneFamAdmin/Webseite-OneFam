@@ -5,7 +5,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import Nav from '@/components/Nav';
 import SiteFooter from '@/components/SiteFooter';
 import DankeAbschluss from '@/components/shop/DankeAbschluss';
-import { LOCALES, homePath, isLocale } from '@/i18n/routing';
+import { SHOP_AUF_ONEFAM, LOCALES, homePath, isLocale } from '@/i18n/routing';
 
 // Die Seite nach der Zahlung — /danke, /de/danke … (21.11.2026, nur lokal).
 //
@@ -34,6 +34,12 @@ export default async function DankeSeite({ params }: Props) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   setRequestLocale(locale);
+  // Gesperrt, solange der Shop nicht auf onefam.ch läuft: ohne den Schalter antwortet
+  // die Seite mit 404 (i18n/routing.ts, SHOP_AUF_ONEFAM). Die Sperre steht NACH
+  // setRequestLocale: Die 404-Seite ist übersetzt, und ohne gesetzte Sprache liest
+  // next-intl die Kopfzeilen der Anfrage — auf einer statisch erneuerten Seite ist
+  // das ein Serverfehler (gemessen am 21.11.2026: 500 statt 404, DYNAMIC_SERVER_USAGE).
+  if (!SHOP_AUF_ONEFAM) notFound();
   const t = await getTranslations({ locale, namespace: 'shop_kasse' });
 
   return (

@@ -1,4 +1,5 @@
 import { type NextRequest, NextResponse } from 'next/server';
+import { SHOP_AUF_ONEFAM } from '@/i18n/routing';
 import { absenderAus } from '@/lib/shop/absender';
 import { holeLieferlaender } from '@/lib/shop/katalog';
 import {
@@ -50,6 +51,8 @@ async function antworten(ergebnis: { status: number; daten: unknown; token: stri
 }
 
 export async function GET(request: NextRequest) {
+  // Gesperrt, solange der Shop nicht auf onefam.ch läuft (i18n/routing.ts, SHOP_AUF_ONEFAM).
+  if (!SHOP_AUF_ONEFAM) return NextResponse.json({ fehler: 'aus' }, { status: 404 });
   return antworten(await store('/cart', absenderAus(request)));
 }
 
@@ -57,6 +60,8 @@ const ganzzahl = (x: unknown, min: number, max: number) =>
   typeof x === 'number' && Number.isInteger(x) && x >= min && x <= max ? x : null;
 
 export async function POST(request: NextRequest) {
+  // Gesperrt, solange der Shop nicht auf onefam.ch läuft (i18n/routing.ts, SHOP_AUF_ONEFAM).
+  if (!SHOP_AUF_ONEFAM) return NextResponse.json({ fehler: 'aus' }, { status: 404 });
   const eingabe = (await request.json().catch(() => null)) as Record<string, unknown> | null;
 
   // Rückkehr von zahls.ch — beide ohne Anfrage an den Shop.

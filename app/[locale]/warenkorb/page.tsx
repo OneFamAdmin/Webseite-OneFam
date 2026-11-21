@@ -5,7 +5,7 @@ import Nav from '@/components/Nav';
 import MaxWidth from '@/components/MaxWidth';
 import SiteFooter from '@/components/SiteFooter';
 import WarenkorbAnsicht from '@/components/shop/WarenkorbAnsicht';
-import { LOCALES, isLocale, kassePfad, shopByCountryPfad } from '@/i18n/routing';
+import { SHOP_AUF_ONEFAM, LOCALES, isLocale, kassePfad, shopByCountryPfad } from '@/i18n/routing';
 
 // Warenkorb auf onefam.ch — Probeaufbau vom 20.11.2026, nur lokal.
 // Die Seite selbst ist für alle gleich; den Inhalt holt WarenkorbAnsicht im
@@ -28,6 +28,12 @@ export default async function WarenkorbSeite({ params }: Props) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   setRequestLocale(locale);
+  // Gesperrt, solange der Shop nicht auf onefam.ch läuft: ohne den Schalter antwortet
+  // die Seite mit 404 (i18n/routing.ts, SHOP_AUF_ONEFAM). Die Sperre steht NACH
+  // setRequestLocale: Die 404-Seite ist übersetzt, und ohne gesetzte Sprache liest
+  // next-intl die Kopfzeilen der Anfrage — auf einer statisch erneuerten Seite ist
+  // das ein Serverfehler (gemessen am 21.11.2026: 500 statt 404, DYNAMIC_SERVER_USAGE).
+  if (!SHOP_AUF_ONEFAM) notFound();
   const t = await getTranslations({ locale, namespace: 'shop_seiten' });
 
   return (

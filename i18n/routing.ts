@@ -167,6 +167,13 @@ export function joinPath(locale: Locale): string {
  * .env.local, auf Vercel erst zum Livegang (das trägt Labi ein). Ohne die
  * Variable bleibt alles, wie es war: "Shop" führt auf shop.onefam.ch.
  *
+ * SEIT 21.11.2026 SPERRT DER SCHALTER AUCH DIE SEITEN SELBST: Ohne ihn antworten
+ * Länderseiten, Produktseiten, /shop-by-country, /warenkorb, /kasse, /danke und
+ * die Routen unter /api/shop mit 404. Anlass: Für die Widerrufsfunktion (/widerruf)
+ * musste der Stand auf die Live-Seite, die Kasse war da aber noch nicht mit einem
+ * echten Kauf geprüft — sie soll nicht über eine erratene Adresse benutzbar sein.
+ * /widerruf ist bewusst NICHT gesperrt.
+ *
  * NEXT_PUBLIC_* wird beim Bauen eingebacken: Umschalten heisst neu deployen.
  */
 export const SHOP_AUF_ONEFAM = process.env.NEXT_PUBLIC_SHOP_AUF_ONEFAM === '1';

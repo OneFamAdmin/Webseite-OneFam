@@ -6,7 +6,7 @@ import MaxWidth from '@/components/MaxWidth';
 import SiteFooter from '@/components/SiteFooter';
 import KasseAnsicht from '@/components/shop/KasseAnsicht';
 import { holeKassenDaten, rechtsAdressen } from '@/lib/shop/kasse';
-import { LOCALES, isLocale, shopByCountryPfad, warenkorbPfad } from '@/i18n/routing';
+import { SHOP_AUF_ONEFAM, LOCALES, isLocale, shopByCountryPfad, warenkorbPfad } from '@/i18n/routing';
 
 // Kasse auf onefam.ch — /kasse, /de/kasse … (21.11.2026, nur lokal).
 // Ablauf, Herkunft der Regeln und der Rechtstexte: lib/shop/kasse.ts.
@@ -31,6 +31,12 @@ export default async function KasseSeite({ params }: Props) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   setRequestLocale(locale);
+  // Gesperrt, solange der Shop nicht auf onefam.ch läuft: ohne den Schalter antwortet
+  // die Seite mit 404 (i18n/routing.ts, SHOP_AUF_ONEFAM). Die Sperre steht NACH
+  // setRequestLocale: Die 404-Seite ist übersetzt, und ohne gesetzte Sprache liest
+  // next-intl die Kopfzeilen der Anfrage — auf einer statisch erneuerten Seite ist
+  // das ein Serverfehler (gemessen am 21.11.2026: 500 statt 404, DYNAMIC_SERVER_USAGE).
+  if (!SHOP_AUF_ONEFAM) notFound();
   const t = await getTranslations({ locale, namespace: 'shop_kasse' });
   const regeln = await holeKassenDaten(locale);
 

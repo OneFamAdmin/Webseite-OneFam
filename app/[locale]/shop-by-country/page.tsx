@@ -8,7 +8,7 @@ import LaenderWand, { type Linie } from '@/components/shop/LaenderWand';
 import { holeKategorie, holeKategorieSlugs } from '@/lib/shop/katalog';
 import { LAENDER, LOGO_BALD } from '@/lib/shop/laender';
 import { SITE_URL } from '@/lib/seo';
-import { LOCALES, isLocale, shopByCountryPfad } from '@/i18n/routing';
+import { SHOP_AUF_ONEFAM, LOCALES, isLocale, shopByCountryPfad } from '@/i18n/routing';
 
 // "Nach Land shoppen" — /shop-by-country, /de/shop-by-country …
 // Probeaufbau vom 21.11.2026, nur lokal. Plan: docs/plan-zusammenfuehrung-onefam.md.
@@ -48,6 +48,12 @@ export default async function ShopByCountry({ params }: Props) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   setRequestLocale(locale);
+  // Gesperrt, solange der Shop nicht auf onefam.ch läuft: ohne den Schalter antwortet
+  // die Seite mit 404 (i18n/routing.ts, SHOP_AUF_ONEFAM). Die Sperre steht NACH
+  // setRequestLocale: Die 404-Seite ist übersetzt, und ohne gesetzte Sprache liest
+  // next-intl die Kopfzeilen der Anfrage — auf einer statisch erneuerten Seite ist
+  // das ein Serverfehler (gemessen am 21.11.2026: 500 statt 404, DYNAMIC_SERVER_USAGE).
+  if (!SHOP_AUF_ONEFAM) notFound();
 
   const t = await getTranslations({ locale, namespace: 'shop_laender' });
   const tKat = await getTranslations({ locale, namespace: 'shop_kategorien' });

@@ -1,5 +1,5 @@
 import { type NextRequest, NextResponse } from 'next/server';
-import { isLocale, DEFAULT_LOCALE } from '@/i18n/routing';
+import { SHOP_AUF_ONEFAM, isLocale, DEFAULT_LOCALE } from '@/i18n/routing';
 import { SPRACHE_KOPF, absenderAus } from '@/lib/shop/absender';
 import {
   LEERE_ADRESSE,
@@ -59,6 +59,8 @@ function meldung(daten: unknown): string | null {
 }
 
 export async function POST(request: NextRequest) {
+  // Gesperrt, solange der Shop nicht auf onefam.ch läuft (i18n/routing.ts, SHOP_AUF_ONEFAM).
+  if (!SHOP_AUF_ONEFAM) return NextResponse.json({ fehler: 'aus' }, { status: 404 });
   const eingabe = (await request.json().catch(() => null)) as Record<string, unknown> | null;
   const kopfSprache = request.headers.get(SPRACHE_KOPF);
   const locale = isLocale(kopfSprache) ? kopfSprache : DEFAULT_LOCALE;
