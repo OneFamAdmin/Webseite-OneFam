@@ -57,8 +57,79 @@ Wartelisten-Eintrag ist nicht getestet — das macht Labi. Einzelheiten im Plan.
 zahls.ch, Danke-Seite, Rückkehr nach Abbruch) und bis vor die Bestellung geprüft. **Offen ist
 Labis Testkauf** — erst er zeigt, ob Bestellung, Zahlungsfenster, Rückkehr und PodOS stimmen:
 `docs/testkauf-kasse-onefam.md`. Bis dahin bleibt der Schalter für die Navigation auf der
-Live-Seite aus. Für den Anwalt: Wortlaut von Bestellknopf und AGB-Satz je Sprache, Links auf die
-Rechtstexte des Shops.
+Live-Seite aus.
+
+**21.11.2026 — Rechtsprüfung der Kasse** (Labi: an den Gesetzbüchern der betroffenen Länder
+prüfen, Links setzen, Zahlart-Hinweis gegenlesen). Am Wortlaut geprüft und umgesetzt:
+Bestellknopf in der Formel des jeweiligen Gesetzes (fr „Commande avec obligation de paiement“,
+es „Pedido con obligación de pago“, en „Order with obligation to pay“ — die WooCommerce-Texte
+genügten nicht), Datenschutz als Information statt „Zustimmung“, Rückgaberegel und alle fünf
+Rechtstexte vor dem Knopf verlinkt, Lieferländer und Zahlmittel im Warenkorb, Hinweis auf
+Einfuhrabgaben bei CH/LI/GB/NO, Zahlart-Hinweis sprachlich angeglichen.
+**Offene Rechtspunkte** (Entscheide von Labi, teils abhängig von der Registrierung in Konstanz):
+nur lokal in `docs/privat/rechtspruefung-kasse-21112026.md`, Abschnitt B — das Repo ist öffentlich.
+Dort stehen auch Quellen, Wortlaute und Prüftiefe.
+
+**21.11.2026, Fortsetzung — Labi: „mach 1, 2 und 3“.**
+
+**Punkt 2 — Grossbritannien und Norwegen werden nicht mehr beliefert (live).**
+- WooCommerce: Verkaufsländer 21 → **19** (ohne GB, NO); Versandzone 3 „Schweiz & UK“ → „Schweiz“
+  (nur CH), Zone 6 „Nordeuropa“ → FI, PT. Geschrieben über `wc/v3` im eingeloggten wp-admin.
+- **Snippet 11 (Router)** 2 567 702 → **2 554 195** Zeichen (Prüfsumme 267790041, nach dem Speichern
+  neu geladen und gemessen): 22 Ersetzungen, 0 Abweichungen von der erwarteten Trefferzahl — drei
+  FAQ-Antworten in vier Sprachen (Versandkosten, „Wohin liefert ihr“ jetzt „19 Länder“,
+  Lieferzeit/Zoll) und zwei Zeilen der Versandtabelle. Übrig bleiben nur die Ländernamen der
+  Länderwand und der Satz zur Datenübermittlung in der Datenschutzerklärung — beides richtig so.
+- **Snippet 39 (llms.txt)** 11 383 → 11 348 Zeichen: „Ships to 19 countries“, Zoll nur noch „CH“.
+- WP Super Cache geleert. **Gemessen, ausgeloggt:** Startseite, Versandseite, Kontakt, Albanien in
+  vier bzw. zwei Sprachen: 0 alte Stellen, Versandtabelle 19 Zeilen; `/llms.txt` 19 Länder; Store
+  API: nach GB und NO **0 Versandarten** (bestellen unmöglich), nach DE 1 (CHF 7.00);
+  `onefam/v1/katalog` und `onefam/v1/kasse` liefern 19 Länder.
+- onefam.ch: `LAENDER_MIT_EINFUHR` nur noch CH, LI. Die Kostentabelle in Supabase bleibt, wie sie ist.
+- **Rückweg:** beide Länder wieder in die Verkaufsländer und Zonen 3/6, die 22 Ersetzungen
+  umkehren (Liste im Verlauf dieses Tages), `LAENDER_MIT_EINFUHR` ergänzen.
+
+**Punkt 3 — Bestellknopf in der Kasse des Shops (live).**
+- **Snippet 115 „OneFam Kasse Bestellknopf (Formel des Gesetzes)“** (neu, front-end, 1 851 Zeichen,
+  Prüfsumme 694372480, Quelle `docs/shop-snippets/onefam-kasse-bestellknopf.php`): setzt beim
+  Rendern das Attribut `placeOrderButtonLabel` des Blocks `woocommerce/checkout-actions-block` je
+  Sprache (`render_block_data`). Kein JavaScript, die Seite „Kasse“ (ID 11) bleibt unverändert.
+- **Gemessen:** ausgeloggt im HTML `data-place-order-button-label` in vier Sprachen; in der
+  gerenderten Kasse „Order with obligation to pay“, „Zahlungspflichtig bestellen“, „Commande avec
+  obligation de paiement“, „Pedido con obligación de pago“.
+- **Falle:** Chrome übersetzt in Labis Browser die spanische Seite selbsttätig ins Deutsche — der
+  Knopf las sich dort als „Bestellung mit Zahlungsverpflichtung“. Das ist die Übersetzung des
+  Browsers, nicht der Text der Seite (`html`-Klasse `translated-ltr`). Sofort nach dem Rendern lesen.
+
+**Punkt 1 — Widerruf für Kunden in der EU: gebaut, noch nicht eingeschaltet.**
+Labi: Kunden in EU und EWR bekommen 14 Tage Widerruf, für die Schweiz bleibt es beim Ausschluss;
+die Rechtsfrage (CLAUDE.md, „Offene Baustellen“) geht vorher an einen Anwalt.
+- **Snippet 116 „OneFam Widerrufsfunktion (Empfang)“** (neu, global, 10 285 Zeichen, Prüfsumme
+  512125769, Quelle `docs/shop-snippets/onefam-widerruf.php`): `POST /wp-json/onefam/v1/widerruf`.
+  Nimmt jede vollständige Erklärung an, bestätigt den Eingang per Mail (Blindkopie an den Shop),
+  vermerkt ihn an der Bestellung, wenn Nummer **und** E-Mail passen, schreibt ins WooCommerce-Protokoll
+  (Quelle `onefam-widerruf`). Bremse 5 je IP und Stunde, 40 insgesamt. Prüft **nicht**, ob ein
+  Widerrufsrecht besteht.
+- **onefam.ch (nur lokal):** Seite `/widerruf` in vier Sprachen (`components/shop/WiderrufAnsicht.tsx`),
+  Beschriftungen im Wortlaut von Art. 11a RL 2011/83/EU. In der Kasse je Lieferland der Satz
+  „14 Tage Widerruf“ oder „kein Rückgaberecht“ — **hinter dem Schalter `WIDERRUF_EU_AKTIV`
+  (`lib/shop/kasse.ts`), der aus ist.** Solange er aus ist, sieht alles aus wie bisher.
+- **Gemessen:** falsche Eingaben 400, Roboter-Falle ohne Wirkung; zwei Probeläufe mit eigenen
+  Adressen — Bestätigung und Blindkopie angekommen (DKIM, SPF, DMARC bestanden), Antwort 1,3 s.
+- **Fallen, die das gekostet hat:** (1) Der Shop versendet über **PHP `mail()`** (FluentSMTP steht
+  auf „PHP mail()“) — eine **zweite Mail in derselben Anfrage kam nie an**, obwohl das Protokoll
+  „sent“ meldete; deshalb eine Mail mit Blindkopie. Das betrifft auch die Bestellbestätigungen.
+  (2) **WordPress läuft auf UTC** ohne Ort: `wp_date()` schrieb „01:00 GMT+0000“ statt 02:00 Uhr;
+  im Snippet steht die Schweizer Zeit jetzt fest.
+- **Nicht getestet:** eine Erklärung zu einer echten Bestellung (Notiz, Feld
+  `_onefam_widerruf_eingang`), die Bremse bis zum Anschlag.
+- **Vor dem Einschalten fehlt:** Antwort des Anwalts · **Rücksendeadresse** (Basel hiesse Paket
+  aus der EU in die Schweiz — besser eine Adresse in Deutschland, Shirt-King fragen) · Rechtstexte
+  des Shops umstellen (AGB Ziff. 5, Rückgaberichtlinie Ziff. 1, Produktseite) · Belehrung in die
+  Bestätigungsmail · Link „Vertrag widerrufen“. Reihenfolge, Anwaltsfrage und die ausgefüllten
+  Musterbelehrungen in vier Sprachen: nur lokal in `docs/privat/widerruf-eu-umsetzung-21112026.md`.
+- **Für Labi:** FluentSMTP auf den SMTP-Zugang von Infomaniak stellen (Passwort trägt er ein);
+  Zeitzone in WordPress auf „Zürich“. Im Posteingang liegen drei Testmails „Probelauf, bitte ignorieren“.
 
 ## 🧭 20.11.2026: Richtung gewechselt — der Shop kommt in die Landing Page
 

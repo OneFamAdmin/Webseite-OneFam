@@ -93,12 +93,28 @@ zeigt den Hinweis. Format der Bestellung gegen die Beschreibung der Schnittstell
 ## Bekannte Lücken
 
 - Kein Gutscheinfeld (im Shop gibt es keinen Gutschein) und kein Notizfeld.
-- Der Hinweistext zur Zahlart ist auf Englisch, Französisch und Spanisch von Claude übersetzt;
-  im Shop steht er nur deutsch. Gegenlesen.
-- AGB und Datenschutzerklärung verlinken auf die Seiten des **Shops**. Die Kasse des Shops zeigt
-  „Datenschutzerklärung“ ohne Link; hier ist es ein Link. Rechtstexte zusammenlegen → Anwalt.
-- Bestellknopf und AGB-Satz sind der Wortlaut von WooCommerce in der jeweiligen Sprache
-  (deutsch „Zahlungspflichtig bestellen“, französisch „Commander“, spanisch „Realizar el pedido“,
-  englisch „Place Order“). Ob das je Land genügt → Anwalt.
 - `localhost` steht in der Liste der erlaubten Rückkehr-Adressen (Snippet 114). Nach dem Livegang
   herausnehmen.
+
+## Rechtsprüfung der Kasse (21.11.2026)
+
+Am Wortlaut der Gesetze geprüft (EU-Richtlinie 2011/83/EU, Deutschland, Österreich, Frankreich,
+Spanien, Vereinigtes Königreich, Schweiz). Umgesetzt:
+
+- **Bestellknopf** in der Formel des jeweiligen Gesetzes — deutsch „Zahlungspflichtig bestellen“,
+  französisch „Commande avec obligation de paiement“, spanisch „Pedido con obligación de pago“,
+  englisch „Order with obligation to pay“ (Art. 8 Abs. 2 der Richtlinie verlangt die Zahlung im
+  Knopftext; die WooCommerce-Texte „Commander“, „Realizar el pedido“ und „Place Order“ nannten sie
+  nicht). **Nicht kürzen.**
+- AGB werden akzeptiert, die Datenschutzerklärung wird verlinkt und zur Kenntnis gegeben (keine
+  „Zustimmung“ zur Datenschutzerklärung).
+- Rückgaberegel des Shops mit Link direkt vor dem Knopf; Links auf alle fünf Rechtstexte.
+- Lieferländer und Zahlmittel schon im Warenkorb; Hinweis auf Einfuhrabgaben bei Lieferung in
+  die Schweiz und nach Liechtenstein (Grossbritannien und Norwegen werden seit 21.11.2026 nicht
+  mehr beliefert).
+- Zahlart-Hinweis gegengelesen (deutsch Du-Form, französisch Sie-Form wie die Rechtstexte).
+
+Dieselben Knopftexte trägt seit 21.11.2026 auch die Kasse des Shops (Snippet 115).
+
+Offene Punkte (Widerrufsrecht für Kunden in der EU, Preisangabe „inkl. MwSt.“) stehen in
+`docs/stand.md`.

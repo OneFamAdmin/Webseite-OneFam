@@ -255,7 +255,7 @@ entscheidet weiter selbst nach denselben Regeln — die beiden dürfen nie ausei
 - **Währung:** Die Anfragen tragen die Entscheidung des Kunden mit (Cookies `of_geo`,
   `wmc_current_currency`, echte IP als `X-Forwarded-For`). Sonst entschiede der Shop nach der IP
   des Vercel-Servers (z. B. Frankfurt → EUR) — genau das darf nicht passieren.
-- **Kasse:** Adresse, Versand (die 21 Länder aus den WooCommerce-Zonen), AGB-Bestätigung,
+- **Kasse:** Adresse, Versand (die Länder aus den WooCommerce-Zonen — 21, seit 21.11.2026 noch 19), AGB-Bestätigung,
   Bestellung über `/wc/store/v1/checkout` mit `zahls` → Weiterleitung zur Zahlseite von zahls.ch
   → zurück auf **onefam.ch/danke** (Rücksprung-Adresse per Snippet umbiegen).
 - **Bestellung entsteht ganz normal in WooCommerce** → PodOS und Pool-Webhook laufen wie bisher.
