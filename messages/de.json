@@ -375,10 +375,10 @@
     "gleiche_adresse": "Gleiche Adresse als Rechnungsadresse verwenden",
     "zahlung": "Zahlungsoptionen",
     "zahlung_titel": "Kreditkarte, TWINT und Mobile Pay",
-    "zahlung_text": "Sie werden zum gesicherten Zahlungsfenster von zahls.ch weitergeleitet und wählen dort Ihr Zahlungsmittel: Visa, Mastercard, TWINT, Apple Pay, Google Pay oder PostFinance Pay.",
+    "zahlung_text": "Du wirst zum gesicherten Zahlungsfenster von zahls.ch weitergeleitet und wählst dort dein Zahlungsmittel: Visa, Mastercard, TWINT, Apple Pay, Google Pay oder PostFinance Pay.",
     "uebersicht": "Bestellübersicht",
     "bestellen": "Zahlungspflichtig bestellen",
-    "agb_satz": "Wenn du den Einkauf fortsetzt, stimmst du unseren <agb>Allgemeinen Geschäftsbedingungen</agb> und unserer <datenschutz>Datenschutzerklärung</datenschutz> zu.",
+    "agb_satz": "Mit deiner Bestellung akzeptierst du unsere <agb>AGB</agb>. Wie wir deine Daten verarbeiten, steht in der <datenschutz>Datenschutzerklärung</datenschutz>.",
     "zurueck": "Zurück zum Warenkorb",
     "email": "E-Mail-Adresse",
     "land": "Land/Region",
@@ -402,6 +402,14 @@
     "danke_text": "Deine Bestellung ist eingegangen. Die Bestätigung kommt per E-Mail.",
     "danke_weiter": "Zurück zur Startseite",
     "bitte_waehlen": "Bitte wählen",
-    "abweichend": "Rechnungsadresse"
+    "abweichend": "Rechnungsadresse",
+    "einfuhr": "Bei Lieferungen in die Schweiz oder in andere Nicht-EU-Länder können Einfuhrsteuern, Zölle und Bearbeitungsgebühren anfallen. Diese werden nicht von uns erhoben und sind von der Kundschaft bei oder nach der Zustellung separat zu bezahlen.",
+    "link_agb": "AGB",
+    "link_datenschutz": "Datenschutz",
+    "link_rueckgabe": "Rückgabe und Widerruf",
+    "link_versand": "Versand",
+    "link_impressum": "Impressum",
+    "lieferung_zahlung": "Lieferung nur in die Länder der Auswahl oben. Zahlung mit Visa, Mastercard, TWINT, Apple Pay, Google Pay oder PostFinance Pay.",
+    "kein_widerruf": "Weil jedes Teil einzeln für dich gedruckt wird, gibt es kein Rückgaberecht bei Meinungsänderung oder falsch gewählter Grösse."
   }
 }
