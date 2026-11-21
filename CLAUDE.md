@@ -425,6 +425,8 @@ fortschreiben.
 | `docs/druck-und-lieferant.md` | DTG/DTF/Siebdruck, Shirt-King, PodOS-Zahlungsfehler, **Printful als Alternative** |
 | `docs/handover-shop-pool.md` | Übergabe Shop/Pool (teilweise überholt) |
 | `docs/deploy-vercel.md` | Vercel-Projekt, Umgebungsvariablen |
+| `docs/plan-zusammenfuehrung-onefam.md` | **Shop auf onefam.ch** (seit 20.11.2026): was gebaut ist, Messwerte, was offen ist |
+| `docs/testkauf-kasse-onefam.md` | Protokoll für Labis Testkauf über die Kasse von onefam.ch |
 | `docs/REGEL-preise.md` | Preise, Fehlerbild 82,50, richtige Messmethode |
 | `docs/RUNBOOK-laenderlauf.md` | Ein Land komplett — Bild bis Länderseite |
 | `docs/REGEL-gesichter.md` | Warum jedes Land eigene Gesichter braucht |

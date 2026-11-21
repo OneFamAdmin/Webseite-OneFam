@@ -53,6 +53,13 @@ Sprachen geprüft. „Shop“ in der Navigation führt nur mit `NEXT_PUBLIC_SHOP
 onefam.ch (lokal gesetzt); live bleibt es bei shop.onefam.ch, bis die Kasse steht. Ein echter
 Wartelisten-Eintrag ist nicht getestet — das macht Labi. Einzelheiten im Plan.
 
+**21.11.2026 — Kasse auf onefam.ch:** gebaut (Adressformular, Bestellübersicht, Weiterleitung zu
+zahls.ch, Danke-Seite, Rückkehr nach Abbruch) und bis vor die Bestellung geprüft. **Offen ist
+Labis Testkauf** — erst er zeigt, ob Bestellung, Zahlungsfenster, Rückkehr und PodOS stimmen:
+`docs/testkauf-kasse-onefam.md`. Bis dahin bleibt der Schalter für die Navigation auf der
+Live-Seite aus. Für den Anwalt: Wortlaut von Bestellknopf und AGB-Satz je Sprache, Links auf die
+Rechtstexte des Shops.
+
 ## 🧭 20.11.2026: Richtung gewechselt — der Shop kommt in die Landing Page
 
 Labi: „geht es nicht, dass der Shop in die Landing Page kommt?" → „ja plane so". onefam.ch

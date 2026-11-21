@@ -206,6 +206,35 @@ der navigation“.
 - **Noch offen:** Kasse (Plan Schritt 3); Seiten „Über uns“ und „Kontakt“ des Shops; die
   Rechtsseiten des Shops (Versand, Rückgabe) — die Links dorthin zeigen vorerst auf den Shop.
 
+**Kasse auf onefam.ch (21.11.2026).** Labi: „ja, mach weiter mit der kasse“.
+- **Befund vorab:** Der Shop nutzt bereits die Block-Kasse von WooCommerce, und die bestellt selbst
+  über die Store API. Die Kasse auf onefam.ch geht also denselben Weg wie heute jede Bestellung.
+  Einstellung des Shops: Gastbestellung, kein Konto, nur zahls („Kreditkarte, TWINT und Mobile
+  Pay“), Steuern aus, keine Datenschutzseite hinterlegt, kein Gutschein vorhanden (0).
+  Kein Snippet greift in den Bestellvorgang ein (alle 115 durchsucht).
+- **zahls-Plugin 2.0.7 gelesen** (Kopie nur lokal, `docs/privat/zahls-plugin/`): `process_payment`
+  legt ein Zahlungsfenster an (15 Minuten gültig), Erfolg → `get_return_url()`, Abbruch/Fehler →
+  `wc_get_cart_url() . '?zahls_error=1&order_id=…'`; den Bestellstatus setzt die Rückmeldung
+  `wc-api=wc_zahls_gateway`. Betrag aus der Bestellung, Währung aus `get_woocommerce_currency()`.
+- **Snippet 114** (21 131 Zeichen, Prüfsumme gleich wie im Repo): `GET /onefam/v1/kasse` (21
+  Lieferländer mit Namen je Sprache und den Regeln für Kanton/Provinz und Postleitzahl aus
+  `get_address_fields`), und für Store-API-Anfragen mit `X-OneFam-Rueckkehr` aus einer festen Liste
+  (onefam.ch, localhost:3000/3001) zeigen Erfolgs- und Abbruch-Adresse auf onefam.ch
+  (`/danke`, `/warenkorb`); die Bestellung bekommt `_onefam_herkunft = onefam.ch`.
+- **onefam.ch:** `/[locale]/kasse` (Kontakt, Lieferadresse, wahlweise Rechnungsadresse, Zahlart,
+  Bestellübersicht), `/[locale]/danke`, Route `POST /api/shop/kasse`. Die Route prüft die
+  Eingaben, lässt WooCommerce rechnen, **vergleicht die Summe mit der gesehenen** (bei Abweichung
+  wird nicht bestellt) und gibt als Weiterleitung nur zahls.ch oder die eigene Adresse heraus.
+  Warenkorb wird nach bezahlter Bestellung nur mit dem Merker `of_bestellt` vergessen.
+- **Wortlaut:** Feldnamen, „Zahlungspflichtig bestellen“ und der AGB-Satz stammen aus der
+  WooCommerce-Kasse des Shops in der jeweiligen Sprache; AGB-Links auf die Seiten des Shops.
+- **Geprüft ohne Bestellung:** zehn Fälle der Route (Tabelle in `docs/testkauf-kasse-onefam.md`),
+  Klick auf den Bestellknopf mit leerem Formular (0 Anfragen), `/danke` ohne Bestellung,
+  Abbruch-Hinweis, Handy 412 px. Der Shop selbst unverändert (Seiten 200).
+- **NICHT GEPRÜFT: das Anlegen der Bestellung, das Zahlungsfenster und die Rückkehr.** Das ist
+  Labis Testkauf — Protokoll: `docs/testkauf-kasse-onefam.md`. Wichtigster Punkt darin: ob PodOS
+  die Bestellung mit echter Varianten-Nummer richtig übernimmt.
+
 ### 1. Katalog auf onefam.ch
 Alle 18 öffentlichen Produktseiten, Länderseiten (Albanien, Afghanistan, Andorra, Argentinien),
 Kollektionen (Logo-Linien), „Shop by country" mit der Länder-Warteliste (Snippet 18 bleibt,
