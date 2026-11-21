@@ -251,6 +251,47 @@ Seiten 1–4, Luxury 1–2, E-Commerce-Preisträger 1–2, E-Commerce Seite 2), 
 Verworfen: Coutumes (laute Schrift), Killstar (Rabattbanner), Drop Edition (heller Laufsteg-Stil);
 hopaal.com liess sich nicht laden. Offen: Labi sagt, welche Richtung; erst dann wird umgebaut.
 
+**21.11.2026 — Umbau nach den Vorbildern** (Labi: „ja, mach so wie vorgeschlagen“). Nur lokal, nicht
+gepusht. Geändert sind Produktseite, Kasse und Übersicht; die Bilder NICHT (siehe unten).
+
+*Produktseite (`components/shop/ProduktAnsicht.tsx`, Vorbild Almada und Kindred):*
+- Titel 28–34 px statt bis 46 px, aufrecht (Kursiv bleibt den Zitaten vorbehalten).
+- Preis mit „zzgl. Versand“ (öffnet den Reiter Versand).
+- „Grössentabelle →“ bei der Grössenwahl; darunter „Wird erst für dich gedruckt“.
+- Unter dem Kaufknopf Lieferzeit und Zahlarten, dann die Zeile zum Stück.
+- Erzählung, Grössen, Material, Versand & Rückgabe als **Reiter** statt Textwand mit drei Klappen.
+  Dafür zerlegt `teileInhalt()` in `lib/shop/katalog.ts` das HTML des Shops (Erzählung,
+  `<p class="onefam-stueck">`, drei `<details>`); passt das Format nicht, bleibt alles im ersten Reiter.
+- Galerie bleibt am Bildschirm stehen (`lg:sticky`). Am Handy stehen Titel und Preis über dem Bild,
+  unten läuft eine schmale Kaufleiste mit, solange der Kaufknopf nicht im Bild ist.
+- **Gemessen (412 × 800, vorher → nachher):** Titel 739 → 120 px, Preis 790 → 160 px, Kaufknopf der
+  Seite 1246 → 1191 px, dazu jetzt die Kaufleiste ab 731 px **im ersten Bildschirm**; Grössentabelle
+  3,0 Bildschirme entfernt → ein Tipp neben der Grössenwahl. Reiterleiste 378 von 378 px (kein
+  Überlauf). Bildschirm: Titel 34 px, ein `h1`.
+- **Ablauf am Handy geklickt:** Leistenknopf ohne Grösse → springt zur Grössenwahl, Hinweis „Bitte
+  zuerst eine Grösse wählen“; Grösse M → Leiste „Black · M“; Kauf → nach 1,3 s „Im Warenkorb“ und
+  Knopf „Zum Warenkorb →“, Ziffer am Warenkorb 1. Vier Sprachen und ein Logo-Produkt geprüft:
+  Reiter, Versandhinweis, Grössentabelle, Punkt-Zeile, Zeile zum Stück überall da.
+
+*Kasse:* eigene schmale Kopfzeile `components/shop/KassenKopf.tsx` (Wortmarke und „← Zurück zum
+Warenkorb“, kein Menü, kein „Join the Fam“). Das freiwillige Feld Bundesland/Kanton ist weg — gezeigt
+wird die Region nur, wo der Shop sie verlangt (gemessen: DE und CH ohne, IT mit „Provinz“).
+„Wohnung, Suite usw.“ heisst deutsch „Adresszusatz“.
+
+*Übersicht:* Überschrift 70 → 48 px (Handy 40 → 32 px), erstes Produktbild 526 → 407 px
+(0,65 → 0,47 Bildschirm), am Handy 410 → 344 px.
+
+*Bilder — NICHT gelöst:* Der dunkle Grund nach dem Vorbild Maison des Elites lässt sich mit den
+heutigen Fotos nicht herstellen. Sie haben den hellen Hintergrund fest im Bild; ein Abdunkeln per
+CSS (multiply, Helligkeit) verfälschte die Stofffarben, und ein freigestellter schwarzer Hoodie auf
+schwarzem Grund ist ohne Lichtkante nicht zu sehen. Es braucht neue Bilder (dunkler, warmer Grund,
+Modell oder Ware mit Licht) — Bildproduktion nach `docs/RUNBOOK-laenderlauf.md`, kostet Credits,
+deshalb erst nach Labis Ja. Bis dahin bleiben die weissen Flächen der stärkste Bruch.
+
+*Aus der Befundliste weiter offen:* 4 (Übersicht: sechs gleiche Hoodies), 6–9 (Bilder), 10 zum Teil
+(Erzählung auf der Länderseite), 11 (Farbnamen englisch), 12 (Fusszeile ohne Versand und Rückgabe),
+13 (leerer Warenkorb).
+
 ## 🧭 20.11.2026: Richtung gewechselt — der Shop kommt in die Landing Page
 
 Labi: „geht es nicht, dass der Shop in die Landing Page kommt?" → „ja plane so". onefam.ch
