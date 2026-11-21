@@ -377,8 +377,8 @@
     "zahlung_titel": "Tarjeta, TWINT y pago móvil",
     "zahlung_text": "Se te redirigirá a la ventana de pago segura de zahls.ch, donde eliges tu medio de pago: Visa, Mastercard, TWINT, Apple Pay, Google Pay o PostFinance Pay.",
     "uebersicht": "Resumen del pedido",
-    "bestellen": "Realizar el pedido",
-    "agb_satz": "Al proceder con tu compra aceptas nuestros <agb>Términos y condiciones</agb> y <datenschutz>Política de privacidad</datenschutz>.",
+    "bestellen": "Pedido con obligación de pago",
+    "agb_satz": "Al realizar el pedido aceptas nuestros <agb>Términos del servicio</agb>. En la <datenschutz>Política de privacidad</datenschutz> explicamos cómo tratamos tus datos.",
     "zurueck": "Volver al carrito",
     "email": "Dirección de correo electrónico",
     "land": "País/Región",
@@ -402,6 +402,14 @@
     "danke_text": "Hemos recibido tu pedido. La confirmación llega por correo electrónico.",
     "danke_weiter": "Volver al inicio",
     "bitte_waehlen": "Seleccionar",
-    "abweichend": "Dirección de facturación"
+    "abweichend": "Dirección de facturación",
+    "einfuhr": "En las entregas a Suiza o a otros países no pertenecientes a la UE pueden aplicarse impuestos de importación, aranceles y gastos de gestión. No los cobramos nosotros y el cliente debe abonarlos por separado en el momento de la entrega o después.",
+    "link_agb": "Términos del servicio",
+    "link_datenschutz": "Privacidad",
+    "link_rueckgabe": "Devoluciones y desistimiento",
+    "link_versand": "Envíos",
+    "link_impressum": "Aviso legal",
+    "lieferung_zahlung": "Solo enviamos a los países de la lista de arriba. Pago con Visa, Mastercard, TWINT, Apple Pay, Google Pay o PostFinance Pay.",
+    "kein_widerruf": "Como cada pieza se imprime individualmente para ti, no hay derecho de devolución por cambio de opinión o por haber elegido mal la talla."
   }
 }
