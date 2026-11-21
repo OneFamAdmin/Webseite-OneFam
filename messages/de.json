@@ -304,7 +304,16 @@
     "farben": "{n} Farben",
     "auswaehlen": "Auswählen",
     "teil_waehlen": "Jetzt dein Teil wählen",
-    "warenkorb_oeffnen": "Warenkorb öffnen"
+    "warenkorb_oeffnen": "Warenkorb öffnen",
+    "zzgl_versand": "zzgl. Versand",
+    "groessentabelle": "Grössentabelle",
+    "auf_bestellung": "Wird erst für dich gedruckt",
+    "reiter_geschichte": "Geschichte",
+    "reiter_groessen": "Grössen",
+    "reiter_material": "Material",
+    "reiter_versand": "Versand & Rückgabe",
+    "groesse_kurz": "Grösse wählen",
+    "zahlarten": "Zahlarten"
   },
   "shop_kategorien": {
     "albania": {
@@ -385,7 +394,7 @@
     "vorname": "Vorname",
     "nachname": "Nachname",
     "adresse1": "Adresse",
-    "adresse2": "Wohnung, Suite usw.",
+    "adresse2": "Adresszusatz",
     "ort": "Stadt",
     "region": "Bundesland",
     "plz": "Postleitzahl",
