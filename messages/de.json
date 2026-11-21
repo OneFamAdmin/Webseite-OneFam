@@ -410,6 +410,31 @@
     "link_versand": "Versand",
     "link_impressum": "Impressum",
     "lieferung_zahlung": "Lieferung nur in die Länder der Auswahl oben. Zahlung mit Visa, Mastercard, TWINT, Apple Pay, Google Pay oder PostFinance Pay.",
-    "kein_widerruf": "Weil jedes Teil einzeln für dich gedruckt wird, gibt es kein Rückgaberecht bei Meinungsänderung oder falsch gewählter Grösse."
+    "kein_widerruf": "Weil jedes Teil einzeln für dich gedruckt wird, gibt es kein Rückgaberecht bei Meinungsänderung oder falsch gewählter Grösse.",
+    "widerruf_eu": "Du kannst diesen Kauf innerhalb von 14 Tagen nach Erhalt ohne Angabe von Gründen widerrufen."
+  },
+  "shop_widerruf": {
+    "titel": "Vertrag widerrufen",
+    "link": "Vertrag widerrufen",
+    "einleitung": "Hier teilst du uns mit, dass du einen Kauf widerrufst. Du bekommst sofort eine Bestätigung des Eingangs per E-Mail.",
+    "hinweis_recht": "Für welche Bestellungen ein Widerruf möglich ist und bis wann, steht in unserer <regel>Regel zu Rückgabe und Widerruf</regel>.",
+    "name": "Dein Name",
+    "bestellung": "Bestellnummer",
+    "bestellung_hilfe": "Sie steht in deiner Bestellbestätigung.",
+    "email": "E-Mail-Adresse",
+    "email_hilfe": "Dorthin schicken wir die Bestätigung des Eingangs.",
+    "teile": "Was möchtest du widerrufen?",
+    "teile_hilfe": "Leer lassen für die ganze Bestellung.",
+    "optional": "(optional)",
+    "bestaetigen": "Widerruf bestätigen",
+    "pflicht": "Bitte fülle die markierten Felder aus.",
+    "email_ungueltig": "Bitte prüfe die E-Mail-Adresse.",
+    "bremse": "Im Moment nimmt das Formular nichts mehr an. Schreib uns bitte an info@onefam.ch – ein Widerruf per E-Mail gilt genauso.",
+    "fehler": "Das hat nicht geklappt. Versuch es noch einmal oder schreib uns an info@onefam.ch – ein Widerruf per E-Mail gilt genauso.",
+    "eingegangen_titel": "Dein Widerruf ist eingegangen.",
+    "eingegangen_text": "Eingegangen am {zeit}. Die Bestätigung ist unterwegs an {email}.",
+    "eingegangen_ohne_mail": "Eingegangen am {zeit}. Die Bestätigungs-Mail liess sich gerade nicht verschicken. Bitte heb diese Anzeige auf (Bildschirmfoto) und schreib uns zur Sicherheit an info@onefam.ch.",
+    "zurueck": "Zur Startseite",
+    "sendet": "Deine Erklärung wird übermittelt …"
   }
 }
