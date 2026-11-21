@@ -30,6 +30,15 @@ const STORE = 'https://shop.onefam.ch/wp-json/wc/store/v1';
 
 export const WARENKORB_COOKIE = 'of_warenkorb';
 
+/**
+ * Merker "es wurde gerade bestellt" (httpOnly, zwei Stunden). Die Kasse setzt
+ * ihn, wenn die Bestellung angelegt ist und es zur Zahlung geht. Nur mit ihm
+ * leert die Danke-Seite den Warenkorb — sonst könnte jeder Aufruf von /danke
+ * einen vollen Warenkorb wegwerfen. Bricht jemand die Zahlung ab, nimmt die
+ * Warenkorb-Seite den Merker wieder weg und der Warenkorb bleibt.
+ */
+export const BESTELLT_COOKIE = 'of_bestellt';
+
 /** WooCommerce räumt Gast-Warenkörbe nach 48 Stunden ab — länger lohnt das Cookie nicht. */
 export const WARENKORB_COOKIE_MAX_AGE = 60 * 60 * 48;
 
@@ -45,6 +54,13 @@ export type Absender = {
    * "Albanien Hoodie" (gemessen 20.11.2026).
    */
   seitenSprache: string | null;
+  /**
+   * Adresse dieser Website (z. B. https://onefam.ch), an die zahls.ch nach der
+   * Zahlung zurückleiten soll. Der Shop nimmt sie nur von einer festen Liste
+   * bekannter Absender an (Snippet 114); fehlt sie oder ist sie unbekannt, leitet
+   * er wie bisher auf seine eigenen Seiten.
+   */
+  rueckkehr: string | null;
 };
 
 type StoreAntwort = { status: number; daten: unknown; token: string | null };
@@ -62,6 +78,7 @@ export async function store(
   if (absender.ip) kopf['X-Forwarded-For'] = absender.ip;
   if (absender.sprache) kopf['Accept-Language'] = absender.sprache;
   if (absender.seitenSprache) kopf['Cookie'] = `ofl=${absender.seitenSprache}`;
+  if (absender.rueckkehr) kopf['X-OneFam-Rueckkehr'] = absender.rueckkehr;
 
   const antwort = await fetch(`${STORE}${pfad}`, {
     method: koerper ? 'POST' : 'GET',

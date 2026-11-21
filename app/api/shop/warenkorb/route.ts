@@ -1,15 +1,13 @@
 import { type NextRequest, NextResponse } from 'next/server';
-import { COUNTRY_HEADER } from '@/i18n/geo';
-import { isLocale } from '@/i18n/routing';
+import { absenderAus } from '@/lib/shop/absender';
 import { holeLieferlaender } from '@/lib/shop/katalog';
 import {
+  BESTELLT_COOKIE,
   WARENKORB_COOKIE,
   WARENKORB_COOKIE_MAX_AGE,
   alsWarenkorb,
   store,
-  type Absender,
 } from '@/lib/shop/storeApi';
-import { GEO_COOKIE, waehrungFuer } from '@/lib/shop/waehrung';
 
 // /api/shop/warenkorb — der Warenkorb auf onefam.ch (Probeaufbau 20.11.2026).
 //
@@ -22,29 +20,13 @@ import { GEO_COOKIE, waehrungFuer } from '@/lib/shop/waehrung';
 //   POST {aktion:'menge', key, menge}     Menge ändern
 //   POST {aktion:'entfernen', key}        Position entfernen
 //   POST {aktion:'land', land}            Versandland setzen
+//   POST {aktion:'abschluss'}             nach bezahlter Bestellung: Warenkorb vergessen
+//   POST {aktion:'abbruch'}               Zahlung abgebrochen: Warenkorb behalten
 //
 // Eingaben werden hier geprüft und nicht ungesehen an den Shop durchgereicht:
 // Die Route ist öffentlich, und alles, was sie annimmt, landet in WooCommerce.
 
 export const dynamic = 'force-dynamic';
-
-/** Kopfzeile, in der die Seite ihre Sprache mitschickt (components/shop). */
-const SPRACHE_KOPF = 'x-onefam-sprache';
-
-function absenderAus(request: NextRequest): Absender {
-  const ip = (request.headers.get('x-forwarded-for') ?? '').split(',')[0].trim() || null;
-  return {
-    token: request.cookies.get(WARENKORB_COOKIE)?.value ?? null,
-    waehrung: waehrungFuer({
-      geo: request.cookies.get(GEO_COOKIE)?.value,
-      land: request.headers.get(COUNTRY_HEADER),
-      sprache: request.headers.get('accept-language'),
-    }),
-    ip,
-    sprache: request.headers.get('accept-language'),
-    seitenSprache: isLocale(request.headers.get(SPRACHE_KOPF)) ? request.headers.get(SPRACHE_KOPF) : null,
-  };
-}
 
 async function antworten(ergebnis: { status: number; daten: unknown; token: string | null }) {
   const daten = ergebnis.daten as { items?: unknown; message?: string } | null;
@@ -76,6 +58,26 @@ const ganzzahl = (x: unknown, min: number, max: number) =>
 
 export async function POST(request: NextRequest) {
   const eingabe = (await request.json().catch(() => null)) as Record<string, unknown> | null;
+
+  // Rückkehr von zahls.ch — beide ohne Anfrage an den Shop.
+  if (eingabe?.aktion === 'abschluss') {
+    // Nur wenn die Kasse gerade eine Bestellung angelegt hat (Merker). Der
+    // Warenkorb wird vergessen, indem sein Token verfällt; im Shop räumt
+    // WooCommerce ihn nach 48 Stunden selbst ab.
+    const bestellt = request.cookies.get(BESTELLT_COOKIE)?.value === '1';
+    const antwort = NextResponse.json({ geleert: bestellt });
+    if (bestellt) {
+      antwort.cookies.delete(WARENKORB_COOKIE);
+      antwort.cookies.delete(BESTELLT_COOKIE);
+    }
+    return antwort;
+  }
+  if (eingabe?.aktion === 'abbruch') {
+    const antwort = NextResponse.json({ ok: true });
+    antwort.cookies.delete(BESTELLT_COOKIE);
+    return antwort;
+  }
+
   const absender = absenderAus(request);
 
   // Ohne Cart-Token verlangt die Store API für jede Änderung einen Nonce und

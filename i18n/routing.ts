@@ -200,6 +200,15 @@ export function kategoriePfad(locale: Locale, slug: string): string {
   return locale === DEFAULT_LOCALE ? `/${slug}` : `/${locale}/${slug}`;
 }
 
+/** Kasse und die Seite nach der Zahlung. Snippet 114 im Shop leitet nach der Zahlung auf genau /danke und /warenkorb. */
+export function kassePfad(locale: Locale): string {
+  return locale === DEFAULT_LOCALE ? '/kasse' : `/${locale}/kasse`;
+}
+
+export function dankePfad(locale: Locale): string {
+  return locale === DEFAULT_LOCALE ? '/danke' : `/${locale}/danke`;
+}
+
 export function warenkorbPfad(locale: Locale): string {
   return locale === DEFAULT_LOCALE ? '/warenkorb' : `/${locale}/warenkorb`;
 }

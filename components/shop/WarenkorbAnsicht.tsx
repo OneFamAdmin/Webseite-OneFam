@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import Button from '@/components/Button';
+import { BRAND_GRADIENT_CTA } from '@/lib/brand';
 import { merkeKorbAnzahl } from '@/lib/shop/korbZaehler';
 import type { Warenkorb } from '@/lib/shop/typen';
 import { preisText } from '@/lib/shop/waehrung';
@@ -13,11 +14,28 @@ import { useWaehrung } from './useWaehrung';
 // /api/shop/warenkorb; Preise, Versand und Summen rechnet WooCommerce, nicht
 // diese Seite — es darf nur eine Quelle für Preise geben (CLAUDE.md).
 //
-// "Zur Kasse" ist im Probeaufbau abgeschaltet. Die Kasse auf onefam.ch ist
-// Plan Schritt 3; bis dahin wird hier nichts bezahlt.
+// "Zur Kasse" führt seit 21.11.2026 auf die Kasse von onefam.ch
+// (components/shop/KasseAnsicht.tsx).
 
-export default function WarenkorbAnsicht({ weiterPfad }: { weiterPfad: string }) {
+export default function WarenkorbAnsicht({ weiterPfad, kassePfad }: { weiterPfad: string; kassePfad: string }) {
   const t = useTranslations('shop_seiten');
+  const tKasse = useTranslations('shop_kasse');
+  const [abbruch, setAbbruch] = useState(false);
+
+  // Rückkehr von zahls.ch nach abgebrochener oder fehlgeschlagener Zahlung: Das
+  // zahls-Plugin hängt ?zahls_error=1 an die Warenkorb-Adresse. Der Warenkorb
+  // bleibt, der Merker "gerade bestellt" wird zurückgenommen. Gelesen wird aus
+  // der Adresse statt über useSearchParams — das zwänge die sonst feste Seite
+  // in eine Suspense-Grenze.
+  useEffect(() => {
+    if (!new URLSearchParams(window.location.search).has('zahls_error')) return;
+    setAbbruch(true);
+    fetch('/api/shop/warenkorb', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ aktion: 'abbruch' }),
+    }).catch(() => {});
+  }, []);
   const locale = useLocale();
   // Setzt das Cookie of_geo, bevor der Warenkorb geladen wird — sonst entschiede
   // die Route beim allerersten Besuch ohne die Zeitzone.
@@ -157,10 +175,15 @@ export default function WarenkorbAnsicht({ weiterPfad }: { weiterPfad: string })
           </ul>
         )}
 
-        <Button type="button" disabled className="mt-6 w-full cursor-not-allowed opacity-50">
+        {abbruch && (
+          <p className="mt-5 rounded-[4px] border border-white/15 p-3 font-body text-sm text-primary" role="status">
+            {tKasse('abbruch')}
+          </p>
+        )}
+        {/* Der Weg zum Kauf: Markenverlauf, wie auf Produktseite und Kasse. */}
+        <Button as="a" href={kassePfad} className="mt-6 w-full" style={{ background: BRAND_GRADIENT_CTA }}>
           {t('zur_kasse')}
         </Button>
-        <p className="mt-3 font-body text-sm text-faint">{t('probe_hinweis')}</p>
       </div>
     </div>
   );

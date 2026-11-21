@@ -62,6 +62,15 @@ add_action( 'rest_api_init', function () {
 			'lang' => array( 'default' => 'en', 'sanitize_callback' => 'sanitize_key' ),
 		),
 	) );
+	// Daten fuer das Adressformular der Kasse auf onefam.ch.
+	register_rest_route( 'onefam/v1', '/kasse', array(
+		'methods'             => 'GET',
+		'permission_callback' => '__return_true',
+		'callback'            => 'onefam_hl_kasse_antwort',
+		'args'                => array(
+			'lang' => array( 'default' => 'en', 'sanitize_callback' => 'sanitize_key' ),
+		),
+	) );
 } );
 
 function onefam_hl_bild( $id ) {
@@ -400,6 +409,60 @@ function onefam_hl_kategorie_daten( $slug, $lang ) {
 	);
 }
 
+// Kasse auf onefam.ch: Lieferlaender mit Namen in der Sprache der Seite und je Land
+// die Regeln fuer Kanton/Bundesland und Postleitzahl — so, wie WooCommerce sie
+// selbst anwendet (get_address_fields). Der Shop nutzt die Block-Kasse; die prueft
+// Adressen ueber dieselbe Store API, ueber die auch onefam.ch bestellt.
+// GET /wp-json/onefam/v1/kasse?lang=de (mit Cookie ofl=de)
+function onefam_hl_kasse_antwort( WP_REST_Request $anfrage ) {
+	$lang     = in_array( $anfrage['lang'], array( 'en', 'de', 'fr', 'es' ), true ) ? $anfrage['lang'] : 'en';
+	$besucher = function_exists( 'of_visitor_lang' ) ? of_visitor_lang() : '';
+	if ( $besucher !== $lang ) {
+		return new WP_Error(
+			'onefam_sprache',
+			'Sprache passt nicht: Cookie ofl=' . $lang . ' mitschicken.',
+			array( 'status' => 409 )
+		);
+	}
+	$fertig = get_transient( 'onefam_hl_v7_kasse_' . $lang );
+	if ( false === $fertig ) {
+		$c       = WC()->countries;
+		$staaten = $c->get_states();
+		$laender = array();
+		foreach ( $c->get_shipping_countries() as $code => $name ) {
+			$felder  = $c->get_address_fields( $code, 'shipping_' );
+			$region  = isset( $felder['shipping_state'] ) ? $felder['shipping_state'] : array();
+			$plz     = isset( $felder['shipping_postcode'] ) ? $felder['shipping_postcode'] : array();
+			$auswahl = array();
+			if ( ! empty( $staaten[ $code ] ) && is_array( $staaten[ $code ] ) ) {
+				foreach ( $staaten[ $code ] as $kuerzel => $bezeichnung ) {
+					$auswahl[] = array( 'code' => (string) $kuerzel, 'name' => html_entity_decode( (string) $bezeichnung, ENT_QUOTES, 'UTF-8' ) );
+				}
+			}
+			$laender[] = array(
+				'code'   => (string) $code,
+				'name'   => html_entity_decode( (string) $name, ENT_QUOTES, 'UTF-8' ),
+				'region' => array(
+					'label'     => isset( $region['label'] ) ? (string) $region['label'] : null,
+					'pflicht'   => ! empty( $region['required'] ),
+					'versteckt' => ! empty( $region['hidden'] ) || ( isset( $staaten[ $code ] ) && is_array( $staaten[ $code ] ) && ! $staaten[ $code ] ),
+					'auswahl'   => $auswahl,
+				),
+				'plz'    => array(
+					'label'     => isset( $plz['label'] ) ? (string) $plz['label'] : null,
+					'pflicht'   => ! empty( $plz['required'] ),
+					'versteckt' => ! empty( $plz['hidden'] ),
+				),
+			);
+		}
+		$fertig = array( 'laender' => $laender, 'sprache' => $lang, 'stand' => gmdate( 'c' ) );
+		set_transient( 'onefam_hl_v7_kasse_' . $lang, $fertig, 10 * MINUTE_IN_SECONDS );
+	}
+	$antwort = rest_ensure_response( $fertig );
+	$antwort->header( 'Cache-Control', 'public, max-age=300' );
+	return $antwort;
+}
+
 // Nach jeder Produktaenderung die zwischengespeicherten Antworten verwerfen.
 add_action( 'woocommerce_update_product', function () {
 	global $wpdb;
@@ -425,6 +488,36 @@ add_filter( 'rest_pre_dispatch', function ( $ergebnis, $server, $anfrage ) {
 	// "Albania Hoodie" auch im deutschen Warenkorb. Nur fuer diese Anfragen.
 	if ( function_exists( 'onefam_produktname' ) ) {
 		add_filter( 'woocommerce_product_title', 'onefam_produktname', 999 );
+	}
+
+	// RUECKKEHR NACH DER ZAHLUNG — nur fuer Bestellungen von onefam.ch.
+	// Das zahls-Plugin (2.0.7, process_payment) leitet nach erfolgreicher Zahlung auf
+	// get_return_url() (Danke-Seite des Shops) und bei Abbruch oder Fehler auf
+	// wc_get_cart_url() . '?zahls_error=1&order_id=…' (Warenkorb des Shops). Der
+	// Kunde von onefam.ch hat dort aber keinen Warenkorb — seiner haengt am
+	// Cart-Token. Deshalb zeigen beide Adressen fuer diese eine Anfrage auf onefam.ch.
+	// Der Bestellstatus haengt nicht daran: den setzt die Rueckmeldung von zahls.ch
+	// (wc-api=wc_zahls_gateway), wie bisher.
+	// Erlaubt sind nur diese Absender; localhost fuer den Testkauf vor dem Livegang.
+	$erlaubt = array( 'https://onefam.ch', 'http://localhost:3000', 'http://localhost:3001' );
+	$basis   = rtrim( (string) $anfrage->get_header( 'x_onefam_rueckkehr' ), '/' );
+	if ( in_array( $basis, $erlaubt, true ) ) {
+		$sprache = function_exists( 'of_visitor_lang' ) ? of_visitor_lang() : 'en';
+		$pfad    = in_array( $sprache, array( 'de', 'fr', 'es' ), true ) ? '/' . $sprache : '';
+		add_filter( 'woocommerce_get_return_url', function () use ( $basis, $pfad ) {
+			return $basis . $pfad . '/danke';
+		}, 999 );
+		add_filter( 'woocommerce_get_cart_url', function () use ( $basis, $pfad ) {
+			return $basis . $pfad . '/warenkorb';
+		}, 999 );
+		// Herkunft an der Bestellung vermerken, damit im wp-admin sichtbar ist,
+		// ueber welche Kasse sie kam.
+		add_action( 'woocommerce_store_api_checkout_order_processed', function ( $order ) {
+			if ( $order instanceof WC_Order ) {
+				$order->update_meta_data( '_onefam_herkunft', 'onefam.ch' );
+				$order->save();
+			}
+		} );
 	}
 	return $ergebnis;
 }, 5, 3 );
