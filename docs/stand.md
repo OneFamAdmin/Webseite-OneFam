@@ -94,6 +94,25 @@ im Hellen ansehen, bevor alle Länder so gemacht werden.
 `/de/produkt/albania-hoodie`, `/de/shop-by-country`. Port 3004 mit `web_453C35` zeigt den helleren Ton,
 Port 3005 und 3006 die schwebenden Fassungen (Aufrufe in `LIESMICH.md`).
 
+## 🟢 22.11.2026, spät: Shop auf onefam.ch eingeschaltet
+
+Labi: „geh auch nach vercel und mach das mit vercel ich erlaube es dir“ und „ich will die webseite
+auf vordermann bringen und zum aktuellsten stand“; das Thema Shirt-King (Stufe B) „klären wir wann
+anders“.
+
+- **Vercel:** Variable `NEXT_PUBLIC_SHOP_AUF_ONEFAM` = `1` für Production angelegt (Typ Config), im
+  Dashboard in Chrome — der Zugang über die Schnittstelle darf das nicht (403). Den 2FA-Hinweis von
+  Vercel habe ich mit „Remind Me in 1 Day“ weggeklickt, nichts eingerichtet.
+- **Vorher geprüft:** Euro, Französisch, Lieferung nach Deutschland und Frankreich bis ins
+  Zahlungsfenster (`docs/testkauf-kasse-onefam.md`, neues Werkzeug `tools/kasse-probe.mjs`). Die drei
+  Testbestellungen 8246, 8247, 8248 sind storniert.
+- **Der Shop-Teil braucht auf Vercel keine weitere Variable** (nachgesehen: nur der Schalter).
+- **Mit dem Wissen live gegangen:** Stufe B (echte Zahlung, Druck bei Shirt-King mit
+  Varianten-Nummer) ist ungetestet; Zahlungsfenster bei französischen Bestellungen deutsch; alte
+  Bilder im hellen Kasten auf Länder- und Produktseiten; der alte Shop läuft daneben weiter, ohne
+  Umleitungen; Shop-Seiten auf onefam.ch stehen noch auf `noindex`; `localhost` steht noch in der
+  Rückkehr-Liste von Snippet 114.
+
 ## 🧾 22.11.2026, 21:42: Testkauf Stufe A durchgeführt — bis ins Zahlungsfenster, dann abgebrochen
 
 Labi fragte, warum der Shop auf onefam.ch noch der alte ist (der Schalter in Vercel ist nicht gesetzt),

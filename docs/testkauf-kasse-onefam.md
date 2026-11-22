@@ -33,13 +33,39 @@ Testkäufe macht Labi (CLAUDE.md). Dieses Blatt sagt, was dabei zu prüfen ist.
 > | `_onefam_herkunft` = `onefam.ch` | ✅, dazu `_onefam_sprache` = `de`, angelegt über `store-api`, Zahlart `zahls` |
 > | Abbruch führt auf `/de/warenkorb?zahls_error=1&…` | ✅ mit `order_id=8246` |
 > | Hinweis „Die Zahlung wurde nicht abgeschlossen. Dein Warenkorb ist noch da.“, Teil noch im Warenkorb | ✅ |
-> | Bestellung danach auf „Storniert“ | ⏳ **offen** — der Admin war abgemeldet, der Schlüssel im Projekt darf nur lesen. An der Bestellung steht „Bestandssperre von 60 Minuten“; WooCommerce storniert unbezahlte Bestellungen danach meist von selbst. Nachsehen. |
+> | Bestellung danach auf „Storniert“ | ✅ 8246 am 22.11.2026 storniert (Labi hat sich im Admin angemeldet, gesetzt über `wc/v3/orders/8246`, Antwort `cancelled`) |
 >
 > Sonst beobachtet: An der Kasse stand für die Schweiz „kein Rückgaberecht“ und der Hinweis auf
 > Einfuhrabgaben. Im Posteingang kam in 30 Minuten keine Mail mit der Bestellnummer an. Gelesen
 > wurde die Bestellung über `wc/v3/orders/8246` mit dem Nur-Lese-Schlüssel aus `.env.local`.
-> **Nicht geprüft:** Euro (Gerät in Deutschland), Französisch, Lieferung nach Deutschland — und
-> alles aus Variante B.
+> **Nicht geprüft:** alles aus Variante B (echte Zahlung).
+
+### Euro, Französisch, Lieferung nach Deutschland — am 22.11.2026 geprüft
+
+Mit `tools/kasse-probe.mjs`: ein eigenes, unsichtbares Chrome mit vorgegebener Zeitzone klickt den
+Weg vom Produkt bis ins Zahlungsfenster und bricht dort ab. Bezahlt wurde nichts.
+
+| | Deutsch, Gerät in Berlin, nach Deutschland | Französisch, Gerät in Paris, nach Frankreich |
+|---|---|---|
+| Preis des Hoodies | 69,99 € (Festpreis, **nicht** 82,50) | 69,99 € |
+| Versand | 7,70 € | 13,20 € |
+| Total an der Kasse | 77,69 € | 83,19 € |
+| Satz vor dem Knopf | „… innerhalb von 14 Tagen … widerrufen“ | „… rétracter … dans un délai de 14 jours …“ |
+| Knopf | „Zahlungspflichtig bestellen“ | „Commande avec obligation de paiement“ |
+| Betrag im Zahlungsfenster | 77.69 EUR | 83.19 EUR |
+| Bestellung im Shop | 8247, EUR, Variante 2750, Versand 7.70, Sprache `de` | 8248, EUR, Variante 2750, Versand 13.20, Sprache `fr` |
+| Rückkehr nach Abbruch | `/de/warenkorb?zahls_error=1` | `/fr/warenkorb?zahls_error=1`, Hinweis „Le paiement n’a pas été finalisé. Votre panier est toujours là.“ |
+
+Beide Bestellungen sind storniert.
+
+**Befund, offen:** Das Zahlungsfenster von zahls.ch war auch bei der französischen Bestellung
+**deutsch** (`onefam.zahls.ch/de/`, „Zahlungsmittel wählen“). Ursache im zahls-Plugin (Version
+2.0.7, Zeile 278): Es nimmt die Sprache aus `get_locale()`, also aus der Sprache der
+WordPress-Installation, nicht aus der Sprache des Besuchers. Ob es im alten Shop genauso ist, ist
+nicht gemessen. Betrag, Währung und Zahlarten stimmen; betroffen ist nur die eine Textzeile.
+
+**Feld „Adresszusatz“ auf Französisch** heisst noch „Appartement, suite, etc. (facultatif)“ — der
+WooCommerce-Text; auf Deutsch ist er seit 21.11. ersetzt. Kleinigkeit, offen.
 
 1. `http://localhost:3001/de/shop-by-country` öffnen, ein Teil wählen, Farbe und Grösse, „In den
    Warenkorb“, „Zum Warenkorb“, „Zur Kasse“.
