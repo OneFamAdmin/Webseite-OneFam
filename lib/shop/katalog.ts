@@ -1,4 +1,5 @@
 import { KACHELBILD } from './kachelbilder';
+import { schwebeBild } from './schwebebilder';
 import type { Farbe, Kategorie, Produkt, Variante } from './typen';
 import type { Locale } from '@/i18n/routing';
 
@@ -163,8 +164,9 @@ export async function holeProdukt(slug: string, locale: Locale): Promise<Produkt
   const farben: Farbe[] = p.farben.map((name) => ({
     name,
     bilder: [...(jeFarbe.get(name) ?? []), ...ohneFarbe].map((b) => ({
-      src: b.gross,
-      klein: b.klein,
+      // Freistehende Fassung, wo es sie gibt (lib/shop/schwebebilder.ts) — sonst das Shop-Bild.
+      src: schwebeBild(b.gross),
+      klein: schwebeBild(b.klein, true),
       alt: b.alt || `${p.name} – ${name}`,
     })),
   }));
@@ -274,8 +276,8 @@ export async function holeKategorie(slug: string, locale: Locale): Promise<Kateg
       eur: p.eur,
       einheitlich: p.einheitlich,
       farben: p.farben,
-      bild: KACHELBILD[p.slug] ? `${SHOP}${KACHELBILD[p.slug]}` : (p.bild?.gross ?? ''),
-      produktbild: p.bild?.gross ?? null,
+      bild: schwebeBild(KACHELBILD[p.slug] ? `${SHOP}${KACHELBILD[p.slug]}` : (p.bild?.gross ?? '')),
+      produktbild: p.bild?.gross ? schwebeBild(p.bild.gross) : null,
     })),
   };
 }

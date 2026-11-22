@@ -94,6 +94,29 @@ im Hellen ansehen, bevor alle Länder so gemacht werden.
 `/de/produkt/albania-hoodie`, `/de/shop-by-country`. Port 3004 mit `web_453C35` zeigt den helleren Ton,
 Port 3005 und 3006 die schwebenden Fassungen (Aufrufe in `LIESMICH.md`).
 
+## 🖼 22.11.2026, nachts: Albanien in Schwarz freistehend eingebaut (lokal committet, Push wartet auf Labi)
+
+Labi nach dem Livegang: Auf der Albanien-Seite stehen „noch immer die alten Mockups mit weissem
+Hintergrund“ — die schwebende Fassung war nur Vorschau und nie eingebaut.
+
+- **Eingebaut:** 22 freistehende Bilder (WebP mit Durchsichtigkeit) in `public/shop/schwebend/`,
+  Zuordnung über den Dateinamen in `lib/shop/schwebebilder.ts`; getauscht wird in
+  `lib/shop/katalog.ts` (Galerie, Kachel, Einstieg) und `lib/shop/storeApi.ts` (Warenkorb). Die
+  Bildflächen der Shop-Bausteine stehen jetzt in Seitenfarbe statt `#F1F1F1`.
+- **Abgedeckt:** Albanien-Länderseite ganz (vier Bilder); Hoodie, Sweater und Shirt je alle sieben
+  Ansichten in Schwarz; Hoodie Red nur Mann von vorn. **Nicht abgedeckt:** alle anderen Farben
+  (rund 175 Bilder) — wer dort eine andere Farbe wählt, sieht weiter das Shop-Bild mit hellem
+  Grund —, die drei anderen Länder, die Logo-Linien.
+- **Fehler unterwegs, behoben:** weisser Saum am nackten Arm des Mannes im Shirt (weiche Hautkante,
+  Armhaare) — neue Regel (f) im Skript, gemessen: helle Pixel im Ausschnitt 1505 → 222, bei 100 %
+  nicht mehr sichtbar. Zehn neue Freistellungen in Higgsfield (10 Credits laut Preis je Stück,
+  Protokoll nicht erneut abgerufen).
+- **Geprüft:** `tsc`, Lint, Bau sauber; lokal Länderseite (vier Bilder geladen), drei Produktseiten
+  (je 0 Shop-Bilder in Schwarz übrig), Warenkorb-Vorschaubild freistehend; alle Gesichter bei 100 %.
+- **Offen — Labi:** Push. Danach: übrige Farben, Weiss/Heather Grey, andere Länder; wo die Dateien
+  bei allen Ländern liegen sollen (22 Bilder = 2,1 MB im Repo). Einzelheiten:
+  `~/Projekte/onefam-material/mockups/albanien-dunkler-grund-probe-21112026/LIESMICH.md`.
+
 ## 🟢 22.11.2026, spät: Shop auf onefam.ch eingeschaltet
 
 Labi: „geh auch nach vercel und mach das mit vercel ich erlaube es dir“ und „ich will die webseite

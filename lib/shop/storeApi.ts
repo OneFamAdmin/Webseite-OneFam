@@ -1,3 +1,4 @@
+import { schwebeBild } from './schwebebilder';
 import type { Warenkorb } from './typen';
 
 // lib/shop/storeApi.ts — NUR serverseitig benutzen.
@@ -136,7 +137,7 @@ export function alsWarenkorb(roh: unknown, laender: string[]): Warenkorb {
       farbe: i.variation.find((v) => v.raw_attribute === 'attribute_colour')?.value ?? '',
       groesse: i.variation.find((v) => v.raw_attribute === 'attribute_size')?.value ?? '',
       menge: i.quantity,
-      bild: i.images[0]?.thumbnail ?? null,
+      bild: i.images[0]?.thumbnail ? schwebeBild(i.images[0].thumbnail, true) : null,
       einzelpreis: zahl(i.prices.price),
       summe: zahl(i.totals.line_subtotal) + zahl(i.totals.line_subtotal_tax),
     })),

@@ -98,7 +98,7 @@ export default function WarenkorbAnsicht({ weiterPfad, kassePfad }: { weiterPfad
       <ul className="divide-y divide-white/10 border-y border-white/10">
         {korb.positionen.map((p) => (
           <li key={p.key} className="flex gap-4 py-5">
-            <div className="h-24 w-20 flex-none overflow-hidden rounded-[3px] bg-[#F1F1F1]">
+            <div className="h-24 w-20 flex-none overflow-hidden rounded-[3px] bg-bg">
               {/* Vorschaubild der Variante, von WooCommerce schon klein gerechnet */}
               {p.bild && <img src={p.bild} alt="" className="h-full w-full object-cover" loading="lazy" />}
             </div>

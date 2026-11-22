@@ -173,7 +173,7 @@ export default async function KategorieSeite({ params }: Props) {
               {/* Am Desktop höchstens 32rem breit: bei voller Spaltenbreite war das
                   Bild 750 px hoch und ragte auf einem Laptop unten aus dem Bild. */}
               {einstiegsBild && (
-                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[4px] bg-[#F1F1F1] lg:max-w-[32rem] lg:justify-self-end">
+                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[4px] bg-bg lg:max-w-[32rem] lg:justify-self-end">
                   <Image
                     src={einstiegsBild}
                     alt={produkte[0].name}

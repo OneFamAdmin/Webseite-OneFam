@@ -199,7 +199,10 @@ export default function ProduktAnsicht({
 
         {/* Galerie */}
         <div className="mt-5 lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:mt-0 lg:self-start lg:sticky lg:top-24">
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[4px] bg-[#F1F1F1]">
+          {/* Fläche in Seitenfarbe (bis 22.11.2026 hellgrau #F1F1F1): Freistehende Bilder haben
+              einen durchsichtigen Hintergrund (lib/shop/schwebebilder.ts) und sollen ohne Kasten
+              auf der Seite stehen. Shop-Bilder mit eigenem hellem Grund füllen die Fläche ohnehin. */}
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[4px] bg-bg">
             {bild && (
               <Image
                 key={bild.src}
@@ -221,7 +224,7 @@ export default function ProduktAnsicht({
                 aria-label={t('bild', { n: i + 1, gesamt: bilder.length })}
                 aria-current={i === bildNr}
                 className={clsx(
-                  'relative h-20 w-16 flex-none overflow-hidden rounded-[3px] bg-[#F1F1F1] transition-opacity',
+                  'relative h-20 w-16 flex-none overflow-hidden rounded-[3px] bg-bg transition-opacity',
                   i === bildNr ? 'ring-1 ring-gold' : 'opacity-70 hover:opacity-100',
                 )}
               >
@@ -251,7 +254,7 @@ export default function ProduktAnsicht({
                   aria-pressed={f.name === farbe}
                   title={f.name}
                   className={clsx(
-                    'relative h-14 w-12 overflow-hidden rounded-[3px] bg-[#F1F1F1]',
+                    'relative h-14 w-12 overflow-hidden rounded-[3px] bg-bg',
                     f.name === farbe ? 'ring-1 ring-gold ring-offset-2 ring-offset-bg' : 'opacity-80 hover:opacity-100',
                   )}
                 >

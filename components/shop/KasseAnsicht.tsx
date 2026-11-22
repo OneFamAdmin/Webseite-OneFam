@@ -383,7 +383,7 @@ export default function KasseAnsicht({
         <ul className="mt-5 divide-y divide-white/10 border-y border-white/10">
           {korb.positionen.map((p) => (
             <li key={p.key} className="flex gap-4 py-4">
-              <div className="h-20 w-16 flex-none overflow-hidden rounded-[3px] bg-[#F1F1F1]">
+              <div className="h-20 w-16 flex-none overflow-hidden rounded-[3px] bg-bg">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 {p.bild && <img src={p.bild} alt="" className="h-full w-full object-cover" loading="lazy" />}
               </div>

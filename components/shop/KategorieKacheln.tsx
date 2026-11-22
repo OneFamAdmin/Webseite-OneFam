@@ -44,7 +44,7 @@ export default function KategorieKacheln({ produkte }: { produkte: KachelProdukt
         return (
           <li key={p.slug} className="w-[78%] flex-none snap-start sm:w-auto">
             <Link href={produktPfad(locale, p.slug)} className="group block">
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[4px] bg-[#F1F1F1]">
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[4px] bg-bg">
                 {p.bild && (
                   <Image
                     src={p.bild}

@@ -121,7 +121,7 @@ function LinienKarte({ linie, locale }: { linie: Linie; locale: Locale }) {
             />
           </div>
         ) : (
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[4px] bg-[#F1F1F1]">
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[4px] bg-bg">
             {linie.bild && (
               <Image
                 src={linie.bild}
@@ -287,7 +287,7 @@ export default function LaenderWand({
                   onClick={() => oeffnen({ id: b.en, en: b.en, name: b.en, satz: b.en })}
                   className="group block w-full text-left"
                 >
-                  <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[4px] bg-[#F1F1F1]">
+                  <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[4px] bg-bg">
                     <Image src={b.bild} alt={b.en} fill unoptimized className="object-cover opacity-80" />
                     <span className="absolute left-3 top-3 rounded-full bg-bg/85 px-3 py-1 font-body text-[11px] uppercase tracking-[0.14em] text-primary">
                       {t('bald')}
