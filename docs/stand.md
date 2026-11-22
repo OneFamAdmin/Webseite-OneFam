@@ -94,6 +94,34 @@ im Hellen ansehen, bevor alle Länder so gemacht werden.
 `/de/produkt/albania-hoodie`, `/de/shop-by-country`. Port 3004 mit `web_453C35` zeigt den helleren Ton,
 Port 3005 und 3006 die schwebenden Fassungen (Aufrufe in `LIESMICH.md`).
 
+## 🧭 22.11.2026: Übersicht „Nach Land shoppen“ — Vorbilder und Vorschau (nichts am Code geändert)
+
+Labi: „ja, starte mit der übersicht“. Befund 4 der Durchsicht: vier fast gleiche schwarze Hoodies,
+das Zeichen zu klein, um die Länder zu unterscheiden. Nach Labis Regel zuerst Vorbilder von
+awwwards gesucht und ihm geöffnet; der Umbau selbst wartet auf sein Ja.
+
+**Vorbilder** (aus den Listen Fashion und E-Commerce, rund 20 Seiten angesehen):
+- **Unimatic** (`unimaticwatches.com/collections/watches`) — dieselbe Aufgabe: viele fast gleiche
+  schwarze Stücke. Oben eine Reihe Umrisszeichnungen als Einstieg („Modello 1 — 21 Products“), im
+  Raster wechseln Stück und getragenes Stück, darunter drei ruhige Zeilen mit feinen Linien.
+- **Thebe Magugu** (`thebemagugu.com/pages/collections`) — jede Kollektion ist ein eigenes Ding mit
+  eigener Farbe (Buchrücken im Regal), nicht ein Kleidungsstück. Übertragen: das Zeichen ist der Held.
+- **Offform** (`offform.net/#talents`) — schwarze Seite, nummerierte Namensliste, das Bild erscheint
+  erst beim Darüberfahren. Übertragen: die Wunschwand mit rund 190 Ländern als ruhige Liste.
+Angesehen und verworfen: Atticus Finch (gewöhnliches helles Raster), Palace (laut), Heirest, Becore,
+Deadly Ponies, Infinity Socks, Enigma.
+
+**Vorschau** (`~/Projekte/onefam-material/mockups/uebersicht-zeichen-22112026/`, Ports 3008 und 3007):
+In „Jetzt verfügbar“ steht statt des ganzen Hoodies das Zeichen gross, so wie es auf dem Stoff sitzt.
+Es ist ein fester Ausschnitt (1500 × 1875 im 4k-Bild) — nachgesehen an Afghanistan, Albanien, Andorra
+und Argentinien: der Druck sitzt überall an derselben Stelle. Nichts neu erzeugt, keine Credits; der
+Ausschnitt ist randvoll Stoff, also ohne hellen Kasten. Zwei Ausläufe: oval (3008) und weiches
+Rechteck (3007). Dateigrösse je Bild rund 200 KB als JPEG.
+
+**Vorschlag an Labi, offen:** (1) Zeichen-Kacheln so einbauen, (2) Bildunterschrift in drei ruhigen
+Zeilen wie bei Unimatic, (3) Wunschwand als Namensliste wie bei Offform. „Signature“ bleibt, bis die
+Bildarbeit weitergeht. Für den Einbau braucht jedes Land eine Ausschnitt-Datei (Skript, Sekunden).
+
 ## 🧪 20.11.2026: Probeaufbau Produktseite und Warenkorb auf onefam.ch (nur lokal)
 
 Labi: „halt stop. onefam.ch soll ja die hauptseite sein und der shop muss nach onefam.ch“ →
