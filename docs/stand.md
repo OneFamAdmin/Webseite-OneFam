@@ -76,6 +76,12 @@ allen zwölf Albanien-Bildern (aus den fertigen Bildern und der Deckkraft gerech
 - Angesehen: Albanien-Seite, Hoodie-Produktseite (Hauptbild, Model, Vorschauleiste), Übersicht,
   dazu die Albanien-Seite bei 500 px Breite. Kanten bei 100 % auf reinem Schwarz geprüft.
 
+**Entschieden (Labi, 22.11.2026):** Die schwebende Fassung „passt perfekt“, so wird es weitergeführt —
+**in diesem Bereich aber erst einmal Stopp.** Er hat keine der beiden Fassungen beim Namen genannt;
+ich gehe von der empfohlenen Fassung „Seite“ (Port 3005) aus und frage beim Wiederaufnehmen nach.
+Dann stehen an: die übrigen Farben von Albanien, die Lieferung mit durchsichtigem Hintergrund,
+ein Weg für White und Heather Grey, danach die anderen Länder.
+
 **Zu beachten vor dem Einbau.** (1) `CLAUDE.md` führt „dekorative Verläufe, Glow“ als nicht erwünscht —
 die Fassung „Seite“ kommt ohne aus, die Fassung „Oval“ ist ein Lichtschein. (2) Eine eingebrannte
 Seitenfarbe passt nur auf schwarze Seiten; dieselben Bilder stehen auch in shop.onefam.ch und in den
