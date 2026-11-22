@@ -94,7 +94,7 @@ im Hellen ansehen, bevor alle Länder so gemacht werden.
 `/de/produkt/albania-hoodie`, `/de/shop-by-country`. Port 3004 mit `web_453C35` zeigt den helleren Ton,
 Port 3005 und 3006 die schwebenden Fassungen (Aufrufe in `LIESMICH.md`).
 
-## 🖼 22.11.2026, nachts: Albanien in Schwarz freistehend eingebaut (lokal committet, Push wartet auf Labi)
+## 🖼 22.11.2026, nachts: Albanien in Schwarz freistehend eingebaut — live seit 22:37
 
 Labi nach dem Livegang: Auf der Albanien-Seite stehen „noch immer die alten Mockups mit weissem
 Hintergrund“ — die schwebende Fassung war nur Vorschau und nie eingebaut.
@@ -113,7 +113,11 @@ Hintergrund“ — die schwebende Fassung war nur Vorschau und nie eingebaut.
   Protokoll nicht erneut abgerufen).
 - **Geprüft:** `tsc`, Lint, Bau sauber; lokal Länderseite (vier Bilder geladen), drei Produktseiten
   (je 0 Shop-Bilder in Schwarz übrig), Warenkorb-Vorschaubild freistehend; alle Gesichter bei 100 %.
-- **Offen — Labi:** Push. Danach: übrige Farben, Weiss/Heather Grey, andere Länder; wo die Dateien
+- **Gepusht auf Labis „ja pusch“ (`e05d08d`), live gemessen 22:37:** Länderseite zeigt vier
+  freistehende Bilder; Hoodie 16, Sweater 14, Shirt 14 freistehende Adressen und je 0 Shop-Bilder in
+  Schwarz übrig; alle 44 Bilddateien 200; `/de`, Übersicht, Albanien, Afghanistan, Produktseite,
+  Warenkorb, Kasse 200, `/de/irgendwas` 404.
+- **Offen — Labi entscheidet:** übrige Farben, Weiss/Heather Grey, andere Länder; wo die Dateien
   bei allen Ländern liegen sollen (22 Bilder = 2,1 MB im Repo). Einzelheiten:
   `~/Projekte/onefam-material/mockups/albanien-dunkler-grund-probe-21112026/LIESMICH.md`.
 
