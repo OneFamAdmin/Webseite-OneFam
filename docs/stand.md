@@ -1,4 +1,64 @@
-# Stand — 21.11.2026
+# Stand — 22.11.2026
+
+## 🖼 22.11.2026: Probe Albanien — Modellbilder auf dunklem Grund (nur lokal)
+
+Labi nach den Vorbildern von awwwards: „ja, mach so wie vorgeschlagen“ und zur Probe für ein Land
+„ja bitte“. Betrifft die Befunde 6 bis 9 der Durchsicht vom 21.11. (weisse Bildflächen, vier Bildstile).
+**Am Shop, am Repo-Code und am Bau ist nichts geändert** — es ist eine Vorschau.
+
+**Was gemacht ist.** Zwölf Albanien-Bilder (alle sieben schwarzen Hoodie-Ansichten, Hoodie Red Mann
+frontal, Sweater und Shirt je Frau frontal und freihängend) stehen auf einem dunklen, warmen Grund.
+Es wurde **nichts neu erzeugt**: Higgsfield liefert nur eine grobe Freistellung (1649 × 2048), die
+Kante wird aus dem 4k-Original gerechnet, Figur, Stoff, Druck und Gesicht bleiben Originalpixel.
+
+**Wo es liegt.** `~/Projekte/onefam-material/mockups/albanien-dunkler-grund-probe-21112026/` —
+Skripte, Originale, Freistellungen, Ergebnisse in zwei Tönen, Prüfbögen, `LIESMICH.md`.
+
+**Messwerte (22.11.2026).**
+
+- Abweichung in der sicheren Figur: **0,0** in allen zwölf Bildern.
+- Rechenzeit: rund 50 s je 4k-Bild (zuerst über 180 s; grosse Reichweiten werden verkleinert
+  gerechnet, Unterschied 417 von 17,1 Mio. Pixeln).
+- Helle, farbarme Pixel an der Kante nach dem letzten Lauf: 0 bis 80 je Bild; nachgesehen — es
+  sind Jeansnähte und Glanz im Haar aus dem Original.
+- Geöffnete Stellen innerhalb der Figur (tiefer als 30 px): alle einzeln angesehen — Lücke zwischen
+  Daumen und Zeigefinger (bis 1549 Pixel), Schritt der Jeans, Lücken im Haar. Kein Loch in Auge,
+  Zahn, Stoff oder Druck.
+- Alle neun Gesichter bei 100 % angesehen, kritische Stellen (Ohr, Schläfe, Daumen, Haarrand) bei
+  vierfacher Vergrösserung.
+- **Kosten: 1 Credit je Freistellung**, zwölf Buchungen im Protokoll von Higgsfield. ⚠️ Zuerst hatte
+  ich 9 Credits gemeldet — aus dem Guthaben-Unterschied gerechnet, in dem Ausgaben anderer Sitzungen
+  steckten. Ein Land hat 196 Bilder (63 Hoodie, 70 Sweater, 63 Shirt).
+
+**Die Fehlversuche, die das Verfahren bestimmt haben** (alle im Kopf von `probe_setzen.py` und an
+der jeweiligen Stelle begründet):
+
+1. Deckkraft der Freistellung direkt benutzt → heller Saum um Haar und Stoff.
+2. Regel nur neben schwarzem Haar → weisse Splitter am braunen Haar, weisses Dreieck am Daumen.
+3. Alter Grund als EINE Farbe → im roten Bild blieb die Lücke am Daumen zu. Der Grund misst dort
+   links (238, 238, 238), rechts (203, 194, 196); verglichen wird jetzt mit der Helligkeitsspanne
+   der Bildzeile.
+4. Bildrand als Kante behandelt → Löcher in den untersten sieben Zeilen der Jeans.
+5. Mischung auch gegen Hautfarbe gerechnet → Kerbe am Ohrläppchen (5 × 8 Pixel) und an der Schläfe
+   (4 × 20). Haut ist jetzt ausgenommen (Rot minus Blau ab 34; Haar-Grund-Mischungen liegen bei
+   höchstens 26).
+
+**Grenzen — vor dem Ausrollen klären.**
+
+- **White und Heather Grey gehen so nicht** (Figur und alter Grund sind fast gleich hell).
+- **Blondes Haar und dunkle Haut sind nicht geprüft** — an einem Land mit solchen Modellen testen.
+- Am braunen Haar bleibt bei 100 % stellenweise eine sehr feine helle Strichelung. In Shop-Grösse
+  (825 px breit) nicht sichtbar. Eine schärfere Regel griff jedes Mal Haut im Gesicht an.
+- Ein Versuch, die grobe Freistellung ohne Higgsfield zu rechnen, passte bei einem von drei Bildern
+  und ist nicht fertig — bei 1 Credit je Bild auch nicht nötig.
+
+**Offen — Labi entscheidet.** Ton `#3A322C` oder der hellere `#453C35`; ob alle Länder so gemacht
+werden; was mit White und Heather Grey geschieht. Danach erst: Bilder in den Shop laden (das ändert
+auch shop.onefam.ch) und die hellen Kachelflächen `bg-[#F1F1F1]` in den Shop-Bausteinen anpassen.
+
+**Vorschau starten** (steht auch in `LIESMICH.md`): lokalen Bau auf Port 3001 starten, dann
+`python3 -I vorschau/vorschau_proxy.py web 3003` → `http://localhost:3003/de/albania`,
+`/de/produkt/albania-hoodie`, `/de/shop-by-country`. Port 3004 mit `web_453C35` zeigt den helleren Ton.
 
 ## 🧪 20.11.2026: Probeaufbau Produktseite und Warenkorb auf onefam.ch (nur lokal)
 
