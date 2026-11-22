@@ -7,6 +7,7 @@ import SiteFooter from '@/components/SiteFooter';
 import LaenderWand, { type Linie } from '@/components/shop/LaenderWand';
 import { holeKategorie, holeKategorieSlugs } from '@/lib/shop/katalog';
 import { LAENDER, LOGO_BALD } from '@/lib/shop/laender';
+import { ZEICHENBILD } from '@/lib/shop/zeichenbilder';
 import { SITE_URL } from '@/lib/seo';
 import { SHOP_AUF_ONEFAM, LOCALES, isLocale, shopByCountryPfad } from '@/i18n/routing';
 
@@ -67,6 +68,8 @@ export default async function ShopByCountry({ params }: Props) {
     slug: k.slug,
     name: tKat.has(`${k.slug}.name`) ? tKat(`${k.slug}.name`) : k.name,
     bild: k.produkte[0].produktbild ?? k.produkte[0].bild,
+    // Länder mit Eintrag zeigen das Zeichen gross statt des ganzen Hoodies (lib/shop/zeichenbilder.ts).
+    zeichen: ZEICHENBILD[k.slug] ?? null,
     produkte: k.produkte,
   });
 

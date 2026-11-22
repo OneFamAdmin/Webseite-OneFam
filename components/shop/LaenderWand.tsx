@@ -7,7 +7,8 @@ import { useLocale, useTranslations } from 'next-intl';
 import Button from '@/components/Button';
 import type { KachelProdukt } from '@/lib/shop/typen';
 import { kategoriePfad, type Locale } from '@/i18n/routing';
-import PreisZeile from './PreisZeile';
+import { preisText } from '@/lib/shop/waehrung';
+import { useWaehrung } from './useWaehrung';
 
 // "Nach Land shoppen" auf onefam.ch (21.11.2026): Suche, die Länder und Linien,
 // die es schon gibt, und die Wunschwand mit allen übrigen Ländern samt
@@ -31,6 +32,19 @@ import PreisZeile from './PreisZeile';
 //     über der Wand stand; hier rücken die Treffer beim Tippen nach oben.
 //   - Kein "Mitentscheiden"-Schildchen auf jeder der rund 250 Kacheln; der Satz
 //     über der Wand sagt es einmal.
+//
+// UMBAU AM 22.11.2026 (Labi nach drei Vorbildern von awwwards: "ja oval so wie du
+// es vorschlägst, mach Punkt 2 und 3 gleich mit"):
+//   1. Die Karte eines Landes zeigt das ZEICHEN GROSS, so wie es auf dem Stoff
+//      sitzt, statt des ganzen Hoodies (lib/shop/zeichenbilder.ts). Vorher standen
+//      vier fast gleiche schwarze Hoodies nebeneinander, das Zeichen rund 15 % der
+//      Karte breit. Vorbild Thebe Magugu: jede Kollektion ist ein eigenes Ding.
+//   2. Darunter drei ruhige Zeilen mit feinen Linien — Land und Preis, die Teile,
+//      die Farben — wie auf der Länderseite und wie bei Unimatic. Vorher zwei
+//      Zeilen, Preis und Teile in einem Satz.
+//   3. Die Wunschwand ist eine nummerierte Namensliste statt eines Rasters aus
+//      Kästchen (Vorbild Offform). Das Wort "Mitentscheiden" erscheint erst beim
+//      Darüberfahren; am Telefon steht nur der Pfeil.
 
 const WARTELISTE = 'https://shop.onefam.ch/wp-json/onefam/v1/waitlist';
 const KACHELBILDER = 'https://shop.onefam.ch/wp-content/uploads/onefam-assets/collections';
@@ -40,13 +54,21 @@ const ZIEL = 100;
 /** Erst ab so vielen bestätigten Einträgen wird der Stand gezeigt — wie im Shop. */
 const STAND_AB = 10;
 /**
- * Eingeklappt zeigt die Wand so viele Länder. Muss durch 6, 4, 3 und 2 teilbar
- * sein, sonst bleibt in der letzten Reihe eine Lücke. Ausgeklappt wäre die Wand
- * am Telefon rund 30 Bildschirme hoch; gesucht wird ohnehin das eigene Land.
+ * Eingeklappt zeigt die Wand so viele Länder. Muss durch 3 und 2 teilbar sein
+ * (die Liste steht in einer, zwei oder drei Spalten), sonst bleibt in der letzten
+ * Reihe eine Lücke. Ausgeklappt wären es am Telefon rund 190 Zeilen; gesucht wird
+ * ohnehin das eigene Land.
  */
 const ZEIGEN = 24;
 
-export type Linie = { slug: string; name: string; bild: string; produkte: KachelProdukt[] };
+export type Linie = {
+  slug: string;
+  name: string;
+  bild: string;
+  /** Das Zeichen gross auf dem Stoff (lib/shop/zeichenbilder.ts); fehlt es, steht das Produktbild im Kasten. */
+  zeichen?: string | null;
+  produkte: KachelProdukt[];
+};
 export type WandLand = { id: string; en: string; name: string; satz: string };
 export type BaldKarte = { en: string; bild: string };
 
@@ -66,25 +88,66 @@ function trifft(suche: string, ...namen: string[]) {
 }
 
 function LinienKarte({ linie, locale }: { linie: Linie; locale: Locale }) {
+  const t = useTranslations('shop_laender');
+  const tSeiten = useTranslations('shop_seiten');
+  const waehrung = useWaehrung();
+
+  // "Hoodie · Sweater · Shirt": das letzte Wort jedes Produktnamens, wie in PreisZeile.
+  const arten = linie.produkte.map((p) => p.name.trim().split(/\s+/).pop()).join(' · ');
+  const farben = linie.produkte.map((p) => p.farben);
+  const meiste = Math.max(...farben);
+
+  // Der günstigste Preis der Linie. Die Währung kennt erst der Browser (Zeitzone);
+  // in EUR nur, wenn jedes Teil einen Festpreis hat — sonst lieber keiner als ein falscher.
+  let preis: string | null = null;
+  if (waehrung === 'CHF') {
+    preis = preisText(Math.min(...linie.produkte.map((p) => p.chf)), 'CHF', locale);
+  } else if (waehrung === 'EUR' && linie.produkte.every((p) => p.eur != null)) {
+    preis = preisText(Math.min(...linie.produkte.map((p) => p.eur as number)), 'EUR', locale);
+  }
+
   return (
     <li>
       <Link href={kategoriePfad(locale, linie.slug)} className="group block">
-        <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[4px] bg-[#F1F1F1]">
-          {linie.bild && (
+        {linie.zeichen ? (
+          // Kein Kasten, keine Fläche: Das Bild ist am Rand durchsichtig und steht direkt auf der Seite.
+          <div className="relative aspect-[4/5] w-full">
             <Image
-              src={linie.bild}
+              src={linie.zeichen}
               alt={linie.name}
               fill
               unoptimized
-              className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              className="object-contain transition-transform duration-500 ease-out group-hover:scale-[1.03]"
             />
-          )}
+          </div>
+        ) : (
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[4px] bg-[#F1F1F1]">
+            {linie.bild && (
+              <Image
+                src={linie.bild}
+                alt={linie.name}
+                fill
+                unoptimized
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              />
+            )}
+          </div>
+        )}
+        {/* Drei Zeilen, durch feine Linien getrennt. flex-wrap: am Telefon (Karte rund 180 px)
+            passen "Afghanistan" und der Preis nicht nebeneinander — dann steht der Preis darunter. */}
+        <div className="mt-4 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+          <h3 className="font-serif text-xl font-normal text-primary sm:text-2xl">{linie.name}</h3>
+          {/* Feste Mindesthöhe: der Preis erscheint erst mit der Währung und soll nichts verschieben. */}
+          <p className="min-h-[1.25rem] font-body text-sm text-primary" aria-live="polite">
+            {preis ? tSeiten('ab_preis', { preis }) : ' '}
+          </p>
         </div>
-        <h3 className="mt-4 font-serif text-2xl font-normal text-primary">
-          {linie.name} <span aria-hidden="true" className="text-gold">→</span>
-        </h3>
-        <div className="mt-1 text-sm">
-          <PreisZeile produkte={linie.produkte} />
+        <p className="mt-3 border-t border-white/10 pt-3 font-body text-sm text-secondary">{arten}</p>
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-1 border-t border-white/10 pt-3 font-body text-sm">
+          <span className="text-secondary">
+            {farben.every((f) => f === meiste) ? tSeiten('farben', { n: meiste }) : t('farben_bis', { n: meiste })}
+          </span>
+          <span className="text-gold underline-offset-4 group-hover:underline">{t('ansehen')} →</span>
         </div>
       </Link>
     </li>
@@ -126,6 +189,8 @@ export default function LaenderWand({
   );
   const sucht = suche.trim() !== '';
   const gezeigt = sucht || offen ? treffer : treffer.slice(0, ZEIGEN);
+  // Die Nummer eines Landes ist sein Platz in der ganzen Liste — sie bleibt beim Suchen dieselbe.
+  const nummer = useMemo(() => new Map(wand.map((l, i) => [l.id, String(i + 1).padStart(2, '0')])), [wand]);
 
   function oeffnen(land: WandLand) {
     setWunsch(land);
@@ -248,28 +313,50 @@ export default function LaenderWand({
         {treffer.length === 0 && trefferVerfuegbar.length === 0 ? (
           <p className="mt-8 font-body text-secondary">{t('kein_treffer')}</p>
         ) : (
-          <ul className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+          // Namensliste statt Kästchen. Die Linie über der ersten Zeile braucht je Spaltenzahl
+          // eine eigene Regel (eine, zwei oder drei Spalten), sonst fehlt sie in Spalte zwei und drei.
+          <ol className="mt-8 grid grid-cols-1 gap-x-12 md:grid-cols-2 xl:grid-cols-3">
             {gezeigt.map((l) => (
-              <li key={l.id}>
+              <li
+                key={l.id}
+                className="border-b border-white/10 first:border-t md:[&:nth-child(-n+2)]:border-t xl:[&:nth-child(-n+3)]:border-t"
+              >
                 <button
                   type="button"
                   aria-haspopup="dialog"
                   onClick={() => oeffnen(l)}
-                  className="flex h-full w-full flex-col items-center gap-3 rounded-[4px] border border-white/10 px-3 py-5 text-center transition-colors hover:border-gold/60"
+                  className="group relative flex min-h-[3.5rem] w-full items-center gap-4 py-2 text-left"
                 >
+                  <span aria-hidden="true" className="w-8 flex-none font-body text-xs tabular-nums text-faint">
+                    {nummer.get(l.id)}
+                  </span>
                   <Image
                     src={`${KACHELBILDER}/${l.id}.webp`}
                     alt=""
-                    width={72}
-                    height={72}
+                    width={40}
+                    height={40}
                     unoptimized
                     loading="lazy"
+                    className="flex-none transition-transform duration-300 ease-out group-hover:scale-[1.3]"
                   />
-                  <span className="font-body text-sm text-primary">{l.name}</span>
+                  {/* Der Name bricht um, statt abgeschnitten zu werden ("Amerikanische Jungferninseln",
+                      "Südgeorgien und die Südlichen Sandwichinseln"). */}
+                  <span className="min-w-0 flex-1 font-body text-base leading-snug text-primary transition-colors group-hover:text-gold">
+                    {l.name}
+                  </span>
+                  {/* Liegt ÜBER der Zeile und belegt keinen Platz: Als unsichtbares Wort im Fluss nahm es dem
+                      Namen rund 130 px weg, lange Namen wurden abgeschnitten (gemessen am 22.11.2026). Der
+                      Grund in Seitenfarbe deckt das Ende eines langen Namens ab, solange das Wort zu sehen ist. */}
+                  <span className="pointer-events-none absolute right-8 top-1/2 -translate-y-1/2 bg-bg pl-3 font-body text-[11px] uppercase tracking-[0.14em] text-gold opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 max-lg:hidden">
+                    {t('mitentscheiden')}
+                  </span>
+                  <span aria-hidden="true" className="flex-none font-body text-faint transition-colors group-hover:text-gold">
+                    →
+                  </span>
                 </button>
               </li>
             ))}
-          </ul>
+          </ol>
         )}
 
         {!sucht && !offen && treffer.length > ZEIGEN && (
