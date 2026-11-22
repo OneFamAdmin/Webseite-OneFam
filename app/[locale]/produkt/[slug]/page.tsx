@@ -68,7 +68,9 @@ export default async function ProduktSeite({ params }: Props) {
   if (!produkt) notFound();
 
   // Die Zeile über dem Produktnamen führt zur Länderseite und heisst wie sie
-  // ("Schwarzes Logo", nicht der WooCommerce-Name "Logo Black").
+  // ("Albanien", nicht der englische WooCommerce-Name "Albania"). Die Linie "Logo Black"
+  // hiess bis 22.11.2026 auf Deutsch "Schwarzes Logo" — direkt über "Logo Black Hoodie";
+  // seither trägt sie in allen vier Sprachen den Namen ihrer Produkte (messages, shop_kategorien).
   const tKat = await getTranslations({ locale, namespace: 'shop_kategorien' });
   const katSlug = produkt.kategorie?.slug;
   const kategorieName =

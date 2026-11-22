@@ -94,6 +94,22 @@ im Hellen ansehen, bevor alle Länder so gemacht werden.
 `/de/produkt/albania-hoodie`, `/de/shop-by-country`. Port 3004 mit `web_453C35` zeigt den helleren Ton,
 Port 3005 und 3006 die schwebenden Fassungen (Aufrufe in `LIESMICH.md`).
 
+## ✅ 22.11.2026: Länderseite am Handy zum Wischen, Linie heisst „Logo Black“ (lokal, nicht gepusht)
+
+Labi zu den zwei offenen Entscheiden: „ok wir machen so wie du es vorschlägst“.
+
+- **Farbnamen bleiben englisch** („Black“, „Red“ …). Sie kommen aus WooCommerce und stehen so auch
+  in der Bestellmail; nur auf der Seite übersetzt, sagten Warenkorb und Mail Verschiedenes.
+  Befund 11 ist damit bewusst so entschieden, nicht offen.
+- **Die Linie heisst in allen vier Sprachen „Logo Black“** wie ihre Produkte („Logo Black Hoodie“).
+  Vorher „Schwarzes Logo“ / „Black Logo“ / „Logo noir“ / „Logo negro“ (`shop_kategorien.logo-black.name`).
+- **Länderseite am Telefon:** Unter 640 px stehen die drei Teile nebeneinander zum Wischen
+  (`components/shop/KategorieKacheln.tsx`), jede Karte 78 % breit, die nächste schaut herein.
+  Gemessen bei 500 px Breite: Karte 353 × 539, Reihe 543 px hoch statt drei Karten untereinander;
+  die Reihe rastet ein (zweite Karte bei 16 px, dritte ganz sichtbar); kein seitlicher Überlauf der
+  Seite. Ab 640 px das Raster wie bisher (bei 1440 px drei Spalten je 432 px). Gilt auch für die
+  beiden Logo-Linien — sie benutzen denselben Baustein.
+
 ## ✅ 22.11.2026: Bedienung am Handy, leerer Warenkorb, Fusszeile (lokal, nicht gepusht)
 
 Labi: „ja“ auf den nächsten Block der Befundliste (Tippflächen, Kasse, Befunde 12 und 13).

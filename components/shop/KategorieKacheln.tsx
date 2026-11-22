@@ -30,12 +30,19 @@ export default function KategorieKacheln({ produkte }: { produkte: KachelProdukt
   const waehrung = useWaehrung();
 
   return (
-    <ul className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+    // AM TELEFON (unter 640 px) STEHEN DIE TEILE NEBENEINANDER ZUM WISCHEN (22.11.2026, Labi:
+    // "wir machen so wie du es vorschlägst"). Untereinander nahm jedes Teil fast einen
+    // Bildschirm ein, die Länderseite war 6,9 Bildschirme lang (gemessen 21.11.2026).
+    // Jede Karte ist 78 % breit: Rechts schaut die nächste rund 50 px herein — das ist der
+    // Hinweis, dass es weitergeht. Die Reihe reicht bis an den Bildschirmrand (-mx-4 hebt den
+    // Seitenrand von MaxWidth auf, px-4 und scroll-px-4 setzen ihn in der Reihe wieder).
+    // Ab 640 px das Raster wie bisher.
+    <ul className="-mx-4 flex snap-x snap-mandatory scroll-px-4 gap-4 overflow-x-auto px-4 pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:snap-none sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3">
       {produkte.map((p) => {
         const betrag = !waehrung ? null : waehrung === 'CHF' ? p.chf : p.eur;
         const preis = betrag != null && waehrung ? preisText(betrag, waehrung, locale) : null;
         return (
-          <li key={p.slug}>
+          <li key={p.slug} className="w-[78%] flex-none snap-start sm:w-auto">
             <Link href={produktPfad(locale, p.slug)} className="group block">
               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[4px] bg-[#F1F1F1]">
                 {p.bild && (
