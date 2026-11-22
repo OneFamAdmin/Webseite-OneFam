@@ -38,6 +38,10 @@ from PIL import Image
 KASTEN = (1106, 852, 2606, 2727)
 GROESSE = (800, 1000)  # Kachel höchstens 385 px breit (vier Spalten bei 1680 px), mal zwei für scharfe Bildschirme
 
+# Diese Kacheln sind KEINE Ausschnitte aus dem Hoodie-Bild, sondern von Hand eingesetzte
+# Nahfotos des Sticks (lib/shop/zeichenbilder.ts). Das Werkzeug überschreibt sie nicht.
+VON_HAND = {"albania"}
+
 
 def weich(t):
     """0 → 1 ohne Knick an beiden Enden."""
@@ -49,6 +53,8 @@ def main():
     if len(sys.argv) != 3:
         sys.exit(__doc__)
     slug, quelle = sys.argv[1], sys.argv[2]
+    if slug in VON_HAND:
+        sys.exit(f"{slug}.webp ist ein Stick-Nahfoto und wird nicht aus dem Hoodie-Bild erzeugt (siehe lib/shop/zeichenbilder.ts).")
     if quelle.startswith("https://"):
         with urllib.request.urlopen(urllib.request.Request(quelle, headers={"User-Agent": "zeichen-ausschnitt"})) as antwort:
             bild = Image.open(io.BytesIO(antwort.read()))

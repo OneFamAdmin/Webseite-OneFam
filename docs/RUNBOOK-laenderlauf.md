@@ -583,6 +583,11 @@ Das schreibt `public/shop/zeichen/<slug>.webp` (800 × 1000, rund 80–100 KB). 
 hellen Kasten. Der Ausschnitt passt nur auf das 4k-Bild (3712 × 4608); das Werkzeug bricht bei
 anderer Grösse ab. Slug = Kategorie-Slug des Shops (`albania`, nicht `albanien`).
 
+**Ausnahme Albanien:** Die Kachel ist seit 22.11.2026 ein Nahfoto des Sticks (Quelle
+`~/Projekte/onefam-material/mockups/zeichen-stick/albania.webp`), kein Ausschnitt aus dem
+Hoodie-Bild. Das Werkzeug überschreibt sie nicht; eine neue Fassung wird von Hand nach
+`public/shop/zeichen/albania.webp` kopiert. Weitere Stick-Kacheln kommen so dazu.
+
 ## 9. Aufräumen
 **Löschen macht Labi selbst**, der Assistent bereitet nur die Auswahl vor.
 Vor jedem Löschen prüfen, ob eine Datei live ist — **Produkte, Varianten, Kategorien

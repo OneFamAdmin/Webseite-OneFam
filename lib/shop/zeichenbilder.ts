@@ -17,6 +17,16 @@
 // Übersicht wie früher das Produktbild im hellen Kasten — sichtbar falsch, aber
 // nicht kaputt.
 //
+// AUSNAHME ALBANIEN (seit 22.11.2026): Die Datei kommt NICHT aus tools/zeichen-ausschnitt.py,
+// sondern ist ein Nahfoto des STICKS auf schwarzem Fleece, aus
+// ~/Projekte/onefam-material/mockups/zeichen-stick/albania.webp (dort auch LIESMICH.md).
+// Labis Entscheid vom 22.11.2026: Die Kachel zeigt den Stick als realistisches Nahfoto statt
+// des Hoodie-Drucks. Bei Albanien ist der Hoodie bedruckt, Shirt und Sweater sind bestickt —
+// die Kachel zeigt bewusst den Stick. Format wie die anderen: 800 x 1000, WebP mit
+// Durchsichtigkeit, ovaler Auslauf. Das Werkzeug weigert sich deshalb, albania.webp zu
+// überschreiben; wer das Foto ersetzt, kopiert die neue Datei von Hand hierher.
+// Weitere Stick-Kacheln (San Marino liegt bereit) kommen dazu, sobald das Land Produkte hat.
+//
 // Schlüssel ist der Kategorie-Slug des Shops (derselbe wie in lib/shop/laender.ts).
 
 export const ZEICHENBILD: Record<string, string> = {

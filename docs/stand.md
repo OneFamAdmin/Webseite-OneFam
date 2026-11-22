@@ -94,6 +94,21 @@ im Hellen ansehen, bevor alle Länder so gemacht werden.
 `/de/produkt/albania-hoodie`, `/de/shop-by-country`. Port 3004 mit `web_453C35` zeigt den helleren Ton,
 Port 3005 und 3006 die schwebenden Fassungen (Aufrufe in `LIESMICH.md`).
 
+## 🧵 22.11.2026: Albanien-Kachel zeigt den Stick
+
+Labi: Stick-Kachel für „Jetzt verfügbar“ einbauen, „san marino musst du noch nicht machen nur
+albanien“ — „und dann committen und pushen was wir alles neu gemacht haben an der webseite“.
+
+- `public/shop/zeichen/albania.webp` ist jetzt das Nahfoto des Sticks auf schwarzem Fleece (Quelle
+  `~/Projekte/onefam-material/mockups/zeichen-stick/albania.webp`, 800 × 1000, 137 KB, unverändert
+  übernommen). Begründung und Ausnahme vom Werkzeug: `lib/shop/zeichenbilder.ts`.
+- Angesehen auf `/de/shop-by-country#jetzt` bei 1440 px: Zeichen gleich gross und an derselben
+  Stelle wie bei Afghanistan, Andorra, Argentinien; ovaler Rand ohne Kante (Deckkraft am Bildrand 0).
+  **Unterschied, der bleibt:** Der Stoff der Stick-Kachel ist ein tiefes, warmes Schwarz mit Relief,
+  die drei Druck-Kacheln sind kühler und heller und zeigen Kordeln. Einheitlich wird die Reihe
+  erst, wenn die anderen Länder dieselbe Art Bild bekommen.
+- San Marino: Datei liegt bereit, nicht eingebaut (noch kein Land im Shop).
+
 ## ✅ 22.11.2026: Länderseite am Handy zum Wischen, Linie heisst „Logo Black“ (lokal, nicht gepusht)
 
 Labi zu den zwei offenen Entscheiden: „ok wir machen so wie du es vorschlägst“.
