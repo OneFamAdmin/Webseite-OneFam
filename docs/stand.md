@@ -94,6 +94,24 @@ im Hellen ansehen, bevor alle Länder so gemacht werden.
 `/de/produkt/albania-hoodie`, `/de/shop-by-country`. Port 3004 mit `web_453C35` zeigt den helleren Ton,
 Port 3005 und 3006 die schwebenden Fassungen (Aufrufe in `LIESMICH.md`).
 
+## 🚀 22.11.2026, 21:29: gepusht und live geprüft (`f108165..6e06bba`, 26 Commits)
+
+Labi: „und dann committen und pushen was wir alles neu gemacht haben an der webseite“.
+Alles, was unten für den 21. und 22.11. als „lokal, nicht gepusht“ steht, ist damit auf `main`.
+
+- **Vor dem Push:** Bau ohne Schalter (`NEXT_PUBLIC_SHOP_AUF_ONEFAM=0`), gemessen: Länderseite,
+  Übersicht, Produktseite, Warenkorb, Kasse, Danke und `/de/irgendwas` 404; `/api/shop/warenkorb`
+  404, `/api/shop/kasse` per POST 404; `/`, `/de`, `/fr`, `/es`, Warteliste, Rechtstexte, Widerruf
+  200; 0 Fehler im Protokoll. Ungepushte Änderungen auf Heikles durchsucht, nichts gefunden;
+  keine Datei aus `docs/privat/` verfolgt.
+- **Live gemessen (onefam.ch):** das neue Bild `/shop/zeichen/albania.webp` 200 mit 140 978 Bytes
+  (21:28:57 noch 404, 21:29:23 da); `/`, `/de`, `/fr`, `/es`, `/de/widerruf`, `/de/join`, `/de/agb`
+  200; `/de/kasse`, `/de/albania`, `/de/shop-by-country`, `/de/produkt/albania-hoodie`,
+  `/de/warenkorb`, `/de/irgendwas` 404.
+- **Was Besucher davon heute sehen:** nur Kopf- und Fusszeile — Menüknopf und Links mit grösserer
+  Tippfläche. Die Shop-Seiten bleiben gesperrt, bis in Vercel `NEXT_PUBLIC_SHOP_AUF_ONEFAM=1`
+  gesetzt wird (macht Labi); erst dann erscheinen auch „Versand“ und „Rückgabe“ in der Fusszeile.
+
 ## 🧵 22.11.2026: Albanien-Kachel zeigt den Stick
 
 Labi: Stick-Kachel für „Jetzt verfügbar“ einbauen, „san marino musst du noch nicht machen nur
