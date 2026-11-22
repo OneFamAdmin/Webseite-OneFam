@@ -24,7 +24,7 @@ Production + Preview** ankreuzen, **Save**.
 | `EMAIL_FROM` | aus `.env.local` (Resend-Test-Sender; später `info@onefam.ch`) |
 | `NEXT_PUBLIC_SITE_URL` | ⚠️ **NICHT** localhost — die **Vercel-Prod-Adresse** (z.B. `https://webseite-one-fam.vercel.app` oder später `https://onefam.ch`) |
 
-| `NEXT_PUBLIC_SHOP_AUF_ONEFAM` | **Erst zum Livegang des Shops auf onefam.ch auf `1` setzen** (seit 21.11.2026). Solange sie fehlt, führt „Shop“ in Kopfzeile, Fusszeile und auf der Startseite weiter auf shop.onefam.ch. Mit `1` führt es auf `/shop-by-country`. Nicht setzen, bevor die Kasse auf onefam.ch steht — siehe `i18n/routing.ts` und `docs/plan-zusammenfuehrung-onefam.md`. **Seit 21.11.2026 sperrt die Variable auch die Seiten selbst:** Ohne sie antworten Länderseiten, Produktseiten, Warenkorb, Kasse und `/api/shop/*` mit 404 (nur `/widerruf` nicht). |
+| `NEXT_PUBLIC_SHOP_AUF_ONEFAM` | **Erst zum Livegang des Shops auf onefam.ch auf `1` setzen** (seit 21.11.2026). Solange sie fehlt, führt „Shop“ in Kopfzeile, Fusszeile und auf der Startseite weiter auf shop.onefam.ch. Mit `1` führt es auf `/shop-by-country`. Nicht setzen, bevor die Kasse auf onefam.ch steht — siehe `i18n/routing.ts` und `docs/plan-zusammenfuehrung-onefam.md`. **Seit 21.11.2026 sperrt die Variable auch die Seiten selbst:** Ohne sie antworten Länderseiten, Produktseiten, Warenkorb, Kasse und `/api/shop/*` mit 404 (nur `/widerruf` nicht). **Seit 22.11.2026 in Vercel auf `1` gesetzt (Production) — der Shop läuft auf onefam.ch.** |
 
 ⚠️ `NEXT_PUBLIC_*` werden **beim Build eingebacken** → nach dem Setzen/Ändern **neu deployen**.
 

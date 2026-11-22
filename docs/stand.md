@@ -107,6 +107,15 @@ anders“.
   Zahlungsfenster (`docs/testkauf-kasse-onefam.md`, neues Werkzeug `tools/kasse-probe.mjs`). Die drei
   Testbestellungen 8246, 8247, 8248 sind storniert.
 - **Der Shop-Teil braucht auf Vercel keine weitere Variable** (nachgesehen: nur der Schalter).
+- **Live gemessen nach dem Deploy (21:58, Commit `1b35e5e`):** 24 Adressen 200 — Start in vier
+  Sprachen, Übersicht in vier Sprachen, vier Länder, zwei Logo-Linien, vier Produktseiten,
+  Warenkorb, Kasse, Danke, Widerruf, Warteliste, AGB; `/de/irgendwas` und ein unbekanntes Produkt
+  404. „Shop“ in der Kopfzeile führt auf `/de/shop-by-country`; Fusszeile mit Versand und Rückgabe;
+  alle vier Zeichen-Bilder da; `/api/shop/warenkorb` 200.
+- **Kasse auf der echten Adresse geprüft** (`tools/kasse-probe.mjs --basis https://onefam.ch`,
+  Schweizer Gerät, Lieferung Schweiz): CHF 75.00 + 18.00 = 93.00, Zahlungsfenster 93.00 CHF,
+  Bestellung 8249 mit Variante 2750 und Herkunft `onefam.ch`, Rückkehr nach Abbruch auf
+  `https://onefam.ch/de/warenkorb` mit Hinweis. 8249 storniert.
 - **Mit dem Wissen live gegangen:** Stufe B (echte Zahlung, Druck bei Shirt-King mit
   Varianten-Nummer) ist ungetestet; Zahlungsfenster bei französischen Bestellungen deutsch; alte
   Bilder im hellen Kasten auf Länder- und Produktseiten; der alte Shop läuft daneben weiter, ohne
