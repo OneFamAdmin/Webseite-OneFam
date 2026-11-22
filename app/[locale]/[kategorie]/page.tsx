@@ -202,10 +202,12 @@ export default async function KategorieSeite({ params }: Props) {
               <div className="mt-14 max-w-[31rem]">
                 {daten.text && <p className={FLIESSTEXT}>{daten.text}</p>}
                 {versand && (
-                  <details className="mt-6 border-y border-white/10 py-4">
-                    <summary className="cursor-pointer font-body text-primary marker:text-gold">{versand.titel}</summary>
+                  // Der Abstand liegt IN der Zeile zum Antippen, nicht um sie herum: So ist sie 56 px
+                  // hoch statt 24 bis 28 (gemessen 21.11.2026), sieht aber gleich aus.
+                  <details className="mt-6 border-y border-white/10">
+                    <summary className="cursor-pointer py-4 font-body text-primary marker:text-gold">{versand.titel}</summary>
                     <div
-                      className={`mt-4 ${FLIESSTEXT} [&_a]:text-gold [&_a]:underline-offset-4 hover:[&_a]:underline [&_p]:mb-4 [&_strong]:font-medium [&_strong]:text-primary`}
+                      className={`pb-4 ${FLIESSTEXT} [&_a]:text-gold [&_a]:underline-offset-4 hover:[&_a]:underline [&_p]:mb-4 [&_strong]:font-medium [&_strong]:text-primary`}
                       dangerouslySetInnerHTML={{ __html: versand.html }}
                     />
                   </details>

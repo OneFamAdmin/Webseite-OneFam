@@ -37,8 +37,9 @@ import { useWaehrung } from './useWaehrung';
 
 type Zustand = 'frei' | 'sendet' | 'weiter' | 'gesperrt';
 
+// h-12: 48 px hoch (vorher 42) — gut zu treffen, und der Text wird beim Antippen am iPhone nicht vergrössert.
 const EINGABE =
-  'mt-1.5 w-full rounded-[4px] border bg-transparent px-3.5 py-2.5 font-body text-primary focus:border-gold focus:outline-none';
+  'mt-1.5 h-12 w-full rounded-[4px] border bg-transparent px-3.5 font-body text-base text-primary focus:border-gold focus:outline-none';
 
 function Feld({
   label,
@@ -54,7 +55,7 @@ function Feld({
   children: (klasse: string) => React.ReactNode;
 }) {
   return (
-    <label className={`block font-body text-sm text-secondary ${breit ? 'sm:col-span-2' : ''}`}>
+    <label className={`block font-body text-sm text-secondary ${breit ? 'col-span-2' : ''}`}>
       {label}
       {optional && <span className="text-faint"> {optional}</span>}
       {children(`${EINGABE} ${fehler ? 'border-[#E0705F]' : 'border-white/20'}`)}
@@ -85,7 +86,10 @@ function AdressFelder({
   });
 
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+    // Zwei Spalten auch am Telefon: Vorname neben Nachname, PLZ neben Ort. Untereinander war
+    // die Lieferadresse 800 px hoch und der Bestellknopf lag bei 1906 von 2846 px (gemessen
+    // 22.11.2026 bei 606 px Breite).
+    <div className="grid grid-cols-2 gap-x-3 gap-y-4 sm:gap-x-4">
       <Feld label={t('land')} fehler={fehlt.has('land')} breit>
         {(k) => (
           <select
@@ -337,12 +341,12 @@ export default function KasseAnsicht({
           <div className="mt-5">
             <AdressFelder wert={lieferung} setze={setzeLieferung} regeln={regeln} fehlt={fehlt} vorsilbe="shipping" />
           </div>
-          <label className="mt-6 flex items-center gap-3 font-body text-sm text-secondary">
+          <label className="mt-4 flex min-h-[44px] cursor-pointer items-center gap-3 font-body text-sm text-secondary">
             <input
               type="checkbox"
               checked={gleich}
               onChange={(e) => setGleich(e.target.checked)}
-              className="h-4 w-4 accent-[#C9A84C]"
+              className="h-5 w-5 flex-none accent-[#C9A84C]"
             />
             {t('gleiche_adresse')}
           </label>
@@ -468,15 +472,15 @@ export default function KasseAnsicht({
         <p className="mt-3 min-h-5 font-body text-sm text-secondary" role="status" aria-live="polite">
           {zustand === 'weiter' ? t('weiter') : meldung}
         </p>
-        <Link href={warenkorbPfad} className="mt-2 inline-block font-body text-sm text-secondary underline-offset-4 hover:text-primary hover:underline">
+        <Link href={warenkorbPfad} className="inline-block py-3 font-body text-sm text-secondary underline-offset-4 hover:text-primary hover:underline">
           ← {t('zurueck')}
         </Link>
 
         {/* Alle Rechtstexte des Shops in Reichweite, bevor bestellt wird. */}
-        <ul className="mt-6 flex flex-wrap gap-x-4 gap-y-1 border-t border-white/10 pt-4 font-body text-xs text-faint">
+        <ul className="mt-3 flex flex-wrap gap-x-5 border-t border-white/10 pt-2 font-body text-xs text-faint">
           {(['agb', 'rueckgabe', 'versand', 'datenschutz', 'impressum'] as const).map((s) => (
             <li key={s}>
-              <a href={recht[s]} target="_blank" rel="noopener" className="underline-offset-4 hover:text-gold hover:underline">
+              <a href={recht[s]} target="_blank" rel="noopener" className="flex min-h-[44px] items-center underline-offset-4 hover:text-gold hover:underline">
                 {t(`link_${s}`)}
               </a>
             </li>

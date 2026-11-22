@@ -167,7 +167,8 @@ export default function ProduktAnsicht({
           {kategorieName && (
             <p className="font-body text-xs uppercase tracking-[0.22em] text-gold">
               {kategoriePfad ? (
-                <Link href={kategoriePfad} className="underline-offset-4 hover:underline">
+                // -my-4 py-4: 47 px Tippfläche, ohne dass die Zeile höher wird (gemessen vorher 77 x 15).
+                <Link href={kategoriePfad} className="-my-4 inline-block py-4 underline-offset-4 hover:underline">
                   {kategorieName}
                 </Link>
               ) : (
@@ -187,7 +188,7 @@ export default function ProduktAnsicht({
               <button
                 type="button"
                 onClick={() => zeigeReiter('versand')}
-                className="text-sm text-secondary underline decoration-white/25 underline-offset-4 hover:text-primary"
+                className="-my-3 py-3 text-sm text-secondary underline decoration-white/25 underline-offset-4 hover:text-primary"
               >
                 {t('zzgl_versand')}
               </button>
@@ -270,7 +271,7 @@ export default function ProduktAnsicht({
                 <button
                   type="button"
                   onClick={() => zeigeReiter('groessen')}
-                  className="-my-2 py-2 font-body text-sm text-gold underline-offset-4 hover:underline"
+                  className="-my-3 py-3 font-body text-sm text-gold underline-offset-4 hover:underline"
                 >
                   {t('groessentabelle')} →
                 </button>
@@ -331,7 +332,7 @@ export default function ProduktAnsicht({
               {zustand === 'drin' && (
                 <span className="text-primary">
                   {t('hinzugefuegt')}{' '}
-                  <Link href={warenkorbPfad} className="text-gold underline-offset-4 hover:underline">
+                  <Link href={warenkorbPfad} className="-my-3 inline-block py-3 text-gold underline-offset-4 hover:underline">
                     {t('zum_warenkorb')} →
                   </Link>
                 </span>

@@ -4,8 +4,8 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
-import { legalPath, shopEinstieg, widerrufPfad, type Locale } from '@/i18n/routing';
-import { WIDERRUF_EU_AKTIV } from '@/lib/shop/kasse';
+import { SHOP_AUF_ONEFAM, legalPath, shopEinstieg, widerrufPfad, type Locale } from '@/i18n/routing';
+import { WIDERRUF_EU_AKTIV, rechtsAdresse } from '@/lib/shop/kasse';
 import MaxWidth from './MaxWidth';
 
 // Shop-Adresse pro Sprache — siehe i18n/routing.ts. Stand vorher fest auf /de/.
@@ -20,10 +20,17 @@ const socials = [
   // { name: 'X', icon: '/assets/x.svg', url: 'https://x.com/<profil>' },
 ];
 
+// Ein Link in den Spalten der Fusszeile. 40 px hoch statt 19 (gemessen 22.11.2026): Die Zeilen
+// stossen aneinander, es gibt keine tote Fläche zwischen zwei Links. Dafür fällt der Abstand
+// zwischen den Listeneinträgen weg — der Text steht fast, wo er vorher stand.
+const FUSSLINK =
+  'flex min-h-[40px] items-center font-body text-[15px] text-secondary transition-colors duration-[180ms] hover:text-primary';
+
 const SiteFooter = () => {
   const t = useTranslations('footer');
   const tNav = useTranslations('nav');
   const tWiderruf = useTranslations('shop_widerruf');
+  const tKasse = useTranslations('shop_kasse');
   const locale = useLocale() as Locale;
   const pages = t.raw('pages') as { label: string; href: string }[];
   const legal = t.raw('legal') as { label: string; href?: string }[];
@@ -57,12 +64,12 @@ const SiteFooter = () => {
               {/* Pages */}
               <div>
                 <p className="font-body text-xs uppercase tracking-[0.1em] text-faint">{t('pages_title')}</p>
-                <ul className="mt-4 space-y-3">
+                <ul className="mt-2">
                   {pages.map((p) => (
                     <li key={p.label}>
                       <a
                         href={p.href}
-                        className="font-body text-[15px] text-secondary transition-colors duration-[180ms] hover:text-primary"
+                        className={FUSSLINK}
                       >
                         {p.label}
                       </a>
@@ -74,11 +81,11 @@ const SiteFooter = () => {
               {/* Legal */}
               <div>
                 <p className="font-body text-xs uppercase tracking-[0.1em] text-faint">{t('legal_title')}</p>
-                <ul className="mt-4 space-y-3">
+                <ul className="mt-2">
                   <li>
                     <Link
                       href={legalPath(locale, 'impressum')}
-                      className="font-body text-[15px] text-secondary transition-colors duration-[180ms] hover:text-primary"
+                      className={FUSSLINK}
                     >
                       {t('imprint')}
                     </Link>
@@ -88,7 +95,7 @@ const SiteFooter = () => {
                       {l.href ? (
                         <Link
                           href={l.href === '/agb' ? legalPath(locale, 'agb') : l.href === '/datenschutz' ? legalPath(locale, 'datenschutz') : l.href}
-                          className="font-body text-[15px] text-secondary transition-colors duration-[180ms] hover:text-primary"
+                          className={FUSSLINK}
                         >
                           {l.label}
                         </Link>
@@ -97,7 +104,7 @@ const SiteFooter = () => {
                         <span
                           aria-disabled
                           title="Bald verfügbar"
-                          className="cursor-not-allowed font-body text-[15px] text-faint"
+                          className="flex min-h-[40px] cursor-not-allowed items-center font-body text-[15px] text-faint"
                         >
                           {l.label}
                         </span>
@@ -112,11 +119,25 @@ const SiteFooter = () => {
                       WIDERRUF_EU_AKTIV) — auch solange der Shop noch auf
                       shop.onefam.ch läuft: Dessen Fusszeile und Rechtstexte
                       verweisen auf dieselbe Seite. */}
+                  {/* Versand und Rückgabe — nur wenn der Shop auf onefam.ch läuft (seit 22.11.2026).
+                      Vorher fehlten sie auf Länderseite, Produktseite und Warenkorb; sie standen nur an
+                      der Kasse. Die Seiten selbst liegen vorerst weiter im Shop
+                      (docs/plan-zusammenfuehrung-onefam.md), deshalb führen die Links dorthin und in
+                      ein neues Fenster — der Warenkorb bleibt offen. Solange der Shop auf
+                      shop.onefam.ch läuft, trägt dessen eigene Fusszeile beide Links. */}
+                  {SHOP_AUF_ONEFAM &&
+                    (['versand', 'rueckgabe'] as const).map((s) => (
+                      <li key={s}>
+                        <a href={rechtsAdresse(locale, s)} target="_blank" rel="noopener" className={FUSSLINK}>
+                          {tKasse(`link_${s}`)}
+                        </a>
+                      </li>
+                    ))}
                   {WIDERRUF_EU_AKTIV && (
                     <li>
                       <Link
                         href={widerrufPfad(locale)}
-                        className="font-body text-[15px] text-secondary transition-colors duration-[180ms] hover:text-primary"
+                        className={FUSSLINK}
                       >
                         {tWiderruf('link')}
                       </Link>
@@ -137,7 +158,8 @@ const SiteFooter = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={s.name}
-                    className="group"
+                    // 44 x 44 px Tippfläche um das 20-px-Zeichen; der negative Rand lässt die Abstände, wie sie waren.
+                    className="group -m-3 flex h-11 w-11 items-center justify-center"
                   >
                     <span
                       className="block h-5 w-5 bg-faint transition-colors duration-[180ms] group-hover:bg-gold"
@@ -159,13 +181,15 @@ const SiteFooter = () => {
           </div>
 
           {/* Bottom row */}
-          <div className="mt-14 flex flex-col gap-4 border-t border-line pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-14 flex flex-col gap-1 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between">
             <p className="font-body text-xs text-faint">{t('copyright')}</p>
             {/* Solange der Shop auf shop.onefam.ch liegt, steht hier dessen Adresse;
                 danach das Wort "Shop" in der Sprache der Seite (Schalter in i18n/routing.ts). */}
             <a
               href={shopEinstieg(locale).href}
-              className="font-body text-xs text-faint transition-colors duration-[180ms] hover:text-gold"
+              // 44 px hoch und nur so breit wie das Wort: vorher 16 px hoch und am Telefon über die
+              // ganze Breite anklickbar (559 x 16, gemessen 22.11.2026).
+              className="flex min-h-[44px] items-center self-start font-body text-xs text-faint transition-colors duration-[180ms] hover:text-gold sm:self-auto"
             >
               {shopEinstieg(locale).extern ? 'shop.onefam.ch' : tNav('shop')}
             </a>

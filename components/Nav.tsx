@@ -133,7 +133,8 @@ const Nav = ({ ueberHero = false, shop = false }: { ueberHero?: boolean; shop?: 
     <Link
       href={warenkorbPfad(locale)}
       aria-label={korbAnzahl > 0 ? `${tShop('warenkorb')} (${korbAnzahl})` : tShop('warenkorb_oeffnen')}
-      className="relative flex h-10 w-10 items-center justify-center text-primary transition-colors duration-[180ms] hover:text-gold"
+      // 44 x 44 px Tippfläche (vorher 40) — wie Menüknopf und Schliessen daneben.
+      className="relative flex h-11 w-11 items-center justify-center text-primary transition-colors duration-[180ms] hover:text-gold"
     >
       <ShoppingBag size={22} strokeWidth={1.5} />
       {korbAnzahl > 0 && (
@@ -181,7 +182,7 @@ const Nav = ({ ueberHero = false, shop = false }: { ueberHero?: boolean; shop?: 
           <Link
             href={`${homePath(locale)}#hero`}
             aria-label="OneFam — Home"
-            className="col-start-1 flex items-center justify-self-start"
+            className="col-start-1 flex h-11 items-center justify-self-start"
           >
             {/* wordmark only — the gradient face mark now lives big in the hero centre.
                 20 px auf dem Telefon, 24 px ab md. Vorher 24 / 28: mit dem alten
@@ -240,11 +241,13 @@ const Nav = ({ ueberHero = false, shop = false }: { ueberHero?: boolean; shop?: 
             </div>
 
             {/* Telefon: Warenkorb neben dem Hamburger, nur auf Shop-Seiten */}
-            {shop && <div className="mr-2 md-1:hidden">{korbLink}</div>}
+            {shop && <div className="md-1:hidden">{korbLink}</div>}
 
-            {/* Mobile hamburger */}
+            {/* Mobile hamburger. Tippfläche 44 x 44 px: am 21.11.2026 gemessen war der Knopf
+                26 x 26 — so gross wie das Zeichen selbst. Der negative Rand hält das Zeichen
+                dort, wo es vorher stand. */}
             <button
-              className="text-primary md-1:hidden"
+              className="-mr-2 flex h-11 w-11 items-center justify-center text-primary md-1:hidden"
               aria-label={t('menu_open')}
               onClick={() => setOpen(true)}
             >
@@ -268,7 +271,11 @@ const Nav = ({ ueberHero = false, shop = false }: { ueberHero?: boolean; shop?: 
             {/* dieselbe Groesse wie im Kopf daneben */}
             <Image src="/assets/logo-white.png" alt="OneFam" width={656} height={137} className="h-5 w-auto" />
           </div>
-          <button aria-label={t('menu_close')} className="text-primary" onClick={() => setOpen(false)}>
+          <button
+            aria-label={t('menu_close')}
+            className="-mr-2 flex h-11 w-11 items-center justify-center text-primary"
+            onClick={() => setOpen(false)}
+          >
             <X size={26} strokeWidth={1.5} />
           </button>
         </div>

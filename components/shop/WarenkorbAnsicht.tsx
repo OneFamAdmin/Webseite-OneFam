@@ -1,7 +1,6 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
-import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import Button from '@/components/Button';
 import { BRAND_GRADIENT_CTA } from '@/lib/brand';
@@ -21,6 +20,7 @@ import { useWaehrung } from './useWaehrung';
 export default function WarenkorbAnsicht({ weiterPfad, kassePfad }: { weiterPfad: string; kassePfad: string }) {
   const t = useTranslations('shop_seiten');
   const tKasse = useTranslations('shop_kasse');
+  const tLaender = useTranslations('shop_laender');
   const [abbruch, setAbbruch] = useState(false);
 
   // Rückkehr von zahls.ch nach abgebrochener oder fehlgeschlagener Zahlung: Das
@@ -80,11 +80,15 @@ export default function WarenkorbAnsicht({ weiterPfad, kassePfad }: { weiterPfad
 
   if (korb.positionen.length === 0) {
     return (
-      <div>
-        <p className="font-body text-lg text-secondary">{t('leer')}</p>
-        <Link href={weiterPfad} className="mt-6 inline-block font-body text-gold underline-offset-4 hover:underline">
-          {t('weiter')} →
-        </Link>
+      // Leerer Warenkorb (22.11.2026): bis dahin ein Satz und ein Textlink. Jetzt sagt die
+      // Seite, wohin es geht — der Satz und das Ziel der Übersicht "Nach Land shoppen",
+      // mit demselben Knopf im Markenverlauf wie "Zur Kasse". Keine neuen Texte.
+      <div className="max-w-[31rem]">
+        <p className="font-serif text-2xl font-normal text-primary">{t('leer')}</p>
+        <p className="mt-3 font-body leading-[1.75] tracking-[0.012em] text-secondary">{tLaender('intro')}</p>
+        <Button as="a" href={weiterPfad} className="mt-8" style={{ background: BRAND_GRADIENT_CTA }}>
+          {tLaender('titel')}
+        </Button>
       </div>
     );
   }
@@ -110,7 +114,8 @@ export default function WarenkorbAnsicht({ weiterPfad, kassePfad }: { weiterPfad
                     value={p.menge}
                     disabled={beschaeftigt}
                     onChange={(e) => senden({ aktion: 'menge', key: p.key, menge: Number(e.target.value) })}
-                    className="rounded-[3px] border border-white/20 bg-bg px-2 py-1 text-primary"
+                    // 44 px hoch: vorher 49 x 30 (gemessen 21.11.2026), am Telefon kaum zu treffen.
+                    className="h-11 min-w-[4.5rem] rounded-[3px] border border-white/20 bg-bg px-3 text-primary"
                   >
                     {Array.from({ length: 10 }, (_, i) => i + 1).map((n) => (
                       <option key={n} value={n}>
@@ -123,7 +128,7 @@ export default function WarenkorbAnsicht({ weiterPfad, kassePfad }: { weiterPfad
                   type="button"
                   disabled={beschaeftigt}
                   onClick={() => senden({ aktion: 'entfernen', key: p.key })}
-                  className="font-body text-sm text-secondary underline-offset-4 hover:text-primary hover:underline"
+                  className="flex h-11 items-center px-1 font-body text-sm text-secondary underline-offset-4 hover:text-primary hover:underline"
                 >
                   {t('entfernen')}
                 </button>
@@ -141,7 +146,7 @@ export default function WarenkorbAnsicht({ weiterPfad, kassePfad }: { weiterPfad
             value={korb.land}
             disabled={beschaeftigt}
             onChange={(e) => senden({ aktion: 'land', land: e.target.value })}
-            className="mt-2 block w-full rounded-[3px] border border-white/20 bg-bg px-3 py-2 text-primary"
+            className="mt-2 block h-12 w-full rounded-[3px] border border-white/20 bg-bg px-3 text-primary"
           >
             {[...korb.laender]
               .sort((a, b) => laenderName.of(a)!.localeCompare(laenderName.of(b)!, locale))

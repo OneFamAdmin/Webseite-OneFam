@@ -94,6 +94,56 @@ im Hellen ansehen, bevor alle Länder so gemacht werden.
 `/de/produkt/albania-hoodie`, `/de/shop-by-country`. Port 3004 mit `web_453C35` zeigt den helleren Ton,
 Port 3005 und 3006 die schwebenden Fassungen (Aufrufe in `LIESMICH.md`).
 
+## ✅ 22.11.2026: Bedienung am Handy, leerer Warenkorb, Fusszeile (lokal, nicht gepusht)
+
+Labi: „ja“ auf den nächsten Block der Befundliste (Tippflächen, Kasse, Befunde 12 und 13).
+
+**Tippflächen — gemessen bei 606 px Fensterbreite (unter der Schwelle `sm`), vorher → nachher:**
+
+| Stelle | vorher | nachher |
+|---|---|---|
+| Menüknopf, Schliessen | 26 × 26 | 44 × 44 |
+| Warenkorb im Kopf | 40 × 40 | 44 × 44 |
+| Wortmarke im Kopf | 96 × 20 | 96 × 44 |
+| Produktseite: Land über dem Titel, „zzgl. Versand“, „Grössentabelle“, „Zum Warenkorb“ | 15 bis 36 hoch | ab 44 hoch |
+| Länderseite: Klappe „Versand und Rückgabe“ | 24 bis 28 hoch | 56 hoch |
+| Warenkorb: Mengenwahl | 53 × 30 | 72 × 44 |
+| Warenkorb: „Entfernen“ | 59 × 20 | 67 × 44 |
+| Warenkorb: Versandland | 38 hoch | 48 hoch |
+| Kasse: Eingabefelder | 42 hoch | 48 hoch |
+| Kasse: Kästchen „gleiche Adresse“ | 16 × 16 | 20 × 20, Zeile 44 hoch |
+| Kasse: Rechtslinks unten | 15 hoch | 44 hoch |
+| Fusszeile: Links | 19 hoch | 40 hoch |
+| Fusszeile: Instagram, TikTok, Facebook | 20 × 20 | 44 × 44 |
+| Fusszeile: „Shop“ unten | 559 × 16 | 27 × 44 |
+
+Die Abstände stehen jetzt IN den Zeilen statt um sie herum; sichtbar verschoben hat sich fast nichts.
+Kontrolle danach: Kasse, Warenkorb, Länderseite und Produktseite ohne Bedienelement unter 44 px Höhe
+(Links im Fliesstext ausgenommen); kein seitlicher Überlauf.
+
+**Kasse am Handy:** Vorname und Nachname sowie PLZ und Ort stehen auch am Telefon nebeneinander.
+Lieferadresse 800 → 684 px, Bestellknopf 1906 → 1797 px (Seite 2846 → 2823). **Die Bestellübersicht
+bleibt direkt über dem Bestellknopf** — das verlangt die Knopflösung (§ 312j BGB: Angaben unmittelbar
+vor der Bestellung); sie nach oben zu ziehen wäre kürzer, aber falsch.
+
+**Leerer Warenkorb (Befund 13):** statt Satz und Textlink jetzt der Satz in Serifen, darunter
+„Finde das Land, das sich wie Zuhause anfühlt.“ und der Knopf „Nach Land shoppen“ im Markenverlauf.
+Keine neuen Texte, beide stammen aus der Übersicht.
+
+**Fusszeile (Befund 12):** Unter „Rechtliches“ stehen „Versand“ und „Rückgabe und Widerruf“, sobald
+der Shop auf onefam.ch läuft. Sie führen auf die Seiten des Shops (`/shipping-policy/`,
+`/refund-policy/`, vier Sprachen, alle acht Adressen mit 200 gemessen) und öffnen in neuem Fenster.
+
+**Geprüft:** `tsc` sauber, Lint ohne Fehler, Bau ohne Fehler; Bildschirm 1440 px und schmal 606 px
+angesehen. Zum Messen lag ein Hoodie im Warenkorb (kein Kauf) und ist wieder entfernt.
+**Nicht geprüft:** echte Telefonbreite unter 500 px, Safari.
+
+**Offen aus der Befundliste:** 11 (Farbnamen „Black“, „Red“ und Produktnamen „Logo Black Hoodie“ sind
+englisch — die Namen kommen aus WooCommerce und stehen so auch in der Bestellmail; Labi entscheidet),
+10 zum Teil (Erzählung auf der Länderseite), 6 bis 9 (Bilder, angehalten). Dazu neu: Die Länderseite
+ist am Handy weiter lang, weil die drei Teile untereinander stehen — nebeneinander zum Wischen oder
+zwei Spalten wäre kürzer, ist aber eine Gestaltungsfrage.
+
 ## ✅ 22.11.2026: Übersicht „Nach Land shoppen“ umgebaut (lokal, nicht gepusht)
 
 Labi nach den Vorbildern: „ja oval so wie du es vorschlägst, mach punkt 2 und 3 gleich mit“.
