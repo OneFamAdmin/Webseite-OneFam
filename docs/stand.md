@@ -56,9 +56,37 @@ der jeweiligen Stelle begründet):
 werden; was mit White und Heather Grey geschieht. Danach erst: Bilder in den Shop laden (das ändert
 auch shop.onefam.ch) und die hellen Kachelflächen `bg-[#F1F1F1]` in den Shop-Bausteinen anpassen.
 
+### Nachtrag am selben Tag: schwebende Fassung
+
+Labi zum Probesatz: „war ein guter Vorschlag“ — und weiter: kein Kasten mit harter Kante, sondern
+ein Übergang, „als ob die Objekte in der Webseite schweben“, bei den Models ebenso. Getestet an
+allen zwölf Albanien-Bildern (aus den fertigen Bildern und der Deckkraft gerechnet, Sekunden je Bild).
+
+- **Fassung „Seite“** (Port 3005): Der Grund ist die reine Seitenfarbe `#0A0A0A`. Freihängende
+  Stücke stehen ohne jede Fläche auf der Seite; Models laufen unten ab 86 % der Bildhöhe weich aus,
+  also unterhalb des Saums. Bildkante im JPEG gemessen: exakt (10, 10, 10).
+- **Fassung „Oval“** (Port 3006): dazu ein leises ovales Lichtfeld (Ton `#241F1C`) hinter der Figur.
+  Der Ton muss dunkler sein als der dunkelste Stoff (Black misst Helligkeit rund 40), sonst kreuzt
+  das Feld den Stoffton und die Kontur verschwindet dort.
+- **Verworfen:** Lichthof nach Abstand zur Figur — breiter als der Platz bis zum Bildrand, man sieht
+  wieder einen Kasten mit unscharfer Kante.
+- **Kachelfläche:** `bg-[#F1F1F1]` blitzt an den abgerundeten Ecken durch und verrät den Kasten. Die
+  Vorschau tauscht sie gegen `bg-bg`; im echten Einbau ist das eine Änderung in `ProduktAnsicht`,
+  `KategorieKacheln`, `LaenderWand` und der Länderseite.
+- Angesehen: Albanien-Seite, Hoodie-Produktseite (Hauptbild, Model, Vorschauleiste), Übersicht,
+  dazu die Albanien-Seite bei 500 px Breite. Kanten bei 100 % auf reinem Schwarz geprüft.
+
+**Zu beachten vor dem Einbau.** (1) `CLAUDE.md` führt „dekorative Verläufe, Glow“ als nicht erwünscht —
+die Fassung „Seite“ kommt ohne aus, die Fassung „Oval“ ist ein Lichtschein. (2) Eine eingebrannte
+Seitenfarbe passt nur auf schwarze Seiten; dieselben Bilder stehen auch in shop.onefam.ch und in den
+Bestellmails. Bilder mit durchsichtigem Hintergrund (WebP) schweben auf jeder Fläche — das ist für
+den Einbau zu entscheiden. (3) Schwarzer Stoff auf schwarzer Seite hat wenig Kontrast; auf dem Handy
+im Hellen ansehen, bevor alle Länder so gemacht werden.
+
 **Vorschau starten** (steht auch in `LIESMICH.md`): lokalen Bau auf Port 3001 starten, dann
 `python3 -I vorschau/vorschau_proxy.py web 3003` → `http://localhost:3003/de/albania`,
-`/de/produkt/albania-hoodie`, `/de/shop-by-country`. Port 3004 mit `web_453C35` zeigt den helleren Ton.
+`/de/produkt/albania-hoodie`, `/de/shop-by-country`. Port 3004 mit `web_453C35` zeigt den helleren Ton,
+Port 3005 und 3006 die schwebenden Fassungen (Aufrufe in `LIESMICH.md`).
 
 ## 🧪 20.11.2026: Probeaufbau Produktseite und Warenkorb auf onefam.ch (nur lokal)
 
