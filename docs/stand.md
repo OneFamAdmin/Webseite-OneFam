@@ -94,6 +94,38 @@ im Hellen ansehen, bevor alle Länder so gemacht werden.
 `/de/produkt/albania-hoodie`, `/de/shop-by-country`. Port 3004 mit `web_453C35` zeigt den helleren Ton,
 Port 3005 und 3006 die schwebenden Fassungen (Aufrufe in `LIESMICH.md`).
 
+## ✅ 22.11.2026: Übersicht „Nach Land shoppen“ umgebaut (lokal, nicht gepusht)
+
+Labi nach den Vorbildern: „ja oval so wie du es vorschlägst, mach punkt 2 und 3 gleich mit“.
+
+**Was geändert ist** (`components/shop/LaenderWand.tsx`, `app/[locale]/shop-by-country/page.tsx`):
+1. **Zeichen gross statt ganzem Hoodie** unter „Jetzt verfügbar“. Bilder in `public/shop/zeichen/`
+   (WebP mit Durchsichtigkeit, 800 × 1000, 80–99 KB), Liste in `lib/shop/zeichenbilder.ts`,
+   Werkzeug `tools/zeichen-ausschnitt.py`. Ein neues Land: `docs/RUNBOOK-laenderlauf.md`, Abschnitt 8a.
+2. **Drei ruhige Zeilen** unter jeder Karte, auch bei den Signature-Linien: Land und Preis · die
+   Teile · Farben und „Ansehen →“. Zwei neue Texte in vier Sprachen (`shop_laender.ansehen`,
+   `shop_laender.farben_bis`).
+3. **Wunschwand als nummerierte Namensliste** (eine, zwei oder drei Spalten) statt Kästchen. Das
+   Wort „Mitentscheiden“ erscheint beim Darüberfahren; die Nummer ist der Platz in der ganzen Liste
+   und bleibt beim Suchen gleich. Das Fenster der Warteliste ist unverändert.
+
+**Gemessen am lokalen Bau (22.11.2026):**
+- `tsc` sauber, Lint ohne neue Meldung, Bau ohne Fehler; `/shop-by-country` in vier Sprachen 200.
+- Bildschirm 1440 px: erstes Kartenbild ab 407 px wie vorher, Bild 321 × 402, Seite 3027 px.
+- Schmal (500 px, kleiner lässt Chrome das Fenster nicht): Karte 217 × 405, zwei Spalten, kein
+  Überlauf; Listenzeile 453 × 56, 24 Zeilen = 1369 px; Seite 4624 px.
+- Texte je Sprache im HTML: „Ansehen“ / „View“ / „Voir“ / „Ver“, „bis 10 Farben“ / „up to 10
+  colours“ / „jusqu’à 10 couleurs“ / „hasta 10 colores“.
+- Suche „schw“ → Schweden (187) und Schweiz (188); Klick auf eine Zeile öffnet das Fenster der
+  Warteliste (nicht abgeschickt).
+- Fehler unterwegs: Das Wort „Mitentscheiden“ belegte unsichtbar rund 130 px, „Amerikanische
+  Jungferninseln“ wurde abgeschnitten → das Wort liegt jetzt über der Zeile, Namen brechen um.
+
+**Nicht geprüft:** echte Telefonbreite unter 500 px, Safari. **Vor einem Push** den Bau ohne
+Schalter prüfen (`NEXT_PUBLIC_SHOP_AUF_ONEFAM=0 npm run build`, `/de/irgendwas` → 404).
+**Offen:** der Abschnitt „Signature“ zeigt weiter vier Bildstile im hellen Kasten — gehört zur
+angehaltenen Bildarbeit.
+
 ## 🧭 22.11.2026: Übersicht „Nach Land shoppen“ — Vorbilder und Vorschau (nichts am Code geändert)
 
 Labi: „ja, starte mit der übersicht“. Befund 4 der Durchsicht: vier fast gleiche schwarze Hoodies,

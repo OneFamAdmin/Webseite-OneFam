@@ -566,6 +566,23 @@ gross**.
 - **Danach alle Länderseiten plus Startseite und `/shop-by-country/` auf HTTP 200
   und `fcard` im HTML testen**, und alle `src="/wp-content/uploads/…"` per **HEAD**.
 
+## 8a. Übersicht auf onefam.ch — das Zeichen-Bild (seit 22.11.2026)
+
+Auf `onefam.ch/…/shop-by-country` zeigt die Karte eines Landes unter „Jetzt verfügbar“ nicht den
+ganzen Hoodie, sondern **das Zeichen gross auf dem Stoff**. Das Bild ist ein fester Ausschnitt aus
+dem freihängenden schwarzen Hoodie-Bild in 4k und wird nicht neu erzeugt:
+
+```bash
+python3 tools/zeichen-ausschnitt.py <slug> <Bilddatei oder https-Adresse des 4k-Bildes>
+# z. B. python3 tools/zeichen-ausschnitt.py albania \
+#   https://shop.onefam.ch/wp-content/uploads/2026/08/OneFam_Albanien_Hoodie_schwarz_Freihaengend_4k-1.webp
+```
+
+Das schreibt `public/shop/zeichen/<slug>.webp` (800 × 1000, rund 80–100 KB). **Danach den Slug in
+`lib/shop/zeichenbilder.ts` eintragen** — ohne Eintrag zeigt die Übersicht das Produktbild im
+hellen Kasten. Der Ausschnitt passt nur auf das 4k-Bild (3712 × 4608); das Werkzeug bricht bei
+anderer Grösse ab. Slug = Kategorie-Slug des Shops (`albania`, nicht `albanien`).
+
 ## 9. Aufräumen
 **Löschen macht Labi selbst**, der Assistent bereitet nur die Auswahl vor.
 Vor jedem Löschen prüfen, ob eine Datei live ist — **Produkte, Varianten, Kategorien
