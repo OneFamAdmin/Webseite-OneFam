@@ -94,6 +94,17 @@ im Hellen ansehen, bevor alle Länder so gemacht werden.
 `/de/produkt/albania-hoodie`, `/de/shop-by-country`. Port 3004 mit `web_453C35` zeigt den helleren Ton,
 Port 3005 und 3006 die schwebenden Fassungen (Aufrufe in `LIESMICH.md`).
 
+## 🧾 22.11.2026, 21:42: Testkauf Stufe A durchgeführt — bis ins Zahlungsfenster, dann abgebrochen
+
+Labi fragte, warum der Shop auf onefam.ch noch der alte ist (der Schalter in Vercel ist nicht gesetzt),
+und dann: „Stufe a kannst du doch selber machen los bitte“. Ergebnis mit allen Messwerten in
+`docs/testkauf-kasse-onefam.md`. Kurz: Zahlungsfenster von zahls.ch öffnet sich auf Deutsch mit
+93.00 CHF; Bestellung 8246 liegt als „Zahlung ausstehend“ im Shop, mit Farbe, Grösse und echter
+Varianten-Nummer (2750); der Abbruch führt zurück in den Warenkorb mit Hinweis. **Offen:** Bestellung
+8246 auf „Storniert“ setzen (oder prüfen, ob WooCommerce es nach 60 Minuten selbst getan hat).
+**Weiter ungetestet:** Stufe B mit echter Zahlung (macht Labi) — erst sie zeigt, ob PodOS mit der
+Varianten-Nummer richtig druckt —, dazu Euro, Französisch, Lieferung nach Deutschland.
+
 ## 🚀 22.11.2026, 21:29: gepusht und live geprüft (`f108165..6e06bba`, 26 Commits)
 
 Labi: „und dann committen und pushen was wir alles neu gemacht haben an der webseite“.

@@ -20,6 +20,27 @@ Testkäufe macht Labi (CLAUDE.md). Dieses Blatt sagt, was dabei zu prüfen ist.
 
 ## Variante A — bis ins Zahlungsfenster, dann abbrechen
 
+> **✅ Am 22.11.2026 durchgeführt** (Labi: „Stufe a kannst du doch selber machen los bitte“; von
+> Claude am Bildschirm geklickt, lokal auf `localhost:3001`, Schweizer Gerät, Deutsch). Bezahlt
+> wurde nichts. Besteller: Testname „Test Testkauf Stufe A“, Firmenadresse, info@onefam.ch.
+>
+> | Soll | gemessen |
+> |---|---|
+> | Zahlungsfenster von zahls.ch öffnet sich, auf Deutsch | ✅ `onefam.zahls.ch/de/`, „Zahlungsmittel wählen“ |
+> | Betrag und Währung = Total der Bestellübersicht | ✅ 93.00 CHF = 75 + 18 Versand in die Schweiz |
+> | Neue Bestellung „Zahlung ausstehend“ mit Produkt, Farbe und Grösse an der Position | ✅ Nr. 8246, `pending`, „Albania Hoodie - M, Black“, Colour Black, Size M, **`variation_id` 2750** (nicht 0) |
+> | Versand, Adresse, E-Mail | ✅ Standard 18.00, Adresse und E-Mail wie eingegeben, Rechnung = Lieferung |
+> | `_onefam_herkunft` = `onefam.ch` | ✅, dazu `_onefam_sprache` = `de`, angelegt über `store-api`, Zahlart `zahls` |
+> | Abbruch führt auf `/de/warenkorb?zahls_error=1&…` | ✅ mit `order_id=8246` |
+> | Hinweis „Die Zahlung wurde nicht abgeschlossen. Dein Warenkorb ist noch da.“, Teil noch im Warenkorb | ✅ |
+> | Bestellung danach auf „Storniert“ | ⏳ **offen** — der Admin war abgemeldet, der Schlüssel im Projekt darf nur lesen. An der Bestellung steht „Bestandssperre von 60 Minuten“; WooCommerce storniert unbezahlte Bestellungen danach meist von selbst. Nachsehen. |
+>
+> Sonst beobachtet: An der Kasse stand für die Schweiz „kein Rückgaberecht“ und der Hinweis auf
+> Einfuhrabgaben. Im Posteingang kam in 30 Minuten keine Mail mit der Bestellnummer an. Gelesen
+> wurde die Bestellung über `wc/v3/orders/8246` mit dem Nur-Lese-Schlüssel aus `.env.local`.
+> **Nicht geprüft:** Euro (Gerät in Deutschland), Französisch, Lieferung nach Deutschland — und
+> alles aus Variante B.
+
 1. `http://localhost:3001/de/shop-by-country` öffnen, ein Teil wählen, Farbe und Grösse, „In den
    Warenkorb“, „Zum Warenkorb“, „Zur Kasse“.
 2. E-Mail und Adresse eintragen. Summe in der Bestellübersicht merken.
