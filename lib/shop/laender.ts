@@ -1,6 +1,11 @@
 // lib/shop/laender.ts — NUR serverseitig einbinden (rund 30 KB).
 //
-// Die Länder der Wunschwand auf "Shop by Country": 250 Einträge. Am 21.11.2026
+// Die Länder der Wunschwand auf "Shop by Country": 251 Einträge. RUSSLAND (24.11.2026) stand nie im
+// Shop — der Designer hat es nicht gezeichnet; das Motiv ist am 24.11.2026 aus den Wellen der
+// Niederlande nachgebaut (~/Projekte/onefam-material/designs/gesichter-nach-land/LIESMICH.md), die
+// Kachel liegt deshalb auf onefam.ch (EIGENE_KACHEL in components/shop/LaenderWand.tsx), Namen und
+// franzoesischer Artikel fuer die Mail sind im Shop nachgetragen (Snippet 42 "laender", Snippet 18 LA).
+// Vorher 250 Einträge. Am 21.11.2026
 // waren es 253, maschinell aus dem Shop übernommen. Am 24.11.2026 auf Labis Wunsch
 // drei Gebiete ohne eigene Landesflagge entfernt, deren Motiv nur die Flagge eines
 // anderen Landes zeigt: "bouvet-island" und "svalbard-and-jan-mayen" (Norwegen) und
@@ -220,6 +225,7 @@ export const LAENDER: Land[] = [
   { id: "qatar", en: "Qatar", de: "Katar", fr: "Qatar", es: "Catar", satz: { fr: "le Qatar" } },
   { id: "republic-of-the-congo", en: "Republic of the Congo", de: "Kongo-Brazzaville", fr: "Congo-Brazzaville", es: "Congo", satz: { en: "the Republic of the Congo", fr: "le Congo-Brazzaville" } },
   { id: "romania", en: "Romania", de: "Rumänien", fr: "Roumanie", es: "Rumanía", satz: { fr: "la Roumanie" } },
+  { id: "russia", en: "Russia", de: "Russland", fr: "Russie", es: "Rusia", satz: { fr: "la Russie" } },
   { id: "rwanda", en: "Rwanda", de: "Ruanda", fr: "Rwanda", es: "Ruanda", satz: { fr: "le Rwanda" } },
   { id: "reunion", en: "Réunion", de: "Réunion", fr: "La Réunion", es: "Reunión" },
   { id: "saint-barthelemy", en: "Saint Barthélemy", de: "St. Barthélemy", fr: "Saint-Barthélemy", es: "San Bartolomé" },

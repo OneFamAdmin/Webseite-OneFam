@@ -49,7 +49,7 @@ import { useWaehrung } from './useWaehrung';
 const WARTELISTE = 'https://shop.onefam.ch/wp-json/onefam/v1/waitlist';
 const KACHELBILDER = 'https://shop.onefam.ch/wp-content/uploads/onefam-assets/collections';
 /**
- * Länder, deren Motiv sich NACH dem Kachel-Import in den alten Shop geändert hat, bekommen eine
+ * Länder, deren Motiv sich NACH dem Kachel-Import in den alten Shop geändert hat oder die es dort nie gab, bekommen eine
  * eigene Kachel aus public/shop/kacheln/ — der alte Shop bleibt unberührt.
  * KOKOSINSELN (24.11.2026, Labi, "Variante A"): neu angelegt, die Palmenscheibe 2fach vergrössert in
  * der Gesichtsmitte; vorher war das Gesicht zu 83 % Grün auf Grün. Quelle
@@ -58,6 +58,8 @@ const KACHELBILDER = 'https://shop.onefam.ch/wp-content/uploads/onefam-assets/co
  */
 const EIGENE_KACHEL: Record<string, string> = {
   'cocos-islands': '/shop/kacheln/cocos-islands.webp',
+  // RUSSLAND (24.11.2026): gab es im Shop nie, Motiv neu gebaut (lib/shop/laender.ts, Kopfkommentar).
+  russia: '/shop/kacheln/russia.webp',
 };
 
 /** Ab so vielen Einträgen plant OneFam die Auflage — derselbe Wert wie im Shop (WZIEL). */
