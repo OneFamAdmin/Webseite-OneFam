@@ -1,4 +1,63 @@
-# Stand — 22.11.2026
+# Stand — 24.11.2026
+
+## 🗂 24.11.2026: Alle Gesichter nach Land benannt (nur lokal, nichts am Shop)
+
+Labi: „jede eps und jede svg und jede png und jede nft datei mit dem korrekten ländernamen …
+suche im world wide web nach den länderflaggen … erfinde oder halluziniere nichts“.
+
+**Ergebnis:** `~/Projekte/onefam-material/designs/gesichter-nach-land/` — 1 767 Kopien in sieben
+Ordnern (eps 253, eps-mit-flagge 253, svg 253, png-freigestellt-gross 251, png-nft 252,
+png-nft-mit-flagge 252, png-transparent 252), alle per md5 gegen das Original geprüft, dazu
+`UEBERSICHT.csv` (Nummer → Land, je Format) und `LIESMICH.md`. Originale unverändert.
+
+**Geprüft über fünf Quellen:** Flaggenkachel der EPS gegen 257 Web-Flaggen (flagcdn.com,
+Kurdistan Wikimedia) · versteckte Ebene „Flag“ in jeder SVG gegen dieselben · Designernamen
+der PNG · Reihenfolge im Designer-PDF (ISO-sortiert, **alle 252 Seiten stimmen**) ·
+Sichtprüfung aller 253 auf neun Bögen. Formate über das Bild verknüpft, nicht über Nummern.
+
+**Befunde:**
+- 253 Motive = 252 Flaggen + Kurdistan. Thailand ist Kopie 220. **Russland und die Kleineren
+  Amerikanischen Überseeinseln gibt es in keiner Quelle.** Labi erwartete 254.
+- Kopie 99 = Heard und McDonaldinseln (australische Flagge, PDF S. 100). Kopie 74 =
+  „Mayotte-FR“ beim Designer, im PDF aber auf dem Platz von **Saint-Martin** (S. 145) → so
+  benannt, **Entscheidung offen für Labi**.
+- SVG fehlten für Kurdistan und VAE, die SVG von Fidschi war falsch (dunkelblau, ohne Wappen) —
+  alle drei aus der EPS neu erzeugt (PyMuPDF, reine Vektoren, in WebKit geprüft).
+- Belize: Kachel der EPS-mit-Flagge ohne blaues Feld. Thailand und Südafrika: normale EPS mit
+  Flaggenkachel unten rechts.
+- Inhalt: Afghanistan = Taliban-Flagge, Syrien = alte Flagge, Kirgisistan = alte Sonne.
+- Der ältere EPS-Satz auf der Platte (`EPS Vektordatei enu. PDF`) ist im Bild gleich (Abstand 0,0).
+
+**Russland nachgebaut (24.11.2026, von Labi freigegeben).** Vorher alles nach Russland durchsucht:
+Platte (Motiv-Sätze, Übersichtsblatt `loco-motive.eps` mit 252 Gesichtern, 301 übrige Bilder angesehen,
+10 Videos = 1 974 Einzelbilder), `onefam-material` + `~/Downloads` (2 621 Bilder nach Farbe), Git-Geschichte
+aller Zweige, beide Vercel-Projekte, shop.onefam.ch (18 Produkte, 6 Kategorien, Mediathek) — **nirgends**.
+Nicht geprüft: alter Shopify-Shop (Login). Gebaut aus den Wellen der Niederlande, Farben #FFFFFF/#0039A6/
+#D52B1E mit den CMYK-Werten des Designers (Chile, Andorra), Hintergrund #071F4C nach seiner Regel
+(Farbton = Flaggenblau), CMYK über Coated FOGRA39 rel. farbm. + Tiefenkomp. (trifft seine Werte auf 1,1 %).
+Generator erst an den Niederlanden geprüft: EPS 0,016 · NFT 0,10 · transparent 0,06 · freigestellt 0,15
+mittlere Abweichung von 255. Jetzt **254 Motive**. Details und Werkzeug: `gesichter-nach-land/LIESMICH.md`.
+
+**Gebiete ohne eigene Landesflagge aussortiert (24.11.2026, Labi).** Aus der Kollektion genommen (Dateien in
+`gesichter-nach-land/_aussortiert-ohne-eigene-flagge/`, nichts gelöscht): Bouvetinsel, Spitzbergen und Jan Mayen
+(Flagge Norwegens), Saint-Martin (Trikolore, beim Designer „Mayotte-FR“), Heard und McDonaldinseln (Flagge
+Australiens) → **250 Motive**. Webseite: `lib/shop/laender.ts` von 253 auf 250 Einträge (bouvet-island,
+svalbard-and-jan-mayen, mayotte-fr — Letzteres stand als **zweites „Mayotte“** live auf der Wunschwand).
+**Nicht gepusht**, wartet auf Labis Freigabe; vor dem Push den Bau ohne Schalter prüfen (siehe CLAUDE.md).
+Offen, Labi entscheidet: zehn Motive sind offiziell ebenfalls ohne eigene Flagge, zeigen aber eine
+inoffizielle Lokalflagge — Mayotte, Réunion, Guadeloupe, Französisch-Guayana, St. Barthélemy, St. Pierre und
+Miquelon, Wallis und Futuna, Nordirland (Ulster Banner), Antarktis, Karibische Niederlande (nur Bonaire).
+Der alte Shop (Snippet 11, GRID) führt die drei weiterhin.
+**Nachtrag, Labi:** Die zehn mit inoffizieller Lokalflagge und die drei umstrittenen (Neukaledonien,
+Weihnachtsinsel, Kokosinseln) **bleiben in der Kollektion**.
+
+**Kokosinseln neu angelegt (24.11.2026, Labi: Variante A, Stick mit 2 Garnen).** Gleiche Designer-Flagge,
+Palmenscheibe 2fach vergrössert in die Gesichtsmitte (vorher 83 % Grün auf Grün). Stickfassung 5,9 cm / 1,5 mm
+verglichen: Farbflecken heute 23 · A 21 · B 25 · C 13 — gewählt A mit 2 Garnen (20 Flecken, kleinster 12,4 mm²),
+Dateien in `onefam-material/stickerei-druck/stickfassung-5-9cm/Kokosinseln_5-9cm*`. Alle sieben Formate neu,
+alte in `gesichter-nach-land/_vorher/Kokosinseln/`. **Noch alt:** die Kachel der Wunschwand
+(`/wp-content/uploads/onefam-assets/collections/cocos-islands.webp` im Shop) — Austausch braucht den
+eingeloggten Shop oder eine eigene Kachel auf onefam.ch.
 
 ## 🖼 22.11.2026: Probe Albanien — Modellbilder auf dunklem Grund (nur lokal)
 

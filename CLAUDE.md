@@ -123,12 +123,16 @@ Umschalter sind bewusst abgeschaltet. Mechanik und Testhinweise:
     entscheiden, sondern markieren und nachfragen.
 13. Neue Methoden aus AI-Workflow-Videos werden gegen die bestehende Pipeline
     getestet, nicht auf Zuruf übernommen.
-14. **Claude Code kommt nicht überall hin.** `~/Documents`, `~/Desktop` und
-    **externe Datenträger** sind durch TCC gesperrt — `ls` antwortet mit
-    „Operation not permitted". Lesbar sind `~/Downloads` und `~/Projekte`.
+14. **Claude Code kommt nicht überall hin.** `~/Documents` und `~/Desktop` sind durch
+    TCC gesperrt — `ls` antwortet mit „Operation not permitted". Lesbar sind
+    `~/Downloads` und `~/Projekte`. **Die externe Platte `/Volumes/Labi Extern` war am
+    24.11.2026 voll lesbar**, wenn Labi sie anschliesst; dort liegen die OneFam-Originale
+    (`OneFam/NFTs /…`, `OneFam/Gesichter SVG Files`).
     Die EPS-Druckdaten liegen seit dem Aufräumen am 11.10.2026 in
     `~/Projekte/onefam-material/designs/onefam-eps` (253 Dateien, 215 MB) —
     **nicht mehr** in `~/Downloads/onefam-eps` (geprüft 17.10.2026).
+    **Nach Land benannt** (EPS, EPS mit Flagge, SVG, alle PNG-Sätze, geprüft 24.11.2026):
+    `~/Projekte/onefam-material/designs/gesichter-nach-land/`, Zuordnung in `UEBERSICHT.csv`.
     Mail.app ist dagegen per `osascript` erreichbar — nie über `~/Library/Mail`.
 
 ---

@@ -74,9 +74,13 @@ namensgleich**, 35 weichen nur in der Schreibweise ab (DR Kongo, Elfenbeinküste
 Südsudan, Äquatorialguinea) oder das Land fehlt in der Weltkarte des Repos. In jedem
 dieser Fälle liegt der zweitbeste Treffer weit entfernt — die Zuordnung ist eindeutig.
 
-**Ein Motiv bleibt ohne Namen:** Kopie 99, dunkelblau mit Union Jack, ohne Stern und
-ohne Wappen. Es hat weder in der benannten PNG-Sammlung noch unter den Webdateien
-einen Partner und läuft in den Zahlen als „unbekannt" mit.
+~~**Ein Motiv bleibt ohne Namen:** Kopie 99~~ — **am 24.11.2026 geklärt:** Kopie 99 ist
+**Heard und McDonaldinseln** (offizielle Flagge = die australische; die Flaggenkachel zeigt
+Commonwealth-Stern und Kreuz des Südens). Belegt über die Seite im Designer-PDF: S. 100,
+zwischen HK und HN. Die Beschreibung „ohne Stern" oben war eine Fehlbeobachtung an einer
+kleinen Vorschau. Alle 253 Motive sind jetzt nach Land benannt, gegen die echten Flaggen
+aus dem Netz geprüft und einzeln angesehen:
+`~/Projekte/onefam-material/designs/gesichter-nach-land/` (`UEBERSICHT.csv` = Nummer → Land).
 
 ---
 
@@ -221,11 +225,19 @@ der **besten** Gruppe.
   von 252 gemessen" ist damit erledigt — **es sind jetzt alle**.
 - **Russland fehlt in der Sammlung** — weder EPS noch benanntes PNG. Nicht geprüft, ob
   das Absicht ist.
-- **Mayotte liegt zweimal vor** (`Mayotte` und `Mayotte-FR`), als zwei verschiedene
-  Motive. Die Zahlen oben nennen nur „Mayotte": 9,4 % am Shirt, 5 Farben. Die zweite
-  Datei hat nur 3 Farben und **0,00 % an beiden Druckbreiten** — es ist also nicht
-  dieselbe Flagge. Welche die gültige ist, ist nicht geklärt.
-- Ein Motiv (Kopie 99) ist keinem Land zuzuordnen.
+- ~~**Mayotte liegt zweimal vor**~~ — **geklärt am 24.11.2026:** `Mayotte-FR` (Kopie 74) ist
+  die französische Trikolore. Im Designer-PDF steht sie auf S. 145 zwischen ME und MG, also
+  auf dem Platz von **Saint-Martin** (MF), dessen offizielle Flagge die Trikolore ist. Mayotte
+  selbst ist Kopie 248 (weiss, mit Wappen; das sind die 5 Farben und 9,4 %). Im neuen Ordner
+  heisst Kopie 74 deshalb „Saint-Martin“ — eine Entscheidung, die Labi umstossen kann.
+- ~~Ein Motiv (Kopie 99) ist keinem Land zuzuordnen.~~ Kopie 99 = Heard und McDonaldinseln
+  (siehe oben).
+- Neben Russland fehlen auch die **Kleineren Amerikanischen Überseeinseln** (Flagge = US-Flagge),
+  in jeder Quelle, auch im PDF.
+- **Russland ist am 24.11.2026 nachgebaut** (Wellen der Niederlande, russische Farben, Masse und
+  Farbumrechnung des Designers) — in `gesichter-nach-land/` in allen sieben Formaten. Die Stick- und
+  Druckmesswerte oben enthalten Russland noch **nicht**; wie die Niederlande ist es eine schlichte
+  Trikolore ohne Wappen, also unkritisch.
 
 ## Die Signature
 
@@ -256,8 +268,8 @@ nah an denselben Glanz. Recherche, nicht gemessen.
 2. **Ein Probestück** für eines der vier am Hoodie ausgeschlossenen Länder (Portugal,
    Haiti, Serbien, Spanien) — die Rechnung sagt „nicht ohne Weglassen", ein gestickter
    Musterlappen sagt, wie es aussieht.
-3. Die beiden **Mayotte**-Dateien klären und das **unbenannte Motiv** (Kopie 99)
-   bestimmen.
+3. ~~Die beiden **Mayotte**-Dateien klären und das **unbenannte Motiv** (Kopie 99)
+   bestimmen.~~ Erledigt am 24.11.2026 (siehe „Die Sammlung selbst").
 
 ---
 
