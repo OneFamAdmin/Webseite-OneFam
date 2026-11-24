@@ -1,7 +1,13 @@
 // lib/shop/laender.ts — NUR serverseitig einbinden (rund 30 KB).
 //
-// Die Länder der Wunschwand auf "Shop by Country": 253 Einträge, am 21.11.2026
-// maschinell aus dem Shop übernommen —
+// Die Länder der Wunschwand auf "Shop by Country": 250 Einträge. Am 21.11.2026
+// waren es 253, maschinell aus dem Shop übernommen. Am 24.11.2026 auf Labis Wunsch
+// drei Gebiete ohne eigene Landesflagge entfernt, deren Motiv nur die Flagge eines
+// anderen Landes zeigt: "bouvet-island" und "svalbard-and-jan-mayen" (Norwegen) und
+// "mayotte-fr" (franzoesische Trikolore = Saint-Martin; stand hier als zweites
+// "Mayotte" auf der Wand). Die Wartelisten-Eintraege unter diesen Namen bleiben im
+// Shop erhalten. Hintergrund: ~/Projekte/onefam-material/designs/gesichter-nach-land/
+// LIESMICH.md. Quelle der urspruenglichen Liste —
 //   Liste und Kennung   GRID im Router-Snippet 11 (Seite /shop-by-country/)
 //   Namen de/fr/es      Snippet 42, Tabellen "kern" und "laender"
 //   Form im Satz        Tabelle LA im Router-Snippet 11, dieselbe wie in Snippet 18
@@ -64,7 +70,6 @@ export const LAENDER: Land[] = [
   { id: "bhutan", en: "Bhutan", de: "Bhutan", fr: "Bhoutan", es: "Bután", satz: { fr: "le Bhoutan" } },
   { id: "bolivien", en: "Bolivien", de: "Bolivien", fr: "Bolivie", es: "Bolivia", satz: { fr: "la Bolivie" } },
   { id: "botswana", en: "Botswana", de: "Botsuana", fr: "Botswana", es: "Botsuana", satz: { fr: "le Botswana" } },
-  { id: "bouvet-island", en: "Bouvet Island", de: "Bouvetinsel", fr: "Île Bouvet", es: "Isla Bouvet", satz: { de: "die Bouvetinsel", fr: "l’Île Bouvet" } },
   { id: "british-indian-ocean-territory", en: "British Indian Ocean Territory", de: "Britisches Territorium im Indischen Ozean", fr: "Territoire britannique de l’océan Indien", es: "Territorio Británico del Océano Índico", satz: { de: "das Britische Territorium im Indischen Ozean", en: "the British Indian Ocean Territory", fr: "les Territoire britannique de l’océan Indien" } },
   { id: "british-virgin-islands", en: "British Virgin Islands", de: "Britische Jungferninseln", fr: "Îles Vierges britanniques", es: "Islas Vírgenes Británicas", satz: { de: "die Britischen Jungferninseln", en: "the British Virgin Islands", fr: "les Îles Vierges britanniques" } },
   { id: "bulgaria", en: "Bulgaria", de: "Bulgarien", fr: "Bulgarie", es: "Bulgaria", satz: { fr: "la Bulgarie" } },
@@ -175,7 +180,6 @@ export const LAENDER: Land[] = [
   { id: "mauritania", en: "Mauritania", de: "Mauretanien", fr: "Mauritanie", es: "Mauritania", satz: { fr: "la Mauritanie" } },
   { id: "mauritius", en: "Mauritius", de: "Mauritius", fr: "Maurice", es: "Mauricio" },
   { id: "mayotte", en: "Mayotte", de: "Mayotte", fr: "Mayotte", es: "Mayotte" },
-  { id: "mayotte-fr", en: "Mayotte FR", de: "Mayotte", fr: "Mayotte", es: "Mayotte" },
   { id: "micronesia", en: "Micronesia", de: "Mikronesien", fr: "Micronésie", es: "Micronesia", satz: { fr: "la Micronésie" } },
   { id: "moldova", en: "Moldova", de: "Republik Moldau", fr: "Moldavie", es: "Moldavia", satz: { de: "die Republik Moldau", fr: "la Moldavie" } },
   { id: "monaco", en: "Monaco", de: "Monaco", fr: "Monaco", es: "Mónaco" },
@@ -246,7 +250,6 @@ export const LAENDER: Land[] = [
   { id: "sri-lanka", en: "Sri Lanka", de: "Sri Lanka", fr: "Sri Lanka", es: "Sri Lanka", satz: { fr: "le Sri Lanka" } },
   { id: "sudan", en: "Sudan", de: "Sudan", fr: "Soudan", es: "Sudán", satz: { de: "den Sudan", fr: "le Soudan" } },
   { id: "surinam", en: "Surinam", de: "Suriname", fr: "Suriname", es: "Surinam", satz: { fr: "le Suriname" } },
-  { id: "svalbard-and-jan-mayen", en: "Svalbard and Jan Mayen", de: "Spitzbergen und Jan Mayen", fr: "Svalbard et Jan Mayen", es: "Svalbard y Jan Mayen" },
   { id: "sweden", en: "Sweden", de: "Schweden", fr: "Suède", es: "Suecia", satz: { fr: "la Suède" } },
   { id: "switzerland", en: "Switzerland", de: "Schweiz", fr: "Suisse", es: "Suiza", satz: { de: "die Schweiz", fr: "la Suisse" } },
   { id: "syria", en: "Syria", de: "Syrien", fr: "Syrie", es: "Siria", satz: { fr: "la Syrie" } },
