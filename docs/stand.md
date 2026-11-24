@@ -43,7 +43,9 @@ mittlere Abweichung von 255. Jetzt **254 Motive**. Details und Werkzeug: `gesich
 (Flagge Norwegens), Saint-Martin (Trikolore, beim Designer „Mayotte-FR“), Heard und McDonaldinseln (Flagge
 Australiens) → **250 Motive**. Webseite: `lib/shop/laender.ts` von 253 auf 250 Einträge (bouvet-island,
 svalbard-and-jan-mayen, mayotte-fr — Letzteres stand als **zweites „Mayotte“** live auf der Wunschwand).
-**Nicht gepusht**, wartet auf Labis Freigabe; vor dem Push den Bau ohne Schalter prüfen (siehe CLAUDE.md).
+**Live seit 24.11.2026** (Commit `231fa13`, Labi: „du darfst pushen“). Vorher geprüft: tsc sauber, Lint nur die
+6 bekannten Warnungen, Bau mit Schalter grün, Bau ohne Schalter → `/de/irgendwas` 404, Shop-Seiten 404, `/de/widerruf` 200.
+Live gemessen in de/en/fr/es: bouvet/svalbard/mayotte-fr je 0 Treffer, „Alle 246 Länder anzeigen“ (250 − 4 verfügbare).
 Offen, Labi entscheidet: zehn Motive sind offiziell ebenfalls ohne eigene Flagge, zeigen aber eine
 inoffizielle Lokalflagge — Mayotte, Réunion, Guadeloupe, Französisch-Guayana, St. Barthélemy, St. Pierre und
 Miquelon, Wallis und Futuna, Nordirland (Ulster Banner), Antarktis, Karibische Niederlande (nur Bonaire).
@@ -55,9 +57,10 @@ Weihnachtsinsel, Kokosinseln) **bleiben in der Kollektion**.
 Palmenscheibe 2fach vergrössert in die Gesichtsmitte (vorher 83 % Grün auf Grün). Stickfassung 5,9 cm / 1,5 mm
 verglichen: Farbflecken heute 23 · A 21 · B 25 · C 13 — gewählt A mit 2 Garnen (20 Flecken, kleinster 12,4 mm²),
 Dateien in `onefam-material/stickerei-druck/stickfassung-5-9cm/Kokosinseln_5-9cm*`. Alle sieben Formate neu,
-alte in `gesichter-nach-land/_vorher/Kokosinseln/`. **Noch alt:** die Kachel der Wunschwand
-(`/wp-content/uploads/onefam-assets/collections/cocos-islands.webp` im Shop) — Austausch braucht den
-eingeloggten Shop oder eine eigene Kachel auf onefam.ch.
+alte in `gesichter-nach-land/_vorher/Kokosinseln/`. **Kachel der Wunschwand ersetzt, live seit 24.11.2026** (Commit `ab7e09b`): eigene Kachel
+`public/shop/kacheln/cocos-islands.webp` (176 px, WebP Q50, wie die Shop-Kacheln an `netherlands.webp` nachgemessen),
+`EIGENE_KACHEL` in `components/shop/LaenderWand.tsx`. Live im Browser geprüft: Suche „Kokos“ → Zeile 104, Bild lädt
+von onefam.ch (176 px). Der alte Shop zeigt unter `/onefam-assets/collections/` weiter das alte Bild.
 
 ## 🖼 22.11.2026: Probe Albanien — Modellbilder auf dunklem Grund (nur lokal)
 
