@@ -1,5 +1,34 @@
 # Stand — 24.11.2026
 
+## 🚪 24.11.2026: Kundenseiten von shop.onefam.ch abgeschaltet
+
+Labi: „du kannst eigentlich die alte Wunschwand, also bei shop.onefam.ch eigentlich die ganze Seite entfernen“ —
+„es gibt keine alten Adressen, das werden wir alles abschaffen, und ausserdem kennt keiner die alten Adressen“.
+Die ganze Seite geht nicht: shop.onefam.ch ist der Motor (Katalog, Preise, Store API/Kasse, zahls.ch, PodOS,
+Bestellmails, Pool-Webhook, Warteliste, Bilder). Abgeschaltet sind die **Kundenseiten**.
+
+- **Neues Snippet 118** „OneFam alte Kundenseiten abschalten (24.11.2026)“, Bereich front-end, `template_redirect`
+  Priorität 0 (vor dem Router, Snippet 11 = Priorität 1). Jede Kundenseite → **302** auf
+  `https://onefam.ch/<de|fr|es/>shop-by-country`. Ausgenommen: `?ofwl`/`?ofwlx` (Warteliste, läuft ohnehin auf
+  `init`), `?wc-api`, `/order-received/`, `/order-pay/`, Rechtstexte (terms-of-service, refund-policy,
+  shipping-policy, privacy-policy, legal-notice — bis der Anwalt sie zusammenlegt), `/robots.txt`; Admins mit
+  `?of_alt=1`. Erst inaktiv angelegt (kein `code_error`), dann aktiviert; Code zeichengleich mit
+  `docs/privat/shop-snippets/snippet-NEU-alte-kundenseiten-abschalten-24112026.php` (2 938 Zeichen).
+  WP Super Cache danach geleert.
+- **Gemessen, ausgeloggt, mit und ohne Währungs-Cookie:** `/`, `/de/`, `/fr/`, `/es/`, `/en/`, `/shop-by-country/`,
+  `/de/shop-by-country/`, `/albania/`, `/de/albania/`, `/warenkorb/`, `/kasse/`, `/about-us/`, `/?s=hoodie` → alle 302
+  in der richtigen Sprache. Erreichbar: Rechtstexte 200, `robots.txt` 200, `?ofwl=ungueltig` 410 (Seite „Link
+  ungültig“ von Snippet 18), `?ofwlx=…` 200, `?wc-api=test` 400 (WooCommerce), `wp-login` 200,
+  `onefam/v1/katalog` 200, `waitlist/count` 200, Store API `cart` 200, Kacheln und zahls-Symbole 200.
+- **onefam.ch unverändert:** shop-by-country, Albanien, Argentinien (fr), Warenkorb, Kasse, Danke, Widerruf je 200,
+  `/api/shop/warenkorb` 200; Albanien im Browser CHF 40.00 / 65.00 / 75.00, kein Fehlerbild, 7 Bilder geladen.
+- Admin-Notausgang geprüft: angemeldet `shop.onefam.ch/de/?of_alt=1` zeigt die alte Startseite.
+- **Rückgängig:** Snippet 118 deaktivieren, WP Super Cache leeren.
+- **Noch offen (Plan, Schritt 5):** Router-Snippet 11 und die Seiten-Snippets sind weiter **aktiv**, liefern aber
+  keine Kundenseite mehr aus — Abschalten erst nach Prüfung, welche ihrer Funktionen andere Snippets brauchen.
+  Rechtstexte zusammenlegen → Anwalt. Stufe B (echter Kauf) weiter ungetestet — die alte Kasse ist jetzt kein
+  Notnetz mehr.
+
 ## 🗂 24.11.2026: Alle Gesichter nach Land benannt (nur lokal, nichts am Shop)
 
 Labi: „jede eps und jede svg und jede png und jede nft datei mit dem korrekten ländernamen …

@@ -210,7 +210,7 @@ Für Links auf „den Shop“ gilt seit 21.11.2026 `shopEinstieg(locale)`: Er f�
 shop.onefam.ch, solange `NEXT_PUBLIC_SHOP_AUF_ONEFAM` nicht `1` ist, sonst auf die
 Übersicht `/shop-by-country` auf onefam.ch (Shop-Aufbau: `docs/plan-zusammenfuehrung-onefam.md`).
 **Seit 22.11.2026 steht der Schalter in Vercel auf `1`: der Shop läuft auf onefam.ch** (Übersicht, Länder,
-Produkte, Warenkorb, Kasse). Der alte Shop auf shop.onefam.ch läuft daneben weiter und liefert Katalog, Preise und Kasse im Hintergrund.
+Produkte, Warenkorb, Kasse). Der alte Shop auf shop.onefam.ch liefert im Hintergrund weiter Katalog, Preise, Kasse (Store API), zahls.ch, PodOS, Warteliste und Bilder. **Seine Kundenseiten sind seit 24.11.2026 abgeschaltet** (Snippet 118, leitet auf onefam.ch/shop-by-country; ausgenommen Rechtstexte, Warteliste-Links, wc-api, order-received/-pay, robots.txt; Admins sehen die alte Seite mit `?of_alt=1`). Rückgängig: Snippet 118 deaktivieren, WP Super Cache leeren.
 **Derselbe Schalter sperrt die Shop-Seiten selbst:** Ohne ihn antworten Länderseiten, Produktseiten,
 Warenkorb, Kasse und `/api/shop/*` mit 404; nur `/widerruf` ist immer erreichbar. Vor einem Push den
 Bau ohne Schalter prüfen (`NEXT_PUBLIC_SHOP_AUF_ONEFAM=0 npm run build`, dann `/de/irgendwas` → 404):
