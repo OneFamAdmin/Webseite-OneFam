@@ -62,6 +62,19 @@ alte in `gesichter-nach-land/_vorher/Kokosinseln/`. **Kachel der Wunschwand erse
 `EIGENE_KACHEL` in `components/shop/LaenderWand.tsx`. Live im Browser geprüft: Suche „Kokos“ → Zeile 104, Bild lädt
 von onefam.ch (176 px). Der alte Shop zeigt unter `/onefam-assets/collections/` weiter das alte Bild.
 
+**Russland auf der Wunschwand (24.11.2026, Labi „ja mach das“).** Live seit Commit `b9318eb`: Eintrag `russia` in
+`lib/shop/laender.ts` (251 Einträge), Kachel `public/shop/kacheln/russia.webp` (aus `png-transparent/Russland.png`, Lanczos
+176 px, WebP Q50) über `EIGENE_KACHEL`. Vor dem Push: Lint nur die 6 bekannten Warnungen, Bau ohne Schalter →
+`/de/irgendwas` 404, Bau mit Schalter grün. Live gemessen: Kachel 200, `russia` in den Daten der Wand, Warteliste
+`/waitlist/count?country=Russia` → `{"ok":true,"confirmed":0}`. Die Warteliste (Snippet 18) nimmt jedes Land an.
+**Shop nachgezogen (Labi eingeloggt):** Snippet 42 „laender“ +`Russia` (de Russland, fr Russie, es Rusia),
+227 352 → 227 438 Zeichen; Snippet 18 Artikel-Liste fr +`"Russia":"la "`, 29 914 → 29 929 Zeichen. Über REST mit
+Nonce, vollständiges Objekt, `active: true`; danach beide aktiv, `code_error` leer, Länge aufs Zeichen, live
+`/de/shop-by-country/` liefert `"Russia":{…"de":"Russland"…}` ohne PHP-Fehler. Vorher-Stände = `docs/privat/
+shop-snippets/snippet-42.php` und `snippet-18.php` (vor dem Schreiben per SHA-256 als zeichengleich mit live geprüft),
+neue Stände `…-24112026-mit-russland.php` (ebenfalls gegen live geprüft). Snippet 11 (alte Wand, LA-Liste) nicht
+angefasst — dort gibt es Russland ohnehin nicht.
+
 ## 🖼 22.11.2026: Probe Albanien — Modellbilder auf dunklem Grund (nur lokal)
 
 Labi nach den Vorbildern von awwwards: „ja, mach so wie vorgeschlagen“ und zur Probe für ein Land
