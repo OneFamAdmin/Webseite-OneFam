@@ -48,6 +48,17 @@ import { useWaehrung } from './useWaehrung';
 
 const WARTELISTE = 'https://shop.onefam.ch/wp-json/onefam/v1/waitlist';
 const KACHELBILDER = 'https://shop.onefam.ch/wp-content/uploads/onefam-assets/collections';
+/**
+ * Länder, deren Motiv sich NACH dem Kachel-Import in den alten Shop geändert hat, bekommen eine
+ * eigene Kachel aus public/shop/kacheln/ — der alte Shop bleibt unberührt.
+ * KOKOSINSELN (24.11.2026, Labi, "Variante A"): neu angelegt, die Palmenscheibe 2fach vergrössert in
+ * der Gesichtsmitte; vorher war das Gesicht zu 83 % Grün auf Grün. Quelle
+ * ~/Projekte/onefam-material/designs/gesichter-nach-land/png-transparent/Kokosinseln.png, gemacht wie
+ * die Shop-Kacheln (an "netherlands.webp" nachgemessen): Lanczos auf 176 x 176, WebP Qualität 50.
+ */
+const EIGENE_KACHEL: Record<string, string> = {
+  'cocos-islands': '/shop/kacheln/cocos-islands.webp',
+};
 
 /** Ab so vielen Einträgen plant OneFam die Auflage — derselbe Wert wie im Shop (WZIEL). */
 const ZIEL = 100;
@@ -331,7 +342,7 @@ export default function LaenderWand({
                     {nummer.get(l.id)}
                   </span>
                   <Image
-                    src={`${KACHELBILDER}/${l.id}.webp`}
+                    src={EIGENE_KACHEL[l.id] ?? `${KACHELBILDER}/${l.id}.webp`}
                     alt=""
                     width={40}
                     height={40}
