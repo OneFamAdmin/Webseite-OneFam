@@ -55,12 +55,27 @@ const KACHELBILDER = 'https://shop.onefam.ch/wp-content/uploads/onefam-assets/co
  * der Gesichtsmitte; vorher war das Gesicht zu 83 % Grün auf Grün. Quelle
  * ~/Projekte/onefam-material/designs/gesichter-nach-land/png-transparent/Kokosinseln.png, gemacht wie
  * die Shop-Kacheln (an "netherlands.webp" nachgemessen): Lanczos auf 176 x 176, WebP Qualität 50.
+ * RUSSLAND (24.11.2026): gab es im Shop nie, Motiv neu gebaut (lib/shop/laender.ts, Kopfkommentar).
+ * 45 LÄNDER (25.11.2026): Die Shop-Kacheln sind aus dem transparenten PNG-Satz des Designers gemacht, und der
+ * zeigte bei 45 Ländern eine ÄLTERE Fassung als EPS und NFT — andere Wappenlage, fehlende Sterne und Blätter,
+ * bei Cookinseln, Neuseeland und Nördlichen Marianen ein grauerer Ton. Alle 250 Motive in allen sieben Formaten
+ * Pixel für Pixel gegen die eingefärbte EPS geprüft, die abweichenden Dateien aus der EPS neu erzeugt
+ * (~/Projekte/onefam-material/designs/gesichter-nach-land/LIESMICH.md), die Kacheln daraus wie oben.
+ * Welche Kachel betroffen war, ist gemessen, nicht geschätzt: die Live-Kachel lag näher an der alten Datei
+ * (_vorher/) als an der neuen. Bis 24.11.2026 war das ein Objekt Kennung → Pfad; seit alle Pfade demselben
+ * Muster folgen, genügt die Kennung.
  */
-const EIGENE_KACHEL: Record<string, string> = {
-  'cocos-islands': '/shop/kacheln/cocos-islands.webp',
-  // RUSSLAND (24.11.2026): gab es im Shop nie, Motiv neu gebaut (lib/shop/laender.ts, Kopfkommentar).
-  russia: '/shop/kacheln/russia.webp',
-};
+const EIGENE_KACHEL = new Set<string>([
+  'cocos-islands',
+  'russia',
+  // 25.11.2026, neue Fassung des Designers:
+  'belize', 'brazil', 'british-indian-ocean-territory', 'burundi', 'cambodia', 'central-african-republic',
+  'cook-islands', 'costa-rica', 'croatia', 'dominican-republic', 'egypt', 'eritrea', 'eswatini', 'ethiopia',
+  'falkland-islands', 'french-polynesia', 'french-southern-and-antarctic-lands', 'gibraltar', 'guatemala', 'haiti',
+  'india', 'iran', 'isle-of-man', 'kazakhstan', 'kenya', 'kiribati', 'liechtenstein', 'malawi', 'malta', 'mayotte',
+  'nepal', 'new-caledonia', 'new-zealand', 'nicaragua', 'northern-ireland', 'northern-mariana-islands', 'oman',
+  'portugal', 'saint-barthelemy', 'serbia', 'singapore', 'spain', 'turkmenistan', 'uzbekistan', 'vanuatu',
+]);
 
 /** Ab so vielen Einträgen plant OneFam die Auflage — derselbe Wert wie im Shop (WZIEL). */
 const ZIEL = 100;
@@ -344,7 +359,7 @@ export default function LaenderWand({
                     {nummer.get(l.id)}
                   </span>
                   <Image
-                    src={EIGENE_KACHEL[l.id] ?? `${KACHELBILDER}/${l.id}.webp`}
+                    src={EIGENE_KACHEL.has(l.id) ? `/shop/kacheln/${l.id}.webp` : `${KACHELBILDER}/${l.id}.webp`}
                     alt=""
                     width={40}
                     height={40}

@@ -1,6 +1,10 @@
 // lib/shop/laender.ts — NUR serverseitig einbinden (rund 30 KB).
 //
-// Die Länder der Wunschwand auf "Shop by Country": 251 Einträge. RUSSLAND (24.11.2026) stand nie im
+// Die Länder der Wunschwand auf "Shop by Country": 250 Einträge = die 250 Motive in
+// ~/Projekte/onefam-material/designs/gesichter-nach-land/. Am 25.11.2026 "united-arab-emirates-1"
+// entfernt: ein zweiter Eintrag der Emirate mit demselben englischen Namen (also derselben
+// Warteliste) und derselben Kachel als 600-px-Bild mit Flagge; im Katalog keine Kategorie mit
+// Produkten. Vorher 251 Einträge. RUSSLAND (24.11.2026) stand nie im
 // Shop — der Designer hat es nicht gezeichnet; das Motiv ist am 24.11.2026 aus den Wellen der
 // Niederlande nachgebaut (~/Projekte/onefam-material/designs/gesichter-nach-land/LIESMICH.md), die
 // Kachel liegt deshalb auf onefam.ch (EIGENE_KACHEL in components/shop/LaenderWand.tsx), Namen und
@@ -277,7 +281,6 @@ export const LAENDER: Land[] = [
   { id: "uganda", en: "Uganda", de: "Uganda", fr: "Ouganda", es: "Uganda", satz: { fr: "l’Ouganda" } },
   { id: "ukraine", en: "Ukraine", de: "Ukraine", fr: "Ukraine", es: "Ucrania", satz: { de: "die Ukraine", fr: "l’Ukraine" } },
   { id: "united-arab-emirates", en: "United Arab Emirates", de: "Vereinigte Arabische Emirate", fr: "Émirats arabes unis", es: "Emiratos Árabes Unidos", satz: { de: "die Vereinigten Arabischen Emirate", en: "the United Arab Emirates", fr: "les Émirats arabes unis" } },
-  { id: "united-arab-emirates-1", en: "United Arab Emirates", de: "Vereinigte Arabische Emirate", fr: "Émirats arabes unis", es: "Emiratos Árabes Unidos", satz: { de: "die Vereinigten Arabischen Emirate", en: "the United Arab Emirates", fr: "les Émirats arabes unis" } },
   { id: "united-kingdom", en: "United Kingdom", de: "Vereinigtes Königreich", fr: "Royaume-Uni", es: "Reino Unido", satz: { de: "das Vereinigte Königreich", en: "the United Kingdom", fr: "le Royaume-Uni" } },
   { id: "uruguay", en: "Uruguay", de: "Uruguay", fr: "Uruguay", es: "Uruguay", satz: { fr: "l’Uruguay" } },
   { id: "us-virgin-islands", en: "US Virgin Islands", de: "Amerikanische Jungferninseln", fr: "Îles Vierges des États-Unis", es: "Islas Vírgenes de EE. UU.", satz: { de: "die Amerikanischen Jungferninseln", en: "the US Virgin Islands", fr: "les Îles Vierges des États-Unis" } },
