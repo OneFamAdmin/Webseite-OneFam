@@ -1,4 +1,36 @@
-# Stand — 24.11.2026
+# Stand — 25.11.2026
+
+## 🧩 25.11.2026: Alle Gesichter in allen sieben Formaten auf der neuen Fassung, 45 Kacheln der Wunschwand neu
+
+Labis Frage: „sind jetzt alle gesichter vorhanden in 7 Varianten? gibt es welche doppelt? fehlt irgendetwas?“
+Danach „ja mach das“. Ausführlich mit allen Ländern und der Messmethode:
+`~/Projekte/onefam-material/designs/gesichter-nach-land/LIESMICH.md`, Abschnitt „Alle Formate auf die neue Fassung gebracht“.
+
+- **Befund:** NFT und NFT mit Flagge = EPS bei allen 250. Die **SVG** wichen bei 51 Ländern ab, das
+  **transparente PNG** bei 47, das grosse freigestellte PNG bei Oman — ältere Fassung des Designers (Wappenlage,
+  fehlende Sterne/Blätter, Farbtöne). Kiribati-SVG defekt. Freigestellt fehlte für Kurdistan und VAE.
+  19 NFT (und NFT mit Flagge) waren 1984 × 1985 px.
+- **Messmethode** (die erste, kantenbasierte bei 300 px war zu grob und hatte Vanuatu, Indien, Nicaragua als gleich
+  durchgelassen): EPS mit Ghostscript als PDF samt Überstand, jede Druckfarbe durch die RGB-Farbe des Designers
+  ersetzt (FOGRA39-Zuordnung), dann pixelgenau mit 2 px Spielraum verglichen, Flecken nach 3×3-Öffnung gezählt,
+  Durchsicht auf gleichen Grund gelegt; dazu Farbtöne in ruhigen Flächen.
+- **Gemacht:** 51 SVG, 47 transparente PNG, 3 freigestellte PNG aus der EPS neu erzeugt (Designerfarben, gleiche
+  Fläche wie die Designerdateien); 38 NFT-Dateien um die leere unterste Zeile gekürzt. 144 ersetzte Designer-Dateien
+  liegen in `gesichter-nach-land/_vorher/<Land>/<Ordner>/`. **Nachher gemessen, alle 250:** kein Fleck mehr in
+  irgendeinem Format gegen die EPS, Farbtöne gleich.
+- **Doppelt:** keine Dateien, keine Motive. **Aber die Wunschwand hatte die Emirate zweimal**
+  (`united-arab-emirates-1`: gleicher englischer Name = gleiche Warteliste, gleiches Motiv als 600-px-Bild mit
+  Flagge, keine Katalog-Kategorie mit Produkten) — aus `lib/shop/laender.ts` entfernt, jetzt 250 Einträge = 250 Motive.
+- **Wunschwand-Kacheln:** alle 251 Live-Kacheln geladen und gegen alle 250 Motive gemessen. Keine zeigt ein falsches
+  Land; 45 zeigten die alte Fassung (näher an `_vorher/` als an der neuen Datei). Neu gemacht wie die Shop-Kacheln
+  (Lanczos 176 px, WebP Q50; Gegenprobe an Niederlande/Schweiz/Japan: Abstand 3,0–4,4 zur Shop-Kachel, Dateigrösse
+  ±1 %), in `public/shop/kacheln/`. `EIGENE_KACHEL` in `components/shop/LaenderWand.tsx` ist jetzt ein Set von
+  Kennungen (47), der Pfad folgt dem Muster `/shop/kacheln/<id>.webp`. Der alte Shop zeigt unter
+  `/onefam-assets/collections/` weiter die alten Bilder — dort liest nichts Öffentliches mehr.
+- Vor dem Push: `tsc` sauber, Lint nur die 6 bekannten Warnungen, Bau ohne Schalter → `/de/irgendwas` 404 und `/de`
+  200, Bau mit Schalter grün, `/de/shop-by-country` 200 ohne `united-arab-emirates-1`, 47 Kennungen = 47 Dateien.
+- **NICHT GEPUSHT** (Labi, 25.11.2026: „nicht pushen“). Commits `a44abf5` (Wunschwand) und dieser Stand liegen nur
+  lokal auf `main`; der nächste Push nimmt sie mit. Live zeigt die Wand bis dahin die alten Kacheln und die Emirate doppelt.
 
 ## 🚪 24.11.2026: Kundenseiten von shop.onefam.ch abgeschaltet
 
