@@ -126,8 +126,11 @@ Umschalter sind bewusst abgeschaltet. Mechanik und Testhinweise:
 14. **Claude Code kommt nicht überall hin.** `~/Documents` und `~/Desktop` sind durch
     TCC gesperrt — `ls` antwortet mit „Operation not permitted". Lesbar sind
     `~/Downloads` und `~/Projekte`. **Die externe Platte `/Volumes/Labi Extern` war am
-    24.11.2026 voll lesbar**, wenn Labi sie anschliesst; dort liegen die OneFam-Originale
-    (`OneFam/NFTs /…`, `OneFam/Gesichter SVG Files`).
+    24.11.2026 voll lesbar**, wenn Labi sie anschliesst. Seit dem Aufräumen am 26.11.2026
+    liegen die Ländergesichter dort nur noch als `OneFam/Gesichter nach Land/` — derselbe
+    Satz wie auf dem Mac, jede Datei per md5 geprüft. Die Designer-Ordner (`NFTs `,
+    `Gesichter SVG Files`) sind endgültig gelöscht; Nachweis in
+    `OneFam/AUFRAEUMEN-PROTOKOLL.md` auf der Platte.
     Die EPS-Druckdaten liegen seit dem Aufräumen am 11.10.2026 in
     `~/Projekte/onefam-material/designs/onefam-eps` (253 Dateien, 215 MB) —
     **nicht mehr** in `~/Downloads/onefam-eps` (geprüft 17.10.2026).

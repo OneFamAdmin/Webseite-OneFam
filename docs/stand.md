@@ -88,6 +88,8 @@ Sichtprüfung aller 253 auf neun Bögen. Formate über das Bild verknüpft, nich
   Flaggenkachel unten rechts.
 - Inhalt: Afghanistan = Taliban-Flagge, Syrien = alte Flagge, Kirgisistan = alte Sonne.
 - Der ältere EPS-Satz auf der Platte (`EPS Vektordatei enu. PDF`) ist im Bild gleich (Abstand 0,0).
+  Am 26.11.2026 nachgemessen und bestätigt (nur San Marino: falsche Flaggenkachel in der EPS ohne
+  Flagge); der Ordner ist seither gelöscht, der Satz liegt in `Gesichter nach Land` (Platte und Mac).
 
 **Russland nachgebaut (24.11.2026, von Labi freigegeben).** Vorher alles nach Russland durchsucht:
 Platte (Motiv-Sätze, Übersichtsblatt `loco-motive.eps` mit 252 Gesichtern, 301 übrige Bilder angesehen,

@@ -3,6 +3,10 @@
 Gemessen am **12.09.2026** an den **253 EPS-Druckdaten** der Länderkollektion auf der
 externen Platte „Labi Extern", Ordner `OneFam/NFTs /OneFam EPS Neu/eps neu`
 (Stand 17.03.2024, die neueste der vier EPS-Fassungen auf der Platte).
+*Nachtrag 26.11.2026:* Dieser Ordner ist gelöscht. Dieselben Dateien (md5-gleich) liegen in
+`~/Projekte/onefam-material/designs/onefam-eps`; nach Land benannt und in der neuen Fassung in
+`~/Projekte/onefam-material/designs/gesichter-nach-land/eps` und auf der Platte unter
+`OneFam/Gesichter nach Land/eps`.
 
 > **Diese Messung ersetzt die vom selben Tag an den Webdateien `public/faces`.**
 > Die alte stand unter dem Vorbehalt, dass 256 px für den Hoodie zu grob sind. Der
@@ -67,7 +71,8 @@ tragen also. Motivbreite einheitlich **1 142 bis 1 146 px**.
 Die EPS heissen „Zeichenfläche 1 Kopie NNN" und tragen **keinen Ländernamen**.
 Zugeordnet wurde über das Bild selbst — gegen die benannten PNG derselben Sammlung
 (`NFTs /PNG`), als Zuweisungsproblem gelöst, **nicht** über eine Annahme zur
-Reihenfolge.
+Reihenfolge. *(Der Ordner `NFTs /PNG` ist seit 26.11.2026 gelöscht; die Zuordnung steht jetzt
+in `gesichter-nach-land/UEBERSICHT.csv`, die PNG in `gesichter-nach-land/png-nft`.)*
 
 **Gegenprobe an den 196 Webdateien** (die nach ISO-Nummer heissen): **161 stimmen
 namensgleich**, 35 weichen nur in der Schreibweise ab (DR Kongo, Elfenbeinküste, USA,

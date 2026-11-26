@@ -325,7 +325,9 @@ Skript: `logo_auf_clip.py <clip> <ziel> <X> <Y> <Breite>`. Gueltige Werte:
 
 Motivbreite ≈ **16 % der Schulterbreite im Bild** — das entspricht den 6,9 cm
 Druckbreite aus dem RUNBOOK. Quelle: `Transparent PNG Logo/Albania.png`,
-4000 × 4000 mit Alphakanal, sichtbarer Bereich 2508 × 3050.
+4000 × 4000 mit Alphakanal, sichtbarer Bereich 2508 × 3050. *(Der Designer-Ordner ist seit
+26.11.2026 gelöscht; dieselbe Datei heisst jetzt
+`~/Projekte/onefam-material/designs/gesichter-nach-land/png-transparent/Albanien.png`.)*
 
 **Auf fast schwarzem Stoff bleibt nur das Rot stehen** — die schwarzen Linien des
 Motivs versinken. Das ist physikalisch richtig und sieht auch so aus.
